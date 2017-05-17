@@ -1,0 +1,6 @@
+framework module Pods_ImpactHub {
+  umbrella header "Pods-ImpactHub-umbrella.h"
+
+  export *
+  module * { export * }
+}
