@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CellRepresentable {
-    var rowHeight: CGFloat { get }
+    var cellSize: CGSize { get set }
     func cellInstance(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell
 }
 

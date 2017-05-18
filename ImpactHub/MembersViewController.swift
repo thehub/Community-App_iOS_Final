@@ -29,11 +29,11 @@ class MembersViewController: UIViewController {
         let member3 = Member(name: "Russel", job: "Salesforce", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
         let member4 = Member(name: "Rob", job: "UX", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
 
-        
-        let viewModel1 = MemberViewModel(member: member1)
-        let viewModel2 = MemberViewModel(member: member2)
-        let viewModel3 = MemberViewModel(member: member3)
-        let viewModel4 = MemberViewModel(member: member4)
+        let cellWidth: CGFloat = self.view.frame.width - 30
+        let viewModel1 = MemberViewModel(member: member1, cellSize: CGSize(width: cellWidth, height: 200))
+        let viewModel2 = MemberViewModel(member: member2, cellSize: CGSize(width: cellWidth, height: 200))
+        let viewModel3 = MemberViewModel(member: member3, cellSize: CGSize(width: cellWidth, height: 200))
+        let viewModel4 = MemberViewModel(member: member4, cellSize: CGSize(width: cellWidth, height: 200))
         
         self.data.append(viewModel1)
         self.data.append(viewModel2)
@@ -84,8 +84,7 @@ extension MembersViewController: UICollectionViewDelegate {
 extension MembersViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let cellWidth: CGFloat = self.view.frame.width - 30
-        return CGSize(width: cellWidth, height: data[indexPath.item].rowHeight)
+        return data[indexPath.item].cellSize
         
     }
 }

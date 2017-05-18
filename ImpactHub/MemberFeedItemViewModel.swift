@@ -12,8 +12,9 @@ class MemberFeedItemViewModel: CellRepresentable {
     
     var member: Member
     
-    init(member: Member) {
+    init(member: Member, cellSize: CGSize) {
         self.member = member
+        self.cellSize = cellSize
     }
     
     
@@ -23,5 +24,5 @@ class MemberFeedItemViewModel: CellRepresentable {
         return cell
     }
     
-    var rowHeight: CGFloat = 115
+    var cellSize: CGSize // 115
 }

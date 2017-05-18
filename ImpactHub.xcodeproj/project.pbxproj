@@ -18,6 +18,10 @@
 		859C41731ECDB6CD00637295 /* TopMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859C41721ECDB6CD00637295 /* TopMenu.xib */; };
 		859C41761ECDE13E00637295 /* TopMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859C41741ECDE13E00637295 /* TopMenuCell.swift */; };
 		859C41771ECDE13E00637295 /* TopMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859C41751ECDE13E00637295 /* TopMenuCell.xib */; };
+		859C417E1ECDFFD700637295 /* MemberAboutItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859C417C1ECDFFD700637295 /* MemberAboutItemCell.swift */; };
+		859C417F1ECDFFD700637295 /* MemberAboutItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859C417D1ECDFFD700637295 /* MemberAboutItemCell.xib */; };
+		859C41811ECE006500637295 /* MemberAboutItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859C41801ECE006500637295 /* MemberAboutItemViewModel.swift */; };
+		859C41831ECE067700637295 /* MemberDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859C41821ECE067700637295 /* MemberDataSource.swift */; };
 		85DE9EC91ECC8CD900291EF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE9EC81ECC8CD900291EF5 /* AppDelegate.swift */; };
 		85DE9ECB1ECC8CD900291EF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE9ECA1ECC8CD900291EF5 /* ViewController.swift */; };
 		85DE9ECE1ECC8CD900291EF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85DE9ECC1ECC8CD900291EF5 /* Main.storyboard */; };
@@ -64,6 +68,10 @@
 		859C41721ECDB6CD00637295 /* TopMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopMenu.xib; sourceTree = "<group>"; };
 		859C41741ECDE13E00637295 /* TopMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopMenuCell.swift; sourceTree = "<group>"; };
 		859C41751ECDE13E00637295 /* TopMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopMenuCell.xib; sourceTree = "<group>"; };
+		859C417C1ECDFFD700637295 /* MemberAboutItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberAboutItemCell.swift; sourceTree = "<group>"; };
+		859C417D1ECDFFD700637295 /* MemberAboutItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberAboutItemCell.xib; sourceTree = "<group>"; };
+		859C41801ECE006500637295 /* MemberAboutItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberAboutItemViewModel.swift; sourceTree = "<group>"; };
+		859C41821ECE067700637295 /* MemberDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberDataSource.swift; sourceTree = "<group>"; };
 		85DE9EC51ECC8CD900291EF5 /* ImpactHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImpactHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85DE9EC81ECC8CD900291EF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85DE9ECA1ECC8CD900291EF5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -205,10 +213,13 @@
 				85DE9EFD1ECCA8D500291EF5 /* MemberCollectionViewCell.swift */,
 				85DE9EFE1ECCA8D500291EF5 /* MemberCollectionViewCell.xib */,
 				859C41621ECD951A00637295 /* MemberViewController.swift */,
+				859C41821ECE067700637295 /* MemberDataSource.swift */,
 				859C41641ECDA01A00637295 /* MemberDetailTopCell.swift */,
 				859C41651ECDA01A00637295 /* MemberDetailTopCell.xib */,
 				859C416A1ECDB1D200637295 /* MemberFeedItemCell.swift */,
 				859C416B1ECDB1D200637295 /* MemberFeedItemCell.xib */,
+				859C417C1ECDFFD700637295 /* MemberAboutItemCell.swift */,
+				859C417D1ECDFFD700637295 /* MemberAboutItemCell.xib */,
 			);
 			name = Members;
 			sourceTree = "<group>";
@@ -240,6 +251,7 @@
 				85DE9F061ECCACB100291EF5 /* MemberViewModel.swift */,
 				859C41681ECDA70900637295 /* MemberDetailTopViewModel.swift */,
 				859C416E1ECDB39D00637295 /* MemberFeedItemViewModel.swift */,
+				859C41801ECE006500637295 /* MemberAboutItemViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -359,6 +371,7 @@
 			files = (
 				859C41771ECDE13E00637295 /* TopMenuCell.xib in Resources */,
 				859C41671ECDA01A00637295 /* MemberDetailTopCell.xib in Resources */,
+				859C417F1ECDFFD700637295 /* MemberAboutItemCell.xib in Resources */,
 				85DE9F001ECCA8D500291EF5 /* MemberCollectionViewCell.xib in Resources */,
 				859C41731ECDB6CD00637295 /* TopMenu.xib in Resources */,
 				85DE9ED31ECC8CD900291EF5 /* LaunchScreen.storyboard in Resources */,
@@ -447,8 +460,11 @@
 				859C416C1ECDB1D200637295 /* MemberFeedItemCell.swift in Sources */,
 				85DE9EC91ECC8CD900291EF5 /* AppDelegate.swift in Sources */,
 				85DE9F031ECCABCD00291EF5 /* CellRepresentable.swift in Sources */,
+				859C417E1ECDFFD700637295 /* MemberAboutItemCell.swift in Sources */,
 				85DE9EF81ECC902B00291EF5 /* HomeViewController.swift in Sources */,
 				859C416F1ECDB39D00637295 /* MemberFeedItemViewModel.swift in Sources */,
+				859C41811ECE006500637295 /* MemberAboutItemViewModel.swift in Sources */,
+				859C41831ECE067700637295 /* MemberDataSource.swift in Sources */,
 				859C41661ECDA01A00637295 /* MemberDetailTopCell.swift in Sources */,
 				859C41711ECDB6BF00637295 /* TopMenu.swift in Sources */,
 				85DE9F091ECCACCB00291EF5 /* Member.swift in Sources */,

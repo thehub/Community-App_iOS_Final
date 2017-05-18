@@ -315,6 +315,9 @@
                             <constraint firstItem="dt5-dE-uD5" firstAttribute="leading" secondItem="n8U-mT-QJd" secondAttribute="leading" id="rhG-nC-Rex"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Members" id="O6O-dC-0pA">
+                        <barButtonItem key="backBarButtonItem" title=" " id="wRs-Np-97q"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="dt5-dE-uD5" id="cWx-s2-9om"/>
                         <segue destination="v6r-jd-8oy" kind="show" identifier="ShowMember" id="E6m-rq-9b6"/>
@@ -324,10 +327,10 @@
             </objects>
             <point key="canvasLocation" x="2365.5999999999999" y="-158.77061469265368"/>
         </scene>
-        <!--Member View Controller-->
+        <!--Member-->
         <scene sceneID="s0x-Ya-0KM">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="v6r-jd-8oy" customClass="MemberViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Member" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="v6r-jd-8oy" customClass="MemberViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="g0Z-6H-bcJ"/>
                         <viewControllerLayoutGuide type="bottom" id="b1s-Ph-JgV"/>

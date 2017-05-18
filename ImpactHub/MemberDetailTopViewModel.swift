@@ -12,8 +12,9 @@ class MemberDetailTopViewModel: CellRepresentable {
     
     var member: Member
     
-    init(member: Member) {
+    init(member: Member, cellSize: CGSize) {
         self.member = member
+        self.cellSize = cellSize
     }
     
     var jobDescriptionLong: String {
@@ -31,5 +32,5 @@ class MemberDetailTopViewModel: CellRepresentable {
         return cell
     }
     
-    var rowHeight: CGFloat = 0  // indictaes full view height
+    var cellSize: CGSize
 }
