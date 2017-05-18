@@ -28,7 +28,7 @@
             </objects>
             <point key="canvasLocation" x="-386" y="-528"/>
         </scene>
-        <!--Item 2-->
+        <!--View Controller-->
         <scene sceneID="HMo-Ue-7wm">
             <objects>
                 <viewController id="uit-oe-kxH" sceneMemberID="viewController">
@@ -41,7 +41,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="FDR-hp-fqg"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="FDR-hp-fqg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8b-ZS-EUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

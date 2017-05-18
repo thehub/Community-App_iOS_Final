@@ -80,6 +80,8 @@ class TopMenu: UIView {
         button4.leadingAnchor.constraint(equalTo: button3.trailingAnchor, constant: gap).isActive = true
         button4.centerYAnchor.constraint(equalTo: scrollContentView.centerYAnchor).isActive = true
 
+        scrollView.contentSize = CGSize(width: 1000, height: 80)
+        
     }
     
     func buttonWithTitle(_ title: String) -> UIButton {
