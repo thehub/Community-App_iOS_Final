@@ -8,8 +8,15 @@
 
 import UIKit
 
+
+protocol TopMenuDelegate: class {
+    func topMenuDidSelectIndex(_ index: Int)
+}
+
 class TopMenu: UIView {
     @IBOutlet weak var scrollViewTopConstraint: NSLayoutConstraint!
+
+    weak var delegate: TopMenuDelegate?
 
     var contentView : UIView?
 
@@ -18,14 +25,8 @@ class TopMenu: UIView {
     
     var isShow = false
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        xibSetup()
-        setupWithItems()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    override func awakeFromNib() {
+        super.awakeFromNib()
         xibSetup()
         setupWithItems()
     }
@@ -33,7 +34,7 @@ class TopMenu: UIView {
     func show() {
         isShow = true
         scrollViewTopConstraint.constant = 0
-
+        
         UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
             self.alpha = 1
             self.layoutIfNeeded()
@@ -58,30 +59,45 @@ class TopMenu: UIView {
     
     func setupWithItems() {
         
+        
         let gap: CGFloat = 40
         
         let button = buttonWithTitle("Feed")
         scrollContentView.addSubview(button)
         button.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: 20).isActive = true
         button.centerYAnchor.constraint(equalTo: scrollContentView.centerYAnchor).isActive = true
+        button.tag = 0
+        button.addTarget(self, action: #selector(self.buttonClicked), for: .touchUpInside)
 
         let button2 = buttonWithTitle("About")
         scrollContentView.addSubview(button2)
         button2.leadingAnchor.constraint(equalTo: button.trailingAnchor, constant: gap).isActive = true
         button2.centerYAnchor.constraint(equalTo: scrollContentView.centerYAnchor).isActive = true
+        button2.tag = 1
+        button2.addTarget(self, action: #selector(self.buttonClicked), for: .touchUpInside)
 
         let button3 = buttonWithTitle("Projects")
         scrollContentView.addSubview(button3)
         button3.leadingAnchor.constraint(equalTo: button2.trailingAnchor, constant: gap).isActive = true
         button3.centerYAnchor.constraint(equalTo: scrollContentView.centerYAnchor).isActive = true
+        button3.tag = 2
+        button3.addTarget(self, action: #selector(self.buttonClicked), for: .touchUpInside)
+
 
         let button4 = buttonWithTitle("Groups")
         scrollContentView.addSubview(button4)
         button4.leadingAnchor.constraint(equalTo: button3.trailingAnchor, constant: gap).isActive = true
         button4.centerYAnchor.constraint(equalTo: scrollContentView.centerYAnchor).isActive = true
+        button4.tag = 3
+        button4.addTarget(self, action: #selector(self.buttonClicked), for: .touchUpInside)
+
 
         scrollView.contentSize = CGSize(width: 1000, height: 80)
         
+    }
+    
+    func buttonClicked(sender: UIButton) {
+        self.delegate?.topMenuDidSelectIndex(sender.tag)
     }
     
     func buttonWithTitle(_ title: String) -> UIButton {
@@ -95,32 +111,37 @@ class TopMenu: UIView {
         return button
     }
     
+    
     func xibSetup() {
-        contentView = loadViewFromNib()
-
+        guard let view = loadViewFromNib() else { return }
+//        view.frame = bounds
+//        view.autoresizingMask =
+//            [.flexibleWidth, .flexibleHeight]
+        addSubview(view)
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        view.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        view.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        view.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        
+        contentView = view
+        
         contentView?.clipsToBounds = true
-        
-        // use bounds not frame or it'll be offset
-        contentView!.frame = bounds
-        
-        // Make the view stretch with containing view
-        contentView!.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
-        
-        // Adding custom subview on top of our view (over any custom drawing > see note below)
-        addSubview(contentView!)
         scrollViewTopConstraint.constant = -frame.height
         alpha = 0
 
-        
     }
     
-    func loadViewFromNib() -> UIView! {
-        
+    func loadViewFromNib() -> UIView? {
+//        guard let nibName = nibName else { return nil }
         let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
-        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
-        
-        return view
+        let nib = UINib(nibName: "TopMenu", bundle: bundle)
+        return nib.instantiate(
+            withOwner: self,
+            options: nil).first as? UIView
     }
+    
+
 
 }

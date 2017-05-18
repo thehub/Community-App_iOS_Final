@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MemberViewController: UIViewController, UIScrollViewDelegate {
+class MemberViewController: UIViewController, UIScrollViewDelegate, TopMenuDelegate {
 
     var member: Member!
     
@@ -38,7 +38,13 @@ class MemberViewController: UIViewController, UIScrollViewDelegate {
         data.append(MemberFeedItemViewModel(member: member))
         data.append(MemberFeedItemViewModel(member: member))
         data.append(MemberFeedItemViewModel(member: member))
+        
+        topMenu.delegate = self
 
+    }
+    
+    func topMenuDidSelectIndex(_ index: Int) {
+        collectionView.setContentOffset(CGPoint.init(x: 0, y: self.collectionView.frame.height - 80), animated: true)
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
