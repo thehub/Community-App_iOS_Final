@@ -1,15 +1,15 @@
 //
-//  MemberViewModel.swift
+//  MemberFeedItemViewModel.swift
 //  ImpactHub
 //
-//  Created by Niklas on 17/05/2017.
+//  Created by Niklas on 18/05/2017.
 //  Copyright © 2017 Lightful Ltd. All rights reserved.
 //
 
 import UIKit
 
-class MemberViewModel: CellRepresentable {
-
+class MemberFeedItemViewModel: CellRepresentable {
+    
     var member: Member
     
     init(member: Member) {
@@ -18,10 +18,10 @@ class MemberViewModel: CellRepresentable {
     
     
     func cellInstance(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemberCell", for: indexPath) as! MemberCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemberFeedItemCell", for: indexPath) as! MemberFeedItemCell
         cell.setUp(vm: self)
         return cell
     }
     
-    var rowHeight: CGFloat = 200
+    var rowHeight: CGFloat = 115
 }

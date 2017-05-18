@@ -12,3 +12,4 @@ protocol CellRepresentable {
     var rowHeight: CGFloat { get }
     func cellInstance(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell
 }
+

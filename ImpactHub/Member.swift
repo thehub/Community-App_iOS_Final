@@ -11,4 +11,7 @@ import Foundation
 struct Member {
     var name: String
     var job: String
+    var photo: String
+    var blurb: String
+    var locationName: String
 }

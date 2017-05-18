@@ -37,21 +37,40 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCV-19-VmR">
+                        <rect key="frame" x="8" y="72" width="284" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J35-42-Kx3">
+                        <rect key="frame" x="8" y="213" width="35" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="A3O-XH-KGb" firstAttribute="width" secondItem="obn-32-78V" secondAttribute="width" id="5jj-wK-t5e"/>
+                <constraint firstAttribute="trailing" secondItem="VCV-19-VmR" secondAttribute="trailing" constant="8" id="72g-mj-nau"/>
                 <constraint firstAttribute="trailing" secondItem="lul-Kl-LZ0" secondAttribute="trailing" constant="10" id="B1B-co-J9s"/>
                 <constraint firstItem="obn-32-78V" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="COy-Oi-eem"/>
                 <constraint firstItem="A3O-XH-KGb" firstAttribute="top" secondItem="obn-32-78V" secondAttribute="bottom" constant="1" id="FCL-eH-h3d"/>
                 <constraint firstItem="A3O-XH-KGb" firstAttribute="leading" secondItem="obn-32-78V" secondAttribute="leading" id="O9f-es-ubg"/>
+                <constraint firstAttribute="bottom" secondItem="J35-42-Kx3" secondAttribute="bottom" constant="20" id="OP0-gg-CqN"/>
                 <constraint firstItem="lul-Kl-LZ0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="ScL-B2-qj9"/>
                 <constraint firstItem="obn-32-78V" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Yno-kG-jzg"/>
+                <constraint firstItem="VCV-19-VmR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="c4Z-yi-NBR"/>
+                <constraint firstItem="VCV-19-VmR" firstAttribute="top" secondItem="lul-Kl-LZ0" secondAttribute="bottom" constant="12" id="f5r-Le-Ubk"/>
                 <constraint firstItem="lul-Kl-LZ0" firstAttribute="leading" secondItem="obn-32-78V" secondAttribute="trailing" constant="8" id="jcq-fe-z3g"/>
+                <constraint firstItem="J35-42-Kx3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="ylT-4H-e4c"/>
             </constraints>
             <connections>
+                <outlet property="blurbLabel" destination="VCV-19-VmR" id="SRr-tq-M6K"/>
                 <outlet property="jobLabel" destination="A3O-XH-KGb" id="YPQ-Jq-ybK"/>
+                <outlet property="locationNameLabel" destination="J35-42-Kx3" id="BiJ-Gl-k09"/>
                 <outlet property="nameLabel" destination="obn-32-78V" id="BX0-0g-pgR"/>
                 <outlet property="profileImageView" destination="lul-Kl-LZ0" id="wxM-AG-f3m"/>
             </connections>
