@@ -62,7 +62,7 @@ class TopMenu: UIView {
         
         let button = buttonWithTitle("Feed")
         scrollContentView.addSubview(button)
-        button.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: 10).isActive = true
+        button.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: 20).isActive = true
         button.centerYAnchor.constraint(equalTo: scrollContentView.centerYAnchor).isActive = true
 
         let button2 = buttonWithTitle("About")

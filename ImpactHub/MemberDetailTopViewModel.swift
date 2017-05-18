@@ -31,5 +31,5 @@ class MemberDetailTopViewModel: CellRepresentable {
         return cell
     }
     
-    var rowHeight: CGFloat = 500
+    var rowHeight: CGFloat = 0  // indictaes full view height
 }

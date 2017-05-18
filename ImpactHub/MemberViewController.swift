@@ -74,7 +74,11 @@ extension MemberViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let cellWidth: CGFloat = self.view.frame.width
-        return CGSize(width: cellWidth, height: data[indexPath.item].rowHeight)
+        var cellHeight = data[indexPath.item].rowHeight
+        if cellHeight == 0 {
+            cellHeight = collectionView.frame.height
+        }
+        return CGSize(width: cellWidth, height: cellHeight)
         
     }
 }
