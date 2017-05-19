@@ -72,10 +72,10 @@ class CompanyViewController: UIViewController, UICollectionViewDelegate, TopMenu
             self.data = self.aboutData
             self.collectionView.reloadData()
         }
-        else if index == 1 {
-            self.data = self.projectsData
-            self.collectionView.reloadData()
-        }
+//        else if index == 1 {
+//            self.data = self.projectsData
+//            self.collectionView.reloadData()
+//        }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.collectionView.setContentOffset(CGPoint.init(x: 0, y: self.collectionView.frame.height - 80), animated: false)

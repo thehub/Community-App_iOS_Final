@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lH2-y5-Nlr">
-                        <rect key="frame" x="0.0" y="27.5" width="300" height="295"/>
+                        <rect key="frame" x="0.0" y="5" width="300" height="340"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s40-UQ-UEf">
                                 <rect key="frame" x="115" y="20" width="70" height="70"/>
@@ -82,7 +82,6 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pzG-7F-c8e" firstAttribute="top" secondItem="s40-UQ-UEf" secondAttribute="bottom" constant="12" id="2QM-aR-Jv0"/>
                             <constraint firstItem="XXE-ip-ZY6" firstAttribute="top" secondItem="pzG-7F-c8e" secondAttribute="bottom" constant="8" id="3gi-6S-GaQ"/>
@@ -95,7 +94,7 @@
                             <constraint firstItem="mcG-Ur-bPh" firstAttribute="top" secondItem="Urb-ZX-NKY" secondAttribute="bottom" constant="8" id="VtA-Vf-mMc"/>
                             <constraint firstItem="pzG-7F-c8e" firstAttribute="centerX" secondItem="lH2-y5-Nlr" secondAttribute="centerX" id="WNx-2a-vvl"/>
                             <constraint firstItem="mcG-Ur-bPh" firstAttribute="leading" secondItem="lH2-y5-Nlr" secondAttribute="leading" constant="20" id="Z2P-j9-nOR"/>
-                            <constraint firstAttribute="height" constant="295" id="cPM-xU-7NA"/>
+                            <constraint firstAttribute="height" constant="340" id="cPM-xU-7NA"/>
                             <constraint firstItem="mcG-Ur-bPh" firstAttribute="centerX" secondItem="XXE-ip-ZY6" secondAttribute="centerX" id="cPu-Jm-fQg"/>
                             <constraint firstItem="s40-UQ-UEf" firstAttribute="top" secondItem="lH2-y5-Nlr" secondAttribute="top" constant="20" id="iF4-Ue-vCU"/>
                             <constraint firstItem="s40-UQ-UEf" firstAttribute="centerX" secondItem="lH2-y5-Nlr" secondAttribute="centerX" id="kUI-7n-qpZ"/>

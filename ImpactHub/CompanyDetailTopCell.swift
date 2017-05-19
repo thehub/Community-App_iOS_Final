@@ -37,7 +37,7 @@ class CompanyDetailTopCell: UICollectionViewCell {
     }
     
     @IBAction func visitWebsiteTap(_ sender: Any) {
-        let url = URL(string: vm.company.website)!
+        let url = URL(string: "http://\(vm.company.website)")!
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         } else {
