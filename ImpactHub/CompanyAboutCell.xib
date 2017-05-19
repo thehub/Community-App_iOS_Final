@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CompanyAboutCell" id="gTV-IL-0wX" customClass="CompanyAboutCell" customModule="ImpactHub" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="350"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="350"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHv-IL-MSH">
+                        <rect key="frame" x="20" y="20" width="48.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cPt-dl-0ab" userLabel="Line">
+                        <rect key="frame" x="20" y="45" width="260" height="1"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="1G4-BL-4hP"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolores set etum..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7q-6M-cda">
+                        <rect key="frame" x="20" y="54" width="260" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="cPt-dl-0ab" firstAttribute="top" secondItem="VHv-IL-MSH" secondAttribute="bottom" constant="4" id="L5Z-zN-0wP"/>
+                <constraint firstAttribute="trailing" secondItem="cPt-dl-0ab" secondAttribute="trailing" constant="20" id="adj-TN-gF2"/>
+                <constraint firstAttribute="trailing" secondItem="x7q-6M-cda" secondAttribute="trailing" constant="20" id="hCl-Yi-Xd6"/>
+                <constraint firstItem="VHv-IL-MSH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="hao-V7-1W8"/>
+                <constraint firstItem="x7q-6M-cda" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="jsa-lt-7ma"/>
+                <constraint firstItem="VHv-IL-MSH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="pb4-zD-Vpo"/>
+                <constraint firstItem="cPt-dl-0ab" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="saK-tC-2Tb"/>
+                <constraint firstItem="x7q-6M-cda" firstAttribute="top" secondItem="cPt-dl-0ab" secondAttribute="bottom" constant="8" id="ujm-O6-mAF"/>
+            </constraints>
+        </collectionViewCell>
+    </objects>
+</document>

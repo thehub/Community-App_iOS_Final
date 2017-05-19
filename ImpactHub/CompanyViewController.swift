@@ -28,8 +28,7 @@ class CompanyViewController: UIViewController, UICollectionViewDelegate, TopMenu
         connectButton.setTitle("Connect with \(company.name)", for: .normal)
         
         collectionView.register(UINib.init(nibName: CompanyDetailTopViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: CompanyDetailTopViewModel.cellIdentifier)
-//        collectionView.register(UINib.init(nibName: MemberFeedItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberFeedItemViewModel.cellIdentifier)
-//        collectionView.register(UINib.init(nibName: MemberAboutItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberAboutItemViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: CompanyAboutViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: CompanyAboutViewModel.cellIdentifier)
 
         topMenu.delegate = self
         
@@ -37,14 +36,7 @@ class CompanyViewController: UIViewController, UICollectionViewDelegate, TopMenu
 
         var data = [CellRepresentable]()
         data.append(CompanyDetailTopViewModel(company: company, cellSize: .zero)) // this will pick the full height instead
-//        data.append(MemberFeedItemViewModel(member: company, cellSize: CGSize(width: view.frame.width, height: 115)))
-//        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 115)))
-//        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 115)))
-//        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 115)))
-//        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 115)))
-//        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 115)))
-//        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 115)))
-//        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 115)))
+        data.append(CompanyAboutViewModel(company: company, cellSize: CGSize(width: view.frame.width, height: 450)))
         aboutData = data
         self.data = aboutData
 //
