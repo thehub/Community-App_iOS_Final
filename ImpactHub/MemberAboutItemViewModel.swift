@@ -10,6 +10,8 @@ import UIKit
 
 class MemberAboutItemViewModel: CellRepresentable {
     
+    static var cellIdentifier = "MemberAboutItemCell"
+
     var member: Member
     
     init(member: Member, cellSize: CGSize) {
@@ -19,7 +21,7 @@ class MemberAboutItemViewModel: CellRepresentable {
     
     
     func cellInstance(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemberAboutItemCell", for: indexPath) as! MemberAboutItemCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemberAboutItemViewModel.cellIdentifier, for: indexPath) as! MemberAboutItemCell
         cell.setUp(vm: self)
         return cell
     }

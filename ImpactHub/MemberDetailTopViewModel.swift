@@ -10,6 +10,8 @@ import UIKit
 
 class MemberDetailTopViewModel: CellRepresentable {
     
+    static var cellIdentifier = "MemberDetailTopCell"
+    
     var member: Member
     
     init(member: Member, cellSize: CGSize) {
@@ -27,7 +29,7 @@ class MemberDetailTopViewModel: CellRepresentable {
     
     
     func cellInstance(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemberDetailTopCell", for: indexPath) as! MemberDetailTopCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemberDetailTopViewModel.cellIdentifier, for: indexPath) as! MemberDetailTopCell
         cell.setup(vm: self)
         return cell
     }

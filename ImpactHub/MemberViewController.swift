@@ -27,12 +27,13 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         
         connectButton.setTitle("Connect with \(member.name)", for: .normal)
         
-        // TODO: Pull this dynamically form the view models
-        collectionView.register(UINib.init(nibName: "MemberDetailTopCell", bundle: nil), forCellWithReuseIdentifier: "MemberDetailTopCell")
-        collectionView.register(UINib.init(nibName: "MemberFeedItemCell", bundle: nil), forCellWithReuseIdentifier: "MemberFeedItemCell")
-        collectionView.register(UINib.init(nibName: "MemberAboutItemCell", bundle: nil), forCellWithReuseIdentifier: "MemberAboutItemCell")
+        collectionView.register(UINib.init(nibName: MemberDetailTopViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberDetailTopViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: MemberFeedItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberFeedItemViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: MemberAboutItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberAboutItemViewModel.cellIdentifier)
 
         topMenu.delegate = self
+        
+        topMenu.setupWithItems(["Feed", "About", "Projects", "Groups"])
 
         var data = [CellRepresentable]()
         data.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
@@ -72,16 +73,28 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
     }
     
     func topMenuDidSelectIndex(_ index: Int) {
+        
+        self.collectionView.alpha = 0
+
         if index == 0 {
-            data = memberFeedData
-            collectionView.reloadData()
+            self.data = self.memberFeedData
+            self.collectionView.reloadData()
         }
         else if index == 1 {
-            data = memberAboutData
-            collectionView.reloadData()
+            self.data = self.memberAboutData
+            self.collectionView.reloadData()
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.collectionView.setContentOffset(CGPoint.init(x: 0, y: self.collectionView.frame.height - 80), animated: false)
+            UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                self.collectionView.alpha = 1
+            }, completion: { (_) in
+                
+            })
         }
         
-        collectionView.setContentOffset(CGPoint.init(x: 0, y: self.collectionView.frame.height - 80), animated: true)
+        
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

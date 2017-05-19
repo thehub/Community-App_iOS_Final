@@ -29,7 +29,6 @@ class TopMenu: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         xibSetup()
-        setupWithItems()
     }
     
     func show() {
@@ -58,44 +57,40 @@ class TopMenu: UIView {
 
     }
     
-    func setupWithItems() {
+    func setupWithItems(_ items: [String], gap: CGFloat = 40, leftMargin: CGFloat = 20) {
         
+        if items.count == 0 {
+            return
+        }
         
-        let gap: CGFloat = 40
+        var items = items
         
-        let button = buttonWithTitle("Feed")
+        let firstItem = items.removeFirst()
+        
+        var lastButton: UIButton?
+        
+        let button = buttonWithTitle(firstItem)
         scrollContentView.addSubview(button)
-        button.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: 20).isActive = true
+        button.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: leftMargin).isActive = true
         button.centerYAnchor.constraint(equalTo: scrollContentView.centerYAnchor).isActive = true
         button.tag = 0
         button.addTarget(self, action: #selector(self.buttonClicked), for: .touchUpInside)
-
-        let button2 = buttonWithTitle("About")
-        scrollContentView.addSubview(button2)
-        button2.leadingAnchor.constraint(equalTo: button.trailingAnchor, constant: gap).isActive = true
-        button2.centerYAnchor.constraint(equalTo: scrollContentView.centerYAnchor).isActive = true
-        button2.tag = 1
-        button2.addTarget(self, action: #selector(self.buttonClicked), for: .touchUpInside)
-
-        let button3 = buttonWithTitle("Projects")
-        scrollContentView.addSubview(button3)
-        button3.leadingAnchor.constraint(equalTo: button2.trailingAnchor, constant: gap).isActive = true
-        button3.centerYAnchor.constraint(equalTo: scrollContentView.centerYAnchor).isActive = true
-        button3.tag = 2
-        button3.addTarget(self, action: #selector(self.buttonClicked), for: .touchUpInside)
-
-
-        let button4 = buttonWithTitle("Groups")
-        scrollContentView.addSubview(button4)
-        button4.leadingAnchor.constraint(equalTo: button3.trailingAnchor, constant: gap).isActive = true
-        button4.centerYAnchor.constraint(equalTo: scrollContentView.centerYAnchor).isActive = true
-        button4.tag = 3
-        button4.addTarget(self, action: #selector(self.buttonClicked), for: .touchUpInside)
-
+        lastButton = button
+        
+        
+        for (index, item) in items.enumerated() {
+            let button = buttonWithTitle(item)
+            scrollContentView.addSubview(button)
+            button.leadingAnchor.constraint(equalTo: lastButton!.trailingAnchor, constant: gap).isActive = true
+            button.centerYAnchor.constraint(equalTo: scrollContentView.centerYAnchor).isActive = true
+            button.tag = index + 1
+            button.addTarget(self, action: #selector(self.buttonClicked), for: .touchUpInside)
+            lastButton = button
+        }
+        
         layoutIfNeeded()
         
-        scrollContentWidthConstraint.constant = button4.frame.origin.x + button4.frame.width + 10
-
+        scrollContentWidthConstraint.constant = lastButton!.frame.origin.x + lastButton!.frame.width + 10
     }
     
     func buttonClicked(sender: UIButton) {
