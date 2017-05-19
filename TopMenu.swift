@@ -15,6 +15,7 @@ protocol TopMenuDelegate: class {
 
 class TopMenu: UIView {
     @IBOutlet weak var scrollViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var scrollContentWidthConstraint: NSLayoutConstraint!
 
     weak var delegate: TopMenuDelegate?
 
@@ -91,9 +92,10 @@ class TopMenu: UIView {
         button4.tag = 3
         button4.addTarget(self, action: #selector(self.buttonClicked), for: .touchUpInside)
 
-
-        scrollView.contentSize = CGSize(width: 1000, height: 80)
+        layoutIfNeeded()
         
+        scrollContentWidthConstraint.constant = button4.frame.origin.x + button4.frame.width + 10
+
     }
     
     func buttonClicked(sender: UIButton) {

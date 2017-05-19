@@ -17,9 +17,9 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var memberFeedDataSource: MemberDataSource?
-    var memberAboutDataSource: MemberDataSource?
     var data = [CellRepresentable]()
+    var memberFeedData = [CellRepresentable]()
+    var memberAboutData = [CellRepresentable]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +41,8 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 115)))
         data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 115)))
         data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 115)))
-        self.memberFeedDataSource = MemberDataSource(data: data)
-        self.data = memberFeedDataSource!.data
+        memberFeedData = data
+        self.data = memberFeedData
 
         var data2 = [CellRepresentable]()
         data2.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
@@ -50,11 +50,11 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         data2.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
         data2.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
         data2.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
-        self.memberAboutDataSource = MemberDataSource(data: data2)
+        self.memberAboutData = data2
 
         
         collectionView.delegate = self
-        collectionView.dataSource = memberFeedDataSource
+        collectionView.dataSource = self
     }
     
     
@@ -70,13 +70,11 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
     
     func topMenuDidSelectIndex(_ index: Int) {
         if index == 0 {
-            collectionView.dataSource = memberFeedDataSource
-            data = memberFeedDataSource!.data
+            data = memberFeedData
             collectionView.reloadData()
         }
         else if index == 1 {
-            collectionView.dataSource = memberAboutDataSource
-            data = memberAboutDataSource!.data
+            data = memberAboutData
             collectionView.reloadData()
         }
         
@@ -97,5 +95,15 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         // Dispose of any resources that can be recreated.
     }
     
+}
+
+extension MemberViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return data[indexPath.item].cellInstance(collectionView, indexPath: indexPath)
+    }
 }
 
