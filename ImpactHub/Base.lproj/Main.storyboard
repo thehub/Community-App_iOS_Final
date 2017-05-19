@@ -374,6 +374,9 @@
                                 <state key="normal" title="Connect">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="connectTap:" destination="v6r-jd-8oy" eventType="touchUpInside" id="Kg2-Iz-tT3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -394,6 +397,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="VB6-Ch-zvJ" id="JTA-zh-Ptp"/>
+                        <outlet property="connectButton" destination="KiW-q6-9OO" id="t6p-Q6-P06"/>
                         <outlet property="topMenu" destination="D7m-9w-jg5" id="NXx-Ul-QCd"/>
                     </connections>
                 </viewController>

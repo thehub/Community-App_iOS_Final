@@ -13,6 +13,7 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
     var member: Member!
     
 
+    @IBOutlet weak var connectButton: UIButton!
     @IBOutlet weak var topMenu: TopMenu!
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -23,6 +24,8 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        connectButton.setTitle("Connect with \(member.name)", for: .normal)
         
         // TODO: Pull this dynamically form the view models
         collectionView.register(UINib.init(nibName: "MemberDetailTopCell", bundle: nil), forCellWithReuseIdentifier: "MemberDetailTopCell")
@@ -90,6 +93,8 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         }
     }
     
+    @IBAction func connectTap(_ sender: Any) {
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
