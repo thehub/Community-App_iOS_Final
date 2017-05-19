@@ -24,6 +24,9 @@
 		8570C1EF1ECF04E800FA1CE9 /* CompanyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1ED1ECF04E800FA1CE9 /* CompanyCollectionViewCell.swift */; };
 		8570C1F01ECF04E800FA1CE9 /* CompanyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1EE1ECF04E800FA1CE9 /* CompanyCollectionViewCell.xib */; };
 		8570C1F21ECF0BBC00FA1CE9 /* CompaniesSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1F11ECF0BBC00FA1CE9 /* CompaniesSearchViewController.swift */; };
+		8570C1F51ECF159800FA1CE9 /* CompanyDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1F31ECF159800FA1CE9 /* CompanyDetailTopCell.xib */; };
+		8570C1F81ECF15CE00FA1CE9 /* CompanyDetailTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1F71ECF15CE00FA1CE9 /* CompanyDetailTopViewModel.swift */; };
+		8570C1FA1ECF15E800FA1CE9 /* CompanyDetailTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1F91ECF15E800FA1CE9 /* CompanyDetailTopCell.swift */; };
 		859C41631ECD951A00637295 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859C41621ECD951A00637295 /* MemberViewController.swift */; };
 		859C41661ECDA01A00637295 /* MemberDetailTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859C41641ECDA01A00637295 /* MemberDetailTopCell.swift */; };
 		859C41671ECDA01A00637295 /* MemberDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859C41651ECDA01A00637295 /* MemberDetailTopCell.xib */; };
@@ -88,6 +91,9 @@
 		8570C1ED1ECF04E800FA1CE9 /* CompanyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyCollectionViewCell.swift; sourceTree = "<group>"; };
 		8570C1EE1ECF04E800FA1CE9 /* CompanyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyCollectionViewCell.xib; sourceTree = "<group>"; };
 		8570C1F11ECF0BBC00FA1CE9 /* CompaniesSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompaniesSearchViewController.swift; sourceTree = "<group>"; };
+		8570C1F31ECF159800FA1CE9 /* CompanyDetailTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyDetailTopCell.xib; sourceTree = "<group>"; };
+		8570C1F71ECF15CE00FA1CE9 /* CompanyDetailTopViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyDetailTopViewModel.swift; sourceTree = "<group>"; };
+		8570C1F91ECF15E800FA1CE9 /* CompanyDetailTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyDetailTopCell.swift; sourceTree = "<group>"; };
 		859C41621ECD951A00637295 /* MemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
 		859C41641ECDA01A00637295 /* MemberDetailTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberDetailTopCell.swift; sourceTree = "<group>"; };
 		859C41651ECDA01A00637295 /* MemberDetailTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberDetailTopCell.xib; sourceTree = "<group>"; };
@@ -208,6 +214,8 @@
 				8570C1E91ECF03FE00FA1CE9 /* CompanyViewController.swift */,
 				8570C1ED1ECF04E800FA1CE9 /* CompanyCollectionViewCell.swift */,
 				8570C1EE1ECF04E800FA1CE9 /* CompanyCollectionViewCell.xib */,
+				8570C1F31ECF159800FA1CE9 /* CompanyDetailTopCell.xib */,
+				8570C1F91ECF15E800FA1CE9 /* CompanyDetailTopCell.swift */,
 			);
 			name = Companies;
 			sourceTree = "<group>";
@@ -334,6 +342,7 @@
 				859C41681ECDA70900637295 /* MemberDetailTopViewModel.swift */,
 				859C416E1ECDB39D00637295 /* MemberFeedItemViewModel.swift */,
 				859C41801ECE006500637295 /* MemberAboutItemViewModel.swift */,
+				8570C1F71ECF15CE00FA1CE9 /* CompanyDetailTopViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -465,6 +474,7 @@
 				859C416D1ECDB1D200637295 /* MemberFeedItemCell.xib in Resources */,
 				85DE9ECE1ECC8CD900291EF5 /* Main.storyboard in Resources */,
 				8570C1DA1ECEE39B00FA1CE9 /* Messages.storyboard in Resources */,
+				8570C1F51ECF159800FA1CE9 /* CompanyDetailTopCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +558,8 @@
 				8570C1E31ECF028200FA1CE9 /* Company.swift in Sources */,
 				859C41691ECDA70900637295 /* MemberDetailTopViewModel.swift in Sources */,
 				859C416C1ECDB1D200637295 /* MemberFeedItemCell.swift in Sources */,
+				8570C1F81ECF15CE00FA1CE9 /* CompanyDetailTopViewModel.swift in Sources */,
+				8570C1FA1ECF15E800FA1CE9 /* CompanyDetailTopCell.swift in Sources */,
 				8570C1E11ECEE9C400FA1CE9 /* MembersSearchViewController.swift in Sources */,
 				85DE9EC91ECC8CD900291EF5 /* AppDelegate.swift in Sources */,
 				85DE9F031ECCABCD00291EF5 /* CellRepresentable.swift in Sources */,

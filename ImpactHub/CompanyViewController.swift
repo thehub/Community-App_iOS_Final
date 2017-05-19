@@ -19,24 +19,24 @@ class CompanyViewController: UIViewController, UICollectionViewDelegate, TopMenu
     @IBOutlet weak var collectionView: UICollectionView!
     
     var data = [CellRepresentable]()
-    var memberFeedData = [CellRepresentable]()
-    var memberAboutData = [CellRepresentable]()
+    var aboutData = [CellRepresentable]()
+    var projectsData = [CellRepresentable]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         connectButton.setTitle("Connect with \(company.name)", for: .normal)
         
-        collectionView.register(UINib.init(nibName: MemberDetailTopViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberDetailTopViewModel.cellIdentifier)
-        collectionView.register(UINib.init(nibName: MemberFeedItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberFeedItemViewModel.cellIdentifier)
-        collectionView.register(UINib.init(nibName: MemberAboutItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberAboutItemViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: CompanyDetailTopViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: CompanyDetailTopViewModel.cellIdentifier)
+//        collectionView.register(UINib.init(nibName: MemberFeedItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberFeedItemViewModel.cellIdentifier)
+//        collectionView.register(UINib.init(nibName: MemberAboutItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberAboutItemViewModel.cellIdentifier)
 
         topMenu.delegate = self
         
-        topMenu.setupWithItems(["Feed", "About", "Projects", "Groups"])
+        topMenu.setupWithItems(["About", "Projects", "Members"])
 
-//        var data = [CellRepresentable]()
-//        data.append(MemberDetailTopViewModel(member: company, cellSize: .zero)) // this will pick the full height instead
+        var data = [CellRepresentable]()
+        data.append(CompanyDetailTopViewModel(company: company, cellSize: .zero)) // this will pick the full height instead
 //        data.append(MemberFeedItemViewModel(member: company, cellSize: CGSize(width: view.frame.width, height: 115)))
 //        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 115)))
 //        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 115)))
@@ -45,8 +45,8 @@ class CompanyViewController: UIViewController, UICollectionViewDelegate, TopMenu
 //        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 115)))
 //        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 115)))
 //        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 115)))
-//        memberFeedData = data
-//        self.data = memberFeedData
+        aboutData = data
+        self.data = aboutData
 //
 //        var data2 = [CellRepresentable]()
 //        data2.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
@@ -77,11 +77,11 @@ class CompanyViewController: UIViewController, UICollectionViewDelegate, TopMenu
         self.collectionView.alpha = 0
 
         if index == 0 {
-            self.data = self.memberFeedData
+            self.data = self.aboutData
             self.collectionView.reloadData()
         }
         else if index == 1 {
-            self.data = self.memberAboutData
+            self.data = self.projectsData
             self.collectionView.reloadData()
         }
 

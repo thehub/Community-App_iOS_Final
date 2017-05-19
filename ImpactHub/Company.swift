@@ -14,4 +14,5 @@ struct Company {
     var photo: String
     var blurb: String
     var locationName: String
+    var website: String
 }
