@@ -280,6 +280,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Members" id="O6O-dC-0pA">
                         <barButtonItem key="backBarButtonItem" title=" " id="wRs-Np-97q"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="5KN-MD-gzc">
+                            <connections>
+                                <segue destination="g4N-jp-PsD" kind="presentation" id="oz5-22-CzS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="dt5-dE-uD5" id="cWx-s2-9om"/>
@@ -289,6 +294,31 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vLC-Ui-0Za" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2365.5999999999999" y="-158.77061469265368"/>
+        </scene>
+        <!--Members Search-->
+        <scene sceneID="fZB-3f-Xmy">
+            <objects>
+                <viewController id="9sG-eh-HPV" customClass="MembersSearchViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="noH-3W-We9"/>
+                        <viewControllerLayoutGuide type="bottom" id="buo-SE-LC5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tdX-Mn-CMX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Members Search" id="9Qo-kx-x2s">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="jYf-Tu-gMR">
+                            <connections>
+                                <action selector="doneTap:" destination="9sG-eh-HPV" id="bbd-XF-yJj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hz8-0E-Ykl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3871" y="-824"/>
         </scene>
         <!--Member-->
         <scene sceneID="s0x-Ya-0KM">
@@ -387,6 +417,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fqq-xd-hn9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="644" y="-157.87106446776613"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="S48-rW-pfQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g4N-jp-PsD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mWd-pG-I7a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9sG-eh-HPV" kind="relationship" relationship="rootViewController" id="Nat-RD-V95"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eGJ-dL-qkN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3101.5999999999999" y="-824.43778110944538"/>
         </scene>
     </scenes>
     <resources>
