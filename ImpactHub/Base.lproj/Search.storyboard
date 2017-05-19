@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="S4H-bJ-Vwm">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search-->
+        <scene sceneID="HMo-Ue-7wm">
+            <objects>
+                <viewController title="Search" id="uit-oe-kxH" customClass="SearchViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dj3-TT-0qT"/>
+                        <viewControllerLayoutGuide type="bottom" id="tpe-nV-DmV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MMk-gk-cYN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Search" id="3Ea-Mu-fl7">
+                        <barButtonItem key="backBarButtonItem" title=" " id="GC7-af-EgU"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g8b-ZS-EUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1583.2" y="496.10194902548727"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="kgR-Jj-mBm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S4H-bJ-Vwm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="Oval" selectedImage="Oval" id="FDR-hp-fqg"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YoR-Mx-ToZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uit-oe-kxH" kind="relationship" relationship="rootViewController" id="g20-z4-w7o"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LZc-ir-Ox5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="644" y="496.10194902548727"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Oval" width="26" height="26"/>
+    </resources>
+</document>

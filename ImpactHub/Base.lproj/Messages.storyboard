@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="A1i-kk-ec4">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Messages-->
+        <scene sceneID="8C7-jl-uIP">
+            <objects>
+                <viewController id="uuD-mm-PdR" customClass="MessagesViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iiQ-ke-vmb"/>
+                        <viewControllerLayoutGuide type="bottom" id="0nm-50-eU1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vwx-kq-vgY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Messages" id="Ur0-iC-cV7">
+                        <barButtonItem key="backBarButtonItem" title=" " id="eTH-5P-C4b"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oyk-gt-g9h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1612" y="719.19040479760122"/>
+        </scene>
+        <!--Messages-->
+        <scene sceneID="9yR-WN-rHC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="A1i-kk-ec4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Messages" image="Rectangle" selectedImage="Rectangle" id="lbF-H3-O6V"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ONi-iY-MGH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uuD-mm-PdR" kind="relationship" relationship="rootViewController" id="Vpd-fF-CTs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hFA-AI-jkS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="684" y="704"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Rectangle" width="26" height="26"/>
+    </resources>
+</document>

@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8570C1C81ECEDE3300FA1CE9 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1C71ECEDE3300FA1CE9 /* Notifications.storyboard */; };
+		8570C1CB1ECEDE6200FA1CE9 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1CA1ECEDE6200FA1CE9 /* NotificationsViewController.swift */; };
+		8570C1CE1ECEE0BA00FA1CE9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1CD1ECEE0BA00FA1CE9 /* SearchViewController.swift */; };
+		8570C1D11ECEE0D200FA1CE9 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1CF1ECEE0D200FA1CE9 /* Search.storyboard */; };
+		8570C1D51ECEE35300FA1CE9 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1D41ECEE35300FA1CE9 /* MessagesViewController.swift */; };
+		8570C1D71ECEE35F00FA1CE9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1D61ECEE35F00FA1CE9 /* ProfileViewController.swift */; };
+		8570C1DA1ECEE39B00FA1CE9 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1D81ECEE39B00FA1CE9 /* Messages.storyboard */; };
+		8570C1DC1ECEE3F300FA1CE9 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1DB1ECEE3F300FA1CE9 /* Profile.storyboard */; };
+		8570C1DF1ECEE66300FA1CE9 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1DD1ECEE66300FA1CE9 /* Home.storyboard */; };
 		859C41631ECD951A00637295 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859C41621ECD951A00637295 /* MemberViewController.swift */; };
 		859C41661ECDA01A00637295 /* MemberDetailTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859C41641ECDA01A00637295 /* MemberDetailTopCell.swift */; };
 		859C41671ECDA01A00637295 /* MemberDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859C41651ECDA01A00637295 /* MemberDetailTopCell.xib */; };
@@ -54,6 +63,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8570C1C71ECEDE3300FA1CE9 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
+		8570C1CA1ECEDE6200FA1CE9 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		8570C1CD1ECEE0BA00FA1CE9 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		8570C1D01ECEE0D200FA1CE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
+		8570C1D41ECEE35300FA1CE9 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		8570C1D61ECEE35F00FA1CE9 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8570C1D91ECEE39B00FA1CE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Messages.storyboard; sourceTree = "<group>"; };
+		8570C1DB1ECEE3F300FA1CE9 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		8570C1DE1ECEE66300FA1CE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		859C41621ECD951A00637295 /* MemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
 		859C41641ECDA01A00637295 /* MemberDetailTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberDetailTopCell.swift; sourceTree = "<group>"; };
 		859C41651ECDA01A00637295 /* MemberDetailTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberDetailTopCell.xib; sourceTree = "<group>"; };
@@ -134,6 +152,38 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8570C1C91ECEDE4B00FA1CE9 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				8570C1CA1ECEDE6200FA1CE9 /* NotificationsViewController.swift */,
+			);
+			name = Notifications;
+			sourceTree = "<group>";
+		};
+		8570C1CC1ECEE08C00FA1CE9 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				8570C1CD1ECEE0BA00FA1CE9 /* SearchViewController.swift */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		8570C1D21ECEE33300FA1CE9 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				8570C1D41ECEE35300FA1CE9 /* MessagesViewController.swift */,
+			);
+			name = Messages;
+			sourceTree = "<group>";
+		};
+		8570C1D31ECEE33A00FA1CE9 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				8570C1D61ECEE35F00FA1CE9 /* ProfileViewController.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
 		85DE9EBC1ECC8CD900291EF5 = {
 			isa = PBXGroup;
 			children = (
@@ -164,9 +214,18 @@
 				85DE9EC81ECC8CD900291EF5 /* AppDelegate.swift */,
 				85DE9ECA1ECC8CD900291EF5 /* ViewController.swift */,
 				85DE9ECC1ECC8CD900291EF5 /* Main.storyboard */,
+				8570C1DD1ECEE66300FA1CE9 /* Home.storyboard */,
+				8570C1CF1ECEE0D200FA1CE9 /* Search.storyboard */,
+				8570C1C71ECEDE3300FA1CE9 /* Notifications.storyboard */,
+				8570C1D81ECEE39B00FA1CE9 /* Messages.storyboard */,
+				8570C1DB1ECEE3F300FA1CE9 /* Profile.storyboard */,
 				85DE9F011ECCABBB00291EF5 /* Common */,
 				85DE9EF91ECC902F00291EF5 /* Home */,
 				85DE9EFA1ECC9D2700291EF5 /* Members */,
+				8570C1C91ECEDE4B00FA1CE9 /* Notifications */,
+				8570C1CC1ECEE08C00FA1CE9 /* Search */,
+				8570C1D21ECEE33300FA1CE9 /* Messages */,
+				8570C1D31ECEE33A00FA1CE9 /* Profile */,
 				85DE9ECF1ECC8CD900291EF5 /* Assets.xcassets */,
 				85DE9ED11ECC8CD900291EF5 /* LaunchScreen.storyboard */,
 				85DE9ED41ECC8CD900291EF5 /* Info.plist */,
@@ -362,12 +421,17 @@
 			files = (
 				859C41671ECDA01A00637295 /* MemberDetailTopCell.xib in Resources */,
 				859C417F1ECDFFD700637295 /* MemberAboutItemCell.xib in Resources */,
+				8570C1DF1ECEE66300FA1CE9 /* Home.storyboard in Resources */,
 				85DE9F001ECCA8D500291EF5 /* MemberCollectionViewCell.xib in Resources */,
 				859C41731ECDB6CD00637295 /* TopMenu.xib in Resources */,
+				8570C1D11ECEE0D200FA1CE9 /* Search.storyboard in Resources */,
 				85DE9ED31ECC8CD900291EF5 /* LaunchScreen.storyboard in Resources */,
+				8570C1DC1ECEE3F300FA1CE9 /* Profile.storyboard in Resources */,
 				85DE9ED01ECC8CD900291EF5 /* Assets.xcassets in Resources */,
+				8570C1C81ECEDE3300FA1CE9 /* Notifications.storyboard in Resources */,
 				859C416D1ECDB1D200637295 /* MemberFeedItemCell.xib in Resources */,
 				85DE9ECE1ECC8CD900291EF5 /* Main.storyboard in Resources */,
+				8570C1DA1ECEE39B00FA1CE9 /* Messages.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,15 +506,19 @@
 			files = (
 				859C41631ECD951A00637295 /* MemberViewController.swift in Sources */,
 				85DE9EFC1ECC9D3F00291EF5 /* MembersViewController.swift in Sources */,
+				8570C1D71ECEE35F00FA1CE9 /* ProfileViewController.swift in Sources */,
 				85DE9EFF1ECCA8D500291EF5 /* MemberCollectionViewCell.swift in Sources */,
+				8570C1D51ECEE35300FA1CE9 /* MessagesViewController.swift in Sources */,
 				85DE9F071ECCACB100291EF5 /* MemberViewModel.swift in Sources */,
 				85DE9ECB1ECC8CD900291EF5 /* ViewController.swift in Sources */,
 				859C41691ECDA70900637295 /* MemberDetailTopViewModel.swift in Sources */,
 				859C416C1ECDB1D200637295 /* MemberFeedItemCell.swift in Sources */,
 				85DE9EC91ECC8CD900291EF5 /* AppDelegate.swift in Sources */,
 				85DE9F031ECCABCD00291EF5 /* CellRepresentable.swift in Sources */,
+				8570C1CB1ECEDE6200FA1CE9 /* NotificationsViewController.swift in Sources */,
 				859C417E1ECDFFD700637295 /* MemberAboutItemCell.swift in Sources */,
 				85DE9EF81ECC902B00291EF5 /* HomeViewController.swift in Sources */,
+				8570C1CE1ECEE0BA00FA1CE9 /* SearchViewController.swift in Sources */,
 				859C416F1ECDB39D00637295 /* MemberFeedItemViewModel.swift in Sources */,
 				859C41811ECE006500637295 /* MemberAboutItemViewModel.swift in Sources */,
 				859C41661ECDA01A00637295 /* MemberDetailTopCell.swift in Sources */,
@@ -491,6 +559,30 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		8570C1CF1ECEE0D200FA1CE9 /* Search.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8570C1D01ECEE0D200FA1CE9 /* Base */,
+			);
+			name = Search.storyboard;
+			sourceTree = "<group>";
+		};
+		8570C1D81ECEE39B00FA1CE9 /* Messages.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8570C1D91ECEE39B00FA1CE9 /* Base */,
+			);
+			name = Messages.storyboard;
+			sourceTree = "<group>";
+		};
+		8570C1DD1ECEE66300FA1CE9 /* Home.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8570C1DE1ECEE66300FA1CE9 /* Base */,
+			);
+			name = Home.storyboard;
+			sourceTree = "<group>";
+		};
 		85DE9ECC1ECC8CD900291EF5 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
