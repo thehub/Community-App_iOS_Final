@@ -20,6 +20,10 @@ class CompaniesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if(traitCollection.forceTouchCapability == .available){
+            registerForPreviewing(with: self, sourceView: self.collectionView)
+        }
+
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib.init(nibName: "CompanyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CompanyCell")
@@ -85,4 +89,34 @@ extension CompaniesViewController: UICollectionViewDelegateFlowLayout {
         return data[indexPath.item].cellSize
         
     }
+}
+
+extension CompaniesViewController: UIViewControllerPreviewingDelegate {
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        guard let indexPath = collectionView.indexPathForItem(at: location) else { return nil }
+        guard let cell = collectionView.cellForItem(at: indexPath) else { return nil }
+        
+        var detailVC: UIViewController!
+        
+        if let vm = data[indexPath.item] as? CompanyViewModel {
+            selectedVM = vm
+            detailVC = storyboard?.instantiateViewController(withIdentifier: "CompanyViewController")
+            (detailVC as! CompanyViewController).company = selectedVM?.company
+            
+            //        detailVC.preferredContentSize = CGSize(width: 0.0, height: 300)
+            previewingContext.sourceRect = cell.frame
+            
+            return detailVC
+        }
+        
+        return nil
+        
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        show(viewControllerToCommit, sender: self)
+    }
+    
 }

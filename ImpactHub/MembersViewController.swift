@@ -20,6 +20,10 @@ class MembersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if(traitCollection.forceTouchCapability == .available){
+            registerForPreviewing(with: self, sourceView: self.collectionView)
+        }
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib.init(nibName: "MemberCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MemberCell")
@@ -87,4 +91,34 @@ extension MembersViewController: UICollectionViewDelegateFlowLayout {
         return data[indexPath.item].cellSize
         
     }
+}
+
+extension MembersViewController: UIViewControllerPreviewingDelegate {
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        guard let indexPath = collectionView.indexPathForItem(at: location) else { return nil }
+        guard let cell = collectionView.cellForItem(at: indexPath) else { return nil }
+
+        var detailVC: UIViewController!
+
+        if let vm = data[indexPath.item] as? MemberViewModel {
+            selectedVM = vm
+            detailVC = storyboard?.instantiateViewController(withIdentifier: "MemberViewController")
+            (detailVC as! MemberViewController).member = selectedVM?.member
+
+            //        detailVC.preferredContentSize = CGSize(width: 0.0, height: 300)
+            previewingContext.sourceRect = cell.frame
+            
+            return detailVC
+        }
+        
+        return nil
+        
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        show(viewControllerToCommit, sender: self)
+    }
+    
 }
