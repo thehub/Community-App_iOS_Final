@@ -21,6 +21,11 @@ class JobViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if(traitCollection.forceTouchCapability == .available){
+            registerForPreviewing(with: self, sourceView: self.companyButton)
+        }
+
 
         nameLabel.text = job.name
         companyButton.setTitle(job.company.name, for: .normal)
@@ -52,4 +57,25 @@ class JobViewController: UIViewController {
         performSegue(withIdentifier: "ShowCompany", sender: self)
     }
 
+}
+
+extension JobViewController: UIViewControllerPreviewingDelegate {
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        var detailVC: UIViewController!
+        detailVC = storyboard?.instantiateViewController(withIdentifier: "CompanyViewController")
+        (detailVC as! CompanyViewController).company = job.company
+        
+        //        detailVC.preferredContentSize = CGSize(width: 0.0, height: 300)
+        previewingContext.sourceRect = companyButton.frame
+        
+        return detailVC
+        
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        show(viewControllerToCommit, sender: self)
+    }
+    
 }
