@@ -39,9 +39,7 @@ class CompaniesViewController: UIViewController {
         self.data.append(viewModel2)
         self.data.append(viewModel3)
         self.data.append(viewModel4)
-        
-        
-        // Do any additional setup after loading the view.
+
     }
 
     override func didReceiveMemoryWarning() {
