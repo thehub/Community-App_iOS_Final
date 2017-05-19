@@ -20,7 +20,20 @@
                     <view key="view" contentMode="scaleToFill" id="vwx-kq-vgY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="B23-9a-mey">
+                                <rect key="frame" x="118" y="72" width="139" height="29"/>
+                                <segments>
+                                    <segment title="Inbox"/>
+                                    <segment title="Contacts"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="B23-9a-mey" firstAttribute="centerX" secondItem="vwx-kq-vgY" secondAttribute="centerX" id="Std-YP-UpY"/>
+                            <constraint firstItem="B23-9a-mey" firstAttribute="top" secondItem="iiQ-ke-vmb" secondAttribute="bottom" constant="8" id="czL-GY-Jnl"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Messages" id="Ur0-iC-cV7">
                         <barButtonItem key="backBarButtonItem" title=" " id="eTH-5P-C4b"/>

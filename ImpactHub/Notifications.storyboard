@@ -20,7 +20,20 @@
                     <view key="view" contentMode="scaleToFill" id="14Q-yo-SKK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Gou-aG-j1w">
+                                <rect key="frame" x="102.5" y="72" width="169" height="29"/>
+                                <segments>
+                                    <segment title="Hub"/>
+                                    <segment title="Community"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Gou-aG-j1w" firstAttribute="centerX" secondItem="14Q-yo-SKK" secondAttribute="centerX" id="Ydu-LS-9Ho"/>
+                            <constraint firstItem="Gou-aG-j1w" firstAttribute="top" secondItem="uPR-vw-ZVo" secondAttribute="bottom" constant="8" id="sk0-XU-XaK"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Notifications" id="iD6-BT-L6x">
                         <barButtonItem key="backBarButtonItem" title=" " id="kac-cu-zfC"/>
