@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CompanyCell" id="gTV-IL-0wX" customClass="CompanyCollectionViewCell" customModule="ImpactHub" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="250"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="250"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vxd-l7-d1Q">
+                        <rect key="frame" x="125" y="20" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="Wuy-d5-pzt"/>
+                            <constraint firstAttribute="height" constant="50" id="mgk-cA-cS8"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FkQ-uN-lsm">
+                        <rect key="frame" x="131.5" y="78" width="37" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFk-uP-zz8">
+                        <rect key="frame" x="132.5" y="103" width="35" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xzv-i7-49Q">
+                        <rect key="frame" x="132" y="128" width="35" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Xzv-i7-49Q" firstAttribute="centerX" secondItem="Vxd-l7-d1Q" secondAttribute="centerX" id="6TD-yz-AII"/>
+                <constraint firstItem="FkQ-uN-lsm" firstAttribute="top" secondItem="Vxd-l7-d1Q" secondAttribute="bottom" constant="8" id="AjH-1r-mIN"/>
+                <constraint firstItem="Vxd-l7-d1Q" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="Avc-ya-32L"/>
+                <constraint firstItem="qFk-uP-zz8" firstAttribute="centerX" secondItem="Vxd-l7-d1Q" secondAttribute="centerX" id="CEQ-Ku-r64"/>
+                <constraint firstItem="qFk-uP-zz8" firstAttribute="top" secondItem="FkQ-uN-lsm" secondAttribute="bottom" constant="8" id="DlB-C9-hr2"/>
+                <constraint firstItem="Vxd-l7-d1Q" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="aqQ-fX-jkQ"/>
+                <constraint firstItem="Xzv-i7-49Q" firstAttribute="top" secondItem="qFk-uP-zz8" secondAttribute="bottom" constant="8" id="m9n-Io-bdG"/>
+                <constraint firstItem="FkQ-uN-lsm" firstAttribute="centerX" secondItem="Vxd-l7-d1Q" secondAttribute="centerX" id="zUc-Gu-KaK"/>
+            </constraints>
+            <connections>
+                <outlet property="locationNameLabel" destination="Xzv-i7-49Q" id="cV6-Kj-uFP"/>
+                <outlet property="nameLabel" destination="FkQ-uN-lsm" id="qEV-ZT-f10"/>
+                <outlet property="profileImageView" destination="Vxd-l7-d1Q" id="XGc-bH-gLW"/>
+                <outlet property="typeLabel" destination="qFk-uP-zz8" id="e9o-yH-P47"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>
