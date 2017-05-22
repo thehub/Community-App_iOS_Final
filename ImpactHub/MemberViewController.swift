@@ -14,6 +14,7 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
     
 
     @IBOutlet weak var connectButton: UIButton!
+    @IBOutlet weak var titleLabelContainerView: UIView!
     @IBOutlet weak var titleLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var topMenu: TopMenu!
@@ -131,18 +132,19 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         else if scrollView.contentOffset.y < 200 && topMenu.isShow {
             topMenu.hide()
         }
+
         
+        // Sync titleLabel
         let newTitleYPos = titleLabelTopConstraintDefult - scrollView.contentOffset.y
-        if newTitleYPos > -195 {
+        let newTitleYPosConverted = titleLabelContainerView.convert(CGPoint(x: 0, y: newTitleYPos), to: self.view)
+        
+        if newTitleYPosConverted.y > 30 {
             titleLabelTopConstraint.constant = newTitleYPos
         }
         else {
-            titleLabelTopConstraint.constant = -195
+            let fixPoint = self.view.convert(CGPoint(x: 0, y: 30), to: titleLabelContainerView)
+            titleLabelTopConstraint.constant = fixPoint.y
         }
-        
-        
-        
-        
     }
     
     @IBAction func connectTap(_ sender: Any) {
