@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -361,12 +362,24 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQt-LW-r8T">
-                                <rect key="frame" x="163" y="100" width="49.5" height="23"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8fr-sp-PAs">
+                                <rect key="frame" x="16" y="190" width="343" height="300"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQt-LW-r8T">
+                                        <rect key="frame" x="147" y="120" width="49.5" height="23"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="mQt-LW-r8T" firstAttribute="top" secondItem="8fr-sp-PAs" secondAttribute="top" constant="120" id="Yg9-K6-EtQ"/>
+                                    <constraint firstAttribute="height" constant="300" id="dvu-og-doy"/>
+                                    <constraint firstItem="mQt-LW-r8T" firstAttribute="centerX" secondItem="8fr-sp-PAs" secondAttribute="centerX" id="oeE-3o-DQe"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D7m-9w-jg5" customClass="TopMenu" customModule="ImpactHub" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="80"/>
                                 <constraints>
@@ -391,16 +404,17 @@
                         <constraints>
                             <constraint firstItem="VB6-Ch-zvJ" firstAttribute="top" secondItem="g0Z-6H-bcJ" secondAttribute="bottom" id="4cN-eP-sle"/>
                             <constraint firstItem="D7m-9w-jg5" firstAttribute="top" secondItem="g0Z-6H-bcJ" secondAttribute="bottom" id="6A2-JP-gO9"/>
+                            <constraint firstItem="8fr-sp-PAs" firstAttribute="centerY" secondItem="VB6-Ch-zvJ" secondAttribute="centerY" id="8Ze-Y6-9jC"/>
+                            <constraint firstItem="8fr-sp-PAs" firstAttribute="leading" secondItem="qRb-cA-ujY" secondAttribute="leadingMargin" id="Dgd-yP-mdo"/>
                             <constraint firstAttribute="bottom" secondItem="KiW-q6-9OO" secondAttribute="bottom" id="Khi-EF-ayo"/>
                             <constraint firstItem="VB6-Ch-zvJ" firstAttribute="leading" secondItem="qRb-cA-ujY" secondAttribute="leading" id="M2U-Ma-qgi"/>
                             <constraint firstItem="KiW-q6-9OO" firstAttribute="top" secondItem="VB6-Ch-zvJ" secondAttribute="bottom" id="Ofv-T9-gdO"/>
                             <constraint firstAttribute="trailing" secondItem="D7m-9w-jg5" secondAttribute="trailing" id="Y1y-8m-FJE"/>
                             <constraint firstItem="D7m-9w-jg5" firstAttribute="leading" secondItem="qRb-cA-ujY" secondAttribute="leading" id="axH-Ch-cl2"/>
-                            <constraint firstItem="mQt-LW-r8T" firstAttribute="top" secondItem="qRb-cA-ujY" secondAttribute="top" constant="100" id="bLr-4g-jnn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8fr-sp-PAs" secondAttribute="trailing" id="d0l-b0-kqL"/>
                             <constraint firstItem="KiW-q6-9OO" firstAttribute="leading" secondItem="qRb-cA-ujY" secondAttribute="leading" id="lue-lh-FdG"/>
                             <constraint firstAttribute="trailing" secondItem="KiW-q6-9OO" secondAttribute="trailing" id="qzw-qc-xhR"/>
                             <constraint firstAttribute="trailing" secondItem="VB6-Ch-zvJ" secondAttribute="trailing" id="rv1-Sj-GpY"/>
-                            <constraint firstItem="mQt-LW-r8T" firstAttribute="centerX" secondItem="qRb-cA-ujY" secondAttribute="centerX" id="zFd-3Q-JyV"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
@@ -409,7 +423,7 @@
                         <outlet property="collectionView" destination="VB6-Ch-zvJ" id="JTA-zh-Ptp"/>
                         <outlet property="connectButton" destination="KiW-q6-9OO" id="t6p-Q6-P06"/>
                         <outlet property="titleLabel" destination="mQt-LW-r8T" id="8IE-0e-SXw"/>
-                        <outlet property="titleLabelTopConstraint" destination="bLr-4g-jnn" id="PMM-dA-kN6"/>
+                        <outlet property="titleLabelTopConstraint" destination="Yg9-K6-EtQ" id="ZgI-Mc-rgW"/>
                         <outlet property="topMenu" destination="D7m-9w-jg5" id="NXx-Ul-QCd"/>
                     </connections>
                 </viewController>

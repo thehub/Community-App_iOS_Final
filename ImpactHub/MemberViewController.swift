@@ -24,7 +24,7 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
     var memberFeedData = [CellRepresentable]()
     var memberAboutData = [CellRepresentable]()
 
-    var titleLabelTopConstraintDefult: CGFloat = 265 + 168
+    var titleLabelTopConstraintDefult: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,13 +33,9 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
 
-    
         connectButton.setTitle("Connect with \(member.name)", for: .normal)
-        
-        titleLabel.text = member.name
-        titleLabelTopConstraintDefult = 215 + 50 + ((self.view.frame.height - 568)/2)
 
-        titleLabelTopConstraint.constant = titleLabelTopConstraintDefult
+        titleLabel.text = member.name
         
         collectionView.register(UINib.init(nibName: MemberDetailTopViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberDetailTopViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: MemberFeedItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberFeedItemViewModel.cellIdentifier)
@@ -73,6 +69,16 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    var didLayout = false
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if !didLayout {
+            didLayout = true
+            titleLabelTopConstraintDefult = titleLabelTopConstraint.constant
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -127,8 +133,11 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         }
         
         let newTitleYPos = titleLabelTopConstraintDefult - scrollView.contentOffset.y
-        if newTitleYPos > 30 {
+        if newTitleYPos > -195 {
             titleLabelTopConstraint.constant = newTitleYPos
+        }
+        else {
+            titleLabelTopConstraint.constant = -195
         }
         
         
