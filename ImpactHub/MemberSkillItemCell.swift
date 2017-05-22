@@ -1,14 +1,14 @@
 //
-//  MemberAboutItemCell.swift
+//  MemberSkillItemCell.swift
 //  ImpactHub
 //
-//  Created by Niklas on 18/05/2017.
+//  Created by Niklas on 22/05/2017.
 //  Copyright © 2017 Lightful Ltd. All rights reserved.
 //
 
 import UIKit
 
-class MemberAboutItemCell: UICollectionViewCell {
+class MemberSkillItemCell: UICollectionViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -16,9 +16,9 @@ class MemberAboutItemCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-    func setUp(vm: MemberAboutItemViewModel) {
-        titleLabel.text = vm.member.aboutMe
-    }
     
+    func setUp(vm: MemberSkillItemViewModel) {
+        titleLabel.text = "Skill"
+    }
+
 }

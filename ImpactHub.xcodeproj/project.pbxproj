@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85066FC51ED33E6F0032391A /* MemberSkillItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85066FC31ED33E6F0032391A /* MemberSkillItemCell.swift */; };
+		85066FC61ED33E6F0032391A /* MemberSkillItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85066FC41ED33E6F0032391A /* MemberSkillItemCell.xib */; };
+		85066FC81ED33F240032391A /* MemberSkillItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85066FC71ED33F240032391A /* MemberSkillItemViewModel.swift */; };
+		85066FCA1ED343160032391A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85066FC91ED343160032391A /* Utils.swift */; };
 		8570C1C81ECEDE3300FA1CE9 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1C71ECEDE3300FA1CE9 /* Notifications.storyboard */; };
 		8570C1CB1ECEDE6200FA1CE9 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1CA1ECEDE6200FA1CE9 /* NotificationsViewController.swift */; };
 		8570C1CE1ECEE0BA00FA1CE9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1CD1ECEE0BA00FA1CE9 /* SearchViewController.swift */; };
@@ -85,6 +89,10 @@
 
 /* Begin PBXFileReference section */
 		85066FC21ED2EF100032391A /* ImpactHub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImpactHub.entitlements; sourceTree = "<group>"; };
+		85066FC31ED33E6F0032391A /* MemberSkillItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberSkillItemCell.swift; sourceTree = "<group>"; };
+		85066FC41ED33E6F0032391A /* MemberSkillItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberSkillItemCell.xib; sourceTree = "<group>"; };
+		85066FC71ED33F240032391A /* MemberSkillItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberSkillItemViewModel.swift; sourceTree = "<group>"; };
+		85066FC91ED343160032391A /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		8570C1C71ECEDE3300FA1CE9 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		8570C1CA1ECEDE6200FA1CE9 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		8570C1CD1ECEE0BA00FA1CE9 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -346,6 +354,8 @@
 				859C416B1ECDB1D200637295 /* MemberFeedItemCell.xib */,
 				859C417C1ECDFFD700637295 /* MemberAboutItemCell.swift */,
 				859C417D1ECDFFD700637295 /* MemberAboutItemCell.xib */,
+				85066FC31ED33E6F0032391A /* MemberSkillItemCell.swift */,
+				85066FC41ED33E6F0032391A /* MemberSkillItemCell.xib */,
 				8570C1E01ECEE9C400FA1CE9 /* MembersSearchViewController.swift */,
 			);
 			name = Members;
@@ -354,6 +364,7 @@
 		85DE9F011ECCABBB00291EF5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				85066FC91ED343160032391A /* Utils.swift */,
 				85DE9F021ECCABCD00291EF5 /* CellRepresentable.swift */,
 				859C41701ECDB6BF00637295 /* TopMenu.swift */,
 				859C41721ECDB6CD00637295 /* TopMenu.xib */,
@@ -381,6 +392,7 @@
 				859C41681ECDA70900637295 /* MemberDetailTopViewModel.swift */,
 				859C416E1ECDB39D00637295 /* MemberFeedItemViewModel.swift */,
 				859C41801ECE006500637295 /* MemberAboutItemViewModel.swift */,
+				85066FC71ED33F240032391A /* MemberSkillItemViewModel.swift */,
 				8570C1F71ECF15CE00FA1CE9 /* CompanyDetailTopViewModel.swift */,
 				8570C1FF1ECF1B0500FA1CE9 /* CompanyAboutViewModel.swift */,
 			);
@@ -509,6 +521,7 @@
 				8570C20D1ECF253000FA1CE9 /* JobCollectionViewCell.xib in Resources */,
 				859C41671ECDA01A00637295 /* MemberDetailTopCell.xib in Resources */,
 				859C417F1ECDFFD700637295 /* MemberAboutItemCell.xib in Resources */,
+				85066FC61ED33E6F0032391A /* MemberSkillItemCell.xib in Resources */,
 				8570C1DF1ECEE66300FA1CE9 /* Home.storyboard in Resources */,
 				85DE9F001ECCA8D500291EF5 /* MemberCollectionViewCell.xib in Resources */,
 				859C41731ECDB6CD00637295 /* TopMenu.xib in Resources */,
@@ -609,6 +622,7 @@
 				859C416C1ECDB1D200637295 /* MemberFeedItemCell.swift in Sources */,
 				8570C1F81ECF15CE00FA1CE9 /* CompanyDetailTopViewModel.swift in Sources */,
 				8570C1FA1ECF15E800FA1CE9 /* CompanyDetailTopCell.swift in Sources */,
+				85066FCA1ED343160032391A /* Utils.swift in Sources */,
 				8570C1E11ECEE9C400FA1CE9 /* MembersSearchViewController.swift in Sources */,
 				85DE9EC91ECC8CD900291EF5 /* AppDelegate.swift in Sources */,
 				85DE9F031ECCABCD00291EF5 /* CellRepresentable.swift in Sources */,
@@ -625,7 +639,9 @@
 				859C41811ECE006500637295 /* MemberAboutItemViewModel.swift in Sources */,
 				8570C1EF1ECF04E800FA1CE9 /* CompanyCollectionViewCell.swift in Sources */,
 				859C41661ECDA01A00637295 /* MemberDetailTopCell.swift in Sources */,
+				85066FC81ED33F240032391A /* MemberSkillItemViewModel.swift in Sources */,
 				8570C20F1ECF291000FA1CE9 /* JobViewController.swift in Sources */,
+				85066FC51ED33E6F0032391A /* MemberSkillItemCell.swift in Sources */,
 				859C41711ECDB6BF00637295 /* TopMenu.swift in Sources */,
 				85DE9F091ECCACCB00291EF5 /* Member.swift in Sources */,
 				8570C1F21ECF0BBC00FA1CE9 /* CompaniesSearchViewController.swift in Sources */,

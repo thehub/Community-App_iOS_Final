@@ -41,6 +41,7 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         collectionView.register(UINib.init(nibName: MemberDetailTopViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberDetailTopViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: MemberFeedItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberFeedItemViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: MemberAboutItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberAboutItemViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: MemberSkillItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberSkillItemViewModel.cellIdentifier)
 
         topMenu.delegate = self
         
@@ -62,9 +63,9 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         var data2 = [CellRepresentable]()
         data2.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
         data2.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
-        data2.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
-        data2.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
-        data2.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
+        data2.append(MemberSkillItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 40)))
+        data2.append(MemberSkillItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 40)))
+        data2.append(MemberSkillItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 40)))
         self.memberAboutData = data2
 
         
@@ -90,6 +91,13 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        
+        if let vm = data[indexPath.item] as? MemberAboutItemViewModel {
+            let cellWidth: CGFloat = self.collectionView.frame.width
+            let height = vm.member.aboutMe.height(withConstrainedWidth: cellWidth, font: UIFont.systemFont(ofSize: 17)) + 50
+            return CGSize(width: view.frame.width, height: height)
+        }
         
         var cellSize = data[indexPath.item].cellSize
         if cellSize == .zero {

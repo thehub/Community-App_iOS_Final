@@ -13,5 +13,6 @@ struct Member {
     var job: String
     var photo: String
     var blurb: String
+    var aboutMe: String
     var locationName: String
 }
