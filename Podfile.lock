@@ -7,6 +7,7 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.4.0):
     - CocoaLumberjack/Default
+  - DeckTransition (0.3.0)
   - Kingfisher (3.9.1)
   - PromiseKit (4.2.0):
     - PromiseKit/Foundation (= 4.2.0)
@@ -46,6 +47,7 @@ PODS:
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
+  - DeckTransition
   - Kingfisher
   - PromiseKit
   - SalesforceAnalytics
@@ -55,6 +57,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
+  DeckTransition: 00ccc14e8a2347725241512d8b66ee5f0ae48116
   Kingfisher: 6729a0baaa458245bfb8cd5a1296c71c10d6eb6c
   PromiseKit: 08dfb783c161ddcd95b7912421f14c5113fd8318
   SalesforceAnalytics: 30a23e143fc10859f6ced7c66814506568708a73
@@ -62,6 +65,6 @@ SPEC CHECKSUMS:
   SlackTextViewController: fbcdadbb8090673f604484ff5b6eb8d77baed42a
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 8e22f2dd79b021753cddd314d6f9722ede390a29
+PODFILE CHECKSUM: e3c89c36775ae83686c14944097a9fc0fd26b7ca
 
 COCOAPODS: 1.2.1
