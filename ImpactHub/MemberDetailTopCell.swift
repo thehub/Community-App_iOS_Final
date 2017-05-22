@@ -10,6 +10,7 @@ import UIKit
 
 class MemberDetailTopCell: UICollectionViewCell {
 
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var jobLabel: UILabel!

@@ -84,6 +84,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		85066FC21ED2EF100032391A /* ImpactHub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImpactHub.entitlements; sourceTree = "<group>"; };
 		8570C1C71ECEDE3300FA1CE9 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		8570C1CA1ECEDE6200FA1CE9 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		8570C1CD1ECEE0BA00FA1CE9 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -279,6 +280,7 @@
 		85DE9EC71ECC8CD900291EF5 /* ImpactHub */ = {
 			isa = PBXGroup;
 			children = (
+				85066FC21ED2EF100032391A /* ImpactHub.entitlements */,
 				85DE9F041ECCAC7200291EF5 /* Models */,
 				85DE9F051ECCAC8200291EF5 /* ViewModels */,
 				85DE9EC81ECC8CD900291EF5 /* AppDelegate.swift */,
@@ -458,6 +460,11 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = U4J38P2V5H;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					85DE9ED81ECC8CD900291EF5 = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -800,6 +807,7 @@
 			baseConfigurationReference = 9B1485DED7708F1D61AE0572 /* Pods-ImpactHub.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ImpactHub/ImpactHub.entitlements;
 				DEVELOPMENT_TEAM = U4J38P2V5H;
 				INFOPLIST_FILE = ImpactHub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -814,6 +822,7 @@
 			baseConfigurationReference = DED6C43230136AE901DCA5B3 /* Pods-ImpactHub.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ImpactHub/ImpactHub.entitlements;
 				DEVELOPMENT_TEAM = U4J38P2V5H;
 				INFOPLIST_FILE = ImpactHub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

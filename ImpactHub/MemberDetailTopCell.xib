@@ -28,7 +28,7 @@
                                     <constraint firstAttribute="height" constant="70" id="o3C-uw-Bjw"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzG-7F-c8e">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzG-7F-c8e">
                                 <rect key="frame" x="125.5" y="102" width="49.5" height="23"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <nil key="textColor"/>
@@ -104,6 +104,7 @@
             </constraints>
             <connections>
                 <outlet property="blurbLabel" destination="mcG-Ur-bPh" id="gWF-bV-Hed"/>
+                <outlet property="containerView" destination="lH2-y5-Nlr" id="5OI-TF-fuX"/>
                 <outlet property="facebookImageView" destination="nM6-hp-BW6" id="ArL-SM-tOx"/>
                 <outlet property="jobLabel" destination="XXE-ip-ZY6" id="mZr-yu-KUG"/>
                 <outlet property="locationNameLabel" destination="Urb-ZX-NKY" id="JpE-yG-QO8"/>

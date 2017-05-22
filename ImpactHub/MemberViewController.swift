@@ -14,6 +14,8 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
     
 
     @IBOutlet weak var connectButton: UIButton!
+    @IBOutlet weak var titleLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var topMenu: TopMenu!
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -22,10 +24,22 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
     var memberFeedData = [CellRepresentable]()
     var memberAboutData = [CellRepresentable]()
 
+    var titleLabelTopConstraintDefult: CGFloat = 265 + 168
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        
         connectButton.setTitle("Connect with \(member.name)", for: .normal)
+        
+        titleLabel.text = member.name
+        titleLabelTopConstraintDefult = 215 + 50 + ((self.view.frame.height - 568)/2)
+
+        titleLabelTopConstraint.constant = titleLabelTopConstraintDefult
         
         collectionView.register(UINib.init(nibName: MemberDetailTopViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberDetailTopViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: MemberFeedItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberFeedItemViewModel.cellIdentifier)
@@ -66,7 +80,8 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         
         var cellSize = data[indexPath.item].cellSize
         if cellSize == .zero {
-            cellSize = CGSize(width: view.frame.width, height: collectionView.frame.height)
+            let cellHeight = self.view.frame.height - self.connectButton.frame.height - ((self.navigationController?.navigationBar.frame.height) ?? 0)
+            cellSize = CGSize(width: view.frame.width, height: cellHeight)
         }
         return cellSize
         
@@ -104,6 +119,15 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         else if scrollView.contentOffset.y < 200 && topMenu.isShow {
             topMenu.hide()
         }
+        
+        let newTitleYPos = titleLabelTopConstraintDefult - scrollView.contentOffset.y
+        if newTitleYPos > 30 {
+            titleLabelTopConstraint.constant = newTitleYPos
+        }
+        
+        
+        
+        
     }
     
     @IBAction func connectTap(_ sender: Any) {
@@ -121,7 +145,32 @@ extension MemberViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return data[indexPath.item].cellInstance(collectionView, indexPath: indexPath)
+        
+        let cell = data[indexPath.item].cellInstance(collectionView, indexPath: indexPath)
+//        if let topCell = cell as? MemberDetailTopCell {
+//            debugPrint("container \(topCell.contentView.frame.size.height)")
+//            debugPrint("nameLabel \(topCell.nameLabel.frame.origin.y)")
+//            let newPoint = topCell.nameLabel.convert(topCell.nameLabel.frame.origin, to: self.view)
+//            debugPrint(newPoint.y)
+//            debugPrint(self.view.frame.height)
+//            titleLabelTopConstraintDefult = newPoint.y + 50 + ((self.view.frame.height - 568)/2)
+//            titleLabelTopConstraint.constant = titleLabelTopConstraintDefult
+
+//            "container 300.0"
+//            "nameLabel 102.0"
+//            215.5
+//            736.0
+            
+//            "container 300.0"
+//            "nameLabel 102.0"
+//            215.5
+//            568.0
+            
+            // 736 = 433
+
+//        }
+        
+        return cell
     }
 }
 
