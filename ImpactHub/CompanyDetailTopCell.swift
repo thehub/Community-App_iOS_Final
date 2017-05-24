@@ -9,6 +9,7 @@
 import UIKit
 
 class CompanyDetailTopCell: UICollectionViewCell {
+    @IBOutlet weak var websiteButton: UIButton!
 
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -34,10 +35,13 @@ class CompanyDetailTopCell: UICollectionViewCell {
         blurbLabel.text = vm.company.blurb
         locationNameLabel.text = vm.locationNameLong
         
+        websiteButton.setTitle(vm.company.website ?? "", for: .normal)
     }
     
     @IBAction func visitWebsiteTap(_ sender: Any) {
-        let url = URL(string: "http://\(vm.company.website)")!
+        guard let website = vm.company.website else { return }
+        
+        let url = URL(string: website)!
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         } else {

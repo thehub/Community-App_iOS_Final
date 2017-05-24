@@ -37,7 +37,7 @@ class APIClient {
     
     func getCompany(companyId:String) -> Promise<Company> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT id,Name FROM Account where id = '\(companyId)'", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT id,Name, website FROM Account where id = '\(companyId)'", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in

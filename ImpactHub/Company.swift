@@ -16,7 +16,7 @@ struct Company {
     var photo: String
     var blurb: String
     var locationName: String
-    var website: String
+    var website: String?
 
 }
 
@@ -36,7 +36,7 @@ extension Company {
         self.photo = ""
         self.blurb = "sddsfsd"
         self.locationName = "Amsterdam"
-        self.website = "http://bbc.co.uk"
+        self.website = json["Website"].string
     }
     
 }
