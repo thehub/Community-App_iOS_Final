@@ -22,7 +22,7 @@ class JobCollectionViewCell: UICollectionViewCell {
     func setUp(vm: JobViewModel) {
         nameLabel.text = vm.job.name
         typeLabel.text = vm.job.type
-        companyLabel.text = vm.job.company.name
+        companyLabel.text = vm.job.companyName
         locationNameLabel.text = vm.job.locationName
     }
 

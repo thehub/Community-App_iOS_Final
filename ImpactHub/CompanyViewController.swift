@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import PromiseKit
 
 class CompanyViewController: UIViewController, UICollectionViewDelegate, TopMenuDelegate, UICollectionViewDelegateFlowLayout {
 
-    var company: Company!
+    var company: Company?
+    var compnayId: String?
+    
     
 
     @IBOutlet weak var connectButton: UIButton!
@@ -25,29 +28,57 @@ class CompanyViewController: UIViewController, UICollectionViewDelegate, TopMenu
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if self.company != nil {
+            build()
+        }
+        else if let companyId = self.compnayId {
+            // Load in compnay
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            firstly {
+                APIClient.shared.getCompany(companyId: companyId)
+                }.then { item -> Void in
+                    self.company = item
+                    self.build()
+                }.always {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }.catch { error in
+                    debugPrint(error.localizedDescription)
+            }
+            
+        }
+        else {
+            debugPrint("No Company or companyId")
+        }
+        
+    }
+    
+    func build() {
+        guard let company = self.company else {
+            return
+        }
         connectButton.setTitle("Connect with \(company.name)", for: .normal)
         
         collectionView.register(UINib.init(nibName: CompanyDetailTopViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: CompanyDetailTopViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: CompanyAboutViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: CompanyAboutViewModel.cellIdentifier)
-
+        
         topMenu.delegate = self
         
         topMenu.setupWithItems(["About", "Projects", "Members"])
-
+        
         var data = [CellRepresentable]()
         data.append(CompanyDetailTopViewModel(company: company, cellSize: .zero)) // this will pick the full height instead
         data.append(CompanyAboutViewModel(company: company, cellSize: CGSize(width: view.frame.width, height: 450)))
         aboutData = data
         self.data = aboutData
-//
-//        var data2 = [CellRepresentable]()
-//        data2.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
-//        data2.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
-//        data2.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
-//        data2.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
-//        data2.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
-//        self.memberAboutData = data2
-
+        //
+        //        var data2 = [CellRepresentable]()
+        //        data2.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
+        //        data2.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
+        //        data2.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
+        //        data2.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
+        //        data2.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
+        //        self.memberAboutData = data2
+        
         
         collectionView.delegate = self
         collectionView.dataSource = self

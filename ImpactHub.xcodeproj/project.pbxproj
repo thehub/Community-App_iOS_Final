@@ -54,6 +54,8 @@
 		859C417F1ECDFFD700637295 /* MemberAboutItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859C417D1ECDFFD700637295 /* MemberAboutItemCell.xib */; };
 		859C41811ECE006500637295 /* MemberAboutItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859C41801ECE006500637295 /* MemberAboutItemViewModel.swift */; };
 		85B361381ED59D3800DC2DE0 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B361371ED59D3800DC2DE0 /* Notifications.swift */; };
+		85B3613A1ED59FD400DC2DE0 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B361391ED59FD400DC2DE0 /* APIClient.swift */; };
+		85B3613C1ED5A08600DC2DE0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B3613B1ED5A08600DC2DE0 /* Constants.swift */; };
 		85DE9EC91ECC8CD900291EF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE9EC81ECC8CD900291EF5 /* AppDelegate.swift */; };
 		85DE9ECB1ECC8CD900291EF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE9ECA1ECC8CD900291EF5 /* ViewController.swift */; };
 		85DE9ECE1ECC8CD900291EF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85DE9ECC1ECC8CD900291EF5 /* Main.storyboard */; };
@@ -137,6 +139,8 @@
 		859C417D1ECDFFD700637295 /* MemberAboutItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberAboutItemCell.xib; sourceTree = "<group>"; };
 		859C41801ECE006500637295 /* MemberAboutItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberAboutItemViewModel.swift; sourceTree = "<group>"; };
 		85B361371ED59D3800DC2DE0 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		85B361391ED59FD400DC2DE0 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		85B3613B1ED5A08600DC2DE0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		85DE9EC51ECC8CD900291EF5 /* ImpactHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImpactHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85DE9EC81ECC8CD900291EF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85DE9ECA1ECC8CD900291EF5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -291,6 +295,8 @@
 			isa = PBXGroup;
 			children = (
 				85066FC21ED2EF100032391A /* ImpactHub.entitlements */,
+				85B361391ED59FD400DC2DE0 /* APIClient.swift */,
+				85B3613B1ED5A08600DC2DE0 /* Constants.swift */,
 				85DE9F041ECCAC7200291EF5 /* Models */,
 				85DE9F051ECCAC8200291EF5 /* ViewModels */,
 				85DE9EC81ECC8CD900291EF5 /* AppDelegate.swift */,
@@ -618,6 +624,7 @@
 				85DE9F071ECCACB100291EF5 /* MemberViewModel.swift in Sources */,
 				8570C2001ECF1B0500FA1CE9 /* CompanyAboutViewModel.swift in Sources */,
 				8570C1E81ECF037F00FA1CE9 /* CompaniesViewController.swift in Sources */,
+				85B3613C1ED5A08600DC2DE0 /* Constants.swift in Sources */,
 				85DE9ECB1ECC8CD900291EF5 /* ViewController.swift in Sources */,
 				8570C2091ECF24A400FA1CE9 /* JobViewModel.swift in Sources */,
 				8570C1E31ECF028200FA1CE9 /* Company.swift in Sources */,
@@ -639,6 +646,7 @@
 				8570C20C1ECF253000FA1CE9 /* JobCollectionViewCell.swift in Sources */,
 				8570C1CE1ECEE0BA00FA1CE9 /* SearchViewController.swift in Sources */,
 				859C416F1ECDB39D00637295 /* MemberFeedItemViewModel.swift in Sources */,
+				85B3613A1ED59FD400DC2DE0 /* APIClient.swift in Sources */,
 				8570C1E51ECF030900FA1CE9 /* CompanyViewModel.swift in Sources */,
 				859C41811ECE006500637295 /* MemberAboutItemViewModel.swift in Sources */,
 				8570C1EF1ECF04E800FA1CE9 /* CompanyCollectionViewCell.swift in Sources */,

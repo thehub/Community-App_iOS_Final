@@ -47,7 +47,7 @@ class JobViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowCompany" {
             if let vc = segue.destination as? CompanyViewController {
-                vc.company = job.company
+                vc.compnayId = job.companyId
             }
         }
     }
