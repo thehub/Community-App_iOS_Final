@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		850072231EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850072221EE70D94008A725A /* MessageThreadMePicCell.swift */; };
+		850072241EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850072221EE70D94008A725A /* MessageThreadMePicCell.swift */; };
+		850072251EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850072221EE70D94008A725A /* MessageThreadMePicCell.swift */; };
+		850072271EE70E79008A725A /* MessagesThreadMePicVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850072261EE70E79008A725A /* MessagesThreadMePicVM.swift */; };
+		850072281EE70E79008A725A /* MessagesThreadMePicVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850072261EE70E79008A725A /* MessagesThreadMePicVM.swift */; };
+		850072291EE70E79008A725A /* MessagesThreadMePicVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850072261EE70E79008A725A /* MessagesThreadMePicVM.swift */; };
+		8500722B1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500722A1EE70F30008A725A /* MessageThreadThemPicCell.swift */; };
+		8500722C1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500722A1EE70F30008A725A /* MessageThreadThemPicCell.swift */; };
+		8500722D1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500722A1EE70F30008A725A /* MessageThreadThemPicCell.swift */; };
+		8500722F1EE70F56008A725A /* MessagesThreadThemPicVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500722E1EE70F55008A725A /* MessagesThreadThemPicVM.swift */; };
+		850072301EE70F56008A725A /* MessagesThreadThemPicVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500722E1EE70F55008A725A /* MessagesThreadThemPicVM.swift */; };
+		850072311EE70F56008A725A /* MessagesThreadThemPicVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500722E1EE70F55008A725A /* MessagesThreadThemPicVM.swift */; };
+		8501B9F51EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8501B9F41EE6FD2600F9EFFA /* MessagesThreadMeVM.swift */; };
+		8501B9F61EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8501B9F41EE6FD2600F9EFFA /* MessagesThreadMeVM.swift */; };
+		8501B9F71EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8501B9F41EE6FD2600F9EFFA /* MessagesThreadMeVM.swift */; };
+		8501B9F91EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8501B9F81EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift */; };
+		8501B9FA1EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8501B9F81EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift */; };
+		8501B9FB1EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8501B9F81EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift */; };
 		85066FC51ED33E6F0032391A /* MemberSkillItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85066FC31ED33E6F0032391A /* MemberSkillItemCell.swift */; };
 		85066FC61ED33E6F0032391A /* MemberSkillItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85066FC41ED33E6F0032391A /* MemberSkillItemCell.xib */; };
 		85066FC81ED33F240032391A /* MemberSkillItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85066FC71ED33F240032391A /* MemberSkillItemViewModel.swift */; };
@@ -61,6 +79,12 @@
 		8534340C1EE6BE11003C26F8 /* MessagesThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8534340B1EE6BE11003C26F8 /* MessagesThreadViewController.swift */; };
 		8534340D1EE6BE11003C26F8 /* MessagesThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8534340B1EE6BE11003C26F8 /* MessagesThreadViewController.swift */; };
 		8534340E1EE6BE11003C26F8 /* MessagesThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8534340B1EE6BE11003C26F8 /* MessagesThreadViewController.swift */; };
+		853434101EE6E9DC003C26F8 /* MessageThreadMeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8534340F1EE6E9DC003C26F8 /* MessageThreadMeCell.swift */; };
+		853434111EE6E9DC003C26F8 /* MessageThreadMeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8534340F1EE6E9DC003C26F8 /* MessageThreadMeCell.swift */; };
+		853434121EE6E9DC003C26F8 /* MessageThreadMeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8534340F1EE6E9DC003C26F8 /* MessageThreadMeCell.swift */; };
+		853434141EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853434131EE6E9F5003C26F8 /* MessageThreadThemCell.swift */; };
+		853434151EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853434131EE6E9F5003C26F8 /* MessageThreadThemCell.swift */; };
+		853434161EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853434131EE6E9F5003C26F8 /* MessageThreadThemCell.swift */; };
 		8570C1C81ECEDE3300FA1CE9 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1C71ECEDE3300FA1CE9 /* Notifications.storyboard */; };
 		8570C1CB1ECEDE6200FA1CE9 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1CA1ECEDE6200FA1CE9 /* NotificationsViewController.swift */; };
 		8570C1CE1ECEE0BA00FA1CE9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1CD1ECEE0BA00FA1CE9 /* SearchViewController.swift */; };
@@ -141,6 +165,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		850072221EE70D94008A725A /* MessageThreadMePicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageThreadMePicCell.swift; sourceTree = "<group>"; };
+		850072261EE70E79008A725A /* MessagesThreadMePicVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesThreadMePicVM.swift; sourceTree = "<group>"; };
+		8500722A1EE70F30008A725A /* MessageThreadThemPicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageThreadThemPicCell.swift; sourceTree = "<group>"; };
+		8500722E1EE70F55008A725A /* MessagesThreadThemPicVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesThreadThemPicVM.swift; sourceTree = "<group>"; };
+		8501B9F41EE6FD2600F9EFFA /* MessagesThreadMeVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesThreadMeVM.swift; sourceTree = "<group>"; };
+		8501B9F81EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesThreadThemVM.swift; sourceTree = "<group>"; };
 		85066FC21ED2EF100032391A /* ImpactHub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImpactHub.entitlements; sourceTree = "<group>"; };
 		85066FC31ED33E6F0032391A /* MemberSkillItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberSkillItemCell.swift; sourceTree = "<group>"; };
 		85066FC41ED33E6F0032391A /* MemberSkillItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberSkillItemCell.xib; sourceTree = "<group>"; };
@@ -164,6 +194,8 @@
 		853434031EE6B7E8003C26F8 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Contact.swift; path = "../../iOS-membership/MembershipApp/Contact.swift"; sourceTree = "<group>"; };
 		853434071EE6B83E003C26F8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = "../../iOS-membership/MembershipApp/User.swift"; sourceTree = "<group>"; };
 		8534340B1EE6BE11003C26F8 /* MessagesThreadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesThreadViewController.swift; sourceTree = "<group>"; };
+		8534340F1EE6E9DC003C26F8 /* MessageThreadMeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadMeCell.swift; sourceTree = "<group>"; };
+		853434131EE6E9F5003C26F8 /* MessageThreadThemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadThemCell.swift; sourceTree = "<group>"; };
 		8570C1C71ECEDE3300FA1CE9 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		8570C1CA1ECEDE6200FA1CE9 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		8570C1CD1ECEE0BA00FA1CE9 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -281,6 +313,10 @@
 			isa = PBXGroup;
 			children = (
 				853433CE1EE6B726003C26F8 /* MessagesVM.swift */,
+				8501B9F41EE6FD2600F9EFFA /* MessagesThreadMeVM.swift */,
+				850072261EE70E79008A725A /* MessagesThreadMePicVM.swift */,
+				8501B9F81EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift */,
+				8500722E1EE70F55008A725A /* MessagesThreadThemPicVM.swift */,
 			);
 			name = Messages;
 			sourceTree = "<group>";
@@ -327,6 +363,10 @@
 				853433C91EE6B547003C26F8 /* MessagesCell.swift */,
 				853433CA1EE6B547003C26F8 /* MessagesCell.xib */,
 				8534340B1EE6BE11003C26F8 /* MessagesThreadViewController.swift */,
+				8534340F1EE6E9DC003C26F8 /* MessageThreadMeCell.swift */,
+				850072221EE70D94008A725A /* MessageThreadMePicCell.swift */,
+				853434131EE6E9F5003C26F8 /* MessageThreadThemCell.swift */,
+				8500722A1EE70F30008A725A /* MessageThreadThemPicCell.swift */,
 			);
 			name = Messages;
 			sourceTree = "<group>";
@@ -732,10 +772,12 @@
 				8570C2001ECF1B0500FA1CE9 /* CompanyAboutViewModel.swift in Sources */,
 				853433E81EE6B789003C26F8 /* Reference.swift in Sources */,
 				8570C1E81ECF037F00FA1CE9 /* CompaniesViewController.swift in Sources */,
+				8500722F1EE70F56008A725A /* MessagesThreadThemPicVM.swift in Sources */,
 				853433FA1EE6B78A003C26F8 /* MentionCompletion.swift in Sources */,
 				85B3613C1ED5A08600DC2DE0 /* Constants.swift in Sources */,
 				85DE9ECB1ECC8CD900291EF5 /* ViewController.swift in Sources */,
 				8570C2091ECF24A400FA1CE9 /* JobViewModel.swift in Sources */,
+				8501B9F51EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
 				8570C1E31ECF028200FA1CE9 /* Company.swift in Sources */,
 				859C41691ECDA70900637295 /* MemberDetailTopViewModel.swift in Sources */,
 				859C416C1ECDB1D200637295 /* MemberFeedItemCell.swift in Sources */,
@@ -755,8 +797,10 @@
 				853433E51EE6B789003C26F8 /* Conversation.swift in Sources */,
 				8570C1CB1ECEDE6200FA1CE9 /* NotificationsViewController.swift in Sources */,
 				859C417E1ECDFFD700637295 /* MemberAboutItemCell.swift in Sources */,
+				853434101EE6E9DC003C26F8 /* MessageThreadMeCell.swift in Sources */,
 				8570C2051ECF21E800FA1CE9 /* JobsViewController.swift in Sources */,
 				85DE9EF81ECC902B00291EF5 /* HomeViewController.swift in Sources */,
+				853434141EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
 				8570C2071ECF233700FA1CE9 /* JobsSearchViewController.swift in Sources */,
 				8570C20C1ECF253000FA1CE9 /* JobCollectionViewCell.swift in Sources */,
 				8570C1CE1ECEE0BA00FA1CE9 /* SearchViewController.swift in Sources */,
@@ -767,9 +811,13 @@
 				859C41811ECE006500637295 /* MemberAboutItemViewModel.swift in Sources */,
 				8570C1EF1ECF04E800FA1CE9 /* CompanyCollectionViewCell.swift in Sources */,
 				853434001EE6B78A003C26F8 /* Message.swift in Sources */,
+				850072271EE70E79008A725A /* MessagesThreadMePicVM.swift in Sources */,
 				859C41661ECDA01A00637295 /* MemberDetailTopCell.swift in Sources */,
 				853433F41EE6B789003C26F8 /* MessageSegment.swift in Sources */,
 				85066FC81ED33F240032391A /* MemberSkillItemViewModel.swift in Sources */,
+				850072231EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
+				8500722B1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
+				8501B9F91EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */,
 				8570C20F1ECF291000FA1CE9 /* JobViewController.swift in Sources */,
 				85066FC51ED33E6F0032391A /* MemberSkillItemCell.swift in Sources */,
 				859C41711ECDB6BF00637295 /* TopMenu.swift in Sources */,
@@ -789,17 +837,25 @@
 				853433F21EE6B789003C26F8 /* Group.swift in Sources */,
 				853433D01EE6B726003C26F8 /* MessagesVM.swift in Sources */,
 				853433E01EE6B789003C26F8 /* Comment.swift in Sources */,
+				853434111EE6E9DC003C26F8 /* MessageThreadMeCell.swift in Sources */,
+				8501B9F61EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
 				853433F51EE6B789003C26F8 /* MessageSegment.swift in Sources */,
 				853434091EE6B83E003C26F8 /* User.swift in Sources */,
 				853433F81EE6B78A003C26F8 /* ChatterActor.swift in Sources */,
+				8500722C1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
 				85DE9EDE1ECC8CD900291EF5 /* ImpactHubTests.swift in Sources */,
 				853433FE1EE6B78A003C26F8 /* Photo.swift in Sources */,
+				850072241EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
 				853433EF1EE6B789003C26F8 /* Post.swift in Sources */,
 				853433E91EE6B789003C26F8 /* Reference.swift in Sources */,
+				853434151EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
+				8501B9FA1EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */,
+				850072281EE70E79008A725A /* MessagesThreadMePicVM.swift in Sources */,
 				853433EC1EE6B789003C26F8 /* Subscription.swift in Sources */,
 				853433E61EE6B789003C26F8 /* Conversation.swift in Sources */,
 				853433FB1EE6B78A003C26F8 /* MentionCompletion.swift in Sources */,
 				853434051EE6B7E8003C26F8 /* Contact.swift in Sources */,
+				850072301EE70F56008A725A /* MessagesThreadThemPicVM.swift in Sources */,
 				8534340D1EE6BE11003C26F8 /* MessagesThreadViewController.swift in Sources */,
 				853433E31EE6B789003C26F8 /* ChatterSegmentBuilder.swift in Sources */,
 				853434011EE6B78A003C26F8 /* Message.swift in Sources */,
@@ -813,17 +869,25 @@
 				853433F31EE6B789003C26F8 /* Group.swift in Sources */,
 				853433D11EE6B726003C26F8 /* MessagesVM.swift in Sources */,
 				853433E11EE6B789003C26F8 /* Comment.swift in Sources */,
+				853434121EE6E9DC003C26F8 /* MessageThreadMeCell.swift in Sources */,
+				8501B9F71EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
 				853433F61EE6B789003C26F8 /* MessageSegment.swift in Sources */,
 				8534340A1EE6B83E003C26F8 /* User.swift in Sources */,
 				853433F91EE6B78A003C26F8 /* ChatterActor.swift in Sources */,
+				8500722D1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
 				85DE9EE91ECC8CD900291EF5 /* ImpactHubUITests.swift in Sources */,
 				853433FF1EE6B78A003C26F8 /* Photo.swift in Sources */,
+				850072251EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
 				853433F01EE6B789003C26F8 /* Post.swift in Sources */,
 				853433EA1EE6B789003C26F8 /* Reference.swift in Sources */,
+				853434161EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
+				8501B9FB1EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */,
+				850072291EE70E79008A725A /* MessagesThreadMePicVM.swift in Sources */,
 				853433ED1EE6B789003C26F8 /* Subscription.swift in Sources */,
 				853433E71EE6B789003C26F8 /* Conversation.swift in Sources */,
 				853433FC1EE6B78A003C26F8 /* MentionCompletion.swift in Sources */,
 				853434061EE6B7E8003C26F8 /* Contact.swift in Sources */,
+				850072311EE70F56008A725A /* MessagesThreadThemPicVM.swift in Sources */,
 				8534340E1EE6BE11003C26F8 /* MessagesThreadViewController.swift in Sources */,
 				853433E41EE6B789003C26F8 /* ChatterSegmentBuilder.swift in Sources */,
 				853434021EE6B78A003C26F8 /* Message.swift in Sources */,

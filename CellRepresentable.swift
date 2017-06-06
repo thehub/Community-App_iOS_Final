@@ -13,3 +13,7 @@ protocol CellRepresentable {
     func cellInstance(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell
 }
 
+protocol TableCellRepresentable {
+    var cellSize: CGSize { get set }
+    func cellInstance(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
+}

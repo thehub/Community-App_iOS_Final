@@ -14,6 +14,7 @@ target 'ImpactHub' do
     pod 'PromiseKit'
     pod 'SwiftyJSON'
     pod 'DeckTransition'
+    pod 'ReverseExtension'
     
 end
 
