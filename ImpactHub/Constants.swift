@@ -26,7 +26,7 @@ struct Constants {
     static let host = "https://lightfulmemberships-developer-edition.eu11.force.com"
     static var communityId : String {
         get {
-            return SFUserAccountManager.sharedInstance().currentCommunityId!
+            return SFUserAccountManager.sharedInstance().currentUser!.communityId!
         }
     }
     

@@ -315,3 +315,15 @@ extension NSAttributedString {
         return boundingBox.width
     }
 }
+
+extension NSMutableAttributedString {
+    
+    public func setAsLink(textToFind:String, linkURL:URL) -> Bool {
+        let foundRange = self.mutableString.range(of: textToFind)
+        if foundRange.location != NSNotFound {
+            self.addAttribute(NSLinkAttributeName, value: linkURL, range: foundRange)
+            return true
+        }
+        return false
+    }
+}
