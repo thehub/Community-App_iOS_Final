@@ -19,6 +19,18 @@
 		8500722F1EE70F56008A725A /* MessagesThreadThemPicVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500722E1EE70F55008A725A /* MessagesThreadThemPicVM.swift */; };
 		850072301EE70F56008A725A /* MessagesThreadThemPicVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500722E1EE70F55008A725A /* MessagesThreadThemPicVM.swift */; };
 		850072311EE70F56008A725A /* MessagesThreadThemPicVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500722E1EE70F55008A725A /* MessagesThreadThemPicVM.swift */; };
+		850072341EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850072321EE711E4008A725A /* MessageThreadMeTimeCell.swift */; };
+		850072351EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850072321EE711E4008A725A /* MessageThreadMeTimeCell.swift */; };
+		850072361EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850072321EE711E4008A725A /* MessageThreadMeTimeCell.swift */; };
+		850072371EE711E4008A725A /* MessageThreadThemTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850072331EE711E4008A725A /* MessageThreadThemTimeCell.swift */; };
+		850072381EE711E4008A725A /* MessageThreadThemTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850072331EE711E4008A725A /* MessageThreadThemTimeCell.swift */; };
+		850072391EE711E4008A725A /* MessageThreadThemTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850072331EE711E4008A725A /* MessageThreadThemTimeCell.swift */; };
+		8500723C1EE7126C008A725A /* MessagesThreadMeTimeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500723A1EE7126C008A725A /* MessagesThreadMeTimeVM.swift */; };
+		8500723D1EE7126C008A725A /* MessagesThreadMeTimeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500723A1EE7126C008A725A /* MessagesThreadMeTimeVM.swift */; };
+		8500723E1EE7126C008A725A /* MessagesThreadMeTimeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500723A1EE7126C008A725A /* MessagesThreadMeTimeVM.swift */; };
+		8500723F1EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500723B1EE7126C008A725A /* MessagesThreadThemTimeVM.swift */; };
+		850072401EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500723B1EE7126C008A725A /* MessagesThreadThemTimeVM.swift */; };
+		850072411EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8500723B1EE7126C008A725A /* MessagesThreadThemTimeVM.swift */; };
 		8501B9F51EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8501B9F41EE6FD2600F9EFFA /* MessagesThreadMeVM.swift */; };
 		8501B9F61EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8501B9F41EE6FD2600F9EFFA /* MessagesThreadMeVM.swift */; };
 		8501B9F71EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8501B9F41EE6FD2600F9EFFA /* MessagesThreadMeVM.swift */; };
@@ -169,6 +181,10 @@
 		850072261EE70E79008A725A /* MessagesThreadMePicVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesThreadMePicVM.swift; sourceTree = "<group>"; };
 		8500722A1EE70F30008A725A /* MessageThreadThemPicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageThreadThemPicCell.swift; sourceTree = "<group>"; };
 		8500722E1EE70F55008A725A /* MessagesThreadThemPicVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesThreadThemPicVM.swift; sourceTree = "<group>"; };
+		850072321EE711E4008A725A /* MessageThreadMeTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageThreadMeTimeCell.swift; sourceTree = "<group>"; };
+		850072331EE711E4008A725A /* MessageThreadThemTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageThreadThemTimeCell.swift; sourceTree = "<group>"; };
+		8500723A1EE7126C008A725A /* MessagesThreadMeTimeVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesThreadMeTimeVM.swift; sourceTree = "<group>"; };
+		8500723B1EE7126C008A725A /* MessagesThreadThemTimeVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesThreadThemTimeVM.swift; sourceTree = "<group>"; };
 		8501B9F41EE6FD2600F9EFFA /* MessagesThreadMeVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesThreadMeVM.swift; sourceTree = "<group>"; };
 		8501B9F81EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesThreadThemVM.swift; sourceTree = "<group>"; };
 		85066FC21ED2EF100032391A /* ImpactHub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImpactHub.entitlements; sourceTree = "<group>"; };
@@ -317,6 +333,8 @@
 				850072261EE70E79008A725A /* MessagesThreadMePicVM.swift */,
 				8501B9F81EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift */,
 				8500722E1EE70F55008A725A /* MessagesThreadThemPicVM.swift */,
+				8500723A1EE7126C008A725A /* MessagesThreadMeTimeVM.swift */,
+				8500723B1EE7126C008A725A /* MessagesThreadThemTimeVM.swift */,
 			);
 			name = Messages;
 			sourceTree = "<group>";
@@ -367,6 +385,8 @@
 				850072221EE70D94008A725A /* MessageThreadMePicCell.swift */,
 				853434131EE6E9F5003C26F8 /* MessageThreadThemCell.swift */,
 				8500722A1EE70F30008A725A /* MessageThreadThemPicCell.swift */,
+				850072321EE711E4008A725A /* MessageThreadMeTimeCell.swift */,
+				850072331EE711E4008A725A /* MessageThreadThemTimeCell.swift */,
 			);
 			name = Messages;
 			sourceTree = "<group>";
@@ -769,6 +789,7 @@
 				8570C1D51ECEE35300FA1CE9 /* MessagesViewController.swift in Sources */,
 				853434041EE6B7E8003C26F8 /* Contact.swift in Sources */,
 				85DE9F071ECCACB100291EF5 /* MemberViewModel.swift in Sources */,
+				850072371EE711E4008A725A /* MessageThreadThemTimeCell.swift in Sources */,
 				8570C2001ECF1B0500FA1CE9 /* CompanyAboutViewModel.swift in Sources */,
 				853433E81EE6B789003C26F8 /* Reference.swift in Sources */,
 				8570C1E81ECF037F00FA1CE9 /* CompaniesViewController.swift in Sources */,
@@ -800,6 +821,7 @@
 				853434101EE6E9DC003C26F8 /* MessageThreadMeCell.swift in Sources */,
 				8570C2051ECF21E800FA1CE9 /* JobsViewController.swift in Sources */,
 				85DE9EF81ECC902B00291EF5 /* HomeViewController.swift in Sources */,
+				8500723C1EE7126C008A725A /* MessagesThreadMeTimeVM.swift in Sources */,
 				853434141EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
 				8570C2071ECF233700FA1CE9 /* JobsSearchViewController.swift in Sources */,
 				8570C20C1ECF253000FA1CE9 /* JobCollectionViewCell.swift in Sources */,
@@ -818,9 +840,11 @@
 				850072231EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
 				8500722B1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
 				8501B9F91EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */,
+				850072341EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
 				8570C20F1ECF291000FA1CE9 /* JobViewController.swift in Sources */,
 				85066FC51ED33E6F0032391A /* MemberSkillItemCell.swift in Sources */,
 				859C41711ECDB6BF00637295 /* TopMenu.swift in Sources */,
+				8500723F1EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */,
 				85DE9F091ECCACCB00291EF5 /* Member.swift in Sources */,
 				853433E21EE6B789003C26F8 /* ChatterSegmentBuilder.swift in Sources */,
 				8534340C1EE6BE11003C26F8 /* MessagesThreadViewController.swift in Sources */,
@@ -837,14 +861,18 @@
 				853433F21EE6B789003C26F8 /* Group.swift in Sources */,
 				853433D01EE6B726003C26F8 /* MessagesVM.swift in Sources */,
 				853433E01EE6B789003C26F8 /* Comment.swift in Sources */,
+				8500723D1EE7126C008A725A /* MessagesThreadMeTimeVM.swift in Sources */,
 				853434111EE6E9DC003C26F8 /* MessageThreadMeCell.swift in Sources */,
 				8501B9F61EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
 				853433F51EE6B789003C26F8 /* MessageSegment.swift in Sources */,
 				853434091EE6B83E003C26F8 /* User.swift in Sources */,
 				853433F81EE6B78A003C26F8 /* ChatterActor.swift in Sources */,
+				850072351EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
 				8500722C1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
 				85DE9EDE1ECC8CD900291EF5 /* ImpactHubTests.swift in Sources */,
 				853433FE1EE6B78A003C26F8 /* Photo.swift in Sources */,
+				850072381EE711E4008A725A /* MessageThreadThemTimeCell.swift in Sources */,
+				850072401EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */,
 				850072241EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
 				853433EF1EE6B789003C26F8 /* Post.swift in Sources */,
 				853433E91EE6B789003C26F8 /* Reference.swift in Sources */,
@@ -869,14 +897,18 @@
 				853433F31EE6B789003C26F8 /* Group.swift in Sources */,
 				853433D11EE6B726003C26F8 /* MessagesVM.swift in Sources */,
 				853433E11EE6B789003C26F8 /* Comment.swift in Sources */,
+				8500723E1EE7126C008A725A /* MessagesThreadMeTimeVM.swift in Sources */,
 				853434121EE6E9DC003C26F8 /* MessageThreadMeCell.swift in Sources */,
 				8501B9F71EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
 				853433F61EE6B789003C26F8 /* MessageSegment.swift in Sources */,
 				8534340A1EE6B83E003C26F8 /* User.swift in Sources */,
 				853433F91EE6B78A003C26F8 /* ChatterActor.swift in Sources */,
+				850072361EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
 				8500722D1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
 				85DE9EE91ECC8CD900291EF5 /* ImpactHubUITests.swift in Sources */,
 				853433FF1EE6B78A003C26F8 /* Photo.swift in Sources */,
+				850072391EE711E4008A725A /* MessageThreadThemTimeCell.swift in Sources */,
+				850072411EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */,
 				850072251EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
 				853433F01EE6B789003C26F8 /* Post.swift in Sources */,
 				853433EA1EE6B789003C26F8 /* Reference.swift in Sources */,

@@ -43,8 +43,10 @@ class MessagesThreadViewController: UIViewController {
                 var newData = [TableCellRepresentable]()
                 let cellWidth: CGFloat = self.view.frame.width
                 var previousMessage: Message?
-                items.forEach({ (message) in
+                
+                for (index, message) in items.enumerated() {
                     let myUserId = "\(SFUserAccountManager.sharedInstance().currentUser!.accountIdentity.userId!)QAS"  // FIXME: User name seems to need QAS appended to it?
+                    // It's me
                     if message.sender.id == myUserId {
                         if previousMessage?.sender.id != myUserId {
                             let viewModelPic = MessagesThreadMePicVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 30))
@@ -52,7 +54,23 @@ class MessagesThreadViewController: UIViewController {
                         }
                         let viewModel = MessagesThreadMeVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 75))
                         newData.append(viewModel)
+
+                        if index + 1 < items.count {
+                            let nextItem = items[index + 1]
+                            if nextItem.sender.id != myUserId {
+                                // Time stamp
+                                let viewModelTime = MessagesThreadMeTimeVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 30))
+                                newData.append(viewModelTime)
+                            }
+                        }
+                        else {
+                            // Time stamp
+                            let viewModelTime = MessagesThreadMeTimeVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 30))
+                            newData.append(viewModelTime)
+                        }
+                        
                     }
+                    // It's them
                     else {
                         if previousMessage?.sender.id != message.sender.id {
                             let viewModelPic = MessagesThreadThemPicVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 30))
@@ -60,9 +78,24 @@ class MessagesThreadViewController: UIViewController {
                         }
                         let viewModel = MessagesThreadThemVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 75))
                         newData.append(viewModel)
+                        
+                        if index + 1 < items.count {
+                            let nextItem = items[index + 1]
+                            if nextItem.sender.id != message.sender.id {
+                                // Time stamp
+                                let viewModelTime = MessagesThreadThemTimeVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 30))
+                                newData.append(viewModelTime)
+                            }
+                        }
+                        else {
+                            // Time stamp
+                            let viewModelTime = MessagesThreadThemTimeVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 30))
+                            newData.append(viewModelTime)
+                        }
+
                     }
                     previousMessage = message
-                })
+                }
                 if self.skip == 0 {
                     self.data = newData
                     self.tableView.alpha = 0
