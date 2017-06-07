@@ -14,7 +14,7 @@ target 'ImpactHub' do
     pod 'PromiseKit'
     pod 'SwiftyJSON'
     pod 'DeckTransition'
-    pod 'SlackTextViewController'
+    pod 'ReverseExtension'
 
 end
 

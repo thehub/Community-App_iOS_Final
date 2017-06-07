@@ -9,12 +9,17 @@
 import UIKit
 import PromiseKit
 import SalesforceSDKCore
+import ReverseExtension
 
 
 
 class MessagesThreadViewController: UIViewController {
 
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var inputTextView: UITextView!
+    
+    var placeholderText = "Type Something..."
     
     var data = [TableCellRepresentable]()
     
@@ -28,9 +33,67 @@ class MessagesThreadViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.delegate = nil
+        tableView.re.delegate = self
+        tableView.re.scrollViewDidReachTop = { scrollView in
+            print("scrollViewDidReachTop")
+        }
+        tableView.re.scrollViewDidReachBottom = { scrollView in
+            print("scrollViewDidReachBottom")
+        }
         loadData()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        registerForKeyboardNotifications()
+        
+        self.inputTextView.text = placeholderText
+
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        deregisterFromKeyboardNotifications()
+    }
+    
+    
+    func registerForKeyboardNotifications() {
+        //Adding notifies on keyboard appearing
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    
+    func deregisterFromKeyboardNotifications() {
+        //Removing notifies on keyboard appearing
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardWasShown(notification: NSNotification) {
+        var info : Dictionary = notification.userInfo!
+        if let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size {
+            self.bottomConstraint.constant = keyboardSize.height + 30
+            UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+                self.view.layoutIfNeeded()
+            }) { (_) in
+            }
+        }
+        
+    }
+    
+    func keyboardWillBeHidden(notification: NSNotification) {
+        var info : Dictionary = notification.userInfo!
+        if let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size {
+            self.bottomConstraint.constant = 0
+            UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+                self.view.layoutIfNeeded()
+            }) { (_) in
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -131,6 +194,55 @@ class MessagesThreadViewController: UIViewController {
     }
     
 }
+
+extension MessagesThreadViewController: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == placeholderText {
+            textView.text = nil
+            textView.textColor = UIColor.darkGray   //UIColor(hex: 0xcccccc)
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        textView.text = nil
+    }
+    
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        guard let oldText = textView.text else { return true }
+        
+        if text == "\n" {
+            textView.resignFirstResponder()
+            if inputTextView.text.characters.count == 0 {
+                inputTextView.text = placeholderText
+//                inputTextView.textColor = Constants.textPlaceHolderColor
+            }
+            return false
+        }
+        
+        // Check for urls in text
+//        let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+//        let matches = detector.matches(in: textView.text, options: .reportCompletion, range: NSMakeRange(0, textView.text.characters.count))
+        
+        if textView == inputTextView {
+            var newLength = oldText.utf16.count + text.utf16.count - range.length
+            // Compnesate for url shortener, each link will be 24 characters
+//            matches.forEach { (match) in
+//                newLength -= match.range.length
+//                newLength += 24
+//            }
+//            shortTextCounter.text = "\(140 - newLength + 1)"
+            return newLength <= 250
+        }
+        else {
+            return true
+        }
+        
+    }
+    
+}
+
 
 extension MessagesThreadViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
