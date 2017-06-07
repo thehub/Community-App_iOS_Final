@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    /*
     override init() {
         super.init()
         SFLogger.shared().logLevel = .debug
@@ -71,20 +72,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //            self.handleUserSwitch(fromUser, toUser: toUser)
         //        }
     }
+ */
 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         
-        let loginViewController = SFLoginViewController.sharedInstance();
-        loginViewController.showNavbar = true
-        loginViewController.showSettingsIcon = false
-        loginViewController.navBarColor = UIColor.white
-//        loginViewController.navBarFont = UIFont (name: "HelveticaNeue-Medium", size: 19);
-        loginViewController.navBarTextColor = UIColor.darkGray
-        
-        SalesforceSDKManager.shared().launch()
+//        let loginViewController = SFLoginViewController.sharedInstance();
+//        loginViewController.showNavbar = true
+//        loginViewController.showSettingsIcon = false
+//        loginViewController.navBarColor = UIColor.white
+////        loginViewController.navBarFont = UIFont (name: "HelveticaNeue-Medium", size: 19);
+//        loginViewController.navBarTextColor = UIColor.darkGray
+//        
+//        SalesforceSDKManager.shared().launch()
 
+ 
         
         return true
     }
@@ -112,6 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     
+    /*
     func handleSdkManagerLogout() {
         self.log(.debug, msg: "SFAuthenticationManager logged out.  Resetting app.")
         SalesforceSDKManager.shared().launch()
@@ -152,7 +156,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //            }
         //        }
     }
-
+*/
 
 }
 
