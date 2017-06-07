@@ -11,6 +11,7 @@ import PromiseKit
 import SalesforceSDKCore
 
 
+
 class MessagesThreadViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -18,6 +19,11 @@ class MessagesThreadViewController: UIViewController {
     var data = [TableCellRepresentable]()
     
     var conversationId: String!
+    
+    var mentionCompletions = [MentionCompletion]()
+    
+    var editingMessageText: String?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

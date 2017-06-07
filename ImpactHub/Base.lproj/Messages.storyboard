@@ -72,7 +72,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gQJ-fC-sU7">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="485"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MeCell" rowHeight="90" id="DPm-0Y-yFH" customClass="MessageThreadMeCell" customModule="ImpactHub" customModuleProvider="target">
@@ -248,13 +248,26 @@
                                     <outlet property="prefetchDataSource" destination="bHi-nG-fUx" id="AXe-Mh-N7z"/>
                                 </connections>
                             </tableView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type something..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="R32-Uk-vVm">
+                                <rect key="frame" x="8" y="557" width="359" height="53"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="TDD-00-kvm"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ibj-NA-DDk" firstAttribute="top" secondItem="gQJ-fC-sU7" secondAttribute="bottom" id="EYk-ws-Y1n"/>
+                            <constraint firstItem="Ibj-NA-DDk" firstAttribute="top" secondItem="R32-Uk-vVm" secondAttribute="bottom" constant="8" id="Mgy-QT-FcY"/>
+                            <constraint firstAttribute="trailing" secondItem="R32-Uk-vVm" secondAttribute="trailing" constant="8" id="N2x-mP-VsS"/>
+                            <constraint firstItem="R32-Uk-vVm" firstAttribute="top" secondItem="gQJ-fC-sU7" secondAttribute="bottom" constant="8" id="UpP-6k-xKm"/>
                             <constraint firstAttribute="trailing" secondItem="gQJ-fC-sU7" secondAttribute="trailing" id="VCq-mA-gDZ"/>
                             <constraint firstItem="gQJ-fC-sU7" firstAttribute="top" secondItem="xaW-9M-60z" secondAttribute="bottom" id="hXj-Fn-Zc4"/>
                             <constraint firstItem="gQJ-fC-sU7" firstAttribute="leading" secondItem="iHS-yT-ZPs" secondAttribute="leading" id="pRW-0I-Cen"/>
+                            <constraint firstItem="R32-Uk-vVm" firstAttribute="leading" secondItem="iHS-yT-ZPs" secondAttribute="leading" constant="8" id="zpd-DY-9ew"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Thread" id="Ikr-1K-Flv">
