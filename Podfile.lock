@@ -20,7 +20,6 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (4.2.2):
     - PromiseKit/CorePromise
-  - ReverseExtension (0.4.8)
   - SalesforceAnalytics (5.1.0):
     - SalesforceAnalytics/SalesforceAnalytics (= 5.1.0)
   - SalesforceAnalytics/SalesforceAnalytics (5.1.0)
@@ -51,7 +50,6 @@ DEPENDENCIES:
   - DeckTransition
   - Kingfisher
   - PromiseKit
-  - ReverseExtension
   - SalesforceAnalytics
   - SalesforceSDKCore
   - SlackTextViewController
@@ -62,12 +60,11 @@ SPEC CHECKSUMS:
   DeckTransition: 00ccc14e8a2347725241512d8b66ee5f0ae48116
   Kingfisher: 33a1b82140fcb14a9fc13f78dfde2a03ff8de8cb
   PromiseKit: 00e8886881f151c7e573d06b437915b0bb2970ec
-  ReverseExtension: 78dcc8414c4efb6115d787694649d9f4f020324a
   SalesforceAnalytics: 30a23e143fc10859f6ced7c66814506568708a73
   SalesforceSDKCore: 1e0d81215e10b89b742f267a6a8f0d4774a58cb6
   SlackTextViewController: fbcdadbb8090673f604484ff5b6eb8d77baed42a
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 3fd5a828dab08cc751e792b8407e9bb847956839
+PODFILE CHECKSUM: f35d76ac6569624b1148d5dc3130cc41bee21cd2
 
 COCOAPODS: 1.2.1

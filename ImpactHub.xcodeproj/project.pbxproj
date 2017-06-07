@@ -46,48 +46,6 @@
 		853433CF1EE6B726003C26F8 /* MessagesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433CE1EE6B726003C26F8 /* MessagesVM.swift */; };
 		853433D01EE6B726003C26F8 /* MessagesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433CE1EE6B726003C26F8 /* MessagesVM.swift */; };
 		853433D11EE6B726003C26F8 /* MessagesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433CE1EE6B726003C26F8 /* MessagesVM.swift */; };
-		853433DF1EE6B789003C26F8 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433D31EE6B789003C26F8 /* Comment.swift */; };
-		853433E01EE6B789003C26F8 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433D31EE6B789003C26F8 /* Comment.swift */; };
-		853433E11EE6B789003C26F8 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433D31EE6B789003C26F8 /* Comment.swift */; };
-		853433E21EE6B789003C26F8 /* ChatterSegmentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433D41EE6B789003C26F8 /* ChatterSegmentBuilder.swift */; };
-		853433E31EE6B789003C26F8 /* ChatterSegmentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433D41EE6B789003C26F8 /* ChatterSegmentBuilder.swift */; };
-		853433E41EE6B789003C26F8 /* ChatterSegmentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433D41EE6B789003C26F8 /* ChatterSegmentBuilder.swift */; };
-		853433E51EE6B789003C26F8 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433D51EE6B789003C26F8 /* Conversation.swift */; };
-		853433E61EE6B789003C26F8 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433D51EE6B789003C26F8 /* Conversation.swift */; };
-		853433E71EE6B789003C26F8 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433D51EE6B789003C26F8 /* Conversation.swift */; };
-		853433E81EE6B789003C26F8 /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433D61EE6B789003C26F8 /* Reference.swift */; };
-		853433E91EE6B789003C26F8 /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433D61EE6B789003C26F8 /* Reference.swift */; };
-		853433EA1EE6B789003C26F8 /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433D61EE6B789003C26F8 /* Reference.swift */; };
-		853433EB1EE6B789003C26F8 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433D71EE6B789003C26F8 /* Subscription.swift */; };
-		853433EC1EE6B789003C26F8 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433D71EE6B789003C26F8 /* Subscription.swift */; };
-		853433ED1EE6B789003C26F8 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433D71EE6B789003C26F8 /* Subscription.swift */; };
-		853433EE1EE6B789003C26F8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433D81EE6B789003C26F8 /* Post.swift */; };
-		853433EF1EE6B789003C26F8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433D81EE6B789003C26F8 /* Post.swift */; };
-		853433F01EE6B789003C26F8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433D81EE6B789003C26F8 /* Post.swift */; };
-		853433F11EE6B789003C26F8 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433D91EE6B789003C26F8 /* Group.swift */; };
-		853433F21EE6B789003C26F8 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433D91EE6B789003C26F8 /* Group.swift */; };
-		853433F31EE6B789003C26F8 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433D91EE6B789003C26F8 /* Group.swift */; };
-		853433F41EE6B789003C26F8 /* MessageSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433DA1EE6B789003C26F8 /* MessageSegment.swift */; };
-		853433F51EE6B789003C26F8 /* MessageSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433DA1EE6B789003C26F8 /* MessageSegment.swift */; };
-		853433F61EE6B789003C26F8 /* MessageSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433DA1EE6B789003C26F8 /* MessageSegment.swift */; };
-		853433F71EE6B789003C26F8 /* ChatterActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433DB1EE6B789003C26F8 /* ChatterActor.swift */; };
-		853433F81EE6B78A003C26F8 /* ChatterActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433DB1EE6B789003C26F8 /* ChatterActor.swift */; };
-		853433F91EE6B78A003C26F8 /* ChatterActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433DB1EE6B789003C26F8 /* ChatterActor.swift */; };
-		853433FA1EE6B78A003C26F8 /* MentionCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433DC1EE6B789003C26F8 /* MentionCompletion.swift */; };
-		853433FB1EE6B78A003C26F8 /* MentionCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433DC1EE6B789003C26F8 /* MentionCompletion.swift */; };
-		853433FC1EE6B78A003C26F8 /* MentionCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433DC1EE6B789003C26F8 /* MentionCompletion.swift */; };
-		853433FD1EE6B78A003C26F8 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433DD1EE6B789003C26F8 /* Photo.swift */; };
-		853433FE1EE6B78A003C26F8 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433DD1EE6B789003C26F8 /* Photo.swift */; };
-		853433FF1EE6B78A003C26F8 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433DD1EE6B789003C26F8 /* Photo.swift */; };
-		853434001EE6B78A003C26F8 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433DE1EE6B789003C26F8 /* Message.swift */; };
-		853434011EE6B78A003C26F8 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433DE1EE6B789003C26F8 /* Message.swift */; };
-		853434021EE6B78A003C26F8 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433DE1EE6B789003C26F8 /* Message.swift */; };
-		853434041EE6B7E8003C26F8 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853434031EE6B7E8003C26F8 /* Contact.swift */; };
-		853434051EE6B7E8003C26F8 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853434031EE6B7E8003C26F8 /* Contact.swift */; };
-		853434061EE6B7E8003C26F8 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853434031EE6B7E8003C26F8 /* Contact.swift */; };
-		853434081EE6B83E003C26F8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853434071EE6B83E003C26F8 /* User.swift */; };
-		853434091EE6B83E003C26F8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853434071EE6B83E003C26F8 /* User.swift */; };
-		8534340A1EE6B83E003C26F8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853434071EE6B83E003C26F8 /* User.swift */; };
 		8534340C1EE6BE11003C26F8 /* MessagesThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8534340B1EE6BE11003C26F8 /* MessagesThreadViewController.swift */; };
 		8534340D1EE6BE11003C26F8 /* MessagesThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8534340B1EE6BE11003C26F8 /* MessagesThreadViewController.swift */; };
 		8534340E1EE6BE11003C26F8 /* MessagesThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8534340B1EE6BE11003C26F8 /* MessagesThreadViewController.swift */; };
@@ -127,6 +85,48 @@
 		8570C20C1ECF253000FA1CE9 /* JobCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C20A1ECF253000FA1CE9 /* JobCollectionViewCell.swift */; };
 		8570C20D1ECF253000FA1CE9 /* JobCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8570C20B1ECF253000FA1CE9 /* JobCollectionViewCell.xib */; };
 		8570C20F1ECF291000FA1CE9 /* JobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C20E1ECF291000FA1CE9 /* JobViewController.swift */; };
+		857480311EE80279005F73A2 /* ChatterSegmentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480301EE80279005F73A2 /* ChatterSegmentBuilder.swift */; };
+		857480321EE80279005F73A2 /* ChatterSegmentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480301EE80279005F73A2 /* ChatterSegmentBuilder.swift */; };
+		857480331EE80279005F73A2 /* ChatterSegmentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480301EE80279005F73A2 /* ChatterSegmentBuilder.swift */; };
+		8574803F1EE802D0005F73A2 /* ChatterActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480341EE802D0005F73A2 /* ChatterActor.swift */; };
+		857480401EE802D0005F73A2 /* ChatterActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480341EE802D0005F73A2 /* ChatterActor.swift */; };
+		857480411EE802D0005F73A2 /* ChatterActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480341EE802D0005F73A2 /* ChatterActor.swift */; };
+		857480421EE802D0005F73A2 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480351EE802D0005F73A2 /* Comment.swift */; };
+		857480431EE802D0005F73A2 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480351EE802D0005F73A2 /* Comment.swift */; };
+		857480441EE802D0005F73A2 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480351EE802D0005F73A2 /* Comment.swift */; };
+		857480451EE802D0005F73A2 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480361EE802D0005F73A2 /* Conversation.swift */; };
+		857480461EE802D0005F73A2 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480361EE802D0005F73A2 /* Conversation.swift */; };
+		857480471EE802D0005F73A2 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480361EE802D0005F73A2 /* Conversation.swift */; };
+		857480481EE802D0005F73A2 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480371EE802D0005F73A2 /* Group.swift */; };
+		857480491EE802D0005F73A2 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480371EE802D0005F73A2 /* Group.swift */; };
+		8574804A1EE802D0005F73A2 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480371EE802D0005F73A2 /* Group.swift */; };
+		8574804B1EE802D0005F73A2 /* MentionCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480381EE802D0005F73A2 /* MentionCompletion.swift */; };
+		8574804C1EE802D0005F73A2 /* MentionCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480381EE802D0005F73A2 /* MentionCompletion.swift */; };
+		8574804D1EE802D0005F73A2 /* MentionCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480381EE802D0005F73A2 /* MentionCompletion.swift */; };
+		8574804E1EE802D0005F73A2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480391EE802D0005F73A2 /* Message.swift */; };
+		8574804F1EE802D0005F73A2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480391EE802D0005F73A2 /* Message.swift */; };
+		857480501EE802D0005F73A2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480391EE802D0005F73A2 /* Message.swift */; };
+		857480511EE802D0005F73A2 /* MessageSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8574803A1EE802D0005F73A2 /* MessageSegment.swift */; };
+		857480521EE802D0005F73A2 /* MessageSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8574803A1EE802D0005F73A2 /* MessageSegment.swift */; };
+		857480531EE802D0005F73A2 /* MessageSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8574803A1EE802D0005F73A2 /* MessageSegment.swift */; };
+		857480541EE802D0005F73A2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8574803B1EE802D0005F73A2 /* Photo.swift */; };
+		857480551EE802D0005F73A2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8574803B1EE802D0005F73A2 /* Photo.swift */; };
+		857480561EE802D0005F73A2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8574803B1EE802D0005F73A2 /* Photo.swift */; };
+		857480571EE802D0005F73A2 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8574803C1EE802D0005F73A2 /* Post.swift */; };
+		857480581EE802D0005F73A2 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8574803C1EE802D0005F73A2 /* Post.swift */; };
+		857480591EE802D0005F73A2 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8574803C1EE802D0005F73A2 /* Post.swift */; };
+		8574805A1EE802D0005F73A2 /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8574803D1EE802D0005F73A2 /* Reference.swift */; };
+		8574805B1EE802D0005F73A2 /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8574803D1EE802D0005F73A2 /* Reference.swift */; };
+		8574805C1EE802D0005F73A2 /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8574803D1EE802D0005F73A2 /* Reference.swift */; };
+		8574805D1EE802D0005F73A2 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8574803E1EE802D0005F73A2 /* Subscription.swift */; };
+		8574805E1EE802D0005F73A2 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8574803E1EE802D0005F73A2 /* Subscription.swift */; };
+		8574805F1EE802D0005F73A2 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8574803E1EE802D0005F73A2 /* Subscription.swift */; };
+		857480611EE802E3005F73A2 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480601EE802E3005F73A2 /* Contact.swift */; };
+		857480621EE802E3005F73A2 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480601EE802E3005F73A2 /* Contact.swift */; };
+		857480631EE802E3005F73A2 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480601EE802E3005F73A2 /* Contact.swift */; };
+		857480651EE802F1005F73A2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480641EE802F1005F73A2 /* User.swift */; };
+		857480661EE802F1005F73A2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480641EE802F1005F73A2 /* User.swift */; };
+		857480671EE802F1005F73A2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480641EE802F1005F73A2 /* User.swift */; };
 		859C41631ECD951A00637295 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859C41621ECD951A00637295 /* MemberViewController.swift */; };
 		859C41661ECDA01A00637295 /* MemberDetailTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859C41641ECDA01A00637295 /* MemberDetailTopCell.swift */; };
 		859C41671ECDA01A00637295 /* MemberDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859C41651ECDA01A00637295 /* MemberDetailTopCell.xib */; };
@@ -195,20 +195,6 @@
 		853433C91EE6B547003C26F8 /* MessagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesCell.swift; sourceTree = "<group>"; };
 		853433CA1EE6B547003C26F8 /* MessagesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessagesCell.xib; sourceTree = "<group>"; };
 		853433CE1EE6B726003C26F8 /* MessagesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesVM.swift; sourceTree = "<group>"; };
-		853433D31EE6B789003C26F8 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Comment.swift; path = "../../iOS-membership/MembershipApp/Comment.swift"; sourceTree = "<group>"; };
-		853433D41EE6B789003C26F8 /* ChatterSegmentBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatterSegmentBuilder.swift; path = "../../iOS-membership/MembershipApp/ChatterSegmentBuilder.swift"; sourceTree = "<group>"; };
-		853433D51EE6B789003C26F8 /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Conversation.swift; path = "../../iOS-membership/MembershipApp/Conversation.swift"; sourceTree = "<group>"; };
-		853433D61EE6B789003C26F8 /* Reference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reference.swift; path = "../../iOS-membership/MembershipApp/Reference.swift"; sourceTree = "<group>"; };
-		853433D71EE6B789003C26F8 /* Subscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Subscription.swift; path = "../../iOS-membership/MembershipApp/Subscription.swift"; sourceTree = "<group>"; };
-		853433D81EE6B789003C26F8 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Post.swift; path = "../../iOS-membership/MembershipApp/Post.swift"; sourceTree = "<group>"; };
-		853433D91EE6B789003C26F8 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Group.swift; path = "../../iOS-membership/MembershipApp/Group.swift"; sourceTree = "<group>"; };
-		853433DA1EE6B789003C26F8 /* MessageSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageSegment.swift; path = "../../iOS-membership/MembershipApp/MessageSegment.swift"; sourceTree = "<group>"; };
-		853433DB1EE6B789003C26F8 /* ChatterActor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatterActor.swift; path = "../../iOS-membership/MembershipApp/ChatterActor.swift"; sourceTree = "<group>"; };
-		853433DC1EE6B789003C26F8 /* MentionCompletion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MentionCompletion.swift; path = "../../iOS-membership/MembershipApp/MentionCompletion.swift"; sourceTree = "<group>"; };
-		853433DD1EE6B789003C26F8 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Photo.swift; path = "../../iOS-membership/MembershipApp/Photo.swift"; sourceTree = "<group>"; };
-		853433DE1EE6B789003C26F8 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = "../../iOS-membership/MembershipApp/Message.swift"; sourceTree = "<group>"; };
-		853434031EE6B7E8003C26F8 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Contact.swift; path = "../../iOS-membership/MembershipApp/Contact.swift"; sourceTree = "<group>"; };
-		853434071EE6B83E003C26F8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = "../../iOS-membership/MembershipApp/User.swift"; sourceTree = "<group>"; };
 		8534340B1EE6BE11003C26F8 /* MessagesThreadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesThreadViewController.swift; sourceTree = "<group>"; };
 		8534340F1EE6E9DC003C26F8 /* MessageThreadMeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadMeCell.swift; sourceTree = "<group>"; };
 		853434131EE6E9F5003C26F8 /* MessageThreadThemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadThemCell.swift; sourceTree = "<group>"; };
@@ -242,6 +228,20 @@
 		8570C20A1ECF253000FA1CE9 /* JobCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobCollectionViewCell.swift; sourceTree = "<group>"; };
 		8570C20B1ECF253000FA1CE9 /* JobCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobCollectionViewCell.xib; sourceTree = "<group>"; };
 		8570C20E1ECF291000FA1CE9 /* JobViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobViewController.swift; sourceTree = "<group>"; };
+		857480301EE80279005F73A2 /* ChatterSegmentBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatterSegmentBuilder.swift; sourceTree = "<group>"; };
+		857480341EE802D0005F73A2 /* ChatterActor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatterActor.swift; sourceTree = "<group>"; };
+		857480351EE802D0005F73A2 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		857480361EE802D0005F73A2 /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		857480371EE802D0005F73A2 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		857480381EE802D0005F73A2 /* MentionCompletion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionCompletion.swift; sourceTree = "<group>"; };
+		857480391EE802D0005F73A2 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		8574803A1EE802D0005F73A2 /* MessageSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSegment.swift; sourceTree = "<group>"; };
+		8574803B1EE802D0005F73A2 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		8574803C1EE802D0005F73A2 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		8574803D1EE802D0005F73A2 /* Reference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reference.swift; sourceTree = "<group>"; };
+		8574803E1EE802D0005F73A2 /* Subscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
+		857480601EE802E3005F73A2 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		857480641EE802F1005F73A2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		859C41621ECD951A00637295 /* MemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
 		859C41641ECDA01A00637295 /* MemberDetailTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberDetailTopCell.swift; sourceTree = "<group>"; };
 		859C41651ECDA01A00637295 /* MemberDetailTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberDetailTopCell.xib; sourceTree = "<group>"; };
@@ -342,18 +342,19 @@
 		853433D21EE6B77B003C26F8 /* Chatter */ = {
 			isa = PBXGroup;
 			children = (
-				853433D41EE6B789003C26F8 /* ChatterSegmentBuilder.swift */,
-				853433D91EE6B789003C26F8 /* Group.swift */,
-				853433D81EE6B789003C26F8 /* Post.swift */,
-				853433DA1EE6B789003C26F8 /* MessageSegment.swift */,
-				853433D31EE6B789003C26F8 /* Comment.swift */,
-				853433D71EE6B789003C26F8 /* Subscription.swift */,
-				853433DB1EE6B789003C26F8 /* ChatterActor.swift */,
-				853433D51EE6B789003C26F8 /* Conversation.swift */,
-				853433DE1EE6B789003C26F8 /* Message.swift */,
-				853433D61EE6B789003C26F8 /* Reference.swift */,
-				853433DD1EE6B789003C26F8 /* Photo.swift */,
-				853433DC1EE6B789003C26F8 /* MentionCompletion.swift */,
+				857480301EE80279005F73A2 /* ChatterSegmentBuilder.swift */,
+				857480341EE802D0005F73A2 /* ChatterActor.swift */,
+				857480351EE802D0005F73A2 /* Comment.swift */,
+				857480361EE802D0005F73A2 /* Conversation.swift */,
+				857480371EE802D0005F73A2 /* Group.swift */,
+				857480381EE802D0005F73A2 /* MentionCompletion.swift */,
+				857480391EE802D0005F73A2 /* Message.swift */,
+				8574803A1EE802D0005F73A2 /* MessageSegment.swift */,
+				8574803B1EE802D0005F73A2 /* Photo.swift */,
+				8574803C1EE802D0005F73A2 /* Post.swift */,
+				8574803D1EE802D0005F73A2 /* Reference.swift */,
+				8574803E1EE802D0005F73A2 /* Subscription.swift */,
+				857480601EE802E3005F73A2 /* Contact.swift */,
 			);
 			name = Chatter;
 			sourceTree = "<group>";
@@ -545,9 +546,8 @@
 			children = (
 				853433D21EE6B77B003C26F8 /* Chatter */,
 				85DE9F081ECCACCB00291EF5 /* Member.swift */,
-				853434031EE6B7E8003C26F8 /* Contact.swift */,
-				853434071EE6B83E003C26F8 /* User.swift */,
 				8570C1E21ECF028200FA1CE9 /* Company.swift */,
+				857480641EE802F1005F73A2 /* User.swift */,
 				8570C2011ECF214600FA1CE9 /* Job.swift */,
 			);
 			name = Models;
@@ -779,45 +779,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				853433FD1EE6B78A003C26F8 /* Photo.swift in Sources */,
 				859C41631ECD951A00637295 /* MemberViewController.swift in Sources */,
-				853433DF1EE6B789003C26F8 /* Comment.swift in Sources */,
 				85DE9EFC1ECC9D3F00291EF5 /* MembersViewController.swift in Sources */,
 				853433CF1EE6B726003C26F8 /* MessagesVM.swift in Sources */,
+				857480511EE802D0005F73A2 /* MessageSegment.swift in Sources */,
 				8570C1D71ECEE35F00FA1CE9 /* ProfileViewController.swift in Sources */,
 				85DE9EFF1ECCA8D500291EF5 /* MemberCollectionViewCell.swift in Sources */,
 				8570C1D51ECEE35300FA1CE9 /* MessagesViewController.swift in Sources */,
-				853434041EE6B7E8003C26F8 /* Contact.swift in Sources */,
 				85DE9F071ECCACB100291EF5 /* MemberViewModel.swift in Sources */,
 				850072371EE711E4008A725A /* MessageThreadThemTimeCell.swift in Sources */,
 				8570C2001ECF1B0500FA1CE9 /* CompanyAboutViewModel.swift in Sources */,
-				853433E81EE6B789003C26F8 /* Reference.swift in Sources */,
 				8570C1E81ECF037F00FA1CE9 /* CompaniesViewController.swift in Sources */,
 				8500722F1EE70F56008A725A /* MessagesThreadThemPicVM.swift in Sources */,
-				853433FA1EE6B78A003C26F8 /* MentionCompletion.swift in Sources */,
 				85B3613C1ED5A08600DC2DE0 /* Constants.swift in Sources */,
 				85DE9ECB1ECC8CD900291EF5 /* ViewController.swift in Sources */,
 				8570C2091ECF24A400FA1CE9 /* JobViewModel.swift in Sources */,
 				8501B9F51EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
 				8570C1E31ECF028200FA1CE9 /* Company.swift in Sources */,
 				859C41691ECDA70900637295 /* MemberDetailTopViewModel.swift in Sources */,
+				857480571EE802D0005F73A2 /* Post.swift in Sources */,
 				859C416C1ECDB1D200637295 /* MemberFeedItemCell.swift in Sources */,
 				8570C1F81ECF15CE00FA1CE9 /* CompanyDetailTopViewModel.swift in Sources */,
 				8570C1FA1ECF15E800FA1CE9 /* CompanyDetailTopCell.swift in Sources */,
-				853433F11EE6B789003C26F8 /* Group.swift in Sources */,
 				85066FCA1ED343160032391A /* Utils.swift in Sources */,
+				8574804B1EE802D0005F73A2 /* MentionCompletion.swift in Sources */,
 				8570C1E11ECEE9C400FA1CE9 /* MembersSearchViewController.swift in Sources */,
-				853434081EE6B83E003C26F8 /* User.swift in Sources */,
-				853433EE1EE6B789003C26F8 /* Post.swift in Sources */,
 				85DE9EC91ECC8CD900291EF5 /* AppDelegate.swift in Sources */,
 				85DE9F031ECCABCD00291EF5 /* CellRepresentable.swift in Sources */,
-				853433F71EE6B789003C26F8 /* ChatterActor.swift in Sources */,
 				85B361381ED59D3800DC2DE0 /* Notifications.swift in Sources */,
-				853433EB1EE6B789003C26F8 /* Subscription.swift in Sources */,
 				8570C1EA1ECF03FE00FA1CE9 /* CompanyViewController.swift in Sources */,
-				853433E51EE6B789003C26F8 /* Conversation.swift in Sources */,
 				8570C1CB1ECEDE6200FA1CE9 /* NotificationsViewController.swift in Sources */,
 				859C417E1ECDFFD700637295 /* MemberAboutItemCell.swift in Sources */,
+				857480611EE802E3005F73A2 /* Contact.swift in Sources */,
 				853434101EE6E9DC003C26F8 /* MessageThreadMeCell.swift in Sources */,
 				8570C2051ECF21E800FA1CE9 /* JobsViewController.swift in Sources */,
 				85DE9EF81ECC902B00291EF5 /* HomeViewController.swift in Sources */,
@@ -825,29 +818,36 @@
 				853434141EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
 				8570C2071ECF233700FA1CE9 /* JobsSearchViewController.swift in Sources */,
 				8570C20C1ECF253000FA1CE9 /* JobCollectionViewCell.swift in Sources */,
+				857480541EE802D0005F73A2 /* Photo.swift in Sources */,
 				8570C1CE1ECEE0BA00FA1CE9 /* SearchViewController.swift in Sources */,
+				8574805D1EE802D0005F73A2 /* Subscription.swift in Sources */,
 				853433CB1EE6B547003C26F8 /* MessagesCell.swift in Sources */,
 				859C416F1ECDB39D00637295 /* MemberFeedItemViewModel.swift in Sources */,
+				857480451EE802D0005F73A2 /* Conversation.swift in Sources */,
 				85B3613A1ED59FD400DC2DE0 /* APIClient.swift in Sources */,
 				8570C1E51ECF030900FA1CE9 /* CompanyViewModel.swift in Sources */,
 				859C41811ECE006500637295 /* MemberAboutItemViewModel.swift in Sources */,
 				8570C1EF1ECF04E800FA1CE9 /* CompanyCollectionViewCell.swift in Sources */,
-				853434001EE6B78A003C26F8 /* Message.swift in Sources */,
 				850072271EE70E79008A725A /* MessagesThreadMePicVM.swift in Sources */,
 				859C41661ECDA01A00637295 /* MemberDetailTopCell.swift in Sources */,
-				853433F41EE6B789003C26F8 /* MessageSegment.swift in Sources */,
 				85066FC81ED33F240032391A /* MemberSkillItemViewModel.swift in Sources */,
 				850072231EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
 				8500722B1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
 				8501B9F91EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */,
 				850072341EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
+				8574803F1EE802D0005F73A2 /* ChatterActor.swift in Sources */,
+				8574804E1EE802D0005F73A2 /* Message.swift in Sources */,
+				857480421EE802D0005F73A2 /* Comment.swift in Sources */,
 				8570C20F1ECF291000FA1CE9 /* JobViewController.swift in Sources */,
+				857480311EE80279005F73A2 /* ChatterSegmentBuilder.swift in Sources */,
 				85066FC51ED33E6F0032391A /* MemberSkillItemCell.swift in Sources */,
+				8574805A1EE802D0005F73A2 /* Reference.swift in Sources */,
 				859C41711ECDB6BF00637295 /* TopMenu.swift in Sources */,
+				857480481EE802D0005F73A2 /* Group.swift in Sources */,
 				8500723F1EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */,
 				85DE9F091ECCACCB00291EF5 /* Member.swift in Sources */,
-				853433E21EE6B789003C26F8 /* ChatterSegmentBuilder.swift in Sources */,
 				8534340C1EE6BE11003C26F8 /* MessagesThreadViewController.swift in Sources */,
+				857480651EE802F1005F73A2 /* User.swift in Sources */,
 				8570C1F21ECF0BBC00FA1CE9 /* CompaniesSearchViewController.swift in Sources */,
 				8570C1FD1ECF1A2A00FA1CE9 /* CompanyAboutCell.swift in Sources */,
 				8570C2021ECF214600FA1CE9 /* Job.swift in Sources */,
@@ -858,35 +858,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				853433F21EE6B789003C26F8 /* Group.swift in Sources */,
 				853433D01EE6B726003C26F8 /* MessagesVM.swift in Sources */,
-				853433E01EE6B789003C26F8 /* Comment.swift in Sources */,
 				8500723D1EE7126C008A725A /* MessagesThreadMeTimeVM.swift in Sources */,
 				853434111EE6E9DC003C26F8 /* MessageThreadMeCell.swift in Sources */,
 				8501B9F61EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
-				853433F51EE6B789003C26F8 /* MessageSegment.swift in Sources */,
-				853434091EE6B83E003C26F8 /* User.swift in Sources */,
-				853433F81EE6B78A003C26F8 /* ChatterActor.swift in Sources */,
 				850072351EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
+				857480551EE802D0005F73A2 /* Photo.swift in Sources */,
 				8500722C1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
 				85DE9EDE1ECC8CD900291EF5 /* ImpactHubTests.swift in Sources */,
-				853433FE1EE6B78A003C26F8 /* Photo.swift in Sources */,
+				857480661EE802F1005F73A2 /* User.swift in Sources */,
+				8574805B1EE802D0005F73A2 /* Reference.swift in Sources */,
 				850072381EE711E4008A725A /* MessageThreadThemTimeCell.swift in Sources */,
+				857480321EE80279005F73A2 /* ChatterSegmentBuilder.swift in Sources */,
+				8574805E1EE802D0005F73A2 /* Subscription.swift in Sources */,
 				850072401EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */,
+				857480491EE802D0005F73A2 /* Group.swift in Sources */,
+				8574804C1EE802D0005F73A2 /* MentionCompletion.swift in Sources */,
 				850072241EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
-				853433EF1EE6B789003C26F8 /* Post.swift in Sources */,
-				853433E91EE6B789003C26F8 /* Reference.swift in Sources */,
 				853434151EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
 				8501B9FA1EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */,
 				850072281EE70E79008A725A /* MessagesThreadMePicVM.swift in Sources */,
-				853433EC1EE6B789003C26F8 /* Subscription.swift in Sources */,
-				853433E61EE6B789003C26F8 /* Conversation.swift in Sources */,
-				853433FB1EE6B78A003C26F8 /* MentionCompletion.swift in Sources */,
-				853434051EE6B7E8003C26F8 /* Contact.swift in Sources */,
+				857480431EE802D0005F73A2 /* Comment.swift in Sources */,
+				857480621EE802E3005F73A2 /* Contact.swift in Sources */,
 				850072301EE70F56008A725A /* MessagesThreadThemPicVM.swift in Sources */,
+				857480461EE802D0005F73A2 /* Conversation.swift in Sources */,
+				8574804F1EE802D0005F73A2 /* Message.swift in Sources */,
+				857480401EE802D0005F73A2 /* ChatterActor.swift in Sources */,
+				857480581EE802D0005F73A2 /* Post.swift in Sources */,
+				857480521EE802D0005F73A2 /* MessageSegment.swift in Sources */,
 				8534340D1EE6BE11003C26F8 /* MessagesThreadViewController.swift in Sources */,
-				853433E31EE6B789003C26F8 /* ChatterSegmentBuilder.swift in Sources */,
-				853434011EE6B78A003C26F8 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -894,35 +894,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				853433F31EE6B789003C26F8 /* Group.swift in Sources */,
 				853433D11EE6B726003C26F8 /* MessagesVM.swift in Sources */,
-				853433E11EE6B789003C26F8 /* Comment.swift in Sources */,
 				8500723E1EE7126C008A725A /* MessagesThreadMeTimeVM.swift in Sources */,
 				853434121EE6E9DC003C26F8 /* MessageThreadMeCell.swift in Sources */,
 				8501B9F71EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
-				853433F61EE6B789003C26F8 /* MessageSegment.swift in Sources */,
-				8534340A1EE6B83E003C26F8 /* User.swift in Sources */,
-				853433F91EE6B78A003C26F8 /* ChatterActor.swift in Sources */,
 				850072361EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
+				857480561EE802D0005F73A2 /* Photo.swift in Sources */,
 				8500722D1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
 				85DE9EE91ECC8CD900291EF5 /* ImpactHubUITests.swift in Sources */,
-				853433FF1EE6B78A003C26F8 /* Photo.swift in Sources */,
+				857480671EE802F1005F73A2 /* User.swift in Sources */,
+				8574805C1EE802D0005F73A2 /* Reference.swift in Sources */,
 				850072391EE711E4008A725A /* MessageThreadThemTimeCell.swift in Sources */,
+				857480331EE80279005F73A2 /* ChatterSegmentBuilder.swift in Sources */,
+				8574805F1EE802D0005F73A2 /* Subscription.swift in Sources */,
 				850072411EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */,
+				8574804A1EE802D0005F73A2 /* Group.swift in Sources */,
+				8574804D1EE802D0005F73A2 /* MentionCompletion.swift in Sources */,
 				850072251EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
-				853433F01EE6B789003C26F8 /* Post.swift in Sources */,
-				853433EA1EE6B789003C26F8 /* Reference.swift in Sources */,
 				853434161EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
 				8501B9FB1EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */,
 				850072291EE70E79008A725A /* MessagesThreadMePicVM.swift in Sources */,
-				853433ED1EE6B789003C26F8 /* Subscription.swift in Sources */,
-				853433E71EE6B789003C26F8 /* Conversation.swift in Sources */,
-				853433FC1EE6B78A003C26F8 /* MentionCompletion.swift in Sources */,
-				853434061EE6B7E8003C26F8 /* Contact.swift in Sources */,
+				857480441EE802D0005F73A2 /* Comment.swift in Sources */,
+				857480631EE802E3005F73A2 /* Contact.swift in Sources */,
 				850072311EE70F56008A725A /* MessagesThreadThemPicVM.swift in Sources */,
+				857480471EE802D0005F73A2 /* Conversation.swift in Sources */,
+				857480501EE802D0005F73A2 /* Message.swift in Sources */,
+				857480411EE802D0005F73A2 /* ChatterActor.swift in Sources */,
+				857480591EE802D0005F73A2 /* Post.swift in Sources */,
+				857480531EE802D0005F73A2 /* MessageSegment.swift in Sources */,
 				8534340E1EE6BE11003C26F8 /* MessagesThreadViewController.swift in Sources */,
-				853433E41EE6B789003C26F8 /* ChatterSegmentBuilder.swift in Sources */,
-				853434021EE6B78A003C26F8 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
