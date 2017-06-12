@@ -27,7 +27,7 @@
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>SFDCOAuthLoginHost</key>
-	<string>lightfulmemberships-developer-edition.eu11.force.com</string>
+	<string>community-impacthub.cs88.force.com</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

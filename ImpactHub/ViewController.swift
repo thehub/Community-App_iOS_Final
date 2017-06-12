@@ -82,6 +82,7 @@ class ViewController: UIViewController {
         debugPrint(token)
         
         let authenticationManager = SFAuthenticationManager.shared()
+//        authenticationManager.oauthClientId = ""
         SFAuthenticationManager.shared().login(withJwtToken: token, completion: { (authInfo, userAccount) in
             SFUserAccountManager.sharedInstance().currentUser = userAccount
             print("Hurray!")

@@ -85,7 +85,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 password: password,
                 realm: "Username-Password-Authentication"
                 ,
-                scope: "openid"
+                scope: "openid profile offline_access"
             )
             .start { result in
                 DispatchQueue.main.async {
