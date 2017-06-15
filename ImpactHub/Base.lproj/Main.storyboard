@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GoJ-Qj-m0n">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GoJ-Qj-m0n">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -54,11 +54,14 @@
         <!--Tab Bar Controller-->
         <scene sceneID="kCo-lr-86s">
             <objects>
-                <tabBarController id="be4-Eo-pgy" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="DcQ-fi-UiG">
+                <tabBarController id="be4-Eo-pgy" customClass="TabBarController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" backgroundImage="tabBarBg" shadowImage="tabBarShadow" id="DcQ-fi-UiG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="usQ-u4-Db2" kind="relationship" relationship="viewControllers" id="MyH-rp-Tg6"/>
@@ -117,7 +120,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="GoJ-Qj-m0n" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eP2-z0-BX9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="eP2-z0-BX9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -417,5 +420,7 @@ We’ll send you an email to reset your password.</string>
         <image name="bg" width="16" height="16"/>
         <image name="bigClose" width="16" height="16"/>
         <image name="clear" width="16" height="16"/>
+        <image name="tabBarBg" width="16" height="16"/>
+        <image name="tabBarShadow" width="71" height="7"/>
     </resources>
 </document>

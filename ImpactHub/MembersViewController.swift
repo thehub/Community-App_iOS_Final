@@ -33,11 +33,11 @@ class MembersViewController: UIViewController {
         let item3 = Member(name: "Russel", job: "Salesforce", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", aboutMe: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
         let item4 = Member(name: "Rob", job: "UX", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", aboutMe: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
 
-        let cellWidth: CGFloat = self.view.frame.width - 30
-        let viewModel1 = MemberViewModel(member: item1, cellSize: CGSize(width: cellWidth, height: 200))
-        let viewModel2 = MemberViewModel(member: item2, cellSize: CGSize(width: cellWidth, height: 200))
-        let viewModel3 = MemberViewModel(member: item3, cellSize: CGSize(width: cellWidth, height: 200))
-        let viewModel4 = MemberViewModel(member: item4, cellSize: CGSize(width: cellWidth, height: 200))
+        let cellWidth: CGFloat = self.view.frame.width
+        let viewModel1 = MemberViewModel(member: item1, cellSize: CGSize(width: cellWidth, height: 105))
+        let viewModel2 = MemberViewModel(member: item2, cellSize: CGSize(width: cellWidth, height: 105))
+        let viewModel3 = MemberViewModel(member: item3, cellSize: CGSize(width: cellWidth, height: 105))
+        let viewModel4 = MemberViewModel(member: item4, cellSize: CGSize(width: cellWidth, height: 105))
         
         self.data.append(viewModel1)
         self.data.append(viewModel2)

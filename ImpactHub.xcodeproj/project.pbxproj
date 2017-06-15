@@ -55,6 +55,30 @@
 		853434141EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853434131EE6E9F5003C26F8 /* MessageThreadThemCell.swift */; };
 		853434151EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853434131EE6E9F5003C26F8 /* MessageThreadThemCell.swift */; };
 		853434161EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853434131EE6E9F5003C26F8 /* MessageThreadThemCell.swift */; };
+		85455D231EF28D3D00243846 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85455D221EF28D3D00243846 /* TabBarController.swift */; };
+		85455D241EF28D3D00243846 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85455D221EF28D3D00243846 /* TabBarController.swift */; };
+		85455D251EF28D3D00243846 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85455D221EF28D3D00243846 /* TabBarController.swift */; };
+		85455D271EF28E6400243846 /* UIColor+IMAAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85455D261EF28E6400243846 /* UIColor+IMAAdditions.swift */; };
+		85455D281EF28E6400243846 /* UIColor+IMAAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85455D261EF28E6400243846 /* UIColor+IMAAdditions.swift */; };
+		85455D291EF28E6400243846 /* UIColor+IMAAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85455D261EF28E6400243846 /* UIColor+IMAAdditions.swift */; };
+		85455D301EF2A53200243846 /* gt-walsheim-bold-web.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85455D2B1EF2A53200243846 /* gt-walsheim-bold-web.ttf */; };
+		85455D311EF2A53200243846 /* gt-walsheim-bold-web.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85455D2B1EF2A53200243846 /* gt-walsheim-bold-web.ttf */; };
+		85455D321EF2A53200243846 /* gt-walsheim-bold-web.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85455D2B1EF2A53200243846 /* gt-walsheim-bold-web.ttf */; };
+		85455D331EF2A53200243846 /* gt-walsheim-light-oblique-web.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85455D2C1EF2A53200243846 /* gt-walsheim-light-oblique-web.ttf */; };
+		85455D341EF2A53200243846 /* gt-walsheim-light-oblique-web.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85455D2C1EF2A53200243846 /* gt-walsheim-light-oblique-web.ttf */; };
+		85455D351EF2A53200243846 /* gt-walsheim-light-oblique-web.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85455D2C1EF2A53200243846 /* gt-walsheim-light-oblique-web.ttf */; };
+		85455D361EF2A53200243846 /* gt-walsheim-light-web.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85455D2D1EF2A53200243846 /* gt-walsheim-light-web.ttf */; };
+		85455D371EF2A53200243846 /* gt-walsheim-light-web.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85455D2D1EF2A53200243846 /* gt-walsheim-light-web.ttf */; };
+		85455D381EF2A53200243846 /* gt-walsheim-light-web.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85455D2D1EF2A53200243846 /* gt-walsheim-light-web.ttf */; };
+		85455D391EF2A53200243846 /* gt-walsheim-medium-web.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85455D2E1EF2A53200243846 /* gt-walsheim-medium-web.ttf */; };
+		85455D3A1EF2A53200243846 /* gt-walsheim-medium-web.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85455D2E1EF2A53200243846 /* gt-walsheim-medium-web.ttf */; };
+		85455D3B1EF2A53200243846 /* gt-walsheim-medium-web.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85455D2E1EF2A53200243846 /* gt-walsheim-medium-web.ttf */; };
+		85455D3C1EF2A53200243846 /* gt-walsheim-web.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85455D2F1EF2A53200243846 /* gt-walsheim-web.ttf */; };
+		85455D3D1EF2A53200243846 /* gt-walsheim-web.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85455D2F1EF2A53200243846 /* gt-walsheim-web.ttf */; };
+		85455D3E1EF2A53200243846 /* gt-walsheim-web.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85455D2F1EF2A53200243846 /* gt-walsheim-web.ttf */; };
+		85455D401EF2B66200243846 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85455D3F1EF2B66200243846 /* NavigationViewController.swift */; };
+		85455D411EF2B66200243846 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85455D3F1EF2B66200243846 /* NavigationViewController.swift */; };
+		85455D421EF2B66200243846 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85455D3F1EF2B66200243846 /* NavigationViewController.swift */; };
 		8570C1C81ECEDE3300FA1CE9 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1C71ECEDE3300FA1CE9 /* Notifications.storyboard */; };
 		8570C1CB1ECEDE6200FA1CE9 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1CA1ECEDE6200FA1CE9 /* NotificationsViewController.swift */; };
 		8570C1CE1ECEE0BA00FA1CE9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1CD1ECEE0BA00FA1CE9 /* SearchViewController.swift */; };
@@ -219,6 +243,14 @@
 		8534340B1EE6BE11003C26F8 /* MessagesThreadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesThreadViewController.swift; sourceTree = "<group>"; };
 		8534340F1EE6E9DC003C26F8 /* MessageThreadMeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadMeCell.swift; sourceTree = "<group>"; };
 		853434131EE6E9F5003C26F8 /* MessageThreadThemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadThemCell.swift; sourceTree = "<group>"; };
+		85455D221EF28D3D00243846 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		85455D261EF28E6400243846 /* UIColor+IMAAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+IMAAdditions.swift"; sourceTree = "<group>"; };
+		85455D2B1EF2A53200243846 /* gt-walsheim-bold-web.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gt-walsheim-bold-web.ttf"; sourceTree = "<group>"; };
+		85455D2C1EF2A53200243846 /* gt-walsheim-light-oblique-web.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gt-walsheim-light-oblique-web.ttf"; sourceTree = "<group>"; };
+		85455D2D1EF2A53200243846 /* gt-walsheim-light-web.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gt-walsheim-light-web.ttf"; sourceTree = "<group>"; };
+		85455D2E1EF2A53200243846 /* gt-walsheim-medium-web.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gt-walsheim-medium-web.ttf"; sourceTree = "<group>"; };
+		85455D2F1EF2A53200243846 /* gt-walsheim-web.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gt-walsheim-web.ttf"; sourceTree = "<group>"; };
+		85455D3F1EF2B66200243846 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		8570C1C71ECEDE3300FA1CE9 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		8570C1CA1ECEDE6200FA1CE9 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		8570C1CD1ECEE0BA00FA1CE9 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -387,6 +419,18 @@
 			name = Chatter;
 			sourceTree = "<group>";
 		};
+		85455D2A1EF2A52500243846 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				85455D2B1EF2A53200243846 /* gt-walsheim-bold-web.ttf */,
+				85455D2C1EF2A53200243846 /* gt-walsheim-light-oblique-web.ttf */,
+				85455D2D1EF2A53200243846 /* gt-walsheim-light-web.ttf */,
+				85455D2E1EF2A53200243846 /* gt-walsheim-medium-web.ttf */,
+				85455D2F1EF2A53200243846 /* gt-walsheim-web.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		8570C1C91ECEDE4B00FA1CE9 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
@@ -481,6 +525,7 @@
 		85DE9EC71ECC8CD900291EF5 /* ImpactHub */ = {
 			isa = PBXGroup;
 			children = (
+				85455D2A1EF2A52500243846 /* Fonts */,
 				85066FC21ED2EF100032391A /* ImpactHub.entitlements */,
 				85B361391ED59FD400DC2DE0 /* APIClient.swift */,
 				85B3613B1ED5A08600DC2DE0 /* Constants.swift */,
@@ -489,6 +534,8 @@
 				85DE9EC81ECC8CD900291EF5 /* AppDelegate.swift */,
 				857480781EE846EE005F73A2 /* SessionManager.swift */,
 				85DE9ECA1ECC8CD900291EF5 /* ViewController.swift */,
+				85455D3F1EF2B66200243846 /* NavigationViewController.swift */,
+				85455D221EF28D3D00243846 /* TabBarController.swift */,
 				857480681EE83B17005F73A2 /* LoginViewController.swift */,
 				8574806C1EE83B67005F73A2 /* ResetPasswordViewController.swift */,
 				85DE9ECC1ECC8CD900291EF5 /* Main.storyboard */,
@@ -563,6 +610,7 @@
 		85DE9F011ECCABBB00291EF5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				85455D261EF28E6400243846 /* UIColor+IMAAdditions.swift */,
 				8574807C1EE84735005F73A2 /* Animations.swift */,
 				857480801EE84752005F73A2 /* Button.swift */,
 				857480741EE846C2005F73A2 /* WhiteButton.swift */,
@@ -724,13 +772,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				8570C1F01ECF04E800FA1CE9 /* CompanyCollectionViewCell.xib in Resources */,
+				85455D391EF2A53200243846 /* gt-walsheim-medium-web.ttf in Resources */,
 				8570C20D1ECF253000FA1CE9 /* JobCollectionViewCell.xib in Resources */,
 				853433CC1EE6B547003C26F8 /* MessagesCell.xib in Resources */,
 				859C41671ECDA01A00637295 /* MemberDetailTopCell.xib in Resources */,
 				859C417F1ECDFFD700637295 /* MemberAboutItemCell.xib in Resources */,
+				85455D3C1EF2A53200243846 /* gt-walsheim-web.ttf in Resources */,
 				85066FC61ED33E6F0032391A /* MemberSkillItemCell.xib in Resources */,
 				8570C1DF1ECEE66300FA1CE9 /* Home.storyboard in Resources */,
 				85DE9F001ECCA8D500291EF5 /* MemberCollectionViewCell.xib in Resources */,
+				85455D301EF2A53200243846 /* gt-walsheim-bold-web.ttf in Resources */,
 				859C41731ECDB6CD00637295 /* TopMenu.xib in Resources */,
 				8570C1D11ECEE0D200FA1CE9 /* Search.storyboard in Resources */,
 				8570C1FE1ECF1A2A00FA1CE9 /* CompanyAboutCell.xib in Resources */,
@@ -739,10 +790,12 @@
 				85DE9ED01ECC8CD900291EF5 /* Assets.xcassets in Resources */,
 				8570C1C81ECEDE3300FA1CE9 /* Notifications.storyboard in Resources */,
 				857480711EE83D44005F73A2 /* Auth0.plist in Resources */,
+				85455D361EF2A53200243846 /* gt-walsheim-light-web.ttf in Resources */,
 				859C416D1ECDB1D200637295 /* MemberFeedItemCell.xib in Resources */,
 				85DE9ECE1ECC8CD900291EF5 /* Main.storyboard in Resources */,
 				8570C1DA1ECEE39B00FA1CE9 /* Messages.storyboard in Resources */,
 				8570C1F51ECF159800FA1CE9 /* CompanyDetailTopCell.xib in Resources */,
+				85455D331EF2A53200243846 /* gt-walsheim-light-oblique-web.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -750,7 +803,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85455D3A1EF2A53200243846 /* gt-walsheim-medium-web.ttf in Resources */,
 				857480721EE83D44005F73A2 /* Auth0.plist in Resources */,
+				85455D3D1EF2A53200243846 /* gt-walsheim-web.ttf in Resources */,
+				85455D341EF2A53200243846 /* gt-walsheim-light-oblique-web.ttf in Resources */,
+				85455D311EF2A53200243846 /* gt-walsheim-bold-web.ttf in Resources */,
+				85455D371EF2A53200243846 /* gt-walsheim-light-web.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -758,7 +816,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85455D3B1EF2A53200243846 /* gt-walsheim-medium-web.ttf in Resources */,
 				857480731EE83D44005F73A2 /* Auth0.plist in Resources */,
+				85455D3E1EF2A53200243846 /* gt-walsheim-web.ttf in Resources */,
+				85455D351EF2A53200243846 /* gt-walsheim-light-oblique-web.ttf in Resources */,
+				85455D321EF2A53200243846 /* gt-walsheim-bold-web.ttf in Resources */,
+				85455D381EF2A53200243846 /* gt-walsheim-light-web.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -829,6 +892,7 @@
 				850072371EE711E4008A725A /* MessageThreadThemTimeCell.swift in Sources */,
 				8574806D1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
 				8570C2001ECF1B0500FA1CE9 /* CompanyAboutViewModel.swift in Sources */,
+				85455D401EF2B66200243846 /* NavigationViewController.swift in Sources */,
 				8570C1E81ECF037F00FA1CE9 /* CompaniesViewController.swift in Sources */,
 				8500722F1EE70F56008A725A /* MessagesThreadThemPicVM.swift in Sources */,
 				85B3613C1ED5A08600DC2DE0 /* Constants.swift in Sources */,
@@ -868,6 +932,7 @@
 				853433CB1EE6B547003C26F8 /* MessagesCell.swift in Sources */,
 				859C416F1ECDB39D00637295 /* MemberFeedItemViewModel.swift in Sources */,
 				857480451EE802D0005F73A2 /* Conversation.swift in Sources */,
+				85455D271EF28E6400243846 /* UIColor+IMAAdditions.swift in Sources */,
 				85B3613A1ED59FD400DC2DE0 /* APIClient.swift in Sources */,
 				8570C1E51ECF030900FA1CE9 /* CompanyViewModel.swift in Sources */,
 				859C41811ECE006500637295 /* MemberAboutItemViewModel.swift in Sources */,
@@ -890,6 +955,7 @@
 				857480481EE802D0005F73A2 /* Group.swift in Sources */,
 				8500723F1EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */,
 				85DE9F091ECCACCB00291EF5 /* Member.swift in Sources */,
+				85455D231EF28D3D00243846 /* TabBarController.swift in Sources */,
 				8534340C1EE6BE11003C26F8 /* MessagesThreadViewController.swift in Sources */,
 				857480651EE802F1005F73A2 /* User.swift in Sources */,
 				8570C1F21ECF0BBC00FA1CE9 /* CompaniesSearchViewController.swift in Sources */,
@@ -910,6 +976,7 @@
 				8501B9F61EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
 				850072351EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
 				857480551EE802D0005F73A2 /* Photo.swift in Sources */,
+				85455D411EF2B66200243846 /* NavigationViewController.swift in Sources */,
 				8574806E1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
 				8500722C1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
 				85DE9EDE1ECC8CD900291EF5 /* ImpactHubTests.swift in Sources */,
@@ -923,6 +990,7 @@
 				857480491EE802D0005F73A2 /* Group.swift in Sources */,
 				8574804C1EE802D0005F73A2 /* MentionCompletion.swift in Sources */,
 				850072241EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
+				85455D241EF28D3D00243846 /* TabBarController.swift in Sources */,
 				853434151EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
 				8574806A1EE83B17005F73A2 /* LoginViewController.swift in Sources */,
 				8501B9FA1EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */,
@@ -936,6 +1004,7 @@
 				857480581EE802D0005F73A2 /* Post.swift in Sources */,
 				857480521EE802D0005F73A2 /* MessageSegment.swift in Sources */,
 				8534340D1EE6BE11003C26F8 /* MessagesThreadViewController.swift in Sources */,
+				85455D281EF28E6400243846 /* UIColor+IMAAdditions.swift in Sources */,
 				8574807A1EE846EE005F73A2 /* SessionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -952,6 +1021,7 @@
 				8501B9F71EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
 				850072361EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
 				857480561EE802D0005F73A2 /* Photo.swift in Sources */,
+				85455D421EF2B66200243846 /* NavigationViewController.swift in Sources */,
 				8574806F1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
 				8500722D1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
 				85DE9EE91ECC8CD900291EF5 /* ImpactHubUITests.swift in Sources */,
@@ -965,6 +1035,7 @@
 				8574804A1EE802D0005F73A2 /* Group.swift in Sources */,
 				8574804D1EE802D0005F73A2 /* MentionCompletion.swift in Sources */,
 				850072251EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
+				85455D251EF28D3D00243846 /* TabBarController.swift in Sources */,
 				853434161EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
 				8574806B1EE83B17005F73A2 /* LoginViewController.swift in Sources */,
 				8501B9FB1EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */,
@@ -978,6 +1049,7 @@
 				857480591EE802D0005F73A2 /* Post.swift in Sources */,
 				857480531EE802D0005F73A2 /* MessageSegment.swift in Sources */,
 				8534340E1EE6BE11003C26F8 /* MessagesThreadViewController.swift in Sources */,
+				85455D291EF28E6400243846 /* UIColor+IMAAdditions.swift in Sources */,
 				8574807B1EE846EE005F73A2 /* SessionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

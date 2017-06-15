@@ -73,6 +73,14 @@
 	</array>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>gt-walsheim-bold-web.ttf</string>
+		<string>gt-walsheim-light-oblique-web.ttf</string>
+		<string>gt-walsheim-light-web.ttf</string>
+		<string>gt-walsheim-medium-web.ttf</string>
+		<string>gt-walsheim-web.ttf</string>
+	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

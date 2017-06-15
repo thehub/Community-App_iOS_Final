@@ -337,4 +337,22 @@ extension UIView {
     }
 }
 
+extension UIImage {
+    func createSelectionIndicator(color: UIColor, size: CGSize, lineWidth: CGFloat) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        color.setStroke()
+
+        let cross = UIBezierPath()
+        cross.move(to: CGPoint(x: 0, y: size.height - lineWidth)) // your point
+        cross.addLine(to: CGPoint(x: size.width, y: size.height - lineWidth)) // your point
+        cross.close()
+        cross.lineWidth = 3.0
+        cross.lineCapStyle = .butt
+        cross.stroke()
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+    }
+}
+
 

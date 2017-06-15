@@ -32,8 +32,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        /*
         // Do any additional setup after loading the view.
         if let currentUser = SFUserAccountManager.sharedInstance().currentUser, currentUser.isSessionValid {
             self.performSegue(withIdentifier: "ShowHome", sender: self)
@@ -46,19 +44,18 @@ class ViewController: UIViewController {
         self.observer = NotificationCenter.default.addObserver(forName: NSNotification.Name.onLogin, object: nil, queue: OperationQueue.main) { (_) in
             self.performSegue(withIdentifier: "ShowHome", sender: self)
         }
-         */
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.checkAccessToken()
-    }
-    
-//    deinit {
-//        if let observer = self.observer {
-//            NotificationCenter.default.removeObserver(observer, name: NSNotification.Name.onLogin, object: nil)
-//        }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        self.checkAccessToken()
 //    }
+    
+    deinit {
+        if let observer = self.observer {
+            NotificationCenter.default.removeObserver(observer, name: NSNotification.Name.onLogin, object: nil)
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

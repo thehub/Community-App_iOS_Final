@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    /*
     override init() {
         super.init()
         SFLogger.shared().logLevel = .debug
@@ -72,26 +71,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //            self.handleUserSwitch(fromUser, toUser: toUser)
         //        }
     }
- */
+ 
 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        stylize()
         
-//        let loginViewController = SFLoginViewController.sharedInstance();
-//        loginViewController.showNavbar = true
-//        loginViewController.showSettingsIcon = false
-//        loginViewController.navBarColor = UIColor.white
-////        loginViewController.navBarFont = UIFont (name: "HelveticaNeue-Medium", size: 19);
-//        loginViewController.navBarTextColor = UIColor.darkGray
-//        
-//        SalesforceSDKManager.shared().launch()
+        let loginViewController = SFLoginViewController.sharedInstance();
+        loginViewController.showNavbar = true
+        loginViewController.showSettingsIcon = false
+        loginViewController.navBarColor = UIColor.white
+//        loginViewController.navBarFont = UIFont (name: "HelveticaNeue-Medium", size: 19);
+        loginViewController.navBarTextColor = UIColor.darkGray
+        
+        SalesforceSDKManager.shared().launch()
 
- 
         
         return true
     }
 
+    func stylize() {
+        
+        UIApplication.shared.statusBarStyle = .default
+        
+        UINavigationBar.appearance().backgroundColor = UIColor.white
+        UINavigationBar.appearance().shadowImage = UIImage(named: "tabBarShadow")
+        
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.imaGreyishBrown, NSFontAttributeName: UIFont(name:"GTWalsheim", size:18)!]
+        
+        
+//        let titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont(name: "OpenSans", size: 16)!]
+//        UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .selected)
+//        UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .normal)
+//        UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .highlighted)
+        
+        
+    }
+
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -115,7 +133,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     
-    /*
+    
     func handleSdkManagerLogout() {
         self.log(.debug, msg: "SFAuthenticationManager logged out.  Resetting app.")
         SalesforceSDKManager.shared().launch()
@@ -156,7 +174,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //            }
         //        }
     }
-*/
+
 
 }
 
