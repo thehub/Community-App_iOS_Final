@@ -15,7 +15,15 @@ class MembersViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
 
+    @IBOutlet weak var searchContainerTopConstraint: NSLayoutConstraint!
+    var searchContainerTopConstraintDefault: CGFloat = 0
 
+    @IBOutlet weak var searchInputTextField: UITextField!
+    @IBOutlet weak var filterButton: UIButton!
+    
+    @IBOutlet weak var searchContainer: UIView!
+    @IBOutlet weak var searchTextBg: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +31,8 @@ class MembersViewController: UIViewController {
         if(traitCollection.forceTouchCapability == .available){
             registerForPreviewing(with: self, sourceView: self.collectionView)
         }
+        
+        self.searchContainerTopConstraintDefault = searchContainerTopConstraint.constant
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -43,7 +53,17 @@ class MembersViewController: UIViewController {
         self.data.append(viewModel2)
         self.data.append(viewModel3)
         self.data.append(viewModel4)
-        
+
+        self.data.append(viewModel1)
+        self.data.append(viewModel2)
+        self.data.append(viewModel3)
+        self.data.append(viewModel4)
+
+        self.data.append(viewModel1)
+        self.data.append(viewModel2)
+        self.data.append(viewModel3)
+        self.data.append(viewModel4)
+
         
         // Do any additional setup after loading the view.
     }
@@ -63,6 +83,50 @@ class MembersViewController: UIViewController {
             }
         }
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.searchTextBg.layer.shadowColor = UIColor(hexString: "D5D5D5").cgColor
+        self.searchTextBg.layer.shadowOffset = CGSize(width: 0, height: 5)
+        self.searchTextBg.layer.shadowOpacity = 0.37
+        self.searchTextBg.layer.shadowPath = UIBezierPath(rect: self.searchTextBg.bounds).cgPath
+        self.searchTextBg.layer.shadowRadius = 15.0
+
+    }
+    
+    var lastScrollPositionY: CGFloat = 0
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let currentPositionY = scrollView.contentOffset.y
+
+        if currentPositionY < 0 {
+            return
+        }
+        
+        // Scrolling down
+        if lastScrollPositionY < currentPositionY {
+            let newPosition = searchContainerTopConstraintDefault - currentPositionY
+            if newPosition > -100 {
+                self.searchContainerTopConstraint.constant = newPosition
+            }
+            else {
+                self.searchContainerTopConstraint.constant = -100
+            }
+        }
+        // Scrolling up
+        else {
+            let diff = currentPositionY - lastScrollPositionY
+            var newPosition = searchContainerTopConstraint.constant - diff
+            if newPosition > searchContainerTopConstraintDefault {
+                newPosition = searchContainerTopConstraintDefault
+            }
+            searchContainerTopConstraint.constant = newPosition
+        }
+        
+        lastScrollPositionY = scrollView.contentOffset.y
+    }
+        
     
 }
 

@@ -423,4 +423,5 @@ We’ll send you an email to reset your password.</string>
         <image name="tabBarBg" width="16" height="16"/>
         <image name="tabBarShadow" width="71" height="7"/>
     </resources>
+    <color key="tintColor" red="1" green="0.32549019607843138" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
 </document>

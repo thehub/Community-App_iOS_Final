@@ -51,18 +51,24 @@ class Button: UIButton {
         }
     }
     
-    
-//    func addShadow() {
-//        self.layer.shadowColor = UIColor.lightfulDarkGreyBlue.cgColor
-//        self.layer.shadowOffset = CGSize(width: 3, height: 3)  //Here you control x and y
-//        self.layer.shadowOpacity = 0.05
-//        self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
-//        self.layer.shadowRadius = 20.0 //Here your control your blur
-//    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         
         self.layer.cornerRadius = self.frame.height / 2
+        
+        addShadow()
     }
+    
+    func addShadow() {
+        
+        self.layer.shadowColor = UIColor(hexString: "D5D5D5").cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 5)
+        self.layer.shadowOpacity = 0.37
+        self.layer.shadowPath = UIBezierPath(rect: self.layer.bounds).cgPath
+        self.layer.shadowRadius = 15.0
+        
+    }
+    
+
+    
 }

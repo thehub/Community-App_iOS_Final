@@ -101,6 +101,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.imaGreyishBrown, NSFontAttributeName: UIFont(name:"GTWalsheim", size:18)!]
         
         
+        
+        let customFont = UIFont(name: "GTWalsheim-Light", size: 14.0)!
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: customFont], for: .normal)
+
+        
 //        let titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont(name: "OpenSans", size: 16)!]
 //        UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .selected)
 //        UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .normal)

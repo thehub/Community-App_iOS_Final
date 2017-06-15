@@ -10,6 +10,11 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="gt-walsheim-light-web.ttf">
+            <string>GTWalsheim-Light</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Impact Hub-->
         <scene sceneID="eJ4-V9-GOL">
@@ -279,11 +284,11 @@
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="12" maxX="0.0" maxY="60"/>
+                                    <inset key="sectionInset" minX="0.0" minY="90" maxX="0.0" maxY="60"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="oMB-oI-1Pj">
-                                        <rect key="frame" x="0.0" y="12" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="90" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -292,31 +297,97 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8fM-Kb-kNr">
+                                <rect key="frame" x="16" y="84" width="343" height="100"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sIN-jb-FgO">
+                                        <rect key="frame" x="0.0" y="0.0" width="286" height="54"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xzw-Ca-KDb">
+                                                <rect key="frame" x="15" y="17" width="238" height="20"/>
+                                                <color key="textColor" red="0.37647058823529411" green="0.37647058823529411" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXa-hp-ZZI">
+                                                <rect key="frame" x="257" y="16" width="17" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="22" id="BNq-j9-21d"/>
+                                                    <constraint firstAttribute="width" constant="17" id="FDm-Ee-ZY6"/>
+                                                </constraints>
+                                                <state key="normal" image="search"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="Cwo-FO-hnF"/>
+                                            <constraint firstAttribute="trailing" secondItem="XXa-hp-ZZI" secondAttribute="trailing" constant="12" id="Y8s-bv-MCT"/>
+                                            <constraint firstItem="xzw-Ca-KDb" firstAttribute="centerY" secondItem="sIN-jb-FgO" secondAttribute="centerY" id="kbO-3b-9WW"/>
+                                            <constraint firstItem="xzw-Ca-KDb" firstAttribute="leading" secondItem="sIN-jb-FgO" secondAttribute="leading" constant="15" id="rcE-st-XwR"/>
+                                            <constraint firstItem="XXa-hp-ZZI" firstAttribute="centerY" secondItem="sIN-jb-FgO" secondAttribute="centerY" id="rxT-iV-44P"/>
+                                            <constraint firstItem="XXa-hp-ZZI" firstAttribute="leading" secondItem="xzw-Ca-KDb" secondAttribute="trailing" constant="4" id="xwq-Ul-sLO"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0MB-Nn-Az2">
+                                        <rect key="frame" x="294" y="-6" width="64" height="65"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="65" id="RvU-Vx-LVT"/>
+                                            <constraint firstAttribute="width" constant="64" id="ktd-F4-co7"/>
+                                        </constraints>
+                                        <state key="normal" image="filterButton"/>
+                                        <connections>
+                                            <segue destination="3P0-zD-GQr" kind="custom" identifier="ShowFilter" customClass="DeckSegue" customModule="DeckTransition" id="2YP-O4-F5Z"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="2HH-eU-eDf"/>
+                                    <constraint firstItem="sIN-jb-FgO" firstAttribute="leading" secondItem="8fM-Kb-kNr" secondAttribute="leading" id="GzB-Uf-giW"/>
+                                    <constraint firstItem="0MB-Nn-Az2" firstAttribute="leading" secondItem="sIN-jb-FgO" secondAttribute="trailing" constant="8" id="fO4-N9-cyh"/>
+                                    <constraint firstAttribute="trailing" secondItem="0MB-Nn-Az2" secondAttribute="trailing" constant="-15" id="fsC-1K-VI6"/>
+                                    <constraint firstItem="0MB-Nn-Az2" firstAttribute="top" secondItem="8fM-Kb-kNr" secondAttribute="top" constant="-6" id="iDI-4V-jUG"/>
+                                    <constraint firstItem="sIN-jb-FgO" firstAttribute="top" secondItem="8fM-Kb-kNr" secondAttribute="top" id="qmd-N8-aAR"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dt5-dE-uD5" firstAttribute="top" secondItem="Yag-w3-ADU" secondAttribute="bottom" id="0dg-eA-7AJ"/>
+                            <constraint firstItem="8fM-Kb-kNr" firstAttribute="leading" secondItem="n8U-mT-QJd" secondAttribute="leadingMargin" id="2F6-3T-1P8"/>
+                            <constraint firstItem="8fM-Kb-kNr" firstAttribute="top" secondItem="Yag-w3-ADU" secondAttribute="bottom" constant="20" id="8VF-Fg-zJd"/>
                             <constraint firstAttribute="trailing" secondItem="dt5-dE-uD5" secondAttribute="trailing" id="BFf-ov-dKj"/>
                             <constraint firstAttribute="bottom" secondItem="dt5-dE-uD5" secondAttribute="bottom" id="Qqg-yj-C3s"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8fM-Kb-kNr" secondAttribute="trailing" id="fFh-UB-QuR"/>
                             <constraint firstItem="dt5-dE-uD5" firstAttribute="leading" secondItem="n8U-mT-QJd" secondAttribute="leading" id="rhG-nC-Rex"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Members" id="O6O-dC-0pA">
                         <barButtonItem key="backBarButtonItem" title=" " id="wRs-Np-97q"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="5KN-MD-gzc">
-                            <connections>
-                                <segue destination="g4N-jp-PsD" kind="custom" customClass="DeckSegue" customModule="DeckTransition" id="oz5-22-CzS"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="dt5-dE-uD5" id="cWx-s2-9om"/>
+                        <outlet property="filterButton" destination="0MB-Nn-Az2" id="YeM-Ym-k72"/>
+                        <outlet property="searchContainer" destination="8fM-Kb-kNr" id="iVT-TR-9Ej"/>
+                        <outlet property="searchContainerTopConstraint" destination="8VF-Fg-zJd" id="1fa-pW-GdG"/>
+                        <outlet property="searchInputTextField" destination="xzw-Ca-KDb" id="Zrj-wq-b9d"/>
+                        <outlet property="searchTextBg" destination="sIN-jb-FgO" id="mhb-1m-g98"/>
                         <segue destination="v6r-jd-8oy" kind="show" identifier="ShowMember" id="E6m-rq-9b6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vLC-Ui-0Za" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2365.5999999999999" y="-158.77061469265368"/>
+            <point key="canvasLocation" x="2343" y="-142"/>
         </scene>
         <!--Members Search-->
         <scene sceneID="fZB-3f-Xmy">
@@ -341,7 +412,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hz8-0E-Ykl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3871" y="-824"/>
+            <point key="canvasLocation" x="4808.8000000000002" y="-824.43778110944538"/>
         </scene>
         <!--Member View Controller-->
         <scene sceneID="s0x-Ya-0KM">
@@ -467,6 +538,48 @@
             </objects>
             <point key="canvasLocation" x="644" y="-157.87106446776613"/>
         </scene>
+        <!--Filter-->
+        <scene sceneID="VWj-TW-90p">
+            <objects>
+                <viewController title="Filter" hidesBottomBarWhenPushed="YES" id="6DX-cB-YjN" customClass="MemberFilterViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nI7-Jo-2T6"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Bw-0C-v3Q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Erb-Ei-Ckz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKn-W3-WX4" customClass="RedButton" customModule="ImpactHub" customModuleProvider="target">
+                                <rect key="frame" x="51" y="589" width="273" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="F3U-5R-xMD"/>
+                                </constraints>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="onDoneTap:" destination="6DX-cB-YjN" eventType="touchUpInside" id="cUl-ID-Ok0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HKn-W3-WX4" firstAttribute="leading" secondItem="Erb-Ei-Ckz" secondAttribute="leadingMargin" constant="35" id="LJX-8A-pWd"/>
+                            <constraint firstItem="0Bw-0C-v3Q" firstAttribute="top" secondItem="HKn-W3-WX4" secondAttribute="bottom" constant="30" id="WG3-Sv-7WG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HKn-W3-WX4" secondAttribute="trailing" constant="35" id="lBY-HH-G6L"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Filter" id="Il7-n0-bfp">
+                        <barButtonItem key="rightBarButtonItem" title="Clear All" id="ncK-y1-0UV">
+                            <connections>
+                                <action selector="onClearAll:" destination="6DX-cB-YjN" id="m2i-oj-hza"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rtf-Cy-3dV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3133.5999999999999" y="-814.54272863568224"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="S48-rW-pfQ">
             <objects>
@@ -483,7 +596,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eGJ-dL-qkN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3101.5999999999999" y="-824.43778110944538"/>
+            <point key="canvasLocation" x="4040.8000000000002" y="-824.43778110944538"/>
         </scene>
         <!--Jobs-->
         <scene sceneID="ZEq-MK-HRg">
@@ -897,11 +1010,32 @@
             </objects>
             <point key="canvasLocation" x="-183" y="571"/>
         </scene>
+        <!--Filter-->
+        <scene sceneID="r73-af-YcJ">
+            <objects>
+                <navigationController title="Filter" automaticallyAdjustsScrollViewInsets="NO" id="3P0-zD-GQr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="li8-wY-ywY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6DX-cB-YjN" kind="relationship" relationship="rootViewController" id="4P4-eD-aPv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jEa-2c-6ob" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2194.4000000000001" y="-814.54272863568224"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="filterButton" width="64" height="65"/>
+        <image name="search" width="17" height="16"/>
         <image name="tabBarHome" width="22" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="N3U-uw-Ik8"/>
+        <segue reference="lnv-cm-T4q"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="1" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>
