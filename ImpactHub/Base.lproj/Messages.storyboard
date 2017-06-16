@@ -299,10 +299,10 @@
             </objects>
             <point key="canvasLocation" x="2376.8000000000002" y="725.48725637181417"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation View Controller-->
         <scene sceneID="9yR-WN-rHC">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="A1i-kk-ec4" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="A1i-kk-ec4" customClass="NavigationViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tabBarMessages" id="lbF-H3-O6V">
                         <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
                     </tabBarItem>

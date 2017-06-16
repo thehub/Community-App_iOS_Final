@@ -104,16 +104,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let customFont = UIFont(name: "GTWalsheim-Light", size: 14.0)!
         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: customFont], for: .normal)
-
         
         
-        
-        
-        
-//        let titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont(name: "OpenSans", size: 16)!]
-//        UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .selected)
-//        UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .normal)
-//        UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .highlighted)
+        let titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont(name: "GTWalsheim", size: 16)!]
+        UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .normal)
+        UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .highlighted)
         
         
     }

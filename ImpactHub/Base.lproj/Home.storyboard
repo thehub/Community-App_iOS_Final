@@ -519,7 +519,7 @@
         <!--Home-->
         <scene sceneID="r0J-gs-CjN">
             <objects>
-                <navigationController title="Home" automaticallyAdjustsScrollViewInsets="NO" id="a49-ft-Pky" sceneMemberID="viewController">
+                <navigationController title="Home" automaticallyAdjustsScrollViewInsets="NO" id="a49-ft-Pky" customClass="NavigationViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tabBarHome" id="0nt-BW-nju">
                         <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
                     </tabBarItem>

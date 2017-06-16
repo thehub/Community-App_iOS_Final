@@ -13,8 +13,15 @@ class NavigationViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationBar.setBackgroundImage(UIImage(named: "tabBarBg"), for: .default)
-        self.navigationBar.shadowImage = UIImage(named: "tabBarShadow")
+        self.navigationBar.isTranslucent = false
+        self.navigationBar.layer.borderColor = UIColor.white.cgColor
+        self.navigationBar.layer.borderWidth = 3
+        self.navigationBar.layer.shadowColor = UIColor(hexString: "f2f2f2").cgColor
+        self.navigationBar.layer.shadowOffset = CGSize.init(width: 1.0, height: 1.0)
+        self.navigationBar.layer.shadowRadius = 6.0
+        self.navigationBar.layer.shadowOpacity = 1.0
+        self.navigationBar.layer.masksToBounds = false
+
     }
 
     override func didReceiveMemoryWarning() {

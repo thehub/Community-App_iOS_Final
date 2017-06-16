@@ -30,10 +30,10 @@
             </objects>
             <point key="canvasLocation" x="1935.2" y="700.29985007496259"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation View Controller-->
         <scene sceneID="pYt-0v-lzU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VtY-QA-dhx" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VtY-QA-dhx" customClass="NavigationViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tabBarProfile" id="BFu-U8-PoI">
                         <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
                     </tabBarItem>

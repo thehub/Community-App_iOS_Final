@@ -37,6 +37,9 @@
 		8501B9F91EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8501B9F81EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift */; };
 		8501B9FA1EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8501B9F81EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift */; };
 		8501B9FB1EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8501B9F81EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift */; };
+		8505E1FA1EF3CEEA005A2F40 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8505E1F91EF3CEEA005A2F40 /* NavigationViewController.swift */; };
+		8505E1FB1EF3CEEA005A2F40 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8505E1F91EF3CEEA005A2F40 /* NavigationViewController.swift */; };
+		8505E1FC1EF3CEEA005A2F40 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8505E1F91EF3CEEA005A2F40 /* NavigationViewController.swift */; };
 		85066FC51ED33E6F0032391A /* MemberSkillItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85066FC31ED33E6F0032391A /* MemberSkillItemCell.swift */; };
 		85066FC61ED33E6F0032391A /* MemberSkillItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85066FC41ED33E6F0032391A /* MemberSkillItemCell.xib */; };
 		85066FC81ED33F240032391A /* MemberSkillItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85066FC71ED33F240032391A /* MemberSkillItemViewModel.swift */; };
@@ -235,6 +238,7 @@
 		8500723B1EE7126C008A725A /* MessagesThreadThemTimeVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesThreadThemTimeVM.swift; sourceTree = "<group>"; };
 		8501B9F41EE6FD2600F9EFFA /* MessagesThreadMeVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesThreadMeVM.swift; sourceTree = "<group>"; };
 		8501B9F81EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesThreadThemVM.swift; sourceTree = "<group>"; };
+		8505E1F91EF3CEEA005A2F40 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		85066FC21ED2EF100032391A /* ImpactHub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImpactHub.entitlements; sourceTree = "<group>"; };
 		85066FC31ED33E6F0032391A /* MemberSkillItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberSkillItemCell.swift; sourceTree = "<group>"; };
 		85066FC41ED33E6F0032391A /* MemberSkillItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberSkillItemCell.xib; sourceTree = "<group>"; };
@@ -538,6 +542,7 @@
 				85DE9EC81ECC8CD900291EF5 /* AppDelegate.swift */,
 				857480781EE846EE005F73A2 /* SessionManager.swift */,
 				85DE9ECA1ECC8CD900291EF5 /* ViewController.swift */,
+				8505E1F91EF3CEEA005A2F40 /* NavigationViewController.swift */,
 				85455D221EF28D3D00243846 /* TabBarController.swift */,
 				857480681EE83B17005F73A2 /* LoginViewController.swift */,
 				8574806C1EE83B67005F73A2 /* ResetPasswordViewController.swift */,
@@ -967,6 +972,7 @@
 				8570C1F21ECF0BBC00FA1CE9 /* CompaniesSearchViewController.swift in Sources */,
 				8570C1FD1ECF1A2A00FA1CE9 /* CompanyAboutCell.swift in Sources */,
 				8570C2021ECF214600FA1CE9 /* Job.swift in Sources */,
+				8505E1FA1EF3CEEA005A2F40 /* NavigationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -982,6 +988,7 @@
 				8501B9F61EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
 				850072351EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
 				857480551EE802D0005F73A2 /* Photo.swift in Sources */,
+				8505E1FB1EF3CEEA005A2F40 /* NavigationViewController.swift in Sources */,
 				8574806E1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
 				8500722C1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
 				85DE9EDE1ECC8CD900291EF5 /* ImpactHubTests.swift in Sources */,
@@ -1028,6 +1035,7 @@
 				8501B9F71EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
 				850072361EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
 				857480561EE802D0005F73A2 /* Photo.swift in Sources */,
+				8505E1FC1EF3CEEA005A2F40 /* NavigationViewController.swift in Sources */,
 				8574806F1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
 				8500722D1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
 				85DE9EE91ECC8CD900291EF5 /* ImpactHubUITests.swift in Sources */,

@@ -30,9 +30,9 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        self.navigationController?.navigationBar.shadowImage = UIImage()
+//        self.navigationController?.navigationBar.isTranslucent = true
 
         connectButton.setTitle("Connect with \(member.name)", for: .normal)
 
@@ -86,7 +86,7 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        self.navigationController?.navigationBar.shadowImage = nil
+//        self.navigationController?.navigationBar.shadowImage = nil
 
     }
     

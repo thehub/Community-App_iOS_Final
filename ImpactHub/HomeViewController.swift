@@ -16,13 +16,7 @@ class HomeViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
-//        self.navigationBar.layer.borderColor = UIColor.white.cgColor
-//        self.navigationBar.layer.borderWidth = 0
-//        self.navigationBar.layer.shadowColor = UIColor.imaSilver.cgColor
-//        self.navigationBar.layer.shadowOffset = CGSize.init(width: 1.0, height: 1.0)
-//        self.navigationBar.layer.shadowRadius = 3.0
-//        self.navigationBar.layer.shadowOpacity = 1.0
-//        self.navigationBar.layer.masksToBounds = false
+
         
         
     }

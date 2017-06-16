@@ -43,10 +43,10 @@
             </objects>
             <point key="canvasLocation" x="792.79999999999995" y="150.67466266866569"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation View Controller-->
         <scene sceneID="e0C-vI-SVo">
             <objects>
-                <navigationController storyboardIdentifier="Notifications" automaticallyAdjustsScrollViewInsets="NO" id="ZGB-t5-Myg" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Notifications" automaticallyAdjustsScrollViewInsets="NO" id="ZGB-t5-Myg" customClass="NavigationViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tabBarNotifications" id="VSO-6B-nrI">
                         <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
                     </tabBarItem>
