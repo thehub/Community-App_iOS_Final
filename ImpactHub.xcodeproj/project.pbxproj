@@ -76,9 +76,6 @@
 		85455D3C1EF2A53200243846 /* gt-walsheim-web.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85455D2F1EF2A53200243846 /* gt-walsheim-web.ttf */; };
 		85455D3D1EF2A53200243846 /* gt-walsheim-web.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85455D2F1EF2A53200243846 /* gt-walsheim-web.ttf */; };
 		85455D3E1EF2A53200243846 /* gt-walsheim-web.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85455D2F1EF2A53200243846 /* gt-walsheim-web.ttf */; };
-		85455D401EF2B66200243846 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85455D3F1EF2B66200243846 /* NavigationViewController.swift */; };
-		85455D411EF2B66200243846 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85455D3F1EF2B66200243846 /* NavigationViewController.swift */; };
-		85455D421EF2B66200243846 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85455D3F1EF2B66200243846 /* NavigationViewController.swift */; };
 		85455D441EF2DFD600243846 /* MemberFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85455D431EF2DFD600243846 /* MemberFilterViewController.swift */; };
 		85455D451EF2DFD600243846 /* MemberFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85455D431EF2DFD600243846 /* MemberFilterViewController.swift */; };
 		85455D461EF2DFD600243846 /* MemberFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85455D431EF2DFD600243846 /* MemberFilterViewController.swift */; };
@@ -256,7 +253,6 @@
 		85455D2D1EF2A53200243846 /* gt-walsheim-light-web.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gt-walsheim-light-web.ttf"; sourceTree = "<group>"; };
 		85455D2E1EF2A53200243846 /* gt-walsheim-medium-web.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gt-walsheim-medium-web.ttf"; sourceTree = "<group>"; };
 		85455D2F1EF2A53200243846 /* gt-walsheim-web.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gt-walsheim-web.ttf"; sourceTree = "<group>"; };
-		85455D3F1EF2B66200243846 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		85455D431EF2DFD600243846 /* MemberFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberFilterViewController.swift; sourceTree = "<group>"; };
 		85455D471EF2E7A000243846 /* RedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedButton.swift; sourceTree = "<group>"; };
 		8570C1C71ECEDE3300FA1CE9 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
@@ -542,7 +538,6 @@
 				85DE9EC81ECC8CD900291EF5 /* AppDelegate.swift */,
 				857480781EE846EE005F73A2 /* SessionManager.swift */,
 				85DE9ECA1ECC8CD900291EF5 /* ViewController.swift */,
-				85455D3F1EF2B66200243846 /* NavigationViewController.swift */,
 				85455D221EF28D3D00243846 /* TabBarController.swift */,
 				857480681EE83B17005F73A2 /* LoginViewController.swift */,
 				8574806C1EE83B67005F73A2 /* ResetPasswordViewController.swift */,
@@ -903,7 +898,6 @@
 				85455D441EF2DFD600243846 /* MemberFilterViewController.swift in Sources */,
 				8574806D1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
 				8570C2001ECF1B0500FA1CE9 /* CompanyAboutViewModel.swift in Sources */,
-				85455D401EF2B66200243846 /* NavigationViewController.swift in Sources */,
 				8570C1E81ECF037F00FA1CE9 /* CompaniesViewController.swift in Sources */,
 				8500722F1EE70F56008A725A /* MessagesThreadThemPicVM.swift in Sources */,
 				85B3613C1ED5A08600DC2DE0 /* Constants.swift in Sources */,
@@ -988,7 +982,6 @@
 				8501B9F61EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
 				850072351EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
 				857480551EE802D0005F73A2 /* Photo.swift in Sources */,
-				85455D411EF2B66200243846 /* NavigationViewController.swift in Sources */,
 				8574806E1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
 				8500722C1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
 				85DE9EDE1ECC8CD900291EF5 /* ImpactHubTests.swift in Sources */,
@@ -1035,7 +1028,6 @@
 				8501B9F71EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
 				850072361EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
 				857480561EE802D0005F73A2 /* Photo.swift in Sources */,
-				85455D421EF2B66200243846 /* NavigationViewController.swift in Sources */,
 				8574806F1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
 				8500722D1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
 				85DE9EE91ECC8CD900291EF5 /* ImpactHubUITests.swift in Sources */,

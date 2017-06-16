@@ -97,16 +97,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.statusBarStyle = .default
         
-        UINavigationBar.appearance().backgroundColor = UIColor.white
-        UINavigationBar.appearance().shadowImage = UIImage(named: "tabBarShadow")
-        
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.imaGreyishBrown, NSFontAttributeName: UIFont(name:"GTWalsheim", size:18)!]
         
-        
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
+        UINavigationBar.appearance().shadowImage = UIImage()
         
         let customFont = UIFont(name: "GTWalsheim-Light", size: 14.0)!
         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: customFont], for: .normal)
 
+        
+        
+        
+        
         
 //        let titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont(name: "OpenSans", size: 16)!]
 //        UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .selected)
