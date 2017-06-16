@@ -30,10 +30,6 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.navigationBar.isTranslucent = true
-
         connectButton.setTitle("Connect with \(member.name)", for: .normal)
 
         titleLabel.text = member.name
@@ -71,6 +67,50 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
+            self.setNeedsStatusBarAppearanceUpdate()
+        }) { (_) in
+            
+        }
+
+        
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        self.navigationController?.navigationBar.shadowImage = UIImage()
+//        self.navigationController?.navigationBar.isTranslucent = true
+//        self.navigationController?.view.backgroundColor = UIColor.clear
+//        self.navigationController?.navigationBar.backgroundColor = UIColor.clear
+//        
+//        
+//        
+//        self.navigationController?.navigationBar.layer.borderColor = UIColor.clear.cgColor
+//        self.navigationController?.navigationBar.layer.borderWidth = 0
+//        self.navigationController?.navigationBar.layer.shadowColor = UIColor.clear.cgColor
+//        self.navigationController?.navigationBar.layer.shadowOffset = CGSize.zero
+//        self.navigationController?.navigationBar.layer.shadowRadius = 0
+//        self.navigationController?.navigationBar.layer.shadowOpacity = 0
+//        self.navigationController?.navigationBar.layer.masksToBounds = true
+
+        
+        
+    }
+    
+
+    var shouldHideStatusBar = true
+    
+    override var prefersStatusBarHidden: Bool {
+        return shouldHideStatusBar
+    }
+    
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+        return .slide
     }
     
     var didLayout = false
@@ -136,9 +176,27 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > 200 && !topMenu.isShow {
             topMenu.show()
+            UIApplication.shared.setStatusBarHidden(false, with: UIStatusBarAnimation.slide)
+            self.shouldHideStatusBar = false
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
+                self.setNeedsStatusBarAppearanceUpdate()
+            }) { (_) in
+                
+            }
+            
         }
         else if scrollView.contentOffset.y < 200 && topMenu.isShow {
             topMenu.hide()
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+            self.shouldHideStatusBar = true
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
+                self.setNeedsStatusBarAppearanceUpdate()
+            }) { (_) in
+                
+            }
         }
 
         

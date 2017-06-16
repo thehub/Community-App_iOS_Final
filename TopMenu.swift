@@ -32,6 +32,7 @@ class TopMenu: UIView {
     }
     
     func show() {
+        
         isShow = true
         scrollViewTopConstraint.constant = 0
         

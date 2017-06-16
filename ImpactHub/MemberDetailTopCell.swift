@@ -18,11 +18,10 @@ class MemberDetailTopCell: UICollectionViewCell {
     @IBOutlet weak var blurbLabel: UILabel!
     @IBOutlet weak var facebookImageView: UIImageView!
     @IBOutlet weak var twitterImageView: UIImageView!
+    @IBOutlet weak var fadeView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        profileImageView.layer.cornerRadius = profileImageView.frame.width/2
-        profileImageView.clipsToBounds = true
     }
 
     func setup(vm: MemberDetailTopViewModel) {
@@ -33,6 +32,23 @@ class MemberDetailTopCell: UICollectionViewCell {
         locationNameLabel.text = vm.locationNameLong
         
     }
+    
+    let gradientLayer: CAGradientLayer = CAGradientLayer()
+    
+    override func draw(_ rect: CGRect) {
+        print("drawing")
+        gradientLayer.removeFromSuperlayer()
+        let startingColorOfGradient = UIColor.init(white: 1.0, alpha: 0.0).cgColor
+        let endingColorOFGradient = UIColor.init(white: 1.0, alpha: 1.0).cgColor
+        gradientLayer.frame = self.fadeView.layer.bounds
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y:0.3)
+        gradientLayer.colors = [startingColorOfGradient , endingColorOFGradient]
+        fadeView.layer.insertSublayer(gradientLayer, at: 0)
+        
+        
+    }
+
     
     
 }
