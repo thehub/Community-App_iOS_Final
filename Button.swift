@@ -51,9 +51,15 @@ class Button: UIButton {
         }
     }
     
+    var didLayout = false
+    
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+
+        if didLayout {
+            return
+        }
+        didLayout = true
         self.layer.cornerRadius = self.frame.height / 2
         
         addShadow()
@@ -63,7 +69,7 @@ class Button: UIButton {
         
         self.layer.shadowColor = UIColor(hexString: "D5D5D5").cgColor
         self.layer.shadowOffset = CGSize(width: 0, height: 5)
-        self.layer.shadowOpacity = 0.37
+        self.layer.shadowOpacity = 0.97
         self.layer.shadowPath = UIBezierPath(rect: self.layer.bounds).cgPath
         self.layer.shadowRadius = 15.0
         

@@ -12,6 +12,8 @@ import SalesforceSDKCore
 let RemoteAccessConsumerKey = "3MVG9HxRZv05HarR3qV4noRd_eWhwjootRcxv5EGAXfhwC89aYzX47dwhWh0j5yLzUbbSKvVvUZqPuVh.6qB2";
 let OAuthRedirectURI        = "lightfulapp://auth/success";
 
+// community-impacthub.cs88.force.com
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

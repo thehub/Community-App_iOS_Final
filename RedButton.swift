@@ -14,7 +14,6 @@ class RedButton: Button {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        self.layer.cornerRadius = self.frame.height / 2
         self.titleLabel?.font = UIFont(name: "GTWalsheim-Light", size: 16)
         self.setTitleColor(UIColor.white, for: .normal)
         self.setTitleColor(UIColor.white, for: .highlighted)
