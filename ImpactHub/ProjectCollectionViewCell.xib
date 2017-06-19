@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="gt-walsheim-light-web.ttf">
+            <string>GTWalsheim-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ProjectCollectionViewCell" customModule="ImpactHub" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXL-TE-Mb9">
+                        <rect key="frame" x="17" y="0.0" width="266" height="285"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nEg-AQ-Lnq">
+                                <rect key="frame" x="0.0" y="0.0" width="266" height="166.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nEg-AQ-Lnq" secondAttribute="height" multiplier="1.6" id="JsH-sX-KCB"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXZ-vy-Qnf">
+                                <rect key="frame" x="25" y="184" width="216" height="22"/>
+                                <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="17.5"/>
+                                <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3CQ-F2-UBr">
+                                <rect key="frame" x="25" y="210" width="216" height="16"/>
+                                <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12.5"/>
+                                <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tv7-i4-MOi">
+                                <rect key="frame" x="45" y="233" width="29.5" height="16"/>
+                                <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12.5"/>
+                                <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locationPin" translatesAutoresizingMaskIntoConstraints="NO" id="TVV-LO-OzH">
+                                <rect key="frame" x="25" y="232" width="12" height="17"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRH-1b-yPJ">
+                                <rect key="frame" x="112.5" y="233" width="29.5" height="16"/>
+                                <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12.5"/>
+                                <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="memberCount" translatesAutoresizingMaskIntoConstraints="NO" id="epf-NH-P62">
+                                <rect key="frame" x="90.5" y="231.5" width="14" height="19"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="nEg-AQ-Lnq" secondAttribute="trailing" id="5L2-7M-fN9"/>
+                            <constraint firstItem="tv7-i4-MOi" firstAttribute="leading" secondItem="TVV-LO-OzH" secondAttribute="trailing" constant="8" id="6s7-v1-pfu"/>
+                            <constraint firstItem="epf-NH-P62" firstAttribute="leading" secondItem="tv7-i4-MOi" secondAttribute="trailing" constant="16" id="6zt-Fi-tNt"/>
+                            <constraint firstAttribute="trailing" secondItem="BXZ-vy-Qnf" secondAttribute="trailing" constant="25" id="7eS-FL-t0K"/>
+                            <constraint firstItem="CRH-1b-yPJ" firstAttribute="leading" secondItem="epf-NH-P62" secondAttribute="trailing" constant="8" id="Bp0-qJ-TPI"/>
+                            <constraint firstItem="epf-NH-P62" firstAttribute="centerY" secondItem="tv7-i4-MOi" secondAttribute="centerY" id="CdX-aS-lsz"/>
+                            <constraint firstItem="BXZ-vy-Qnf" firstAttribute="top" secondItem="nEg-AQ-Lnq" secondAttribute="bottom" constant="17" id="DGk-vh-fZw"/>
+                            <constraint firstItem="TVV-LO-OzH" firstAttribute="top" secondItem="3CQ-F2-UBr" secondAttribute="bottom" constant="6" id="GdZ-x5-Yzf"/>
+                            <constraint firstItem="3CQ-F2-UBr" firstAttribute="trailing" secondItem="BXZ-vy-Qnf" secondAttribute="trailing" id="JEq-Xs-ijs"/>
+                            <constraint firstItem="CRH-1b-yPJ" firstAttribute="leading" secondItem="epf-NH-P62" secondAttribute="trailing" constant="8" id="O8Y-xY-oYB"/>
+                            <constraint firstItem="CRH-1b-yPJ" firstAttribute="centerY" secondItem="epf-NH-P62" secondAttribute="centerY" id="QhS-bC-aCB"/>
+                            <constraint firstItem="TVV-LO-OzH" firstAttribute="leading" secondItem="3CQ-F2-UBr" secondAttribute="leading" id="SEe-dS-8dQ"/>
+                            <constraint firstItem="3CQ-F2-UBr" firstAttribute="top" secondItem="BXZ-vy-Qnf" secondAttribute="bottom" constant="4" id="WnC-ME-9Sj"/>
+                            <constraint firstItem="3CQ-F2-UBr" firstAttribute="leading" secondItem="BXZ-vy-Qnf" secondAttribute="leading" id="Zz5-xc-R8t"/>
+                            <constraint firstItem="nEg-AQ-Lnq" firstAttribute="leading" secondItem="vXL-TE-Mb9" secondAttribute="leading" id="eSa-aO-7yF"/>
+                            <constraint firstItem="tv7-i4-MOi" firstAttribute="centerY" secondItem="TVV-LO-OzH" secondAttribute="centerY" id="jJc-yL-QuL"/>
+                            <constraint firstItem="BXZ-vy-Qnf" firstAttribute="leading" secondItem="vXL-TE-Mb9" secondAttribute="leading" constant="25" id="k45-cv-OXX"/>
+                            <constraint firstItem="nEg-AQ-Lnq" firstAttribute="top" secondItem="vXL-TE-Mb9" secondAttribute="top" id="xEt-Xq-24S"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="vXL-TE-Mb9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="17" id="ZYm-Oo-FBZ"/>
+                <constraint firstAttribute="trailing" secondItem="vXL-TE-Mb9" secondAttribute="trailing" constant="17" id="dhH-d5-Qw2"/>
+                <constraint firstAttribute="bottom" secondItem="vXL-TE-Mb9" secondAttribute="bottom" constant="15" id="ofB-55-cJn"/>
+                <constraint firstItem="vXL-TE-Mb9" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="tfU-n3-FdP"/>
+            </constraints>
+            <connections>
+                <outlet property="bgView" destination="vXL-TE-Mb9" id="VQx-N4-qQa"/>
+                <outlet property="bigImageView" destination="nEg-AQ-Lnq" id="fPP-YC-Bk9"/>
+                <outlet property="companyNameLabel" destination="3CQ-F2-UBr" id="SKc-5z-amI"/>
+                <outlet property="locationNameLabel" destination="tv7-i4-MOi" id="CWe-3k-BbY"/>
+                <outlet property="memberCountLabel" destination="CRH-1b-yPJ" id="beY-t1-eTT"/>
+                <outlet property="nameLabel" destination="BXZ-vy-Qnf" id="v2j-zv-J9H"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="locationPin" width="12" height="17"/>
+        <image name="memberCount" width="14" height="19"/>
+    </resources>
+</document>

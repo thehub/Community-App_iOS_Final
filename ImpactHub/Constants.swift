@@ -23,7 +23,7 @@ enum MyError : Error {
 struct Constants {
 
     // Dev
-    static let host = "https://lightfulmemberships-developer-edition.eu11.force.com"
+    static let host = "community-impacthub.cs88.force.com/login?so=00D9E000000DCFw"
     static var communityId : String {
         get {
             return SFUserAccountManager.sharedInstance().currentUser!.communityId!

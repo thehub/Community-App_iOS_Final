@@ -23,6 +23,8 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
     
     var data = [CellRepresentable]()
     var memberAboutData = [CellRepresentable]()
+    var memberProjectsData = [CellRepresentable]()
+    var memberGroupsData = [CellRepresentable]()
 
     var titleLabelTopConstraintDefult: CGFloat = 0
     
@@ -35,23 +37,56 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
 
         titleLabel.text = member.name
         
+        self.title = member.name
+        
         collectionView.register(UINib.init(nibName: MemberDetailTopViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberDetailTopViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: MemberAboutItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberAboutItemViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: MemberSkillItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberSkillItemViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: ProjectViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectViewModel.cellIdentifier)
 
         topMenu.delegate = self
         
         topMenu.setupWithItems(["ABOUT", "PROJECTS", "GROUPS"])
 
-        var data2 = [CellRepresentable]()
-        data2.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
-        data2.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
-        data2.append(MemberSkillItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 40)))
-        data2.append(MemberSkillItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 40)))
-        data2.append(MemberSkillItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 40)))
-        self.memberAboutData = data2
+        memberAboutData.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
+        memberAboutData.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 0)))
+        memberAboutData.append(MemberSkillItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
+        memberAboutData.append(MemberSkillItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
+        memberAboutData.append(MemberSkillItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
         self.data = memberAboutData
 
+        
+        memberProjectsData.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
+
+        memberProjectsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
+
+        memberProjectsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
+
+        memberProjectsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
+
+        memberProjectsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
+
+        memberProjectsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
+
+        memberProjectsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
+
+        memberProjectsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
+
+        memberProjectsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
+
+        memberProjectsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
+
+        memberProjectsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
+
+        memberProjectsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
+
+
+        memberGroupsData.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
+        
+        memberGroupsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
+
+
+        
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -123,7 +158,7 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         
         if let vm = data[indexPath.item] as? MemberAboutItemViewModel {
             let cellWidth: CGFloat = self.collectionView.frame.width
-            let height = vm.member.aboutMe.height(withConstrainedWidth: cellWidth, font: UIFont.systemFont(ofSize: 17)) + 50
+            let height = vm.member.aboutMe.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 145 // add extra height for the standard elements, titles, lines, sapcing etc.
             return CGSize(width: view.frame.width, height: height)
         }
         
@@ -143,28 +178,50 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         if index == 0 {
             self.data = self.memberAboutData
             self.collectionView.reloadData()
+            showConnectButton()
         }
         else if index == 1 {
-            self.data = self.memberAboutData
+            self.data = self.memberProjectsData
             self.collectionView.reloadData()
+            hideConnectButton()
+        }
+        else if index == 2 {
+            self.data = self.memberGroupsData
+            self.collectionView.reloadData()
+            hideConnectButton()
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.collectionView.setContentOffset(CGPoint.init(x: 0, y: self.collectionView.frame.height - 80), animated: false)
+            self.collectionView.setContentOffset(CGPoint.init(x: 0, y: self.collectionView.frame.height - 0), animated: false)
             UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
                 self.collectionView.alpha = 1
             }, completion: { (_) in
                 
             })
         }
-        
-        
     }
 
+    func hideConnectButton() {
+        self.connectButton.isHidden = true
+        
+//        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseIn, animations: { 
+//            self.connectButton.alpha = 0
+//        }) { (_) in
+//        }
+    }
+    
+    func showConnectButton() {
+        self.connectButton.isHidden = false
+
+//        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseIn, animations: {
+//            self.connectButton.alpha = 1
+//        }) { (_) in
+//        }
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > 200 && !topMenu.isShow {
             topMenu.show()
-            UIApplication.shared.setStatusBarHidden(false, with: UIStatusBarAnimation.slide)
             self.shouldHideStatusBar = false
             self.navigationController?.setNavigationBarHidden(false, animated: true)
             
