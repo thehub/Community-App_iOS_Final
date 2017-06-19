@@ -36,7 +36,6 @@ class MemberDetailTopCell: UICollectionViewCell {
     let gradientLayer: CAGradientLayer = CAGradientLayer()
     
     override func draw(_ rect: CGRect) {
-        print("drawing")
         gradientLayer.removeFromSuperlayer()
         let startingColorOfGradient = UIColor.init(white: 1.0, alpha: 0.0).cgColor
         let endingColorOFGradient = UIColor.init(white: 1.0, alpha: 1.0).cgColor

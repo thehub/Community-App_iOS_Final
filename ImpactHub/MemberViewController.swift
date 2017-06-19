@@ -141,7 +141,7 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         
         var cellSize = data[indexPath.item].cellSize
         if cellSize == .zero {
-            let cellHeight = self.view.frame.height - self.connectButton.frame.height - ((self.navigationController?.navigationBar.frame.height) ?? 0)
+            let cellHeight = self.view.frame.height
             cellSize = CGSize(width: view.frame.width, height: cellHeight)
         }
         return cellSize
