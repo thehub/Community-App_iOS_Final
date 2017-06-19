@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuDelegate, UICollectionViewDelegateFlowLayout {
+class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
 
     var member: Member!
     
@@ -22,7 +22,6 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
     @IBOutlet weak var collectionView: UICollectionView!
     
     var data = [CellRepresentable]()
-    var memberFeedData = [CellRepresentable]()
     var memberAboutData = [CellRepresentable]()
 
     var titleLabelTopConstraintDefult: CGFloat = 0
@@ -30,31 +29,19 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
+        
         connectButton.setTitle("Connect with \(member.name)", for: .normal)
 
         titleLabel.text = member.name
         
         collectionView.register(UINib.init(nibName: MemberDetailTopViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberDetailTopViewModel.cellIdentifier)
-        collectionView.register(UINib.init(nibName: MemberFeedItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberFeedItemViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: MemberAboutItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberAboutItemViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: MemberSkillItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberSkillItemViewModel.cellIdentifier)
 
         topMenu.delegate = self
         
-        topMenu.setupWithItems(["Feed", "About", "Projects", "Groups"])
-
-        var data = [CellRepresentable]()
-        data.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
-        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 115)))
-        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 115)))
-        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 115)))
-        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 115)))
-        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 115)))
-        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 115)))
-        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 115)))
-        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 115)))
-        memberFeedData = data
-        self.data = memberFeedData
+        topMenu.setupWithItems(["ABOUT", "PROJECTS", "GROUPS"])
 
         var data2 = [CellRepresentable]()
         data2.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
@@ -63,6 +50,7 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         data2.append(MemberSkillItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 40)))
         data2.append(MemberSkillItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 40)))
         self.memberAboutData = data2
+        self.data = memberAboutData
 
         
         collectionView.delegate = self
@@ -153,7 +141,7 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         self.collectionView.alpha = 0
 
         if index == 0 {
-            self.data = self.memberFeedData
+            self.data = self.memberAboutData
             self.collectionView.reloadData()
         }
         else if index == 1 {

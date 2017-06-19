@@ -58,6 +58,11 @@ class TopMenu: UIView {
 
     }
     
+    var buttons = [UIButton]()
+    var redLine = UIImageView()
+    var redLineXConstraint: NSLayoutConstraint!
+    var redLineWidthConstraint: NSLayoutConstraint!
+    
     func setupWithItems(_ items: [String], gap: CGFloat = 40, leftMargin: CGFloat = 20) {
         
         if items.count == 0 {
@@ -65,6 +70,7 @@ class TopMenu: UIView {
         }
         
         var items = items
+        buttons.removeAll()
         
         let firstItem = items.removeFirst()
         
@@ -75,9 +81,9 @@ class TopMenu: UIView {
         button.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: leftMargin).isActive = true
         button.centerYAnchor.constraint(equalTo: scrollContentView.centerYAnchor).isActive = true
         button.tag = 0
+        buttons.append(button)
         button.addTarget(self, action: #selector(self.buttonClicked), for: .touchUpInside)
         lastButton = button
-        
         
         for (index, item) in items.enumerated() {
             let button = buttonWithTitle(item)
@@ -87,24 +93,61 @@ class TopMenu: UIView {
             button.tag = index + 1
             button.addTarget(self, action: #selector(self.buttonClicked), for: .touchUpInside)
             lastButton = button
+            buttons.append(button)
         }
         
-        layoutIfNeeded()
+        redLine.image = UIImage().createSelectionIndicator(color: UIColor.imaGrapefruit, size: CGSize(width: 10, height: 3), lineWidth: 3.0)
+        redLine.contentMode = .scaleToFill
+        redLine.translatesAutoresizingMaskIntoConstraints = false
+        scrollContentView.addSubview(redLine)
         
+        redLineXConstraint = redLine.centerXAnchor.constraint(equalTo: buttons.first!.centerXAnchor, constant: 0)
+        redLineXConstraint.isActive = true
+
+        redLineWidthConstraint = buttons.first!.widthAnchor.constraint(equalTo: redLine.widthAnchor, constant: 0)
+        redLineWidthConstraint.isActive = true
+
+        redLine.heightAnchor.constraint(equalToConstant: 3).isActive = true
+        
+        redLine.bottomAnchor.constraint(equalTo: scrollContentView.bottomAnchor, constant: -3).isActive = true
+        
+        layoutIfNeeded()
         scrollContentWidthConstraint.constant = lastButton!.frame.origin.x + lastButton!.frame.width + 10
     }
     
+    
     func buttonClicked(sender: UIButton) {
+        buttons.forEach { (button) in
+            button.isSelected = false
+        }
+        sender.isSelected = true
+        
+        redLineXConstraint.isActive = false
+        redLineXConstraint = redLine.centerXAnchor.constraint(equalTo: sender.centerXAnchor, constant: 0)
+        redLineXConstraint.isActive = true
+        
+        redLineWidthConstraint.isActive = false
+        redLineWidthConstraint = sender.widthAnchor.constraint(equalTo: redLine.widthAnchor, constant: 0)
+        redLineWidthConstraint.isActive = true
+        
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations: {
+            self.layoutIfNeeded()
+        }) { (_) in
+            
+        }
+        
         self.delegate?.topMenuDidSelectIndex(sender.tag)
     }
     
     func buttonWithTitle(_ title: String) -> UIButton {
         let button = UIButton()
-        button.setTitleColor(UIColor.blue, for: .normal)
-        button.setTitleColor(UIColor.white, for: .highlighted)
-        button.setTitleColor(UIColor.black, for: .selected)
+        button.setTitleColor(UIColor.imaSilver, for: .normal)
+        button.setTitleColor(UIColor.imaSilver, for: .highlighted)
+        button.setTitleColor(UIColor.imaGreyishBrown, for: .selected)
         button.setTitle(title, for: .normal)
         button.setTitle(title, for: .highlighted)
+        button.setTitle(title, for: .selected)
+        button.titleLabel?.font = UIFont(name: "GTWalsheim", size: 12.5)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }

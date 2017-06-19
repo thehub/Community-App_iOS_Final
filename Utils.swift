@@ -346,7 +346,7 @@ extension UIImage {
         cross.move(to: CGPoint(x: 0, y: size.height - lineWidth)) // your point
         cross.addLine(to: CGPoint(x: size.width, y: size.height - lineWidth)) // your point
         cross.close()
-        cross.lineWidth = 3.0
+        cross.lineWidth = lineWidth
         cross.lineCapStyle = .butt
         cross.stroke()
         let image = UIGraphicsGetImageFromCurrentImageContext()
