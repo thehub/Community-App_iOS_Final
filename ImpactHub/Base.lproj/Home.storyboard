@@ -752,7 +752,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xrc-3J-b6q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1105" y="1973"/>
+            <point key="canvasLocation" x="1209" y="2267"/>
         </scene>
         <!--Companies Search-->
         <scene sceneID="YTH-Pd-wET">
@@ -964,11 +964,12 @@
                         <outlet property="titleLabelTopConstraint" destination="dea-QV-aLy" id="ERJ-rx-6jh"/>
                         <outlet property="topMenu" destination="9Ni-Rl-OWN" id="5Fi-Ef-fuX"/>
                         <segue destination="v6r-jd-8oy" kind="show" identifier="ShowMember" id="rv5-tf-Hia"/>
+                        <segue destination="0qJ-8x-KOR" kind="show" identifier="ShowJob" id="ODp-Jh-V7d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ogA-Oo-oBW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2940" y="773"/>
+            <point key="canvasLocation" x="2959" y="808"/>
         </scene>
         <!--Members-->
         <scene sceneID="bME-CD-FME">
@@ -1287,7 +1288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJq-7o-OY2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1151" y="1172"/>
+            <point key="canvasLocation" x="998" y="1290"/>
         </scene>
     </scenes>
     <resources>
@@ -1297,8 +1298,9 @@
         <image name="tabBarHome" width="22" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="E6m-rq-9b6"/>
-        <segue reference="4CN-lM-E9S"/>
+        <segue reference="Nsv-q8-zjz"/>
+        <segue reference="rv5-tf-Hia"/>
+        <segue reference="ODp-Jh-V7d"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>

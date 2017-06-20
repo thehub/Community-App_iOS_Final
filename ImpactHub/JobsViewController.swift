@@ -201,7 +201,7 @@ extension JobsViewController: UIViewControllerPreviewingDelegate {
         if let vm = data[indexPath.item] as? JobViewModel {
             selectedVM = vm
             detailVC = storyboard?.instantiateViewController(withIdentifier: "JobViewController")
-//            (detailVC as! MemberViewController).member = selectedVM?.member
+            (detailVC as! JobViewController).job = selectedVM?.job
 
             //        detailVC.preferredContentSize = CGSize(width: 0.0, height: 300)
             previewingContext.sourceRect = cell.frame

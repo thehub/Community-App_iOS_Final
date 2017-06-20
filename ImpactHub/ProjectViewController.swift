@@ -46,6 +46,7 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
         collectionView.register(UINib.init(nibName: MemberViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: TitleViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: TitleViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: ProjectObjectiveViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectObjectiveViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: JobViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: JobViewModel.cellIdentifier)
 
         
         topMenu.delegate = self
@@ -101,8 +102,24 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
         
         // Jobs
         projectsJobsData.append(ProjectDetailTopViewModel(project: project, cellSize: .zero)) // this will pick the full height instead
-        projectsJobsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        let company = Company(id: "dsfsd", name: "Swift", type: "dsfsdfs", photo: "companyImage", blurb: "Lorem ipsum", locationName: "Amsterdam, UK", website: "www.bbc.co.uk", size: "10 - 20")
+        
+        projectsJobsData.append(TitleViewModel(title: "JOBS FOR THIS PROJECT", cellSize: CGSize(width: view.frame.width, height: 70)))
+        
+        let job1 = Job(id: "zxddz", name: "UI Designer", company: company, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", locationName: "London, UK", type: "Fulltime", salary: "€ 10.000 / 20.000 p/a", companyName: "Swift", companyId: "dsfsdfsdfs")
+        
+        
+        let viewModelJob1 = JobViewModel(job: job1, cellSize: CGSize(width: cellWidth, height: 145))
+        let viewModelJob2 = JobViewModel(job: job1, cellSize: CGSize(width: cellWidth, height: 145))
+        let viewModelJob3 = JobViewModel(job: job1, cellSize: CGSize(width: cellWidth, height: 145))
+        let viewModelJob4 = JobViewModel(job: job1, cellSize: CGSize(width: cellWidth, height: 145))
+        
+        projectsJobsData.append(viewModelJob1)
+        projectsJobsData.append(viewModelJob2)
+        projectsJobsData.append(viewModelJob3)
+        projectsJobsData.append(viewModelJob4)
 
+        
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -206,11 +223,16 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
     }
     
     var selectMember: Member?
+    var selectJob: Job?
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let vm = data[indexPath.item] as? MemberViewModel {
             self.selectMember = vm.member
             self.performSegue(withIdentifier: "ShowMember", sender: self)
+        }
+        else if let vm = data[indexPath.item] as? JobViewModel {
+            self.selectJob = vm.job
+            self.performSegue(withIdentifier: "ShowJob", sender: self)
         }
     }
     
@@ -218,6 +240,11 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
         if segue.identifier == "ShowMember" {
             if let vc = segue.destination as? MemberViewController, let selectMember = selectMember {
                 vc.member = selectMember
+            }
+        }
+        if segue.identifier == "ShowJob" {
+            if let vc = segue.destination as? JobViewController, let selectJob = selectJob {
+                vc.job = selectJob
             }
         }
     }

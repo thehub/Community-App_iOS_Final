@@ -28,25 +28,39 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
+    
+    
+    let gradientLayer: CAGradientLayer = CAGradientLayer()
+    
+
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+
         self.title = job.name
         
         self.companyPhotoImageView.image = UIImage(named: job.company.photo)
-
+        
         
         
         collectionView.register(UINib.init(nibName: TitleViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: TitleViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: JobDetailViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: JobDetailViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: JobViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: JobViewModel.cellIdentifier)
-
         
-
+        
+        
         // Title
         data.append(TitleViewModel(title: "JOBS DESCRIPTION", cellSize: CGSize(width: view.frame.width, height: 50)))
         
         
         // Job Detail
         data.append(JobDetailViewModel(job: job, cellSize: CGSize(width: view.frame.width, height: 0)))
-
+        
         // Title
         data.append(TitleViewModel(title: "RELATED JOBS", cellSize: CGSize(width: view.frame.width, height: 50)))
         
@@ -65,20 +79,6 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
         self.data.append(viewModel2)
         self.data.append(viewModel3)
         self.data.append(viewModel4)
-
-            
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-    }
-    
-    
-    let gradientLayer: CAGradientLayer = CAGradientLayer()
-    
-
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
 
         
