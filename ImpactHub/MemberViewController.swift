@@ -85,8 +85,6 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         
         memberGroupsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
 
-
-        
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -161,6 +159,15 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
             let height = vm.member.aboutMe.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 145 // add extra height for the standard elements, titles, lines, sapcing etc.
             return CGSize(width: view.frame.width, height: height)
         }
+        
+        if let vm = data[indexPath.item] as? ProjectViewModel {
+            let cellWidth: CGFloat = self.collectionView.frame.width
+            let width = ((cellWidth - 40) / 1.6)
+            let heightToUse = width + 140
+            return CGSize(width: view.frame.width, height: heightToUse)
+        }
+
+        
         
         var cellSize = data[indexPath.item].cellSize
         if cellSize == .zero {

@@ -39,7 +39,6 @@ class ProjectCollectionViewCell: UICollectionViewCell {
         self.bgView.layer.shadowRadius = 10.0
 
         bigImageView.roundCorners([.topLeft, .topRight], radius: 10)
-
     }
     
     override func layoutSubviews() {
