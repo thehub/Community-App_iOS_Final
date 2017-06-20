@@ -10,4 +10,6 @@ import Foundation
 
 struct Project {
     
+    var name: String
+    
 }

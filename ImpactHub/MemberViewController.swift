@@ -58,32 +58,32 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         
         memberProjectsData.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
 
-        memberProjectsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
+        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
-        memberProjectsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
+        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
-        memberProjectsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
+        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
-        memberProjectsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
+        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
-        memberProjectsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
+        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
-        memberProjectsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
+        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
-        memberProjectsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
+        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
-        memberProjectsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
+        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
-        memberProjectsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
+        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
-        memberProjectsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
+        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
-        memberProjectsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
+        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
 
         memberGroupsData.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
         
-        memberGroupsData.append(ProjectViewModel(project: Project(), cellSize: CGSize(width: view.frame.width, height: 370)))
+        memberGroupsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
         
         collectionView.delegate = self
@@ -163,7 +163,7 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         if let vm = data[indexPath.item] as? ProjectViewModel {
             let cellWidth: CGFloat = self.collectionView.frame.width
             let width = ((cellWidth - 40) / 1.6)
-            let heightToUse = width + 140
+            let heightToUse = width + 155
             return CGSize(width: view.frame.width, height: heightToUse)
         }
 
@@ -177,6 +177,25 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         return cellSize
         
     }
+    
+    var selectProject: Project?
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let vm = data[indexPath.item] as? ProjectViewModel {
+            self.selectProject = vm.project
+            self.performSegue(withIdentifier: "ShowProject", sender: self)
+        }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowProject" {
+            if let vc = segue.destination as? ProjectViewController, let selectProject = selectProject {
+                vc.project = selectProject
+            }
+        }
+    }
+    
     
     func topMenuDidSelectIndex(_ index: Int) {
         

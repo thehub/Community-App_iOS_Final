@@ -120,7 +120,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="GoJ-Qj-m0n" customClass="NavigationViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eP2-z0-BX9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="eP2-z0-BX9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

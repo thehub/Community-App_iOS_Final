@@ -178,6 +178,19 @@
 		857480811EE84752005F73A2 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480801EE84752005F73A2 /* Button.swift */; };
 		857480821EE84752005F73A2 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480801EE84752005F73A2 /* Button.swift */; };
 		857480831EE84752005F73A2 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480801EE84752005F73A2 /* Button.swift */; };
+		858C588D1EF91DC600136DAC /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C588C1EF91DC600136DAC /* TestViewController.swift */; };
+		858C58901EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 858C588F1EF928E000136DAC /* ProjectDetailTopCell.xib */; };
+		858C58911EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 858C588F1EF928E000136DAC /* ProjectDetailTopCell.xib */; };
+		858C58921EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 858C588F1EF928E000136DAC /* ProjectDetailTopCell.xib */; };
+		858C58941EF928F500136DAC /* ProjectDetailTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58931EF928F500136DAC /* ProjectDetailTopCell.swift */; };
+		858C58951EF928F500136DAC /* ProjectDetailTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58931EF928F500136DAC /* ProjectDetailTopCell.swift */; };
+		858C58961EF928F500136DAC /* ProjectDetailTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58931EF928F500136DAC /* ProjectDetailTopCell.swift */; };
+		858C58981EF92B6900136DAC /* ProjectDetailTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58971EF92B6900136DAC /* ProjectDetailTopViewModel.swift */; };
+		858C58991EF92B6900136DAC /* ProjectDetailTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58971EF92B6900136DAC /* ProjectDetailTopViewModel.swift */; };
+		858C589A1EF92B6900136DAC /* ProjectDetailTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58971EF92B6900136DAC /* ProjectDetailTopViewModel.swift */; };
+		858C589C1EF92BD600136DAC /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C589B1EF92BD600136DAC /* ProjectViewController.swift */; };
+		858C589D1EF92BD600136DAC /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C589B1EF92BD600136DAC /* ProjectViewController.swift */; };
+		858C589E1EF92BD600136DAC /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C589B1EF92BD600136DAC /* ProjectViewController.swift */; };
 		859C41631ECD951A00637295 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859C41621ECD951A00637295 /* MemberViewController.swift */; };
 		859C41661ECDA01A00637295 /* MemberDetailTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859C41641ECDA01A00637295 /* MemberDetailTopCell.swift */; };
 		859C41671ECDA01A00637295 /* MemberDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859C41651ECDA01A00637295 /* MemberDetailTopCell.xib */; };
@@ -322,6 +335,11 @@
 		857480781EE846EE005F73A2 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		8574807C1EE84735005F73A2 /* Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		857480801EE84752005F73A2 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		858C588C1EF91DC600136DAC /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		858C588F1EF928E000136DAC /* ProjectDetailTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectDetailTopCell.xib; sourceTree = "<group>"; };
+		858C58931EF928F500136DAC /* ProjectDetailTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailTopCell.swift; sourceTree = "<group>"; };
+		858C58971EF92B6900136DAC /* ProjectDetailTopViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailTopViewModel.swift; sourceTree = "<group>"; };
+		858C589B1EF92BD600136DAC /* ProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
 		859C41621ECD951A00637295 /* MemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
 		859C41641ECDA01A00637295 /* MemberDetailTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberDetailTopCell.swift; sourceTree = "<group>"; };
 		859C41651ECDA01A00637295 /* MemberDetailTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberDetailTopCell.xib; sourceTree = "<group>"; };
@@ -524,6 +542,18 @@
 			name = Jobs;
 			sourceTree = "<group>";
 		};
+		858C588E1EF927C100136DAC /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				858C589B1EF92BD600136DAC /* ProjectViewController.swift */,
+				85E7DA801EF818D200C9DA15 /* ProjectCollectionViewCell.swift */,
+				85E7DA811EF818D200C9DA15 /* ProjectCollectionViewCell.xib */,
+				858C58931EF928F500136DAC /* ProjectDetailTopCell.swift */,
+				858C588F1EF928E000136DAC /* ProjectDetailTopCell.xib */,
+			);
+			name = Projects;
+			sourceTree = "<group>";
+		};
 		85DE9EBC1ECC8CD900291EF5 = {
 			isa = PBXGroup;
 			children = (
@@ -605,6 +635,7 @@
 			children = (
 				85DE9EF71ECC902B00291EF5 /* HomeViewController.swift */,
 				85DE9EFA1ECC9D2700291EF5 /* Members */,
+				858C588E1EF927C100136DAC /* Projects */,
 				8570C1E61ECF035700FA1CE9 /* Companies */,
 				8570C2031ECF21C300FA1CE9 /* Jobs */,
 			);
@@ -628,8 +659,7 @@
 				85066FC31ED33E6F0032391A /* MemberSkillItemCell.swift */,
 				85066FC41ED33E6F0032391A /* MemberSkillItemCell.xib */,
 				8570C1E01ECEE9C400FA1CE9 /* MembersSearchViewController.swift */,
-				85E7DA801EF818D200C9DA15 /* ProjectCollectionViewCell.swift */,
-				85E7DA811EF818D200C9DA15 /* ProjectCollectionViewCell.xib */,
+				858C588C1EF91DC600136DAC /* TestViewController.swift */,
 			);
 			name = Members;
 			sourceTree = "<group>";
@@ -679,6 +709,7 @@
 				8570C1F71ECF15CE00FA1CE9 /* CompanyDetailTopViewModel.swift */,
 				8570C1FF1ECF1B0500FA1CE9 /* CompanyAboutViewModel.swift */,
 				85E7DA881EF81C7B00C9DA15 /* ProjectViewModel.swift */,
+				858C58971EF92B6900136DAC /* ProjectDetailTopViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -817,6 +848,7 @@
 				8570C1D11ECEE0D200FA1CE9 /* Search.storyboard in Resources */,
 				8570C1FE1ECF1A2A00FA1CE9 /* CompanyAboutCell.xib in Resources */,
 				85DE9ED31ECC8CD900291EF5 /* LaunchScreen.storyboard in Resources */,
+				858C58901EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */,
 				8570C1DC1ECEE3F300FA1CE9 /* Profile.storyboard in Resources */,
 				85DE9ED01ECC8CD900291EF5 /* Assets.xcassets in Resources */,
 				8570C1C81ECEDE3300FA1CE9 /* Notifications.storyboard in Resources */,
@@ -840,6 +872,7 @@
 				85455D3D1EF2A53200243846 /* gt-walsheim-web.ttf in Resources */,
 				85455D341EF2A53200243846 /* gt-walsheim-light-oblique-web.ttf in Resources */,
 				85455D311EF2A53200243846 /* gt-walsheim-bold-web.ttf in Resources */,
+				858C58911EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */,
 				85455D371EF2A53200243846 /* gt-walsheim-light-web.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -854,6 +887,7 @@
 				85455D3E1EF2A53200243846 /* gt-walsheim-web.ttf in Resources */,
 				85455D351EF2A53200243846 /* gt-walsheim-light-oblique-web.ttf in Resources */,
 				85455D321EF2A53200243846 /* gt-walsheim-bold-web.ttf in Resources */,
+				858C58921EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */,
 				85455D381EF2A53200243846 /* gt-walsheim-light-web.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -933,11 +967,13 @@
 				85DE9ECB1ECC8CD900291EF5 /* ViewController.swift in Sources */,
 				8570C2091ECF24A400FA1CE9 /* JobViewModel.swift in Sources */,
 				85455D481EF2E7A000243846 /* RedButton.swift in Sources */,
+				858C589C1EF92BD600136DAC /* ProjectViewController.swift in Sources */,
 				8501B9F51EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
 				8570C1E31ECF028200FA1CE9 /* Company.swift in Sources */,
 				859C41691ECDA70900637295 /* MemberDetailTopViewModel.swift in Sources */,
 				8574807D1EE84735005F73A2 /* Animations.swift in Sources */,
 				857480571EE802D0005F73A2 /* Post.swift in Sources */,
+				858C588D1EF91DC600136DAC /* TestViewController.swift in Sources */,
 				85E7DA8D1EF81EA500C9DA15 /* Project.swift in Sources */,
 				859C416C1ECDB1D200637295 /* MemberFeedItemCell.swift in Sources */,
 				857480791EE846EE005F73A2 /* SessionManager.swift in Sources */,
@@ -978,8 +1014,10 @@
 				859C41661ECDA01A00637295 /* MemberDetailTopCell.swift in Sources */,
 				85066FC81ED33F240032391A /* MemberSkillItemViewModel.swift in Sources */,
 				850072231EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
+				858C58941EF928F500136DAC /* ProjectDetailTopCell.swift in Sources */,
 				8500722B1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
 				8501B9F91EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */,
+				858C58981EF92B6900136DAC /* ProjectDetailTopViewModel.swift in Sources */,
 				850072341EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
 				8574803F1EE802D0005F73A2 /* ChatterActor.swift in Sources */,
 				8574804E1EE802D0005F73A2 /* Message.swift in Sources */,
@@ -1015,6 +1053,7 @@
 				850072351EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
 				857480551EE802D0005F73A2 /* Photo.swift in Sources */,
 				8505E1FB1EF3CEEA005A2F40 /* NavigationViewController.swift in Sources */,
+				858C58991EF92B6900136DAC /* ProjectDetailTopViewModel.swift in Sources */,
 				8574806E1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
 				8500722C1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
 				85DE9EDE1ECC8CD900291EF5 /* ImpactHubTests.swift in Sources */,
@@ -1028,8 +1067,10 @@
 				850072401EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */,
 				857480491EE802D0005F73A2 /* Group.swift in Sources */,
 				8574804C1EE802D0005F73A2 /* MentionCompletion.swift in Sources */,
+				858C58951EF928F500136DAC /* ProjectDetailTopCell.swift in Sources */,
 				850072241EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
 				85455D241EF28D3D00243846 /* TabBarController.swift in Sources */,
+				858C589D1EF92BD600136DAC /* ProjectViewController.swift in Sources */,
 				853434151EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
 				85E7DA8E1EF81EA500C9DA15 /* Project.swift in Sources */,
 				8574806A1EE83B17005F73A2 /* LoginViewController.swift in Sources */,
@@ -1065,6 +1106,7 @@
 				850072361EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
 				857480561EE802D0005F73A2 /* Photo.swift in Sources */,
 				8505E1FC1EF3CEEA005A2F40 /* NavigationViewController.swift in Sources */,
+				858C589A1EF92B6900136DAC /* ProjectDetailTopViewModel.swift in Sources */,
 				8574806F1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
 				8500722D1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
 				85DE9EE91ECC8CD900291EF5 /* ImpactHubUITests.swift in Sources */,
@@ -1078,8 +1120,10 @@
 				850072411EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */,
 				8574804A1EE802D0005F73A2 /* Group.swift in Sources */,
 				8574804D1EE802D0005F73A2 /* MentionCompletion.swift in Sources */,
+				858C58961EF928F500136DAC /* ProjectDetailTopCell.swift in Sources */,
 				850072251EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
 				85455D251EF28D3D00243846 /* TabBarController.swift in Sources */,
+				858C589E1EF92BD600136DAC /* ProjectViewController.swift in Sources */,
 				853434161EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
 				85E7DA8F1EF81EA500C9DA15 /* Project.swift in Sources */,
 				8574806B1EE83B17005F73A2 /* LoginViewController.swift in Sources */,

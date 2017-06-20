@@ -16,6 +16,7 @@ class ProjectCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var locationNameLabel: UILabel!
     @IBOutlet weak var memberCountLabel: UILabel!
 
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -46,5 +47,5 @@ class ProjectCollectionViewCell: UICollectionViewCell {
 
     }
 
-
+    
 }
