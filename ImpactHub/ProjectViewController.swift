@@ -12,7 +12,7 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
 
     var project: Project!
     
-    var member = Member.init(name: "Test", job: "Test", photo: "test", blurb: "test", aboutMe: "test", locationName: "London")
+    var member = Member.init(name: "Test", job: "Test", photo: "photo", blurb: "test", aboutMe: "test", locationName: "London")
 
     @IBOutlet weak var titleLabelContainerView: UIView!
     @IBOutlet weak var titleLabelTopConstraint: NSLayoutConstraint!
@@ -22,9 +22,10 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
     @IBOutlet weak var collectionView: UICollectionView!
     
     var data = [CellRepresentable]()
-    var memberAboutData = [CellRepresentable]()
-    var memberProjectsData = [CellRepresentable]()
-    var memberGroupsData = [CellRepresentable]()
+    var projectFeedData = [CellRepresentable]()
+    var projectsObjectivesData = [CellRepresentable]()
+    var projectsMembersData = [CellRepresentable]()
+    var projectsJobsData = [CellRepresentable]()
 
     var titleLabelTopConstraintDefult: CGFloat = 0
     
@@ -38,7 +39,7 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
         self.title = project.name
         
         collectionView.register(UINib.init(nibName: ProjectDetailTopViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectDetailTopViewModel.cellIdentifier)
-        collectionView.register(UINib.init(nibName: MemberAboutItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberAboutItemViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: MemberFeedItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberFeedItemViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: MemberSkillItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberSkillItemViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: ProjectViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectViewModel.cellIdentifier)
 
@@ -46,42 +47,44 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
         
         topMenu.setupWithItems(["FEED", "OBJECTIVES", "MEMBERS", "JOBS"])
 
-        memberAboutData.append(ProjectDetailTopViewModel(project: project, cellSize: .zero)) // this will pick the full height instead
-        memberAboutData.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 0)))
-        memberAboutData.append(MemberSkillItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
-        memberAboutData.append(MemberSkillItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
-        memberAboutData.append(MemberSkillItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
-        self.data = memberAboutData
+        projectFeedData.append(ProjectDetailTopViewModel(project: project, cellSize: .zero)) // this will pick the full height instead
+        projectFeedData.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
+        projectFeedData.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
+        projectFeedData.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
+        projectFeedData.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
+        self.data = projectFeedData
 
         
-        memberProjectsData.append(ProjectDetailTopViewModel(project: project, cellSize: .zero)) // this will pick the full height instead
+        projectsObjectivesData.append(ProjectDetailTopViewModel(project: project, cellSize: .zero)) // this will pick the full height instead
 
-        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        projectsObjectivesData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
-        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        projectsObjectivesData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
-        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        projectsObjectivesData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
-        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        projectsObjectivesData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
-        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        projectsObjectivesData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
-        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        projectsObjectivesData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
-        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        projectsObjectivesData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
-        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        projectsObjectivesData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
-        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        projectsObjectivesData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
-        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        projectsObjectivesData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
-        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        projectsObjectivesData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
 
-        memberGroupsData.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
-        
-        memberGroupsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        projectsMembersData.append(ProjectDetailTopViewModel(project: project, cellSize: .zero)) // this will pick the full height instead
+        projectsMembersData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+
+        projectsJobsData.append(ProjectDetailTopViewModel(project: project, cellSize: .zero)) // this will pick the full height instead
+        projectsJobsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
         
         collectionView.delegate = self
@@ -152,9 +155,9 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         
-        if let vm = data[indexPath.item] as? MemberAboutItemViewModel {
+        if let vm = data[indexPath.item] as? MemberFeedItemViewModel {
             let cellWidth: CGFloat = self.collectionView.frame.width
-            let height = vm.member.aboutMe.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 145 // add extra height for the standard elements, titles, lines, sapcing etc.
+            let height = vm.feedText.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 145 // add extra height for the standard elements, titles, lines, sapcing etc.
             return CGSize(width: view.frame.width, height: height)
         }
         
@@ -187,15 +190,19 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
         self.collectionView.alpha = 0
 
         if index == 0 {
-            self.data = self.memberAboutData
+            self.data = self.projectFeedData
             self.collectionView.reloadData()
         }
         else if index == 1 {
-            self.data = self.memberProjectsData
+            self.data = self.projectsObjectivesData
             self.collectionView.reloadData()
         }
         else if index == 2 {
-            self.data = self.memberGroupsData
+            self.data = self.projectsMembersData
+            self.collectionView.reloadData()
+        }
+        else if index == 3 {
+            self.data = self.projectsJobsData
             self.collectionView.reloadData()
         }
 

@@ -1,68 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="gt-walsheim-light-web.ttf">
+            <string>GTWalsheim-Light</string>
+        </array>
+        <array key="gt-walsheim-medium-web.ttf">
+            <string>GTWalsheim-Medium</string>
+        </array>
+        <array key="gt-walsheim-web.ttf">
+            <string>GTWalsheim</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MemberFeedItemCell" customModule="ImpactHub" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
+            <rect key="frame" x="0.0" y="0.0" width="300" height="140"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
+                <rect key="frame" x="0.0" y="0.0" width="300" height="140"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MYM-OF-VM2">
-                        <rect key="frame" x="8" y="8" width="30" height="30"/>
+                        <rect key="frame" x="8" y="8" width="40" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="30" id="GDO-mC-nOE"/>
-                            <constraint firstAttribute="height" constant="30" id="qka-Ep-Wcl"/>
+                            <constraint firstAttribute="width" constant="40" id="GDO-mC-nOE"/>
+                            <constraint firstAttribute="height" constant="40" id="qka-Ep-Wcl"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2a-Xb-LpF">
-                        <rect key="frame" x="46" y="8" width="37" height="17"/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="56" y="8" width="33.5" height="18"/>
+                        <fontDescription key="fontDescription" name="GTWalsheim" family="GT Walsheim" pointSize="14"/>
+                        <color key="textColor" red="0.34901960784313724" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dlf-0p-AmF">
-                        <rect key="frame" x="46" y="23" width="30.5" height="14.5"/>
-                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="56" y="24" width="29.5" height="16"/>
+                        <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12.5"/>
+                        <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hH6-Uy-FZ3">
-                        <rect key="frame" x="8" y="45.5" width="284" height="46.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hH6-Uy-FZ3">
+                        <rect key="frame" x="56" y="48" width="236" height="18"/>
+                        <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="14"/>
+                        <color key="textColor" red="0.44313725490196076" green="0.43529411764705883" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pph-ND-ZSv">
+                        <rect key="frame" x="258.5" y="102.5" width="11.5" height="17.5"/>
+                        <fontDescription key="fontDescription" name="GTWalsheim-Medium" family="GT Walsheim" pointSize="14"/>
+                        <color key="textColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" image="commentGrey" translatesAutoresizingMaskIntoConstraints="NO" id="HJj-nn-W2u">
+                        <rect key="frame" x="240" y="105" width="13" height="13"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bc8-30-6v7">
+                        <rect key="frame" x="194" y="102" width="11" height="17.5"/>
+                        <fontDescription key="fontDescription" name="GTWalsheim-Medium" family="GT Walsheim" pointSize="14"/>
+                        <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" image="likeRed" translatesAutoresizingMaskIntoConstraints="NO" id="SbV-C9-ebI">
+                        <rect key="frame" x="175" y="105.5" width="14" height="12"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnS-KB-Mk5" userLabel="commentButton">
+                        <rect key="frame" x="240" y="105" width="30" height="13"/>
+                        <connections>
+                            <action selector="onTapComment:" destination="gTV-IL-0wX" eventType="touchUpInside" id="uqB-e1-LqW"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qW-0i-0kf" userLabel="likeButton">
+                        <rect key="frame" x="175" y="105.5" width="30" height="12"/>
+                        <connections>
+                            <action selector="onTapLike:" destination="gTV-IL-0wX" eventType="touchUpInside" id="FaH-PJ-T3x"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="HJj-nn-W2u" firstAttribute="centerY" secondItem="pph-ND-ZSv" secondAttribute="centerY" id="1RJ-Rg-VhY"/>
+                <constraint firstAttribute="trailing" secondItem="pph-ND-ZSv" secondAttribute="trailing" constant="30" id="24X-il-Oeu"/>
+                <constraint firstItem="7qW-0i-0kf" firstAttribute="trailing" secondItem="bc8-30-6v7" secondAttribute="trailing" id="2vA-2T-EPR"/>
                 <constraint firstItem="R2a-Xb-LpF" firstAttribute="leading" secondItem="MYM-OF-VM2" secondAttribute="trailing" constant="8" id="9Lf-JF-OdW"/>
-                <constraint firstAttribute="bottom" secondItem="hH6-Uy-FZ3" secondAttribute="bottom" constant="8" id="Gyw-QT-CqZ"/>
+                <constraint firstItem="vnS-KB-Mk5" firstAttribute="bottom" secondItem="HJj-nn-W2u" secondAttribute="bottom" id="DDW-xx-fdb"/>
+                <constraint firstItem="vnS-KB-Mk5" firstAttribute="top" secondItem="HJj-nn-W2u" secondAttribute="top" id="EOe-P9-b4T"/>
+                <constraint firstItem="7qW-0i-0kf" firstAttribute="top" secondItem="SbV-C9-ebI" secondAttribute="top" id="KdQ-bW-kvi"/>
+                <constraint firstItem="pph-ND-ZSv" firstAttribute="leading" secondItem="HJj-nn-W2u" secondAttribute="trailing" constant="5" id="PgN-uW-0m9"/>
+                <constraint firstItem="bc8-30-6v7" firstAttribute="centerY" secondItem="HJj-nn-W2u" secondAttribute="centerY" id="QnD-u3-OFE"/>
+                <constraint firstItem="HJj-nn-W2u" firstAttribute="leading" secondItem="bc8-30-6v7" secondAttribute="trailing" constant="35" id="Rif-Vx-c3a"/>
                 <constraint firstItem="hH6-Uy-FZ3" firstAttribute="top" secondItem="Dlf-0p-AmF" secondAttribute="bottom" constant="8" id="Vmb-SH-7QO"/>
+                <constraint firstItem="vnS-KB-Mk5" firstAttribute="trailing" secondItem="pph-ND-ZSv" secondAttribute="trailing" id="Wqh-xb-HeM"/>
+                <constraint firstItem="bc8-30-6v7" firstAttribute="leading" secondItem="SbV-C9-ebI" secondAttribute="trailing" constant="5" id="Y4Q-Ve-zFm"/>
                 <constraint firstItem="R2a-Xb-LpF" firstAttribute="top" secondItem="MYM-OF-VM2" secondAttribute="top" id="b64-y0-Or0"/>
+                <constraint firstItem="SbV-C9-ebI" firstAttribute="centerY" secondItem="bc8-30-6v7" secondAttribute="centerY" id="buH-9k-A5z"/>
                 <constraint firstItem="Dlf-0p-AmF" firstAttribute="leading" secondItem="R2a-Xb-LpF" secondAttribute="leading" id="d6Y-W9-047"/>
                 <constraint firstItem="MYM-OF-VM2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="dGq-Lv-NG6"/>
-                <constraint firstItem="hH6-Uy-FZ3" firstAttribute="leading" secondItem="MYM-OF-VM2" secondAttribute="leading" id="oRo-60-OnC"/>
+                <constraint firstAttribute="bottom" secondItem="pph-ND-ZSv" secondAttribute="bottom" constant="20" id="gHG-a9-HyE"/>
+                <constraint firstItem="hH6-Uy-FZ3" firstAttribute="leading" secondItem="Dlf-0p-AmF" secondAttribute="leading" id="leX-ek-Hyz"/>
                 <constraint firstItem="MYM-OF-VM2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="ord-vL-IFC"/>
+                <constraint firstItem="vnS-KB-Mk5" firstAttribute="leading" secondItem="HJj-nn-W2u" secondAttribute="leading" id="rbT-Nb-oq8"/>
                 <constraint firstAttribute="trailing" secondItem="hH6-Uy-FZ3" secondAttribute="trailing" constant="8" id="uOy-Ly-Lus"/>
                 <constraint firstItem="Dlf-0p-AmF" firstAttribute="top" secondItem="R2a-Xb-LpF" secondAttribute="bottom" constant="-2" id="waR-w6-do7"/>
+                <constraint firstItem="7qW-0i-0kf" firstAttribute="leading" secondItem="SbV-C9-ebI" secondAttribute="leading" id="yJO-Bp-mPa"/>
+                <constraint firstItem="7qW-0i-0kf" firstAttribute="bottom" secondItem="SbV-C9-ebI" secondAttribute="bottom" id="ycP-VR-Aqz"/>
             </constraints>
             <connections>
+                <outlet property="commentCountLabel" destination="pph-ND-ZSv" id="D8U-jY-3Z2"/>
+                <outlet property="commentImageView" destination="HJj-nn-W2u" id="IQt-Z2-raR"/>
                 <outlet property="dateLabel" destination="Dlf-0p-AmF" id="eqH-jN-t3j"/>
+                <outlet property="likeCountLabel" destination="bc8-30-6v7" id="OJl-QX-nR2"/>
+                <outlet property="likeImageView" destination="SbV-C9-ebI" id="2IE-15-Mx7"/>
                 <outlet property="nameLabel" destination="R2a-Xb-LpF" id="YeA-iv-bqm"/>
                 <outlet property="profileImageView" destination="MYM-OF-VM2" id="JYm-ny-h8u"/>
                 <outlet property="textLabel" destination="hH6-Uy-FZ3" id="tPS-eF-cjv"/>
             </connections>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="commentGrey" width="13" height="13"/>
+        <image name="likeRed" width="14" height="12"/>
+    </resources>
 </document>
