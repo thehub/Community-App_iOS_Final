@@ -30,26 +30,26 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MYM-OF-VM2">
-                        <rect key="frame" x="8" y="8" width="40" height="40"/>
+                        <rect key="frame" x="20" y="8" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="GDO-mC-nOE"/>
                             <constraint firstAttribute="height" constant="40" id="qka-Ep-Wcl"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2a-Xb-LpF">
-                        <rect key="frame" x="56" y="8" width="33.5" height="18"/>
+                        <rect key="frame" x="68" y="8" width="33.5" height="18"/>
                         <fontDescription key="fontDescription" name="GTWalsheim" family="GT Walsheim" pointSize="14"/>
                         <color key="textColor" red="0.34901960784313724" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dlf-0p-AmF">
-                        <rect key="frame" x="56" y="24" width="29.5" height="16"/>
+                        <rect key="frame" x="68" y="24" width="29.5" height="16"/>
                         <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12.5"/>
                         <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hH6-Uy-FZ3">
-                        <rect key="frame" x="56" y="48" width="236" height="18"/>
+                        <rect key="frame" x="68" y="48" width="224" height="18"/>
                         <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="14"/>
                         <color key="textColor" red="0.44313725490196076" green="0.43529411764705883" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -106,7 +106,7 @@
                 <constraint firstItem="MYM-OF-VM2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="dGq-Lv-NG6"/>
                 <constraint firstAttribute="bottom" secondItem="pph-ND-ZSv" secondAttribute="bottom" constant="20" id="gHG-a9-HyE"/>
                 <constraint firstItem="hH6-Uy-FZ3" firstAttribute="leading" secondItem="Dlf-0p-AmF" secondAttribute="leading" id="leX-ek-Hyz"/>
-                <constraint firstItem="MYM-OF-VM2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="ord-vL-IFC"/>
+                <constraint firstItem="MYM-OF-VM2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="ord-vL-IFC"/>
                 <constraint firstItem="vnS-KB-Mk5" firstAttribute="leading" secondItem="HJj-nn-W2u" secondAttribute="leading" id="rbT-Nb-oq8"/>
                 <constraint firstAttribute="trailing" secondItem="hH6-Uy-FZ3" secondAttribute="trailing" constant="8" id="uOy-Ly-Lus"/>
                 <constraint firstItem="Dlf-0p-AmF" firstAttribute="top" secondItem="R2a-Xb-LpF" secondAttribute="bottom" constant="-2" id="waR-w6-do7"/>

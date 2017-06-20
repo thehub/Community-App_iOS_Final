@@ -42,10 +42,6 @@ class MemberCollectionViewCell: UICollectionViewCell {
         
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-    }
     
 
 }
