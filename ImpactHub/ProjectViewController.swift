@@ -45,6 +45,7 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
         collectionView.register(UINib.init(nibName: ProjectViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: MemberViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: TitleViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: TitleViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: ProjectObjectiveViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectObjectiveViewModel.cellIdentifier)
 
         
         topMenu.delegate = self
@@ -64,11 +65,10 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
         // Objectives
         projectsObjectivesData.append(ProjectDetailTopViewModel(project: project, cellSize: .zero)) // this will pick the full height instead
         projectsObjectivesData.append(TitleViewModel(title: "GOALS", cellSize: CGSize(width: view.frame.width, height: 70)))
-        projectsObjectivesData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
-        projectsObjectivesData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
-        projectsObjectivesData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
-        projectsObjectivesData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
-
+        projectsObjectivesData.append(ProjectObjectiveViewModel(objective: Project(name: "Zero to one: new startups and Innovative Ideas").objectives[0], cellSize: CGSize(width: view.frame.width, height: 0)))
+        projectsObjectivesData.append(ProjectObjectiveViewModel(objective: Project(name: "Zero to one: new startups and Innovative Ideas").objectives[1], cellSize: CGSize(width: view.frame.width, height: 0)))
+        projectsObjectivesData.append(ProjectObjectiveViewModel(objective: Project(name: "Zero to one: new startups and Innovative Ideas").objectives[2], cellSize: CGSize(width: view.frame.width, height: 0)))
+        projectsObjectivesData.append(ProjectObjectiveViewModel(objective: Project(name: "Zero to one: new startups and Innovative Ideas").objectives[3], cellSize: CGSize(width: view.frame.width, height: 0)))
 
         
         // Members
@@ -177,6 +177,15 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
             let height = vm.feedText.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 145 // add extra height for the standard elements, titles, lines, sapcing etc.
             return CGSize(width: view.frame.width, height: height)
         }
+        
+
+        if let vm = data[indexPath.item] as? ProjectObjectiveViewModel {
+            let cellWidth: CGFloat = self.collectionView.frame.width
+            let height = vm.objective.description.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 150 // add extra height for the standard elements, titles, lines, sapcing etc.
+            return CGSize(width: view.frame.width, height: height)
+        }
+
+        
         
         if let vm = data[indexPath.item] as? ProjectViewModel {
             let cellWidth: CGFloat = self.collectionView.frame.width

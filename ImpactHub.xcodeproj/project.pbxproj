@@ -203,6 +203,15 @@
 		858C58AC1EF94A2A00136DAC /* TitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58AB1EF94A2A00136DAC /* TitleViewModel.swift */; };
 		858C58AD1EF94A2A00136DAC /* TitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58AB1EF94A2A00136DAC /* TitleViewModel.swift */; };
 		858C58AE1EF94A2A00136DAC /* TitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58AB1EF94A2A00136DAC /* TitleViewModel.swift */; };
+		858C58B11EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58AF1EF94C7700136DAC /* ProjectObjectiveCell.swift */; };
+		858C58B21EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58AF1EF94C7700136DAC /* ProjectObjectiveCell.swift */; };
+		858C58B31EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58AF1EF94C7700136DAC /* ProjectObjectiveCell.swift */; };
+		858C58B41EF94C7700136DAC /* ProjectObjectiveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 858C58B01EF94C7700136DAC /* ProjectObjectiveCell.xib */; };
+		858C58B51EF94C7700136DAC /* ProjectObjectiveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 858C58B01EF94C7700136DAC /* ProjectObjectiveCell.xib */; };
+		858C58B61EF94C7700136DAC /* ProjectObjectiveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 858C58B01EF94C7700136DAC /* ProjectObjectiveCell.xib */; };
+		858C58B81EF94C8B00136DAC /* ProjectObjectiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58B71EF94C8B00136DAC /* ProjectObjectiveViewModel.swift */; };
+		858C58B91EF94C8B00136DAC /* ProjectObjectiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58B71EF94C8B00136DAC /* ProjectObjectiveViewModel.swift */; };
+		858C58BA1EF94C8B00136DAC /* ProjectObjectiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58B71EF94C8B00136DAC /* ProjectObjectiveViewModel.swift */; };
 		859C41631ECD951A00637295 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859C41621ECD951A00637295 /* MemberViewController.swift */; };
 		859C41661ECDA01A00637295 /* MemberDetailTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859C41641ECDA01A00637295 /* MemberDetailTopCell.swift */; };
 		859C41671ECDA01A00637295 /* MemberDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859C41651ECDA01A00637295 /* MemberDetailTopCell.xib */; };
@@ -356,6 +365,9 @@
 		858C58A31EF9492000136DAC /* TitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
 		858C58A41EF9492000136DAC /* TitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
 		858C58AB1EF94A2A00136DAC /* TitleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleViewModel.swift; sourceTree = "<group>"; };
+		858C58AF1EF94C7700136DAC /* ProjectObjectiveCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectObjectiveCell.swift; sourceTree = "<group>"; };
+		858C58B01EF94C7700136DAC /* ProjectObjectiveCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectObjectiveCell.xib; sourceTree = "<group>"; };
+		858C58B71EF94C8B00136DAC /* ProjectObjectiveViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectObjectiveViewModel.swift; sourceTree = "<group>"; };
 		859C41621ECD951A00637295 /* MemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
 		859C41641ECDA01A00637295 /* MemberDetailTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberDetailTopCell.swift; sourceTree = "<group>"; };
 		859C41651ECDA01A00637295 /* MemberDetailTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberDetailTopCell.xib; sourceTree = "<group>"; };
@@ -567,6 +579,8 @@
 				85E7DA811EF818D200C9DA15 /* ProjectCollectionViewCell.xib */,
 				858C58931EF928F500136DAC /* ProjectDetailTopCell.swift */,
 				858C588F1EF928E000136DAC /* ProjectDetailTopCell.xib */,
+				858C58AF1EF94C7700136DAC /* ProjectObjectiveCell.swift */,
+				858C58B01EF94C7700136DAC /* ProjectObjectiveCell.xib */,
 			);
 			name = Projects;
 			sourceTree = "<group>";
@@ -730,6 +744,7 @@
 				8570C1FF1ECF1B0500FA1CE9 /* CompanyAboutViewModel.swift */,
 				85E7DA881EF81C7B00C9DA15 /* ProjectViewModel.swift */,
 				858C58971EF92B6900136DAC /* ProjectDetailTopViewModel.swift */,
+				858C58B71EF94C8B00136DAC /* ProjectObjectiveViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -868,6 +883,7 @@
 				859C41731ECDB6CD00637295 /* TopMenu.xib in Resources */,
 				8570C1D11ECEE0D200FA1CE9 /* Search.storyboard in Resources */,
 				8570C1FE1ECF1A2A00FA1CE9 /* CompanyAboutCell.xib in Resources */,
+				858C58B41EF94C7700136DAC /* ProjectObjectiveCell.xib in Resources */,
 				85DE9ED31ECC8CD900291EF5 /* LaunchScreen.storyboard in Resources */,
 				858C58901EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */,
 				8570C1DC1ECEE3F300FA1CE9 /* Profile.storyboard in Resources */,
@@ -888,6 +904,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85455D3A1EF2A53200243846 /* gt-walsheim-medium-web.ttf in Resources */,
+				858C58B51EF94C7700136DAC /* ProjectObjectiveCell.xib in Resources */,
 				85E7DA861EF818D200C9DA15 /* ProjectCollectionViewCell.xib in Resources */,
 				858C58A91EF9492000136DAC /* TitleCell.xib in Resources */,
 				857480721EE83D44005F73A2 /* Auth0.plist in Resources */,
@@ -904,6 +921,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85455D3B1EF2A53200243846 /* gt-walsheim-medium-web.ttf in Resources */,
+				858C58B61EF94C7700136DAC /* ProjectObjectiveCell.xib in Resources */,
 				85E7DA871EF818D200C9DA15 /* ProjectCollectionViewCell.xib in Resources */,
 				858C58AA1EF9492000136DAC /* TitleCell.xib in Resources */,
 				857480731EE83D44005F73A2 /* Auth0.plist in Resources */,
@@ -977,6 +995,7 @@
 				857480751EE846C2005F73A2 /* WhiteButton.swift in Sources */,
 				8570C1D71ECEE35F00FA1CE9 /* ProfileViewController.swift in Sources */,
 				85DE9EFF1ECCA8D500291EF5 /* MemberCollectionViewCell.swift in Sources */,
+				858C58B11EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */,
 				8570C1D51ECEE35300FA1CE9 /* MessagesViewController.swift in Sources */,
 				85DE9F071ECCACB100291EF5 /* MemberViewModel.swift in Sources */,
 				85E7DA891EF81C7B00C9DA15 /* ProjectViewModel.swift in Sources */,
@@ -984,6 +1003,7 @@
 				85455D441EF2DFD600243846 /* MemberFilterViewController.swift in Sources */,
 				8574806D1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
 				8570C2001ECF1B0500FA1CE9 /* CompanyAboutViewModel.swift in Sources */,
+				858C58B81EF94C8B00136DAC /* ProjectObjectiveViewModel.swift in Sources */,
 				8570C1E81ECF037F00FA1CE9 /* CompaniesViewController.swift in Sources */,
 				8500722F1EE70F56008A725A /* MessagesThreadThemPicVM.swift in Sources */,
 				858C58A51EF9492000136DAC /* TitleCell.swift in Sources */,
@@ -1080,6 +1100,7 @@
 				850072351EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
 				857480551EE802D0005F73A2 /* Photo.swift in Sources */,
 				8505E1FB1EF3CEEA005A2F40 /* NavigationViewController.swift in Sources */,
+				858C58B91EF94C8B00136DAC /* ProjectObjectiveViewModel.swift in Sources */,
 				858C58991EF92B6900136DAC /* ProjectDetailTopViewModel.swift in Sources */,
 				8574806E1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
 				8500722C1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
@@ -1097,6 +1118,7 @@
 				8574804C1EE802D0005F73A2 /* MentionCompletion.swift in Sources */,
 				858C58951EF928F500136DAC /* ProjectDetailTopCell.swift in Sources */,
 				850072241EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
+				858C58B21EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */,
 				85455D241EF28D3D00243846 /* TabBarController.swift in Sources */,
 				858C589D1EF92BD600136DAC /* ProjectViewController.swift in Sources */,
 				853434151EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
@@ -1136,6 +1158,7 @@
 				850072361EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
 				857480561EE802D0005F73A2 /* Photo.swift in Sources */,
 				8505E1FC1EF3CEEA005A2F40 /* NavigationViewController.swift in Sources */,
+				858C58BA1EF94C8B00136DAC /* ProjectObjectiveViewModel.swift in Sources */,
 				858C589A1EF92B6900136DAC /* ProjectDetailTopViewModel.swift in Sources */,
 				8574806F1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
 				8500722D1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
@@ -1153,6 +1176,7 @@
 				8574804D1EE802D0005F73A2 /* MentionCompletion.swift in Sources */,
 				858C58961EF928F500136DAC /* ProjectDetailTopCell.swift in Sources */,
 				850072251EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
+				858C58B31EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */,
 				85455D251EF28D3D00243846 /* TabBarController.swift in Sources */,
 				858C589E1EF92BD600136DAC /* ProjectViewController.swift in Sources */,
 				853434161EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,

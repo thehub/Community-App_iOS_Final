@@ -26,10 +26,6 @@ class ProjectDetailTopCell: UICollectionViewCell {
         
     }
     
-//    override func draw(_ rect: CGRect) {
-//        
-//    }
-
     
     
 }
