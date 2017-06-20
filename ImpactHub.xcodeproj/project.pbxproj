@@ -109,12 +109,7 @@
 		8570C1FE1ECF1A2A00FA1CE9 /* CompanyAboutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1FC1ECF1A2A00FA1CE9 /* CompanyAboutCell.xib */; };
 		8570C2001ECF1B0500FA1CE9 /* CompanyAboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1FF1ECF1B0500FA1CE9 /* CompanyAboutViewModel.swift */; };
 		8570C2021ECF214600FA1CE9 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C2011ECF214600FA1CE9 /* Job.swift */; };
-		8570C2051ECF21E800FA1CE9 /* JobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C2041ECF21E800FA1CE9 /* JobsViewController.swift */; };
-		8570C2071ECF233700FA1CE9 /* JobsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C2061ECF233700FA1CE9 /* JobsSearchViewController.swift */; };
 		8570C2091ECF24A400FA1CE9 /* JobViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C2081ECF24A400FA1CE9 /* JobViewModel.swift */; };
-		8570C20C1ECF253000FA1CE9 /* JobCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C20A1ECF253000FA1CE9 /* JobCollectionViewCell.swift */; };
-		8570C20D1ECF253000FA1CE9 /* JobCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8570C20B1ECF253000FA1CE9 /* JobCollectionViewCell.xib */; };
-		8570C20F1ECF291000FA1CE9 /* JobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C20E1ECF291000FA1CE9 /* JobViewController.swift */; };
 		857480311EE80279005F73A2 /* ChatterSegmentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480301EE80279005F73A2 /* ChatterSegmentBuilder.swift */; };
 		857480321EE80279005F73A2 /* ChatterSegmentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480301EE80279005F73A2 /* ChatterSegmentBuilder.swift */; };
 		857480331EE80279005F73A2 /* ChatterSegmentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480301EE80279005F73A2 /* ChatterSegmentBuilder.swift */; };
@@ -212,6 +207,30 @@
 		858C58B81EF94C8B00136DAC /* ProjectObjectiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58B71EF94C8B00136DAC /* ProjectObjectiveViewModel.swift */; };
 		858C58B91EF94C8B00136DAC /* ProjectObjectiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58B71EF94C8B00136DAC /* ProjectObjectiveViewModel.swift */; };
 		858C58BA1EF94C8B00136DAC /* ProjectObjectiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58B71EF94C8B00136DAC /* ProjectObjectiveViewModel.swift */; };
+		858C58BC1EF9665E00136DAC /* JobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58BB1EF9665E00136DAC /* JobsViewController.swift */; };
+		858C58BD1EF9665E00136DAC /* JobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58BB1EF9665E00136DAC /* JobsViewController.swift */; };
+		858C58BE1EF9665E00136DAC /* JobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58BB1EF9665E00136DAC /* JobsViewController.swift */; };
+		858C58C01EF9667300136DAC /* JobFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58BF1EF9667300136DAC /* JobFilterViewController.swift */; };
+		858C58C11EF9667300136DAC /* JobFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58BF1EF9667300136DAC /* JobFilterViewController.swift */; };
+		858C58C21EF9667300136DAC /* JobFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58BF1EF9667300136DAC /* JobFilterViewController.swift */; };
+		858C58C41EF9670E00136DAC /* JobCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58C31EF9670E00136DAC /* JobCollectionViewCell.swift */; };
+		858C58C51EF9670E00136DAC /* JobCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58C31EF9670E00136DAC /* JobCollectionViewCell.swift */; };
+		858C58C61EF9670E00136DAC /* JobCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58C31EF9670E00136DAC /* JobCollectionViewCell.swift */; };
+		858C58C81EF9672000136DAC /* JobCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 858C58C71EF9672000136DAC /* JobCollectionViewCell.xib */; };
+		858C58C91EF9672000136DAC /* JobCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 858C58C71EF9672000136DAC /* JobCollectionViewCell.xib */; };
+		858C58CA1EF9672000136DAC /* JobCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 858C58C71EF9672000136DAC /* JobCollectionViewCell.xib */; };
+		858C58CC1EF96EB600136DAC /* JobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58CB1EF96EB600136DAC /* JobViewController.swift */; };
+		858C58CD1EF96EB600136DAC /* JobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58CB1EF96EB600136DAC /* JobViewController.swift */; };
+		858C58CE1EF96EB600136DAC /* JobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58CB1EF96EB600136DAC /* JobViewController.swift */; };
+		858C58D11EF9848E00136DAC /* JobDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58CF1EF9848E00136DAC /* JobDetailCell.swift */; };
+		858C58D21EF9848E00136DAC /* JobDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58CF1EF9848E00136DAC /* JobDetailCell.swift */; };
+		858C58D31EF9848E00136DAC /* JobDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58CF1EF9848E00136DAC /* JobDetailCell.swift */; };
+		858C58D41EF9848E00136DAC /* JobDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 858C58D01EF9848E00136DAC /* JobDetailCell.xib */; };
+		858C58D51EF9848E00136DAC /* JobDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 858C58D01EF9848E00136DAC /* JobDetailCell.xib */; };
+		858C58D61EF9848E00136DAC /* JobDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 858C58D01EF9848E00136DAC /* JobDetailCell.xib */; };
+		858C58D81EF9868900136DAC /* JobDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58D71EF9868900136DAC /* JobDetailViewModel.swift */; };
+		858C58D91EF9868900136DAC /* JobDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58D71EF9868900136DAC /* JobDetailViewModel.swift */; };
+		858C58DA1EF9868900136DAC /* JobDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C58D71EF9868900136DAC /* JobDetailViewModel.swift */; };
 		859C41631ECD951A00637295 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859C41621ECD951A00637295 /* MemberViewController.swift */; };
 		859C41661ECDA01A00637295 /* MemberDetailTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859C41641ECDA01A00637295 /* MemberDetailTopCell.swift */; };
 		859C41671ECDA01A00637295 /* MemberDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859C41651ECDA01A00637295 /* MemberDetailTopCell.xib */; };
@@ -329,12 +348,7 @@
 		8570C1FC1ECF1A2A00FA1CE9 /* CompanyAboutCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyAboutCell.xib; sourceTree = "<group>"; };
 		8570C1FF1ECF1B0500FA1CE9 /* CompanyAboutViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyAboutViewModel.swift; sourceTree = "<group>"; };
 		8570C2011ECF214600FA1CE9 /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
-		8570C2041ECF21E800FA1CE9 /* JobsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsViewController.swift; sourceTree = "<group>"; };
-		8570C2061ECF233700FA1CE9 /* JobsSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsSearchViewController.swift; sourceTree = "<group>"; };
 		8570C2081ECF24A400FA1CE9 /* JobViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobViewModel.swift; sourceTree = "<group>"; };
-		8570C20A1ECF253000FA1CE9 /* JobCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobCollectionViewCell.swift; sourceTree = "<group>"; };
-		8570C20B1ECF253000FA1CE9 /* JobCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobCollectionViewCell.xib; sourceTree = "<group>"; };
-		8570C20E1ECF291000FA1CE9 /* JobViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobViewController.swift; sourceTree = "<group>"; };
 		857480301EE80279005F73A2 /* ChatterSegmentBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatterSegmentBuilder.swift; sourceTree = "<group>"; };
 		857480341EE802D0005F73A2 /* ChatterActor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatterActor.swift; sourceTree = "<group>"; };
 		857480351EE802D0005F73A2 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -368,6 +382,14 @@
 		858C58AF1EF94C7700136DAC /* ProjectObjectiveCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectObjectiveCell.swift; sourceTree = "<group>"; };
 		858C58B01EF94C7700136DAC /* ProjectObjectiveCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectObjectiveCell.xib; sourceTree = "<group>"; };
 		858C58B71EF94C8B00136DAC /* ProjectObjectiveViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectObjectiveViewModel.swift; sourceTree = "<group>"; };
+		858C58BB1EF9665E00136DAC /* JobsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsViewController.swift; sourceTree = "<group>"; };
+		858C58BF1EF9667300136DAC /* JobFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobFilterViewController.swift; sourceTree = "<group>"; };
+		858C58C31EF9670E00136DAC /* JobCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobCollectionViewCell.swift; sourceTree = "<group>"; };
+		858C58C71EF9672000136DAC /* JobCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobCollectionViewCell.xib; sourceTree = "<group>"; };
+		858C58CB1EF96EB600136DAC /* JobViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobViewController.swift; sourceTree = "<group>"; };
+		858C58CF1EF9848E00136DAC /* JobDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailCell.swift; sourceTree = "<group>"; };
+		858C58D01EF9848E00136DAC /* JobDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobDetailCell.xib; sourceTree = "<group>"; };
+		858C58D71EF9868900136DAC /* JobDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailViewModel.swift; sourceTree = "<group>"; };
 		859C41621ECD951A00637295 /* MemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
 		859C41641ECDA01A00637295 /* MemberDetailTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberDetailTopCell.swift; sourceTree = "<group>"; };
 		859C41651ECDA01A00637295 /* MemberDetailTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberDetailTopCell.xib; sourceTree = "<group>"; };
@@ -561,11 +583,13 @@
 		8570C2031ECF21C300FA1CE9 /* Jobs */ = {
 			isa = PBXGroup;
 			children = (
-				8570C2041ECF21E800FA1CE9 /* JobsViewController.swift */,
-				8570C2061ECF233700FA1CE9 /* JobsSearchViewController.swift */,
-				8570C20A1ECF253000FA1CE9 /* JobCollectionViewCell.swift */,
-				8570C20B1ECF253000FA1CE9 /* JobCollectionViewCell.xib */,
-				8570C20E1ECF291000FA1CE9 /* JobViewController.swift */,
+				858C58BB1EF9665E00136DAC /* JobsViewController.swift */,
+				858C58BF1EF9667300136DAC /* JobFilterViewController.swift */,
+				858C58C31EF9670E00136DAC /* JobCollectionViewCell.swift */,
+				858C58C71EF9672000136DAC /* JobCollectionViewCell.xib */,
+				858C58CB1EF96EB600136DAC /* JobViewController.swift */,
+				858C58CF1EF9848E00136DAC /* JobDetailCell.swift */,
+				858C58D01EF9848E00136DAC /* JobDetailCell.xib */,
 			);
 			name = Jobs;
 			sourceTree = "<group>";
@@ -736,6 +760,7 @@
 				858C58AB1EF94A2A00136DAC /* TitleViewModel.swift */,
 				8570C1E41ECF030900FA1CE9 /* CompanyViewModel.swift */,
 				8570C2081ECF24A400FA1CE9 /* JobViewModel.swift */,
+				858C58D71EF9868900136DAC /* JobDetailViewModel.swift */,
 				859C41681ECDA70900637295 /* MemberDetailTopViewModel.swift */,
 				859C416E1ECDB39D00637295 /* MemberFeedItemViewModel.swift */,
 				859C41801ECE006500637295 /* MemberAboutItemViewModel.swift */,
@@ -867,9 +892,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				858C58D41EF9848E00136DAC /* JobDetailCell.xib in Resources */,
 				8570C1F01ECF04E800FA1CE9 /* CompanyCollectionViewCell.xib in Resources */,
 				85455D391EF2A53200243846 /* gt-walsheim-medium-web.ttf in Resources */,
-				8570C20D1ECF253000FA1CE9 /* JobCollectionViewCell.xib in Resources */,
 				853433CC1EE6B547003C26F8 /* MessagesCell.xib in Resources */,
 				859C41671ECDA01A00637295 /* MemberDetailTopCell.xib in Resources */,
 				859C417F1ECDFFD700637295 /* MemberAboutItemCell.xib in Resources */,
@@ -884,6 +909,7 @@
 				8570C1D11ECEE0D200FA1CE9 /* Search.storyboard in Resources */,
 				8570C1FE1ECF1A2A00FA1CE9 /* CompanyAboutCell.xib in Resources */,
 				858C58B41EF94C7700136DAC /* ProjectObjectiveCell.xib in Resources */,
+				858C58C81EF9672000136DAC /* JobCollectionViewCell.xib in Resources */,
 				85DE9ED31ECC8CD900291EF5 /* LaunchScreen.storyboard in Resources */,
 				858C58901EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */,
 				8570C1DC1ECEE3F300FA1CE9 /* Profile.storyboard in Resources */,
@@ -903,8 +929,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				858C58D51EF9848E00136DAC /* JobDetailCell.xib in Resources */,
 				85455D3A1EF2A53200243846 /* gt-walsheim-medium-web.ttf in Resources */,
 				858C58B51EF94C7700136DAC /* ProjectObjectiveCell.xib in Resources */,
+				858C58C91EF9672000136DAC /* JobCollectionViewCell.xib in Resources */,
 				85E7DA861EF818D200C9DA15 /* ProjectCollectionViewCell.xib in Resources */,
 				858C58A91EF9492000136DAC /* TitleCell.xib in Resources */,
 				857480721EE83D44005F73A2 /* Auth0.plist in Resources */,
@@ -920,8 +948,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				858C58D61EF9848E00136DAC /* JobDetailCell.xib in Resources */,
 				85455D3B1EF2A53200243846 /* gt-walsheim-medium-web.ttf in Resources */,
 				858C58B61EF94C7700136DAC /* ProjectObjectiveCell.xib in Resources */,
+				858C58CA1EF9672000136DAC /* JobCollectionViewCell.xib in Resources */,
 				85E7DA871EF818D200C9DA15 /* ProjectCollectionViewCell.xib in Resources */,
 				858C58AA1EF9492000136DAC /* TitleCell.xib in Resources */,
 				857480731EE83D44005F73A2 /* Auth0.plist in Resources */,
@@ -989,6 +1019,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				859C41631ECD951A00637295 /* MemberViewController.swift in Sources */,
+				858C58D81EF9868900136DAC /* JobDetailViewModel.swift in Sources */,
 				85DE9EFC1ECC9D3F00291EF5 /* MembersViewController.swift in Sources */,
 				853433CF1EE6B726003C26F8 /* MessagesVM.swift in Sources */,
 				857480511EE802D0005F73A2 /* MessageSegment.swift in Sources */,
@@ -1021,6 +1052,7 @@
 				85E7DA8D1EF81EA500C9DA15 /* Project.swift in Sources */,
 				859C416C1ECDB1D200637295 /* MemberFeedItemCell.swift in Sources */,
 				857480791EE846EE005F73A2 /* SessionManager.swift in Sources */,
+				858C58CC1EF96EB600136DAC /* JobViewController.swift in Sources */,
 				8570C1F81ECF15CE00FA1CE9 /* CompanyDetailTopViewModel.swift in Sources */,
 				8570C1FA1ECF15E800FA1CE9 /* CompanyDetailTopCell.swift in Sources */,
 				85066FCA1ED343160032391A /* Utils.swift in Sources */,
@@ -1028,6 +1060,7 @@
 				8570C1E11ECEE9C400FA1CE9 /* MembersSearchViewController.swift in Sources */,
 				85DE9EC91ECC8CD900291EF5 /* AppDelegate.swift in Sources */,
 				85DE9F031ECCABCD00291EF5 /* CellRepresentable.swift in Sources */,
+				858C58C01EF9667300136DAC /* JobFilterViewController.swift in Sources */,
 				858C58AC1EF94A2A00136DAC /* TitleViewModel.swift in Sources */,
 				85B361381ED59D3800DC2DE0 /* Notifications.swift in Sources */,
 				8570C1EA1ECF03FE00FA1CE9 /* CompanyViewController.swift in Sources */,
@@ -1037,21 +1070,21 @@
 				857480611EE802E3005F73A2 /* Contact.swift in Sources */,
 				857480811EE84752005F73A2 /* Button.swift in Sources */,
 				853434101EE6E9DC003C26F8 /* MessageThreadMeCell.swift in Sources */,
-				8570C2051ECF21E800FA1CE9 /* JobsViewController.swift in Sources */,
 				85DE9EF81ECC902B00291EF5 /* HomeViewController.swift in Sources */,
 				8500723C1EE7126C008A725A /* MessagesThreadMeTimeVM.swift in Sources */,
 				853434141EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
-				8570C2071ECF233700FA1CE9 /* JobsSearchViewController.swift in Sources */,
-				8570C20C1ECF253000FA1CE9 /* JobCollectionViewCell.swift in Sources */,
 				857480541EE802D0005F73A2 /* Photo.swift in Sources */,
 				8570C1CE1ECEE0BA00FA1CE9 /* SearchViewController.swift in Sources */,
 				8574805D1EE802D0005F73A2 /* Subscription.swift in Sources */,
 				853433CB1EE6B547003C26F8 /* MessagesCell.swift in Sources */,
 				859C416F1ECDB39D00637295 /* MemberFeedItemViewModel.swift in Sources */,
 				857480451EE802D0005F73A2 /* Conversation.swift in Sources */,
+				858C58D11EF9848E00136DAC /* JobDetailCell.swift in Sources */,
 				85455D271EF28E6400243846 /* UIColor+IMAAdditions.swift in Sources */,
 				85B3613A1ED59FD400DC2DE0 /* APIClient.swift in Sources */,
 				8570C1E51ECF030900FA1CE9 /* CompanyViewModel.swift in Sources */,
+				858C58C41EF9670E00136DAC /* JobCollectionViewCell.swift in Sources */,
+				858C58BC1EF9665E00136DAC /* JobsViewController.swift in Sources */,
 				85E7DA821EF818D200C9DA15 /* ProjectCollectionViewCell.swift in Sources */,
 				859C41811ECE006500637295 /* MemberAboutItemViewModel.swift in Sources */,
 				8570C1EF1ECF04E800FA1CE9 /* CompanyCollectionViewCell.swift in Sources */,
@@ -1067,7 +1100,6 @@
 				8574803F1EE802D0005F73A2 /* ChatterActor.swift in Sources */,
 				8574804E1EE802D0005F73A2 /* Message.swift in Sources */,
 				857480421EE802D0005F73A2 /* Comment.swift in Sources */,
-				8570C20F1ECF291000FA1CE9 /* JobViewController.swift in Sources */,
 				858C58A01EF9319300136DAC /* ProjectsViewController.swift in Sources */,
 				857480311EE80279005F73A2 /* ChatterSegmentBuilder.swift in Sources */,
 				85066FC51ED33E6F0032391A /* MemberSkillItemCell.swift in Sources */,
@@ -1093,6 +1125,7 @@
 				857480821EE84752005F73A2 /* Button.swift in Sources */,
 				853433D01EE6B726003C26F8 /* MessagesVM.swift in Sources */,
 				8500723D1EE7126C008A725A /* MessagesThreadMeTimeVM.swift in Sources */,
+				858C58C11EF9667300136DAC /* JobFilterViewController.swift in Sources */,
 				8574807E1EE84735005F73A2 /* Animations.swift in Sources */,
 				858C58AD1EF94A2A00136DAC /* TitleViewModel.swift in Sources */,
 				853434111EE6E9DC003C26F8 /* MessageThreadMeCell.swift in Sources */,
@@ -1101,6 +1134,7 @@
 				857480551EE802D0005F73A2 /* Photo.swift in Sources */,
 				8505E1FB1EF3CEEA005A2F40 /* NavigationViewController.swift in Sources */,
 				858C58B91EF94C8B00136DAC /* ProjectObjectiveViewModel.swift in Sources */,
+				858C58D21EF9848E00136DAC /* JobDetailCell.swift in Sources */,
 				858C58991EF92B6900136DAC /* ProjectDetailTopViewModel.swift in Sources */,
 				8574806E1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
 				8500722C1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
@@ -1110,17 +1144,20 @@
 				85455D451EF2DFD600243846 /* MemberFilterViewController.swift in Sources */,
 				857480661EE802F1005F73A2 /* User.swift in Sources */,
 				8574805B1EE802D0005F73A2 /* Reference.swift in Sources */,
+				858C58BD1EF9665E00136DAC /* JobsViewController.swift in Sources */,
 				850072381EE711E4008A725A /* MessageThreadThemTimeCell.swift in Sources */,
 				857480321EE80279005F73A2 /* ChatterSegmentBuilder.swift in Sources */,
 				8574805E1EE802D0005F73A2 /* Subscription.swift in Sources */,
 				850072401EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */,
 				857480491EE802D0005F73A2 /* Group.swift in Sources */,
 				8574804C1EE802D0005F73A2 /* MentionCompletion.swift in Sources */,
+				858C58CD1EF96EB600136DAC /* JobViewController.swift in Sources */,
 				858C58951EF928F500136DAC /* ProjectDetailTopCell.swift in Sources */,
 				850072241EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
 				858C58B21EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */,
 				85455D241EF28D3D00243846 /* TabBarController.swift in Sources */,
 				858C589D1EF92BD600136DAC /* ProjectViewController.swift in Sources */,
+				858C58D91EF9868900136DAC /* JobDetailViewModel.swift in Sources */,
 				853434151EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
 				85E7DA8E1EF81EA500C9DA15 /* Project.swift in Sources */,
 				8574806A1EE83B17005F73A2 /* LoginViewController.swift in Sources */,
@@ -1130,6 +1167,7 @@
 				85E7DA8A1EF81C7B00C9DA15 /* ProjectViewModel.swift in Sources */,
 				857480431EE802D0005F73A2 /* Comment.swift in Sources */,
 				857480621EE802E3005F73A2 /* Contact.swift in Sources */,
+				858C58C51EF9670E00136DAC /* JobCollectionViewCell.swift in Sources */,
 				850072301EE70F56008A725A /* MessagesThreadThemPicVM.swift in Sources */,
 				857480461EE802D0005F73A2 /* Conversation.swift in Sources */,
 				8574804F1EE802D0005F73A2 /* Message.swift in Sources */,
@@ -1151,6 +1189,7 @@
 				857480831EE84752005F73A2 /* Button.swift in Sources */,
 				853433D11EE6B726003C26F8 /* MessagesVM.swift in Sources */,
 				8500723E1EE7126C008A725A /* MessagesThreadMeTimeVM.swift in Sources */,
+				858C58C21EF9667300136DAC /* JobFilterViewController.swift in Sources */,
 				8574807F1EE84735005F73A2 /* Animations.swift in Sources */,
 				858C58AE1EF94A2A00136DAC /* TitleViewModel.swift in Sources */,
 				853434121EE6E9DC003C26F8 /* MessageThreadMeCell.swift in Sources */,
@@ -1159,6 +1198,7 @@
 				857480561EE802D0005F73A2 /* Photo.swift in Sources */,
 				8505E1FC1EF3CEEA005A2F40 /* NavigationViewController.swift in Sources */,
 				858C58BA1EF94C8B00136DAC /* ProjectObjectiveViewModel.swift in Sources */,
+				858C58D31EF9848E00136DAC /* JobDetailCell.swift in Sources */,
 				858C589A1EF92B6900136DAC /* ProjectDetailTopViewModel.swift in Sources */,
 				8574806F1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
 				8500722D1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
@@ -1168,17 +1208,20 @@
 				85455D461EF2DFD600243846 /* MemberFilterViewController.swift in Sources */,
 				857480671EE802F1005F73A2 /* User.swift in Sources */,
 				8574805C1EE802D0005F73A2 /* Reference.swift in Sources */,
+				858C58BE1EF9665E00136DAC /* JobsViewController.swift in Sources */,
 				850072391EE711E4008A725A /* MessageThreadThemTimeCell.swift in Sources */,
 				857480331EE80279005F73A2 /* ChatterSegmentBuilder.swift in Sources */,
 				8574805F1EE802D0005F73A2 /* Subscription.swift in Sources */,
 				850072411EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */,
 				8574804A1EE802D0005F73A2 /* Group.swift in Sources */,
 				8574804D1EE802D0005F73A2 /* MentionCompletion.swift in Sources */,
+				858C58CE1EF96EB600136DAC /* JobViewController.swift in Sources */,
 				858C58961EF928F500136DAC /* ProjectDetailTopCell.swift in Sources */,
 				850072251EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
 				858C58B31EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */,
 				85455D251EF28D3D00243846 /* TabBarController.swift in Sources */,
 				858C589E1EF92BD600136DAC /* ProjectViewController.swift in Sources */,
+				858C58DA1EF9868900136DAC /* JobDetailViewModel.swift in Sources */,
 				853434161EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
 				85E7DA8F1EF81EA500C9DA15 /* Project.swift in Sources */,
 				8574806B1EE83B17005F73A2 /* LoginViewController.swift in Sources */,
@@ -1188,6 +1231,7 @@
 				85E7DA8B1EF81C7B00C9DA15 /* ProjectViewModel.swift in Sources */,
 				857480441EE802D0005F73A2 /* Comment.swift in Sources */,
 				857480631EE802E3005F73A2 /* Contact.swift in Sources */,
+				858C58C61EF9670E00136DAC /* JobCollectionViewCell.swift in Sources */,
 				850072311EE70F56008A725A /* MessagesThreadThemPicVM.swift in Sources */,
 				857480471EE802D0005F73A2 /* Conversation.swift in Sources */,
 				857480501EE802D0005F73A2 /* Message.swift in Sources */,

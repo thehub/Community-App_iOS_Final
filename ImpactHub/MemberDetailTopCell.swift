@@ -44,8 +44,6 @@ class MemberDetailTopCell: UICollectionViewCell {
         gradientLayer.endPoint = CGPoint(x: 0.5, y:0.3)
         gradientLayer.colors = [startingColorOfGradient , endingColorOFGradient]
         fadeView.layer.insertSublayer(gradientLayer, at: 0)
-        
-        
     }
 
     

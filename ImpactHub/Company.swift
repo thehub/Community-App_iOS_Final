@@ -17,6 +17,7 @@ struct Company {
     var blurb: String
     var locationName: String
     var website: String?
+    var size: String
 
 }
 
@@ -37,6 +38,7 @@ extension Company {
         self.blurb = "sddsfsd"
         self.locationName = "Amsterdam"
         self.website = json["Website"].string
+        self.size = "10 - 20" // TODO: Set this form json
     }
     
 }

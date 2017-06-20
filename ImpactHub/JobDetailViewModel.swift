@@ -8,9 +8,9 @@
 
 import UIKit
 
-class JobViewModel: CellRepresentable {
+class JobDetailViewModel: CellRepresentable {
     
-    static var cellIdentifier = "JobCollectionViewCell"
+    static var cellIdentifier = "JobDetailCell"
 
     
     var job: Job
@@ -22,7 +22,7 @@ class JobViewModel: CellRepresentable {
     
     
     func cellInstance(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: JobViewModel.cellIdentifier, for: indexPath) as! JobCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: JobDetailViewModel.cellIdentifier, for: indexPath) as! JobDetailCell
         cell.setUp(vm: self)
         return cell
     }
