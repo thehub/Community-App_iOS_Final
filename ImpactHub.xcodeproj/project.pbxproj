@@ -191,6 +191,9 @@
 		858C589C1EF92BD600136DAC /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C589B1EF92BD600136DAC /* ProjectViewController.swift */; };
 		858C589D1EF92BD600136DAC /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C589B1EF92BD600136DAC /* ProjectViewController.swift */; };
 		858C589E1EF92BD600136DAC /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C589B1EF92BD600136DAC /* ProjectViewController.swift */; };
+		858C58A01EF9319300136DAC /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C589F1EF9319300136DAC /* ProjectsViewController.swift */; };
+		858C58A11EF9319300136DAC /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C589F1EF9319300136DAC /* ProjectsViewController.swift */; };
+		858C58A21EF9319300136DAC /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C589F1EF9319300136DAC /* ProjectsViewController.swift */; };
 		859C41631ECD951A00637295 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859C41621ECD951A00637295 /* MemberViewController.swift */; };
 		859C41661ECDA01A00637295 /* MemberDetailTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859C41641ECDA01A00637295 /* MemberDetailTopCell.swift */; };
 		859C41671ECDA01A00637295 /* MemberDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859C41651ECDA01A00637295 /* MemberDetailTopCell.xib */; };
@@ -340,6 +343,7 @@
 		858C58931EF928F500136DAC /* ProjectDetailTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailTopCell.swift; sourceTree = "<group>"; };
 		858C58971EF92B6900136DAC /* ProjectDetailTopViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailTopViewModel.swift; sourceTree = "<group>"; };
 		858C589B1EF92BD600136DAC /* ProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
+		858C589F1EF9319300136DAC /* ProjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
 		859C41621ECD951A00637295 /* MemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
 		859C41641ECDA01A00637295 /* MemberDetailTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberDetailTopCell.swift; sourceTree = "<group>"; };
 		859C41651ECDA01A00637295 /* MemberDetailTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberDetailTopCell.xib; sourceTree = "<group>"; };
@@ -545,6 +549,7 @@
 		858C588E1EF927C100136DAC /* Projects */ = {
 			isa = PBXGroup;
 			children = (
+				858C589F1EF9319300136DAC /* ProjectsViewController.swift */,
 				858C589B1EF92BD600136DAC /* ProjectViewController.swift */,
 				85E7DA801EF818D200C9DA15 /* ProjectCollectionViewCell.swift */,
 				85E7DA811EF818D200C9DA15 /* ProjectCollectionViewCell.xib */,
@@ -1023,6 +1028,7 @@
 				8574804E1EE802D0005F73A2 /* Message.swift in Sources */,
 				857480421EE802D0005F73A2 /* Comment.swift in Sources */,
 				8570C20F1ECF291000FA1CE9 /* JobViewController.swift in Sources */,
+				858C58A01EF9319300136DAC /* ProjectsViewController.swift in Sources */,
 				857480311EE80279005F73A2 /* ChatterSegmentBuilder.swift in Sources */,
 				85066FC51ED33E6F0032391A /* MemberSkillItemCell.swift in Sources */,
 				8574805A1EE802D0005F73A2 /* Reference.swift in Sources */,
@@ -1074,6 +1080,7 @@
 				853434151EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
 				85E7DA8E1EF81EA500C9DA15 /* Project.swift in Sources */,
 				8574806A1EE83B17005F73A2 /* LoginViewController.swift in Sources */,
+				858C58A11EF9319300136DAC /* ProjectsViewController.swift in Sources */,
 				8501B9FA1EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */,
 				850072281EE70E79008A725A /* MessagesThreadMePicVM.swift in Sources */,
 				85E7DA8A1EF81C7B00C9DA15 /* ProjectViewModel.swift in Sources */,
@@ -1127,6 +1134,7 @@
 				853434161EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
 				85E7DA8F1EF81EA500C9DA15 /* Project.swift in Sources */,
 				8574806B1EE83B17005F73A2 /* LoginViewController.swift in Sources */,
+				858C58A21EF9319300136DAC /* ProjectsViewController.swift in Sources */,
 				8501B9FB1EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */,
 				850072291EE70E79008A725A /* MessagesThreadMePicVM.swift in Sources */,
 				85E7DA8B1EF81C7B00C9DA15 /* ProjectViewModel.swift in Sources */,
