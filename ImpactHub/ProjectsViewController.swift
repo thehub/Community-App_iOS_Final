@@ -91,6 +91,29 @@ class ProjectsViewController: UIViewController, UITextFieldDelegate {
     
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
+            self.setNeedsStatusBarAppearanceUpdate()
+        }) { (_) in
+            
+        }
+        
+    }
+
+    var shouldHideStatusBar = true
+    
+    override var prefersStatusBarHidden: Bool {
+        return shouldHideStatusBar
+    }
+    
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+        return .slide
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

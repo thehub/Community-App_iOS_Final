@@ -14,9 +14,6 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
     
     var member = Member.init(name: "Test", job: "Test", photo: "photo", blurb: "test", aboutMe: "test", locationName: "London")
 
-    @IBOutlet weak var titleLabelContainerView: UIView!
-    @IBOutlet weak var titleLabelTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var topMenu: TopMenu!
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -34,8 +31,8 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
         
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         
-        titleLabel.text = project.name
-        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         
         self.title = project.name
@@ -98,8 +95,6 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
         projectsMembersData.append(viewModel3)
         projectsMembersData.append(viewModel4)
         
-        
-        
         // Jobs
         projectsJobsData.append(ProjectDetailTopViewModel(project: project, cellSize: .zero)) // this will pick the full height instead
         let company = Company(id: "dsfsd", name: "Swift", type: "dsfsdfs", photo: "companyImage", blurb: "Lorem ipsum", locationName: "Amsterdam, UK", website: "www.bbc.co.uk", size: "10 - 20")
@@ -123,11 +118,6 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
         
         collectionView.delegate = self
         collectionView.dataSource = self
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
@@ -136,6 +126,13 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
         }) { (_) in
             
         }
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+
 
         
 //        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -169,14 +166,8 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
         return .slide
     }
     
-    var didLayout = false
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        if !didLayout {
-            didLayout = true
-            titleLabelTopConstraintDefult = titleLabelTopConstraint.constant
-        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -283,6 +274,7 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > 200 && !topMenu.isShow {
             topMenu.show()
+            self.tabBarController?.tabBar.isHidden = false
             self.shouldHideStatusBar = false
             self.navigationController?.setNavigationBarHidden(false, animated: true)
             
@@ -295,6 +287,7 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
         }
         else if scrollView.contentOffset.y < 200 && topMenu.isShow {
             topMenu.hide()
+            self.tabBarController?.tabBar.isHidden = true
             self.navigationController?.setNavigationBarHidden(true, animated: true)
             self.shouldHideStatusBar = true
             self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -305,18 +298,6 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
             }
         }
 
-        
-        // Sync titleLabel
-        let newTitleYPos = titleLabelTopConstraintDefult - scrollView.contentOffset.y
-        let newTitleYPosConverted = titleLabelContainerView.convert(CGPoint(x: 0, y: newTitleYPos), to: self.view)
-        
-        if newTitleYPosConverted.y > 30 {
-            titleLabelTopConstraint.constant = newTitleYPos
-        }
-        else {
-            let fixPoint = self.view.convert(CGPoint(x: 0, y: 30), to: titleLabelContainerView)
-            titleLabelTopConstraint.constant = fixPoint.y
-        }
     }
     
     override func didReceiveMemoryWarning() {

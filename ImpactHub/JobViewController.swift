@@ -103,7 +103,7 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
     }
     
 
-    var shouldHideStatusBar = true
+    var shouldHideStatusBar = false
     
     override var prefersStatusBarHidden: Bool {
         return shouldHideStatusBar
