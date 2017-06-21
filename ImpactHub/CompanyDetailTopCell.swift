@@ -1,5 +1,5 @@
 //
-//  MemberDetailTopCell.swift
+//  CompanyDetailTopCell.swift
 //  ImpactHub
 //
 //  Created by Niklas on 18/05/2017.
@@ -9,44 +9,47 @@
 import UIKit
 
 class CompanyDetailTopCell: UICollectionViewCell {
-    @IBOutlet weak var websiteButton: UIButton!
 
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var jobLabel: UILabel!
+    @IBOutlet weak var subNameLabel: UILabel!
     @IBOutlet weak var locationNameLabel: UILabel!
-    @IBOutlet weak var blurbLabel: UILabel!
     @IBOutlet weak var facebookImageView: UIImageView!
     @IBOutlet weak var twitterImageView: UIImageView!
+    @IBOutlet weak var fadeView: UIView!
+    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var linkedinImageView: UIImageView!
+    @IBOutlet weak var instagramImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        profileImageView.layer.cornerRadius = profileImageView.frame.width/2
-        profileImageView.clipsToBounds = true
     }
 
     var vm:CompanyDetailTopViewModel!
-    
+
     func setup(vm: CompanyDetailTopViewModel) {
         self.vm = vm
         nameLabel.text = vm.company.name
-        jobLabel.text = vm.jobDescriptionLong
+        subNameLabel.text = vm.company.blurb
         profileImageView.image = UIImage(named: vm.company.photo)
-        blurbLabel.text = vm.company.blurb
         locationNameLabel.text = vm.locationNameLong
+        logoImageView.image = UIImage(named: vm.company.logo)
         
-        websiteButton.setTitle(vm.company.website ?? "", for: .normal)
     }
     
-    @IBAction func visitWebsiteTap(_ sender: Any) {
-        guard let website = vm.company.website else { return }
-        
-        let url = URL(string: website)!
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        } else {
-            UIApplication.shared.openURL(url)
-        }
+    let gradientLayer: CAGradientLayer = CAGradientLayer()
+    
+    override func draw(_ rect: CGRect) {
+        gradientLayer.removeFromSuperlayer()
+        let startingColorOfGradient = UIColor.init(white: 0.0, alpha: 0.2).cgColor
+        let endingColorOFGradient = UIColor.init(white: 1.0, alpha: 1.0).cgColor
+        gradientLayer.frame = self.fadeView.layer.bounds
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y:1.0)
+        gradientLayer.colors = [startingColorOfGradient , endingColorOFGradient]
+        fadeView.layer.insertSublayer(gradientLayer, at: 0)
     }
+
     
 }

@@ -646,75 +646,6 @@
             </objects>
             <point key="canvasLocation" x="4040.8000000000002" y="-824.43778110944538"/>
         </scene>
-        <!--Company-->
-        <scene sceneID="RSO-00-V2u">
-            <objects>
-                <viewController storyboardIdentifier="CompanyViewController" title="Company" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="uPJ-d0-08Q" userLabel="Company" customClass="CompanyViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="aVU-L5-6e7"/>
-                        <viewControllerLayoutGuide type="bottom" id="l4q-EP-bsY"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="sWS-no-uqY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" delaysContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="21e-9C-Wlr">
-                                <rect key="frame" x="0.0" y="64" width="375" height="553"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="SsE-6H-xYF">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                            </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AIf-NN-bu2" customClass="TopMenu" customModule="ImpactHub" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="tAK-OR-l43"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLU-Ss-BZJ">
-                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="2kQ-Xp-Gmc"/>
-                                </constraints>
-                                <state key="normal" title="Connect">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="connectTap:" destination="uPJ-d0-08Q" eventType="touchUpInside" id="sw7-wi-bfP"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="21e-9C-Wlr" firstAttribute="top" secondItem="aVU-L5-6e7" secondAttribute="bottom" id="58u-Ey-IK2"/>
-                            <constraint firstAttribute="trailing" secondItem="21e-9C-Wlr" secondAttribute="trailing" id="7SH-7B-NWq"/>
-                            <constraint firstItem="AIf-NN-bu2" firstAttribute="top" secondItem="aVU-L5-6e7" secondAttribute="bottom" id="Anx-hb-GYH"/>
-                            <constraint firstAttribute="trailing" secondItem="hLU-Ss-BZJ" secondAttribute="trailing" id="Cuu-3n-04P"/>
-                            <constraint firstItem="hLU-Ss-BZJ" firstAttribute="leading" secondItem="sWS-no-uqY" secondAttribute="leading" id="EFx-5z-0dg"/>
-                            <constraint firstAttribute="trailing" secondItem="AIf-NN-bu2" secondAttribute="trailing" id="Exc-9d-gtM"/>
-                            <constraint firstItem="AIf-NN-bu2" firstAttribute="leading" secondItem="sWS-no-uqY" secondAttribute="leading" id="Nqk-61-6Jp"/>
-                            <constraint firstItem="21e-9C-Wlr" firstAttribute="leading" secondItem="sWS-no-uqY" secondAttribute="leading" id="O5b-hM-NbN"/>
-                            <constraint firstAttribute="bottom" secondItem="hLU-Ss-BZJ" secondAttribute="bottom" id="PAq-yB-5jD"/>
-                            <constraint firstItem="hLU-Ss-BZJ" firstAttribute="top" secondItem="21e-9C-Wlr" secondAttribute="bottom" id="h4k-tf-9VX"/>
-                        </constraints>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="collectionView" destination="21e-9C-Wlr" id="c2M-kh-8jp"/>
-                        <outlet property="connectButton" destination="hLU-Ss-BZJ" id="kU9-Wi-fk0"/>
-                        <outlet property="topMenu" destination="AIf-NN-bu2" id="Rxc-Qp-wXP"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Epj-6h-iYH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2310" y="2377"/>
-        </scene>
         <!--Filter-->
         <scene sceneID="r73-af-YcJ">
             <objects>
@@ -1069,17 +1000,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="companyImage" translatesAutoresizingMaskIntoConstraints="NO" id="ptK-nm-SmE">
-                                <rect key="frame" x="0.0" y="64" width="375" height="230"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="230"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="230" id="lp9-DE-ROF"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRW-N1-nvq" userLabel="fadeView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="230"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="230"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cgi-nN-1X3">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="1ke-xR-URQ">
                                     <size key="itemSize" width="50" height="50"/>
@@ -1248,12 +1179,95 @@
                         <outlet property="searchContainerTopConstraint" destination="gFY-3q-UrJ" id="nYN-AG-FvJ"/>
                         <outlet property="searchInputTextField" destination="TST-hM-BGk" id="COy-x2-UT6"/>
                         <outlet property="searchTextBg" destination="jDd-9e-K5x" id="6OJ-Qf-pYM"/>
-                        <segue destination="uPJ-d0-08Q" kind="show" identifier="ShowCompany" id="tiR-QL-IpS"/>
+                        <segue destination="cWc-Ug-elU" kind="show" identifier="ShowCompany" id="BrT-Tm-bh9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TNA-TN-foT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1242" y="2261"/>
+            <point key="canvasLocation" x="1626" y="2100"/>
+        </scene>
+        <!--Company View Controller-->
+        <scene sceneID="T9Z-2e-ncj">
+            <objects>
+                <viewController storyboardIdentifier="CompanyViewController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="cWc-Ug-elU" customClass="CompanyViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qeO-Jf-cbZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="EGe-v8-GFy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bni-E5-1Ea">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YYU-wJ-Gb2">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="EkU-X2-EjQ">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="200"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="W1p-o3-yEA">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="cWc-Ug-elU" id="mtT-Kc-ks4"/>
+                                    <outlet property="delegate" destination="cWc-Ug-elU" id="Uwh-NF-j39"/>
+                                </connections>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ky-5a-Au7" customClass="TopMenu" customModule="ImpactHub" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="CTF-LH-0gk"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVe-SJ-MOV" customClass="RedButton" customModule="ImpactHub" customModuleProvider="target">
+                                <rect key="frame" x="35" y="588" width="305" height="50"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Coe-iM-OGX"/>
+                                </constraints>
+                                <state key="normal" title="Connect">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="connectTap:" destination="cWc-Ug-elU" eventType="touchUpInside" id="Mb7-Sr-jm5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="YYU-wJ-Gb2" secondAttribute="trailing" id="Aa3-Mx-iCr"/>
+                            <constraint firstAttribute="bottom" secondItem="SVe-SJ-MOV" secondAttribute="bottom" constant="29" id="I4c-CP-8aH"/>
+                            <constraint firstItem="2ky-5a-Au7" firstAttribute="leading" secondItem="bni-E5-1Ea" secondAttribute="leading" id="NDl-UK-QQ7"/>
+                            <constraint firstItem="SVe-SJ-MOV" firstAttribute="leading" secondItem="bni-E5-1Ea" secondAttribute="leading" constant="35" id="PIe-zo-ntZ"/>
+                            <constraint firstAttribute="trailing" secondItem="SVe-SJ-MOV" secondAttribute="trailing" constant="35" id="VYa-VG-JgG"/>
+                            <constraint firstAttribute="trailing" secondItem="2ky-5a-Au7" secondAttribute="trailing" id="kMJ-Ke-ZYb"/>
+                            <constraint firstItem="YYU-wJ-Gb2" firstAttribute="top" secondItem="qeO-Jf-cbZ" secondAttribute="bottom" id="nNR-05-QCT"/>
+                            <constraint firstItem="YYU-wJ-Gb2" firstAttribute="leading" secondItem="bni-E5-1Ea" secondAttribute="leading" id="rbV-cK-pLo"/>
+                            <constraint firstItem="2ky-5a-Au7" firstAttribute="top" secondItem="qeO-Jf-cbZ" secondAttribute="bottom" id="xNk-ZL-lUa"/>
+                            <constraint firstItem="EGe-v8-GFy" firstAttribute="top" secondItem="YYU-wJ-Gb2" secondAttribute="bottom" id="zLV-be-iee"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="YYU-wJ-Gb2" id="nIQ-Y1-Prs"/>
+                        <outlet property="connectButton" destination="SVe-SJ-MOV" id="aTy-9n-ms3"/>
+                        <outlet property="connectButtonBottomConsatraint" destination="I4c-CP-8aH" id="hsG-qW-Fwc"/>
+                        <outlet property="topMenu" destination="2ky-5a-Au7" id="Wuv-eG-7Se"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2ad-ny-45h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2556" y="2114"/>
         </scene>
     </scenes>
     <resources>

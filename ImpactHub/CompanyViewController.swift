@@ -9,21 +9,15 @@
 import UIKit
 import PromiseKit
 
-class CompanyViewController: UIViewController, UICollectionViewDelegate, TopMenuDelegate, UICollectionViewDelegateFlowLayout {
+class CompanyViewController: ListFullBleedViewController {
 
     var company: Company?
     var compnayId: String?
     
-    
 
-    @IBOutlet weak var connectButton: UIButton!
-    @IBOutlet weak var topMenu: TopMenu!
-    
-    @IBOutlet weak var collectionView: UICollectionView!
-    
-    var data = [CellRepresentable]()
     var aboutData = [CellRepresentable]()
     var projectsData = [CellRepresentable]()
+    var membersData = [CellRepresentable]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,34 +50,119 @@ class CompanyViewController: UIViewController, UICollectionViewDelegate, TopMenu
         guard let company = self.company else {
             return
         }
-        connectButton.setTitle("Connect with \(company.name)", for: .normal)
+        
+        if let website = company.website {
+            connectButton?.setTitle("\(website)", for: .normal)
+        }
+        else {
+            connectButton?.isHidden = true
+        }
+        
+        self.title = company.name
         
         collectionView.register(UINib.init(nibName: CompanyDetailTopViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: CompanyDetailTopViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: CompanyAboutViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: CompanyAboutViewModel.cellIdentifier)
-        
-        topMenu.delegate = self
-        
+        collectionView.register(UINib.init(nibName: TitleViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: TitleViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: ProjectViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: MemberViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberViewModel.cellIdentifier)
+
+
         topMenu.setupWithItems(["About", "Projects", "Members"])
+
         
-        var data = [CellRepresentable]()
-        data.append(CompanyDetailTopViewModel(company: company, cellSize: .zero)) // this will pick the full height instead
-        data.append(CompanyAboutViewModel(company: company, cellSize: CGSize(width: view.frame.width, height: 450)))
-        aboutData = data
+        
+        
+        
+        // About
+        aboutData.append(CompanyDetailTopViewModel(company: company, cellSize: .zero)) // this will pick the full height instead
+        aboutData.append(TitleViewModel(title: "ABOUT", cellSize: CGSize(width: view.frame.width, height: 70)))
+
+        aboutData.append(CompanyAboutViewModel(company: company, cellSize: CGSize(width: view.frame.width, height: 450)))
         self.data = aboutData
-        //
-        //        var data2 = [CellRepresentable]()
-        //        data2.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
-        //        data2.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
-        //        data2.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
-        //        data2.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
-        //        data2.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
-        //        self.memberAboutData = data2
+        
+        // Projects
+        projectsData.append(CompanyDetailTopViewModel(company: company, cellSize: .zero)) // this will pick the full height instead
+        
+        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        
+        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        
+        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        
+        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        
+        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        
+        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        
+        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        
+        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        
+        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        
+        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        
+        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
         
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        
+        // Members
+        
+        membersData.append(CompanyDetailTopViewModel(company: company, cellSize: .zero)) // this will pick the full height instead
+        membersData.append(TitleViewModel(title: "", cellSize: CGSize(width: view.frame.width, height: 70)))
+        
+        let item1 = Member(name: "Niklas", job: "Developer", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", aboutMe: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam. Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam. Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
+        let item2 = Member(name: "Neela", job: "Salesforce", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", aboutMe: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
+        let item3 = Member(name: "Russel", job: "Salesforce", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", aboutMe: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
+        let item4 = Member(name: "Rob", job: "UX", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", aboutMe: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
+        
+        let cellWidth: CGFloat = self.view.frame.width
+        let viewModel1 = MemberViewModel(member: item1, cellSize: CGSize(width: cellWidth, height: 105))
+        let viewModel2 = MemberViewModel(member: item2, cellSize: CGSize(width: cellWidth, height: 105))
+        let viewModel3 = MemberViewModel(member: item3, cellSize: CGSize(width: cellWidth, height: 105))
+        let viewModel4 = MemberViewModel(member: item4, cellSize: CGSize(width: cellWidth, height: 105))
+        
+        membersData.append(viewModel1)
+        membersData.append(viewModel2)
+        membersData.append(viewModel3)
+        membersData.append(viewModel4)
+        
+        membersData.append(viewModel1)
+        membersData.append(viewModel2)
+        membersData.append(viewModel3)
+        membersData.append(viewModel4)
+
     }
+
     
+    override func topMenuDidSelectIndex(_ index: Int) {
+        
+        self.collectionView.alpha = 0
+        
+        if index == 0 {
+            self.data = self.aboutData
+            self.collectionView.reloadData()
+        }
+        else if index == 1 {
+            self.data = self.projectsData
+            self.collectionView.reloadData()
+        }
+        else if index == 2 {
+            self.data = self.membersData
+            self.collectionView.reloadData()
+        }
+
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.collectionView.setContentOffset(CGPoint.init(x: 0, y: self.collectionView.frame.height - 0), animated: false)
+            UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                self.collectionView.alpha = 1
+            }, completion: { (_) in
+                
+            })
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -95,56 +174,19 @@ class CompanyViewController: UIViewController, UICollectionViewDelegate, TopMenu
         
     }
     
-    func topMenuDidSelectIndex(_ index: Int) {
-        
-        self.collectionView.alpha = 0
-
-        if index == 0 {
-            self.data = self.aboutData
-            self.collectionView.reloadData()
-        }
-//        else if index == 1 {
-//            self.data = self.projectsData
-//            self.collectionView.reloadData()
-//        }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.collectionView.setContentOffset(CGPoint.init(x: 0, y: self.collectionView.frame.height - 80), animated: false)
-            UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
-                self.collectionView.alpha = 1
-            }, completion: { (_) in
-                
-            })
-        }
-        
-        
-    }
-
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y > 200 && !topMenu.isShow {
-            topMenu.show()
-        }
-        else if scrollView.contentOffset.y < 200 && topMenu.isShow {
-            topMenu.hide()
-        }
-    }
     
     @IBAction func connectTap(_ sender: Any) {
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        guard let website = company?.website else { return }
+        
+        let url = URL(string: website)!
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+
     }
     
 }
 
-extension CompanyViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return data[indexPath.item].cellInstance(collectionView, indexPath: indexPath)
-    }
-}
 

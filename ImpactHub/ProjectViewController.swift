@@ -82,7 +82,7 @@ class ProjectViewController: ListFullBleedViewController {
         
         // Jobs
         projectsJobsData.append(ProjectDetailTopViewModel(project: project, cellSize: .zero)) // this will pick the full height instead
-        let company = Company(id: "dsfsd", name: "Swift", type: "dsfsdfs", photo: "companyImage", blurb: "Lorem ipsum", locationName: "Amsterdam, UK", website: "www.bbc.co.uk", size: "10 - 20")
+        let company = Company(id: "dsfsd", name: "Swift", type: "dsfsdfs", photo: "companyImage", logo:"companyLogo", blurb: "Lorem ipsum", locationName: "Amsterdam, UK", website: "www.bbc.co.uk", size: "10 - 20")
         
         projectsJobsData.append(TitleViewModel(title: "JOBS FOR THIS PROJECT", cellSize: CGSize(width: view.frame.width, height: 70)))
         

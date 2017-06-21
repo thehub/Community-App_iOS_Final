@@ -44,7 +44,7 @@ extension Job {
         self.companyId = companyId
         
         self.salary = ""
-        self.company = Company(id: "asdsad", name: "Test Compnay", type: "sdsdf", photo: "sdfdsf", blurb: "sdfdsfsdf", locationName: "sdfdsfs", website: "http://www.dn.se", size: "10 - 30")
+        self.company = Company(id: "asdsad", name: "Test Compnay", type: "sdsdf", photo: "sdfdsf", logo:"companyLogo", blurb: "sdfdsfsdf", locationName: "sdfdsfs", website: "http://www.dn.se", size: "10 - 30")
         self.locationName = "London"
     }
     

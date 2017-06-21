@@ -14,6 +14,7 @@ struct Company {
     var name: String
     var type: String
     var photo: String
+    var logo: String
     var blurb: String
     var locationName: String
     var website: String?
@@ -35,6 +36,7 @@ extension Company {
         
         self.type = "Full-time"
         self.photo = ""
+        self.logo = "" //TODO:
         self.blurb = "sddsfsd"
         self.locationName = "Amsterdam"
         self.website = json["Website"].string
