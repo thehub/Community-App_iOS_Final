@@ -85,6 +85,9 @@
 		85455D481EF2E7A000243846 /* RedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85455D471EF2E7A000243846 /* RedButton.swift */; };
 		85455D491EF2E7A000243846 /* RedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85455D471EF2E7A000243846 /* RedButton.swift */; };
 		85455D4A1EF2E7A000243846 /* RedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85455D471EF2E7A000243846 /* RedButton.swift */; };
+		85523DAE1EFA9CB100F66B53 /* ListWithSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85523DAD1EFA9CB100F66B53 /* ListWithSearchViewController.swift */; };
+		85523DAF1EFA9CB100F66B53 /* ListWithSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85523DAD1EFA9CB100F66B53 /* ListWithSearchViewController.swift */; };
+		85523DB01EFA9CB100F66B53 /* ListWithSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85523DAD1EFA9CB100F66B53 /* ListWithSearchViewController.swift */; };
 		8570C1C81ECEDE3300FA1CE9 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1C71ECEDE3300FA1CE9 /* Notifications.storyboard */; };
 		8570C1CB1ECEDE6200FA1CE9 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1CA1ECEDE6200FA1CE9 /* NotificationsViewController.swift */; };
 		8570C1CE1ECEE0BA00FA1CE9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1CD1ECEE0BA00FA1CE9 /* SearchViewController.swift */; };
@@ -324,6 +327,7 @@
 		85455D2F1EF2A53200243846 /* gt-walsheim-web.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gt-walsheim-web.ttf"; sourceTree = "<group>"; };
 		85455D431EF2DFD600243846 /* MemberFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberFilterViewController.swift; sourceTree = "<group>"; };
 		85455D471EF2E7A000243846 /* RedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedButton.swift; sourceTree = "<group>"; };
+		85523DAD1EFA9CB100F66B53 /* ListWithSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWithSearchViewController.swift; sourceTree = "<group>"; };
 		8570C1C71ECEDE3300FA1CE9 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		8570C1CA1ECEDE6200FA1CE9 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		8570C1CD1ECEE0BA00FA1CE9 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -691,6 +695,7 @@
 				85DE9EF71ECC902B00291EF5 /* HomeViewController.swift */,
 				858C58A31EF9492000136DAC /* TitleCell.swift */,
 				858C58A41EF9492000136DAC /* TitleCell.xib */,
+				85523DAD1EFA9CB100F66B53 /* ListWithSearchViewController.swift */,
 				85DE9EFA1ECC9D2700291EF5 /* Members */,
 				858C588E1EF927C100136DAC /* Projects */,
 				8570C1E61ECF035700FA1CE9 /* Companies */,
@@ -1090,6 +1095,7 @@
 				8570C1EF1ECF04E800FA1CE9 /* CompanyCollectionViewCell.swift in Sources */,
 				850072271EE70E79008A725A /* MessagesThreadMePicVM.swift in Sources */,
 				859C41661ECDA01A00637295 /* MemberDetailTopCell.swift in Sources */,
+				85523DAE1EFA9CB100F66B53 /* ListWithSearchViewController.swift in Sources */,
 				85066FC81ED33F240032391A /* MemberSkillItemViewModel.swift in Sources */,
 				850072231EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
 				858C58941EF928F500136DAC /* ProjectDetailTopCell.swift in Sources */,
@@ -1156,6 +1162,7 @@
 				850072241EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
 				858C58B21EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */,
 				85455D241EF28D3D00243846 /* TabBarController.swift in Sources */,
+				85523DAF1EFA9CB100F66B53 /* ListWithSearchViewController.swift in Sources */,
 				858C589D1EF92BD600136DAC /* ProjectViewController.swift in Sources */,
 				858C58D91EF9868900136DAC /* JobDetailViewModel.swift in Sources */,
 				853434151EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
@@ -1220,6 +1227,7 @@
 				850072251EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
 				858C58B31EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */,
 				85455D251EF28D3D00243846 /* TabBarController.swift in Sources */,
+				85523DB01EFA9CB100F66B53 /* ListWithSearchViewController.swift in Sources */,
 				858C589E1EF92BD600136DAC /* ProjectViewController.swift in Sources */,
 				858C58DA1EF9868900136DAC /* JobDetailViewModel.swift in Sources */,
 				853434161EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,

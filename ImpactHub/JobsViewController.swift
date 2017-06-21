@@ -9,37 +9,12 @@
 import UIKit
 import PromiseKit
 
-class JobsViewController: UIViewController, UITextFieldDelegate {
+class JobsViewController: ListWithSearchViewController {
 
-    var data = [CellRepresentable]()
-
-    
-    @IBOutlet weak var collectionView: UICollectionView!
-
-    @IBOutlet weak var searchContainerTopConstraint: NSLayoutConstraint!
-    var searchContainerTopConstraintDefault: CGFloat = 0
-
-    @IBOutlet weak var searchInputTextField: UITextField!
-    @IBOutlet weak var filterButton: UIButton!
-    
-    @IBOutlet weak var searchContainer: UIView!
-    @IBOutlet weak var searchTextBg: UIView!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if(traitCollection.forceTouchCapability == .available){
-            registerForPreviewing(with: self, sourceView: self.collectionView)
-        }
-        
-        self.searchContainerTopConstraintDefault = searchContainerTopConstraint.constant
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
         collectionView.register(UINib.init(nibName: JobViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: JobViewModel.cellIdentifier)
-        
-        
         
         let company = Company(id: "dsfsd", name: "Aspite", type: "dsfsdfs", photo: "companyImage", blurb: "Lorem ipsum", locationName: "London, UK", website: "www.bbc.co.uk", size: "10 - 20")
         
@@ -86,11 +61,6 @@ class JobsViewController: UIViewController, UITextFieldDelegate {
     
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     var selectedVM: JobViewModel?
     
     
@@ -102,77 +72,10 @@ class JobsViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        self.searchTextBg.layer.shadowColor = UIColor(hexString: "D5D5D5").cgColor
-        self.searchTextBg.layer.shadowOffset = CGSize(width: 0, height: 5)
-        self.searchTextBg.layer.shadowOpacity = 0.37
-        self.searchTextBg.layer.shadowPath = UIBezierPath(rect: self.searchTextBg.bounds).cgPath
-        self.searchTextBg.layer.shadowRadius = 15.0
-
-    }
-    
-    var lastScrollPositionY: CGFloat = 0
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let currentPositionY = scrollView.contentOffset.y
-
-        if currentPositionY < 0 {
-            return
-        }
-        
-        // Scrolling down
-        if lastScrollPositionY < currentPositionY {
-            let newPosition = searchContainerTopConstraintDefault - currentPositionY
-            if newPosition > -100 {
-                self.searchContainerTopConstraint.constant = newPosition
-            }
-            else {
-                self.searchContainerTopConstraint.constant = -100
-            }
-        }
-        // Scrolling up
-        else {
-            let diff = currentPositionY - lastScrollPositionY
-            var newPosition = searchContainerTopConstraint.constant - diff
-            if newPosition > searchContainerTopConstraintDefault {
-                newPosition = searchContainerTopConstraintDefault
-            }
-            searchContainerTopConstraint.constant = newPosition
-        }
-        
-        lastScrollPositionY = scrollView.contentOffset.y
-    }
-    
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == self.searchInputTextField {
-            textField.resignFirstResponder()
-        }
-        return false
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let text = textField.text else { return true }
-        
-        let newLength = text.utf16.count + string.utf16.count - range.length
-        return newLength <= 200
-    }
-    
 }
 
-extension JobsViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return data[indexPath.item].cellInstance(collectionView, indexPath: indexPath)
-    }
-}
 
-extension JobsViewController: UICollectionViewDelegate {
+extension JobsViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let vm = data[indexPath.item] as? JobViewModel {
             selectedVM = vm
@@ -181,17 +84,9 @@ extension JobsViewController: UICollectionViewDelegate {
     }
 }
 
-extension JobsViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return data[indexPath.item].cellSize
-        
-    }
-}
-
-extension JobsViewController: UIViewControllerPreviewingDelegate {
+extension JobsViewController {
     
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+    override func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         
         guard let indexPath = collectionView.indexPathForItem(at: location) else { return nil }
         guard let cell = collectionView.cellForItem(at: indexPath) else { return nil }
@@ -213,7 +108,7 @@ extension JobsViewController: UIViewControllerPreviewingDelegate {
         
     }
     
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+    override func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         show(viewControllerToCommit, sender: self)
     }
     
