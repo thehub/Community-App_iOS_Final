@@ -26,7 +26,7 @@ class JobCollectionViewCell: UICollectionViewCell {
     func setUp(vm: JobViewModel) {
         companyLabel.text = vm.job.companyName
         nameLabel.text = vm.job.name
-
+        fulltimeLabel.text = vm.job.type
         profileImageView.image = UIImage(named: vm.job.company.photo)
         locationNameLabel.text = vm.job.locationName
 
