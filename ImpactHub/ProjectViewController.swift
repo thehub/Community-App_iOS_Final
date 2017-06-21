@@ -8,32 +8,19 @@
 
 import UIKit
 
-class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenuDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
+class ProjectViewController: ListFullBleedViewController {
 
     var project: Project!
     
     var member = Member.init(name: "Test", job: "Test", photo: "photo", blurb: "test", aboutMe: "test", locationName: "London")
 
-    @IBOutlet weak var topMenu: TopMenu!
-    
-    @IBOutlet weak var collectionView: UICollectionView!
-    
-    var data = [CellRepresentable]()
     var projectFeedData = [CellRepresentable]()
     var projectsObjectivesData = [CellRepresentable]()
     var projectsMembersData = [CellRepresentable]()
     var projectsJobsData = [CellRepresentable]()
 
-    var titleLabelTopConstraintDefult: CGFloat = 0
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController?.interactivePopGestureRecognizer?.delegate = self
-        
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
-
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         
         self.title = project.name
         
@@ -45,8 +32,6 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
         collectionView.register(UINib.init(nibName: ProjectObjectiveViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectObjectiveViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: JobViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: JobViewModel.cellIdentifier)
 
-        
-        topMenu.delegate = self
         
         topMenu.setupWithItems(["FEED", "OBJECTIVES", "MEMBERS", "JOBS"])
 
@@ -116,66 +101,8 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
 
         
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
-            self.setNeedsStatusBarAppearanceUpdate()
-        }) { (_) in
-            
-        }
     }
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-
-
-        
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.navigationBar.isTranslucent = true
-//        self.navigationController?.view.backgroundColor = UIColor.clear
-//        self.navigationController?.navigationBar.backgroundColor = UIColor.clear
-//        
-//        
-//        
-//        self.navigationController?.navigationBar.layer.borderColor = UIColor.clear.cgColor
-//        self.navigationController?.navigationBar.layer.borderWidth = 0
-//        self.navigationController?.navigationBar.layer.shadowColor = UIColor.clear.cgColor
-//        self.navigationController?.navigationBar.layer.shadowOffset = CGSize.zero
-//        self.navigationController?.navigationBar.layer.shadowRadius = 0
-//        self.navigationController?.navigationBar.layer.shadowOpacity = 0
-//        self.navigationController?.navigationBar.layer.masksToBounds = true
-
-        
-        
-    }
-    
-
-    var shouldHideStatusBar = true
-    
-    override var prefersStatusBarHidden: Bool {
-        return shouldHideStatusBar
-    }
-    
-    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
-        return .slide
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-//        self.navigationController?.navigationBar.shadowImage = nil
-
-    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -240,7 +167,7 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
         }
     }
     
-    func topMenuDidSelectIndex(_ index: Int) {
+    override func topMenuDidSelectIndex(_ index: Int) {
         
         self.collectionView.alpha = 0
 
@@ -271,34 +198,7 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
         }
     }
 
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y > 200 && !topMenu.isShow {
-            topMenu.show()
-            self.tabBarController?.tabBar.isHidden = false
-            self.shouldHideStatusBar = false
-            self.navigationController?.setNavigationBarHidden(false, animated: true)
-            
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
-                self.setNeedsStatusBarAppearanceUpdate()
-            }) { (_) in
-                
-            }
-            
-        }
-        else if scrollView.contentOffset.y < 200 && topMenu.isShow {
-            topMenu.hide()
-            self.tabBarController?.tabBar.isHidden = true
-            self.navigationController?.setNavigationBarHidden(true, animated: true)
-            self.shouldHideStatusBar = true
-            self.navigationController?.setNavigationBarHidden(true, animated: true)
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
-                self.setNeedsStatusBarAppearanceUpdate()
-            }) { (_) in
-                
-            }
-        }
 
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -307,38 +207,4 @@ class ProjectViewController: UIViewController, UICollectionViewDelegate, TopMenu
     
 }
 
-extension ProjectViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = data[indexPath.item].cellInstance(collectionView, indexPath: indexPath)
-//        if let topCell = cell as? MemberDetailTopCell {
-//            debugPrint("container \(topCell.contentView.frame.size.height)")
-//            debugPrint("nameLabel \(topCell.nameLabel.frame.origin.y)")
-//            let newPoint = topCell.nameLabel.convert(topCell.nameLabel.frame.origin, to: self.view)
-//            debugPrint(newPoint.y)
-//            debugPrint(self.view.frame.height)
-//            titleLabelTopConstraintDefult = newPoint.y + 50 + ((self.view.frame.height - 568)/2)
-//            titleLabelTopConstraint.constant = titleLabelTopConstraintDefult
-
-//            "container 300.0"
-//            "nameLabel 102.0"
-//            215.5
-//            736.0
-            
-//            "container 300.0"
-//            "nameLabel 102.0"
-//            215.5
-//            568.0
-            
-            // 736 = 433
-
-//        }
-        
-        return cell
-    }
-}
 

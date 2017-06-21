@@ -91,6 +91,9 @@
 		85523DB21EFAA3F100F66B53 /* CompanyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85523DB11EFAA3F100F66B53 /* CompanyCollectionViewCell.xib */; };
 		85523DB31EFAA3F100F66B53 /* CompanyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85523DB11EFAA3F100F66B53 /* CompanyCollectionViewCell.xib */; };
 		85523DB41EFAA3F100F66B53 /* CompanyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85523DB11EFAA3F100F66B53 /* CompanyCollectionViewCell.xib */; };
+		85523DB61EFAABD700F66B53 /* ListFullBleedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85523DB51EFAABD700F66B53 /* ListFullBleedViewController.swift */; };
+		85523DB71EFAABD700F66B53 /* ListFullBleedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85523DB51EFAABD700F66B53 /* ListFullBleedViewController.swift */; };
+		85523DB81EFAABD700F66B53 /* ListFullBleedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85523DB51EFAABD700F66B53 /* ListFullBleedViewController.swift */; };
 		8570C1C81ECEDE3300FA1CE9 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1C71ECEDE3300FA1CE9 /* Notifications.storyboard */; };
 		8570C1CB1ECEDE6200FA1CE9 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1CA1ECEDE6200FA1CE9 /* NotificationsViewController.swift */; };
 		8570C1CE1ECEE0BA00FA1CE9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1CD1ECEE0BA00FA1CE9 /* SearchViewController.swift */; };
@@ -330,6 +333,7 @@
 		85455D471EF2E7A000243846 /* RedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedButton.swift; sourceTree = "<group>"; };
 		85523DAD1EFA9CB100F66B53 /* ListWithSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWithSearchViewController.swift; sourceTree = "<group>"; };
 		85523DB11EFAA3F100F66B53 /* CompanyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyCollectionViewCell.xib; sourceTree = "<group>"; };
+		85523DB51EFAABD700F66B53 /* ListFullBleedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFullBleedViewController.swift; sourceTree = "<group>"; };
 		8570C1C71ECEDE3300FA1CE9 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		8570C1CA1ECEDE6200FA1CE9 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		8570C1CD1ECEE0BA00FA1CE9 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -695,6 +699,7 @@
 				858C58A31EF9492000136DAC /* TitleCell.swift */,
 				858C58A41EF9492000136DAC /* TitleCell.xib */,
 				85523DAD1EFA9CB100F66B53 /* ListWithSearchViewController.swift */,
+				85523DB51EFAABD700F66B53 /* ListFullBleedViewController.swift */,
 				85DE9EFA1ECC9D2700291EF5 /* Members */,
 				858C588E1EF927C100136DAC /* Projects */,
 				8570C1E61ECF035700FA1CE9 /* Companies */,
@@ -1104,6 +1109,7 @@
 				8501B9F91EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */,
 				858C58981EF92B6900136DAC /* ProjectDetailTopViewModel.swift in Sources */,
 				850072341EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
+				85523DB61EFAABD700F66B53 /* ListFullBleedViewController.swift in Sources */,
 				8574803F1EE802D0005F73A2 /* ChatterActor.swift in Sources */,
 				8574804E1EE802D0005F73A2 /* Message.swift in Sources */,
 				857480421EE802D0005F73A2 /* Comment.swift in Sources */,
@@ -1143,6 +1149,7 @@
 				858C58D21EF9848E00136DAC /* JobDetailCell.swift in Sources */,
 				858C58991EF92B6900136DAC /* ProjectDetailTopViewModel.swift in Sources */,
 				8574806E1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
+				85523DB71EFAABD700F66B53 /* ListFullBleedViewController.swift in Sources */,
 				8500722C1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
 				858C58A61EF9492000136DAC /* TitleCell.swift in Sources */,
 				85DE9EDE1ECC8CD900291EF5 /* ImpactHubTests.swift in Sources */,
@@ -1208,6 +1215,7 @@
 				858C58D31EF9848E00136DAC /* JobDetailCell.swift in Sources */,
 				858C589A1EF92B6900136DAC /* ProjectDetailTopViewModel.swift in Sources */,
 				8574806F1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
+				85523DB81EFAABD700F66B53 /* ListFullBleedViewController.swift in Sources */,
 				8500722D1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
 				858C58A71EF9492000136DAC /* TitleCell.swift in Sources */,
 				85DE9EE91ECC8CD900291EF5 /* ImpactHubUITests.swift in Sources */,

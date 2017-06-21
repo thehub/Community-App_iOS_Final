@@ -458,6 +458,10 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="v6r-jd-8oy" id="MQE-ba-EcT"/>
+                                    <outlet property="delegate" destination="v6r-jd-8oy" id="7Ra-ON-9Eh"/>
+                                </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D7m-9w-jg5" customClass="TopMenu" customModule="ImpactHub" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="40"/>
@@ -760,6 +764,10 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Fsg-7e-ZtL" id="R6B-sn-Asv"/>
+                                    <outlet property="delegate" destination="Fsg-7e-ZtL" id="s5d-6S-xZ4"/>
+                                </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ni-Rl-OWN" customClass="TopMenu" customModule="ImpactHub" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="40"/>
@@ -1255,9 +1263,9 @@
         <image name="tabBarHome" width="22" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Nsv-q8-zjz"/>
-        <segue reference="ODp-Jh-V7d"/>
         <segue reference="rv5-tf-Hia"/>
+        <segue reference="4CN-lM-E9S"/>
+        <segue reference="ODp-Jh-V7d"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>

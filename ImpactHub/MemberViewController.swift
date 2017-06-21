@@ -8,32 +8,19 @@
 
 import UIKit
 
-class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
+class MemberViewController: ListFullBleedViewController {
 
     var member: Member!
     
-
-    @IBOutlet weak var connectButtonBottomConsatraint: NSLayoutConstraint!
-    var connectButtonBottomConsatraintDefault: CGFloat = 0
-    @IBOutlet weak var connectButton: UIButton!
-    @IBOutlet weak var topMenu: TopMenu!
-    
-    @IBOutlet weak var collectionView: UICollectionView!
-    
-    var data = [CellRepresentable]()
     var memberAboutData = [CellRepresentable]()
     var memberProjectsData = [CellRepresentable]()
     var memberGroupsData = [CellRepresentable]()
 
-    var titleLabelTopConstraintDefult: CGFloat = 0
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.interactivePopGestureRecognizer?.delegate = self
         
-        
-        connectButton.setTitle("Connect with \(member.name)", for: .normal)
+        connectButton?.setTitle("Connect with \(member.name)", for: .normal)
 
         self.title = member.name
         
@@ -42,7 +29,6 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         collectionView.register(UINib.init(nibName: MemberSkillItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberSkillItemViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: ProjectViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectViewModel.cellIdentifier)
 
-        topMenu.delegate = self
         
         topMenu.setupWithItems(["ABOUT", "PROJECTS", "GROUPS"])
 
@@ -84,74 +70,11 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         memberGroupsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
-            self.setNeedsStatusBarAppearanceUpdate()
-        }) { (_) in
-            
-        }
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-
-
-        
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.navigationBar.isTranslucent = true
-//        self.navigationController?.view.backgroundColor = UIColor.clear
-//        self.navigationController?.navigationBar.backgroundColor = UIColor.clear
-//        
-//        
-//        
-//        self.navigationController?.navigationBar.layer.borderColor = UIColor.clear.cgColor
-//        self.navigationController?.navigationBar.layer.borderWidth = 0
-//        self.navigationController?.navigationBar.layer.shadowColor = UIColor.clear.cgColor
-//        self.navigationController?.navigationBar.layer.shadowOffset = CGSize.zero
-//        self.navigationController?.navigationBar.layer.shadowRadius = 0
-//        self.navigationController?.navigationBar.layer.shadowOpacity = 0
-//        self.navigationController?.navigationBar.layer.masksToBounds = true
-
-        
-        
     }
     
 
-    var shouldHideStatusBar = true
     
-    override var prefersStatusBarHidden: Bool {
-        return shouldHideStatusBar
-    }
-    
-    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
-        return .slide
-    }
-    
-    var didLayout = false
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        if !didLayout {
-            didLayout = true
-            connectButtonBottomConsatraintDefault = connectButtonBottomConsatraint.constant
-        }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-//        self.navigationController?.navigationBar.shadowImage = nil
 
-    }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         
@@ -199,7 +122,7 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
     }
     
     
-    func topMenuDidSelectIndex(_ index: Int) {
+    override func topMenuDidSelectIndex(_ index: Int) {
         
         self.collectionView.alpha = 0
 
@@ -229,98 +152,11 @@ class MemberViewController: UIViewController, UICollectionViewDelegate, TopMenuD
         }
     }
 
-    func hideConnectButton() {
-        self.connectButton.isHidden = true
-        
-//        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseIn, animations: { 
-//            self.connectButton.alpha = 0
-//        }) { (_) in
-//        }
-    }
-    
-    func showConnectButton() {
-        self.connectButton.isHidden = false
-
-//        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseIn, animations: {
-//            self.connectButton.alpha = 1
-//        }) { (_) in
-//        }
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y > 200 && !topMenu.isShow {
-            topMenu.show()
-            self.tabBarController?.tabBar.isHidden = false
-            self.shouldHideStatusBar = false
-            self.navigationController?.setNavigationBarHidden(false, animated: true)
-            connectButtonBottomConsatraint.constant = connectButtonBottomConsatraintDefault + self.navigationController!.navigationBar.frame.height
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {                self.setNeedsStatusBarAppearanceUpdate()
-                self.view.layoutIfNeeded()
-            }) { (_) in
-                
-            }
-            
-        }
-        else if scrollView.contentOffset.y < 200 && topMenu.isShow {
-            topMenu.hide()
-            self.tabBarController?.tabBar.isHidden = true
-            self.navigationController?.setNavigationBarHidden(true, animated: true)
-            connectButtonBottomConsatraint.constant = connectButtonBottomConsatraintDefault
-            self.shouldHideStatusBar = true
-            self.navigationController?.setNavigationBarHidden(true, animated: true)
-            
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
-                self.setNeedsStatusBarAppearanceUpdate()
-                self.view.layoutIfNeeded()
-            }) { (_) in
-                
-            }
-        }
-
-        
-    }
-    
     @IBAction func connectTap(_ sender: Any) {
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
     
 }
 
-extension MemberViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = data[indexPath.item].cellInstance(collectionView, indexPath: indexPath)
-//        if let topCell = cell as? MemberDetailTopCell {
-//            debugPrint("container \(topCell.contentView.frame.size.height)")
-//            debugPrint("nameLabel \(topCell.nameLabel.frame.origin.y)")
-//            let newPoint = topCell.nameLabel.convert(topCell.nameLabel.frame.origin, to: self.view)
-//            debugPrint(newPoint.y)
-//            debugPrint(self.view.frame.height)
-//            titleLabelTopConstraintDefult = newPoint.y + 50 + ((self.view.frame.height - 568)/2)
-//            titleLabelTopConstraint.constant = titleLabelTopConstraintDefult
 
-//            "container 300.0"
-//            "nameLabel 102.0"
-//            215.5
-//            736.0
-            
-//            "container 300.0"
-//            "nameLabel 102.0"
-//            215.5
-//            568.0
-            
-            // 736 = 433
-
-//        }
-        
-        return cell
-    }
-}
 
