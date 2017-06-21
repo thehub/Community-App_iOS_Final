@@ -1016,7 +1016,7 @@
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="230" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="230" maxX="0.0" maxY="120"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6Cr-mh-WIC">
@@ -1029,15 +1029,31 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ye1-uo-Wne" customClass="RedButton" customModule="ImpactHub" customModuleProvider="target">
+                                <rect key="frame" x="35" y="588" width="305" height="50"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="kW8-vD-tYD"/>
+                                </constraints>
+                                <state key="normal" title="Apply for this job">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="applyTap:" destination="0qJ-8x-KOR" eventType="touchUpInside" id="cvK-Eq-fVE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ptK-nm-SmE" firstAttribute="top" secondItem="cFd-Kl-xsv" secondAttribute="bottom" id="6hA-HH-VIC"/>
                             <constraint firstItem="iRW-N1-nvq" firstAttribute="leading" secondItem="ptK-nm-SmE" secondAttribute="leading" id="79m-fF-mLn"/>
+                            <constraint firstAttribute="trailing" secondItem="ye1-uo-Wne" secondAttribute="trailing" constant="35" id="ABe-s3-aTj"/>
                             <constraint firstAttribute="trailing" secondItem="cgi-nN-1X3" secondAttribute="trailing" id="EG1-ak-qHz"/>
                             <constraint firstItem="cgi-nN-1X3" firstAttribute="leading" secondItem="6Xh-Qv-GHZ" secondAttribute="leading" id="Fnb-I2-RvQ"/>
                             <constraint firstItem="iRW-N1-nvq" firstAttribute="trailing" secondItem="ptK-nm-SmE" secondAttribute="trailing" id="HQq-72-AaR"/>
                             <constraint firstItem="iRW-N1-nvq" firstAttribute="height" secondItem="ptK-nm-SmE" secondAttribute="height" id="PQm-H0-m33"/>
+                            <constraint firstItem="ye1-uo-Wne" firstAttribute="leading" secondItem="6Xh-Qv-GHZ" secondAttribute="leading" constant="35" id="PZY-31-Tvz"/>
+                            <constraint firstItem="hlO-zm-QUd" firstAttribute="top" secondItem="ye1-uo-Wne" secondAttribute="bottom" constant="29" id="Y2T-Rc-B41"/>
                             <constraint firstItem="ptK-nm-SmE" firstAttribute="leading" secondItem="6Xh-Qv-GHZ" secondAttribute="leading" id="aTF-4s-Es3"/>
                             <constraint firstItem="iRW-N1-nvq" firstAttribute="top" secondItem="ptK-nm-SmE" secondAttribute="top" id="gmw-lj-bOQ"/>
                             <constraint firstAttribute="trailing" secondItem="ptK-nm-SmE" secondAttribute="trailing" id="jEo-Lf-3ir"/>
@@ -1279,9 +1295,9 @@
         <image name="tabBarHome" width="22" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="S7V-vf-Xt8"/>
-        <segue reference="ODp-Jh-V7d"/>
         <segue reference="rv5-tf-Hia"/>
+        <segue reference="4CN-lM-E9S"/>
+        <segue reference="ODp-Jh-V7d"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>
