@@ -88,6 +88,9 @@
 		85523DAE1EFA9CB100F66B53 /* ListWithSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85523DAD1EFA9CB100F66B53 /* ListWithSearchViewController.swift */; };
 		85523DAF1EFA9CB100F66B53 /* ListWithSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85523DAD1EFA9CB100F66B53 /* ListWithSearchViewController.swift */; };
 		85523DB01EFA9CB100F66B53 /* ListWithSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85523DAD1EFA9CB100F66B53 /* ListWithSearchViewController.swift */; };
+		85523DB21EFAA3F100F66B53 /* CompanyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85523DB11EFAA3F100F66B53 /* CompanyCollectionViewCell.xib */; };
+		85523DB31EFAA3F100F66B53 /* CompanyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85523DB11EFAA3F100F66B53 /* CompanyCollectionViewCell.xib */; };
+		85523DB41EFAA3F100F66B53 /* CompanyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85523DB11EFAA3F100F66B53 /* CompanyCollectionViewCell.xib */; };
 		8570C1C81ECEDE3300FA1CE9 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1C71ECEDE3300FA1CE9 /* Notifications.storyboard */; };
 		8570C1CB1ECEDE6200FA1CE9 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1CA1ECEDE6200FA1CE9 /* NotificationsViewController.swift */; };
 		8570C1CE1ECEE0BA00FA1CE9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1CD1ECEE0BA00FA1CE9 /* SearchViewController.swift */; };
@@ -103,8 +106,6 @@
 		8570C1E81ECF037F00FA1CE9 /* CompaniesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1E71ECF037F00FA1CE9 /* CompaniesViewController.swift */; };
 		8570C1EA1ECF03FE00FA1CE9 /* CompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1E91ECF03FE00FA1CE9 /* CompanyViewController.swift */; };
 		8570C1EF1ECF04E800FA1CE9 /* CompanyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1ED1ECF04E800FA1CE9 /* CompanyCollectionViewCell.swift */; };
-		8570C1F01ECF04E800FA1CE9 /* CompanyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1EE1ECF04E800FA1CE9 /* CompanyCollectionViewCell.xib */; };
-		8570C1F21ECF0BBC00FA1CE9 /* CompaniesSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1F11ECF0BBC00FA1CE9 /* CompaniesSearchViewController.swift */; };
 		8570C1F51ECF159800FA1CE9 /* CompanyDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1F31ECF159800FA1CE9 /* CompanyDetailTopCell.xib */; };
 		8570C1F81ECF15CE00FA1CE9 /* CompanyDetailTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1F71ECF15CE00FA1CE9 /* CompanyDetailTopViewModel.swift */; };
 		8570C1FA1ECF15E800FA1CE9 /* CompanyDetailTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1F91ECF15E800FA1CE9 /* CompanyDetailTopCell.swift */; };
@@ -328,6 +329,7 @@
 		85455D431EF2DFD600243846 /* MemberFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberFilterViewController.swift; sourceTree = "<group>"; };
 		85455D471EF2E7A000243846 /* RedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedButton.swift; sourceTree = "<group>"; };
 		85523DAD1EFA9CB100F66B53 /* ListWithSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWithSearchViewController.swift; sourceTree = "<group>"; };
+		85523DB11EFAA3F100F66B53 /* CompanyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyCollectionViewCell.xib; sourceTree = "<group>"; };
 		8570C1C71ECEDE3300FA1CE9 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		8570C1CA1ECEDE6200FA1CE9 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		8570C1CD1ECEE0BA00FA1CE9 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -343,8 +345,6 @@
 		8570C1E71ECF037F00FA1CE9 /* CompaniesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompaniesViewController.swift; sourceTree = "<group>"; };
 		8570C1E91ECF03FE00FA1CE9 /* CompanyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyViewController.swift; sourceTree = "<group>"; };
 		8570C1ED1ECF04E800FA1CE9 /* CompanyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyCollectionViewCell.swift; sourceTree = "<group>"; };
-		8570C1EE1ECF04E800FA1CE9 /* CompanyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyCollectionViewCell.xib; sourceTree = "<group>"; };
-		8570C1F11ECF0BBC00FA1CE9 /* CompaniesSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompaniesSearchViewController.swift; sourceTree = "<group>"; };
 		8570C1F31ECF159800FA1CE9 /* CompanyDetailTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyDetailTopCell.xib; sourceTree = "<group>"; };
 		8570C1F71ECF15CE00FA1CE9 /* CompanyDetailTopViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyDetailTopViewModel.swift; sourceTree = "<group>"; };
 		8570C1F91ECF15E800FA1CE9 /* CompanyDetailTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyDetailTopCell.swift; sourceTree = "<group>"; };
@@ -572,10 +572,9 @@
 			isa = PBXGroup;
 			children = (
 				8570C1E71ECF037F00FA1CE9 /* CompaniesViewController.swift */,
-				8570C1F11ECF0BBC00FA1CE9 /* CompaniesSearchViewController.swift */,
 				8570C1E91ECF03FE00FA1CE9 /* CompanyViewController.swift */,
+				85523DB11EFAA3F100F66B53 /* CompanyCollectionViewCell.xib */,
 				8570C1ED1ECF04E800FA1CE9 /* CompanyCollectionViewCell.swift */,
-				8570C1EE1ECF04E800FA1CE9 /* CompanyCollectionViewCell.xib */,
 				8570C1F91ECF15E800FA1CE9 /* CompanyDetailTopCell.swift */,
 				8570C1F31ECF159800FA1CE9 /* CompanyDetailTopCell.xib */,
 				8570C1FB1ECF1A2A00FA1CE9 /* CompanyAboutCell.swift */,
@@ -897,8 +896,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85523DB21EFAA3F100F66B53 /* CompanyCollectionViewCell.xib in Resources */,
 				858C58D41EF9848E00136DAC /* JobDetailCell.xib in Resources */,
-				8570C1F01ECF04E800FA1CE9 /* CompanyCollectionViewCell.xib in Resources */,
 				85455D391EF2A53200243846 /* gt-walsheim-medium-web.ttf in Resources */,
 				853433CC1EE6B547003C26F8 /* MessagesCell.xib in Resources */,
 				859C41671ECDA01A00637295 /* MemberDetailTopCell.xib in Resources */,
@@ -940,6 +939,7 @@
 				858C58C91EF9672000136DAC /* JobCollectionViewCell.xib in Resources */,
 				85E7DA861EF818D200C9DA15 /* ProjectCollectionViewCell.xib in Resources */,
 				858C58A91EF9492000136DAC /* TitleCell.xib in Resources */,
+				85523DB31EFAA3F100F66B53 /* CompanyCollectionViewCell.xib in Resources */,
 				857480721EE83D44005F73A2 /* Auth0.plist in Resources */,
 				85455D3D1EF2A53200243846 /* gt-walsheim-web.ttf in Resources */,
 				85455D341EF2A53200243846 /* gt-walsheim-light-oblique-web.ttf in Resources */,
@@ -959,6 +959,7 @@
 				858C58CA1EF9672000136DAC /* JobCollectionViewCell.xib in Resources */,
 				85E7DA871EF818D200C9DA15 /* ProjectCollectionViewCell.xib in Resources */,
 				858C58AA1EF9492000136DAC /* TitleCell.xib in Resources */,
+				85523DB41EFAA3F100F66B53 /* CompanyCollectionViewCell.xib in Resources */,
 				857480731EE83D44005F73A2 /* Auth0.plist in Resources */,
 				85455D3E1EF2A53200243846 /* gt-walsheim-web.ttf in Resources */,
 				85455D351EF2A53200243846 /* gt-walsheim-light-oblique-web.ttf in Resources */,
@@ -1117,7 +1118,6 @@
 				85455D231EF28D3D00243846 /* TabBarController.swift in Sources */,
 				8534340C1EE6BE11003C26F8 /* MessagesThreadViewController.swift in Sources */,
 				857480651EE802F1005F73A2 /* User.swift in Sources */,
-				8570C1F21ECF0BBC00FA1CE9 /* CompaniesSearchViewController.swift in Sources */,
 				8570C1FD1ECF1A2A00FA1CE9 /* CompanyAboutCell.swift in Sources */,
 				8570C2021ECF214600FA1CE9 /* Job.swift in Sources */,
 				8505E1FA1EF3CEEA005A2F40 /* NavigationViewController.swift in Sources */,

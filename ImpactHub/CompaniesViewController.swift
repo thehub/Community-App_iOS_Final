@@ -8,24 +8,11 @@
 
 import UIKit
 
-class CompaniesViewController: UIViewController {
+class CompaniesViewController: ListWithSearchViewController {
 
-    var data = [CellRepresentable]()
-
-    
-    @IBOutlet weak var collectionView: UICollectionView!
-
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if(traitCollection.forceTouchCapability == .available){
-            registerForPreviewing(with: self, sourceView: self.collectionView)
-        }
-
-        collectionView.delegate = self
-        collectionView.dataSource = self
         collectionView.register(UINib.init(nibName: "CompanyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CompanyCell")
         
         let item1 = Company(id: "asdsad", name: "Company 1", type: "Charity", photo: "logo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London", website: "www.dn.se", size: "10 - 50")
@@ -46,11 +33,6 @@ class CompaniesViewController: UIViewController {
 
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     var selectedVM: CompanyViewModel?
     
     
@@ -64,17 +46,8 @@ class CompaniesViewController: UIViewController {
     
 }
 
-extension CompaniesViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return data[indexPath.item].cellInstance(collectionView, indexPath: indexPath)
-    }
-}
 
-extension CompaniesViewController: UICollectionViewDelegate {
+extension CompaniesViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let vm = data[indexPath.item] as? CompanyViewModel {
             selectedVM = vm
@@ -83,17 +56,19 @@ extension CompaniesViewController: UICollectionViewDelegate {
     }
 }
 
-extension CompaniesViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+extension CompaniesViewController {
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return data[indexPath.item].cellSize
+        let cellWidth: CGFloat = self.collectionView.frame.width
+        let width = ((cellWidth - 40) / 1.6)
+        let heightToUse = width + 155
+        return CGSize(width: view.frame.width, height: heightToUse)
         
     }
 }
-
-extension CompaniesViewController: UIViewControllerPreviewingDelegate {
+extension CompaniesViewController {
     
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+    override func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         
         guard let indexPath = collectionView.indexPathForItem(at: location) else { return nil }
         guard let cell = collectionView.cellForItem(at: indexPath) else { return nil }
@@ -115,7 +90,7 @@ extension CompaniesViewController: UIViewControllerPreviewingDelegate {
         
     }
     
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+    override func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         show(viewControllerToCommit, sender: self)
     }
     
