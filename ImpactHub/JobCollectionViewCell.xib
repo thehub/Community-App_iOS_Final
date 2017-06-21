@@ -27,6 +27,10 @@
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EW1-y4-D6A">
                         <rect key="frame" x="17" y="0.0" width="296" height="115"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lPy-3W-PUS">
+                                <rect key="frame" x="191" y="10" width="95" height="95"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="lul-Kl-LZ0">
                                 <rect key="frame" x="191" y="10" width="95" height="95"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -69,6 +73,8 @@
                         <constraints>
                             <constraint firstItem="lul-Kl-LZ0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Du3-yt-4QI" secondAttribute="trailing" constant="10" id="1fk-MC-HQz"/>
                             <constraint firstAttribute="trailing" secondItem="lul-Kl-LZ0" secondAttribute="trailing" constant="10" id="5PQ-n1-Col"/>
+                            <constraint firstItem="lPy-3W-PUS" firstAttribute="leading" secondItem="lul-Kl-LZ0" secondAttribute="leading" id="6Ev-rD-I5o"/>
+                            <constraint firstItem="lPy-3W-PUS" firstAttribute="height" secondItem="lul-Kl-LZ0" secondAttribute="height" id="7I3-Sd-iHv"/>
                             <constraint firstItem="A3O-XH-KGb" firstAttribute="top" secondItem="obn-32-78V" secondAttribute="bottom" constant="4" id="BFl-B3-CyS"/>
                             <constraint firstItem="J35-42-Kx3" firstAttribute="centerY" secondItem="w9K-Wp-tPX" secondAttribute="centerY" id="FFW-hg-NAD"/>
                             <constraint firstItem="J35-42-Kx3" firstAttribute="leading" secondItem="w9K-Wp-tPX" secondAttribute="trailing" constant="8" id="H1q-Cv-Odw"/>
@@ -76,8 +82,10 @@
                             <constraint firstItem="w9K-Wp-tPX" firstAttribute="leading" secondItem="A3O-XH-KGb" secondAttribute="leading" id="PNl-dm-6CH"/>
                             <constraint firstItem="8V0-CP-SjS" firstAttribute="centerY" secondItem="J35-42-Kx3" secondAttribute="centerY" id="Q6n-Yg-nFH"/>
                             <constraint firstItem="obn-32-78V" firstAttribute="top" secondItem="EW1-y4-D6A" secondAttribute="top" constant="15" id="SYr-m9-p7G"/>
+                            <constraint firstItem="lPy-3W-PUS" firstAttribute="width" secondItem="lul-Kl-LZ0" secondAttribute="width" id="UZc-Rl-mue"/>
                             <constraint firstAttribute="bottom" secondItem="w9K-Wp-tPX" secondAttribute="bottom" constant="15" id="cOE-mk-i4G"/>
                             <constraint firstItem="Du3-yt-4QI" firstAttribute="centerY" secondItem="8V0-CP-SjS" secondAttribute="centerY" id="cZ0-Xc-DIf"/>
+                            <constraint firstItem="lPy-3W-PUS" firstAttribute="top" secondItem="lul-Kl-LZ0" secondAttribute="top" id="fm9-SX-INS"/>
                             <constraint firstItem="lul-Kl-LZ0" firstAttribute="centerY" secondItem="EW1-y4-D6A" secondAttribute="centerY" id="gPw-6a-QKF"/>
                             <constraint firstAttribute="bottom" secondItem="lul-Kl-LZ0" secondAttribute="bottom" priority="750" constant="10" id="nAt-uc-tZT"/>
                             <constraint firstItem="Du3-yt-4QI" firstAttribute="leading" secondItem="8V0-CP-SjS" secondAttribute="trailing" constant="8" id="oB9-dK-8TJ"/>
@@ -107,6 +115,7 @@
                 <outlet property="fulltimeLabel" destination="Du3-yt-4QI" id="2ie-za-1UG"/>
                 <outlet property="locationNameLabel" destination="J35-42-Kx3" id="BiJ-Gl-k09"/>
                 <outlet property="nameLabel" destination="obn-32-78V" id="BX0-0g-pgR"/>
+                <outlet property="profileImageShadowView" destination="lPy-3W-PUS" id="mr5-Zp-LXD"/>
                 <outlet property="profileImageView" destination="lul-Kl-LZ0" id="wxM-AG-f3m"/>
             </connections>
             <point key="canvasLocation" x="74" y="53.5"/>

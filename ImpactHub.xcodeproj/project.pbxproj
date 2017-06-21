@@ -100,6 +100,15 @@
 		85523DC21EFAB4B300F66B53 /* CompanyDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85523DBE1EFAB4B300F66B53 /* CompanyDetailTopCell.xib */; };
 		85523DC31EFAB4B300F66B53 /* CompanyDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85523DBE1EFAB4B300F66B53 /* CompanyDetailTopCell.xib */; };
 		85523DC41EFAB4B300F66B53 /* CompanyDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85523DBE1EFAB4B300F66B53 /* CompanyDetailTopCell.xib */; };
+		85523DC71EFAC92D00F66B53 /* CompanyServiceItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85523DC51EFAC92D00F66B53 /* CompanyServiceItemCell.swift */; };
+		85523DC81EFAC92D00F66B53 /* CompanyServiceItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85523DC51EFAC92D00F66B53 /* CompanyServiceItemCell.swift */; };
+		85523DC91EFAC92D00F66B53 /* CompanyServiceItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85523DC51EFAC92D00F66B53 /* CompanyServiceItemCell.swift */; };
+		85523DCA1EFAC92D00F66B53 /* CompanyServiceItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85523DC61EFAC92D00F66B53 /* CompanyServiceItemCell.xib */; };
+		85523DCB1EFAC92D00F66B53 /* CompanyServiceItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85523DC61EFAC92D00F66B53 /* CompanyServiceItemCell.xib */; };
+		85523DCC1EFAC92D00F66B53 /* CompanyServiceItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85523DC61EFAC92D00F66B53 /* CompanyServiceItemCell.xib */; };
+		85523DCE1EFAC99E00F66B53 /* CompanyServiceItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85523DCD1EFAC99E00F66B53 /* CompanyServiceItemViewModel.swift */; };
+		85523DCF1EFAC99E00F66B53 /* CompanyServiceItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85523DCD1EFAC99E00F66B53 /* CompanyServiceItemViewModel.swift */; };
+		85523DD01EFAC99E00F66B53 /* CompanyServiceItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85523DCD1EFAC99E00F66B53 /* CompanyServiceItemViewModel.swift */; };
 		8570C1C81ECEDE3300FA1CE9 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1C71ECEDE3300FA1CE9 /* Notifications.storyboard */; };
 		8570C1CB1ECEDE6200FA1CE9 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1CA1ECEDE6200FA1CE9 /* NotificationsViewController.swift */; };
 		8570C1CE1ECEE0BA00FA1CE9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1CD1ECEE0BA00FA1CE9 /* SearchViewController.swift */; };
@@ -340,6 +349,9 @@
 		85523DB51EFAABD700F66B53 /* ListFullBleedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFullBleedViewController.swift; sourceTree = "<group>"; };
 		85523DBD1EFAB4B300F66B53 /* CompanyDetailTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyDetailTopCell.swift; sourceTree = "<group>"; };
 		85523DBE1EFAB4B300F66B53 /* CompanyDetailTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyDetailTopCell.xib; sourceTree = "<group>"; };
+		85523DC51EFAC92D00F66B53 /* CompanyServiceItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyServiceItemCell.swift; sourceTree = "<group>"; };
+		85523DC61EFAC92D00F66B53 /* CompanyServiceItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyServiceItemCell.xib; sourceTree = "<group>"; };
+		85523DCD1EFAC99E00F66B53 /* CompanyServiceItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyServiceItemViewModel.swift; sourceTree = "<group>"; };
 		8570C1C71ECEDE3300FA1CE9 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		8570C1CA1ECEDE6200FA1CE9 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		8570C1CD1ECEE0BA00FA1CE9 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -587,6 +599,8 @@
 				85523DBE1EFAB4B300F66B53 /* CompanyDetailTopCell.xib */,
 				8570C1FB1ECF1A2A00FA1CE9 /* CompanyAboutCell.swift */,
 				8570C1FC1ECF1A2A00FA1CE9 /* CompanyAboutCell.xib */,
+				85523DC51EFAC92D00F66B53 /* CompanyServiceItemCell.swift */,
+				85523DC61EFAC92D00F66B53 /* CompanyServiceItemCell.xib */,
 			);
 			name = Companies;
 			sourceTree = "<group>";
@@ -783,6 +797,7 @@
 				85E7DA881EF81C7B00C9DA15 /* ProjectViewModel.swift */,
 				858C58971EF92B6900136DAC /* ProjectDetailTopViewModel.swift */,
 				858C58B71EF94C8B00136DAC /* ProjectObjectiveViewModel.swift */,
+				85523DCD1EFAC99E00F66B53 /* CompanyServiceItemViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -928,6 +943,7 @@
 				858C58901EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */,
 				8570C1DC1ECEE3F300FA1CE9 /* Profile.storyboard in Resources */,
 				85DE9ED01ECC8CD900291EF5 /* Assets.xcassets in Resources */,
+				85523DCA1EFAC92D00F66B53 /* CompanyServiceItemCell.xib in Resources */,
 				8570C1C81ECEDE3300FA1CE9 /* Notifications.storyboard in Resources */,
 				857480711EE83D44005F73A2 /* Auth0.plist in Resources */,
 				85455D361EF2A53200243846 /* gt-walsheim-light-web.ttf in Resources */,
@@ -947,6 +963,7 @@
 				858C58B51EF94C7700136DAC /* ProjectObjectiveCell.xib in Resources */,
 				858C58C91EF9672000136DAC /* JobCollectionViewCell.xib in Resources */,
 				85523DC31EFAB4B300F66B53 /* CompanyDetailTopCell.xib in Resources */,
+				85523DCB1EFAC92D00F66B53 /* CompanyServiceItemCell.xib in Resources */,
 				85E7DA861EF818D200C9DA15 /* ProjectCollectionViewCell.xib in Resources */,
 				858C58A91EF9492000136DAC /* TitleCell.xib in Resources */,
 				85523DB31EFAA3F100F66B53 /* CompanyCollectionViewCell.xib in Resources */,
@@ -968,6 +985,7 @@
 				858C58B61EF94C7700136DAC /* ProjectObjectiveCell.xib in Resources */,
 				858C58CA1EF9672000136DAC /* JobCollectionViewCell.xib in Resources */,
 				85523DC41EFAB4B300F66B53 /* CompanyDetailTopCell.xib in Resources */,
+				85523DCC1EFAC92D00F66B53 /* CompanyServiceItemCell.xib in Resources */,
 				85E7DA871EF818D200C9DA15 /* ProjectCollectionViewCell.xib in Resources */,
 				858C58AA1EF9492000136DAC /* TitleCell.xib in Resources */,
 				85523DB41EFAA3F100F66B53 /* CompanyCollectionViewCell.xib in Resources */,
@@ -1124,12 +1142,14 @@
 				85066FC51ED33E6F0032391A /* MemberSkillItemCell.swift in Sources */,
 				8574805A1EE802D0005F73A2 /* Reference.swift in Sources */,
 				859C41711ECDB6BF00637295 /* TopMenu.swift in Sources */,
+				85523DCE1EFAC99E00F66B53 /* CompanyServiceItemViewModel.swift in Sources */,
 				857480481EE802D0005F73A2 /* Group.swift in Sources */,
 				8500723F1EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */,
 				85DE9F091ECCACCB00291EF5 /* Member.swift in Sources */,
 				85455D231EF28D3D00243846 /* TabBarController.swift in Sources */,
 				8534340C1EE6BE11003C26F8 /* MessagesThreadViewController.swift in Sources */,
 				857480651EE802F1005F73A2 /* User.swift in Sources */,
+				85523DC71EFAC92D00F66B53 /* CompanyServiceItemCell.swift in Sources */,
 				8570C1FD1ECF1A2A00FA1CE9 /* CompanyAboutCell.swift in Sources */,
 				8570C2021ECF214600FA1CE9 /* Job.swift in Sources */,
 				8505E1FA1EF3CEEA005A2F40 /* NavigationViewController.swift in Sources */,
@@ -1174,6 +1194,7 @@
 				858C58CD1EF96EB600136DAC /* JobViewController.swift in Sources */,
 				858C58951EF928F500136DAC /* ProjectDetailTopCell.swift in Sources */,
 				850072241EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
+				85523DC81EFAC92D00F66B53 /* CompanyServiceItemCell.swift in Sources */,
 				858C58B21EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */,
 				85455D241EF28D3D00243846 /* TabBarController.swift in Sources */,
 				85523DAF1EFA9CB100F66B53 /* ListWithSearchViewController.swift in Sources */,
@@ -1182,6 +1203,7 @@
 				853434151EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
 				85E7DA8E1EF81EA500C9DA15 /* Project.swift in Sources */,
 				8574806A1EE83B17005F73A2 /* LoginViewController.swift in Sources */,
+				85523DCF1EFAC99E00F66B53 /* CompanyServiceItemViewModel.swift in Sources */,
 				858C58A11EF9319300136DAC /* ProjectsViewController.swift in Sources */,
 				8501B9FA1EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */,
 				850072281EE70E79008A725A /* MessagesThreadMePicVM.swift in Sources */,
@@ -1241,6 +1263,7 @@
 				858C58CE1EF96EB600136DAC /* JobViewController.swift in Sources */,
 				858C58961EF928F500136DAC /* ProjectDetailTopCell.swift in Sources */,
 				850072251EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
+				85523DC91EFAC92D00F66B53 /* CompanyServiceItemCell.swift in Sources */,
 				858C58B31EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */,
 				85455D251EF28D3D00243846 /* TabBarController.swift in Sources */,
 				85523DB01EFA9CB100F66B53 /* ListWithSearchViewController.swift in Sources */,
@@ -1249,6 +1272,7 @@
 				853434161EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
 				85E7DA8F1EF81EA500C9DA15 /* Project.swift in Sources */,
 				8574806B1EE83B17005F73A2 /* LoginViewController.swift in Sources */,
+				85523DD01EFAC99E00F66B53 /* CompanyServiceItemViewModel.swift in Sources */,
 				858C58A21EF9319300136DAC /* ProjectsViewController.swift in Sources */,
 				8501B9FB1EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */,
 				850072291EE70E79008A725A /* MessagesThreadMePicVM.swift in Sources */,

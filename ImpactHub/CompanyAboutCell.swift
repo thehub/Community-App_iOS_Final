@@ -10,12 +10,18 @@ import UIKit
 
 class CompanyAboutCell: UICollectionViewCell {
 
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var locationNameLabel: UILabel!
+    @IBOutlet weak var memberCountLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
     func setup(vm: CompanyAboutViewModel) {
+        self.locationNameLabel.text = vm.company.locationName
+        self.memberCountLabel.text = vm.company.size
+        self.descriptionLabel.text = vm.company.blurb
         
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MemberSkillItemCell: UICollectionViewCell {
+class CompanyServiceItemCell: UICollectionViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -18,8 +18,8 @@ class MemberSkillItemCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func setUp(vm: MemberSkillItemViewModel) {
-        titleLabel.text = "Skill" // TODO: get this from service
+    func setUp(vm: CompanyServiceItemViewModel) {
+        titleLabel.text = "Title" // TODO
         descriptionLabel.text = "Lorem ipusm dolores set etium non consig detum do et set etium non consig detum do et."
     }
 

@@ -65,19 +65,24 @@ class CompanyViewController: ListFullBleedViewController {
         collectionView.register(UINib.init(nibName: TitleViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: TitleViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: ProjectViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: MemberViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: CompanyServiceItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: CompanyServiceItemViewModel.cellIdentifier)
 
 
         topMenu.setupWithItems(["About", "Projects", "Members"])
-
-        
-        
-        
         
         // About
         aboutData.append(CompanyDetailTopViewModel(company: company, cellSize: .zero)) // this will pick the full height instead
-        aboutData.append(TitleViewModel(title: "ABOUT", cellSize: CGSize(width: view.frame.width, height: 70)))
-
-        aboutData.append(CompanyAboutViewModel(company: company, cellSize: CGSize(width: view.frame.width, height: 450)))
+        aboutData.append(TitleViewModel(title: "ABOUT", cellSize: CGSize(width: view.frame.width, height: 60)))
+        aboutData.append(CompanyAboutViewModel(company: company, cellSize: CGSize(width: view.frame.width, height: 0)))
+        aboutData.append(CompanyServiceItemViewModel(company: company, cellSize: CGSize(width: view.frame.width, height: 0)))
+        aboutData.append(CompanyServiceItemViewModel(company: company, cellSize: CGSize(width: view.frame.width, height: 0)))
+        aboutData.append(CompanyServiceItemViewModel(company: company, cellSize: CGSize(width: view.frame.width, height: 0)))
+        aboutData.append(CompanyServiceItemViewModel(company: company, cellSize: CGSize(width: view.frame.width, height: 0)))
+        aboutData.append(CompanyServiceItemViewModel(company: company, cellSize: CGSize(width: view.frame.width, height: 0)))
+        aboutData.append(CompanyServiceItemViewModel(company: company, cellSize: CGSize(width: view.frame.width, height: 0)))
+        aboutData.append(CompanyServiceItemViewModel(company: company, cellSize: CGSize(width: view.frame.width, height: 0)))
+        
+        
         self.data = aboutData
         
         // Projects
@@ -141,14 +146,17 @@ class CompanyViewController: ListFullBleedViewController {
         self.collectionView.alpha = 0
         
         if index == 0 {
+            showConnectButton()
             self.data = self.aboutData
             self.collectionView.reloadData()
         }
         else if index == 1 {
+            hideConnectButton()
             self.data = self.projectsData
             self.collectionView.reloadData()
         }
         else if index == 2 {
+            hideConnectButton()
             self.data = self.membersData
             self.collectionView.reloadData()
         }
@@ -166,6 +174,28 @@ class CompanyViewController: ListFullBleedViewController {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
+        if let vm = data[indexPath.item] as? CompanyAboutViewModel {
+            let cellWidth: CGFloat = self.collectionView.frame.width
+            let height = vm.company.blurb.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 50 // add extra height for the standard elements, titles, lines, sapcing etc.
+            return CGSize(width: view.frame.width, height: height)
+        }
+
+        if let vm = data[indexPath.item] as? CompanyServiceItemViewModel {
+            let cellWidth: CGFloat = self.collectionView.frame.width
+            // TODO: Get the height here form the rpoper service item text, that is not yet added in the model...
+            let height = vm.company.blurb.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 50 // add extra height for the standard elements, titles, lines, sapcing etc.
+            return CGSize(width: view.frame.width, height: height)
+        }
+        
+        if let vm = data[indexPath.item] as? ProjectViewModel {
+            let cellWidth: CGFloat = self.collectionView.frame.width
+            let width = ((cellWidth - 40) / 1.6)
+            let heightToUse = width + 155
+            return CGSize(width: view.frame.width, height: heightToUse)
+        }
+
+
+        
         var cellSize = data[indexPath.item].cellSize
         if cellSize == .zero {
             cellSize = CGSize(width: view.frame.width, height: collectionView.frame.height)
@@ -174,6 +204,32 @@ class CompanyViewController: ListFullBleedViewController {
         
     }
     
+    var selectMember: Member?
+    var selectProject: Project?
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let vm = data[indexPath.item] as? MemberViewModel {
+            self.selectMember = vm.member
+            self.performSegue(withIdentifier: "ShowMember", sender: self)
+        }
+        else if let vm = data[indexPath.item] as? ProjectViewModel {
+            self.selectProject = vm.project
+            self.performSegue(withIdentifier: "ShowProject", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowMember" {
+            if let vc = segue.destination as? MemberViewController, let selectMember = selectMember {
+                vc.member = selectMember
+            }
+        }
+        if segue.identifier == "ShowProject" {
+            if let vc = segue.destination as? ProjectViewController, let selectProject = selectProject {
+                vc.project = selectProject
+            }
+        }
+    }
     
     @IBAction func connectTap(_ sender: Any) {
         guard let website = company?.website else { return }

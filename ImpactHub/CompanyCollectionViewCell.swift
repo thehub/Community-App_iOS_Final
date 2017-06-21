@@ -57,6 +57,10 @@ class CompanyCollectionViewCell: UICollectionViewCell {
         self.logoImageContainer.layer.shadowPath = UIBezierPath(rect: self.logoImageContainer.bounds).cgPath
         self.logoImageContainer.layer.shadowRadius = 6.0
         logoImageView.layer.cornerRadius = 44
+        
+        logoImageContainer.layer.shouldRasterize = true
+        logoImageContainer.layer.rasterizationScale = UIScreen.main.scale
+
 
     }
     

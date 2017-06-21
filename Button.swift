@@ -73,6 +73,10 @@ class Button: UIButton {
         self.layer.shadowPath = UIBezierPath(rect: self.layer.bounds).cgPath
         self.layer.shadowRadius = 15.0
         
+        self.layer.shouldRasterize = true
+        self.layer.rasterizationScale = UIScreen.main.scale
+
+        
     }
     
 

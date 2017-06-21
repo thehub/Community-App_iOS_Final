@@ -729,7 +729,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ogA-Oo-oBW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2959" y="808"/>
+            <point key="canvasLocation" x="3007" y="835"/>
         </scene>
         <!--Projects-->
         <scene sceneID="bME-CD-FME">
@@ -1263,11 +1263,13 @@
                         <outlet property="connectButton" destination="SVe-SJ-MOV" id="aTy-9n-ms3"/>
                         <outlet property="connectButtonBottomConsatraint" destination="I4c-CP-8aH" id="hsG-qW-Fwc"/>
                         <outlet property="topMenu" destination="2ky-5a-Au7" id="Wuv-eG-7Se"/>
+                        <segue destination="Fsg-7e-ZtL" kind="show" identifier="ShowProject" id="S7V-vf-Xt8"/>
+                        <segue destination="v6r-jd-8oy" kind="show" identifier="ShowMember" id="zjS-3Z-0nA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ad-ny-45h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2556" y="2114"/>
+            <point key="canvasLocation" x="2639" y="2023"/>
         </scene>
     </scenes>
     <resources>
@@ -1277,9 +1279,9 @@
         <image name="tabBarHome" width="22" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rv5-tf-Hia"/>
-        <segue reference="4CN-lM-E9S"/>
+        <segue reference="S7V-vf-Xt8"/>
         <segue reference="ODp-Jh-V7d"/>
+        <segue reference="rv5-tf-Hia"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>

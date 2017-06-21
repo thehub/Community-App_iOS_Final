@@ -11,6 +11,7 @@ import UIKit
 class JobCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileImageShadowView: UIView!
     @IBOutlet weak var fulltimeLabel: UILabel!
     @IBOutlet weak var companyLabel: UILabel!
     @IBOutlet weak var connectionImageView: UIImageView!
@@ -27,20 +28,32 @@ class JobCollectionViewCell: UICollectionViewCell {
         companyLabel.text = vm.job.companyName
         nameLabel.text = vm.job.name
         fulltimeLabel.text = vm.job.type
-        profileImageView.image = UIImage(named: vm.job.company.photo)
+        profileImageView.image = UIImage(named: vm.job.company.logo)
         locationNameLabel.text = vm.job.locationName
 
     }
 
     
     override func draw(_ rect: CGRect) {
-        self.bgView.clipsToBounds = false
-        self.bgView.layer.shadowColor = UIColor(hexString: "D5D5D5").cgColor
-        self.bgView.layer.shadowOffset = CGSize(width: 0, height: 5)
-        self.bgView.layer.shadowOpacity = 0.42
-        self.bgView.layer.shadowPath = UIBezierPath(rect: self.bgView.bounds).cgPath
-        self.bgView.layer.shadowRadius = 10.0
-        
+        bgView.clipsToBounds = false
+        bgView.layer.shadowColor = UIColor(hexString: "D5D5D5").cgColor
+        bgView.layer.shadowOffset = CGSize(width: 0, height: 5)
+        bgView.layer.shadowOpacity = 0.42
+        bgView.layer.shadowPath = UIBezierPath(rect: self.bgView.bounds).cgPath
+        bgView.layer.shadowRadius = 10.0
+
+        profileImageView.clipsToBounds = true
+        profileImageView.layer.cornerRadius = 10
+
+        profileImageShadowView.layer.cornerRadius = 10
+        profileImageShadowView.layer.shadowColor = UIColor(hexString: "D5D5D5").cgColor
+        profileImageShadowView.layer.shadowOffset = CGSize(width: 0, height: 5)
+        profileImageShadowView.layer.shadowOpacity = 0.42
+        profileImageShadowView.layer.shadowPath = UIBezierPath(rect: self.profileImageView.bounds).cgPath
+        profileImageShadowView.layer.shadowRadius = 10.0
+        profileImageShadowView.layer.shouldRasterize = true
+        profileImageShadowView.layer.rasterizationScale = UIScreen.main.scale
+
     }
     
     
