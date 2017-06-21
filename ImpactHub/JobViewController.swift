@@ -51,6 +51,8 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
         collectionView.register(UINib.init(nibName: TitleViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: TitleViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: JobDetailViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: JobDetailViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: JobViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: JobViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: ProjectViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectViewModel.cellIdentifier)
+
         
         
         
@@ -75,28 +77,25 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
         let viewModel3 = JobViewModel(job: item1, cellSize: CGSize(width: cellWidth, height: 145))
         let viewModel4 = JobViewModel(job: item1, cellSize: CGSize(width: cellWidth, height: 145))
         
-        self.data.append(viewModel1)
-        self.data.append(viewModel2)
-        self.data.append(viewModel3)
-        self.data.append(viewModel4)
-        
+        data.append(viewModel1)
+        data.append(viewModel2)
+        data.append(viewModel3)
+        data.append(viewModel4)
+
+        // Title
+        data.append(TitleViewModel(title: "RELATED PROJECTS", cellSize: CGSize(width: view.frame.width, height: 50)))
 
         
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.navigationBar.isTranslucent = true
-//        self.navigationController?.view.backgroundColor = UIColor.clear
-//        self.navigationController?.navigationBar.backgroundColor = UIColor.clear
-//        
-//        
-//        
-//        self.navigationController?.navigationBar.layer.borderColor = UIColor.clear.cgColor
-//        self.navigationController?.navigationBar.layer.borderWidth = 0
-//        self.navigationController?.navigationBar.layer.shadowColor = UIColor.clear.cgColor
-//        self.navigationController?.navigationBar.layer.shadowOffset = CGSize.zero
-//        self.navigationController?.navigationBar.layer.shadowRadius = 0
-//        self.navigationController?.navigationBar.layer.shadowOpacity = 0
-//        self.navigationController?.navigationBar.layer.masksToBounds = true
+        data.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        
+        data.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        
+        data.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        
+        data.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        
+        data.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+
 
         
         
@@ -144,7 +143,12 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
             return CGSize(width: view.frame.width, height: height)
         }
         
-
+        if let vm = data[indexPath.item] as? ProjectViewModel {
+            let cellWidth: CGFloat = self.collectionView.frame.width
+            let width = ((cellWidth - 40) / 1.6)
+            let heightToUse = width + 155
+            return CGSize(width: view.frame.width, height: heightToUse)
+        }
         
         
         var cellSize = data[indexPath.item].cellSize
@@ -157,6 +161,8 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
     }
     
     var selectJob: Job?
+    var selectProject: Project?
+
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let vm = data[indexPath.item] as? JobViewModel {
@@ -166,15 +172,19 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
             vc.job = self.selectJob
             self.navigationController?.pushViewController(vc, animated: true)
         }
+        else if let vm = data[indexPath.item] as? ProjectViewModel {
+            self.selectProject = vm.project
+            self.performSegue(withIdentifier: "ShowProject", sender: self)
+        }
+
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "ShowJob" {
-//            if let vc = segue.destination as? JobViewController, let selectJob = selectJob {
-//                vc.job = selectJob
-//            }
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowProject" {
+            if let vc = segue.destination as? ProjectViewController, let selectProject = selectProject {
+                vc.project = selectProject
+            }
+        }
+    }
     
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
