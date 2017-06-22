@@ -27,7 +27,7 @@
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>SFDCOAuthLoginHost</key>
-	<string>lightfulmemberships-developer-edition.eu11.force.com</string>
+	<string>lightful-impacthub.cs88.force.com</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -57,7 +57,7 @@
 			<string>SalesforceOAuth2</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>mobilesdk</string>
+				<string>impacthub</string>
 			</array>
 		</dict>
 		<dict>

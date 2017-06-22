@@ -9,8 +9,8 @@
 import UIKit
 import SalesforceSDKCore
 
-let RemoteAccessConsumerKey = "3MVG9HxRZv05HarR3qV4noRd_eWhwjootRcxv5EGAXfhwC89aYzX47dwhWh0j5yLzUbbSKvVvUZqPuVh.6qB2";
-let OAuthRedirectURI        = "lightfulapp://auth/success";
+let RemoteAccessConsumerKey = "3MVG9lcxCTdG2Vbsh1Tk8y8c1rEtTORpQ0eLPM_32J0Lf_4Kyllw6Zdyy.o9IDUJhsyKJ8uoxjEDw2tXFj2HH";
+let OAuthRedirectURI        = "impacthub://auth/success";
 
 // community-impacthub.cs88.force.com
 
@@ -19,60 +19,60 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-//    override init() {
-//        super.init()
-//        SFLogger.shared().logLevel = .debug
-//        
-//        SalesforceSDKManager.shared().connectedAppId = RemoteAccessConsumerKey
-//        SalesforceSDKManager.shared().connectedAppCallbackUri = OAuthRedirectURI
-//        SalesforceSDKManager.shared().authScopes = ["web", "api"];
-//        
-//        SalesforceSDKManager.shared().postLaunchAction = {
-//            [unowned self] (launchActionList: SFSDKLaunchAction) in
-//            
-//            
-//            SalesforceSDKManager.shared()
-//            
-//            //            let userAccount = SFUserAccountManager.sharedInstance().activeUserIdentity
-//            //            debugPrint(userAccount?.userId.description)
-//            
-//            let launchActionString = SalesforceSDKManager.launchActionsStringRepresentation(launchActionList)
-//            self.log(.info, msg:"Post-launch: launch actions taken: \(launchActionString)");
-//            
-//            if launchActionList.contains(SFSDKLaunchAction.alreadyAuthenticated) {
-//                SFPushNotificationManager.sharedInstance().registerForRemoteNotifications()
-//                NotificationCenter.default.post(name: .onLogin, object: nil, userInfo: nil)
-//            }
-//            else {
-//                SFPushNotificationManager.sharedInstance().registerForRemoteNotifications()
-//                //            self.setupRootViewController();
-//                NotificationCenter.default.post(name: .onLogin, object: nil, userInfo: nil)
-//            }
-//            
-//        }
-//        
-//        
-//        SalesforceSDKManager.shared().launchErrorAction = {
-//            [unowned self] (error: Any, launchActionList: Any) in
-//            if let actualError = error as? NSError {
-//                self.log(.error, msg:"Error during SDK launch: \(actualError.localizedDescription)")
-//            } else {
-//                self.log(.error, msg:"Unknown error during SDK launch.")
-//            }
-//            //            self.initializeAppViewState()
-//            SalesforceSDKManager.shared().launch()
-//        }
-//        
-//        SalesforceSDKManager.shared().postLogoutAction = {
-//            [unowned self] in
-//            self.handleSdkManagerLogout()
-//        }
-//        
-//        //        SalesforceSDKManager.shared().switchUserAction = {
-//        //            [unowned self] (fromUser: SFUserAccount?, toUser: SFUserAccount?) -> () in
-//        //            self.handleUserSwitch(fromUser, toUser: toUser)
-//        //        }
-//    }
+    override init() {
+        super.init()
+        SFLogger.shared().logLevel = .debug
+        
+        SalesforceSDKManager.shared().connectedAppId = RemoteAccessConsumerKey
+        SalesforceSDKManager.shared().connectedAppCallbackUri = OAuthRedirectURI
+        SalesforceSDKManager.shared().authScopes = ["web", "api"];
+        
+        SalesforceSDKManager.shared().postLaunchAction = {
+            [unowned self] (launchActionList: SFSDKLaunchAction) in
+            
+            
+            SalesforceSDKManager.shared()
+            
+            //            let userAccount = SFUserAccountManager.sharedInstance().activeUserIdentity
+            //            debugPrint(userAccount?.userId.description)
+            
+            let launchActionString = SalesforceSDKManager.launchActionsStringRepresentation(launchActionList)
+            self.log(.info, msg:"Post-launch: launch actions taken: \(launchActionString)");
+            
+            if launchActionList.contains(SFSDKLaunchAction.alreadyAuthenticated) {
+                SFPushNotificationManager.sharedInstance().registerForRemoteNotifications()
+                NotificationCenter.default.post(name: .onLogin, object: nil, userInfo: nil)
+            }
+            else {
+                SFPushNotificationManager.sharedInstance().registerForRemoteNotifications()
+                //            self.setupRootViewController();
+                NotificationCenter.default.post(name: .onLogin, object: nil, userInfo: nil)
+            }
+            
+        }
+        
+        
+        SalesforceSDKManager.shared().launchErrorAction = {
+            [unowned self] (error: Any, launchActionList: Any) in
+            if let actualError = error as? NSError {
+                self.log(.error, msg:"Error during SDK launch: \(actualError.localizedDescription)")
+            } else {
+                self.log(.error, msg:"Unknown error during SDK launch.")
+            }
+            //            self.initializeAppViewState()
+            SalesforceSDKManager.shared().launch()
+        }
+        
+        SalesforceSDKManager.shared().postLogoutAction = {
+            [unowned self] in
+            self.handleSdkManagerLogout()
+        }
+        
+        //        SalesforceSDKManager.shared().switchUserAction = {
+        //            [unowned self] (fromUser: SFUserAccount?, toUser: SFUserAccount?) -> () in
+        //            self.handleUserSwitch(fromUser, toUser: toUser)
+        //        }
+    }
  
 
     
@@ -87,7 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        loginViewController.navBarFont = UIFont (name: "HelveticaNeue-Medium", size: 19);
         loginViewController.navBarTextColor = UIColor.darkGray
         
-//        SalesforceSDKManager.shared().launch()
+        SalesforceSDKManager.shared().launch()
 
 
         return true
