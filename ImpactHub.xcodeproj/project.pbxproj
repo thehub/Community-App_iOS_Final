@@ -44,6 +44,27 @@
 		85066FC61ED33E6F0032391A /* MemberSkillItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85066FC41ED33E6F0032391A /* MemberSkillItemCell.xib */; };
 		85066FC81ED33F240032391A /* MemberSkillItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85066FC71ED33F240032391A /* MemberSkillItemViewModel.swift */; };
 		85066FCA1ED343160032391A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85066FC91ED343160032391A /* Utils.swift */; };
+		850B700E1EFBF1CA00596315 /* GroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B700C1EFBF1CA00596315 /* GroupCollectionViewCell.swift */; };
+		850B700F1EFBF1CA00596315 /* GroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B700C1EFBF1CA00596315 /* GroupCollectionViewCell.swift */; };
+		850B70101EFBF1CA00596315 /* GroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B700C1EFBF1CA00596315 /* GroupCollectionViewCell.swift */; };
+		850B70111EFBF1CA00596315 /* GroupCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 850B700D1EFBF1CA00596315 /* GroupCollectionViewCell.xib */; };
+		850B70121EFBF1CA00596315 /* GroupCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 850B700D1EFBF1CA00596315 /* GroupCollectionViewCell.xib */; };
+		850B70131EFBF1CA00596315 /* GroupCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 850B700D1EFBF1CA00596315 /* GroupCollectionViewCell.xib */; };
+		850B70151EFBF1FB00596315 /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B70141EFBF1FB00596315 /* GroupViewModel.swift */; };
+		850B70161EFBF1FB00596315 /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B70141EFBF1FB00596315 /* GroupViewModel.swift */; };
+		850B70171EFBF1FB00596315 /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B70141EFBF1FB00596315 /* GroupViewModel.swift */; };
+		850B701B1EFBF84600596315 /* GroupDetailTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B70181EFBF84600596315 /* GroupDetailTopCell.swift */; };
+		850B701C1EFBF84600596315 /* GroupDetailTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B70181EFBF84600596315 /* GroupDetailTopCell.swift */; };
+		850B701D1EFBF84600596315 /* GroupDetailTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B70181EFBF84600596315 /* GroupDetailTopCell.swift */; };
+		850B701E1EFBF84600596315 /* GroupDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 850B70191EFBF84600596315 /* GroupDetailTopCell.xib */; };
+		850B701F1EFBF84600596315 /* GroupDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 850B70191EFBF84600596315 /* GroupDetailTopCell.xib */; };
+		850B70201EFBF84600596315 /* GroupDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 850B70191EFBF84600596315 /* GroupDetailTopCell.xib */; };
+		850B70211EFBF84600596315 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B701A1EFBF84600596315 /* GroupViewController.swift */; };
+		850B70221EFBF84600596315 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B701A1EFBF84600596315 /* GroupViewController.swift */; };
+		850B70231EFBF84600596315 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B701A1EFBF84600596315 /* GroupViewController.swift */; };
+		850B70251EFBF86800596315 /* GroupDetailTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B70241EFBF86800596315 /* GroupDetailTopViewModel.swift */; };
+		850B70261EFBF86800596315 /* GroupDetailTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B70241EFBF86800596315 /* GroupDetailTopViewModel.swift */; };
+		850B70271EFBF86800596315 /* GroupDetailTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B70241EFBF86800596315 /* GroupDetailTopViewModel.swift */; };
 		853433CB1EE6B547003C26F8 /* MessagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433C91EE6B547003C26F8 /* MessagesCell.swift */; };
 		853433CC1EE6B547003C26F8 /* MessagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 853433CA1EE6B547003C26F8 /* MessagesCell.xib */; };
 		853433CF1EE6B726003C26F8 /* MessagesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433CE1EE6B726003C26F8 /* MessagesVM.swift */; };
@@ -368,6 +389,13 @@
 		85066FC41ED33E6F0032391A /* MemberSkillItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberSkillItemCell.xib; sourceTree = "<group>"; };
 		85066FC71ED33F240032391A /* MemberSkillItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberSkillItemViewModel.swift; sourceTree = "<group>"; };
 		85066FC91ED343160032391A /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		850B700C1EFBF1CA00596315 /* GroupCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCollectionViewCell.swift; sourceTree = "<group>"; };
+		850B700D1EFBF1CA00596315 /* GroupCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupCollectionViewCell.xib; sourceTree = "<group>"; };
+		850B70141EFBF1FB00596315 /* GroupViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewModel.swift; sourceTree = "<group>"; };
+		850B70181EFBF84600596315 /* GroupDetailTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupDetailTopCell.swift; sourceTree = "<group>"; };
+		850B70191EFBF84600596315 /* GroupDetailTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupDetailTopCell.xib; sourceTree = "<group>"; };
+		850B701A1EFBF84600596315 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
+		850B70241EFBF86800596315 /* GroupDetailTopViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupDetailTopViewModel.swift; sourceTree = "<group>"; };
 		853433C91EE6B547003C26F8 /* MessagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesCell.swift; sourceTree = "<group>"; };
 		853433CA1EE6B547003C26F8 /* MessagesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessagesCell.xib; sourceTree = "<group>"; };
 		853433CE1EE6B726003C26F8 /* MessagesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesVM.swift; sourceTree = "<group>"; };
@@ -551,6 +579,18 @@
 				B9CE54E4F4D1D21B311691DB /* Pods_ImpactHub.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		850B700B1EFBF13300596315 /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				850B700C1EFBF1CA00596315 /* GroupCollectionViewCell.swift */,
+				850B700D1EFBF1CA00596315 /* GroupCollectionViewCell.xib */,
+				850B701A1EFBF84600596315 /* GroupViewController.swift */,
+				850B70181EFBF84600596315 /* GroupDetailTopCell.swift */,
+				850B70191EFBF84600596315 /* GroupDetailTopCell.xib */,
+			);
+			name = Groups;
 			sourceTree = "<group>";
 		};
 		853433CD1EE6B6F9003C26F8 /* Messages */ = {
@@ -791,6 +831,7 @@
 				8570C1E61ECF035700FA1CE9 /* Companies */,
 				8570C2031ECF21C300FA1CE9 /* Jobs */,
 				859F97C21EFBBDDE001C0B33 /* Goals */,
+				850B700B1EFBF13300596315 /* Groups */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -871,6 +912,8 @@
 				859F97DF1EFBBF10001C0B33 /* GoalDetailTopViewModel.swift */,
 				859F97E01EFBBF10001C0B33 /* GoalViewModel.swift */,
 				859F97E71EFBD079001C0B33 /* GoalAboutItemViewModel.swift */,
+				850B70141EFBF1FB00596315 /* GroupViewModel.swift */,
+				850B70241EFBF86800596315 /* GroupDetailTopViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -1003,12 +1046,14 @@
 				859F97F81EFBD0ED001C0B33 /* GoalAboutItemCell.xib in Resources */,
 				85066FC61ED33E6F0032391A /* MemberSkillItemCell.xib in Resources */,
 				8570C1DF1ECEE66300FA1CE9 /* Home.storyboard in Resources */,
+				850B701E1EFBF84600596315 /* GroupDetailTopCell.xib in Resources */,
 				85DE9F001ECCA8D500291EF5 /* MemberCollectionViewCell.xib in Resources */,
 				85E7DA851EF818D200C9DA15 /* ProjectCollectionViewCell.xib in Resources */,
 				85455D301EF2A53200243846 /* gt-walsheim-bold-web.ttf in Resources */,
 				858C58A81EF9492000136DAC /* TitleCell.xib in Resources */,
 				859C41731ECDB6CD00637295 /* TopMenu.xib in Resources */,
 				85523DC21EFAB4B300F66B53 /* CompanyDetailTopCell.xib in Resources */,
+				850B70111EFBF1CA00596315 /* GroupCollectionViewCell.xib in Resources */,
 				8570C1D11ECEE0D200FA1CE9 /* Search.storyboard in Resources */,
 				8570C1FE1ECF1A2A00FA1CE9 /* CompanyAboutCell.xib in Resources */,
 				858C58B41EF94C7700136DAC /* ProjectObjectiveCell.xib in Resources */,
@@ -1048,10 +1093,12 @@
 				857480721EE83D44005F73A2 /* Auth0.plist in Resources */,
 				85455D3D1EF2A53200243846 /* gt-walsheim-web.ttf in Resources */,
 				85455D341EF2A53200243846 /* gt-walsheim-light-oblique-web.ttf in Resources */,
+				850B701F1EFBF84600596315 /* GroupDetailTopCell.xib in Resources */,
 				85455D311EF2A53200243846 /* gt-walsheim-bold-web.ttf in Resources */,
 				859F97D71EFBBF01001C0B33 /* GoalDetailTopCell.xib in Resources */,
 				858C58911EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */,
 				85455D371EF2A53200243846 /* gt-walsheim-light-web.ttf in Resources */,
+				850B70121EFBF1CA00596315 /* GroupCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1073,10 +1120,12 @@
 				857480731EE83D44005F73A2 /* Auth0.plist in Resources */,
 				85455D3E1EF2A53200243846 /* gt-walsheim-web.ttf in Resources */,
 				85455D351EF2A53200243846 /* gt-walsheim-light-oblique-web.ttf in Resources */,
+				850B70201EFBF84600596315 /* GroupDetailTopCell.xib in Resources */,
 				85455D321EF2A53200243846 /* gt-walsheim-bold-web.ttf in Resources */,
 				859F97D81EFBBF01001C0B33 /* GoalDetailTopCell.xib in Resources */,
 				858C58921EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */,
 				85455D381EF2A53200243846 /* gt-walsheim-light-web.ttf in Resources */,
+				850B70131EFBF1CA00596315 /* GroupCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1143,6 +1192,7 @@
 				857480511EE802D0005F73A2 /* MessageSegment.swift in Sources */,
 				859F97E11EFBBF10001C0B33 /* GoalDetailTopViewModel.swift in Sources */,
 				857480751EE846C2005F73A2 /* WhiteButton.swift in Sources */,
+				850B70151EFBF1FB00596315 /* GroupViewModel.swift in Sources */,
 				8570C1D71ECEE35F00FA1CE9 /* ProfileViewController.swift in Sources */,
 				85DE9EFF1ECCA8D500291EF5 /* MemberCollectionViewCell.swift in Sources */,
 				858C58B11EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */,
@@ -1190,6 +1240,7 @@
 				8570C1CB1ECEDE6200FA1CE9 /* NotificationsViewController.swift in Sources */,
 				859C417E1ECDFFD700637295 /* MemberAboutItemCell.swift in Sources */,
 				857480611EE802E3005F73A2 /* Contact.swift in Sources */,
+				850B70251EFBF86800596315 /* GroupDetailTopViewModel.swift in Sources */,
 				857480811EE84752005F73A2 /* Button.swift in Sources */,
 				853434101EE6E9DC003C26F8 /* MessageThreadMeCell.swift in Sources */,
 				85DE9EF81ECC902B00291EF5 /* HomeViewController.swift in Sources */,
@@ -1231,15 +1282,18 @@
 				859F97E81EFBD079001C0B33 /* GoalAboutItemViewModel.swift in Sources */,
 				857480311EE80279005F73A2 /* ChatterSegmentBuilder.swift in Sources */,
 				85066FC51ED33E6F0032391A /* MemberSkillItemCell.swift in Sources */,
+				850B700E1EFBF1CA00596315 /* GroupCollectionViewCell.swift in Sources */,
 				8574805A1EE802D0005F73A2 /* Reference.swift in Sources */,
 				859C41711ECDB6BF00637295 /* TopMenu.swift in Sources */,
 				85523DCE1EFAC99E00F66B53 /* CompanyServiceItemViewModel.swift in Sources */,
 				857480481EE802D0005F73A2 /* Group.swift in Sources */,
 				8500723F1EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */,
+				850B701B1EFBF84600596315 /* GroupDetailTopCell.swift in Sources */,
 				85DE9F091ECCACCB00291EF5 /* Member.swift in Sources */,
 				85455D231EF28D3D00243846 /* TabBarController.swift in Sources */,
 				8534340C1EE6BE11003C26F8 /* MessagesThreadViewController.swift in Sources */,
 				857480651EE802F1005F73A2 /* User.swift in Sources */,
+				850B70211EFBF84600596315 /* GroupViewController.swift in Sources */,
 				85523DC71EFAC92D00F66B53 /* CompanyServiceItemCell.swift in Sources */,
 				8570C1FD1ECF1A2A00FA1CE9 /* CompanyAboutCell.swift in Sources */,
 				859F97FC1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift in Sources */,
@@ -1268,6 +1322,7 @@
 				858C58B91EF94C8B00136DAC /* ProjectObjectiveViewModel.swift in Sources */,
 				858C58D21EF9848E00136DAC /* JobDetailCell.swift in Sources */,
 				858C58991EF92B6900136DAC /* ProjectDetailTopViewModel.swift in Sources */,
+				850B70161EFBF1FB00596315 /* GroupViewModel.swift in Sources */,
 				8574806E1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
 				85523DB71EFAABD700F66B53 /* ListFullBleedViewController.swift in Sources */,
 				8500722C1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
@@ -1280,8 +1335,10 @@
 				858C58BD1EF9665E00136DAC /* JobsViewController.swift in Sources */,
 				850072381EE711E4008A725A /* MessageThreadThemTimeCell.swift in Sources */,
 				857480321EE80279005F73A2 /* ChatterSegmentBuilder.swift in Sources */,
+				850B701C1EFBF84600596315 /* GroupDetailTopCell.swift in Sources */,
 				8574805E1EE802D0005F73A2 /* Subscription.swift in Sources */,
 				850072401EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */,
+				850B70221EFBF84600596315 /* GroupViewController.swift in Sources */,
 				857480491EE802D0005F73A2 /* Group.swift in Sources */,
 				8574804C1EE802D0005F73A2 /* MentionCompletion.swift in Sources */,
 				85523DC01EFAB4B300F66B53 /* CompanyDetailTopCell.swift in Sources */,
@@ -1293,6 +1350,7 @@
 				859F97C51EFBBEE6001C0B33 /* Goal.swift in Sources */,
 				85523DC81EFAC92D00F66B53 /* CompanyServiceItemCell.swift in Sources */,
 				858C58B21EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */,
+				850B700F1EFBF1CA00596315 /* GroupCollectionViewCell.swift in Sources */,
 				85455D241EF28D3D00243846 /* TabBarController.swift in Sources */,
 				85523DAF1EFA9CB100F66B53 /* ListWithSearchViewController.swift in Sources */,
 				858C589D1EF92BD600136DAC /* ProjectViewController.swift in Sources */,
@@ -1318,6 +1376,7 @@
 				85455D491EF2E7A000243846 /* RedButton.swift in Sources */,
 				857480401EE802D0005F73A2 /* ChatterActor.swift in Sources */,
 				857480581EE802D0005F73A2 /* Post.swift in Sources */,
+				850B70261EFBF86800596315 /* GroupDetailTopViewModel.swift in Sources */,
 				857480521EE802D0005F73A2 /* MessageSegment.swift in Sources */,
 				8534340D1EE6BE11003C26F8 /* MessagesThreadViewController.swift in Sources */,
 				85455D281EF28E6400243846 /* UIColor+IMAAdditions.swift in Sources */,
@@ -1347,6 +1406,7 @@
 				858C58BA1EF94C8B00136DAC /* ProjectObjectiveViewModel.swift in Sources */,
 				858C58D31EF9848E00136DAC /* JobDetailCell.swift in Sources */,
 				858C589A1EF92B6900136DAC /* ProjectDetailTopViewModel.swift in Sources */,
+				850B70171EFBF1FB00596315 /* GroupViewModel.swift in Sources */,
 				8574806F1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
 				85523DB81EFAABD700F66B53 /* ListFullBleedViewController.swift in Sources */,
 				8500722D1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
@@ -1359,8 +1419,10 @@
 				858C58BE1EF9665E00136DAC /* JobsViewController.swift in Sources */,
 				850072391EE711E4008A725A /* MessageThreadThemTimeCell.swift in Sources */,
 				857480331EE80279005F73A2 /* ChatterSegmentBuilder.swift in Sources */,
+				850B701D1EFBF84600596315 /* GroupDetailTopCell.swift in Sources */,
 				8574805F1EE802D0005F73A2 /* Subscription.swift in Sources */,
 				850072411EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */,
+				850B70231EFBF84600596315 /* GroupViewController.swift in Sources */,
 				8574804A1EE802D0005F73A2 /* Group.swift in Sources */,
 				8574804D1EE802D0005F73A2 /* MentionCompletion.swift in Sources */,
 				85523DC11EFAB4B300F66B53 /* CompanyDetailTopCell.swift in Sources */,
@@ -1372,6 +1434,7 @@
 				859F97C61EFBBEE6001C0B33 /* Goal.swift in Sources */,
 				85523DC91EFAC92D00F66B53 /* CompanyServiceItemCell.swift in Sources */,
 				858C58B31EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */,
+				850B70101EFBF1CA00596315 /* GroupCollectionViewCell.swift in Sources */,
 				85455D251EF28D3D00243846 /* TabBarController.swift in Sources */,
 				85523DB01EFA9CB100F66B53 /* ListWithSearchViewController.swift in Sources */,
 				858C589E1EF92BD600136DAC /* ProjectViewController.swift in Sources */,
@@ -1397,6 +1460,7 @@
 				85455D4A1EF2E7A000243846 /* RedButton.swift in Sources */,
 				857480411EE802D0005F73A2 /* ChatterActor.swift in Sources */,
 				857480591EE802D0005F73A2 /* Post.swift in Sources */,
+				850B70271EFBF86800596315 /* GroupDetailTopViewModel.swift in Sources */,
 				857480531EE802D0005F73A2 /* MessageSegment.swift in Sources */,
 				8534340E1EE6BE11003C26F8 /* MessagesThreadViewController.swift in Sources */,
 				85455D291EF28E6400243846 /* UIColor+IMAAdditions.swift in Sources */,

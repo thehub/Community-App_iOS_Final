@@ -11,8 +11,10 @@ import Foundation
 struct Group {
     var id: String
     var title: String
+    var photo: String
     var body: String
     var memberCount = 0
+    var locationName = "London, UK" // TODO:
 }
 
 extension Group {
@@ -46,6 +48,7 @@ extension Group {
         }
 
         self.body = ""
+        self.photo = "" // TODO:
         
     }
     
@@ -75,6 +78,7 @@ extension Group {
         }
         
         self.body = "Body..."
+        self.photo = "" // TODO:
         
     }
 }

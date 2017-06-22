@@ -23,7 +23,7 @@ class MessagesViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.register(UINib.init(nibName: "MessagesCell", bundle: nil), forCellWithReuseIdentifier: MessagesVM.cellIdentifier)
         
-        loadData()
+//        loadData()
     }
 
     override func didReceiveMemoryWarning() {

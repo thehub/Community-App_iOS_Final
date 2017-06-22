@@ -19,7 +19,7 @@ class MemberViewController: ListFullBleedViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        print(member.name)
         connectButton?.setTitle("Connect with \(member.name)", for: .normal)
 
         self.title = member.name
@@ -28,6 +28,9 @@ class MemberViewController: ListFullBleedViewController {
         collectionView.register(UINib.init(nibName: MemberAboutItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberAboutItemViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: MemberSkillItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberSkillItemViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: ProjectViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: GroupViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: GroupViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: TitleViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: TitleViewModel.cellIdentifier)
+
 
         
         topMenu.setupWithItems(["ABOUT", "PROJECTS", "GROUPS"])
@@ -65,11 +68,17 @@ class MemberViewController: ListFullBleedViewController {
         memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
 
+        // Groups
         memberGroupsData.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
         
-        // TODO: Add groups
-        memberGroupsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
-
+        let group1 = Group(id: "aasdsa", title: "A guide to reaching your sustainable development goals", photo: "groupPhoto", body: "A guide to reaching your sustainable development goals", memberCount: 400, locationName: "London, UK")
+        let group2 = Group(id: "aasdsa", title: "Zero to one: new startups and Innovative Ideas", photo: "groupPhoto", body: "Zero to one: new startups and Innovative Ideas", memberCount: 160, locationName: "Amsterdam, NL")
+        memberGroupsData.append(TitleViewModel(title: "", cellSize: CGSize(width: view.frame.width, height: 40)))
+        memberGroupsData.append(GroupViewModel(group: group1, cellSize: CGSize(width: view.frame.width, height: 165)))
+        memberGroupsData.append(GroupViewModel(group: group2, cellSize: CGSize(width: view.frame.width, height: 165)))
+        memberGroupsData.append(GroupViewModel(group: group1, cellSize: CGSize(width: view.frame.width, height: 165)))
+        memberGroupsData.append(GroupViewModel(group: group2, cellSize: CGSize(width: view.frame.width, height: 165)))
+        memberGroupsData.append(GroupViewModel(group: group1, cellSize: CGSize(width: view.frame.width, height: 165)))
         
     }
     
@@ -104,16 +113,28 @@ class MemberViewController: ListFullBleedViewController {
     }
     
     var selectProject: Project?
+    var selectGroup: Group?
+
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let vm = data[indexPath.item] as? ProjectViewModel {
             self.selectProject = vm.project
             self.performSegue(withIdentifier: "ShowProject", sender: self)
         }
+        if let vm = data[indexPath.item] as? GroupViewModel {
+            self.selectGroup = vm.group
+            self.performSegue(withIdentifier: "ShowGroup", sender: self)
+        }
+
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowGroup" {
+            if let vc = segue.destination as? GroupViewController, let selectGroup = selectGroup {
+                vc.group = selectGroup
+            }
+        }
         if segue.identifier == "ShowProject" {
             self.tabBarController?.tabBar.isHidden = true
             if let vc = segue.destination as? ProjectViewController, let selectProject = selectProject {

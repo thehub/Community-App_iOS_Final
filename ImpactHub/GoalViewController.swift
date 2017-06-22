@@ -28,8 +28,7 @@ class GoalViewController: ListFullBleedViewController {
         collectionView.register(UINib.init(nibName: GoalViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: GoalViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: MemberViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: TitleViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: TitleViewModel.cellIdentifier)
-
-        collectionView.register(UINib.init(nibName: ProjectViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: GroupViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: GroupViewModel.cellIdentifier)
 
         
         topMenu.setupWithItems(["ABOUT", "GROUPS", "MEMBERS"])
@@ -42,13 +41,21 @@ class GoalViewController: ListFullBleedViewController {
 
         // Groups
         groupsData.append(GoalDetailTopViewModel(goal: goal, cellSize: .zero)) // this will pick the full height instead
-        groupsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        
+        let group1 = Group(id: "aasdsa", title: "A guide to reaching your sustainable development goals", photo: "groupPhoto", body: "A guide to reaching your sustainable development goals", memberCount: 400, locationName: "London, UK")
+        let group2 = Group(id: "aasdsa", title: "Zero to one: new startups and Innovative Ideas", photo: "groupPhoto", body: "Zero to one: new startups and Innovative Ideas", memberCount: 160, locationName: "Amsterdam, NL")
+        groupsData.append(TitleViewModel(title: "", cellSize: CGSize(width: view.frame.width, height: 40)))
+        groupsData.append(GroupViewModel(group: group1, cellSize: CGSize(width: view.frame.width, height: 165)))
+        groupsData.append(GroupViewModel(group: group2, cellSize: CGSize(width: view.frame.width, height: 165)))
+        groupsData.append(GroupViewModel(group: group1, cellSize: CGSize(width: view.frame.width, height: 165)))
+        groupsData.append(GroupViewModel(group: group2, cellSize: CGSize(width: view.frame.width, height: 165)))
+        groupsData.append(GroupViewModel(group: group1, cellSize: CGSize(width: view.frame.width, height: 165)))
 
 
         
         // Members
         membersData.append(GoalDetailTopViewModel(goal: goal, cellSize: .zero)) // this will pick the full height instead
-        membersData.append(TitleViewModel(title: "", cellSize: CGSize(width: view.frame.width, height: 70)))
+        membersData.append(TitleViewModel(title: "", cellSize: CGSize(width: view.frame.width, height: 40)))
 
         
         let item1 = Member(name: "Niklas", job: "Developer", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", aboutMe: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam. Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam. Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
@@ -103,16 +110,25 @@ class GoalViewController: ListFullBleedViewController {
     }
     
     var selectMember: Member?
-    var selectJob: Job?
+    var selectGroup: Group?
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let vm = data[indexPath.item] as? MemberViewModel {
             self.selectMember = vm.member
             self.performSegue(withIdentifier: "ShowMember", sender: self)
         }
+        if let vm = data[indexPath.item] as? GroupViewModel {
+            self.selectGroup = vm.group
+            self.performSegue(withIdentifier: "ShowGroup", sender: self)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowGroup" {
+            if let vc = segue.destination as? GroupViewController, let selectGroup = selectGroup {
+                vc.group = selectGroup
+            }
+        }
         if segue.identifier == "ShowMember" {
             if let vc = segue.destination as? MemberViewController, let selectMember = selectMember {
                 vc.member = selectMember

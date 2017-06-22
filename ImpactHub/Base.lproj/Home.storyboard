@@ -208,7 +208,7 @@
                                                 <rect key="frame" x="5" y="5" width="172.5" height="173"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cn4-a7-HL4">
-                                                        <rect key="frame" x="60.5" y="75.5" width="51.5" height="23.5"/>
+                                                        <rect key="frame" x="60.5" y="75" width="51.5" height="23.5"/>
                                                         <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="18"/>
                                                         <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -511,6 +511,7 @@
                         <outlet property="connectButtonBottomConsatraint" destination="Khi-EF-ayo" id="5K4-0U-oXb"/>
                         <outlet property="topMenu" destination="D7m-9w-jg5" id="NXx-Ul-QCd"/>
                         <segue destination="Fsg-7e-ZtL" kind="show" identifier="ShowProject" id="4CN-lM-E9S"/>
+                        <segue destination="ytP-JQ-5XJ" kind="show" identifier="ShowGroup" id="9tv-11-54j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="reP-pU-XlA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1356,6 +1357,7 @@
                         <outlet property="collectionView" destination="mWh-Qr-m6A" id="cxa-1D-AYh"/>
                         <outlet property="topMenu" destination="iTB-Fi-VWb" id="01o-Wr-vsf"/>
                         <segue destination="v6r-jd-8oy" kind="show" identifier="ShowMember" id="hAb-Na-Ctt"/>
+                        <segue destination="ytP-JQ-5XJ" kind="show" identifier="ShowGroup" id="saB-EM-KuP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ibq-fp-mDq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1429,6 +1431,71 @@
             </objects>
             <point key="canvasLocation" x="3583" y="1445"/>
         </scene>
+        <!--Group View Controller-->
+        <scene sceneID="UOO-7R-eeS">
+            <objects>
+                <viewController storyboardIdentifier="GroupViewController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="ytP-JQ-5XJ" customClass="GroupViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h6w-ro-TIc"/>
+                        <viewControllerLayoutGuide type="bottom" id="pqR-Rb-Nin"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hC0-f3-Fkl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mO9-vW-zkP">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="yH9-r1-hpr">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="100"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="eBA-XK-Da1">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="ytP-JQ-5XJ" id="XoW-Vf-V7L"/>
+                                    <outlet property="delegate" destination="ytP-JQ-5XJ" id="y8q-HM-Aip"/>
+                                </connections>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gJ5-ax-qXa" customClass="TopMenu" customModule="ImpactHub" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="PGf-SV-Uxl"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="mO9-vW-zkP" secondAttribute="trailing" id="29M-2U-KMc"/>
+                            <constraint firstItem="gJ5-ax-qXa" firstAttribute="top" secondItem="h6w-ro-TIc" secondAttribute="bottom" id="3wa-GE-OVU"/>
+                            <constraint firstAttribute="trailing" secondItem="gJ5-ax-qXa" secondAttribute="trailing" id="7wr-Mg-H7O"/>
+                            <constraint firstItem="mO9-vW-zkP" firstAttribute="leading" secondItem="hC0-f3-Fkl" secondAttribute="leading" id="E0G-D4-6SR"/>
+                            <constraint firstItem="mO9-vW-zkP" firstAttribute="top" secondItem="h6w-ro-TIc" secondAttribute="bottom" id="INH-UZ-MNa"/>
+                            <constraint firstItem="pqR-Rb-Nin" firstAttribute="top" secondItem="mO9-vW-zkP" secondAttribute="bottom" id="Q6r-Iv-RV7"/>
+                            <constraint firstItem="gJ5-ax-qXa" firstAttribute="leading" secondItem="hC0-f3-Fkl" secondAttribute="leading" id="e09-BD-tZL"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="mO9-vW-zkP" id="3be-7C-dJa"/>
+                        <outlet property="topMenu" destination="gJ5-ax-qXa" id="HNg-hd-BZ5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Spy-ky-Xmt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4473" y="2335"/>
+        </scene>
     </scenes>
     <resources>
         <image name="companyImage" width="160" height="120"/>
@@ -1437,9 +1504,10 @@
         <image name="tabBarHome" width="22" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Nsv-q8-zjz"/>
-        <segue reference="ODp-Jh-V7d"/>
         <segue reference="hAb-Na-Ctt"/>
+        <segue reference="4CN-lM-E9S"/>
+        <segue reference="9tv-11-54j"/>
+        <segue reference="ODp-Jh-V7d"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>
