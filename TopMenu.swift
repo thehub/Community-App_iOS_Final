@@ -32,7 +32,9 @@ class TopMenu: UIView {
     }
     
     func show() {
-        
+        if isShow {
+            return
+        }
         isShow = true
         scrollViewTopConstraint.constant = 0
         
@@ -46,6 +48,9 @@ class TopMenu: UIView {
     }
     
     func hide() {
+        if !isShow {
+            return
+        }
         isShow = false
         scrollViewTopConstraint.constant = -self.frame.height
         UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {

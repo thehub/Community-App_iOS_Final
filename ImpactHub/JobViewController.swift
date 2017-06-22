@@ -21,6 +21,12 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
     @IBOutlet weak var collectionView: UICollectionView!
     
     var data = [CellRepresentable]()
+    
+    @IBOutlet weak var connectButtonBottomConsatraint: NSLayoutConstraint?
+    var connectButtonBottomConsatraintDefault: CGFloat = 0
+    @IBOutlet weak var connectButton: UIButton?
+
+
 
     
     override func viewDidLoad() {
@@ -112,7 +118,8 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
         return .slide
     }
     
-    
+    var didLayout = false
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -124,6 +131,11 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
         gradientLayer.endPoint = CGPoint(x: 0.5, y:0.8)
         gradientLayer.colors = [startingColorOfGradient , endingColorOFGradient]
         fadeView.layer.insertSublayer(gradientLayer, at: 0)
+
+        if !didLayout {
+            didLayout = true
+            connectButtonBottomConsatraintDefault = connectButtonBottomConsatraint?.constant ?? 0
+        }
 
     }
     
@@ -194,8 +206,38 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
             compnayPhotoTopConstraint.constant = -(offset * 0.5)
         }
 
+        if scrollView.contentOffset.y > 200 {
+            self.tabBarController?.tabBar.isHidden = false
+            connectButtonBottomConsatraint?.constant = connectButtonBottomConsatraintDefault + self.navigationController!.navigationBar.frame.height
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {                self.setNeedsStatusBarAppearanceUpdate()
+                self.view.layoutIfNeeded()
+            }) { (_) in
+                
+            }
+            
+        }
+        else if scrollView.contentOffset.y < 200 {
+            self.tabBarController?.tabBar.isHidden = true
+            connectButtonBottomConsatraint?.constant = connectButtonBottomConsatraintDefault
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
+                self.setNeedsStatusBarAppearanceUpdate()
+                self.view.layoutIfNeeded()
+            }) { (_) in
+                
+            }
+        }
         
     }
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
     
     @IBAction func applyTap(_ sender: Any) {
     }

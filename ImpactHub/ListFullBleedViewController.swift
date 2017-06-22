@@ -33,6 +33,9 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
 
     
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.tabBarController?.tabBar.isHidden = true
+
+        
         
         UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
             self.setNeedsStatusBarAppearanceUpdate()
@@ -90,8 +93,6 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
                 
             }
         }
-        
-        
     }
     
     override func didReceiveMemoryWarning() {

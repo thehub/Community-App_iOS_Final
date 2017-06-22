@@ -263,6 +263,45 @@
 		859C417E1ECDFFD700637295 /* MemberAboutItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859C417C1ECDFFD700637295 /* MemberAboutItemCell.swift */; };
 		859C417F1ECDFFD700637295 /* MemberAboutItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859C417D1ECDFFD700637295 /* MemberAboutItemCell.xib */; };
 		859C41811ECE006500637295 /* MemberAboutItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859C41801ECE006500637295 /* MemberAboutItemViewModel.swift */; };
+		859F97C41EFBBEE6001C0B33 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97C31EFBBEE6001C0B33 /* Goal.swift */; };
+		859F97C51EFBBEE6001C0B33 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97C31EFBBEE6001C0B33 /* Goal.swift */; };
+		859F97C61EFBBEE6001C0B33 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97C31EFBBEE6001C0B33 /* Goal.swift */; };
+		859F97CD1EFBBF01001C0B33 /* GoalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97C71EFBBF01001C0B33 /* GoalCollectionViewCell.swift */; };
+		859F97CE1EFBBF01001C0B33 /* GoalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97C71EFBBF01001C0B33 /* GoalCollectionViewCell.swift */; };
+		859F97CF1EFBBF01001C0B33 /* GoalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97C71EFBBF01001C0B33 /* GoalCollectionViewCell.swift */; };
+		859F97D01EFBBF01001C0B33 /* GoalCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859F97C81EFBBF01001C0B33 /* GoalCollectionViewCell.xib */; };
+		859F97D11EFBBF01001C0B33 /* GoalCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859F97C81EFBBF01001C0B33 /* GoalCollectionViewCell.xib */; };
+		859F97D21EFBBF01001C0B33 /* GoalCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859F97C81EFBBF01001C0B33 /* GoalCollectionViewCell.xib */; };
+		859F97D31EFBBF01001C0B33 /* GoalDetailTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97C91EFBBF01001C0B33 /* GoalDetailTopCell.swift */; };
+		859F97D41EFBBF01001C0B33 /* GoalDetailTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97C91EFBBF01001C0B33 /* GoalDetailTopCell.swift */; };
+		859F97D51EFBBF01001C0B33 /* GoalDetailTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97C91EFBBF01001C0B33 /* GoalDetailTopCell.swift */; };
+		859F97D61EFBBF01001C0B33 /* GoalDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859F97CA1EFBBF01001C0B33 /* GoalDetailTopCell.xib */; };
+		859F97D71EFBBF01001C0B33 /* GoalDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859F97CA1EFBBF01001C0B33 /* GoalDetailTopCell.xib */; };
+		859F97D81EFBBF01001C0B33 /* GoalDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859F97CA1EFBBF01001C0B33 /* GoalDetailTopCell.xib */; };
+		859F97D91EFBBF01001C0B33 /* GoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97CB1EFBBF01001C0B33 /* GoalsViewController.swift */; };
+		859F97DA1EFBBF01001C0B33 /* GoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97CB1EFBBF01001C0B33 /* GoalsViewController.swift */; };
+		859F97DB1EFBBF01001C0B33 /* GoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97CB1EFBBF01001C0B33 /* GoalsViewController.swift */; };
+		859F97DC1EFBBF01001C0B33 /* GoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97CC1EFBBF01001C0B33 /* GoalViewController.swift */; };
+		859F97DD1EFBBF01001C0B33 /* GoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97CC1EFBBF01001C0B33 /* GoalViewController.swift */; };
+		859F97DE1EFBBF01001C0B33 /* GoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97CC1EFBBF01001C0B33 /* GoalViewController.swift */; };
+		859F97E11EFBBF10001C0B33 /* GoalDetailTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97DF1EFBBF10001C0B33 /* GoalDetailTopViewModel.swift */; };
+		859F97E21EFBBF10001C0B33 /* GoalDetailTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97DF1EFBBF10001C0B33 /* GoalDetailTopViewModel.swift */; };
+		859F97E31EFBBF10001C0B33 /* GoalDetailTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97DF1EFBBF10001C0B33 /* GoalDetailTopViewModel.swift */; };
+		859F97E41EFBBF10001C0B33 /* GoalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97E01EFBBF10001C0B33 /* GoalViewModel.swift */; };
+		859F97E51EFBBF10001C0B33 /* GoalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97E01EFBBF10001C0B33 /* GoalViewModel.swift */; };
+		859F97E61EFBBF10001C0B33 /* GoalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97E01EFBBF10001C0B33 /* GoalViewModel.swift */; };
+		859F97E81EFBD079001C0B33 /* GoalAboutItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97E71EFBD079001C0B33 /* GoalAboutItemViewModel.swift */; };
+		859F97E91EFBD079001C0B33 /* GoalAboutItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97E71EFBD079001C0B33 /* GoalAboutItemViewModel.swift */; };
+		859F97EA1EFBD079001C0B33 /* GoalAboutItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97E71EFBD079001C0B33 /* GoalAboutItemViewModel.swift */; };
+		859F97F51EFBD0ED001C0B33 /* GoalAboutItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97F31EFBD0ED001C0B33 /* GoalAboutItemCell.swift */; };
+		859F97F61EFBD0ED001C0B33 /* GoalAboutItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97F31EFBD0ED001C0B33 /* GoalAboutItemCell.swift */; };
+		859F97F71EFBD0ED001C0B33 /* GoalAboutItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97F31EFBD0ED001C0B33 /* GoalAboutItemCell.swift */; };
+		859F97F81EFBD0ED001C0B33 /* GoalAboutItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859F97F41EFBD0ED001C0B33 /* GoalAboutItemCell.xib */; };
+		859F97F91EFBD0ED001C0B33 /* GoalAboutItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859F97F41EFBD0ED001C0B33 /* GoalAboutItemCell.xib */; };
+		859F97FA1EFBD0ED001C0B33 /* GoalAboutItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859F97F41EFBD0ED001C0B33 /* GoalAboutItemCell.xib */; };
+		859F97FC1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97FB1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift */; };
+		859F97FD1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97FB1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift */; };
+		859F97FE1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97FB1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift */; };
 		85B361381ED59D3800DC2DE0 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B361371ED59D3800DC2DE0 /* Notifications.swift */; };
 		85B3613A1ED59FD400DC2DE0 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B361391ED59FD400DC2DE0 /* APIClient.swift */; };
 		85B3613C1ED5A08600DC2DE0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B3613B1ED5A08600DC2DE0 /* Constants.swift */; };
@@ -426,6 +465,19 @@
 		859C417C1ECDFFD700637295 /* MemberAboutItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberAboutItemCell.swift; sourceTree = "<group>"; };
 		859C417D1ECDFFD700637295 /* MemberAboutItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberAboutItemCell.xib; sourceTree = "<group>"; };
 		859C41801ECE006500637295 /* MemberAboutItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberAboutItemViewModel.swift; sourceTree = "<group>"; };
+		859F97C31EFBBEE6001C0B33 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
+		859F97C71EFBBF01001C0B33 /* GoalCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalCollectionViewCell.swift; sourceTree = "<group>"; };
+		859F97C81EFBBF01001C0B33 /* GoalCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoalCollectionViewCell.xib; sourceTree = "<group>"; };
+		859F97C91EFBBF01001C0B33 /* GoalDetailTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalDetailTopCell.swift; sourceTree = "<group>"; };
+		859F97CA1EFBBF01001C0B33 /* GoalDetailTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoalDetailTopCell.xib; sourceTree = "<group>"; };
+		859F97CB1EFBBF01001C0B33 /* GoalsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalsViewController.swift; sourceTree = "<group>"; };
+		859F97CC1EFBBF01001C0B33 /* GoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalViewController.swift; sourceTree = "<group>"; };
+		859F97DF1EFBBF10001C0B33 /* GoalDetailTopViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalDetailTopViewModel.swift; sourceTree = "<group>"; };
+		859F97E01EFBBF10001C0B33 /* GoalViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalViewModel.swift; sourceTree = "<group>"; };
+		859F97E71EFBD079001C0B33 /* GoalAboutItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalAboutItemViewModel.swift; sourceTree = "<group>"; };
+		859F97F31EFBD0ED001C0B33 /* GoalAboutItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalAboutItemCell.swift; sourceTree = "<group>"; };
+		859F97F41EFBD0ED001C0B33 /* GoalAboutItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoalAboutItemCell.xib; sourceTree = "<group>"; };
+		859F97FB1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWithTopMenuViewController.swift; sourceTree = "<group>"; };
 		85B361371ED59D3800DC2DE0 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		85B361391ED59FD400DC2DE0 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		85B3613B1ED5A08600DC2DE0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -634,6 +686,21 @@
 			name = Projects;
 			sourceTree = "<group>";
 		};
+		859F97C21EFBBDDE001C0B33 /* Goals */ = {
+			isa = PBXGroup;
+			children = (
+				859F97CB1EFBBF01001C0B33 /* GoalsViewController.swift */,
+				859F97C71EFBBF01001C0B33 /* GoalCollectionViewCell.swift */,
+				859F97C81EFBBF01001C0B33 /* GoalCollectionViewCell.xib */,
+				859F97CC1EFBBF01001C0B33 /* GoalViewController.swift */,
+				859F97C91EFBBF01001C0B33 /* GoalDetailTopCell.swift */,
+				859F97CA1EFBBF01001C0B33 /* GoalDetailTopCell.xib */,
+				859F97F31EFBD0ED001C0B33 /* GoalAboutItemCell.swift */,
+				859F97F41EFBD0ED001C0B33 /* GoalAboutItemCell.xib */,
+			);
+			name = Goals;
+			sourceTree = "<group>";
+		};
 		85DE9EBC1ECC8CD900291EF5 = {
 			isa = PBXGroup;
 			children = (
@@ -717,11 +784,13 @@
 				858C58A31EF9492000136DAC /* TitleCell.swift */,
 				858C58A41EF9492000136DAC /* TitleCell.xib */,
 				85523DAD1EFA9CB100F66B53 /* ListWithSearchViewController.swift */,
+				859F97FB1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift */,
 				85523DB51EFAABD700F66B53 /* ListFullBleedViewController.swift */,
 				85DE9EFA1ECC9D2700291EF5 /* Members */,
 				858C588E1EF927C100136DAC /* Projects */,
 				8570C1E61ECF035700FA1CE9 /* Companies */,
 				8570C2031ECF21C300FA1CE9 /* Jobs */,
+				859F97C21EFBBDDE001C0B33 /* Goals */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -775,6 +844,7 @@
 				857480641EE802F1005F73A2 /* User.swift */,
 				8570C2011ECF214600FA1CE9 /* Job.swift */,
 				85E7DA8C1EF81EA500C9DA15 /* Project.swift */,
+				859F97C31EFBBEE6001C0B33 /* Goal.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -798,6 +868,9 @@
 				858C58971EF92B6900136DAC /* ProjectDetailTopViewModel.swift */,
 				858C58B71EF94C8B00136DAC /* ProjectObjectiveViewModel.swift */,
 				85523DCD1EFAC99E00F66B53 /* CompanyServiceItemViewModel.swift */,
+				859F97DF1EFBBF10001C0B33 /* GoalDetailTopViewModel.swift */,
+				859F97E01EFBBF10001C0B33 /* GoalViewModel.swift */,
+				859F97E71EFBD079001C0B33 /* GoalAboutItemViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -927,6 +1000,7 @@
 				859C41671ECDA01A00637295 /* MemberDetailTopCell.xib in Resources */,
 				859C417F1ECDFFD700637295 /* MemberAboutItemCell.xib in Resources */,
 				85455D3C1EF2A53200243846 /* gt-walsheim-web.ttf in Resources */,
+				859F97F81EFBD0ED001C0B33 /* GoalAboutItemCell.xib in Resources */,
 				85066FC61ED33E6F0032391A /* MemberSkillItemCell.xib in Resources */,
 				8570C1DF1ECEE66300FA1CE9 /* Home.storyboard in Resources */,
 				85DE9F001ECCA8D500291EF5 /* MemberCollectionViewCell.xib in Resources */,
@@ -940,7 +1014,9 @@
 				858C58B41EF94C7700136DAC /* ProjectObjectiveCell.xib in Resources */,
 				858C58C81EF9672000136DAC /* JobCollectionViewCell.xib in Resources */,
 				85DE9ED31ECC8CD900291EF5 /* LaunchScreen.storyboard in Resources */,
+				859F97D61EFBBF01001C0B33 /* GoalDetailTopCell.xib in Resources */,
 				858C58901EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */,
+				859F97D01EFBBF01001C0B33 /* GoalCollectionViewCell.xib in Resources */,
 				8570C1DC1ECEE3F300FA1CE9 /* Profile.storyboard in Resources */,
 				85DE9ED01ECC8CD900291EF5 /* Assets.xcassets in Resources */,
 				85523DCA1EFAC92D00F66B53 /* CompanyServiceItemCell.xib in Resources */,
@@ -963,6 +1039,8 @@
 				858C58B51EF94C7700136DAC /* ProjectObjectiveCell.xib in Resources */,
 				858C58C91EF9672000136DAC /* JobCollectionViewCell.xib in Resources */,
 				85523DC31EFAB4B300F66B53 /* CompanyDetailTopCell.xib in Resources */,
+				859F97F91EFBD0ED001C0B33 /* GoalAboutItemCell.xib in Resources */,
+				859F97D11EFBBF01001C0B33 /* GoalCollectionViewCell.xib in Resources */,
 				85523DCB1EFAC92D00F66B53 /* CompanyServiceItemCell.xib in Resources */,
 				85E7DA861EF818D200C9DA15 /* ProjectCollectionViewCell.xib in Resources */,
 				858C58A91EF9492000136DAC /* TitleCell.xib in Resources */,
@@ -971,6 +1049,7 @@
 				85455D3D1EF2A53200243846 /* gt-walsheim-web.ttf in Resources */,
 				85455D341EF2A53200243846 /* gt-walsheim-light-oblique-web.ttf in Resources */,
 				85455D311EF2A53200243846 /* gt-walsheim-bold-web.ttf in Resources */,
+				859F97D71EFBBF01001C0B33 /* GoalDetailTopCell.xib in Resources */,
 				858C58911EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */,
 				85455D371EF2A53200243846 /* gt-walsheim-light-web.ttf in Resources */,
 			);
@@ -985,6 +1064,8 @@
 				858C58B61EF94C7700136DAC /* ProjectObjectiveCell.xib in Resources */,
 				858C58CA1EF9672000136DAC /* JobCollectionViewCell.xib in Resources */,
 				85523DC41EFAB4B300F66B53 /* CompanyDetailTopCell.xib in Resources */,
+				859F97FA1EFBD0ED001C0B33 /* GoalAboutItemCell.xib in Resources */,
+				859F97D21EFBBF01001C0B33 /* GoalCollectionViewCell.xib in Resources */,
 				85523DCC1EFAC92D00F66B53 /* CompanyServiceItemCell.xib in Resources */,
 				85E7DA871EF818D200C9DA15 /* ProjectCollectionViewCell.xib in Resources */,
 				858C58AA1EF9492000136DAC /* TitleCell.xib in Resources */,
@@ -993,6 +1074,7 @@
 				85455D3E1EF2A53200243846 /* gt-walsheim-web.ttf in Resources */,
 				85455D351EF2A53200243846 /* gt-walsheim-light-oblique-web.ttf in Resources */,
 				85455D321EF2A53200243846 /* gt-walsheim-bold-web.ttf in Resources */,
+				859F97D81EFBBF01001C0B33 /* GoalDetailTopCell.xib in Resources */,
 				858C58921EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */,
 				85455D381EF2A53200243846 /* gt-walsheim-light-web.ttf in Resources */,
 			);
@@ -1054,10 +1136,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				859C41631ECD951A00637295 /* MemberViewController.swift in Sources */,
+				859F97D91EFBBF01001C0B33 /* GoalsViewController.swift in Sources */,
 				858C58D81EF9868900136DAC /* JobDetailViewModel.swift in Sources */,
 				85DE9EFC1ECC9D3F00291EF5 /* MembersViewController.swift in Sources */,
 				853433CF1EE6B726003C26F8 /* MessagesVM.swift in Sources */,
 				857480511EE802D0005F73A2 /* MessageSegment.swift in Sources */,
+				859F97E11EFBBF10001C0B33 /* GoalDetailTopViewModel.swift in Sources */,
 				857480751EE846C2005F73A2 /* WhiteButton.swift in Sources */,
 				8570C1D71ECEE35F00FA1CE9 /* ProfileViewController.swift in Sources */,
 				85DE9EFF1ECCA8D500291EF5 /* MemberCollectionViewCell.swift in Sources */,
@@ -1066,12 +1150,15 @@
 				85DE9F071ECCACB100291EF5 /* MemberViewModel.swift in Sources */,
 				85E7DA891EF81C7B00C9DA15 /* ProjectViewModel.swift in Sources */,
 				850072371EE711E4008A725A /* MessageThreadThemTimeCell.swift in Sources */,
+				859F97CD1EFBBF01001C0B33 /* GoalCollectionViewCell.swift in Sources */,
 				85455D441EF2DFD600243846 /* MemberFilterViewController.swift in Sources */,
 				8574806D1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
 				8570C2001ECF1B0500FA1CE9 /* CompanyAboutViewModel.swift in Sources */,
 				858C58B81EF94C8B00136DAC /* ProjectObjectiveViewModel.swift in Sources */,
 				8570C1E81ECF037F00FA1CE9 /* CompaniesViewController.swift in Sources */,
+				859F97E41EFBBF10001C0B33 /* GoalViewModel.swift in Sources */,
 				8500722F1EE70F56008A725A /* MessagesThreadThemPicVM.swift in Sources */,
+				859F97DC1EFBBF01001C0B33 /* GoalViewController.swift in Sources */,
 				858C58A51EF9492000136DAC /* TitleCell.swift in Sources */,
 				85B3613C1ED5A08600DC2DE0 /* Constants.swift in Sources */,
 				85DE9ECB1ECC8CD900291EF5 /* ViewController.swift in Sources */,
@@ -1095,6 +1182,7 @@
 				85DE9EC91ECC8CD900291EF5 /* AppDelegate.swift in Sources */,
 				85DE9F031ECCABCD00291EF5 /* CellRepresentable.swift in Sources */,
 				858C58C01EF9667300136DAC /* JobFilterViewController.swift in Sources */,
+				859F97C41EFBBEE6001C0B33 /* Goal.swift in Sources */,
 				858C58AC1EF94A2A00136DAC /* TitleViewModel.swift in Sources */,
 				85B361381ED59D3800DC2DE0 /* Notifications.swift in Sources */,
 				8570C1EA1ECF03FE00FA1CE9 /* CompanyViewController.swift in Sources */,
@@ -1118,6 +1206,8 @@
 				85455D271EF28E6400243846 /* UIColor+IMAAdditions.swift in Sources */,
 				85B3613A1ED59FD400DC2DE0 /* APIClient.swift in Sources */,
 				8570C1E51ECF030900FA1CE9 /* CompanyViewModel.swift in Sources */,
+				859F97D31EFBBF01001C0B33 /* GoalDetailTopCell.swift in Sources */,
+				859F97F51EFBD0ED001C0B33 /* GoalAboutItemCell.swift in Sources */,
 				858C58C41EF9670E00136DAC /* JobCollectionViewCell.swift in Sources */,
 				858C58BC1EF9665E00136DAC /* JobsViewController.swift in Sources */,
 				85E7DA821EF818D200C9DA15 /* ProjectCollectionViewCell.swift in Sources */,
@@ -1138,6 +1228,7 @@
 				8574804E1EE802D0005F73A2 /* Message.swift in Sources */,
 				857480421EE802D0005F73A2 /* Comment.swift in Sources */,
 				858C58A01EF9319300136DAC /* ProjectsViewController.swift in Sources */,
+				859F97E81EFBD079001C0B33 /* GoalAboutItemViewModel.swift in Sources */,
 				857480311EE80279005F73A2 /* ChatterSegmentBuilder.swift in Sources */,
 				85066FC51ED33E6F0032391A /* MemberSkillItemCell.swift in Sources */,
 				8574805A1EE802D0005F73A2 /* Reference.swift in Sources */,
@@ -1151,6 +1242,7 @@
 				857480651EE802F1005F73A2 /* User.swift in Sources */,
 				85523DC71EFAC92D00F66B53 /* CompanyServiceItemCell.swift in Sources */,
 				8570C1FD1ECF1A2A00FA1CE9 /* CompanyAboutCell.swift in Sources */,
+				859F97FC1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift in Sources */,
 				8570C2021ECF214600FA1CE9 /* Job.swift in Sources */,
 				8505E1FA1EF3CEEA005A2F40 /* NavigationViewController.swift in Sources */,
 			);
@@ -1164,9 +1256,11 @@
 				853433D01EE6B726003C26F8 /* MessagesVM.swift in Sources */,
 				8500723D1EE7126C008A725A /* MessagesThreadMeTimeVM.swift in Sources */,
 				858C58C11EF9667300136DAC /* JobFilterViewController.swift in Sources */,
+				859F97E91EFBD079001C0B33 /* GoalAboutItemViewModel.swift in Sources */,
 				8574807E1EE84735005F73A2 /* Animations.swift in Sources */,
 				858C58AD1EF94A2A00136DAC /* TitleViewModel.swift in Sources */,
 				853434111EE6E9DC003C26F8 /* MessageThreadMeCell.swift in Sources */,
+				859F97F61EFBD0ED001C0B33 /* GoalAboutItemCell.swift in Sources */,
 				8501B9F61EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
 				850072351EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
 				857480551EE802D0005F73A2 /* Photo.swift in Sources */,
@@ -1193,7 +1287,10 @@
 				85523DC01EFAB4B300F66B53 /* CompanyDetailTopCell.swift in Sources */,
 				858C58CD1EF96EB600136DAC /* JobViewController.swift in Sources */,
 				858C58951EF928F500136DAC /* ProjectDetailTopCell.swift in Sources */,
+				859F97CE1EFBBF01001C0B33 /* GoalCollectionViewCell.swift in Sources */,
+				859F97D41EFBBF01001C0B33 /* GoalDetailTopCell.swift in Sources */,
 				850072241EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
+				859F97C51EFBBEE6001C0B33 /* Goal.swift in Sources */,
 				85523DC81EFAC92D00F66B53 /* CompanyServiceItemCell.swift in Sources */,
 				858C58B21EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */,
 				85455D241EF28D3D00243846 /* TabBarController.swift in Sources */,
@@ -1201,8 +1298,10 @@
 				858C589D1EF92BD600136DAC /* ProjectViewController.swift in Sources */,
 				858C58D91EF9868900136DAC /* JobDetailViewModel.swift in Sources */,
 				853434151EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
+				859F97E21EFBBF10001C0B33 /* GoalDetailTopViewModel.swift in Sources */,
 				85E7DA8E1EF81EA500C9DA15 /* Project.swift in Sources */,
 				8574806A1EE83B17005F73A2 /* LoginViewController.swift in Sources */,
+				859F97E51EFBBF10001C0B33 /* GoalViewModel.swift in Sources */,
 				85523DCF1EFAC99E00F66B53 /* CompanyServiceItemViewModel.swift in Sources */,
 				858C58A11EF9319300136DAC /* ProjectsViewController.swift in Sources */,
 				8501B9FA1EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */,
@@ -1210,9 +1309,11 @@
 				85E7DA8A1EF81C7B00C9DA15 /* ProjectViewModel.swift in Sources */,
 				857480431EE802D0005F73A2 /* Comment.swift in Sources */,
 				857480621EE802E3005F73A2 /* Contact.swift in Sources */,
+				859F97DA1EFBBF01001C0B33 /* GoalsViewController.swift in Sources */,
 				858C58C51EF9670E00136DAC /* JobCollectionViewCell.swift in Sources */,
 				850072301EE70F56008A725A /* MessagesThreadThemPicVM.swift in Sources */,
 				857480461EE802D0005F73A2 /* Conversation.swift in Sources */,
+				859F97FD1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift in Sources */,
 				8574804F1EE802D0005F73A2 /* Message.swift in Sources */,
 				85455D491EF2E7A000243846 /* RedButton.swift in Sources */,
 				857480401EE802D0005F73A2 /* ChatterActor.swift in Sources */,
@@ -1222,6 +1323,7 @@
 				85455D281EF28E6400243846 /* UIColor+IMAAdditions.swift in Sources */,
 				8574807A1EE846EE005F73A2 /* SessionManager.swift in Sources */,
 				85E7DA831EF818D200C9DA15 /* ProjectCollectionViewCell.swift in Sources */,
+				859F97DD1EFBBF01001C0B33 /* GoalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1233,9 +1335,11 @@
 				853433D11EE6B726003C26F8 /* MessagesVM.swift in Sources */,
 				8500723E1EE7126C008A725A /* MessagesThreadMeTimeVM.swift in Sources */,
 				858C58C21EF9667300136DAC /* JobFilterViewController.swift in Sources */,
+				859F97EA1EFBD079001C0B33 /* GoalAboutItemViewModel.swift in Sources */,
 				8574807F1EE84735005F73A2 /* Animations.swift in Sources */,
 				858C58AE1EF94A2A00136DAC /* TitleViewModel.swift in Sources */,
 				853434121EE6E9DC003C26F8 /* MessageThreadMeCell.swift in Sources */,
+				859F97F71EFBD0ED001C0B33 /* GoalAboutItemCell.swift in Sources */,
 				8501B9F71EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
 				850072361EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
 				857480561EE802D0005F73A2 /* Photo.swift in Sources */,
@@ -1262,7 +1366,10 @@
 				85523DC11EFAB4B300F66B53 /* CompanyDetailTopCell.swift in Sources */,
 				858C58CE1EF96EB600136DAC /* JobViewController.swift in Sources */,
 				858C58961EF928F500136DAC /* ProjectDetailTopCell.swift in Sources */,
+				859F97CF1EFBBF01001C0B33 /* GoalCollectionViewCell.swift in Sources */,
+				859F97D51EFBBF01001C0B33 /* GoalDetailTopCell.swift in Sources */,
 				850072251EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
+				859F97C61EFBBEE6001C0B33 /* Goal.swift in Sources */,
 				85523DC91EFAC92D00F66B53 /* CompanyServiceItemCell.swift in Sources */,
 				858C58B31EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */,
 				85455D251EF28D3D00243846 /* TabBarController.swift in Sources */,
@@ -1270,8 +1377,10 @@
 				858C589E1EF92BD600136DAC /* ProjectViewController.swift in Sources */,
 				858C58DA1EF9868900136DAC /* JobDetailViewModel.swift in Sources */,
 				853434161EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
+				859F97E31EFBBF10001C0B33 /* GoalDetailTopViewModel.swift in Sources */,
 				85E7DA8F1EF81EA500C9DA15 /* Project.swift in Sources */,
 				8574806B1EE83B17005F73A2 /* LoginViewController.swift in Sources */,
+				859F97E61EFBBF10001C0B33 /* GoalViewModel.swift in Sources */,
 				85523DD01EFAC99E00F66B53 /* CompanyServiceItemViewModel.swift in Sources */,
 				858C58A21EF9319300136DAC /* ProjectsViewController.swift in Sources */,
 				8501B9FB1EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */,
@@ -1279,9 +1388,11 @@
 				85E7DA8B1EF81C7B00C9DA15 /* ProjectViewModel.swift in Sources */,
 				857480441EE802D0005F73A2 /* Comment.swift in Sources */,
 				857480631EE802E3005F73A2 /* Contact.swift in Sources */,
+				859F97DB1EFBBF01001C0B33 /* GoalsViewController.swift in Sources */,
 				858C58C61EF9670E00136DAC /* JobCollectionViewCell.swift in Sources */,
 				850072311EE70F56008A725A /* MessagesThreadThemPicVM.swift in Sources */,
 				857480471EE802D0005F73A2 /* Conversation.swift in Sources */,
+				859F97FE1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift in Sources */,
 				857480501EE802D0005F73A2 /* Message.swift in Sources */,
 				85455D4A1EF2E7A000243846 /* RedButton.swift in Sources */,
 				857480411EE802D0005F73A2 /* ChatterActor.swift in Sources */,
@@ -1291,6 +1402,7 @@
 				85455D291EF28E6400243846 /* UIColor+IMAAdditions.swift in Sources */,
 				8574807B1EE846EE005F73A2 /* SessionManager.swift in Sources */,
 				85E7DA841EF818D200C9DA15 /* ProjectCollectionViewCell.swift in Sources */,
+				859F97DE1EFBBF01001C0B33 /* GoalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

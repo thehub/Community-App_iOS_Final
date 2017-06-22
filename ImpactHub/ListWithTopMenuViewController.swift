@@ -1,54 +1,37 @@
 //
-//  ListWithSearchViewController.swift
+//  ListWithTopMenuViewController.swift
 //  ImpactHub
 //
-//  Created by Niklas Alvaeus on 21/06/2017.
+//  Created by Niklas Alvaeus on 22/06/2017.
 //  Copyright © 2017 Lightful Ltd. All rights reserved.
 //
 
 import UIKit
 
-class ListWithSearchViewController: UIViewController, UITextFieldDelegate {
+class ListWithTopMenuViewController: UIViewController, TopMenuDelegate {
 
     var data = [CellRepresentable]()
-    
-    @IBOutlet weak var collectionView: UICollectionView!
-    
-    @IBOutlet weak var searchContainerTopConstraint: NSLayoutConstraint!
-    var searchContainerTopConstraintDefault: CGFloat = 0
-    
-    @IBOutlet weak var searchInputTextField: UITextField!
-    @IBOutlet weak var filterButton: UIButton!
-    
-    @IBOutlet weak var searchContainer: UIView!
-    @IBOutlet weak var searchTextBg: UIView!
+    @IBOutlet weak var topMenu: TopMenu!
 
-    
+    @IBOutlet weak var collectionView: UICollectionView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
+        topMenu.delegate = self
+        
+        topMenu.show()
 
         if(traitCollection.forceTouchCapability == .available){
             registerForPreviewing(with: self, sourceView: self.collectionView)
         }
-        
-        self.searchContainerTopConstraintDefault = searchContainerTopConstraint.constant
-        
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        self.searchTextBg.layer.shadowColor = UIColor(hexString: "D5D5D5").cgColor
-        self.searchTextBg.layer.shadowOffset = CGSize(width: 0, height: 5)
-        self.searchTextBg.layer.shadowOpacity = 0.37
-        self.searchTextBg.layer.shadowPath = UIBezierPath(rect: self.searchTextBg.bounds).cgPath
-        self.searchTextBg.layer.shadowRadius = 15.0
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,7 +46,7 @@ class ListWithSearchViewController: UIViewController, UITextFieldDelegate {
         }
         
     }
-    
+
     var shouldHideStatusBar = false
     
     override var prefersStatusBarHidden: Bool {
@@ -73,9 +56,9 @@ class ListWithSearchViewController: UIViewController, UITextFieldDelegate {
     override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
         return .slide
     }
-    
+
     var lastScrollPositionY: CGFloat = 0
-    
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let currentPositionY = scrollView.contentOffset.y
         
@@ -85,46 +68,28 @@ class ListWithSearchViewController: UIViewController, UITextFieldDelegate {
         
         // Scrolling down
         if lastScrollPositionY < currentPositionY {
-            let newPosition = searchContainerTopConstraintDefault - currentPositionY
-            if newPosition > -100 {
-                self.searchContainerTopConstraint.constant = newPosition
-            }
-            else {
-                self.searchContainerTopConstraint.constant = -100
-            }
+            topMenu.hide()
         }
             // Scrolling up
         else {
             let diff = currentPositionY - lastScrollPositionY
-            var newPosition = searchContainerTopConstraint.constant - diff
-            if newPosition > searchContainerTopConstraintDefault {
-                newPosition = searchContainerTopConstraintDefault
+            if abs(diff) > 5 {
+                topMenu.show()
             }
-            searchContainerTopConstraint.constant = newPosition
         }
         
         lastScrollPositionY = scrollView.contentOffset.y
     }
     
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == self.searchInputTextField {
-            textField.resignFirstResponder()
-        }
-        return false
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let text = textField.text else { return true }
+    func topMenuDidSelectIndex(_ index: Int) {
         
-        let newLength = text.utf16.count + string.utf16.count - range.length
-        return newLength <= 200
+        
     }
 
 }
 
 
-extension ListWithSearchViewController: UICollectionViewDataSource {
+extension ListWithTopMenuViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
     }
@@ -134,7 +99,7 @@ extension ListWithSearchViewController: UICollectionViewDataSource {
     }
 }
 
-extension ListWithSearchViewController: UICollectionViewDelegateFlowLayout {
+extension ListWithTopMenuViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return data[indexPath.item].cellSize
@@ -142,7 +107,7 @@ extension ListWithSearchViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension ListWithSearchViewController: UIViewControllerPreviewingDelegate {
+extension ListWithTopMenuViewController: UIViewControllerPreviewingDelegate {
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         

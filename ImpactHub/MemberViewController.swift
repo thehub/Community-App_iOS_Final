@@ -67,6 +67,7 @@ class MemberViewController: ListFullBleedViewController {
 
         memberGroupsData.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
         
+        // TODO: Add groups
         memberGroupsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
 
         
