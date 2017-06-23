@@ -208,8 +208,10 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
 
         if scrollView.contentOffset.y > 200 {
             self.tabBarController?.tabBar.isHidden = false
-            connectButtonBottomConsatraint?.constant = connectButtonBottomConsatraintDefault + self.navigationController!.navigationBar.frame.height
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {                self.setNeedsStatusBarAppearanceUpdate()
+            let navBarHeight = self.navigationController?.navigationBar.frame.height ?? 0.0
+            connectButtonBottomConsatraint?.constant = connectButtonBottomConsatraintDefault + navBarHeight
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
+                self.setNeedsStatusBarAppearanceUpdate()
                 self.view.layoutIfNeeded()
             }) { (_) in
                 

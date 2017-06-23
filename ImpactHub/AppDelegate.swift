@@ -84,10 +84,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         loginViewController.showNavbar = true
         loginViewController.showSettingsIcon = false
         loginViewController.navBarColor = UIColor.white
-//        loginViewController.navBarFont = UIFont (name: "HelveticaNeue-Medium", size: 19);
         loginViewController.navBarTextColor = UIColor.darkGray
         
-        SalesforceSDKManager.shared().launch()
+//        SalesforceSDKManager.shared().launch()
 
 
         return true
