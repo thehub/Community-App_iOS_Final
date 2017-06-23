@@ -15,6 +15,8 @@ struct Event {
     var locationName: String
     var address: String
     var photo: String
+    var description: String
+    var price: String
     
 }
     

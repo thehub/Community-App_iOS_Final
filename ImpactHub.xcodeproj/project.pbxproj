@@ -80,6 +80,21 @@
 		850B703A1EFC0F6D00596315 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B70331EFC0F6D00596315 /* EventsViewController.swift */; };
 		850B703B1EFC0F6D00596315 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B70331EFC0F6D00596315 /* EventsViewController.swift */; };
 		850B703C1EFC0F6D00596315 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B70331EFC0F6D00596315 /* EventsViewController.swift */; };
+		8516550F1EFD326400002786 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516550E1EFD326400002786 /* EventViewController.swift */; };
+		851655101EFD326400002786 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516550E1EFD326400002786 /* EventViewController.swift */; };
+		851655111EFD326400002786 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516550E1EFD326400002786 /* EventViewController.swift */; };
+		851655141EFD326F00002786 /* EventDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851655121EFD326F00002786 /* EventDetailCell.swift */; };
+		851655151EFD326F00002786 /* EventDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851655121EFD326F00002786 /* EventDetailCell.swift */; };
+		851655161EFD326F00002786 /* EventDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851655121EFD326F00002786 /* EventDetailCell.swift */; };
+		851655171EFD326F00002786 /* EventDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 851655131EFD326F00002786 /* EventDetailCell.xib */; };
+		851655181EFD326F00002786 /* EventDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 851655131EFD326F00002786 /* EventDetailCell.xib */; };
+		851655191EFD326F00002786 /* EventDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 851655131EFD326F00002786 /* EventDetailCell.xib */; };
+		8516551B1EFD32A000002786 /* EventDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516551A1EFD32A000002786 /* EventDetailViewModel.swift */; };
+		8516551C1EFD32A000002786 /* EventDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516551A1EFD32A000002786 /* EventDetailViewModel.swift */; };
+		8516551D1EFD32A000002786 /* EventDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516551A1EFD32A000002786 /* EventDetailViewModel.swift */; };
+		8516551F1EFD5F0200002786 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516551E1EFD5F0200002786 /* AddPostViewController.swift */; };
+		851655201EFD5F0200002786 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516551E1EFD5F0200002786 /* AddPostViewController.swift */; };
+		851655211EFD5F0200002786 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516551E1EFD5F0200002786 /* AddPostViewController.swift */; };
 		853433CB1EE6B547003C26F8 /* MessagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433C91EE6B547003C26F8 /* MessagesCell.swift */; };
 		853433CC1EE6B547003C26F8 /* MessagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 853433CA1EE6B547003C26F8 /* MessagesCell.xib */; };
 		853433CF1EE6B726003C26F8 /* MessagesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433CE1EE6B726003C26F8 /* MessagesVM.swift */; };
@@ -416,6 +431,11 @@
 		850B70311EFC0F6D00596315 /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
 		850B70321EFC0F6D00596315 /* EventCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventCollectionViewCell.xib; sourceTree = "<group>"; };
 		850B70331EFC0F6D00596315 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		8516550E1EFD326400002786 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		851655121EFD326F00002786 /* EventDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailCell.swift; sourceTree = "<group>"; };
+		851655131EFD326F00002786 /* EventDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailCell.xib; sourceTree = "<group>"; };
+		8516551A1EFD32A000002786 /* EventDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewModel.swift; sourceTree = "<group>"; };
+		8516551E1EFD5F0200002786 /* AddPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
 		853433C91EE6B547003C26F8 /* MessagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesCell.swift; sourceTree = "<group>"; };
 		853433CA1EE6B547003C26F8 /* MessagesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessagesCell.xib; sourceTree = "<group>"; };
 		853433CE1EE6B726003C26F8 /* MessagesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesVM.swift; sourceTree = "<group>"; };
@@ -619,6 +639,9 @@
 				850B70331EFC0F6D00596315 /* EventsViewController.swift */,
 				850B70311EFC0F6D00596315 /* EventCollectionViewCell.swift */,
 				850B70321EFC0F6D00596315 /* EventCollectionViewCell.xib */,
+				8516550E1EFD326400002786 /* EventViewController.swift */,
+				851655121EFD326F00002786 /* EventDetailCell.swift */,
+				851655131EFD326F00002786 /* EventDetailCell.xib */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -856,6 +879,7 @@
 				85523DAD1EFA9CB100F66B53 /* ListWithSearchViewController.swift */,
 				859F97FB1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift */,
 				85523DB51EFAABD700F66B53 /* ListFullBleedViewController.swift */,
+				8516551E1EFD5F0200002786 /* AddPostViewController.swift */,
 				85DE9EFA1ECC9D2700291EF5 /* Members */,
 				858C588E1EF927C100136DAC /* Projects */,
 				8570C1E61ECF035700FA1CE9 /* Companies */,
@@ -947,6 +971,7 @@
 				850B70141EFBF1FB00596315 /* GroupViewModel.swift */,
 				850B70241EFBF86800596315 /* GroupDetailTopViewModel.swift */,
 				850B702D1EFC0F4300596315 /* EventViewModel.swift */,
+				8516551A1EFD32A000002786 /* EventDetailViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -1072,6 +1097,7 @@
 				85523DB21EFAA3F100F66B53 /* CompanyCollectionViewCell.xib in Resources */,
 				858C58D41EF9848E00136DAC /* JobDetailCell.xib in Resources */,
 				85455D391EF2A53200243846 /* gt-walsheim-medium-web.ttf in Resources */,
+				851655171EFD326F00002786 /* EventDetailCell.xib in Resources */,
 				853433CC1EE6B547003C26F8 /* MessagesCell.xib in Resources */,
 				859C41671ECDA01A00637295 /* MemberDetailTopCell.xib in Resources */,
 				859C417F1ECDFFD700637295 /* MemberAboutItemCell.xib in Resources */,
@@ -1132,6 +1158,7 @@
 				85455D311EF2A53200243846 /* gt-walsheim-bold-web.ttf in Resources */,
 				859F97D71EFBBF01001C0B33 /* GoalDetailTopCell.xib in Resources */,
 				858C58911EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */,
+				851655181EFD326F00002786 /* EventDetailCell.xib in Resources */,
 				85455D371EF2A53200243846 /* gt-walsheim-light-web.ttf in Resources */,
 				850B70121EFBF1CA00596315 /* GroupCollectionViewCell.xib in Resources */,
 			);
@@ -1160,6 +1187,7 @@
 				85455D321EF2A53200243846 /* gt-walsheim-bold-web.ttf in Resources */,
 				859F97D81EFBBF01001C0B33 /* GoalDetailTopCell.xib in Resources */,
 				858C58921EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */,
+				851655191EFD326F00002786 /* EventDetailCell.xib in Resources */,
 				85455D381EF2A53200243846 /* gt-walsheim-light-web.ttf in Resources */,
 				850B70131EFBF1CA00596315 /* GroupCollectionViewCell.xib in Resources */,
 			);
@@ -1225,6 +1253,7 @@
 				858C58D81EF9868900136DAC /* JobDetailViewModel.swift in Sources */,
 				85DE9EFC1ECC9D3F00291EF5 /* MembersViewController.swift in Sources */,
 				853433CF1EE6B726003C26F8 /* MessagesVM.swift in Sources */,
+				8516550F1EFD326400002786 /* EventViewController.swift in Sources */,
 				857480511EE802D0005F73A2 /* MessageSegment.swift in Sources */,
 				859F97E11EFBBF10001C0B33 /* GoalDetailTopViewModel.swift in Sources */,
 				857480751EE846C2005F73A2 /* WhiteButton.swift in Sources */,
@@ -1289,6 +1318,7 @@
 				85523DBF1EFAB4B300F66B53 /* CompanyDetailTopCell.swift in Sources */,
 				8570C1CE1ECEE0BA00FA1CE9 /* SearchViewController.swift in Sources */,
 				8574805D1EE802D0005F73A2 /* Subscription.swift in Sources */,
+				8516551F1EFD5F0200002786 /* AddPostViewController.swift in Sources */,
 				853433CB1EE6B547003C26F8 /* MessagesCell.swift in Sources */,
 				859C416F1ECDB39D00637295 /* MemberFeedItemViewModel.swift in Sources */,
 				857480451EE802D0005F73A2 /* Conversation.swift in Sources */,
@@ -1323,6 +1353,7 @@
 				857480311EE80279005F73A2 /* ChatterSegmentBuilder.swift in Sources */,
 				85066FC51ED33E6F0032391A /* MemberSkillItemCell.swift in Sources */,
 				850B700E1EFBF1CA00596315 /* GroupCollectionViewCell.swift in Sources */,
+				851655141EFD326F00002786 /* EventDetailCell.swift in Sources */,
 				8574805A1EE802D0005F73A2 /* Reference.swift in Sources */,
 				859C41711ECDB6BF00637295 /* TopMenu.swift in Sources */,
 				85523DCE1EFAC99E00F66B53 /* CompanyServiceItemViewModel.swift in Sources */,
@@ -1336,6 +1367,7 @@
 				850B70211EFBF84600596315 /* GroupViewController.swift in Sources */,
 				85523DC71EFAC92D00F66B53 /* CompanyServiceItemCell.swift in Sources */,
 				8570C1FD1ECF1A2A00FA1CE9 /* CompanyAboutCell.swift in Sources */,
+				8516551B1EFD32A000002786 /* EventDetailViewModel.swift in Sources */,
 				859F97FC1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift in Sources */,
 				8570C2021ECF214600FA1CE9 /* Job.swift in Sources */,
 				8505E1FA1EF3CEEA005A2F40 /* NavigationViewController.swift in Sources */,
@@ -1382,6 +1414,7 @@
 				850072401EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */,
 				850B70221EFBF84600596315 /* GroupViewController.swift in Sources */,
 				857480491EE802D0005F73A2 /* Group.swift in Sources */,
+				851655201EFD5F0200002786 /* AddPostViewController.swift in Sources */,
 				8574804C1EE802D0005F73A2 /* MentionCompletion.swift in Sources */,
 				85523DC01EFAB4B300F66B53 /* CompanyDetailTopCell.swift in Sources */,
 				858C58CD1EF96EB600136DAC /* JobViewController.swift in Sources */,
@@ -1415,12 +1448,15 @@
 				850B702B1EFC0F2D00596315 /* Event.swift in Sources */,
 				857480461EE802D0005F73A2 /* Conversation.swift in Sources */,
 				859F97FD1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift in Sources */,
+				851655101EFD326400002786 /* EventViewController.swift in Sources */,
 				8574804F1EE802D0005F73A2 /* Message.swift in Sources */,
 				85455D491EF2E7A000243846 /* RedButton.swift in Sources */,
 				857480401EE802D0005F73A2 /* ChatterActor.swift in Sources */,
 				857480581EE802D0005F73A2 /* Post.swift in Sources */,
+				8516551C1EFD32A000002786 /* EventDetailViewModel.swift in Sources */,
 				850B70261EFBF86800596315 /* GroupDetailTopViewModel.swift in Sources */,
 				857480521EE802D0005F73A2 /* MessageSegment.swift in Sources */,
+				851655151EFD326F00002786 /* EventDetailCell.swift in Sources */,
 				8534340D1EE6BE11003C26F8 /* MessagesThreadViewController.swift in Sources */,
 				85455D281EF28E6400243846 /* UIColor+IMAAdditions.swift in Sources */,
 				8574807A1EE846EE005F73A2 /* SessionManager.swift in Sources */,
@@ -1470,6 +1506,7 @@
 				850072411EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */,
 				850B70231EFBF84600596315 /* GroupViewController.swift in Sources */,
 				8574804A1EE802D0005F73A2 /* Group.swift in Sources */,
+				851655211EFD5F0200002786 /* AddPostViewController.swift in Sources */,
 				8574804D1EE802D0005F73A2 /* MentionCompletion.swift in Sources */,
 				85523DC11EFAB4B300F66B53 /* CompanyDetailTopCell.swift in Sources */,
 				858C58CE1EF96EB600136DAC /* JobViewController.swift in Sources */,
@@ -1503,12 +1540,15 @@
 				850B702C1EFC0F2D00596315 /* Event.swift in Sources */,
 				857480471EE802D0005F73A2 /* Conversation.swift in Sources */,
 				859F97FE1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift in Sources */,
+				851655111EFD326400002786 /* EventViewController.swift in Sources */,
 				857480501EE802D0005F73A2 /* Message.swift in Sources */,
 				85455D4A1EF2E7A000243846 /* RedButton.swift in Sources */,
 				857480411EE802D0005F73A2 /* ChatterActor.swift in Sources */,
 				857480591EE802D0005F73A2 /* Post.swift in Sources */,
+				8516551D1EFD32A000002786 /* EventDetailViewModel.swift in Sources */,
 				850B70271EFBF86800596315 /* GroupDetailTopViewModel.swift in Sources */,
 				857480531EE802D0005F73A2 /* MessageSegment.swift in Sources */,
+				851655161EFD326F00002786 /* EventDetailCell.swift in Sources */,
 				8534340E1EE6BE11003C26F8 /* MessagesThreadViewController.swift in Sources */,
 				85455D291EF28E6400243846 /* UIColor+IMAAdditions.swift in Sources */,
 				8574807B1EE846EE005F73A2 /* SessionManager.swift in Sources */,

@@ -8,9 +8,9 @@
 
 import UIKit
 
-class JobViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
+class EventViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
 
-    var job: Job!
+    var event: Event!
     
     @IBOutlet weak var companyPhotoImageView: UIImageView!
     @IBOutlet weak var fadeView: UIView!
@@ -36,6 +36,20 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.tabBarController?.tabBar.isHidden = true
+        
+        
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
+            self.setNeedsStatusBarAppearanceUpdate()
+        }) { (_) in
+            
+        }
+
     }
     
     
@@ -48,59 +62,35 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
         super.viewWillAppear(animated)
         
 
-        self.title = job.name
+        self.title = event.name
         
-        self.companyPhotoImageView.image = UIImage(named: job.company.photo)
+        self.companyPhotoImageView.image = UIImage(named: event.photo)
         
         
         
         collectionView.register(UINib.init(nibName: TitleViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: TitleViewModel.cellIdentifier)
-        collectionView.register(UINib.init(nibName: JobDetailViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: JobDetailViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: EventDetailViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: EventDetailViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: JobViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: JobViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: ProjectViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectViewModel.cellIdentifier)
-
-        
+        collectionView.register(UINib.init(nibName: MemberFeedItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberFeedItemViewModel.cellIdentifier)
         
         
         // Title
-        data.append(TitleViewModel(title: "JOBS DESCRIPTION", cellSize: CGSize(width: view.frame.width, height: 50)))
+        data.append(TitleViewModel(title: "DESCRIPTION", cellSize: CGSize(width: view.frame.width, height: 50)))
         
         
-        // Job Detail
-        data.append(JobDetailViewModel(job: job, cellSize: CGSize(width: view.frame.width, height: 0)))
+        // Event Detail
+        data.append(EventDetailViewModel(event: event, cellSize: CGSize(width: view.frame.width, height: 0)))
         
         // Title
-        data.append(TitleViewModel(title: "RELATED JOBS", cellSize: CGSize(width: view.frame.width, height: 50)))
-        
-        let company = Company(id: "dsfsd", name: "Aspite", type: "dsfsdfs", photo: "companyImage", logo:"companyLogo", blurb: "Lorem ipsum", locationName: "London, UK", website: "www.bbc.co.uk", size: "10 - 50")
-        
-        let item1 = Job(id: "zxddz", name: "Marketing Strategist", company: company, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", locationName: "London, UK", type: "Fulltime", salary: "€ 30.000 / 40.000 p/a", companyName: "Aspire", companyId: "dsfsdfsdfs")
-        
-        
-        let cellWidth: CGFloat = self.view.frame.width
-        let viewModel1 = JobViewModel(job: item1, cellSize: CGSize(width: cellWidth, height: 145))
-        let viewModel2 = JobViewModel(job: item1, cellSize: CGSize(width: cellWidth, height: 145))
-        let viewModel3 = JobViewModel(job: item1, cellSize: CGSize(width: cellWidth, height: 145))
-        let viewModel4 = JobViewModel(job: item1, cellSize: CGSize(width: cellWidth, height: 145))
-        
-        data.append(viewModel1)
-        data.append(viewModel2)
-        data.append(viewModel3)
-        data.append(viewModel4)
+        data.append(TitleViewModel(title: "DISCUSSION", cellSize: CGSize(width: view.frame.width, height: 50)))
 
-        // Title
-        data.append(TitleViewModel(title: "RELATED PROJECTS", cellSize: CGSize(width: view.frame.width, height: 50)))
+        var member = Member.init(name: "Test", job: "Test", photo: "photo", blurb: "test", aboutMe: "test", locationName: "London")
 
-        
-        data.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
-        
-        data.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
-        
-        data.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
-        
-        data.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
-        
-        data.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
+        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
+        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
+        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
 
 
         
@@ -108,7 +98,7 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
     }
     
 
-    var shouldHideStatusBar = false
+    var shouldHideStatusBar = true
     
     override var prefersStatusBarHidden: Bool {
         return shouldHideStatusBar
@@ -124,12 +114,15 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
         super.viewDidLayoutSubviews()
         
         gradientLayer.removeFromSuperlayer()
-        let startingColorOfGradient = UIColor.init(white: 1.0, alpha: 0.0).cgColor
-        let endingColorOFGradient = UIColor.init(white: 1.0, alpha: 1.0).cgColor
+        
+        let startingColorOfGradient = UIColor(hexString: "252424").withAlphaComponent(0.0).cgColor
+        let midColor = UIColor(hexString: "181818").withAlphaComponent(0.66).cgColor
+        let endingColorOFGradient = UIColor(hexString: "252424").withAlphaComponent(1.0).cgColor
         gradientLayer.frame = self.fadeView.layer.bounds
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 0.5, y:0.8)
-        gradientLayer.colors = [startingColorOfGradient , endingColorOFGradient]
+        gradientLayer.endPoint = CGPoint(x: 0.5, y:1.0)
+        gradientLayer.locations = [NSNumber.init(value: 0.0), NSNumber.init(value: 0.8), NSNumber.init(value: 1.0)]
+        gradientLayer.colors = [startingColorOfGradient, midColor, endingColorOFGradient]
         fadeView.layer.insertSublayer(gradientLayer, at: 0)
 
         if !didLayout {
@@ -148,15 +141,10 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        if let vm = data[indexPath.item] as? MemberFeedItemViewModel {
-            let cellWidth: CGFloat = self.collectionView.frame.width
-            let height = vm.feedText.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 145 // add extra height for the standard elements, titles, lines, sapcing etc.
-            return CGSize(width: view.frame.width, height: height)
-        }
         
-        if let vm = data[indexPath.item] as? JobDetailViewModel {
+        if let vm = data[indexPath.item] as? EventDetailViewModel {
             let cellWidth: CGFloat = self.collectionView.frame.width
-            let height = vm.job.description.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 15)!) + 100 // add extra height for the standard elements, titles, lines, sapcing etc.
+            let height = vm.event.description.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 280 // add extra height for the standard elements, titles, lines, sapcing etc.
             return CGSize(width: view.frame.width, height: height)
         }
         
@@ -207,13 +195,16 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         let offset = scrollView.contentOffset.y
-        if offset < 350 && offset > 0 {
-            compnayPhotoTopConstraint.constant = -(offset * 0.5)
+        if offset < 450 && offset > -100 {
+            compnayPhotoTopConstraint.constant = -(offset * 1.0)
             self.view.layoutIfNeeded()
         }
 
         if scrollView.contentOffset.y > 200 {
             self.tabBarController?.tabBar.isHidden = false
+            self.shouldHideStatusBar = false
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+
             let navBarHeight = self.navigationController?.navigationBar.frame.height ?? 0.0
             connectButtonBottomConsatraint?.constant = connectButtonBottomConsatraintDefault + navBarHeight
             UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
@@ -226,6 +217,9 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
         }
         else if scrollView.contentOffset.y < 200 {
             self.tabBarController?.tabBar.isHidden = true
+            self.shouldHideStatusBar = true
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+
             connectButtonBottomConsatraint?.constant = connectButtonBottomConsatraintDefault
             UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
                 self.setNeedsStatusBarAppearanceUpdate()
@@ -257,7 +251,7 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
     
 }
 
-extension JobViewController: UICollectionViewDataSource {
+extension EventViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
     }

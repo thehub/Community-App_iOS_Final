@@ -81,7 +81,6 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
         else if scrollView.contentOffset.y < 200 && topMenu.isShow {
             topMenu.hide()
             self.tabBarController?.tabBar.isHidden = true
-            self.navigationController?.setNavigationBarHidden(true, animated: true)
             connectButtonBottomConsatraint?.constant = connectButtonBottomConsatraintDefault
             self.shouldHideStatusBar = true
             self.navigationController?.setNavigationBarHidden(true, animated: true)

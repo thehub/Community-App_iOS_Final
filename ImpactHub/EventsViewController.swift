@@ -17,10 +17,10 @@ class EventsViewController: ListWithSearchViewController {
 
         collectionView.register(UINib.init(nibName: EventViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: EventViewModel.cellIdentifier)
         
-        let item1 = Event(name: "A guide to reaching your sustainable development goals", date: Date().addingTimeInterval((60 * 60 * 24 * 12)), locationName: "London", address: "E5 0RF", photo: "eventPhoto")
-        let item2 = Event(name: "A guide to reaching your sustainable development goals", date: Date().addingTimeInterval((60 * 60 * 24 * 12)), locationName: "London", address: "E5 0RF", photo: "eventPhoto")
-        let item3 = Event(name: "A guide to reaching your sustainable development goals", date: Date().addingTimeInterval((60 * 60 * 24 * 12)), locationName: "London", address: "E5 0RF", photo: "eventPhoto")
-        let item4 = Event(name: "A guide to reaching your sustainable development goals", date: Date().addingTimeInterval((60 * 60 * 24 * 12)), locationName: "London", address: "E5 0RF", photo: "eventPhoto")
+        let item1 = Event(name: "A guide to reaching your sustainable development goals", date: Date().addingTimeInterval((60 * 60 * 24 * 12)), locationName: "London", address: "E5 0RF", photo: "eventPhoto", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", price: "Free")
+        let item2 = Event(name: "A guide to reaching your sustainable development goals", date: Date().addingTimeInterval((60 * 60 * 24 * 12)), locationName: "London", address: "E5 0RF", photo: "eventPhoto", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", price: "Free")
+        let item3 = Event(name: "A guide to reaching your sustainable development goals", date: Date().addingTimeInterval((60 * 60 * 24 * 12)), locationName: "London", address: "E5 0RF", photo: "eventPhoto", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", price: "Free")
+        let item4 = Event(name: "A guide to reaching your sustainable development goals", date: Date().addingTimeInterval((60 * 60 * 24 * 12)), locationName: "London", address: "E5 0RF", photo: "eventPhoto", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", price: "Free")
         
         let cellWidth: CGFloat = self.view.frame.width
         let viewModel1 = EventViewModel(event: item1, cellSize: CGSize(width: cellWidth, height: 370))
@@ -68,11 +68,11 @@ class EventsViewController: ListWithSearchViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "ShowEvent" {
-//            if let vc = segue.destination as? EventViewController, let selectedItem = selectedVM {
-//                vc.event = selectedItem.event
-//            }
-//        }
+        if segue.identifier == "ShowEvent" {
+            if let vc = segue.destination as? EventViewController, let selectedItem = selectedVM {
+                vc.event = selectedItem.event
+            }
+        }
     }
     
     
@@ -82,7 +82,7 @@ extension EventsViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let vm = data[indexPath.item] as? EventViewModel {
             selectedVM = vm
-//            performSegue(withIdentifier: "ShowEvent", sender: self)
+            performSegue(withIdentifier: "ShowEvent", sender: self)
         }
     }
 }

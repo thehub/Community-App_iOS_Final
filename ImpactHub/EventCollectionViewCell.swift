@@ -44,11 +44,8 @@ class EventCollectionViewCell: UICollectionViewCell {
         self.bgView.layer.shadowRadius = 10.0
 
         bigImageView.roundCorners([.topLeft, .topRight], radius: 10)
-
-    
-        fadeView.layer.cornerRadius = 10
+        fadeView.roundCorners([.topLeft, .topRight], radius: 10)
         fadeView.clipsToBounds = true
-        
         gradientLayer.removeFromSuperlayer()
         let startingColorOfGradient = UIColor(hexString: "252424").withAlphaComponent(0.0).cgColor
         let midColor = UIColor(hexString: "181818").withAlphaComponent(0.66).cgColor
