@@ -86,11 +86,11 @@ class ListWithSearchViewController: UIViewController, UITextFieldDelegate {
         // Scrolling down
         if lastScrollPositionY < currentPositionY {
             let newPosition = searchContainerTopConstraintDefault - currentPositionY
-            if newPosition > -100 {
+            if newPosition > -searchContainer.frame.height {
                 self.searchContainerTopConstraint.constant = newPosition
             }
             else {
-                self.searchContainerTopConstraint.constant = -100
+                self.searchContainerTopConstraint.constant = -searchContainer.frame.height
             }
         }
             // Scrolling up
