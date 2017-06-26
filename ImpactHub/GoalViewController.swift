@@ -31,7 +31,7 @@ class GoalViewController: ListFullBleedViewController {
         collectionView.register(UINib.init(nibName: GroupViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: GroupViewModel.cellIdentifier)
 
         
-        topMenu.setupWithItems(["ABOUT", "GROUPS", "MEMBERS"])
+        topMenu?.setupWithItems(["ABOUT", "GROUPS", "MEMBERS"])
 
         // Feed
         aboutData.append(GoalDetailTopViewModel(goal: goal, cellSize: .zero)) // this will pick the full height instead

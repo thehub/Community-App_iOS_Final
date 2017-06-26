@@ -33,7 +33,7 @@ class ProjectViewController: ListFullBleedViewController {
         collectionView.register(UINib.init(nibName: JobViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: JobViewModel.cellIdentifier)
 
         
-        topMenu.setupWithItems(["FEED", "OBJECTIVES", "MEMBERS", "JOBS"])
+        topMenu?.setupWithItems(["FEED", "OBJECTIVES", "MEMBERS", "JOBS"])
 
         // Feed
         projectFeedData.append(ProjectDetailTopViewModel(project: project, cellSize: .zero)) // this will pick the full height instead

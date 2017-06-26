@@ -10,7 +10,7 @@ import UIKit
 
 class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, TopMenuDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
 
-    @IBOutlet weak var topMenu: TopMenu!
+    @IBOutlet weak var topMenu: TopMenu?
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -32,7 +32,7 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
 
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         
-        topMenu.delegate = self
+        topMenu?.delegate = self
 
     
         self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -68,8 +68,8 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
 
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y > 200 && !topMenu.isShow {
-            topMenu.show()
+        if scrollView.contentOffset.y > 200 && !(topMenu?.isShow ?? false) {
+            topMenu?.show()
             self.tabBarController?.tabBar.isHidden = false
             self.shouldHideStatusBar = false
             self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -81,8 +81,8 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
             }
             
         }
-        else if scrollView.contentOffset.y < 200 && topMenu.isShow {
-            topMenu.hide()
+        else if scrollView.contentOffset.y < 200 && (topMenu?.isShow ?? true) {
+            topMenu?.hide()
             self.tabBarController?.tabBar.isHidden = true
             connectButtonBottomConsatraint?.constant = connectButtonBottomConsatraintDefault
             self.shouldHideStatusBar = true

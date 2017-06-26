@@ -68,7 +68,7 @@ class CompanyViewController: ListFullBleedViewController {
         collectionView.register(UINib.init(nibName: CompanyServiceItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: CompanyServiceItemViewModel.cellIdentifier)
 
 
-        topMenu.setupWithItems(["About", "Projects", "Members"])
+        topMenu?.setupWithItems(["About", "Projects", "Members"])
         
         // About
         aboutData.append(CompanyDetailTopViewModel(company: company, cellSize: .zero)) // this will pick the full height instead

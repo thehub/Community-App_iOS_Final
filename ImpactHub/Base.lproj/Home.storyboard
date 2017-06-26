@@ -1483,29 +1483,19 @@
                                     <outlet property="delegate" destination="ytP-JQ-5XJ" id="y8q-HM-Aip"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gJ5-ax-qXa" customClass="TopMenu" customModule="ImpactHub" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="PGf-SV-Uxl"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="mO9-vW-zkP" secondAttribute="trailing" id="29M-2U-KMc"/>
-                            <constraint firstItem="gJ5-ax-qXa" firstAttribute="top" secondItem="h6w-ro-TIc" secondAttribute="bottom" id="3wa-GE-OVU"/>
-                            <constraint firstAttribute="trailing" secondItem="gJ5-ax-qXa" secondAttribute="trailing" id="7wr-Mg-H7O"/>
                             <constraint firstItem="mO9-vW-zkP" firstAttribute="leading" secondItem="hC0-f3-Fkl" secondAttribute="leading" id="E0G-D4-6SR"/>
                             <constraint firstItem="mO9-vW-zkP" firstAttribute="top" secondItem="h6w-ro-TIc" secondAttribute="bottom" id="INH-UZ-MNa"/>
                             <constraint firstItem="pqR-Rb-Nin" firstAttribute="top" secondItem="mO9-vW-zkP" secondAttribute="bottom" id="Q6r-Iv-RV7"/>
-                            <constraint firstItem="gJ5-ax-qXa" firstAttribute="leading" secondItem="hC0-f3-Fkl" secondAttribute="leading" id="e09-BD-tZL"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="mO9-vW-zkP" id="3be-7C-dJa"/>
-                        <outlet property="topMenu" destination="gJ5-ax-qXa" id="HNg-hd-BZ5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Spy-ky-Xmt" userLabel="First Responder" sceneMemberID="firstResponder"/>

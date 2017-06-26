@@ -26,7 +26,7 @@ class GroupViewController: ListFullBleedViewController {
         collectionView.register(UINib.init(nibName: GroupViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: GroupViewModel.cellIdentifier)
 
         
-        topMenu.hide()
+        topMenu?.hide()
         
         // Feed
         // Feed

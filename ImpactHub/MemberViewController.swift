@@ -32,7 +32,7 @@ class MemberViewController: ListFullBleedViewController {
 
 
         
-        topMenu.setupWithItems(["ABOUT", "PROJECTS", "GROUPS"])
+        topMenu?.setupWithItems(["ABOUT", "PROJECTS", "GROUPS"])
 
         memberAboutData.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
         memberAboutData.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 0)))
