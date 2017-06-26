@@ -57,6 +57,7 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
     let gradientLayer: CAGradientLayer = CAGradientLayer()
     
 
+    var initialCompanyPhotoScale: CGFloat = 1.8
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -65,7 +66,7 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
         self.title = event.name
         
         self.companyPhotoImageView.image = UIImage(named: event.photo)
-        
+        self.companyPhotoImageView.transform = CGAffineTransform.init(scaleX: initialCompanyPhotoScale, y: initialCompanyPhotoScale)
         
         
         collectionView.register(UINib.init(nibName: TitleViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: TitleViewModel.cellIdentifier)
@@ -73,8 +74,12 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
         collectionView.register(UINib.init(nibName: JobViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: JobViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: ProjectViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: MemberFeedItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberFeedItemViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: BigTitleTopViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: BigTitleTopViewModel.cellIdentifier)
         
-        
+
+        // Big Title
+        data.append(BigTitleTopViewModel(event: event, cellSize: CGSize(width: view.frame.width, height: 250)))
+
         // Title
         data.append(TitleViewModel(title: "DESCRIPTION", cellSize: CGSize(width: view.frame.width, height: 50)))
         
@@ -85,7 +90,7 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
         // Title
         data.append(TitleViewModel(title: "DISCUSSION", cellSize: CGSize(width: view.frame.width, height: 50)))
 
-        var member = Member.init(name: "Test", job: "Test", photo: "photo", blurb: "test", aboutMe: "test", locationName: "London")
+        let member = Member.init(name: "Test", job: "Test", photo: "photo", blurb: "test", aboutMe: "test", locationName: "London")
 
         data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
         data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
@@ -197,6 +202,18 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
         let offset = scrollView.contentOffset.y
         if offset < 450 && offset > -100 {
             compnayPhotoTopConstraint.constant = -(offset * 1.0)
+            
+            var newScale = initialCompanyPhotoScale - (offset * 0.007)
+            if newScale < 1 {
+                newScale = 1
+            }
+            else if newScale > initialCompanyPhotoScale {
+                newScale = initialCompanyPhotoScale
+            }
+            
+            self.companyPhotoImageView.transform = CGAffineTransform.init(scaleX: newScale, y: newScale)
+
+            
             self.view.layoutIfNeeded()
         }
 

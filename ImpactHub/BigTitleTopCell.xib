@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="gt-walsheim-web.ttf">
+            <string>GTWalsheim</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BigTitleTopCell" id="gTV-IL-0wX" customClass="BigTitleTopCell" customModule="ImpactHub" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="250"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="250"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="EVENT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1uj-uQ-2SI">
+                        <rect key="frame" x="129" y="80" width="42" height="19"/>
+                        <fontDescription key="fontDescription" name="GTWalsheim" family="GT Walsheim" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqZ-YK-0Rp">
+                        <rect key="frame" x="20" y="116" width="260" height="32"/>
+                        <attributedString key="attributedText">
+                            <fragment content="Label">
+                                <attributes>
+                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <font key="NSFont" size="28" name="GTWalsheim"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="0.90000000000000002" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="tqZ-YK-0Rp" secondAttribute="trailing" constant="20" id="Myg-Dq-mGF"/>
+                <constraint firstItem="tqZ-YK-0Rp" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="QEI-BD-ShT"/>
+                <constraint firstItem="1uj-uQ-2SI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="80" id="Rdy-O0-Upy"/>
+                <constraint firstItem="1uj-uQ-2SI" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="gEs-ev-E3A"/>
+                <constraint firstItem="tqZ-YK-0Rp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="kfm-1j-3xt"/>
+                <constraint firstItem="tqZ-YK-0Rp" firstAttribute="top" secondItem="1uj-uQ-2SI" secondAttribute="bottom" constant="17" id="nSt-cv-9P8"/>
+            </constraints>
+            <connections>
+                <outlet property="nameLabel" destination="tqZ-YK-0Rp" id="jck-bJ-Uyg"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>

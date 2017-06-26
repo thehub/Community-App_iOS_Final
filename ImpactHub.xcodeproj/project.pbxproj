@@ -353,6 +353,15 @@
 		859F97FC1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97FB1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift */; };
 		859F97FD1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97FB1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift */; };
 		859F97FE1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97FB1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift */; };
+		85AD64901F00FC9800F2CCA8 /* BigTitleTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85AD648E1F00FC9800F2CCA8 /* BigTitleTopCell.xib */; };
+		85AD64911F00FC9800F2CCA8 /* BigTitleTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85AD648E1F00FC9800F2CCA8 /* BigTitleTopCell.xib */; };
+		85AD64921F00FC9800F2CCA8 /* BigTitleTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85AD648E1F00FC9800F2CCA8 /* BigTitleTopCell.xib */; };
+		85AD64971F00FCA800F2CCA8 /* BigTitleTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD64961F00FCA800F2CCA8 /* BigTitleTopViewModel.swift */; };
+		85AD64981F00FCA800F2CCA8 /* BigTitleTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD64961F00FCA800F2CCA8 /* BigTitleTopViewModel.swift */; };
+		85AD64991F00FCA800F2CCA8 /* BigTitleTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD64961F00FCA800F2CCA8 /* BigTitleTopViewModel.swift */; };
+		85AD649B1F00FE2700F2CCA8 /* BigTitleTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD649A1F00FE2700F2CCA8 /* BigTitleTopCell.swift */; };
+		85AD649C1F00FE2700F2CCA8 /* BigTitleTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD649A1F00FE2700F2CCA8 /* BigTitleTopCell.swift */; };
+		85AD649D1F00FE2700F2CCA8 /* BigTitleTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD649A1F00FE2700F2CCA8 /* BigTitleTopCell.swift */; };
 		85B361381ED59D3800DC2DE0 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B361371ED59D3800DC2DE0 /* Notifications.swift */; };
 		85B3613A1ED59FD400DC2DE0 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B361391ED59FD400DC2DE0 /* APIClient.swift */; };
 		85B3613C1ED5A08600DC2DE0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B3613B1ED5A08600DC2DE0 /* Constants.swift */; };
@@ -546,6 +555,9 @@
 		859F97F31EFBD0ED001C0B33 /* GoalAboutItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalAboutItemCell.swift; sourceTree = "<group>"; };
 		859F97F41EFBD0ED001C0B33 /* GoalAboutItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoalAboutItemCell.xib; sourceTree = "<group>"; };
 		859F97FB1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWithTopMenuViewController.swift; sourceTree = "<group>"; };
+		85AD648E1F00FC9800F2CCA8 /* BigTitleTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BigTitleTopCell.xib; sourceTree = "<group>"; };
+		85AD64961F00FCA800F2CCA8 /* BigTitleTopViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigTitleTopViewModel.swift; sourceTree = "<group>"; };
+		85AD649A1F00FE2700F2CCA8 /* BigTitleTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigTitleTopCell.swift; sourceTree = "<group>"; };
 		85B361371ED59D3800DC2DE0 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		85B361391ED59FD400DC2DE0 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		85B3613B1ED5A08600DC2DE0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -642,6 +654,8 @@
 				8516550E1EFD326400002786 /* EventViewController.swift */,
 				851655121EFD326F00002786 /* EventDetailCell.swift */,
 				851655131EFD326F00002786 /* EventDetailCell.xib */,
+				85AD648E1F00FC9800F2CCA8 /* BigTitleTopCell.xib */,
+				85AD649A1F00FE2700F2CCA8 /* BigTitleTopCell.swift */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -972,6 +986,7 @@
 				850B70241EFBF86800596315 /* GroupDetailTopViewModel.swift */,
 				850B702D1EFC0F4300596315 /* EventViewModel.swift */,
 				8516551A1EFD32A000002786 /* EventDetailViewModel.swift */,
+				85AD64961F00FCA800F2CCA8 /* BigTitleTopViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -1122,6 +1137,7 @@
 				859F97D61EFBBF01001C0B33 /* GoalDetailTopCell.xib in Resources */,
 				858C58901EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */,
 				859F97D01EFBBF01001C0B33 /* GoalCollectionViewCell.xib in Resources */,
+				85AD64901F00FC9800F2CCA8 /* BigTitleTopCell.xib in Resources */,
 				8570C1DC1ECEE3F300FA1CE9 /* Profile.storyboard in Resources */,
 				85DE9ED01ECC8CD900291EF5 /* Assets.xcassets in Resources */,
 				85523DCA1EFAC92D00F66B53 /* CompanyServiceItemCell.xib in Resources */,
@@ -1139,6 +1155,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85AD64911F00FC9800F2CCA8 /* BigTitleTopCell.xib in Resources */,
 				858C58D51EF9848E00136DAC /* JobDetailCell.xib in Resources */,
 				85455D3A1EF2A53200243846 /* gt-walsheim-medium-web.ttf in Resources */,
 				858C58B51EF94C7700136DAC /* ProjectObjectiveCell.xib in Resources */,
@@ -1168,6 +1185,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85AD64921F00FC9800F2CCA8 /* BigTitleTopCell.xib in Resources */,
 				858C58D61EF9848E00136DAC /* JobDetailCell.xib in Resources */,
 				85455D3B1EF2A53200243846 /* gt-walsheim-medium-web.ttf in Resources */,
 				858C58B61EF94C7700136DAC /* ProjectObjectiveCell.xib in Resources */,
@@ -1328,6 +1346,7 @@
 				8570C1E51ECF030900FA1CE9 /* CompanyViewModel.swift in Sources */,
 				859F97D31EFBBF01001C0B33 /* GoalDetailTopCell.swift in Sources */,
 				859F97F51EFBD0ED001C0B33 /* GoalAboutItemCell.swift in Sources */,
+				85AD649B1F00FE2700F2CCA8 /* BigTitleTopCell.swift in Sources */,
 				858C58C41EF9670E00136DAC /* JobCollectionViewCell.swift in Sources */,
 				858C58BC1EF9665E00136DAC /* JobsViewController.swift in Sources */,
 				85E7DA821EF818D200C9DA15 /* ProjectCollectionViewCell.swift in Sources */,
@@ -1366,6 +1385,7 @@
 				857480651EE802F1005F73A2 /* User.swift in Sources */,
 				850B70211EFBF84600596315 /* GroupViewController.swift in Sources */,
 				85523DC71EFAC92D00F66B53 /* CompanyServiceItemCell.swift in Sources */,
+				85AD64971F00FCA800F2CCA8 /* BigTitleTopViewModel.swift in Sources */,
 				8570C1FD1ECF1A2A00FA1CE9 /* CompanyAboutCell.swift in Sources */,
 				8516551B1EFD32A000002786 /* EventDetailViewModel.swift in Sources */,
 				859F97FC1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift in Sources */,
@@ -1422,7 +1442,9 @@
 				859F97CE1EFBBF01001C0B33 /* GoalCollectionViewCell.swift in Sources */,
 				859F97D41EFBBF01001C0B33 /* GoalDetailTopCell.swift in Sources */,
 				850072241EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
+				85AD64981F00FCA800F2CCA8 /* BigTitleTopViewModel.swift in Sources */,
 				859F97C51EFBBEE6001C0B33 /* Goal.swift in Sources */,
+				85AD649C1F00FE2700F2CCA8 /* BigTitleTopCell.swift in Sources */,
 				85523DC81EFAC92D00F66B53 /* CompanyServiceItemCell.swift in Sources */,
 				858C58B21EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */,
 				850B700F1EFBF1CA00596315 /* GroupCollectionViewCell.swift in Sources */,
@@ -1514,7 +1536,9 @@
 				859F97CF1EFBBF01001C0B33 /* GoalCollectionViewCell.swift in Sources */,
 				859F97D51EFBBF01001C0B33 /* GoalDetailTopCell.swift in Sources */,
 				850072251EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
+				85AD64991F00FCA800F2CCA8 /* BigTitleTopViewModel.swift in Sources */,
 				859F97C61EFBBEE6001C0B33 /* Goal.swift in Sources */,
+				85AD649D1F00FE2700F2CCA8 /* BigTitleTopCell.swift in Sources */,
 				85523DC91EFAC92D00F66B53 /* CompanyServiceItemCell.swift in Sources */,
 				858C58B31EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */,
 				850B70101EFBF1CA00596315 /* GroupCollectionViewCell.swift in Sources */,
