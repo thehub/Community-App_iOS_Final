@@ -40,28 +40,29 @@
                         <constraint firstAttribute="bottom" secondItem="iEm-Mq-mtf" secondAttribute="bottom" id="rV4-mP-4nc"/>
                     </constraints>
                 </scrollView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zkc-1c-nNm" userLabel="Line">
-                    <rect key="frame" x="0.0" y="79" width="375" height="1"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="4Ih-2E-Nhw">
+                    <rect key="frame" x="0.0" y="73" width="395" height="7"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="RaI-RC-Zco"/>
-                        <constraint firstAttribute="height" constant="1" id="SOR-lb-Vix"/>
+                        <constraint firstAttribute="height" constant="7" id="9xe-vB-JuV"/>
                     </constraints>
-                </view>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ANP-43-kQo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="58u-E4-ZJm"/>
                 <constraint firstAttribute="bottom" secondItem="ANP-43-kQo" secondAttribute="bottom" id="H0F-LZ-bLd"/>
                 <constraint firstAttribute="trailing" secondItem="ANP-43-kQo" secondAttribute="trailing" id="HDt-W3-FO8"/>
+                <constraint firstAttribute="trailing" secondItem="4Ih-2E-Nhw" secondAttribute="trailing" constant="-20" id="Ic8-jL-zZB"/>
+                <constraint firstAttribute="bottom" secondItem="4Ih-2E-Nhw" secondAttribute="bottom" id="MA3-3W-2Rj"/>
+                <constraint firstItem="4Ih-2E-Nhw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="l8E-2i-NFw"/>
                 <constraint firstItem="ANP-43-kQo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="okn-e2-iGa"/>
-                <constraint firstItem="zkc-1c-nNm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qfT-tS-fgb"/>
-                <constraint firstAttribute="bottom" secondItem="zkc-1c-nNm" secondAttribute="bottom" id="sPS-al-rzn"/>
-                <constraint firstAttribute="trailing" secondItem="zkc-1c-nNm" secondAttribute="trailing" id="t0X-UP-Xjp"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="87.5" y="54"/>
         </view>
     </objects>
+    <resources>
+        <image name="navBarShadow" width="52" height="7"/>
+    </resources>
 </document>

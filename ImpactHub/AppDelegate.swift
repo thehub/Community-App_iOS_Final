@@ -98,7 +98,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.imaGreyishBrown, NSFontAttributeName: UIFont(name:"GTWalsheim", size:18)!]
         
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
+        UINavigationBar.appearance().setBackgroundImage(UIImage(color: UIColor.white), for: .any, barMetrics: .default)
+        
+//        UINavigationBar.appearance().backgroundColor = UIColor.white
         UINavigationBar.appearance().shadowImage = UIImage()
         
         let customFont = UIFont(name: "GTWalsheim-Light", size: 14.0)!
