@@ -3,17 +3,7 @@
     {
       "idiom" : "universal",
       "filename" : "navBarShadow.pdf",
-      "resizing" : {
-        "mode" : "3-part-horizontal",
-        "center" : {
-          "mode" : "stretch",
-          "width" : 11
-        },
-        "cap-insets" : {
-          "right" : 22,
-          "left" : 19
-        }
-      }
+      "scale" : "1x"
     }
   ],
   "info" : {

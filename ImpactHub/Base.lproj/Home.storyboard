@@ -266,11 +266,8 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="ikr-9s-bxw">
-                                <rect key="frame" x="0.0" y="60" width="395" height="7"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="7" id="Sm0-gt-hor"/>
-                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -278,10 +275,10 @@
                             <constraint firstItem="Exf-U7-WIC" firstAttribute="leading" secondItem="KAB-JG-YBV" secondAttribute="leading" id="524-Xq-efK"/>
                             <constraint firstItem="Exf-U7-WIC" firstAttribute="top" secondItem="KAB-JG-YBV" secondAttribute="top" constant="65" id="5Vh-qA-M1E"/>
                             <constraint firstAttribute="bottom" secondItem="Exf-U7-WIC" secondAttribute="bottom" constant="5" id="R6a-7j-Ib4"/>
-                            <constraint firstAttribute="trailing" secondItem="ikr-9s-bxw" secondAttribute="trailing" constant="-20" id="Ufk-6I-b4V"/>
+                            <constraint firstAttribute="trailing" secondItem="ikr-9s-bxw" secondAttribute="trailing" id="Ufk-6I-b4V"/>
                             <constraint firstItem="ikr-9s-bxw" firstAttribute="leading" secondItem="KAB-JG-YBV" secondAttribute="leading" id="Ukd-AR-FbD"/>
                             <constraint firstAttribute="trailing" secondItem="Exf-U7-WIC" secondAttribute="trailing" id="f5z-ig-oFa"/>
-                            <constraint firstItem="ikr-9s-bxw" firstAttribute="top" secondItem="CUF-3L-n1B" secondAttribute="bottom" constant="-4" id="fzH-RB-xTn"/>
+                            <constraint firstItem="ikr-9s-bxw" firstAttribute="top" secondItem="CUF-3L-n1B" secondAttribute="bottom" id="fzH-RB-xTn"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
@@ -396,10 +393,7 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="0lI-oZ-k0a">
-                                <rect key="frame" x="0.0" y="60" width="395" height="7"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="7" id="8vQ-Sl-LHa"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="64" width="375" height="5"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -409,11 +403,11 @@
                             <constraint firstItem="8fM-Kb-kNr" firstAttribute="top" secondItem="Yag-w3-ADU" secondAttribute="bottom" constant="20" id="8VF-Fg-zJd"/>
                             <constraint firstAttribute="trailing" secondItem="dt5-dE-uD5" secondAttribute="trailing" id="BFf-ov-dKj"/>
                             <constraint firstAttribute="bottom" secondItem="dt5-dE-uD5" secondAttribute="bottom" id="Qqg-yj-C3s"/>
-                            <constraint firstAttribute="trailing" secondItem="0lI-oZ-k0a" secondAttribute="trailing" constant="-20" id="XtE-O7-tqu"/>
+                            <constraint firstAttribute="trailing" secondItem="0lI-oZ-k0a" secondAttribute="trailing" id="XtE-O7-tqu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8fM-Kb-kNr" secondAttribute="trailing" id="fFh-UB-QuR"/>
                             <constraint firstItem="0lI-oZ-k0a" firstAttribute="leading" secondItem="n8U-mT-QJd" secondAttribute="leading" id="g6A-sH-pPd"/>
                             <constraint firstItem="dt5-dE-uD5" firstAttribute="leading" secondItem="n8U-mT-QJd" secondAttribute="leading" id="rhG-nC-Rex"/>
-                            <constraint firstItem="0lI-oZ-k0a" firstAttribute="top" secondItem="Yag-w3-ADU" secondAttribute="bottom" constant="-4" id="wJe-su-sTN"/>
+                            <constraint firstItem="0lI-oZ-k0a" firstAttribute="top" secondItem="Yag-w3-ADU" secondAttribute="bottom" id="wJe-su-sTN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Members" id="O6O-dC-0pA">
@@ -1001,10 +995,7 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="NyV-ci-Ppy">
-                                <rect key="frame" x="0.0" y="60" width="395" height="7"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="7" id="kBN-nc-16E"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="64" width="375" height="5"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1016,8 +1007,8 @@
                             <constraint firstAttribute="trailing" secondItem="HdI-dh-w7M" secondAttribute="trailing" id="cAp-jj-mWB"/>
                             <constraint firstItem="HdI-dh-w7M" firstAttribute="leading" secondItem="08B-5d-gs1" secondAttribute="leading" id="ec0-2h-7gc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VO1-GI-NAv" secondAttribute="trailing" id="hC4-6P-qVs"/>
-                            <constraint firstAttribute="trailing" secondItem="NyV-ci-Ppy" secondAttribute="trailing" constant="-20" id="hPN-1K-Izb"/>
-                            <constraint firstItem="NyV-ci-Ppy" firstAttribute="top" secondItem="6Gf-te-2xO" secondAttribute="bottom" constant="-4" id="oNW-Ss-50q"/>
+                            <constraint firstAttribute="trailing" secondItem="NyV-ci-Ppy" secondAttribute="trailing" id="hPN-1K-Izb"/>
+                            <constraint firstItem="NyV-ci-Ppy" firstAttribute="top" secondItem="6Gf-te-2xO" secondAttribute="bottom" id="oNW-Ss-50q"/>
                             <constraint firstItem="VO1-GI-NAv" firstAttribute="leading" secondItem="08B-5d-gs1" secondAttribute="leadingMargin" id="pOP-yD-xW9"/>
                         </constraints>
                     </view>
@@ -1081,10 +1072,7 @@
                                 </cells>
                             </collectionView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="lzQ-al-fJS">
-                                <rect key="frame" x="0.0" y="60" width="395" height="7"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="7" id="2Fi-7j-6xy"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="64" width="375" height="5"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ye1-uo-Wne" customClass="RedButton" customModule="ImpactHub" customModuleProvider="target">
                                 <rect key="frame" x="35" y="588" width="305" height="50"/>
@@ -1108,8 +1096,8 @@
                             <constraint firstAttribute="trailing" secondItem="cgi-nN-1X3" secondAttribute="trailing" id="EG1-ak-qHz"/>
                             <constraint firstItem="cgi-nN-1X3" firstAttribute="leading" secondItem="6Xh-Qv-GHZ" secondAttribute="leading" id="Fnb-I2-RvQ"/>
                             <constraint firstItem="iRW-N1-nvq" firstAttribute="trailing" secondItem="ptK-nm-SmE" secondAttribute="trailing" id="HQq-72-AaR"/>
-                            <constraint firstAttribute="trailing" secondItem="lzQ-al-fJS" secondAttribute="trailing" constant="-20" id="JG3-5Z-nLE"/>
-                            <constraint firstItem="lzQ-al-fJS" firstAttribute="top" secondItem="cFd-Kl-xsv" secondAttribute="bottom" constant="-4" id="Kyu-iW-tlq"/>
+                            <constraint firstAttribute="trailing" secondItem="lzQ-al-fJS" secondAttribute="trailing" id="JG3-5Z-nLE"/>
+                            <constraint firstItem="lzQ-al-fJS" firstAttribute="top" secondItem="cFd-Kl-xsv" secondAttribute="bottom" id="Kyu-iW-tlq"/>
                             <constraint firstItem="iRW-N1-nvq" firstAttribute="height" secondItem="ptK-nm-SmE" secondAttribute="height" id="PQm-H0-m33"/>
                             <constraint firstItem="ye1-uo-Wne" firstAttribute="leading" secondItem="6Xh-Qv-GHZ" secondAttribute="leading" constant="35" id="PZY-31-Tvz"/>
                             <constraint firstItem="hlO-zm-QUd" firstAttribute="top" secondItem="ye1-uo-Wne" secondAttribute="bottom" constant="29" id="Y2T-Rc-B41"/>
@@ -1237,10 +1225,7 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="QLY-se-f7C">
-                                <rect key="frame" x="0.0" y="60" width="395" height="7"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="7" id="OrR-61-jie"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="64" width="375" height="5"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1250,10 +1235,10 @@
                             <constraint firstAttribute="bottom" secondItem="hWA-Qu-8hr" secondAttribute="bottom" id="JEO-5q-iAr"/>
                             <constraint firstItem="TL7-IA-YfO" firstAttribute="top" secondItem="q4g-a6-6ks" secondAttribute="bottom" constant="20" id="gFY-3q-UrJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TL7-IA-YfO" secondAttribute="trailing" id="hXg-Jh-qQg"/>
-                            <constraint firstItem="QLY-se-f7C" firstAttribute="top" secondItem="q4g-a6-6ks" secondAttribute="bottom" constant="-4" id="iWS-AI-kJB"/>
+                            <constraint firstItem="QLY-se-f7C" firstAttribute="top" secondItem="q4g-a6-6ks" secondAttribute="bottom" id="iWS-AI-kJB"/>
                             <constraint firstItem="QLY-se-f7C" firstAttribute="leading" secondItem="8ef-YO-XwU" secondAttribute="leading" id="iYL-f6-gwW"/>
                             <constraint firstAttribute="trailing" secondItem="hWA-Qu-8hr" secondAttribute="trailing" id="qKW-op-5Fb"/>
-                            <constraint firstAttribute="trailing" secondItem="QLY-se-f7C" secondAttribute="trailing" constant="-20" id="wqq-WE-VPn"/>
+                            <constraint firstAttribute="trailing" secondItem="QLY-se-f7C" secondAttribute="trailing" id="wqq-WE-VPn"/>
                             <constraint firstItem="hWA-Qu-8hr" firstAttribute="top" secondItem="q4g-a6-6ks" secondAttribute="bottom" id="zYs-pd-sc9"/>
                         </constraints>
                     </view>
@@ -1860,7 +1845,7 @@
         <image name="companyImage" width="160" height="120"/>
         <image name="eventPhoto" width="338" height="223"/>
         <image name="filterButton" width="64" height="65"/>
-        <image name="navBarShadow" width="52" height="7"/>
+        <image name="navBarShadow" width="100" height="5"/>
         <image name="search" width="17" height="16"/>
         <image name="tabBarHome" width="22" height="21"/>
     </resources>
