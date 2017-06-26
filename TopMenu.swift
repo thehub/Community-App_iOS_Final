@@ -175,6 +175,7 @@ class TopMenu: UIView {
         
         contentView?.clipsToBounds = true
         scrollViewTopConstraint.constant = -frame.height
+
         alpha = 0
 
     }

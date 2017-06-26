@@ -12,8 +12,6 @@ class GroupViewController: ListFullBleedViewController {
 
     var group: Group!
     
-    var feedData = [CellRepresentable]()
-
     var member = Member.init(name: "Niklas", job: "Developer", photo: "photo", blurb: "test", aboutMe: "test", locationName: "London")
 
     override func viewDidLoad() {
@@ -28,18 +26,18 @@ class GroupViewController: ListFullBleedViewController {
         collectionView.register(UINib.init(nibName: GroupViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: GroupViewModel.cellIdentifier)
 
         
-//        topMenu.setupWithItems(["ABOUT", "GROUPS", "MEMBERS"])
         topMenu.hide()
         
         // Feed
         // Feed
-        feedData.append(GroupDetailTopViewModel(group: group, cellSize: .zero)) // this will pick the full height instead
-        feedData.append(TitleViewModel(title: "DISCUSSION", cellSize: CGSize(width: view.frame.width, height: 70)))
-        feedData.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
-        feedData.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
-        feedData.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
-        feedData.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
-        self.data = feedData
+        data.append(GroupDetailTopViewModel(group: group, cellSize: .zero)) // this will pick the full height instead
+        data.append(TitleViewModel(title: "DISCUSSION", cellSize: CGSize(width: view.frame.width, height: 70)))
+        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
+        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
+        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
+        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
+        
+        
         
     }
     
@@ -81,7 +79,9 @@ class GroupViewController: ListFullBleedViewController {
 //        }
     }
     
+    
     override func topMenuDidSelectIndex(_ index: Int) {
+        
 
     }
 

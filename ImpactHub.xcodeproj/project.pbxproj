@@ -648,9 +648,9 @@
 		850B700B1EFBF13300596315 /* Groups */ = {
 			isa = PBXGroup;
 			children = (
+				850B701A1EFBF84600596315 /* GroupViewController.swift */,
 				850B700C1EFBF1CA00596315 /* GroupCollectionViewCell.swift */,
 				850B700D1EFBF1CA00596315 /* GroupCollectionViewCell.xib */,
-				850B701A1EFBF84600596315 /* GroupViewController.swift */,
 				850B70181EFBF84600596315 /* GroupDetailTopCell.swift */,
 				850B70191EFBF84600596315 /* GroupDetailTopCell.xib */,
 			);
