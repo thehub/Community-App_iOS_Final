@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JobViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
+class JobViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UIViewControllerPreviewingDelegate {
 
     var job: Job!
     
@@ -32,6 +32,10 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if(traitCollection.forceTouchCapability == .available){
+            registerForPreviewing(with: self, sourceView: self.collectionView)
+        }
+
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         
         collectionView.delegate = self
@@ -225,17 +229,7 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
         }
         
     }
-    
-    
-    
-    
 
-    
-    
-    
-    
-    
-    
     @IBAction func applyTap(_ sender: Any) {
     }
     
@@ -255,6 +249,40 @@ extension JobViewController: UICollectionViewDataSource {
         
         let cell = data[indexPath.item].cellInstance(collectionView, indexPath: indexPath)
         return cell
+    }
+}
+
+extension JobViewController {
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        guard let indexPath = collectionView.indexPathForItem(at: location) else { return nil }
+        guard let cell = collectionView.cellForItem(at: indexPath) else { return nil }
+        
+        var detailVC: UIViewController!
+        
+        if let vm = data[indexPath.item] as? RelatedViewModel {
+            
+            if let project = vm.project {
+                detailVC = storyboard?.instantiateViewController(withIdentifier: "ProjectViewController")
+                (detailVC as! ProjectViewController).project = project
+            }
+            else if let job = vm.job {
+                detailVC = storyboard?.instantiateViewController(withIdentifier: "JobViewController")
+                (detailVC as! JobViewController).job = job
+            }
+            
+            //        detailVC.preferredContentSize = CGSize(width: 0.0, height: 300)
+            previewingContext.sourceRect = cell.frame
+            
+            return detailVC
+        }
+        
+        return nil
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        show(viewControllerToCommit, sender: self)
     }
 }
 

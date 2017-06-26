@@ -123,6 +123,4 @@ extension MembersViewController {
         return nil
         
     }
-    
-    
 }
