@@ -147,16 +147,16 @@ extension EventsViewController {
 
         var detailVC: UIViewController!
 
-//        if let vm = data[indexPath.item] as? ProjectViewModel {
-//            selectedVM = vm
-//            detailVC = storyboard?.instantiateViewController(withIdentifier: "EventViewController")
-//            (detailVC as! EventViewController).event = selectedVM?.event
-//
-//            //        detailVC.preferredContentSize = CGSize(width: 0.0, height: 300)
-//            previewingContext.sourceRect = cell.frame
-//            
-//            return detailVC
-//        }
+        if let vm = data[indexPath.item] as? EventViewModel {
+            selectedVM = vm
+            detailVC = storyboard?.instantiateViewController(withIdentifier: "EventViewController")
+            (detailVC as! EventViewController).event = selectedVM?.event
+
+            //        detailVC.preferredContentSize = CGSize(width: 0.0, height: 300)
+            previewingContext.sourceRect = cell.frame
+            
+            return detailVC
+        }
         
         return nil
         

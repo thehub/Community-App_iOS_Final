@@ -19,7 +19,6 @@ class MemberViewController: ListFullBleedViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(member.name)
         connectButton?.setTitle("Connect with \(member.name)", for: .normal)
 
         self.title = member.name
@@ -125,7 +124,6 @@ class MemberViewController: ListFullBleedViewController {
             self.selectGroup = vm.group
             self.performSegue(withIdentifier: "ShowGroup", sender: self)
         }
-
     }
     
     
@@ -177,8 +175,35 @@ class MemberViewController: ListFullBleedViewController {
     @IBAction func connectTap(_ sender: Any) {
 
     }
-    
 }
 
+extension MemberViewController {
+    
+    override func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        guard let indexPath = collectionView.indexPathForItem(at: location) else { return nil }
+        guard let cell = collectionView.cellForItem(at: indexPath) else { return nil }
 
+        previewingContext.sourceRect = cell.frame
+
+        var detailVC: UIViewController!
+        
+        if let vm = data[indexPath.item] as? ProjectViewModel {
+            let selectProject = vm.project
+            detailVC = storyboard?.instantiateViewController(withIdentifier: "ProjectViewController")
+            (detailVC as! ProjectViewController).project = selectProject
+            //        detailVC.preferredContentSize = CGSize(width: 0.0, height: 300)
+            return detailVC
+        }
+        if let vm = data[indexPath.item] as? GroupViewModel {
+            let selectGroup = vm.group
+            detailVC = storyboard?.instantiateViewController(withIdentifier: "GroupViewController")
+            (detailVC as! GroupViewController).group = selectGroup
+            //        detailVC.preferredContentSize = CGSize(width: 0.0, height: 300)
+            return detailVC
+        }
+        
+        return nil
+    }
+}
 

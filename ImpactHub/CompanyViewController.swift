@@ -245,4 +245,34 @@ class CompanyViewController: ListFullBleedViewController {
     
 }
 
+extension CompanyViewController {
+    
+    override func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        guard let indexPath = collectionView.indexPathForItem(at: location) else { return nil }
+        guard let cell = collectionView.cellForItem(at: indexPath) else { return nil }
+        
+        previewingContext.sourceRect = cell.frame
+        
+        var detailVC: UIViewController!
+        
+        if let vm = data[indexPath.item] as? ProjectViewModel {
+            let selectProject = vm.project
+            detailVC = storyboard?.instantiateViewController(withIdentifier: "ProjectViewController")
+            (detailVC as! ProjectViewController).project = selectProject
+            //        detailVC.preferredContentSize = CGSize(width: 0.0, height: 300)
+            return detailVC
+        }
+        if let vm = data[indexPath.item] as? MemberViewModel {
+            let selectMember = vm.member
+            detailVC = storyboard?.instantiateViewController(withIdentifier: "MemberViewController")
+            (detailVC as! MemberViewController).member = selectMember
+            //        detailVC.preferredContentSize = CGSize(width: 0.0, height: 300)
+            return detailVC
+        }
+        
+        return nil
+    }
+}
+
 

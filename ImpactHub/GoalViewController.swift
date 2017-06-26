@@ -172,4 +172,34 @@ class GoalViewController: ListFullBleedViewController {
     
 }
 
+extension GoalViewController {
+    
+    override func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        guard let indexPath = collectionView.indexPathForItem(at: location) else { return nil }
+        guard let cell = collectionView.cellForItem(at: indexPath) else { return nil }
+        
+        previewingContext.sourceRect = cell.frame
+        
+        var detailVC: UIViewController!
+        
+        if let vm = data[indexPath.item] as? GroupViewModel {
+            let selectGroup = vm.group
+            detailVC = storyboard?.instantiateViewController(withIdentifier: "GroupViewController")
+            (detailVC as! GroupViewController).group = selectGroup
+            //        detailVC.preferredContentSize = CGSize(width: 0.0, height: 300)
+            return detailVC
+        }
+        if let vm = data[indexPath.item] as? MemberViewModel {
+            let selectMember = vm.member
+            detailVC = storyboard?.instantiateViewController(withIdentifier: "MemberViewController")
+            (detailVC as! MemberViewController).member = selectMember
+            //        detailVC.preferredContentSize = CGSize(width: 0.0, height: 300)
+            return detailVC
+        }
+        
+        return nil
+    }
+}
+
 

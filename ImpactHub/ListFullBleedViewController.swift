@@ -26,8 +26,11 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
 
         navigationController?.interactivePopGestureRecognizer?.delegate = self
 
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+        if(traitCollection.forceTouchCapability == .available){
+            registerForPreviewing(with: self, sourceView: self.collectionView)
+        }
 
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         
         topMenu.delegate = self
 
@@ -162,5 +165,17 @@ extension ListFullBleedViewController: UICollectionViewDataSource {
     }
 }
 
+extension ListFullBleedViewController: UIViewControllerPreviewingDelegate {
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        return nil
+        
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        show(viewControllerToCommit, sender: self)
+    }
+}
 
 
