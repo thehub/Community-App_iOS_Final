@@ -11,7 +11,11 @@ import PromiseKit
 
 class EventsViewController: ListWithSearchViewController {
 
-    
+    var allData = [CellRepresentable]()
+    var eventsYouManageData = [CellRepresentable]()
+    var yourEventData = [CellRepresentable]()
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,22 +32,29 @@ class EventsViewController: ListWithSearchViewController {
         let viewModel3 = EventViewModel(event: item3, cellSize: CGSize(width: cellWidth, height: 370))
         let viewModel4 = EventViewModel(event: item4, cellSize: CGSize(width: cellWidth, height: 370))
         
-        self.data.append(viewModel1)
-        self.data.append(viewModel2)
-        self.data.append(viewModel3)
-        self.data.append(viewModel4)
+        self.allData.append(viewModel1)
+        self.allData.append(viewModel2)
+        self.allData.append(viewModel3)
+        self.allData.append(viewModel4)
 
-        self.data.append(viewModel1)
-        self.data.append(viewModel2)
-        self.data.append(viewModel3)
-        self.data.append(viewModel4)
+        self.allData.append(viewModel1)
+        self.allData.append(viewModel2)
+        self.allData.append(viewModel3)
+        self.allData.append(viewModel4)
 
-        self.data.append(viewModel1)
-        self.data.append(viewModel2)
-        self.data.append(viewModel3)
-        self.data.append(viewModel4)
-
+        self.allData.append(viewModel1)
+        self.allData.append(viewModel2)
+        self.allData.append(viewModel3)
+        self.allData.append(viewModel4)
         
+        self.data = allData
+        
+        // todo:
+        self.eventsYouManageData = Array(allData[0...4])
+        self.yourEventData = Array(allData[4...7])
+
+        topMenu?.setupWithItems(["ALL", "EVENTS YOU MANAGE", "YOUR EVENTS"])
+
         // Do any additional setup after loading the view.
         
         
@@ -75,6 +86,35 @@ class EventsViewController: ListWithSearchViewController {
         }
     }
     
+    
+    override func topMenuDidSelectIndex(_ index: Int) {
+        
+        self.collectionView.alpha = 0
+        
+        if index == 0 {
+            self.data = self.allData
+            self.collectionView.reloadData()
+        }
+        else if index == 1 {
+            self.data = self.eventsYouManageData
+            self.collectionView.reloadData()
+        }
+        else if index == 2 {
+            self.data = self.yourEventData
+            self.collectionView.reloadData()
+        }
+        self.collectionView.scrollRectToVisible(CGRect.zero, animated: false)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.collectionView.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
+            UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                self.collectionView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+                self.collectionView.alpha = 1
+            }, completion: { (_) in
+                
+            })
+        }
+    }
     
 }
 

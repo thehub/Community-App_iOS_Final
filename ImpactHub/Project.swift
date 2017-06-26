@@ -11,6 +11,7 @@ import Foundation
 struct Project {
     
     var name: String
+    var image: String
     var objectives: [Project.Objective] {
         get {
             let objective1 = Objective(number: 1, title: "Objective", description: "Lorem ipsum dolor sit amet, consectetur adipiscing eli Lorem ipsum dolor sit amet, consectetur adipiscing eli Lorem ipsum dolor sit amet, consectetur adipiscing eli Lorem ipsum dolor sit amet, consectetur adipiscing eli.", isLast: false)

@@ -48,10 +48,10 @@ class ProjectViewController: ListFullBleedViewController {
         // Objectives
         projectsObjectivesData.append(ProjectDetailTopViewModel(project: project, cellSize: .zero)) // this will pick the full height instead
         projectsObjectivesData.append(TitleViewModel(title: "GOALS", cellSize: CGSize(width: view.frame.width, height: 70)))
-        projectsObjectivesData.append(ProjectObjectiveViewModel(objective: Project(name: "Zero to one: new startups and Innovative Ideas").objectives[0], cellSize: CGSize(width: view.frame.width, height: 0)))
-        projectsObjectivesData.append(ProjectObjectiveViewModel(objective: Project(name: "Zero to one: new startups and Innovative Ideas").objectives[1], cellSize: CGSize(width: view.frame.width, height: 0)))
-        projectsObjectivesData.append(ProjectObjectiveViewModel(objective: Project(name: "Zero to one: new startups and Innovative Ideas").objectives[2], cellSize: CGSize(width: view.frame.width, height: 0)))
-        projectsObjectivesData.append(ProjectObjectiveViewModel(objective: Project(name: "Zero to one: new startups and Innovative Ideas").objectives[3], cellSize: CGSize(width: view.frame.width, height: 0)))
+        projectsObjectivesData.append(ProjectObjectiveViewModel(objective: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage").objectives[0], cellSize: CGSize(width: view.frame.width, height: 0)))
+        projectsObjectivesData.append(ProjectObjectiveViewModel(objective: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage").objectives[1], cellSize: CGSize(width: view.frame.width, height: 0)))
+        projectsObjectivesData.append(ProjectObjectiveViewModel(objective: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage").objectives[2], cellSize: CGSize(width: view.frame.width, height: 0)))
+        projectsObjectivesData.append(ProjectObjectiveViewModel(objective: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage").objectives[3], cellSize: CGSize(width: view.frame.width, height: 0)))
 
         
         // Members

@@ -88,27 +88,27 @@ class CompanyViewController: ListFullBleedViewController {
         // Projects
         projectsData.append(CompanyDetailTopViewModel(company: company, cellSize: .zero)) // this will pick the full height instead
         
-        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
         
-        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
         
-        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
         
-        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
         
-        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
         
-        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
         
-        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
         
-        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
         
-        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
         
-        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
         
-        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
         
         
         

@@ -11,16 +11,20 @@ import PromiseKit
 
 class ProjectsViewController: ListWithSearchViewController {
 
+    var allData = [CellRepresentable]()
+    var projectsYouManageData = [CellRepresentable]()
+    var yourProjectsData = [CellRepresentable]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         collectionView.register(UINib.init(nibName: ProjectViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectViewModel.cellIdentifier)
         
-        let item1 = Project(name: "Zero to one: new startups and Innovative Ideas")
-        let item2 = Project(name: "Zero to one: new startups and Innovative Ideas")
-        let item3 = Project(name: "Zero to one: new startups and Innovative Ideas")
-        let item4 = Project(name: "Zero to one: new startups and Innovative Ideas")
+        let item1 = Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage")
+        let item2 = Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage")
+        let item3 = Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage")
+        let item4 = Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage")
         
         
         let cellWidth: CGFloat = self.view.frame.width
@@ -29,22 +33,30 @@ class ProjectsViewController: ListWithSearchViewController {
         let viewModel3 = ProjectViewModel(project: item3, cellSize: CGSize(width: cellWidth, height: 370))
         let viewModel4 = ProjectViewModel(project: item4, cellSize: CGSize(width: cellWidth, height: 370))
         
-        self.data.append(viewModel1)
-        self.data.append(viewModel2)
-        self.data.append(viewModel3)
-        self.data.append(viewModel4)
+        self.allData.append(viewModel1)
+        self.allData.append(viewModel2)
+        self.allData.append(viewModel3)
+        self.allData.append(viewModel4)
 
-        self.data.append(viewModel1)
-        self.data.append(viewModel2)
-        self.data.append(viewModel3)
-        self.data.append(viewModel4)
+        self.allData.append(viewModel1)
+        self.allData.append(viewModel2)
+        self.allData.append(viewModel3)
+        self.allData.append(viewModel4)
 
-        self.data.append(viewModel1)
-        self.data.append(viewModel2)
-        self.data.append(viewModel3)
-        self.data.append(viewModel4)
+        self.allData.append(viewModel1)
+        self.allData.append(viewModel2)
+        self.allData.append(viewModel3)
+        self.allData.append(viewModel4)
+
+        self.data = allData
+        
+        // todo:
+        self.projectsYouManageData = Array(allData[0...4])
+        self.yourProjectsData = Array(allData[4...7])
 
         
+        topMenu?.setupWithItems(["ALL", "PROJECTS YOU MANAGE", "YOUR PROJECTS"])
+
         // Do any additional setup after loading the view.
         
         
@@ -76,6 +88,34 @@ class ProjectsViewController: ListWithSearchViewController {
         }
     }
     
+    override func topMenuDidSelectIndex(_ index: Int) {
+        
+        self.collectionView.alpha = 0
+        
+        if index == 0 {
+            self.data = self.allData
+            self.collectionView.reloadData()
+        }
+        else if index == 1 {
+            self.data = self.projectsYouManageData
+            self.collectionView.reloadData()
+        }
+        else if index == 2 {
+            self.data = self.yourProjectsData
+            self.collectionView.reloadData()
+        }
+        self.collectionView.scrollRectToVisible(CGRect.zero, animated: false)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.collectionView.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
+            UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                self.collectionView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+                self.collectionView.alpha = 1
+            }, completion: { (_) in
+                
+            })
+        }
+    }
     
 }
 

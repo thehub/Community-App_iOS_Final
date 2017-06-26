@@ -8,9 +8,10 @@
 
 import UIKit
 
-class ListWithSearchViewController: UIViewController, UITextFieldDelegate {
+class ListWithSearchViewController: UIViewController, UITextFieldDelegate, TopMenuDelegate {
 
     var data = [CellRepresentable]()
+    @IBOutlet weak var topMenu: TopMenu?
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -31,6 +32,10 @@ class ListWithSearchViewController: UIViewController, UITextFieldDelegate {
             registerForPreviewing(with: self, sourceView: self.collectionView)
         }
         
+        topMenu?.delegate = self
+        
+        topMenu?.show()
+
         self.searchContainerTopConstraintDefault = searchContainerTopConstraint.constant
         
     }
@@ -48,6 +53,11 @@ class ListWithSearchViewController: UIViewController, UITextFieldDelegate {
         self.searchTextBg.layer.shadowOpacity = 0.37
         self.searchTextBg.layer.shadowPath = UIBezierPath(rect: self.searchTextBg.bounds).cgPath
         self.searchTextBg.layer.shadowRadius = 15.0
+        
+        
+        let collectionViewLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        collectionViewLayout?.sectionInset = UIEdgeInsetsMake(self.searchContainer.frame.height, 0, 60, 0)
+        collectionViewLayout?.invalidateLayout()
         
     }
     
@@ -121,6 +131,10 @@ class ListWithSearchViewController: UIViewController, UITextFieldDelegate {
         return newLength <= 200
     }
 
+    func topMenuDidSelectIndex(_ index: Int) {
+        
+        
+    }
 }
 
 

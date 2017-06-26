@@ -58,6 +58,7 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
         collectionView.register(UINib.init(nibName: JobDetailViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: JobDetailViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: JobViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: JobViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: ProjectViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: RelatedViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: RelatedViewModel.cellIdentifier)
 
         
         
@@ -74,14 +75,14 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
         
         let company = Company(id: "dsfsd", name: "Aspite", type: "dsfsdfs", photo: "companyImage", logo:"companyLogo", blurb: "Lorem ipsum", locationName: "London, UK", website: "www.bbc.co.uk", size: "10 - 50")
         
-        let item1 = Job(id: "zxddz", name: "Marketing Strategist", company: company, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", locationName: "London, UK", type: "Fulltime", salary: "€ 30.000 / 40.000 p/a", companyName: "Aspire", companyId: "dsfsdfsdfs")
+        let job1 = Job(id: "zxddz", name: "Marketing Strategist", company: company, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", locationName: "London, UK", type: "Fulltime", salary: "€ 30.000 / 40.000 p/a", companyName: "Aspire", companyId: "dsfsdfsdfs")
         
         
         let cellWidth: CGFloat = self.view.frame.width
-        let viewModel1 = JobViewModel(job: item1, cellSize: CGSize(width: cellWidth, height: 145))
-        let viewModel2 = JobViewModel(job: item1, cellSize: CGSize(width: cellWidth, height: 145))
-        let viewModel3 = JobViewModel(job: item1, cellSize: CGSize(width: cellWidth, height: 145))
-        let viewModel4 = JobViewModel(job: item1, cellSize: CGSize(width: cellWidth, height: 145))
+        let viewModel1 = RelatedViewModel(job: job1, cellSize: CGSize(width: cellWidth, height: 140))
+        let viewModel2 = RelatedViewModel(job: job1, cellSize: CGSize(width: cellWidth, height: 140))
+        let viewModel3 = RelatedViewModel(job: job1, cellSize: CGSize(width: cellWidth, height: 140))
+        let viewModel4 = RelatedViewModel(job: job1, cellSize: CGSize(width: cellWidth, height: 140))
         
         data.append(viewModel1)
         data.append(viewModel2)
@@ -91,16 +92,11 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
         // Title
         data.append(TitleViewModel(title: "RELATED PROJECTS", cellSize: CGSize(width: view.frame.width, height: 50)))
 
-        
-        data.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
-        
-        data.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
-        
-        data.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
-        
-        data.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
-        
-        data.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        let project1 = Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage")
+        let viewModelProject1 = RelatedViewModel(project: project1, cellSize: CGSize(width: cellWidth, height: 140))
+        data.append(viewModelProject1)
+        data.append(viewModelProject1)
+        data.append(viewModelProject1)
 
 
         
@@ -160,14 +156,6 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
             return CGSize(width: view.frame.width, height: height)
         }
         
-        if let vm = data[indexPath.item] as? ProjectViewModel {
-            let cellWidth: CGFloat = self.collectionView.frame.width
-            let width = ((cellWidth - 40) / 1.6)
-            let heightToUse = width + 155
-            return CGSize(width: view.frame.width, height: heightToUse)
-        }
-        
-        
         var cellSize = data[indexPath.item].cellSize
         if cellSize == .zero {
             let cellHeight = self.view.frame.height
@@ -182,16 +170,17 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let vm = data[indexPath.item] as? JobViewModel {
-            self.selectJob = vm.job
-            
-            let vc = storyboard?.instantiateViewController(withIdentifier: "JobViewController") as! JobViewController
-            vc.job = self.selectJob
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-        else if let vm = data[indexPath.item] as? ProjectViewModel {
-            self.selectProject = vm.project
-            self.performSegue(withIdentifier: "ShowProject", sender: self)
+        if let vm = data[indexPath.item] as? RelatedViewModel {
+            if let project = vm.project {
+                self.selectProject = project
+                self.performSegue(withIdentifier: "ShowProject", sender: self)
+            }
+            else if let job = vm.job {
+                self.selectJob = job
+                let vc = storyboard?.instantiateViewController(withIdentifier: "JobViewController") as! JobViewController
+                vc.job = self.selectJob
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
 
     }
