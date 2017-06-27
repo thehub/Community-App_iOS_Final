@@ -15,26 +15,19 @@ import SwiftyJSON
 class APIClient {
 
     
-    enum Filters : String {
-        case city
-        case sector
-    }
-    
-    func getFilters(filter: Filters) -> Promise<String> {
+    func getFilters(filter: Filter.Grouping) -> Promise<[Filter]> {
         return Promise { fullfill, reject in
-            
-            //            let userId = SFUserAccountManager.sharedInstance().currentUser!.accountIdentity.userId
-            SFRestAPI.sharedInstance().performSOQLQueryAll("select name, active__c, Grouping__c from taxonomy__c where active__c = true and Grouping__c ='\(filter.rawValue)'", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("select name, Grouping__c from taxonomy__c where active__c = true and Grouping__c ='\(filter.rawValue)'", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
                 debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
-                    //                    let items = records.flatMap { Member(json: $0) }
-                    //                    print(items.count)
-                    //                    print(items)
-                    fullfill("ok")
+                    let items = records.flatMap { Filter(json: $0) }
+                    print(items.count)
+                    print(items)
+                    fullfill(items)
                 }
                 else {
                     reject(MyError.JSONError)

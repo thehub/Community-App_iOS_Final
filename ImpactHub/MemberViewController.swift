@@ -85,22 +85,6 @@ class MemberViewController: ListFullBleedViewController {
 //                debugPrint(error.localizedDescription)
 //        }
 
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        firstly {
-            APIClient.shared.getFilters(filter: .city)
-            }.then { items -> Void in
-                print(items)
-                
-                let cellWidth: CGFloat = self.view.frame.width
-                
-                
-                self.collectionView?.reloadData()
-            }.always {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            }.catch { error in
-                debugPrint(error.localizedDescription)
-        }
-        
 //        UIApplication.shared.isNetworkActivityIndicatorVisible = true
 //        firstly {
 //            APIClient.shared.getProjects(contactId: member.id)
