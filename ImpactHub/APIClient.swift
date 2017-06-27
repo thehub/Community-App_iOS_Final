@@ -14,11 +14,17 @@ import SwiftyJSON
 
 class APIClient {
 
-    func getFilters() -> Promise<String> {
+    
+    enum Filters : String {
+        case city
+        case sector
+    }
+    
+    func getFilters(filter: Filters) -> Promise<String> {
         return Promise { fullfill, reject in
             
             //            let userId = SFUserAccountManager.sharedInstance().currentUser!.accountIdentity.userId
-            SFRestAPI.sharedInstance().performSOQLQueryAll("select name, active, Grouping__c from taxonomy__c where active =: true and Grouping__c =:'Sector'", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("select name, active__c, Grouping__c from taxonomy__c where active__c = true and Grouping__c ='\(filter.rawValue)'", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -64,7 +70,7 @@ class APIClient {
     func getGroups(contactId: String) -> Promise<String> {
         return Promise { fullfill, reject in
             print(contactId)
-            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, CountOfMembers__c, ImageURL__c, Directory_Grouping__c, Group_Desc__c, Directory_Style__c from Directory__c where Directory_Style__c =:'Group' and id in(select DirectoryID__c from Directory_Member__c where ContactID__c =:'\(contactId)')", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, CountOfMembers__c, ImageURL__c, Directory_Grouping__c, Group_Desc__c, Directory_Style__c from Directory__c where Directory_Style__c = 'Project' and id in (select DirectoryID__c from Directory_Member__c where ContactID__c ='\(contactId)')", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -84,7 +90,7 @@ class APIClient {
     func getProjects(contactId: String) -> Promise<String> {
         return Promise { fullfill, reject in
             print(contactId)
-            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, CountOfMembers__c, ImageURL__c, Directory_Grouping__c, Group_Desc__c, Directory_Style__c from Directory__c where Directory_Style__c =:‘Project’ and id in: (select DirectoryID__c from Directory_Member__c where ContactID__r.id ='\(contactId)')", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, CountOfMembers__c, ImageURL__c, Directory_Grouping__c, Group_Desc__c, Directory_Style__c from Directory__c where Directory_Style__c ='Project' and id in: (select DirectoryID__c from Directory_Member__c where ContactID__r.id ='\(contactId)')", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in

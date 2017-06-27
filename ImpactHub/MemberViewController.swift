@@ -69,25 +69,9 @@ class MemberViewController: ListFullBleedViewController {
 //        }
 
         
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        firstly {
-            APIClient.shared.getCompanies()
-            }.then { items -> Void in
-                print(items)
-                
-                let cellWidth: CGFloat = self.view.frame.width
-                
-                
-                self.collectionView?.reloadData()
-            }.always {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            }.catch { error in
-                debugPrint(error.localizedDescription)
-        }
-
 //        UIApplication.shared.isNetworkActivityIndicatorVisible = true
 //        firstly {
-//            APIClient.shared.getFilters()
+//            APIClient.shared.getCompanies()
 //            }.then { items -> Void in
 //                print(items)
 //                
@@ -100,6 +84,39 @@ class MemberViewController: ListFullBleedViewController {
 //            }.catch { error in
 //                debugPrint(error.localizedDescription)
 //        }
+
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        firstly {
+            APIClient.shared.getFilters(filter: .city)
+            }.then { items -> Void in
+                print(items)
+                
+                let cellWidth: CGFloat = self.view.frame.width
+                
+                
+                self.collectionView?.reloadData()
+            }.always {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }.catch { error in
+                debugPrint(error.localizedDescription)
+        }
+        
+//        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+//        firstly {
+//            APIClient.shared.getProjects(contactId: member.id)
+//            }.then { items -> Void in
+//                print(items)
+//
+//                let cellWidth: CGFloat = self.view.frame.width
+//
+//
+//                self.collectionView?.reloadData()
+//            }.always {
+//                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+//            }.catch { error in
+//                debugPrint(error.localizedDescription)
+//        }
+
         
         memberAboutData.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
         memberAboutData.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 0)))
