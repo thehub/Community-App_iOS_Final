@@ -7,12 +7,103 @@
 //
 
 import Foundation
+import SalesforceSDKCore
+import SwiftyJSON
+
 
 struct Member {
-    var name: String
-    var job: String
-    var photo: String
-    var blurb: String
-    var aboutMe: String
-    var locationName: String
+    var id: String
+    var userId: String
+    var firstName: String
+    var lastName: String
+    var job: String = ""
+    var photo: String?
+    var blurb: String = ""
+    var aboutMe: String = ""
+    var locationName: String = ""
+    var impactHubCities: String = ""
+    
+    
+    // For mock testing
+    init(id: String, userId: String, firstName: String, lastName: String, job: String, photo: String, blurb: String, aboutMe: String, locationName: String) {
+        self.id = id
+        self.userId = userId
+        self.firstName = firstName
+        self.lastName = lastName
+        self.job = job
+        self.photo = photo
+        self.blurb = blurb
+        self.aboutMe = aboutMe
+        self.locationName = locationName
+    }
+    
+}
+
+
+
+extension Member {
+    var name: String {
+        get {
+            return "\(firstName) \(lastName)"
+        }
+    }
+}
+
+extension Member {
+    init?(json: JSON) {
+        print(json)
+        guard
+            let id = json["Id"].string,
+            let userId = json["User__c"].string,
+            let firstName = json["FirstName"].string,
+            let lastName = json["LastName"].string
+            else {
+                return nil
+        }
+        self.id = id
+        self.userId = userId
+        self.firstName = firstName
+        self.lastName = lastName
+        
+        if let profilePic = json["ProfilePic__c"].string {
+            self.photo = profilePic
+        }
+        
+        if let aboutMe = json["About_Me__c"].string, aboutMe != "<null>" {
+            self.aboutMe = aboutMe
+        }
+        
+        if let profession = json["Profession__c"].string, profession != "<null>" {
+            self.job = profession
+        }
+
+        if let impactHubCities = json["Impact_Hub_Cities__c"].string, impactHubCities != "<null>" {
+            self.impactHubCities = impactHubCities
+            if let firstCity = impactHubCities.components(separatedBy: ";").first {
+                self.locationName = firstCity
+            }
+        }
+        
+        
+//        if let taxonomy = json["Taxonomy__c"].string {
+//            self.taxonomy = taxonomy
+//        }
+//        
+//        if let skills = json["Skills__c"].string {
+//            self.skills = skills.components(separatedBy: ",")
+//        }
+        
+        
+    }
+}
+
+extension Member {
+    var photoUrl: URL? {
+        if let token = SFUserAccountManager.sharedInstance().currentUser?.credentials.accessToken,
+            let photo = self.photo,
+            let url = URL(string: "\(Constants.host)\(photo)?oauth_token=\(token)") {
+            return url
+        }
+        return nil
+    }
 }

@@ -8,6 +8,8 @@
 
 import UIKit
 import PromiseKit
+import SalesforceSDKCore
+
 
 class MembersViewController: ListWithSearchViewController {
 
@@ -18,49 +20,30 @@ class MembersViewController: ListWithSearchViewController {
 
         collectionView.register(UINib.init(nibName: MemberViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberViewModel.cellIdentifier)
         
-        let item1 = Member(name: "Niklas", job: "Developer", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", aboutMe: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam. Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam. Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
-        let item2 = Member(name: "Neela", job: "Salesforce", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", aboutMe: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
-        let item3 = Member(name: "Russel", job: "Salesforce", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", aboutMe: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
-        let item4 = Member(name: "Rob", job: "UX", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", aboutMe: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
-
-        let cellWidth: CGFloat = self.view.frame.width
-        let viewModel1 = MemberViewModel(member: item1, cellSize: CGSize(width: cellWidth, height: 105))
-        let viewModel2 = MemberViewModel(member: item2, cellSize: CGSize(width: cellWidth, height: 105))
-        let viewModel3 = MemberViewModel(member: item3, cellSize: CGSize(width: cellWidth, height: 105))
-        let viewModel4 = MemberViewModel(member: item4, cellSize: CGSize(width: cellWidth, height: 105))
-        
-        self.data.append(viewModel1)
-        self.data.append(viewModel2)
-        self.data.append(viewModel3)
-        self.data.append(viewModel4)
-
-        self.data.append(viewModel1)
-        self.data.append(viewModel2)
-        self.data.append(viewModel3)
-        self.data.append(viewModel4)
-
-        self.data.append(viewModel1)
-        self.data.append(viewModel2)
-        self.data.append(viewModel3)
-        self.data.append(viewModel4)
-
-        
         // Do any additional setup after loading the view.
         
         
-//        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-//        firstly {
-//            APIClient.shared.getJobs(skip: 0, top: 100)
-//            }.then { items -> Void in
-//                print(items)
-////                self.dataSource = items
-////                self.collectionView?.reloadData()
-//            }.always {
-//                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-//            }.catch { error in
-//                debugPrint(error.localizedDescription)
-//        }
-    
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        firstly {
+            APIClient.shared.getMembers()
+            }.then { items -> Void in
+                print(items)
+                
+                let cellWidth: CGFloat = self.view.frame.width
+
+                items.forEach({ (member) in
+                    let viewModel1 = MemberViewModel(member: member, cellSize: CGSize(width: cellWidth, height: 105))
+                    self.data.append(viewModel1)
+                })
+                
+                self.collectionView?.reloadData()
+            }.always {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }.catch { error in
+                debugPrint(error.localizedDescription)
+        }
+
+
     }
     
     override func didReceiveMemoryWarning() {

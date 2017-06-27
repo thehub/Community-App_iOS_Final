@@ -12,7 +12,7 @@ class GroupViewController: ListFullBleedViewController {
 
     var group: Group!
     
-    var member = Member.init(name: "Niklas", job: "Developer", photo: "photo", blurb: "test", aboutMe: "test", locationName: "London")
+    var member = Member(id: "sdfds", userId: "sdfsdf", firstName: "Niklas", lastName: "Test", job: "Test", photo: "photo", blurb: "Lorem ipusm", aboutMe: "Lorem ipsum", locationName: "London, UK")
 
     override func viewDidLoad() {
         super.viewDidLoad()

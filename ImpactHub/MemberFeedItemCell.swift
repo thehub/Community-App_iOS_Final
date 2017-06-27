@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MemberFeedItemCell: UICollectionViewCell {
 
@@ -34,7 +35,7 @@ class MemberFeedItemCell: UICollectionViewCell {
     }
     func setUp(vm: MemberFeedItemViewModel) {
         nameLabel.text = vm.member.name
-        profileImageView.image = UIImage(named: vm.member.photo)
+        profileImageView.kf.setImage(with: vm.member.photoUrl)
         dateLabel.text = "4:15pm"
         textLabel.text = vm.feedText
         

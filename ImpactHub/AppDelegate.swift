@@ -9,6 +9,7 @@
 import UIKit
 import SalesforceSDKCore
 
+
 let RemoteAccessConsumerKey = "3MVG9lcxCTdG2Vbsh1Tk8y8c1rEtTORpQ0eLPM_32J0Lf_4Kyllw6Zdyy.o9IDUJhsyKJ8uoxjEDw2tXFj2HH";
 let OAuthRedirectURI        = "impacthub://auth/success";
 
@@ -86,7 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         loginViewController.navBarColor = UIColor.white
         loginViewController.navBarTextColor = UIColor.darkGray
         
-//        SalesforceSDKManager.shared().launch()
+        SalesforceSDKManager.shared().launch()
 
 
         return true
