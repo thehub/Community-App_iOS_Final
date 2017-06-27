@@ -22,7 +22,7 @@ class FilterViewController: UIViewController {
         super.viewWillAppear(animated)
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
-            APIClient.shared.getFilters(filter: .city)
+            APIClient.shared.getFilters(grouping: .city)
             }.then { items -> Void in
                 print(items)
 //                let cellWidth: CGFloat = self.view.frame.width

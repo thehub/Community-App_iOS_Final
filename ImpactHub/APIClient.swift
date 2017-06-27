@@ -15,9 +15,9 @@ import SwiftyJSON
 class APIClient {
 
     
-    func getFilters(filter: Filter.Grouping) -> Promise<[Filter]> {
+    func getFilters(grouping: Filter.Grouping) -> Promise<[Filter]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQueryAll("select name, Grouping__c from taxonomy__c where active__c = true and Grouping__c ='\(filter.rawValue)'", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("select name, Grouping__c from taxonomy__c where active__c = true and Grouping__c ='\(grouping.rawValue)'", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
