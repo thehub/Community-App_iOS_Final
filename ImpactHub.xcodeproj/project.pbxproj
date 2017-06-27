@@ -113,6 +113,9 @@
 		851D03881F02B81C00641976 /* FilterGroupingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 851D03841F02B81C00641976 /* FilterGroupingCell.xib */; };
 		851D03891F02B81C00641976 /* FilterGroupingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 851D03841F02B81C00641976 /* FilterGroupingCell.xib */; };
 		851D038A1F02B81C00641976 /* FilterGroupingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 851D03841F02B81C00641976 /* FilterGroupingCell.xib */; };
+		8533811B1F02C0BA00232E7E /* FilterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8533811A1F02C0BA00232E7E /* FilterDetailViewController.swift */; };
+		8533811C1F02C0BA00232E7E /* FilterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8533811A1F02C0BA00232E7E /* FilterDetailViewController.swift */; };
+		8533811D1F02C0BA00232E7E /* FilterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8533811A1F02C0BA00232E7E /* FilterDetailViewController.swift */; };
 		853433CB1EE6B547003C26F8 /* MessagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433C91EE6B547003C26F8 /* MessagesCell.swift */; };
 		853433CC1EE6B547003C26F8 /* MessagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 853433CA1EE6B547003C26F8 /* MessagesCell.xib */; };
 		853433CF1EE6B726003C26F8 /* MessagesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433CE1EE6B726003C26F8 /* MessagesVM.swift */; };
@@ -472,6 +475,7 @@
 		851D037B1F02B79700641976 /* FilterGroupingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterGroupingViewModel.swift; sourceTree = "<group>"; };
 		851D03831F02B81C00641976 /* FilterGroupingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterGroupingCell.swift; sourceTree = "<group>"; };
 		851D03841F02B81C00641976 /* FilterGroupingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterGroupingCell.xib; sourceTree = "<group>"; };
+		8533811A1F02C0BA00232E7E /* FilterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterDetailViewController.swift; sourceTree = "<group>"; };
 		853433C91EE6B547003C26F8 /* MessagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesCell.swift; sourceTree = "<group>"; };
 		853433CA1EE6B547003C26F8 /* MessagesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessagesCell.xib; sourceTree = "<group>"; };
 		853433CE1EE6B726003C26F8 /* MessagesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesVM.swift; sourceTree = "<group>"; };
@@ -917,6 +921,7 @@
 			children = (
 				85DE9EF71ECC902B00291EF5 /* HomeViewController.swift */,
 				85BFF1081F0244930010AD51 /* FilterViewController.swift */,
+				8533811A1F02C0BA00232E7E /* FilterDetailViewController.swift */,
 				851D03831F02B81C00641976 /* FilterGroupingCell.swift */,
 				851D03841F02B81C00641976 /* FilterGroupingCell.xib */,
 				858C58A31EF9492000136DAC /* TitleCell.swift */,
@@ -1386,6 +1391,7 @@
 				858C58D11EF9848E00136DAC /* JobDetailCell.swift in Sources */,
 				85455D271EF28E6400243846 /* UIColor+IMAAdditions.swift in Sources */,
 				85BFF10D1F02B0E10010AD51 /* Filter.swift in Sources */,
+				8533811B1F02C0BA00232E7E /* FilterDetailViewController.swift in Sources */,
 				85B3613A1ED59FD400DC2DE0 /* APIClient.swift in Sources */,
 				8570C1E51ECF030900FA1CE9 /* CompanyViewModel.swift in Sources */,
 				859F97D31EFBBF01001C0B33 /* GoalDetailTopCell.swift in Sources */,
@@ -1486,6 +1492,7 @@
 				858C58CD1EF96EB600136DAC /* JobViewController.swift in Sources */,
 				858C58951EF928F500136DAC /* ProjectDetailTopCell.swift in Sources */,
 				859F97CE1EFBBF01001C0B33 /* GoalCollectionViewCell.swift in Sources */,
+				8533811C1F02C0BA00232E7E /* FilterDetailViewController.swift in Sources */,
 				859F97D41EFBBF01001C0B33 /* GoalDetailTopCell.swift in Sources */,
 				850072241EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
 				85AD64981F00FCA800F2CCA8 /* BigTitleTopViewModel.swift in Sources */,
@@ -1585,6 +1592,7 @@
 				858C58CE1EF96EB600136DAC /* JobViewController.swift in Sources */,
 				858C58961EF928F500136DAC /* ProjectDetailTopCell.swift in Sources */,
 				859F97CF1EFBBF01001C0B33 /* GoalCollectionViewCell.swift in Sources */,
+				8533811D1F02C0BA00232E7E /* FilterDetailViewController.swift in Sources */,
 				859F97D51EFBBF01001C0B33 /* GoalDetailTopCell.swift in Sources */,
 				850072251EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
 				85AD64991F00FCA800F2CCA8 /* BigTitleTopViewModel.swift in Sources */,

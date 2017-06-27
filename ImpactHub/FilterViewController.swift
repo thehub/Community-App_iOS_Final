@@ -15,18 +15,13 @@ class FilterViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         collectionView.register(UINib.init(nibName: FilterGroupingViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: FilterGroupingViewModel.cellIdentifier)
 
-        // Do any additional setup after loading the view.
-    }
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
 
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let cellWidth: CGFloat = self.view.frame.width
         firstly {
@@ -44,11 +39,26 @@ class FilterViewController: UIViewController {
                     self.data.append(viewModel)
                 }
             }.always {
+                self.collectionView.alpha = 0
                 self.collectionView.reloadData()
+                self.collectionView.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
+                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                    self.collectionView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+                    self.collectionView.alpha = 1
+                }, completion: { (_) in
+                    
+                })
+
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }.catch { error in
                 debugPrint(error.localizedDescription)
         }
+    }
+
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
     }
     
     override func didReceiveMemoryWarning() {
