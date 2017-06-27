@@ -16,6 +16,18 @@ struct Filter {
     enum Grouping : String {
         case city
         case sector
+        
+        var displayName: String {
+            get {
+                switch self {
+                case .city:
+                    return "City"
+                case .sector:
+                    return "Sector"
+                }
+            }
+        }
+        
     }
 }
 

@@ -104,6 +104,15 @@
 		8516551F1EFD5F0200002786 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516551E1EFD5F0200002786 /* AddPostViewController.swift */; };
 		851655201EFD5F0200002786 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516551E1EFD5F0200002786 /* AddPostViewController.swift */; };
 		851655211EFD5F0200002786 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516551E1EFD5F0200002786 /* AddPostViewController.swift */; };
+		851D037C1F02B79700641976 /* FilterGroupingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D037B1F02B79700641976 /* FilterGroupingViewModel.swift */; };
+		851D037D1F02B79700641976 /* FilterGroupingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D037B1F02B79700641976 /* FilterGroupingViewModel.swift */; };
+		851D037E1F02B79700641976 /* FilterGroupingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D037B1F02B79700641976 /* FilterGroupingViewModel.swift */; };
+		851D03851F02B81C00641976 /* FilterGroupingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D03831F02B81C00641976 /* FilterGroupingCell.swift */; };
+		851D03861F02B81C00641976 /* FilterGroupingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D03831F02B81C00641976 /* FilterGroupingCell.swift */; };
+		851D03871F02B81C00641976 /* FilterGroupingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D03831F02B81C00641976 /* FilterGroupingCell.swift */; };
+		851D03881F02B81C00641976 /* FilterGroupingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 851D03841F02B81C00641976 /* FilterGroupingCell.xib */; };
+		851D03891F02B81C00641976 /* FilterGroupingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 851D03841F02B81C00641976 /* FilterGroupingCell.xib */; };
+		851D038A1F02B81C00641976 /* FilterGroupingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 851D03841F02B81C00641976 /* FilterGroupingCell.xib */; };
 		853433CB1EE6B547003C26F8 /* MessagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433C91EE6B547003C26F8 /* MessagesCell.swift */; };
 		853433CC1EE6B547003C26F8 /* MessagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 853433CA1EE6B547003C26F8 /* MessagesCell.xib */; };
 		853433CF1EE6B726003C26F8 /* MessagesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853433CE1EE6B726003C26F8 /* MessagesVM.swift */; };
@@ -460,6 +469,9 @@
 		851655131EFD326F00002786 /* EventDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailCell.xib; sourceTree = "<group>"; };
 		8516551A1EFD32A000002786 /* EventDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewModel.swift; sourceTree = "<group>"; };
 		8516551E1EFD5F0200002786 /* AddPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
+		851D037B1F02B79700641976 /* FilterGroupingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterGroupingViewModel.swift; sourceTree = "<group>"; };
+		851D03831F02B81C00641976 /* FilterGroupingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterGroupingCell.swift; sourceTree = "<group>"; };
+		851D03841F02B81C00641976 /* FilterGroupingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterGroupingCell.xib; sourceTree = "<group>"; };
 		853433C91EE6B547003C26F8 /* MessagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesCell.swift; sourceTree = "<group>"; };
 		853433CA1EE6B547003C26F8 /* MessagesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessagesCell.xib; sourceTree = "<group>"; };
 		853433CE1EE6B726003C26F8 /* MessagesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesVM.swift; sourceTree = "<group>"; };
@@ -905,6 +917,8 @@
 			children = (
 				85DE9EF71ECC902B00291EF5 /* HomeViewController.swift */,
 				85BFF1081F0244930010AD51 /* FilterViewController.swift */,
+				851D03831F02B81C00641976 /* FilterGroupingCell.swift */,
+				851D03841F02B81C00641976 /* FilterGroupingCell.xib */,
 				858C58A31EF9492000136DAC /* TitleCell.swift */,
 				858C58A41EF9492000136DAC /* TitleCell.xib */,
 				85523DAD1EFA9CB100F66B53 /* ListWithSearchViewController.swift */,
@@ -984,6 +998,7 @@
 			children = (
 				853433CD1EE6B6F9003C26F8 /* Messages */,
 				85DE9F061ECCACB100291EF5 /* MemberViewModel.swift */,
+				851D037B1F02B79700641976 /* FilterGroupingViewModel.swift */,
 				858C58AB1EF94A2A00136DAC /* TitleViewModel.swift */,
 				8570C1E41ECF030900FA1CE9 /* CompanyViewModel.swift */,
 				8570C2081ECF24A400FA1CE9 /* JobViewModel.swift */,
@@ -1142,6 +1157,7 @@
 				85066FC61ED33E6F0032391A /* MemberSkillItemCell.xib in Resources */,
 				8570C1DF1ECEE66300FA1CE9 /* Home.storyboard in Resources */,
 				850B701E1EFBF84600596315 /* GroupDetailTopCell.xib in Resources */,
+				851D03881F02B81C00641976 /* FilterGroupingCell.xib in Resources */,
 				85DE9F001ECCA8D500291EF5 /* MemberCollectionViewCell.xib in Resources */,
 				85E7DA851EF818D200C9DA15 /* ProjectCollectionViewCell.xib in Resources */,
 				85455D301EF2A53200243846 /* gt-walsheim-bold-web.ttf in Resources */,
@@ -1188,6 +1204,7 @@
 				8502265D1F0119D000942C9F /* RelatedCell.xib in Resources */,
 				85E7DA861EF818D200C9DA15 /* ProjectCollectionViewCell.xib in Resources */,
 				858C58A91EF9492000136DAC /* TitleCell.xib in Resources */,
+				851D03891F02B81C00641976 /* FilterGroupingCell.xib in Resources */,
 				85523DB31EFAA3F100F66B53 /* CompanyCollectionViewCell.xib in Resources */,
 				850B70381EFC0F6D00596315 /* EventCollectionViewCell.xib in Resources */,
 				857480721EE83D44005F73A2 /* Auth0.plist in Resources */,
@@ -1219,6 +1236,7 @@
 				8502265E1F0119D000942C9F /* RelatedCell.xib in Resources */,
 				85E7DA871EF818D200C9DA15 /* ProjectCollectionViewCell.xib in Resources */,
 				858C58AA1EF9492000136DAC /* TitleCell.xib in Resources */,
+				851D038A1F02B81C00641976 /* FilterGroupingCell.xib in Resources */,
 				85523DB41EFAA3F100F66B53 /* CompanyCollectionViewCell.xib in Resources */,
 				850B70391EFC0F6D00596315 /* EventCollectionViewCell.xib in Resources */,
 				857480731EE83D44005F73A2 /* Auth0.plist in Resources */,
@@ -1325,6 +1343,7 @@
 				8501B9F51EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
 				8570C1E31ECF028200FA1CE9 /* Company.swift in Sources */,
 				859C41691ECDA70900637295 /* MemberDetailTopViewModel.swift in Sources */,
+				851D03851F02B81C00641976 /* FilterGroupingCell.swift in Sources */,
 				8574807D1EE84735005F73A2 /* Animations.swift in Sources */,
 				857480571EE802D0005F73A2 /* Post.swift in Sources */,
 				850226541F01197100942C9F /* RelatedViewModel.swift in Sources */,
@@ -1401,6 +1420,7 @@
 				851655141EFD326F00002786 /* EventDetailCell.swift in Sources */,
 				8574805A1EE802D0005F73A2 /* Reference.swift in Sources */,
 				859C41711ECDB6BF00637295 /* TopMenu.swift in Sources */,
+				851D037C1F02B79700641976 /* FilterGroupingViewModel.swift in Sources */,
 				85523DCE1EFAC99E00F66B53 /* CompanyServiceItemViewModel.swift in Sources */,
 				857480481EE802D0005F73A2 /* Group.swift in Sources */,
 				8500723F1EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */,
@@ -1436,6 +1456,7 @@
 				853434111EE6E9DC003C26F8 /* MessageThreadMeCell.swift in Sources */,
 				859F97F61EFBD0ED001C0B33 /* GoalAboutItemCell.swift in Sources */,
 				8501B9F61EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
+				851D03861F02B81C00641976 /* FilterGroupingCell.swift in Sources */,
 				850072351EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
 				857480551EE802D0005F73A2 /* Photo.swift in Sources */,
 				8505E1FB1EF3CEEA005A2F40 /* NavigationViewController.swift in Sources */,
@@ -1487,6 +1508,7 @@
 				859F97E51EFBBF10001C0B33 /* GoalViewModel.swift in Sources */,
 				85BFF10E1F02B0E10010AD51 /* Filter.swift in Sources */,
 				85523DCF1EFAC99E00F66B53 /* CompanyServiceItemViewModel.swift in Sources */,
+				851D037D1F02B79700641976 /* FilterGroupingViewModel.swift in Sources */,
 				858C58A11EF9319300136DAC /* ProjectsViewController.swift in Sources */,
 				8501B9FA1EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */,
 				850072281EE70E79008A725A /* MessagesThreadMePicVM.swift in Sources */,
@@ -1533,6 +1555,7 @@
 				853434121EE6E9DC003C26F8 /* MessageThreadMeCell.swift in Sources */,
 				859F97F71EFBD0ED001C0B33 /* GoalAboutItemCell.swift in Sources */,
 				8501B9F71EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
+				851D03871F02B81C00641976 /* FilterGroupingCell.swift in Sources */,
 				850072361EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
 				857480561EE802D0005F73A2 /* Photo.swift in Sources */,
 				8505E1FC1EF3CEEA005A2F40 /* NavigationViewController.swift in Sources */,
@@ -1584,6 +1607,7 @@
 				859F97E61EFBBF10001C0B33 /* GoalViewModel.swift in Sources */,
 				85BFF10F1F02B0E10010AD51 /* Filter.swift in Sources */,
 				85523DD01EFAC99E00F66B53 /* CompanyServiceItemViewModel.swift in Sources */,
+				851D037E1F02B79700641976 /* FilterGroupingViewModel.swift in Sources */,
 				858C58A21EF9319300136DAC /* ProjectsViewController.swift in Sources */,
 				8501B9FB1EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */,
 				850072291EE70E79008A725A /* MessagesThreadMePicVM.swift in Sources */,

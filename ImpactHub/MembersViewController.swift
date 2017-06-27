@@ -30,7 +30,6 @@ class MembersViewController: ListWithSearchViewController {
                 print(items)
                 
                 let cellWidth: CGFloat = self.view.frame.width
-
                 items.forEach({ (member) in
                     let viewModel1 = MemberViewModel(member: member, cellSize: CGSize(width: cellWidth, height: 105))
                     self.data.append(viewModel1)
