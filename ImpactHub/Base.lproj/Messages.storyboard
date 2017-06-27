@@ -37,11 +37,17 @@
                                     <outlet property="delegate" destination="uuD-mm-PdR" id="LXx-Os-hho"/>
                                 </connections>
                             </collectionView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="pzX-t1-oFj">
+                                <rect key="frame" x="0.0" y="64" width="375" height="5"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ELV-2N-JeE" secondAttribute="trailing" id="Bwe-oV-9qN"/>
+                            <constraint firstItem="pzX-t1-oFj" firstAttribute="top" secondItem="iiQ-ke-vmb" secondAttribute="bottom" id="H5z-Zs-hwd"/>
                             <constraint firstItem="ELV-2N-JeE" firstAttribute="leading" secondItem="vwx-kq-vgY" secondAttribute="leading" id="RJE-mt-Ure"/>
+                            <constraint firstItem="pzX-t1-oFj" firstAttribute="leading" secondItem="vwx-kq-vgY" secondAttribute="leading" id="VaX-G3-WJ5"/>
+                            <constraint firstAttribute="trailing" secondItem="pzX-t1-oFj" secondAttribute="trailing" id="ba3-hK-ZNd"/>
                             <constraint firstItem="ELV-2N-JeE" firstAttribute="top" secondItem="iiQ-ke-vmb" secondAttribute="bottom" id="cHN-El-gjK"/>
                             <constraint firstItem="0nm-50-eU1" firstAttribute="top" secondItem="ELV-2N-JeE" secondAttribute="bottom" id="jvD-dJ-ZAb"/>
                         </constraints>
@@ -323,6 +329,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="navBarShadow" width="100" height="5"/>
         <image name="tabBarMessages" width="20" height="20"/>
     </resources>
     <color key="tintColor" red="1" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>

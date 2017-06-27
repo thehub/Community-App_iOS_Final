@@ -21,16 +21,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Gou-aG-j1w">
+                            <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Gou-aG-j1w">
                                 <rect key="frame" x="102.5" y="72" width="169" height="29"/>
                                 <segments>
                                     <segment title="Hub"/>
                                     <segment title="Community"/>
                                 </segments>
                             </segmentedControl>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="tec-LD-j8L">
+                                <rect key="frame" x="0.0" y="64" width="375" height="5"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tec-LD-j8L" secondAttribute="trailing" id="0Gx-wm-oUQ"/>
+                            <constraint firstItem="tec-LD-j8L" firstAttribute="leading" secondItem="14Q-yo-SKK" secondAttribute="leading" id="7hZ-yu-2Ho"/>
+                            <constraint firstItem="tec-LD-j8L" firstAttribute="top" secondItem="uPR-vw-ZVo" secondAttribute="bottom" id="9jU-JN-bTi"/>
                             <constraint firstItem="Gou-aG-j1w" firstAttribute="centerX" secondItem="14Q-yo-SKK" secondAttribute="centerX" id="Ydu-LS-9Ho"/>
                             <constraint firstItem="Gou-aG-j1w" firstAttribute="top" secondItem="uPR-vw-ZVo" secondAttribute="bottom" constant="8" id="sk0-XU-XaK"/>
                         </constraints>
@@ -52,7 +58,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eAp-fo-tKX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="eAp-fo-tKX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -67,6 +73,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="navBarShadow" width="100" height="5"/>
         <image name="tabBarNotifications" width="18" height="22"/>
     </resources>
     <color key="tintColor" red="1" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>

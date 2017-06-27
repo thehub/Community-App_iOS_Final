@@ -1,14 +1,14 @@
 //
-//  MemberFilterViewController.swift
+//  FilterViewController.swift
 //  ImpactHub
 //
-//  Created by Niklas on 15/06/2017.
+//  Created by Niklas Alvaeus on 27/06/2017.
 //  Copyright © 2017 Lightful Ltd. All rights reserved.
 //
 
 import UIKit
 
-class MemberFilterViewController: UIViewController {
+class FilterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,13 +21,14 @@ class MemberFilterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+
     @IBAction func onDoneTap(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true, completion: {
-                
-            })
+            
+        })
     }
-
-     @IBAction func onClearAll(_ sender: Any) {
-     }
+    
+    @IBAction func onClearAll(_ sender: Any) {
+    }
 
 }

@@ -615,7 +615,7 @@
         <!--Filter-->
         <scene sceneID="VWj-TW-90p">
             <objects>
-                <viewController title="Filter" hidesBottomBarWhenPushed="YES" id="6DX-cB-YjN" customClass="MemberFilterViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Filter" hidesBottomBarWhenPushed="YES" id="6DX-cB-YjN" customClass="FilterViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nI7-Jo-2T6"/>
                         <viewControllerLayoutGuide type="bottom" id="0Bw-0C-v3Q"/>
@@ -643,11 +643,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Filter" id="Il7-n0-bfp">
-                        <barButtonItem key="rightBarButtonItem" title="Clear All" id="ncK-y1-0UV">
-                            <connections>
-                                <action selector="onClearAll:" destination="6DX-cB-YjN" id="m2i-oj-hza"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Clear All" id="ncK-y1-0UV"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rtf-Cy-3dV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -850,6 +846,9 @@
                                             <constraint firstAttribute="height" constant="65" id="fUE-Gg-kE0"/>
                                         </constraints>
                                         <state key="normal" image="filterButton"/>
+                                        <connections>
+                                            <segue destination="3P0-zD-GQr" kind="custom" identifier="ShowFilter" customClass="DeckSegue" customModule="DeckTransition" id="fwI-8D-BHi"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -982,6 +981,9 @@
                                             <constraint firstAttribute="width" constant="64" id="jtq-BM-hqo"/>
                                         </constraints>
                                         <state key="normal" image="filterButton"/>
+                                        <connections>
+                                            <segue destination="3P0-zD-GQr" kind="custom" identifier="ShowFilter" customClass="DeckSegue" customModule="DeckTransition" id="0Kb-id-67l"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1212,6 +1214,9 @@
                                             <constraint firstAttribute="width" constant="64" id="pnK-KO-KeO"/>
                                         </constraints>
                                         <state key="normal" image="filterButton"/>
+                                        <connections>
+                                            <segue destination="3P0-zD-GQr" kind="custom" identifier="ShowFilter" customClass="DeckSegue" customModule="DeckTransition" id="ZaZ-Qi-aGI"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1626,6 +1631,9 @@
                                             <constraint firstAttribute="height" constant="65" id="XBe-17-6g3"/>
                                         </constraints>
                                         <state key="normal" image="filterButton"/>
+                                        <connections>
+                                            <segue destination="3P0-zD-GQr" kind="custom" identifier="ShowFilter" customClass="DeckSegue" customModule="DeckTransition" id="C30-D0-cHv"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1850,10 +1858,11 @@
         <image name="tabBarHome" width="22" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="u3D-lG-cq4"/>
         <segue reference="E6m-rq-9b6"/>
         <segue reference="9tv-11-54j"/>
-        <segue reference="SUD-Df-hmX"/>
+        <segue reference="u3D-lG-cq4"/>
+        <segue reference="Nsv-q8-zjz"/>
+        <segue reference="ZaZ-Qi-aGI"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>

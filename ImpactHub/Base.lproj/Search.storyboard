@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="S4H-bJ-Vwm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="S4H-bJ-Vwm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,7 +20,17 @@
                     <view key="view" contentMode="scaleToFill" id="MMk-gk-cYN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="ty6-9L-Sv4">
+                                <rect key="frame" x="0.0" y="64" width="375" height="5"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ty6-9L-Sv4" secondAttribute="trailing" id="F7w-mv-jnI"/>
+                            <constraint firstItem="ty6-9L-Sv4" firstAttribute="top" secondItem="dj3-TT-0qT" secondAttribute="bottom" id="kcN-wq-FRZ"/>
+                            <constraint firstItem="ty6-9L-Sv4" firstAttribute="leading" secondItem="MMk-gk-cYN" secondAttribute="leading" id="mNf-PW-tcC"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="3Ea-Mu-fl7">
                         <barButtonItem key="backBarButtonItem" title=" " id="GC7-af-EgU"/>
@@ -54,6 +64,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="navBarShadow" width="100" height="5"/>
         <image name="tabBarSearch" width="24" height="23"/>
     </resources>
 </document>
