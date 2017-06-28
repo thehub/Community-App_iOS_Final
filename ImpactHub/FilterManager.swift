@@ -12,6 +12,15 @@ class FilterManager {
 
     public enum Source {
         case members
+        
+//        var groupings: [Filter.Grouping] {
+//            get {
+//                switch self {
+//                case .members:
+//                    return [Filter.Grouping.city, Filter.Grouping.sector]
+//                }
+//            }
+//        }
     }
     
     var currenttlySelectingFor: Source = .members

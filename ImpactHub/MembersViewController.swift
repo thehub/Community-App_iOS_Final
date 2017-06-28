@@ -63,7 +63,6 @@ class MembersViewController: ListWithSearchViewController {
         else if segue.identifier == "ShowFilter" {
             if let navVC = segue.destination as? UINavigationController {
                 if let vc = navVC.viewControllers.first as? FilterViewController {
-                    // TODO: Add what filter groupings
                     FilterManager.shared.currenttlySelectingFor = .members
                     vc.delegate = self
                 }
