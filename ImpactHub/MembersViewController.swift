@@ -13,7 +13,8 @@ import SalesforceSDKCore
 
 class MembersViewController: ListWithSearchViewController {
 
-    
+    var filters = [Filter]()
+    var filterGroups: [Filter.Grouping] = [.city, .sector]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +60,16 @@ class MembersViewController: ListWithSearchViewController {
                 vc.member = selectedItem.member
             }
         }
+        else if segue.identifier == "ShowFilter" {
+            if let navVC = segue.destination as? UINavigationController {
+                if let vc = navVC.viewControllers.first as? FilterViewController {
+                    // TODO: Add what filter groupings
+                    FilterManager.shared.currenttlySelectingFor = .members
+                    vc.delegate = self
+                }
+            }
+        }
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -69,7 +80,12 @@ class MembersViewController: ListWithSearchViewController {
     
 }
 
-
+extension MembersViewController: FilterableDelegate {
+    func updateFilters(filters: [Filter]) {
+        print(filters)
+        self.filters = filters
+    }
+}
 
 extension MembersViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

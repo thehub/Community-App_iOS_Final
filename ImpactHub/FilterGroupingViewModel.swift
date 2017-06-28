@@ -13,6 +13,7 @@ class FilterGroupingViewModel: CellRepresentable {
     static var cellIdentifier = "FilterGroupingCell"
     
     var grouping: Filter.Grouping
+    var hasSome = false
     
     init(grouping: Filter.Grouping, cellSize: CGSize) {
         self.grouping = grouping

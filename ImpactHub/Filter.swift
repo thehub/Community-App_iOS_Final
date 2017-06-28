@@ -31,6 +31,14 @@ struct Filter {
     }
 }
 
+extension Filter: Equatable {
+
+    static func ==(lhs: Filter, rhs: Filter) -> Bool {
+        return lhs.grouping == rhs.grouping && lhs.name == rhs.name
+    }
+    
+}
+
 extension Filter {
     init?(json: JSON) {
         guard

@@ -13,6 +13,7 @@ class FilterCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var selectionImageView: UIImageView!
     @IBOutlet weak var selectedDotImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectedDotImageView.transform = CGAffineTransform.init(scaleX: 0.0, y: 0.0)

@@ -19,6 +19,11 @@ class FilterGroupingCell: UICollectionViewCell {
 
     func setUp(vm: FilterGroupingViewModel) {
         nameLabel.text = vm.grouping.displayName.uppercased()
-        selectedLabel.text = "All"
+        if vm.hasSome {
+            selectedLabel.text = "Some"
+        }
+        else {
+            selectedLabel.text = "All"
+        }
     }
 }

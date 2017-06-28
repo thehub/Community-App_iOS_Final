@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a49-ft-Pky">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a49-ft-Pky">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -599,7 +599,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="daq-qw-gvH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="daq-qw-gvH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1944,7 +1944,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Filter" id="s3N-fz-Tt8">
-                        <barButtonItem key="rightBarButtonItem" title="Clear All" id="Xxa-ij-WqT">
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="Xxa-ij-WqT">
                             <color key="tintColor" red="1" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="onClearAll:" destination="7FL-f2-awc" id="Cgd-wn-2Mj"/>
@@ -1970,10 +1970,10 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="E6m-rq-9b6"/>
+        <segue reference="2YP-O4-F5Z"/>
         <segue reference="9tv-11-54j"/>
         <segue reference="u3D-lG-cq4"/>
         <segue reference="Nsv-q8-zjz"/>
-        <segue reference="ZaZ-Qi-aGI"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>

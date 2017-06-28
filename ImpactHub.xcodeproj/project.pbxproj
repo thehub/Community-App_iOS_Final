@@ -89,6 +89,12 @@
 		850B703A1EFC0F6D00596315 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B70331EFC0F6D00596315 /* EventsViewController.swift */; };
 		850B703B1EFC0F6D00596315 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B70331EFC0F6D00596315 /* EventsViewController.swift */; };
 		850B703C1EFC0F6D00596315 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B70331EFC0F6D00596315 /* EventsViewController.swift */; };
+		850C142B1F03ADED00F00DAE /* FilterableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850C142A1F03ADED00F00DAE /* FilterableDelegate.swift */; };
+		850C142C1F03ADED00F00DAE /* FilterableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850C142A1F03ADED00F00DAE /* FilterableDelegate.swift */; };
+		850C142D1F03ADED00F00DAE /* FilterableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850C142A1F03ADED00F00DAE /* FilterableDelegate.swift */; };
+		850C142F1F03B04400F00DAE /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850C142E1F03B04400F00DAE /* FilterManager.swift */; };
+		850C14301F03B04400F00DAE /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850C142E1F03B04400F00DAE /* FilterManager.swift */; };
+		850C14311F03B04400F00DAE /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850C142E1F03B04400F00DAE /* FilterManager.swift */; };
 		8516550F1EFD326400002786 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516550E1EFD326400002786 /* EventViewController.swift */; };
 		851655101EFD326400002786 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516550E1EFD326400002786 /* EventViewController.swift */; };
 		851655111EFD326400002786 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516550E1EFD326400002786 /* EventViewController.swift */; };
@@ -476,6 +482,8 @@
 		850B70311EFC0F6D00596315 /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
 		850B70321EFC0F6D00596315 /* EventCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventCollectionViewCell.xib; sourceTree = "<group>"; };
 		850B70331EFC0F6D00596315 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		850C142A1F03ADED00F00DAE /* FilterableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterableDelegate.swift; sourceTree = "<group>"; };
+		850C142E1F03B04400F00DAE /* FilterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
 		8516550E1EFD326400002786 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		851655121EFD326F00002786 /* EventDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailCell.swift; sourceTree = "<group>"; };
 		851655131EFD326F00002786 /* EventDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailCell.xib; sourceTree = "<group>"; };
@@ -890,6 +898,7 @@
 				85455D221EF28D3D00243846 /* TabBarController.swift */,
 				857480681EE83B17005F73A2 /* LoginViewController.swift */,
 				8574806C1EE83B67005F73A2 /* ResetPasswordViewController.swift */,
+				850C142E1F03B04400F00DAE /* FilterManager.swift */,
 				85DE9ECC1ECC8CD900291EF5 /* Main.storyboard */,
 				8570C1DD1ECEE66300FA1CE9 /* Home.storyboard */,
 				8570C1CF1ECEE0D200FA1CE9 /* Search.storyboard */,
@@ -944,6 +953,7 @@
 				859F97FB1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift */,
 				85523DB51EFAABD700F66B53 /* ListFullBleedViewController.swift */,
 				8516551E1EFD5F0200002786 /* AddPostViewController.swift */,
+				850C142A1F03ADED00F00DAE /* FilterableDelegate.swift */,
 				85DE9EFA1ECC9D2700291EF5 /* Members */,
 				858C588E1EF927C100136DAC /* Projects */,
 				8570C1E61ECF035700FA1CE9 /* Companies */,
@@ -1376,6 +1386,7 @@
 				859C416C1ECDB1D200637295 /* MemberFeedItemCell.swift in Sources */,
 				857480791EE846EE005F73A2 /* SessionManager.swift in Sources */,
 				858C58CC1EF96EB600136DAC /* JobViewController.swift in Sources */,
+				850C142B1F03ADED00F00DAE /* FilterableDelegate.swift in Sources */,
 				8570C1F81ECF15CE00FA1CE9 /* CompanyDetailTopViewModel.swift in Sources */,
 				85066FCA1ED343160032391A /* Utils.swift in Sources */,
 				8574804B1EE802D0005F73A2 /* MentionCompletion.swift in Sources */,
@@ -1424,6 +1435,7 @@
 				850072271EE70E79008A725A /* MessagesThreadMePicVM.swift in Sources */,
 				859C41661ECDA01A00637295 /* MemberDetailTopCell.swift in Sources */,
 				85523DAE1EFA9CB100F66B53 /* ListWithSearchViewController.swift in Sources */,
+				850C142F1F03B04400F00DAE /* FilterManager.swift in Sources */,
 				85066FC81ED33F240032391A /* MemberSkillItemViewModel.swift in Sources */,
 				850072231EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
 				858C58941EF928F500136DAC /* ProjectDetailTopCell.swift in Sources */,
@@ -1545,8 +1557,10 @@
 				857480431EE802D0005F73A2 /* Comment.swift in Sources */,
 				857480621EE802E3005F73A2 /* Contact.swift in Sources */,
 				859F97DA1EFBBF01001C0B33 /* GoalsViewController.swift in Sources */,
+				850C14301F03B04400F00DAE /* FilterManager.swift in Sources */,
 				858C58C51EF9670E00136DAC /* JobCollectionViewCell.swift in Sources */,
 				850072301EE70F56008A725A /* MessagesThreadThemPicVM.swift in Sources */,
+				850C142C1F03ADED00F00DAE /* FilterableDelegate.swift in Sources */,
 				850B702B1EFC0F2D00596315 /* Event.swift in Sources */,
 				857480461EE802D0005F73A2 /* Conversation.swift in Sources */,
 				859F97FD1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift in Sources */,
@@ -1647,8 +1661,10 @@
 				857480441EE802D0005F73A2 /* Comment.swift in Sources */,
 				857480631EE802E3005F73A2 /* Contact.swift in Sources */,
 				859F97DB1EFBBF01001C0B33 /* GoalsViewController.swift in Sources */,
+				850C14311F03B04400F00DAE /* FilterManager.swift in Sources */,
 				858C58C61EF9670E00136DAC /* JobCollectionViewCell.swift in Sources */,
 				850072311EE70F56008A725A /* MessagesThreadThemPicVM.swift in Sources */,
+				850C142D1F03ADED00F00DAE /* FilterableDelegate.swift in Sources */,
 				850B702C1EFC0F2D00596315 /* Event.swift in Sources */,
 				857480471EE802D0005F73A2 /* Conversation.swift in Sources */,
 				859F97FE1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift in Sources */,

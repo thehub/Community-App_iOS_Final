@@ -14,6 +14,9 @@ class FilterViewController: UIViewController {
     var data = [CellRepresentable]()
     var filterData = [[CellRepresentable]]()
 
+    weak var delegate: FilterableDelegate?
+
+    
     @IBOutlet weak var collectionView: UICollectionView!
 
     override func viewDidLoad() {
@@ -25,46 +28,75 @@ class FilterViewController: UIViewController {
 
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let cellWidth: CGFloat = self.view.frame.width
-        firstly {
-            APIClient.shared.getFilters(grouping: .city)
-            }.then { items -> Void in
-                let sortedItems = items.sorted(by: {$0.name < $1.name})
-                if let first = sortedItems.first {
-                    let viewModel = FilterGroupingViewModel(grouping: first.grouping, cellSize: CGSize(width: cellWidth, height: 37))
-                    self.data.append(viewModel)
-                }
-                let filters = sortedItems.map({FilterViewModel(filter: $0, cellSize: CGSize(width: cellWidth, height: 37))})
-                self.filterData.append(filters)
-            }.then {
-                APIClient.shared.getFilters(grouping: .sector)
-            }.then { items -> Void in
-                if let first = items.first {
-                    let viewModel = FilterGroupingViewModel(grouping: first.grouping, cellSize: CGSize(width: cellWidth, height: 37))
-                    self.data.append(viewModel)
-                }
-                let filters = items.map({FilterViewModel(filter: $0, cellSize: CGSize(width: cellWidth, height: 37))})
-                self.filterData.append(filters)
-            }.always {
-                self.collectionView.alpha = 0
-                self.collectionView.reloadData()
-                self.collectionView.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
-                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
-                    self.collectionView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
-                    self.collectionView.alpha = 1
-                }, completion: { (_) in
+        
+        switch FilterManager.shared.currenttlySelectingFor {
+        case .members:
+            firstly {
+                APIClient.shared.getFilters(grouping: .city)
+                }.then { items -> Void in
+                    let sortedItems = items.sorted(by: {$0.name < $1.name})
+                    if let first = sortedItems.first {
+                        let viewModel = FilterGroupingViewModel(grouping: first.grouping, cellSize: CGSize(width: cellWidth, height: 37))
+                        self.data.append(viewModel)
+                    }
+                    let filters = sortedItems.map({FilterViewModel(filter: $0, cellSize: CGSize(width: cellWidth, height: 37))})
+                    self.filterData.append(filters)
+                }.then {
+                    APIClient.shared.getFilters(grouping: .sector)
+                }.then { items -> Void in
+                    let sortedItems = items.sorted(by: {$0.name < $1.name})
+                    if let first = sortedItems.first {
+                        let viewModel = FilterGroupingViewModel(grouping: first.grouping, cellSize: CGSize(width: cellWidth, height: 37))
+                        self.data.append(viewModel)
+                    }
+                    let filters = items.map({FilterViewModel(filter: $0, cellSize: CGSize(width: cellWidth, height: 37))})
+                    self.filterData.append(filters)
+                }.always {
+                    self.collectionView.alpha = 0
+                    self.update()
+                    self.collectionView.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
+                    UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                        self.collectionView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+                        self.collectionView.alpha = 1
+                    }, completion: { (_) in
+                        
+                    })
                     
-                })
-
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            }.catch { error in
-                debugPrint(error.localizedDescription)
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }.catch { error in
+                    debugPrint(error.localizedDescription)
+            }
+            break
         }
+        
+        
     }
 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
+        update()
+    }
+    
+    func update() {
+        let filters = FilterManager.shared.getCurrentFilters()
+        print(filters)
+        // Set all to false first
+        data.forEach { (cellData) in
+            (cellData as! FilterGroupingViewModel).hasSome = false
+        }
+        
+        // Compare each data against fitler items, to see if it matches the grouping
+        data.forEach { (cellData) in
+            if cellData is FilterGroupingViewModel {
+                if filters.filter({$0.grouping == (cellData as! FilterGroupingViewModel).grouping}).count > 0 {
+                    (cellData as! FilterGroupingViewModel).hasSome = true
+                }
+            }
+        }
+        
+        collectionView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -80,6 +112,8 @@ class FilterViewController: UIViewController {
     }
     
     @IBAction func onClearAll(_ sender: Any) {
+        FilterManager.shared.clearAll()
+        update()
     }
 
     var selectedFilterData: [CellRepresentable]?
@@ -88,6 +122,7 @@ class FilterViewController: UIViewController {
         if segue.identifier == "ShowFilterDetail" {
             if let vc = segue.destination as? FilterDetailViewController, let selectedFilterData = selectedFilterData {
                 vc.data = selectedFilterData
+                vc.delegate = self.delegate
             }
         }
     }
