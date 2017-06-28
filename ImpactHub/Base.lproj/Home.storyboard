@@ -673,6 +673,9 @@
                     <navigationItem key="navigationItem" title="Filter" id="Il7-n0-bfp">
                         <barButtonItem key="rightBarButtonItem" title="Clear All" id="ncK-y1-0UV">
                             <color key="tintColor" red="1" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="onClearAll:" destination="6DX-cB-YjN" id="ond-VH-dgY"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -1943,6 +1946,9 @@
                     <navigationItem key="navigationItem" title="Filter" id="s3N-fz-Tt8">
                         <barButtonItem key="rightBarButtonItem" title="Clear All" id="Xxa-ij-WqT">
                             <color key="tintColor" red="1" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="onClearAll:" destination="7FL-f2-awc" id="Cgd-wn-2Mj"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

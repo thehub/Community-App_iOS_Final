@@ -18,7 +18,7 @@ class FilterGroupingCell: UICollectionViewCell {
     }
 
     func setUp(vm: FilterGroupingViewModel) {
-        nameLabel.text = vm.grouping.displayName
+        nameLabel.text = vm.grouping.displayName.uppercased()
         selectedLabel.text = "All"
     }
 }

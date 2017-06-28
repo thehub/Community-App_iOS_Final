@@ -12,6 +12,7 @@ import PromiseKit
 class FilterViewController: UIViewController {
 
     var data = [CellRepresentable]()
+    var filterData = [[CellRepresentable]]()
 
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -27,10 +28,13 @@ class FilterViewController: UIViewController {
         firstly {
             APIClient.shared.getFilters(grouping: .city)
             }.then { items -> Void in
-                if let first = items.first {
+                let sortedItems = items.sorted(by: {$0.name < $1.name})
+                if let first = sortedItems.first {
                     let viewModel = FilterGroupingViewModel(grouping: first.grouping, cellSize: CGSize(width: cellWidth, height: 37))
                     self.data.append(viewModel)
                 }
+                let filters = sortedItems.map({FilterViewModel(filter: $0, cellSize: CGSize(width: cellWidth, height: 37))})
+                self.filterData.append(filters)
             }.then {
                 APIClient.shared.getFilters(grouping: .sector)
             }.then { items -> Void in
@@ -38,6 +42,8 @@ class FilterViewController: UIViewController {
                     let viewModel = FilterGroupingViewModel(grouping: first.grouping, cellSize: CGSize(width: cellWidth, height: 37))
                     self.data.append(viewModel)
                 }
+                let filters = items.map({FilterViewModel(filter: $0, cellSize: CGSize(width: cellWidth, height: 37))})
+                self.filterData.append(filters)
             }.always {
                 self.collectionView.alpha = 0
                 self.collectionView.reloadData()
@@ -76,15 +82,22 @@ class FilterViewController: UIViewController {
     @IBAction func onClearAll(_ sender: Any) {
     }
 
-    var selectedFilters: [Filter]?
+    var selectedFilterData: [CellRepresentable]?
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowFilterDetail" {
+            if let vc = segue.destination as? FilterDetailViewController, let selectedFilterData = selectedFilterData {
+                vc.data = selectedFilterData
+            }
+        }
+    }
 
 }
 
 extension FilterViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let vm = data[indexPath.item] as? FilterGroupingViewModel {
-//            selectedFilters = vm
+            selectedFilterData = filterData[indexPath.item]
             performSegue(withIdentifier: "ShowFilterDetail", sender: self)
         }
     }

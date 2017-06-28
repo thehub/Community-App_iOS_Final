@@ -332,6 +332,15 @@
 		859C417E1ECDFFD700637295 /* MemberAboutItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859C417C1ECDFFD700637295 /* MemberAboutItemCell.swift */; };
 		859C417F1ECDFFD700637295 /* MemberAboutItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859C417D1ECDFFD700637295 /* MemberAboutItemCell.xib */; };
 		859C41811ECE006500637295 /* MemberAboutItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859C41801ECE006500637295 /* MemberAboutItemViewModel.swift */; };
+		859E029F1F03940500600C3E /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859E029E1F03940500600C3E /* FilterViewModel.swift */; };
+		859E02A01F03940500600C3E /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859E029E1F03940500600C3E /* FilterViewModel.swift */; };
+		859E02A11F03940500600C3E /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859E029E1F03940500600C3E /* FilterViewModel.swift */; };
+		859E02A41F03946F00600C3E /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859E02A21F03946F00600C3E /* FilterCell.swift */; };
+		859E02A51F03946F00600C3E /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859E02A21F03946F00600C3E /* FilterCell.swift */; };
+		859E02A61F03946F00600C3E /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859E02A21F03946F00600C3E /* FilterCell.swift */; };
+		859E02A71F03946F00600C3E /* FilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859E02A31F03946F00600C3E /* FilterCell.xib */; };
+		859E02A81F03946F00600C3E /* FilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859E02A31F03946F00600C3E /* FilterCell.xib */; };
+		859E02A91F03946F00600C3E /* FilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859E02A31F03946F00600C3E /* FilterCell.xib */; };
 		859F97C41EFBBEE6001C0B33 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97C31EFBBEE6001C0B33 /* Goal.swift */; };
 		859F97C51EFBBEE6001C0B33 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97C31EFBBEE6001C0B33 /* Goal.swift */; };
 		859F97C61EFBBEE6001C0B33 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859F97C31EFBBEE6001C0B33 /* Goal.swift */; };
@@ -572,6 +581,9 @@
 		859C417C1ECDFFD700637295 /* MemberAboutItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberAboutItemCell.swift; sourceTree = "<group>"; };
 		859C417D1ECDFFD700637295 /* MemberAboutItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberAboutItemCell.xib; sourceTree = "<group>"; };
 		859C41801ECE006500637295 /* MemberAboutItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberAboutItemViewModel.swift; sourceTree = "<group>"; };
+		859E029E1F03940500600C3E /* FilterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
+		859E02A21F03946F00600C3E /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		859E02A31F03946F00600C3E /* FilterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterCell.xib; sourceTree = "<group>"; };
 		859F97C31EFBBEE6001C0B33 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		859F97C71EFBBF01001C0B33 /* GoalCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalCollectionViewCell.swift; sourceTree = "<group>"; };
 		859F97C81EFBBF01001C0B33 /* GoalCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoalCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -924,6 +936,8 @@
 				8533811A1F02C0BA00232E7E /* FilterDetailViewController.swift */,
 				851D03831F02B81C00641976 /* FilterGroupingCell.swift */,
 				851D03841F02B81C00641976 /* FilterGroupingCell.xib */,
+				859E02A21F03946F00600C3E /* FilterCell.swift */,
+				859E02A31F03946F00600C3E /* FilterCell.xib */,
 				858C58A31EF9492000136DAC /* TitleCell.swift */,
 				858C58A41EF9492000136DAC /* TitleCell.xib */,
 				85523DAD1EFA9CB100F66B53 /* ListWithSearchViewController.swift */,
@@ -1004,6 +1018,7 @@
 				853433CD1EE6B6F9003C26F8 /* Messages */,
 				85DE9F061ECCACB100291EF5 /* MemberViewModel.swift */,
 				851D037B1F02B79700641976 /* FilterGroupingViewModel.swift */,
+				859E029E1F03940500600C3E /* FilterViewModel.swift */,
 				858C58AB1EF94A2A00136DAC /* TitleViewModel.swift */,
 				8570C1E41ECF030900FA1CE9 /* CompanyViewModel.swift */,
 				8570C2081ECF24A400FA1CE9 /* JobViewModel.swift */,
@@ -1176,6 +1191,7 @@
 				858C58B41EF94C7700136DAC /* ProjectObjectiveCell.xib in Resources */,
 				858C58C81EF9672000136DAC /* JobCollectionViewCell.xib in Resources */,
 				85DE9ED31ECC8CD900291EF5 /* LaunchScreen.storyboard in Resources */,
+				859E02A71F03946F00600C3E /* FilterCell.xib in Resources */,
 				859F97D61EFBBF01001C0B33 /* GoalDetailTopCell.xib in Resources */,
 				858C58901EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */,
 				859F97D01EFBBF01001C0B33 /* GoalCollectionViewCell.xib in Resources */,
@@ -1220,6 +1236,7 @@
 				859F97D71EFBBF01001C0B33 /* GoalDetailTopCell.xib in Resources */,
 				858C58911EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */,
 				851655181EFD326F00002786 /* EventDetailCell.xib in Resources */,
+				859E02A81F03946F00600C3E /* FilterCell.xib in Resources */,
 				85455D371EF2A53200243846 /* gt-walsheim-light-web.ttf in Resources */,
 				850B70121EFBF1CA00596315 /* GroupCollectionViewCell.xib in Resources */,
 			);
@@ -1252,6 +1269,7 @@
 				859F97D81EFBBF01001C0B33 /* GoalDetailTopCell.xib in Resources */,
 				858C58921EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */,
 				851655191EFD326F00002786 /* EventDetailCell.xib in Resources */,
+				859E02A91F03946F00600C3E /* FilterCell.xib in Resources */,
 				85455D381EF2A53200243846 /* gt-walsheim-light-web.ttf in Resources */,
 				850B70131EFBF1CA00596315 /* GroupCollectionViewCell.xib in Resources */,
 			);
@@ -1312,6 +1330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				859E02A41F03946F00600C3E /* FilterCell.swift in Sources */,
 				859C41631ECD951A00637295 /* MemberViewController.swift in Sources */,
 				859F97D91EFBBF01001C0B33 /* GoalsViewController.swift in Sources */,
 				858C58D81EF9868900136DAC /* JobDetailViewModel.swift in Sources */,
@@ -1430,6 +1449,7 @@
 				85523DCE1EFAC99E00F66B53 /* CompanyServiceItemViewModel.swift in Sources */,
 				857480481EE802D0005F73A2 /* Group.swift in Sources */,
 				8500723F1EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */,
+				859E029F1F03940500600C3E /* FilterViewModel.swift in Sources */,
 				850B701B1EFBF84600596315 /* GroupDetailTopCell.swift in Sources */,
 				85DE9F091ECCACCB00291EF5 /* Member.swift in Sources */,
 				85455D231EF28D3D00243846 /* TabBarController.swift in Sources */,
@@ -1469,6 +1489,7 @@
 				858C58B91EF94C8B00136DAC /* ProjectObjectiveViewModel.swift in Sources */,
 				858C58D21EF9848E00136DAC /* JobDetailCell.swift in Sources */,
 				858C58991EF92B6900136DAC /* ProjectDetailTopViewModel.swift in Sources */,
+				859E02A51F03946F00600C3E /* FilterCell.swift in Sources */,
 				850B70161EFBF1FB00596315 /* GroupViewModel.swift in Sources */,
 				8574806E1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
 				85523DB71EFAABD700F66B53 /* ListFullBleedViewController.swift in Sources */,
@@ -1518,6 +1539,7 @@
 				851D037D1F02B79700641976 /* FilterGroupingViewModel.swift in Sources */,
 				858C58A11EF9319300136DAC /* ProjectsViewController.swift in Sources */,
 				8501B9FA1EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */,
+				859E02A01F03940500600C3E /* FilterViewModel.swift in Sources */,
 				850072281EE70E79008A725A /* MessagesThreadMePicVM.swift in Sources */,
 				85E7DA8A1EF81C7B00C9DA15 /* ProjectViewModel.swift in Sources */,
 				857480431EE802D0005F73A2 /* Comment.swift in Sources */,
@@ -1569,6 +1591,7 @@
 				858C58BA1EF94C8B00136DAC /* ProjectObjectiveViewModel.swift in Sources */,
 				858C58D31EF9848E00136DAC /* JobDetailCell.swift in Sources */,
 				858C589A1EF92B6900136DAC /* ProjectDetailTopViewModel.swift in Sources */,
+				859E02A61F03946F00600C3E /* FilterCell.swift in Sources */,
 				850B70171EFBF1FB00596315 /* GroupViewModel.swift in Sources */,
 				8574806F1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
 				85523DB81EFAABD700F66B53 /* ListFullBleedViewController.swift in Sources */,
@@ -1618,6 +1641,7 @@
 				851D037E1F02B79700641976 /* FilterGroupingViewModel.swift in Sources */,
 				858C58A21EF9319300136DAC /* ProjectsViewController.swift in Sources */,
 				8501B9FB1EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */,
+				859E02A11F03940500600C3E /* FilterViewModel.swift in Sources */,
 				850072291EE70E79008A725A /* MessagesThreadMePicVM.swift in Sources */,
 				85E7DA8B1EF81C7B00C9DA15 /* ProjectViewModel.swift in Sources */,
 				857480441EE802D0005F73A2 /* Comment.swift in Sources */,
