@@ -15,6 +15,29 @@ import SwiftyJSON
 class APIClient {
 
     
+    func getProjects() -> Promise<String> {
+        return Promise { fullfill, reject in
+            
+            //            let userId = SFUserAccountManager.sharedInstance().currentUser!.accountIdentity.userId
+            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, Group_Desc__c, ImageURL__c, Directory_Style__c, Organisation__r.id, Organisation__r.Number_of_Employees__c, Organisation__r.Impact_Hub_Cities__c, Organisation__r.name from Directory__c where Directory_Style__c = 'Project'", fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON(result!)
+                debugPrint(jsonResult)
+                if let records = jsonResult["records"].array {
+                    //                    let items = records.flatMap { Member(json: $0) }
+                    //                    print(items.count)
+                    //                    print(items)
+                    fullfill("ok")
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
     func getFilters(grouping: Filter.Grouping) -> Promise<[Filter]> {
         return Promise { fullfill, reject in
             SFRestAPI.sharedInstance().performSOQLQueryAll("select name, Grouping__c from taxonomy__c where active__c = true and Grouping__c ='\(grouping.rawValue)'", fail: { (error) in
@@ -41,7 +64,7 @@ class APIClient {
         return Promise { fullfill, reject in
             
             //            let userId = SFUserAccountManager.sharedInstance().currentUser!.accountIdentity.userId
-            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT name, Number_of_Employees__c, Impact_Hub_Cities__c, Sector_Industry__c, Logo_Image_Url__c, Banner_Image_Url__c from account where id in: (select accountid from contact where user__c !=: null)", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT name, Number_of_Employees__c, Impact_Hub_Cities__c, Sector_Industry__c, Logo_Image_Url__c, Banner_Image_Url__c from account where id in (select accountid from contact where user__c != null)", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -82,8 +105,7 @@ class APIClient {
     
     func getProjects(contactId: String) -> Promise<String> {
         return Promise { fullfill, reject in
-            print(contactId)
-            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, CountOfMembers__c, ImageURL__c, Directory_Grouping__c, Group_Desc__c, Directory_Style__c from Directory__c where Directory_Style__c ='Project' and id in: (select DirectoryID__c from Directory_Member__c where ContactID__r.id ='\(contactId)')", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, CountOfMembers__c, ImageURL__c, Directory_Grouping__c, Group_Desc__c, Directory_Style__c from Directory__c where Directory_Style__c ='Group' and id in (select DirectoryID__c from Directory_Member__c where ContactID__c ='\(contactId)')", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -122,7 +144,6 @@ class APIClient {
     
     func getMembers() -> Promise<[Member]> {
         return Promise { fullfill, reject in
-            
 //            let userId = SFUserAccountManager.sharedInstance().currentUser!.accountIdentity.userId
             SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT id,firstname,lastname,ProfilePic__c, Profession__c,Impact_Hub_Cities__c,User__c,About_Me__c FROM Contact where User__c != null", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
@@ -292,7 +313,7 @@ class APIClient {
     func getJobs(skip:Int, top:Int) -> Promise<[Job]> {
         return Promise { fullfill, reject in
             // TODO: Send in pagination
-            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT Id,Name,Description__c,Contact__c,Contact__r.FirstName,Contact__r.LastName,Type__c,Age__c,Contact__r.AccountId,Contact__r.Account.Name FROM Job__c", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, Company__c, Company__r.name, Company__r. Logo_Image_Url__c, Location__c, Applications_Close_Date__c from Job__c where Applications_Close_Date__c >= system.today()", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.Error("Error"))
             }) { (result) in

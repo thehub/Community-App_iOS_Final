@@ -60,18 +60,18 @@ class ProjectsViewController: ListWithSearchViewController {
         // Do any additional setup after loading the view.
         
         
-//        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-//        firstly {
-//            APIClient.shared.getJobs(skip: 0, top: 100)
-//            }.then { items -> Void in
-//                print(items)
-////                self.dataSource = items
-////                self.collectionView?.reloadData()
-//            }.always {
-//                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-//            }.catch { error in
-//                debugPrint(error.localizedDescription)
-//        }
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        firstly {
+            APIClient.shared.getProjects()
+            }.then { items -> Void in
+                print(items)
+                //                self.dataSource = items
+                //                self.collectionView?.reloadData()
+            }.always {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }.catch { error in
+                debugPrint(error.localizedDescription)
+        }
     
     }
     
