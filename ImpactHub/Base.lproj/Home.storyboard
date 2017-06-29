@@ -1566,6 +1566,12 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <navigationItem key="navigationItem" id="Ilz-79-NR9">
+                        <barButtonItem key="backBarButtonItem" title=" " id="TmH-KC-67L"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="1PI-cl-xUB">
+                            <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="mO9-vW-zkP" id="3be-7C-dJa"/>

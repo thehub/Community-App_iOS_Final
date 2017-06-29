@@ -86,7 +86,7 @@ class APIClient {
     func getGroups(contactId: String) -> Promise<[Group]> {
         return Promise { fullfill, reject in
             print(contactId)
-            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, CountOfMembers__c, ImageURL__c, Group_Desc__c, Impact_Hub_Cities__c from Directory__c where Directory_Style__c = 'Group' and id in (select DirectoryID__c from Directory_Member__c where ContactID__c ='\(contactId)')", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, CountOfMembers__c, ImageURL__c, Group_Desc__c, Impact_Hub_Cities__c, ChatterGroupId__c from Directory__c where Directory_Style__c = 'Group' and id in (select DirectoryID__c from Directory_Member__c where ContactID__c ='\(contactId)')", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -352,6 +352,84 @@ class APIClient {
             }
         }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // Chatter stuff
+    func loadComments(nextPageUrl: String) -> Promise<[Comment]> {
+        return Promise { fullfill, reject in
+            let query: [String: String] = ["filterGroup" : "Medium"]
+            let request = SFRestRequest(method: .GET, path: nextPageUrl, queryParams: query)
+            SFRestAPI.sharedInstance().send(request, fail: { (error) in
+                print(error?.localizedDescription as Any)
+                DispatchQueue.main.async{
+                    reject(MyError.JSONError)
+                }
+            }) { (result) in
+                let jsonResult = JSON.init(result!)
+                let items = jsonResult["items"].arrayValue.flatMap { Comment(json: $0) }
+                fullfill(items)
+            }
+        }
+    }
+    
+    func getGroupPosts(groupID: String) -> Promise<[Post]> {
+        return Promise { fullfill, reject in
+            let query: [String: String] = ["filterGroup" : "Medium"]
+            let request = SFRestRequest(method: .GET, path: "/services/data/v39.0/connect/communities/\(Constants.communityId)/chatter/feeds/record/\(groupID)/feed-elements", queryParams: query)
+            SFRestAPI.sharedInstance().send(request, fail: { (error) in
+                print(error?.localizedDescription as Any)
+                DispatchQueue.main.async{
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    reject(MyError.JSONError)
+                }
+            }) { (result) in
+                let jsonResult = JSON.init(result!)
+                print(jsonResult)
+
+                if let json = jsonResult["elements"].array {
+                    let items = json.flatMap { Post(json: $0) }
+                    DispatchQueue.main.async{
+                        fullfill(items)
+                    }
+                }
+                else {
+                    DispatchQueue.main.async{
+                        reject(MyError.JSONError)
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     static let shared = APIClient()
 

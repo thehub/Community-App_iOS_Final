@@ -36,6 +36,7 @@ struct Post {
         var description: String?
         
         init?(json: [String: Any]) {
+            print(json)
             guard
                 let id = json["id"] as? String,
                 let renditionUrl = json["renditionUrl"] as? String,

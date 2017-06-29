@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PromiseKit
 
 class GroupViewController: ListFullBleedViewController {
 
@@ -27,6 +28,21 @@ class GroupViewController: ListFullBleedViewController {
 
         
         topMenu?.hide()
+        
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        firstly {
+            APIClient.shared.getGroupPosts(groupID: group.chatterId)
+            }.then { posts -> Void in
+                print(posts)
+                //                self.dataSource = items
+                //                self.collectionView?.reloadData()
+            }.always {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }.catch { error in
+                debugPrint(error.localizedDescription)
+        }
+        
         
         // Feed
         // Feed

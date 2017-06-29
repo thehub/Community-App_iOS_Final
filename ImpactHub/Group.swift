@@ -13,6 +13,7 @@ import SwiftyJSON
 
 struct Group {
     var id: String
+    var chatterId: String
     var name: String
     var image: String?
     var description: String?
@@ -26,6 +27,7 @@ struct Group {
         self.name = name
         self.image = image
         self.memberCount = 2
+        self.chatterId = ""
     }
 }
 
@@ -34,12 +36,14 @@ extension Group {
     init?(json: JSON) {
         guard
             let id = json["Id"].string,
-            let name = json["Name"].string
+            let name = json["Name"].string,
+            let chatterId = json["ChatterGroupId__c"].string
             else {
                 return nil
         }
         self.id = id
         self.name = name
+        self.chatterId = chatterId
         self.description = json["Group_Desc__c"].string
         self.memberCount = json["CountOfMembers__c"].intValue
         
