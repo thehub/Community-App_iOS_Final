@@ -21,9 +21,12 @@ class GroupCollectionViewCell: UICollectionViewCell {
     }
 
     func setUp(vm: GroupViewModel) {
-        nameLabel.text = vm.group.title
+        nameLabel.text = vm.group.name
 
-        profileImageView.image = UIImage(named: vm.group.photo)
+        if let photoUrl = vm.group.photoUrl {
+            profileImageView.kf.setImage(with: photoUrl)
+        }
+
         locationNameLabel.text = vm.group.locationName
         memberCountLabel.text = "\(vm.group.memberCount)"
 

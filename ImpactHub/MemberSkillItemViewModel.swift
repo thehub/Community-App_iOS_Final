@@ -12,10 +12,10 @@ class MemberSkillItemViewModel: CellRepresentable {
     
     static var cellIdentifier = "MemberSkillItemCell"
     
-    var member: Member
+    var skill: Member.Skill
     
-    init(member: Member, cellSize: CGSize) {
-        self.member = member
+    init(skill: Member.Skill, cellSize: CGSize) {
+        self.skill = skill
         self.cellSize = cellSize
     }
     

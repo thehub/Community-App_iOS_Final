@@ -31,6 +31,22 @@ class CompaniesViewController: ListWithSearchViewController {
         self.data.append(viewModel3)
         self.data.append(viewModel4)
 
+        // Not working
+        //        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        //        firstly {
+        //            APIClient.shared.getCompanies()
+        //            }.then { items -> Void in
+        //                print(items)
+        //
+        //                let cellWidth: CGFloat = self.view.frame.width
+        //
+        //
+        //                self.collectionView?.reloadData()
+        //            }.always {
+        //                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        //            }.catch { error in
+        //                debugPrint(error.localizedDescription)
+        //        }
     }
 
     var selectedVM: CompanyViewModel?

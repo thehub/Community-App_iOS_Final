@@ -12,6 +12,8 @@ import PromiseKit
 class MemberViewController: ListFullBleedViewController {
 
     var member: Member!
+    var projects = [Project]()
+    var groups = [Group]()
     
     var memberAboutData = [CellRepresentable]()
     var memberProjectsData = [CellRepresentable]()
@@ -31,126 +33,59 @@ class MemberViewController: ListFullBleedViewController {
         collectionView.register(UINib.init(nibName: GroupViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: GroupViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: TitleViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: TitleViewModel.cellIdentifier)
 
-
-        
         topMenu?.setupWithItems(["ABOUT", "PROJECTS", "GROUPS"])
         
-        
-//        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-//        firstly {
-//            APIClient.shared.getSkills(contactId: member.id)
-//            }.then { items -> Void in
-//                print(items)
-//                
-//                let cellWidth: CGFloat = self.view.frame.width
-//                
-//                
-//                self.collectionView?.reloadData()
-//            }.always {
-//                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-//            }.catch { error in
-//                debugPrint(error.localizedDescription)
-//        }
-        
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
-            APIClient.shared.getGroups(contactId: member.id)
-            }.then { items -> Void in
-                print(items)
-                
-                let cellWidth: CGFloat = self.view.frame.width
-                
-                
-                self.collectionView?.reloadData()
+            APIClient.shared.getSkills(contactId: member.id)
+            }.then { skills -> Void in
+                self.member.skills = skills
+            }.then {
+                APIClient.shared.getProjects(contactId: self.member.id)
+            }.then { projects -> Void in
+                print(projects)
+                self.projects = projects
+            }.then {
+                APIClient.shared.getGroups(contactId: self.member.id)
+            }.then { groups -> Void in
+                print(groups)
+                self.groups = groups
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.build()
             }.catch { error in
                 debugPrint(error.localizedDescription)
         }
-
-        
-        // Not working
-//        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-//        firstly {
-//            APIClient.shared.getCompanies()
-//            }.then { items -> Void in
-//                print(items)
-//                
-//                let cellWidth: CGFloat = self.view.frame.width
-//                
-//                
-//                self.collectionView?.reloadData()
-//            }.always {
-//                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-//            }.catch { error in
-//                debugPrint(error.localizedDescription)
-//        }
-
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        firstly {
-            APIClient.shared.getProjects(contactId: member.id)
-            }.then { items -> Void in
-                print(items)
-
-                let cellWidth: CGFloat = self.view.frame.width
-
-
-                self.collectionView?.reloadData()
-            }.always {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            }.catch { error in
-                debugPrint(error.localizedDescription)
-        }
-
-        
-        memberAboutData.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
-        memberAboutData.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 0)))
-        memberAboutData.append(MemberSkillItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
-        memberAboutData.append(MemberSkillItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
-        memberAboutData.append(MemberSkillItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 80)))
-        self.data = memberAboutData
-
-        
-        memberProjectsData.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
-
-        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
-
-        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
-
-        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
-
-        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
-
-        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
-
-        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
-
-        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
-
-        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
-
-        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
-
-        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
-
-        memberProjectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
-
-
-        // Groups
-        memberGroupsData.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
-        
-        let group1 = Group(id: "aasdsa", title: "A guide to reaching your sustainable development goals", photo: "groupPhoto", body: "A guide to reaching your sustainable development goals", memberCount: 400, locationName: "London, UK")
-        let group2 = Group(id: "aasdsa", title: "Zero to one: new startups and Innovative Ideas", photo: "groupPhoto", body: "Zero to one: new startups and Innovative Ideas", memberCount: 160, locationName: "Amsterdam, NL")
-        memberGroupsData.append(TitleViewModel(title: "", cellSize: CGSize(width: view.frame.width, height: 40)))
-        memberGroupsData.append(GroupViewModel(group: group1, cellSize: CGSize(width: view.frame.width, height: 165)))
-        memberGroupsData.append(GroupViewModel(group: group2, cellSize: CGSize(width: view.frame.width, height: 165)))
-        memberGroupsData.append(GroupViewModel(group: group1, cellSize: CGSize(width: view.frame.width, height: 165)))
-        memberGroupsData.append(GroupViewModel(group: group2, cellSize: CGSize(width: view.frame.width, height: 165)))
-        memberGroupsData.append(GroupViewModel(group: group1, cellSize: CGSize(width: view.frame.width, height: 165)))
         
     }
     
 
+    func build() {
+        
+        memberAboutData.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
+        memberAboutData.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 0)))
+        member.skills.forEach { (skill) in
+            memberAboutData.append(MemberSkillItemViewModel(skill: skill, cellSize: CGSize(width: view.frame.width, height: 80)))
+        }
+        self.data = memberAboutData
+        
+        // Projects
+        memberProjectsData.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
+        projects.forEach { (project) in
+            memberProjectsData.append(ProjectViewModel(project: project, cellSize: CGSize(width: view.frame.width, height: 370)))
+        }
+        
+        // Groups
+        memberGroupsData.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
+        groups.forEach { (group) in
+            memberGroupsData.append(GroupViewModel(group: group, cellSize: CGSize(width: view.frame.width, height: 165)))
+        }
+
+        //        memberGroupsData.append(TitleViewModel(title: "", cellSize: CGSize(width: view.frame.width, height: 40)))
+
+        self.collectionView?.reloadData()
+
+    }
     
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

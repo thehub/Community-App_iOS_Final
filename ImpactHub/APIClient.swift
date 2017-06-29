@@ -83,18 +83,17 @@ class APIClient {
         }
     }
 
-    func getGroups(contactId: String) -> Promise<String> {
+    func getGroups(contactId: String) -> Promise<[Group]> {
         return Promise { fullfill, reject in
             print(contactId)
-            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, CountOfMembers__c, ImageURL__c, Directory_Grouping__c, Group_Desc__c, Directory_Style__c from Directory__c where Directory_Style__c = 'Project' and id in (select DirectoryID__c from Directory_Member__c where ContactID__c ='\(contactId)')", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, CountOfMembers__c, ImageURL__c, Group_Desc__c, Impact_Hub_Cities__c from Directory__c where Directory_Style__c = 'Group' and id in (select DirectoryID__c from Directory_Member__c where ContactID__c ='\(contactId)')", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
-                    //                    let items = records.flatMap { Member(json: $0) }
-                    fullfill("ok")
+                    let items = records.flatMap { Group(json: $0) }
+                    fullfill(items)
                 }
                 else {
                     reject(MyError.JSONError)
@@ -103,17 +102,17 @@ class APIClient {
         }
     }
     
-    func getProjects(contactId: String) -> Promise<String> {
+    func getProjects(contactId: String) -> Promise<[Project]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, CountOfMembers__c, ImageURL__c, Directory_Grouping__c, Group_Desc__c, Directory_Style__c from Directory__c where Directory_Style__c ='Group' and id in (select DirectoryID__c from Directory_Member__c where ContactID__c ='\(contactId)')", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, CountOfMembers__c, ImageURL__c, Group_Desc__c, Organisation__r.Name, Organisation__c, Impact_Hub_Cities__c from Directory__c where Directory_Style__c ='Project' and id in (select DirectoryID__c from Directory_Member__c where ContactID__c ='\(contactId)')", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
                 debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
-                    //                    let items = records.flatMap { Member(json: $0) }
-                    fullfill("ok")
+                    let items = records.flatMap { Project(json: $0) }
+                    fullfill(items)
                 }
                 else {
                     reject(MyError.JSONError)
@@ -122,18 +121,18 @@ class APIClient {
         }
     }
     
-    func getSkills(contactId: String) -> Promise<String> {
+    func getSkills(contactId: String) -> Promise<[Member.Skill]> {
         return Promise { fullfill, reject in
             print(contactId)
-            SFRestAPI.sharedInstance().performSOQLQueryAll("select id,name,Contact__c,Contact__r.id,Skill_Description__c from Contact_Skills__c where Contact__r.id ='\(contactId)'", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("select id,name,Skill_Description__c from Contact_Skills__c where Contact__r.id ='\(contactId)'", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
                 debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
-//                    let items = records.flatMap { Member(json: $0) }
-                    fullfill("ok")
+                    let items = records.flatMap { Member.Skill(json: $0) }
+                    fullfill(items)
                 }
                 else {
                     reject(MyError.JSONError)

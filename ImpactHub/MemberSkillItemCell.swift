@@ -19,8 +19,8 @@ class MemberSkillItemCell: UICollectionViewCell {
     }
     
     func setUp(vm: MemberSkillItemViewModel) {
-        titleLabel.text = "Skill" // TODO: get this from service
-        descriptionLabel.text = "Lorem ipusm dolores set etium non consig detum do et set etium non consig detum do et."
+        titleLabel.text = vm.skill.name.uppercased()
+        descriptionLabel.text = vm.skill.description ?? ""
     }
 
 }

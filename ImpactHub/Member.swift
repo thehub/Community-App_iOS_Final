@@ -22,6 +22,27 @@ struct Member {
     var aboutMe: String = ""
     var locationName: String = ""
     var impactHubCities: String = ""
+    var skills = [Skill]()
+    
+    struct Skill {
+        var id: String
+        var name: String
+        var description: String?
+        
+        init?(json: JSON) {
+            print(json)
+            guard
+                let id = json["Id"].string,
+                let name = json["Name"].string
+                else {
+                    return nil
+            }
+            self.id = id
+            self.name = name
+            self.description = json["Skill_Description__c"].string
+        }
+
+    }
     
     
     // For mock testing

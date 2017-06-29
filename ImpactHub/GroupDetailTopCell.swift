@@ -20,9 +20,11 @@ class GroupDetailTopCell: UICollectionViewCell {
     }
 
     func setup(vm: GroupDetailTopViewModel) {
-        nameLabel.text = vm.group.title
-        jobLabel.text = vm.group.body
-        profileImageView.image = UIImage(named: vm.group.photo)
+        nameLabel.text = vm.group.name
+        jobLabel.text = vm.group.description ?? ""
+        if let photoUrl = vm.group.photoUrl {
+            profileImageView.kf.setImage(with: photoUrl)
+        }
         
     }
     

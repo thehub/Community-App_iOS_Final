@@ -23,11 +23,14 @@ class ProjectCollectionViewCell: UICollectionViewCell {
     }
     
     func setUp(vm: ProjectViewModel) {
-        bigImageView.image = UIImage(named: "projectImage")
-        nameLabel.text = "Zero to one: new startups and Innovative Ideas"
-        companyNameLabel.text = "Equinox Consulting"
-        locationNameLabel.text = "London, UK"
-        memberCountLabel.text = "10 - 50"
+        
+        if let photoUrl = vm.project.photoUrl {
+            bigImageView.kf.setImage(with: photoUrl)
+        }
+        nameLabel.text = vm.project.name
+        companyNameLabel.text = vm.project.companyName ?? ""
+        locationNameLabel.text = vm.project.locationName ?? ""
+        memberCountLabel.text = "\(vm.project.memberCount)"
     }
     
     

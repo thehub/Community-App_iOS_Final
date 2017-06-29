@@ -42,8 +42,8 @@ class GoalViewController: ListFullBleedViewController {
         // Groups
         groupsData.append(GoalDetailTopViewModel(goal: goal, cellSize: .zero)) // this will pick the full height instead
         
-        let group1 = Group(id: "aasdsa", title: "A guide to reaching your sustainable development goals", photo: "groupPhoto", body: "A guide to reaching your sustainable development goals", memberCount: 400, locationName: "London, UK")
-        let group2 = Group(id: "aasdsa", title: "Zero to one: new startups and Innovative Ideas", photo: "groupPhoto", body: "Zero to one: new startups and Innovative Ideas", memberCount: 160, locationName: "Amsterdam, NL")
+        let group1 = Group(id: "aasdsa", name: "A guide to reaching your sustainable development goals", image: "groupPhoto", description: "A guide to reaching your sustainable development goals", memberCount: 400, locationName: "London, UK")
+        let group2 = Group(id: "aasdsa", name: "Zero to one: new startups and Innovative Ideas", image: "groupPhoto", description: "Zero to one: new startups and Innovative Ideas", memberCount: 160, locationName: "Amsterdam, NL")
         groupsData.append(TitleViewModel(title: "", cellSize: CGSize(width: view.frame.width, height: 40)))
         groupsData.append(GroupViewModel(group: group1, cellSize: CGSize(width: view.frame.width, height: 165)))
         groupsData.append(GroupViewModel(group: group2, cellSize: CGSize(width: view.frame.width, height: 165)))

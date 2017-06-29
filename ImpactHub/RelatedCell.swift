@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class RelatedCell: UICollectionViewCell {
 
@@ -36,7 +37,9 @@ class RelatedCell: UICollectionViewCell {
         else if let project = vm.project {
             nameLabel.text = project.name
             companyLabel.text = "[TODO]" //job.company.name
-            profileImageView.image = UIImage(named: project.image)
+            if let photoUrl = project.photoUrl {
+                profileImageView.kf.setImage(with: photoUrl)
+            }
             viewButton.setTitle("View Project", for: .normal)
             viewButton.setTitle("View Project", for: .highlighted)
         }
