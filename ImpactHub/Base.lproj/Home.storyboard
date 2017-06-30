@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a49-ft-Pky">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a49-ft-Pky">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -370,7 +370,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0MB-Nn-Az2">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0MB-Nn-Az2" customClass="Button" customModule="ImpactHub" customModuleProvider="target">
                                         <rect key="frame" x="294" y="-6" width="64" height="65"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="65" id="RvU-Vx-LVT"/>
@@ -381,6 +381,9 @@
                                             <segue destination="3P0-zD-GQr" kind="custom" identifier="ShowFilter" customClass="DeckSegue" customModule="DeckTransition" id="2YP-O4-F5Z"/>
                                         </connections>
                                     </button>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filterTick" translatesAutoresizingMaskIntoConstraints="NO" id="hXf-31-sSk">
+                                        <rect key="frame" x="331" y="-4" width="21" height="22"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -389,7 +392,9 @@
                                     <constraint firstItem="0MB-Nn-Az2" firstAttribute="leading" secondItem="sIN-jb-FgO" secondAttribute="trailing" constant="8" id="fO4-N9-cyh"/>
                                     <constraint firstAttribute="trailing" secondItem="0MB-Nn-Az2" secondAttribute="trailing" constant="-15" id="fsC-1K-VI6"/>
                                     <constraint firstItem="0MB-Nn-Az2" firstAttribute="top" secondItem="8fM-Kb-kNr" secondAttribute="top" constant="-6" id="iDI-4V-jUG"/>
+                                    <constraint firstItem="hXf-31-sSk" firstAttribute="trailing" secondItem="0MB-Nn-Az2" secondAttribute="trailing" constant="-6" id="lib-VK-upn"/>
                                     <constraint firstItem="sIN-jb-FgO" firstAttribute="top" secondItem="8fM-Kb-kNr" secondAttribute="top" id="qmd-N8-aAR"/>
+                                    <constraint firstItem="hXf-31-sSk" firstAttribute="top" secondItem="0MB-Nn-Az2" secondAttribute="top" constant="2" id="xMA-5e-g80"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="0lI-oZ-k0a">
@@ -416,6 +421,7 @@
                     <connections>
                         <outlet property="collectionView" destination="dt5-dE-uD5" id="cWx-s2-9om"/>
                         <outlet property="filterButton" destination="0MB-Nn-Az2" id="YeM-Ym-k72"/>
+                        <outlet property="filterTickImageView" destination="hXf-31-sSk" id="gkd-VT-Exe"/>
                         <outlet property="searchContainer" destination="8fM-Kb-kNr" id="iVT-TR-9Ej"/>
                         <outlet property="searchContainerTopConstraint" destination="8VF-Fg-zJd" id="1fa-pW-GdG"/>
                         <outlet property="searchInputTextField" destination="xzw-Ca-KDb" id="Zrj-wq-b9d"/>
@@ -887,6 +893,9 @@
                                             <segue destination="3P0-zD-GQr" kind="custom" identifier="ShowFilter" customClass="DeckSegue" customModule="DeckTransition" id="fwI-8D-BHi"/>
                                         </connections>
                                     </button>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filterTick" translatesAutoresizingMaskIntoConstraints="NO" id="kJI-bN-RLN">
+                                        <rect key="frame" x="343" y="56.5" width="21" height="22"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -895,9 +904,11 @@
                                     <constraint firstItem="bjp-zz-OCa" firstAttribute="leading" secondItem="07J-fM-12O" secondAttribute="leading" id="RPK-P2-DHs"/>
                                     <constraint firstItem="6Sr-BN-FN9" firstAttribute="centerY" secondItem="Rs4-y9-HTw" secondAttribute="centerY" id="UT1-KQ-UKt"/>
                                     <constraint firstItem="6Sr-BN-FN9" firstAttribute="leading" secondItem="Rs4-y9-HTw" secondAttribute="trailing" constant="8" id="VeZ-7F-tIM"/>
+                                    <constraint firstItem="kJI-bN-RLN" firstAttribute="top" secondItem="6Sr-BN-FN9" secondAttribute="top" constant="2" id="aDZ-Rv-edb"/>
                                     <constraint firstItem="bjp-zz-OCa" firstAttribute="top" secondItem="07J-fM-12O" secondAttribute="top" id="byL-dp-5aY"/>
                                     <constraint firstItem="Rs4-y9-HTw" firstAttribute="top" secondItem="bjp-zz-OCa" secondAttribute="bottom" constant="20" id="cOF-71-LGf"/>
                                     <constraint firstAttribute="height" constant="140" id="dbs-qE-uNj"/>
+                                    <constraint firstItem="kJI-bN-RLN" firstAttribute="trailing" secondItem="6Sr-BN-FN9" secondAttribute="trailing" constant="-6" id="kSv-gs-yDV"/>
                                     <constraint firstItem="Rs4-y9-HTw" firstAttribute="leading" secondItem="07J-fM-12O" secondAttribute="leading" constant="20" id="p6W-U9-yPL"/>
                                 </constraints>
                             </view>
@@ -919,6 +930,7 @@
                     <connections>
                         <outlet property="collectionView" destination="kjh-cr-rqS" id="wx2-FQ-b7J"/>
                         <outlet property="filterButton" destination="6Sr-BN-FN9" id="LqS-b2-NNn"/>
+                        <outlet property="filterTickImageView" destination="kJI-bN-RLN" id="Wxc-Dz-4qw"/>
                         <outlet property="searchContainer" destination="07J-fM-12O" id="VxY-Tn-bLv"/>
                         <outlet property="searchContainerTopConstraint" destination="H7b-QX-JRV" id="PU0-C0-HV5"/>
                         <outlet property="searchInputTextField" destination="4YL-fy-8PF" id="5sr-us-YFo"/>
@@ -1022,14 +1034,19 @@
                                             <segue destination="3P0-zD-GQr" kind="custom" identifier="ShowFilter" customClass="DeckSegue" customModule="DeckTransition" id="0Kb-id-67l"/>
                                         </connections>
                                     </button>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filterTick" translatesAutoresizingMaskIntoConstraints="NO" id="LDl-Er-qEU">
+                                        <rect key="frame" x="331" y="-4" width="21" height="22"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="cCs-ER-aNN" secondAttribute="trailing" constant="-15" id="0Ev-Y4-bvn"/>
                                     <constraint firstItem="cCs-ER-aNN" firstAttribute="top" secondItem="VO1-GI-NAv" secondAttribute="top" constant="-6" id="ATh-VO-xq2"/>
+                                    <constraint firstItem="LDl-Er-qEU" firstAttribute="trailing" secondItem="cCs-ER-aNN" secondAttribute="trailing" constant="-6" id="Oet-r9-xhv"/>
                                     <constraint firstItem="cCs-ER-aNN" firstAttribute="leading" secondItem="Xmm-1E-shu" secondAttribute="trailing" constant="8" id="S3u-kB-hZf"/>
                                     <constraint firstItem="Xmm-1E-shu" firstAttribute="leading" secondItem="VO1-GI-NAv" secondAttribute="leading" id="Spg-fr-n4L"/>
                                     <constraint firstItem="Xmm-1E-shu" firstAttribute="top" secondItem="VO1-GI-NAv" secondAttribute="top" id="gUu-Go-Kfp"/>
+                                    <constraint firstItem="LDl-Er-qEU" firstAttribute="top" secondItem="cCs-ER-aNN" secondAttribute="top" constant="2" id="ixx-6S-sRR"/>
                                     <constraint firstAttribute="height" constant="100" id="q84-mH-IUN"/>
                                 </constraints>
                             </view>
@@ -1057,6 +1074,7 @@
                     <connections>
                         <outlet property="collectionView" destination="HdI-dh-w7M" id="oZp-9s-DHi"/>
                         <outlet property="filterButton" destination="cCs-ER-aNN" id="Zb5-w2-vk6"/>
+                        <outlet property="filterTickImageView" destination="LDl-Er-qEU" id="k1d-q8-M2H"/>
                         <outlet property="searchContainer" destination="VO1-GI-NAv" id="Jfa-xn-GOD"/>
                         <outlet property="searchContainerTopConstraint" destination="Ts9-iU-pwc" id="fL3-eD-wrj"/>
                         <outlet property="searchInputTextField" destination="mUx-B0-oCl" id="URJ-BW-yxf"/>
@@ -1255,6 +1273,9 @@
                                             <segue destination="3P0-zD-GQr" kind="custom" identifier="ShowFilter" customClass="DeckSegue" customModule="DeckTransition" id="ZaZ-Qi-aGI"/>
                                         </connections>
                                     </button>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filterTick" translatesAutoresizingMaskIntoConstraints="NO" id="d9n-Sh-OLg">
+                                        <rect key="frame" x="331" y="-4" width="21" height="22"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1262,7 +1283,9 @@
                                     <constraint firstAttribute="trailing" secondItem="X9D-Rp-hsW" secondAttribute="trailing" constant="-15" id="752-SL-iH3"/>
                                     <constraint firstItem="jDd-9e-K5x" firstAttribute="leading" secondItem="TL7-IA-YfO" secondAttribute="leading" id="P2A-a6-sD6"/>
                                     <constraint firstItem="X9D-Rp-hsW" firstAttribute="top" secondItem="TL7-IA-YfO" secondAttribute="top" constant="-6" id="TNt-Ho-lkv"/>
+                                    <constraint firstItem="d9n-Sh-OLg" firstAttribute="top" secondItem="X9D-Rp-hsW" secondAttribute="top" constant="2" id="m19-Gx-IUG"/>
                                     <constraint firstAttribute="height" constant="100" id="o9F-NJ-75M"/>
+                                    <constraint firstItem="d9n-Sh-OLg" firstAttribute="trailing" secondItem="X9D-Rp-hsW" secondAttribute="trailing" constant="-6" id="tdF-4D-qsh"/>
                                     <constraint firstItem="X9D-Rp-hsW" firstAttribute="leading" secondItem="jDd-9e-K5x" secondAttribute="trailing" constant="8" id="x3i-2p-5dk"/>
                                 </constraints>
                             </view>
@@ -1290,6 +1313,7 @@
                     <connections>
                         <outlet property="collectionView" destination="hWA-Qu-8hr" id="cuB-k8-6fp"/>
                         <outlet property="filterButton" destination="X9D-Rp-hsW" id="44h-Gy-Gau"/>
+                        <outlet property="filterTickImageView" destination="d9n-Sh-OLg" id="hli-ri-0A5"/>
                         <outlet property="searchContainer" destination="TL7-IA-YfO" id="zCl-fD-zgd"/>
                         <outlet property="searchContainerTopConstraint" destination="gFY-3q-UrJ" id="nYN-AG-FvJ"/>
                         <outlet property="searchInputTextField" destination="TST-hM-BGk" id="COy-x2-UT6"/>
@@ -1678,6 +1702,9 @@
                                             <segue destination="3P0-zD-GQr" kind="custom" identifier="ShowFilter" customClass="DeckSegue" customModule="DeckTransition" id="C30-D0-cHv"/>
                                         </connections>
                                     </button>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filterTick" translatesAutoresizingMaskIntoConstraints="NO" id="eE5-7Z-gRf">
+                                        <rect key="frame" x="343" y="56.5" width="21" height="22"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1687,7 +1714,9 @@
                                     <constraint firstItem="mhx-G6-cf5" firstAttribute="leading" secondItem="zHr-XS-hCB" secondAttribute="leading" id="7eu-M1-maz"/>
                                     <constraint firstAttribute="trailing" secondItem="cUu-s9-P3v" secondAttribute="trailing" constant="5" id="8ty-I5-Lif"/>
                                     <constraint firstAttribute="trailing" secondItem="mhx-G6-cf5" secondAttribute="trailing" id="B3Z-M3-qi6"/>
+                                    <constraint firstItem="eE5-7Z-gRf" firstAttribute="trailing" secondItem="cUu-s9-P3v" secondAttribute="trailing" constant="-6" id="OOt-Zv-EiX"/>
                                     <constraint firstAttribute="height" constant="140" id="ZcW-RI-qSz"/>
+                                    <constraint firstItem="eE5-7Z-gRf" firstAttribute="top" secondItem="cUu-s9-P3v" secondAttribute="top" constant="2" id="gH6-Qj-kvI"/>
                                     <constraint firstItem="UHf-6N-Gib" firstAttribute="top" secondItem="mhx-G6-cf5" secondAttribute="bottom" constant="20" id="rD6-yb-T7e"/>
                                     <constraint firstItem="UHf-6N-Gib" firstAttribute="leading" secondItem="zHr-XS-hCB" secondAttribute="leading" constant="20" id="wgQ-8h-2sy"/>
                                 </constraints>
@@ -1710,6 +1739,7 @@
                     <connections>
                         <outlet property="collectionView" destination="jEt-te-pLg" id="KSq-rn-yA9"/>
                         <outlet property="filterButton" destination="cUu-s9-P3v" id="yPr-wl-gBe"/>
+                        <outlet property="filterTickImageView" destination="eE5-7Z-gRf" id="xzb-F2-fkE"/>
                         <outlet property="searchContainer" destination="zHr-XS-hCB" id="kvE-vs-aia"/>
                         <outlet property="searchContainerTopConstraint" destination="eQA-VQ-cYL" id="1yE-PA-QiW"/>
                         <outlet property="searchInputTextField" destination="ijL-ZZ-gFb" id="ajN-md-QO6"/>
@@ -1970,15 +2000,16 @@
         <image name="companyImage" width="160" height="120"/>
         <image name="eventPhoto" width="338" height="223"/>
         <image name="filterButton" width="64" height="65"/>
+        <image name="filterTick" width="21" height="22"/>
         <image name="navBarShadow" width="100" height="5"/>
         <image name="search" width="17" height="16"/>
         <image name="tabBarHome" width="22" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2YP-O4-F5Z"/>
+        <segue reference="ZaZ-Qi-aGI"/>
         <segue reference="E6m-rq-9b6"/>
-        <segue reference="4CN-lM-E9S"/>
         <segue reference="9tv-11-54j"/>
+        <segue reference="Nsv-q8-zjz"/>
         <segue reference="u3D-lG-cq4"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>

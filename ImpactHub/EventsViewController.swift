@@ -15,6 +15,12 @@ class EventsViewController: ListWithSearchViewController {
     var eventsYouManageData = [CellRepresentable]()
     var yourEventData = [CellRepresentable]()
 
+    override var filterSource: FilterManager.Source {
+        get {
+            return FilterManager.Source.events
+        }
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +85,7 @@ class EventsViewController: ListWithSearchViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: self)
         if segue.identifier == "ShowEvent" {
             if let vc = segue.destination as? EventViewController, let selectedItem = selectedVM {
                 vc.event = selectedItem.event

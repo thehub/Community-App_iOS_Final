@@ -15,6 +15,12 @@ class ProjectsViewController: ListWithSearchViewController {
     var projectsYouManageData = [CellRepresentable]()
     var yourProjectsData = [CellRepresentable]()
 
+    override var filterSource: FilterManager.Source {
+        get {
+            return FilterManager.Source.projects
+        }
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,6 +87,7 @@ class ProjectsViewController: ListWithSearchViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: self)
         if segue.identifier == "ShowProject" {
             if let vc = segue.destination as? ProjectViewController, let selectedItem = selectedVM {
                 vc.project = selectedItem.project

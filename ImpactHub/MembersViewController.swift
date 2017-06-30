@@ -13,15 +13,18 @@ import SalesforceSDKCore
 
 class MembersViewController: ListWithSearchViewController {
 
-    var filters = [Filter]()
-    var filterGroups: [Filter.Grouping] = [.city, .sector]
     
+    override var filterSource: FilterManager.Source {
+        get {
+            return FilterManager.Source.members
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
         collectionView.register(UINib.init(nibName: MemberViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberViewModel.cellIdentifier)
-        
-        // Do any additional setup after loading the view.
         
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -43,9 +46,8 @@ class MembersViewController: ListWithSearchViewController {
                 debugPrint(error.localizedDescription)
         }
 
-
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -55,20 +57,12 @@ class MembersViewController: ListWithSearchViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: self)
         if segue.identifier == "ShowMember" {
             if let vc = segue.destination as? MemberViewController, let selectedItem = selectedVM {
                 vc.member = selectedItem.member
             }
         }
-        else if segue.identifier == "ShowFilter" {
-            if let navVC = segue.destination as? UINavigationController {
-                if let vc = navVC.viewControllers.first as? FilterViewController {
-                    FilterManager.shared.currenttlySelectingFor = .members
-                    vc.delegate = self
-                }
-            }
-        }
-
     }
     
     override func viewDidLayoutSubviews() {
@@ -79,12 +73,7 @@ class MembersViewController: ListWithSearchViewController {
     
 }
 
-extension MembersViewController: FilterableDelegate {
-    func updateFilters(filters: [Filter]) {
-        print(filters)
-        self.filters = filters
-    }
-}
+
 
 extension MembersViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

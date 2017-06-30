@@ -11,6 +11,12 @@ import PromiseKit
 
 class JobsViewController: ListWithSearchViewController {
 
+    override var filterSource: FilterManager.Source {
+        get {
+            return FilterManager.Source.jobs
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -65,6 +71,7 @@ class JobsViewController: ListWithSearchViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: self)
         if segue.identifier == "ShowJob" {
             if let vc = segue.destination as? JobViewController, let selectedItem = selectedVM {
                 vc.job = selectedItem.job

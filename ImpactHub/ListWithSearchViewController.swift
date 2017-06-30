@@ -10,6 +10,15 @@ import UIKit
 
 class ListWithSearchViewController: UIViewController, UITextFieldDelegate, TopMenuDelegate {
 
+    var filters = [Filter]()
+
+    var filterSource :FilterManager.Source {
+        get {
+            return FilterManager.Source.members
+        }
+    }
+
+
     var data = [CellRepresentable]()
     @IBOutlet weak var topMenu: TopMenu?
     
@@ -22,6 +31,7 @@ class ListWithSearchViewController: UIViewController, UITextFieldDelegate, TopMe
     @IBOutlet weak var filterButton: UIButton!
     
     @IBOutlet weak var searchContainer: UIView!
+    @IBOutlet weak var filterTickImageView: UIImageView?
     @IBOutlet weak var searchTextBg: UIView!
 
     
@@ -39,7 +49,24 @@ class ListWithSearchViewController: UIViewController, UITextFieldDelegate, TopMe
         self.searchContainerTopConstraintDefault = searchContainerTopConstraint.constant
         
     }
-
+    
+    func showFilterTick() {
+        self.filterTickImageView?.transform = CGAffineTransform.init(scaleX: 0.01, y: 0.01)
+        self.filterTickImageView?.isHidden = false
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: { 
+            self.filterTickImageView?.transform = CGAffineTransform.identity
+        }) { (_) in
+        }
+    }
+    
+    func hideFilterTick() {
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
+            self.filterTickImageView?.transform = CGAffineTransform.init(scaleX: 0.01, y: 0.01)
+        }) { (_) in
+            self.filterTickImageView?.isHidden = true
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -64,6 +91,8 @@ class ListWithSearchViewController: UIViewController, UITextFieldDelegate, TopMe
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        updateFilters(filters: FilterManager.shared.getCurrentFilters(source: self.filterSource))
+
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
         UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
@@ -71,8 +100,20 @@ class ListWithSearchViewController: UIViewController, UITextFieldDelegate, TopMe
         }) { (_) in
             
         }
-        
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: self)
+        if segue.identifier == "ShowFilter" {
+            if let navVC = segue.destination as? UINavigationController {
+                if let vc = navVC.viewControllers.first as? FilterViewController {
+                    FilterManager.shared.currenttlySelectingFor = self.filterSource
+                    vc.delegate = self
+                }
+            }
+        }
+    }
+
     
     var shouldHideStatusBar = false
     
@@ -137,6 +178,19 @@ class ListWithSearchViewController: UIViewController, UITextFieldDelegate, TopMe
     }
 }
 
+
+extension ListWithSearchViewController: FilterableDelegate {
+    func updateFilters(filters: [Filter]) {
+        print(filters)
+        self.filters = filters
+        if filters.count > 0 {
+            showFilterTick()
+        }
+        else {
+            hideFilterTick()
+        }
+    }
+}
 
 extension ListWithSearchViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

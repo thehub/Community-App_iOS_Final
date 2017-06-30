@@ -35,7 +35,10 @@ class FilterDetailViewController: UIViewController {
         update()
     }
     
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.delegate?.updateFilters(filters: FilterManager.shared.getCurrentFilters())
+    }
+
     
     
     func update() {
@@ -66,7 +69,6 @@ class FilterDetailViewController: UIViewController {
     
     @IBAction func onDoneTap(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true, completion: {
-            self.delegate?.updateFilters(filters: FilterManager.shared.getCurrentFilters())
         })
     }
     

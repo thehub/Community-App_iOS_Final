@@ -10,6 +10,14 @@ import UIKit
 
 class ListWithTopMenuViewController: UIViewController, TopMenuDelegate {
 
+    var filters = [Filter]()
+    
+    var filterSource :FilterManager.Source {
+        get {
+            return FilterManager.Source.members
+        }
+    }
+
     var data = [CellRepresentable]()
     @IBOutlet weak var topMenu: TopMenu!
 
@@ -47,6 +55,7 @@ class ListWithTopMenuViewController: UIViewController, TopMenuDelegate {
         
     }
 
+    
     var shouldHideStatusBar = false
     
     override var prefersStatusBarHidden: Bool {

@@ -8,6 +8,7 @@
 
 import UIKit
 import PromiseKit
+import DeckTransition
 
 class FilterViewController: UIViewController {
 
@@ -22,6 +23,12 @@ class FilterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        
+//        if let transitioningDelegate = transitioningDelegate as? DeckTransitioningDelegate {
+//            
+//            transitioningDelegate.
+//        }
+        
         collectionView.register(UINib.init(nibName: FilterGroupingViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: FilterGroupingViewModel.cellIdentifier)
 
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
@@ -30,7 +37,7 @@ class FilterViewController: UIViewController {
         let cellWidth: CGFloat = self.view.frame.width
         
         switch FilterManager.shared.currenttlySelectingFor {
-        case .members:
+        case .members, .companies, .events, .jobs, .projects:
             firstly {
                 APIClient.shared.getFilters(grouping: .city)
                 }.then { items -> Void in
@@ -68,10 +75,11 @@ class FilterViewController: UIViewController {
             }
             break
         }
-        
-        
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        self.delegate?.updateFilters(filters: FilterManager.shared.getCurrentFilters())
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -107,7 +115,6 @@ class FilterViewController: UIViewController {
 
     @IBAction func onDoneTap(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true, completion: {
-            
         })
     }
     

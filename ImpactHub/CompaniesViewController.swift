@@ -10,9 +10,16 @@ import UIKit
 
 class CompaniesViewController: ListWithSearchViewController {
 
+    override var filterSource: FilterManager.Source {
+        get {
+            return FilterManager.Source.companies
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         collectionView.register(UINib.init(nibName: "CompanyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CompanyCell")
         
         let item1 = Company(id: "asdsad", name: "Company 1", type: "Charity", photo: "logo", logo:"companyLogo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London", website: "www.dn.se", size: "10 - 50")
@@ -50,9 +57,10 @@ class CompaniesViewController: ListWithSearchViewController {
     }
 
     var selectedVM: CompanyViewModel?
-    
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: self)
         if segue.identifier == "ShowCompany" {
             if let vc = segue.destination as? CompanyViewController, let selectedItem = selectedVM {
                 vc.company = selectedItem.company
@@ -61,7 +69,6 @@ class CompaniesViewController: ListWithSearchViewController {
     }
     
 }
-
 
 extension CompaniesViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
