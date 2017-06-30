@@ -1,4 +1,4 @@
-// CredentialsManagerError.swift
+// Date.swift
 //
 // Copyright (c) 2017 Auth0 (http://auth0.com)
 //
@@ -22,9 +22,13 @@
 
 import Foundation
 
-public enum CredentialsManagerError: Error {
-    case noCredentials
-    case noRefreshToken
-    case failedRefresh(Error)
-    case touchFailed(Error)
+func date(from string: String) -> Date? {
+    guard let interval = Double(string) else {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        formatter.timeZone = TimeZone(identifier: "UTC")
+        return formatter.date(from: string)
+    }
+    return Date(timeIntervalSince1970: interval)
 }
