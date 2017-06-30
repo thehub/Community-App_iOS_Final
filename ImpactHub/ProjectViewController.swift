@@ -38,10 +38,10 @@ class ProjectViewController: ListFullBleedViewController {
         // Feed
         projectFeedData.append(ProjectDetailTopViewModel(project: project, cellSize: .zero)) // this will pick the full height instead
         projectFeedData.append(TitleViewModel(title: "DISCUSSIONS", cellSize: CGSize(width: view.frame.width, height: 70)))
-        projectFeedData.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
-        projectFeedData.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
-        projectFeedData.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
-        projectFeedData.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
+//        projectFeedData.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
+//        projectFeedData.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
+//        projectFeedData.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
+//        projectFeedData.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
         self.data = projectFeedData
 
 

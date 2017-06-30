@@ -13,9 +13,11 @@ class MemberFeedItemViewModel: CellRepresentable {
     static var cellIdentifier = "MemberFeedItemCell"
 
     var member: Member
+    var post: Post
     var feedText = "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit."
     
-    init(member: Member, cellSize: CGSize) {
+    init(post: Post, member: Member, cellSize: CGSize) {
+        self.post = post
         self.member = member
         self.cellSize = cellSize
     }

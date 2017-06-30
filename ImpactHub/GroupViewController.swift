@@ -23,37 +23,29 @@ class GroupViewController: ListFullBleedViewController {
         collectionView.register(UINib.init(nibName: GroupDetailTopViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: GroupDetailTopViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: MemberFeedItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberFeedItemViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: TitleViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: TitleViewModel.cellIdentifier)
-
         collectionView.register(UINib.init(nibName: GroupViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: GroupViewModel.cellIdentifier)
 
-        
         topMenu?.hide()
         
+        data.append(GroupDetailTopViewModel(group: group, cellSize: .zero)) // this will pick the full height instead
+        data.append(TitleViewModel(title: "DISCUSSION", cellSize: CGSize(width: view.frame.width, height: 70)))
+        self.collectionView?.reloadData()
+
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
             APIClient.shared.getGroupPosts(groupID: group.chatterId)
             }.then { posts -> Void in
                 print(posts)
-                //                self.dataSource = items
-                //                self.collectionView?.reloadData()
+                posts.forEach({ (post) in
+                    self.data.append(MemberFeedItemViewModel(post: post, member: self.member, cellSize: CGSize(width: self.view.frame.width, height: 150)))
+                })
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.collectionView?.reloadData()
             }.catch { error in
                 debugPrint(error.localizedDescription)
         }
-        
-        
-        // Feed
-        // Feed
-        data.append(GroupDetailTopViewModel(group: group, cellSize: .zero)) // this will pick the full height instead
-        data.append(TitleViewModel(title: "DISCUSSION", cellSize: CGSize(width: view.frame.width, height: 70)))
-        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
-        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
-        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
-        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
-        
-        
         
     }
     
@@ -63,7 +55,7 @@ class GroupViewController: ListFullBleedViewController {
         
         if let vm = data[indexPath.item] as? MemberFeedItemViewModel {
             let cellWidth: CGFloat = self.collectionView.frame.width
-            let height = vm.feedText.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 145 // add extra height for the standard elements, titles, lines, sapcing etc.
+            let height = vm.post.text.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 125 // add extra height for the standard elements, titles, lines, sapcing etc.
             return CGSize(width: view.frame.width, height: height)
         }
 
