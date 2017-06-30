@@ -28,6 +28,7 @@ class MembersViewController: ListWithSearchViewController {
         
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        self.collectionView?.alpha = 0
         firstly {
             APIClient.shared.getMembers()
             }.then { items -> Void in
@@ -38,10 +39,18 @@ class MembersViewController: ListWithSearchViewController {
                     let viewModel1 = MemberViewModel(member: member, cellSize: CGSize(width: cellWidth, height: 105))
                     self.data.append(viewModel1)
                 })
-                
-                self.collectionView?.reloadData()
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.collectionView?.alpha = 0
+                self.collectionView?.reloadData()
+                self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
+                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+                    self.collectionView?.alpha = 1
+                }, completion: { (_) in
+                    
+                })
+
             }.catch { error in
                 debugPrint(error.localizedDescription)
         }

@@ -35,9 +35,11 @@ class MemberViewController: ListFullBleedViewController {
 
         topMenu?.setupWithItems(["ABOUT", "PROJECTS", "GROUPS"])
         
+        self.collectionView?.alpha = 0
+        super.connectButton?.alpha = 0
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
-            APIClient.shared.getSkills(contactId: member.id)
+                APIClient.shared.getSkills(contactId: member.id)
             }.then { skills -> Void in
                 self.member.skills = skills
             }.then {
@@ -53,6 +55,15 @@ class MemberViewController: ListFullBleedViewController {
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.build()
+                self.collectionView?.reloadData()
+                self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
+                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+                    self.collectionView?.alpha = 1
+                    super.connectButton?.alpha = 1
+                }, completion: { (_) in
+                    
+                })
             }.catch { error in
                 debugPrint(error.localizedDescription)
         }
@@ -82,8 +93,6 @@ class MemberViewController: ListFullBleedViewController {
         }
 
         //        memberGroupsData.append(TitleViewModel(title: "", cellSize: CGSize(width: view.frame.width, height: 40)))
-
-        self.collectionView?.reloadData()
 
     }
     
