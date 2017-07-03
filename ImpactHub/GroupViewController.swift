@@ -38,7 +38,7 @@ class GroupViewController: ListFullBleedViewController {
             }.then { posts -> Void in
                 print(posts)
                 posts.forEach({ (post) in
-                    self.data.append(MemberFeedItemViewModel(post: post, member: self.member, cellSize: CGSize(width: self.view.frame.width, height: 150)))
+                    self.data.append(MemberFeedItemViewModel(post: post, member: self.member, comment: nil, delegate: self, cellSize: CGSize(width: self.view.frame.width, height: 150)))
                 })
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -69,6 +69,22 @@ class GroupViewController: ListFullBleedViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: self)
+        if segue.identifier == "ShowCreatePost" {
+            if let navVC = segue.destination as? UINavigationController {
+                if let vc = navVC.viewControllers.first as? CreatePostViewController {
+                    vc.chatterGroupId = self.group.chatterId
+                }
+            }
+        }
+        else if segue.identifier == "ShowComments" {
+            if let vc = segue.destination as? CommentsViewController, let post = self.postToShowCommentsFor {
+                vc.post = post
+            }
+        }
+    }
+    
     var selectMember: Member?
     var selectJob: Job?
     
@@ -78,28 +94,23 @@ class GroupViewController: ListFullBleedViewController {
 //            self.performSegue(withIdentifier: "ShowMember", sender: self)
 //        }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "ShowMember" {
-//            if let vc = segue.destination as? MemberViewController, let selectMember = selectMember {
-//                vc.member = selectMember
-//            }
-//        }
-    }
+
     
     
-    override func topMenuDidSelectIndex(_ index: Int) {
-        
-
-    }
-
-
+    var postToShowCommentsFor: Post?
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+}
+
+extension GroupViewController: MemberFeedItemDelegate {
+    func memberFeedWantToShowComments(post: Post) {
+        self.postToShowCommentsFor = post
+        self.performSegue(withIdentifier: "ShowComments", sender: self)
+    }
 }
 
 

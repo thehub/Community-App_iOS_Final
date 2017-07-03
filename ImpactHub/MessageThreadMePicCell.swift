@@ -28,7 +28,7 @@ class MessageThreadMePicCell: UITableViewCell {
     func setUp(vm: MessagesThreadMePicVM) {
         
         if let photoUrl = vm.message.sender.photo?.smallPhotoUrl {
-            profileImageView.kf.setImage(with: URL.init(string: photoUrl)!)
+            profileImageView.kf.setImage(with: photoUrl)
         }
         
     }

@@ -22,7 +22,7 @@ struct User {
 
 extension User {
     init?(json: [String: Any]) {
-        debugPrint(json)
+//        debugPrint(json)
         guard
             let id = json["id"] as? String,
             let displayName = json["displayName"] as? String

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PromiseKit
 
 class CompaniesViewController: ListWithSearchViewController {
 
@@ -39,21 +40,22 @@ class CompaniesViewController: ListWithSearchViewController {
         self.data.append(viewModel4)
 
         // Not working
-        //        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        //        firstly {
-        //            APIClient.shared.getCompanies()
-        //            }.then { items -> Void in
-        //                print(items)
-        //
-        //                let cellWidth: CGFloat = self.view.frame.width
-        //
-        //
-        //                self.collectionView?.reloadData()
-        //            }.always {
-        //                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        //            }.catch { error in
-        //                debugPrint(error.localizedDescription)
-        //        }
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        firstly {
+            APIClient.shared.getCompanies()
+//            APIClient.shared.getCompanyService(companyId: "0019E00000Fq2JHQAZ")
+            }.then { items -> Void in
+                print(items)
+
+                let cellWidth: CGFloat = self.view.frame.width
+
+
+                self.collectionView?.reloadData()
+            }.always {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }.catch { error in
+                debugPrint(error.localizedDescription)
+        }
     }
 
     var selectedVM: CompanyViewModel?

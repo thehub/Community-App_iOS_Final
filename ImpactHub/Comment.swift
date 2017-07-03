@@ -16,10 +16,12 @@ struct Comment {
     var date: Date
     var user: User?
     var id: String?
+    var likes: Int = 0 // todo:
 }
 
 extension Comment {
     init?(json: JSON) {
+//        print(json)
         guard
             let postedTimeString = json["createdDate"].string,
             let postedTime = postedTimeString.dateFromISOString(),
@@ -38,6 +40,9 @@ extension Comment {
         else {
             return nil
         }
+        
+        self.likes = json["likes"]["total"].int ?? 0 
+        
         self.groupID = ""
     }
 

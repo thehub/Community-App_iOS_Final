@@ -418,6 +418,12 @@
 		85DE9F031ECCABCD00291EF5 /* CellRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE9F021ECCABCD00291EF5 /* CellRepresentable.swift */; };
 		85DE9F071ECCACB100291EF5 /* MemberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE9F061ECCACB100291EF5 /* MemberViewModel.swift */; };
 		85DE9F091ECCACCB00291EF5 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE9F081ECCACCB00291EF5 /* Member.swift */; };
+		85E5FF501F0A74AE0053189B /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5FF4F1F0A74AE0053189B /* CreatePostViewController.swift */; };
+		85E5FF511F0A74AE0053189B /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5FF4F1F0A74AE0053189B /* CreatePostViewController.swift */; };
+		85E5FF521F0A74AE0053189B /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5FF4F1F0A74AE0053189B /* CreatePostViewController.swift */; };
+		85E5FF541F0A8D750053189B /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5FF531F0A8D750053189B /* CommentsViewController.swift */; };
+		85E5FF551F0A8D750053189B /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5FF531F0A8D750053189B /* CommentsViewController.swift */; };
+		85E5FF561F0A8D750053189B /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5FF531F0A8D750053189B /* CommentsViewController.swift */; };
 		85E7DA821EF818D200C9DA15 /* ProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E7DA801EF818D200C9DA15 /* ProjectCollectionViewCell.swift */; };
 		85E7DA831EF818D200C9DA15 /* ProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E7DA801EF818D200C9DA15 /* ProjectCollectionViewCell.swift */; };
 		85E7DA841EF818D200C9DA15 /* ProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E7DA801EF818D200C9DA15 /* ProjectCollectionViewCell.swift */; };
@@ -633,6 +639,8 @@
 		85DE9F021ECCABCD00291EF5 /* CellRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellRepresentable.swift; sourceTree = "<group>"; };
 		85DE9F061ECCACB100291EF5 /* MemberViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberViewModel.swift; sourceTree = "<group>"; };
 		85DE9F081ECCACCB00291EF5 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		85E5FF4F1F0A74AE0053189B /* CreatePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
+		85E5FF531F0A8D750053189B /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		85E7DA801EF818D200C9DA15 /* ProjectCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCollectionViewCell.swift; sourceTree = "<group>"; };
 		85E7DA811EF818D200C9DA15 /* ProjectCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectCollectionViewCell.xib; sourceTree = "<group>"; };
 		85E7DA881EF81C7B00C9DA15 /* ProjectViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
@@ -954,6 +962,8 @@
 				85523DB51EFAABD700F66B53 /* ListFullBleedViewController.swift */,
 				8516551E1EFD5F0200002786 /* AddPostViewController.swift */,
 				850C142A1F03ADED00F00DAE /* FilterableDelegate.swift */,
+				85E5FF4F1F0A74AE0053189B /* CreatePostViewController.swift */,
+				85E5FF531F0A8D750053189B /* CommentsViewController.swift */,
 				85DE9EFA1ECC9D2700291EF5 /* Members */,
 				858C588E1EF927C100136DAC /* Projects */,
 				8570C1E61ECF035700FA1CE9 /* Companies */,
@@ -1414,6 +1424,7 @@
 				85523DBF1EFAB4B300F66B53 /* CompanyDetailTopCell.swift in Sources */,
 				8570C1CE1ECEE0BA00FA1CE9 /* SearchViewController.swift in Sources */,
 				8574805D1EE802D0005F73A2 /* Subscription.swift in Sources */,
+				85E5FF501F0A74AE0053189B /* CreatePostViewController.swift in Sources */,
 				8516551F1EFD5F0200002786 /* AddPostViewController.swift in Sources */,
 				853433CB1EE6B547003C26F8 /* MessagesCell.swift in Sources */,
 				859C416F1ECDB39D00637295 /* MemberFeedItemViewModel.swift in Sources */,
@@ -1433,6 +1444,7 @@
 				859C41811ECE006500637295 /* MemberAboutItemViewModel.swift in Sources */,
 				8570C1EF1ECF04E800FA1CE9 /* CompanyCollectionViewCell.swift in Sources */,
 				850072271EE70E79008A725A /* MessagesThreadMePicVM.swift in Sources */,
+				85E5FF541F0A8D750053189B /* CommentsViewController.swift in Sources */,
 				859C41661ECDA01A00637295 /* MemberDetailTopCell.swift in Sources */,
 				85523DAE1EFA9CB100F66B53 /* ListWithSearchViewController.swift in Sources */,
 				850C142F1F03B04400F00DAE /* FilterManager.swift in Sources */,
@@ -1504,6 +1516,7 @@
 				859E02A51F03946F00600C3E /* FilterCell.swift in Sources */,
 				850B70161EFBF1FB00596315 /* GroupViewModel.swift in Sources */,
 				8574806E1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
+				85E5FF511F0A74AE0053189B /* CreatePostViewController.swift in Sources */,
 				85523DB71EFAABD700F66B53 /* ListFullBleedViewController.swift in Sources */,
 				8500722C1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
 				858C58A61EF9492000136DAC /* TitleCell.swift in Sources */,
@@ -1516,6 +1529,7 @@
 				857480321EE80279005F73A2 /* ChatterSegmentBuilder.swift in Sources */,
 				850B701C1EFBF84600596315 /* GroupDetailTopCell.swift in Sources */,
 				8574805E1EE802D0005F73A2 /* Subscription.swift in Sources */,
+				85E5FF551F0A8D750053189B /* CommentsViewController.swift in Sources */,
 				850072401EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */,
 				850B70221EFBF84600596315 /* GroupViewController.swift in Sources */,
 				857480491EE802D0005F73A2 /* Group.swift in Sources */,
@@ -1608,6 +1622,7 @@
 				859E02A61F03946F00600C3E /* FilterCell.swift in Sources */,
 				850B70171EFBF1FB00596315 /* GroupViewModel.swift in Sources */,
 				8574806F1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
+				85E5FF521F0A74AE0053189B /* CreatePostViewController.swift in Sources */,
 				85523DB81EFAABD700F66B53 /* ListFullBleedViewController.swift in Sources */,
 				8500722D1EE70F30008A725A /* MessageThreadThemPicCell.swift in Sources */,
 				858C58A71EF9492000136DAC /* TitleCell.swift in Sources */,
@@ -1620,6 +1635,7 @@
 				857480331EE80279005F73A2 /* ChatterSegmentBuilder.swift in Sources */,
 				850B701D1EFBF84600596315 /* GroupDetailTopCell.swift in Sources */,
 				8574805F1EE802D0005F73A2 /* Subscription.swift in Sources */,
+				85E5FF561F0A8D750053189B /* CommentsViewController.swift in Sources */,
 				850072411EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */,
 				850B70231EFBF84600596315 /* GroupViewController.swift in Sources */,
 				8574804A1EE802D0005F73A2 /* Group.swift in Sources */,

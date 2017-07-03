@@ -54,69 +54,98 @@
                         <color key="textColor" red="0.44313725490196076" green="0.43529411764705883" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pph-ND-ZSv">
-                        <rect key="frame" x="258.5" y="102.5" width="11.5" height="17.5"/>
-                        <fontDescription key="fontDescription" name="GTWalsheim-Medium" family="GT Walsheim" pointSize="14"/>
-                        <color key="textColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" image="commentGrey" translatesAutoresizingMaskIntoConstraints="NO" id="HJj-nn-W2u">
-                        <rect key="frame" x="240" y="105" width="13" height="13"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bc8-30-6v7">
-                        <rect key="frame" x="194" y="102" width="11" height="17.5"/>
-                        <fontDescription key="fontDescription" name="GTWalsheim-Medium" family="GT Walsheim" pointSize="14"/>
-                        <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" image="likeRed" translatesAutoresizingMaskIntoConstraints="NO" id="SbV-C9-ebI">
-                        <rect key="frame" x="175" y="105.5" width="14" height="12"/>
-                    </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnS-KB-Mk5" userLabel="commentButton">
-                        <rect key="frame" x="240" y="105" width="30" height="13"/>
-                        <connections>
-                            <action selector="onTapComment:" destination="gTV-IL-0wX" eventType="touchUpInside" id="uqB-e1-LqW"/>
-                        </connections>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qW-0i-0kf" userLabel="likeButton">
-                        <rect key="frame" x="175" y="105.5" width="30" height="12"/>
-                        <connections>
-                            <action selector="onTapLike:" destination="gTV-IL-0wX" eventType="touchUpInside" id="FaH-PJ-T3x"/>
-                        </connections>
-                    </button>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="rba-6n-oaI">
+                        <rect key="frame" x="170" y="102" width="100" height="18"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hc6-eO-k1i" userLabel="Like">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="18"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bc8-30-6v7">
+                                        <rect key="frame" x="19" y="0.5" width="11" height="17.5"/>
+                                        <fontDescription key="fontDescription" name="GTWalsheim-Medium" family="GT Walsheim" pointSize="14"/>
+                                        <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" image="likeRed" translatesAutoresizingMaskIntoConstraints="NO" id="SbV-C9-ebI">
+                                        <rect key="frame" x="0.0" y="3" width="14" height="12"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qW-0i-0kf" userLabel="likeButton">
+                                        <rect key="frame" x="0.0" y="3" width="30" height="12"/>
+                                        <connections>
+                                            <action selector="onTapLike:" destination="gTV-IL-0wX" eventType="touchUpInside" id="FaH-PJ-T3x"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="SbV-C9-ebI" firstAttribute="leading" secondItem="Hc6-eO-k1i" secondAttribute="leading" id="6hr-ei-6EA"/>
+                                    <constraint firstItem="SbV-C9-ebI" firstAttribute="centerY" secondItem="bc8-30-6v7" secondAttribute="centerY" id="8HZ-jT-mMa"/>
+                                    <constraint firstItem="7qW-0i-0kf" firstAttribute="bottom" secondItem="SbV-C9-ebI" secondAttribute="bottom" id="CeZ-hh-nN6"/>
+                                    <constraint firstItem="7qW-0i-0kf" firstAttribute="top" secondItem="SbV-C9-ebI" secondAttribute="top" id="SJ5-65-P4D"/>
+                                    <constraint firstItem="bc8-30-6v7" firstAttribute="leading" secondItem="SbV-C9-ebI" secondAttribute="trailing" constant="5" id="Sv2-fh-C1f"/>
+                                    <constraint firstItem="7qW-0i-0kf" firstAttribute="trailing" secondItem="bc8-30-6v7" secondAttribute="trailing" id="d4X-SO-EgO"/>
+                                    <constraint firstAttribute="width" constant="50" id="gDQ-EV-ErX"/>
+                                    <constraint firstAttribute="height" constant="18" id="ko8-o7-DrX"/>
+                                    <constraint firstItem="SbV-C9-ebI" firstAttribute="centerY" secondItem="Hc6-eO-k1i" secondAttribute="centerY" id="usV-DX-EGq"/>
+                                    <constraint firstItem="7qW-0i-0kf" firstAttribute="leading" secondItem="SbV-C9-ebI" secondAttribute="leading" id="x5f-yj-bnf"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYD-Gg-513" userLabel="Comment">
+                                <rect key="frame" x="50" y="0.0" width="50" height="18"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pph-ND-ZSv">
+                                        <rect key="frame" x="41.5" y="-0.5" width="8.5" height="17.5"/>
+                                        <fontDescription key="fontDescription" name="GTWalsheim-Medium" family="GT Walsheim" pointSize="14"/>
+                                        <color key="textColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" image="commentGrey" translatesAutoresizingMaskIntoConstraints="NO" id="HJj-nn-W2u">
+                                        <rect key="frame" x="22" y="2.5" width="13" height="13"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnS-KB-Mk5" userLabel="commentButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="41.5" height="18"/>
+                                        <connections>
+                                            <action selector="onTapComment:" destination="gTV-IL-0wX" eventType="touchUpInside" id="uqB-e1-LqW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="0p2-G7-shA"/>
+                                    <constraint firstItem="pph-ND-ZSv" firstAttribute="leading" secondItem="vnS-KB-Mk5" secondAttribute="trailing" id="8ig-UR-OhT"/>
+                                    <constraint firstItem="vnS-KB-Mk5" firstAttribute="leading" secondItem="YYD-Gg-513" secondAttribute="leading" id="9wv-uX-4tU"/>
+                                    <constraint firstAttribute="trailing" secondItem="pph-ND-ZSv" secondAttribute="trailing" id="MGj-PF-xxa"/>
+                                    <constraint firstItem="vnS-KB-Mk5" firstAttribute="top" secondItem="YYD-Gg-513" secondAttribute="top" id="Q1F-dP-Ckc"/>
+                                    <constraint firstAttribute="width" constant="50" id="ScY-wd-dpO"/>
+                                    <constraint firstItem="HJj-nn-W2u" firstAttribute="centerY" secondItem="pph-ND-ZSv" secondAttribute="centerY" id="XaK-Y3-RYF"/>
+                                    <constraint firstItem="pph-ND-ZSv" firstAttribute="centerY" secondItem="YYD-Gg-513" secondAttribute="centerY" id="gMt-21-nhF"/>
+                                    <constraint firstAttribute="bottom" secondItem="vnS-KB-Mk5" secondAttribute="bottom" id="hbi-XO-vaN"/>
+                                    <constraint firstItem="HJj-nn-W2u" firstAttribute="trailing" secondItem="pph-ND-ZSv" secondAttribute="trailing" constant="-15" id="ora-9W-rpJ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                    </stackView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="HJj-nn-W2u" firstAttribute="centerY" secondItem="pph-ND-ZSv" secondAttribute="centerY" id="1RJ-Rg-VhY"/>
-                <constraint firstAttribute="trailing" secondItem="pph-ND-ZSv" secondAttribute="trailing" constant="30" id="24X-il-Oeu"/>
-                <constraint firstItem="7qW-0i-0kf" firstAttribute="trailing" secondItem="bc8-30-6v7" secondAttribute="trailing" id="2vA-2T-EPR"/>
+                <constraint firstAttribute="bottom" secondItem="rba-6n-oaI" secondAttribute="bottom" constant="20" id="8ro-Vg-lJ0"/>
                 <constraint firstItem="R2a-Xb-LpF" firstAttribute="leading" secondItem="MYM-OF-VM2" secondAttribute="trailing" constant="8" id="9Lf-JF-OdW"/>
-                <constraint firstItem="vnS-KB-Mk5" firstAttribute="bottom" secondItem="HJj-nn-W2u" secondAttribute="bottom" id="DDW-xx-fdb"/>
-                <constraint firstItem="vnS-KB-Mk5" firstAttribute="top" secondItem="HJj-nn-W2u" secondAttribute="top" id="EOe-P9-b4T"/>
-                <constraint firstItem="7qW-0i-0kf" firstAttribute="top" secondItem="SbV-C9-ebI" secondAttribute="top" id="KdQ-bW-kvi"/>
-                <constraint firstItem="pph-ND-ZSv" firstAttribute="leading" secondItem="HJj-nn-W2u" secondAttribute="trailing" constant="5" id="PgN-uW-0m9"/>
-                <constraint firstItem="bc8-30-6v7" firstAttribute="centerY" secondItem="HJj-nn-W2u" secondAttribute="centerY" id="QnD-u3-OFE"/>
-                <constraint firstItem="HJj-nn-W2u" firstAttribute="leading" secondItem="bc8-30-6v7" secondAttribute="trailing" constant="35" id="Rif-Vx-c3a"/>
+                <constraint firstAttribute="trailing" secondItem="rba-6n-oaI" secondAttribute="trailing" constant="30" id="GrJ-tV-mTP"/>
                 <constraint firstItem="hH6-Uy-FZ3" firstAttribute="top" secondItem="Dlf-0p-AmF" secondAttribute="bottom" constant="8" id="Vmb-SH-7QO"/>
-                <constraint firstItem="vnS-KB-Mk5" firstAttribute="trailing" secondItem="pph-ND-ZSv" secondAttribute="trailing" id="Wqh-xb-HeM"/>
-                <constraint firstItem="bc8-30-6v7" firstAttribute="leading" secondItem="SbV-C9-ebI" secondAttribute="trailing" constant="5" id="Y4Q-Ve-zFm"/>
                 <constraint firstItem="R2a-Xb-LpF" firstAttribute="top" secondItem="MYM-OF-VM2" secondAttribute="top" id="b64-y0-Or0"/>
-                <constraint firstItem="SbV-C9-ebI" firstAttribute="centerY" secondItem="bc8-30-6v7" secondAttribute="centerY" id="buH-9k-A5z"/>
                 <constraint firstItem="Dlf-0p-AmF" firstAttribute="leading" secondItem="R2a-Xb-LpF" secondAttribute="leading" id="d6Y-W9-047"/>
                 <constraint firstItem="MYM-OF-VM2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="dGq-Lv-NG6"/>
-                <constraint firstAttribute="bottom" secondItem="pph-ND-ZSv" secondAttribute="bottom" constant="20" id="gHG-a9-HyE"/>
                 <constraint firstItem="hH6-Uy-FZ3" firstAttribute="leading" secondItem="Dlf-0p-AmF" secondAttribute="leading" id="leX-ek-Hyz"/>
                 <constraint firstItem="MYM-OF-VM2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="ord-vL-IFC"/>
-                <constraint firstItem="vnS-KB-Mk5" firstAttribute="leading" secondItem="HJj-nn-W2u" secondAttribute="leading" id="rbT-Nb-oq8"/>
                 <constraint firstAttribute="trailing" secondItem="hH6-Uy-FZ3" secondAttribute="trailing" constant="8" id="uOy-Ly-Lus"/>
                 <constraint firstItem="Dlf-0p-AmF" firstAttribute="top" secondItem="R2a-Xb-LpF" secondAttribute="bottom" constant="-2" id="waR-w6-do7"/>
-                <constraint firstItem="7qW-0i-0kf" firstAttribute="leading" secondItem="SbV-C9-ebI" secondAttribute="leading" id="yJO-Bp-mPa"/>
-                <constraint firstItem="7qW-0i-0kf" firstAttribute="bottom" secondItem="SbV-C9-ebI" secondAttribute="bottom" id="ycP-VR-Aqz"/>
             </constraints>
             <connections>
                 <outlet property="commentCountLabel" destination="pph-ND-ZSv" id="D8U-jY-3Z2"/>
                 <outlet property="commentImageView" destination="HJj-nn-W2u" id="IQt-Z2-raR"/>
+                <outlet property="commentView" destination="YYD-Gg-513" id="SO6-lu-KcC"/>
                 <outlet property="dateLabel" destination="Dlf-0p-AmF" id="eqH-jN-t3j"/>
+                <outlet property="likeContainerView" destination="Hc6-eO-k1i" id="V8s-NC-Cjo"/>
                 <outlet property="likeCountLabel" destination="bc8-30-6v7" id="OJl-QX-nR2"/>
                 <outlet property="likeImageView" destination="SbV-C9-ebI" id="2IE-15-Mx7"/>
                 <outlet property="nameLabel" destination="R2a-Xb-LpF" id="YeA-iv-bqm"/>

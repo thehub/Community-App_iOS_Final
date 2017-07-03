@@ -12,6 +12,7 @@ import SalesforceSDKCore
 import PromiseKit
 import SwiftyJSON
 
+
 class APIClient {
 
     
@@ -62,8 +63,7 @@ class APIClient {
     func getCompanies() -> Promise<String> {
         return Promise { fullfill, reject in
             
-            //            let userId = SFUserAccountManager.sharedInstance().currentUser!.accountIdentity.userId
-            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT name, Number_of_Employees__c, Impact_Hub_Cities__c, Sector_Industry__c, Logo_Image_Url__c, Banner_Image_Url__c from account where id in (select accountid from contact where user__c != null)", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT id, name, Number_of_Employees__c, Impact_Hub_Cities__c, Sector_Industry__c, Logo_Image_Url__c, Banner_Image_Url__c, Twitter__c, Instagram__c, Facebook__c, LinkedIn__c , Website, About_Us__c from account where id in (select accountid from contact where user__c != null)", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -73,6 +73,28 @@ class APIClient {
 //                    let items = records.flatMap { Member(json: $0) }
 //                    print(items.count)
 //                    print(items)
+                    fullfill("ok")
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
+    func getCompanyService(companyId: String) -> Promise<String> {
+        return Promise { fullfill, reject in
+            
+            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, Company__c, Company__r.id, Service_Description__c from Company_Service__c where Company__r.id ='\(companyId)'", fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON(result!)
+                debugPrint(jsonResult)
+                if let records = jsonResult["records"].array {
+                    //                    let items = records.flatMap { Member(json: $0) }
+                    //                    print(items.count)
+                    //                    print(items)
                     fullfill("ok")
                 }
                 else {
@@ -369,11 +391,10 @@ class APIClient {
             let request = SFRestRequest(method: .GET, path: nextPageUrl, queryParams: query)
             SFRestAPI.sharedInstance().send(request, fail: { (error) in
                 print(error?.localizedDescription as Any)
-                DispatchQueue.main.async{
-                    reject(MyError.JSONError)
-                }
+                reject(MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON.init(result!)
+                debugPrint(jsonResult)
                 let items = jsonResult["items"].arrayValue.flatMap { Comment(json: $0) }
                 fullfill(items)
             }
@@ -386,28 +407,98 @@ class APIClient {
             let request = SFRestRequest(method: .GET, path: "/services/data/v39.0/connect/communities/\(Constants.communityId)/chatter/feeds/record/\(groupID)/feed-elements", queryParams: query)
             SFRestAPI.sharedInstance().send(request, fail: { (error) in
                 print(error?.localizedDescription as Any)
-                DispatchQueue.main.async{
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                    reject(MyError.JSONError)
-                }
+                reject(MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON.init(result!)
                 print(jsonResult)
 
                 if let json = jsonResult["elements"].array {
                     let items = json.flatMap { Post(json: $0) }
-                    DispatchQueue.main.async{
-                        fullfill(items)
-                    }
+                    fullfill(items)
                 }
                 else {
-                    DispatchQueue.main.async{
-                        reject(MyError.JSONError)
-                    }
+                    reject(MyError.JSONError)
                 }
             }
         }
     }
+    
+    func uploadImage(imageData: Data) -> Promise<String> {
+
+        return Promise { fullfill, reject in
+            let uid = UUID().uuidString
+            let request = SFRestAPI.sharedInstance().request(forUploadFile: imageData, name: "\(uid).jpg", description: "Desc", mimeType: "image/jpeg")
+            request.path = "/v36.0/connect/communities/\(Constants.communityId)/files/users/me"
+            //        print(request.path)
+            SFRestAPI.sharedInstance().send(request, fail: { (error) in
+                if let error = error {
+                    debugPrint(error.localizedDescription)
+                    reject(MyError.JSONError)
+                }
+            }) { (result) in
+                if let id = (result as AnyObject)["id"] as? String {
+                    fullfill(id)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
+    func postToGroup(groupID: String, messageSegments: [[String: String]], fileId:String?) -> Promise<Post> {
+        return Promise { fullfill, reject in
+            var query: JSON!
+            print(messageSegments)
+            if let fileId = fileId {
+                query = ["body" : ["messageSegments" : messageSegments], "feedElementType": "FeedItem", "subjectId": groupID, "capabilities": ["files": ["items": ["id": fileId]]]]
+            }
+            else {
+                query = ["body" : ["messageSegments" : messageSegments], "feedElementType": "FeedItem", "subjectId": groupID]
+            }
+            
+            let body = SFJsonUtils.jsonDataRepresentation(query.dictionaryObject)
+            let request = SFRestRequest(method: .POST, path: "/services/data/v39.0/connect/communities/\(Constants.communityId)/chatter/feed-elements", queryParams: nil)
+            request.setCustomRequestBodyData(body!, contentType: "application/json")
+            request.setHeaderValue("\(u_long(body?.count ?? 0))", forHeaderName: "Content-Length")
+            
+            SFRestAPI.sharedInstance().send(request, fail: { (error) in
+                print(error?.localizedDescription as Any)
+                reject(MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON(result!)
+                if let post = Post(json: jsonResult) {
+                    fullfill(post)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
+    func postComment(newsID: String, message: String) -> Promise<Comment> {
+        return Promise { fullfill, reject in
+            let query = "{\"body\": {\"messageSegments\": [{\"type\": \"Text\", \"text\": \"\(message)\"}]}}"
+            let request = SFRestRequest(method: .POST, path: "/services/data/v39.0/connect/communities/\(Constants.communityId)/chatter/feed-elements/\(newsID)/capabilities/comments/items", queryParams: nil)
+            request.setCustomRequestBodyString(query, contentType: "application/json")
+            request.setHeaderValue("\(u_long(query.characters.count))", forHeaderName: "Content-Length")
+            
+            SFRestAPI.sharedInstance().send(request, fail: { (error) in
+                print(error?.localizedDescription as Any)
+                reject(MyError.JSONError)
+            }) { (result) in
+                if let comment = Comment(json: JSON(result)) {
+                    fullfill(comment)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
+
     
     
     

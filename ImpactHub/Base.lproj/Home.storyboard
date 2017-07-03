@@ -14,6 +14,9 @@
         <array key="gt-walsheim-light-web.ttf">
             <string>GTWalsheim-Light</string>
         </array>
+        <array key="gt-walsheim-web.ttf">
+            <string>GTWalsheim</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Impact Hub-->
@@ -1592,18 +1595,69 @@
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="Ilz-79-NR9">
                         <barButtonItem key="backBarButtonItem" title=" " id="TmH-KC-67L"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="1PI-cl-xUB">
+                        <barButtonItem key="rightBarButtonItem" image="create" style="plain" id="1PI-cl-xUB">
                             <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="iz5-ct-zW9" kind="custom" identifier="ShowCreatePost" customClass="DeckSegue" customModule="DeckTransition" id="vHi-eY-5aJ"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="mO9-vW-zkP" id="3be-7C-dJa"/>
+                        <segue destination="4yo-Ud-2Wb" kind="show" identifier="ShowComments" id="r4W-Rs-mKq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Spy-ky-Xmt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4473" y="2335"/>
+        </scene>
+        <!--Create Post-->
+        <scene sceneID="xaI-Ui-8fT">
+            <objects>
+                <viewController id="WEu-sw-qqy" customClass="CreatePostViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OYK-lb-ifn"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bir-hT-I5F"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dfv-rX-l3c">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="sCq-M1-POS">
+                                <rect key="frame" x="16" y="72" width="343" height="333.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="GTWalsheim" family="GT Walsheim" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send"/>
+                                <connections>
+                                    <outlet property="delegate" destination="WEu-sw-qqy" id="G7T-eD-ZD9"/>
+                                </connections>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sCq-M1-POS" firstAttribute="height" secondItem="Dfv-rX-l3c" secondAttribute="height" multiplier="0.5" id="8F2-vN-maH"/>
+                            <constraint firstItem="sCq-M1-POS" firstAttribute="trailing" secondItem="Dfv-rX-l3c" secondAttribute="trailingMargin" id="8Nw-Rv-tQV"/>
+                            <constraint firstItem="sCq-M1-POS" firstAttribute="leading" secondItem="Dfv-rX-l3c" secondAttribute="leadingMargin" id="gTc-Yo-Tnk"/>
+                            <constraint firstItem="sCq-M1-POS" firstAttribute="top" secondItem="OYK-lb-ifn" secondAttribute="bottom" constant="8" id="npu-YJ-dzz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create Post" id="aRl-6i-1eM">
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" style="plain" id="kUq-HN-0G0">
+                            <color key="tintColor" red="1" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="onClose:" destination="WEu-sw-qqy" id="SFC-N0-v0c"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textView" destination="sCq-M1-POS" id="2Dm-cY-hDc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z8W-jf-GCJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6100" y="2344.6776611694154"/>
         </scene>
         <!--Events-->
         <scene sceneID="uPY-qT-eKA">
@@ -1839,7 +1893,7 @@
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="l4c-Xh-VrS">
                         <barButtonItem key="backBarButtonItem" title=" " id="YgS-eV-JB8"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="GQo-3Z-H51">
+                        <barButtonItem key="rightBarButtonItem" image="create" style="plain" id="GQo-3Z-H51">
                             <color key="tintColor" red="0.78431372549019607" green="0.80392156862745101" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="s53-44-0Ip" kind="custom" identifier="ShowAddPost" customClass="DeckSegue" customModule="DeckTransition" id="xjr-Du-X9I"/>
@@ -1995,9 +2049,92 @@
             </objects>
             <point key="canvasLocation" x="4015" y="-815"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="B0P-ua-KHR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iz5-ct-zW9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="C4D-zJ-TGR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WEu-sw-qqy" kind="relationship" relationship="rootViewController" id="4E9-vg-TYR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zrz-aA-fuo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5341.6000000000004" y="2344.6776611694154"/>
+        </scene>
+        <!--Comments-->
+        <scene sceneID="wrI-fS-MyR">
+            <objects>
+                <viewController storyboardIdentifier="CommnetsViewController" title="Comments" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="4yo-Ud-2Wb" customClass="CommentsViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RDV-H3-Lh5"/>
+                        <viewControllerLayoutGuide type="bottom" id="EgU-X9-YuM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uhu-Ln-96i">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JAK-t4-WT5">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Xo5-LM-Oud">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="100"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="JoR-Hn-WT4">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="4yo-Ud-2Wb" id="sbB-dl-K6F"/>
+                                    <outlet property="delegate" destination="4yo-Ud-2Wb" id="gpH-s8-jkB"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JAK-t4-WT5" firstAttribute="top" secondItem="RDV-H3-Lh5" secondAttribute="bottom" id="5AM-EI-HNj"/>
+                            <constraint firstItem="JAK-t4-WT5" firstAttribute="leading" secondItem="uhu-Ln-96i" secondAttribute="leading" id="7Tt-de-vE2"/>
+                            <constraint firstItem="EgU-X9-YuM" firstAttribute="top" secondItem="JAK-t4-WT5" secondAttribute="bottom" id="bVR-Hj-7N7"/>
+                            <constraint firstAttribute="trailing" secondItem="JAK-t4-WT5" secondAttribute="trailing" id="xyY-D9-di2"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <navigationItem key="navigationItem" title="Comments" id="JgU-eK-5Lt">
+                        <barButtonItem key="backBarButtonItem" title=" " id="CvA-VE-W1N"/>
+                        <barButtonItem key="rightBarButtonItem" image="create" style="plain" id="vmT-vx-cma">
+                            <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="iz5-ct-zW9" kind="custom" identifier="ShowCreateComment" customClass="DeckSegue" customModule="DeckTransition" id="UiB-b8-emc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="JAK-t4-WT5" id="Mos-Dc-Iqv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xc7-tm-c7o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4473" y="3102"/>
+        </scene>
     </scenes>
     <resources>
         <image name="companyImage" width="160" height="120"/>
+        <image name="create" width="19" height="19"/>
         <image name="eventPhoto" width="338" height="223"/>
         <image name="filterButton" width="64" height="65"/>
         <image name="filterTick" width="21" height="22"/>
@@ -2007,10 +2144,11 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ZaZ-Qi-aGI"/>
+        <segue reference="u3D-lG-cq4"/>
+        <segue reference="SUD-Df-hmX"/>
         <segue reference="E6m-rq-9b6"/>
         <segue reference="9tv-11-54j"/>
-        <segue reference="Nsv-q8-zjz"/>
-        <segue reference="u3D-lG-cq4"/>
+        <segue reference="UiB-b8-emc"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -9,7 +9,16 @@
 import UIKit
 import Kingfisher
 
+protocol MemberFeedItemDelegate: class {
+    func memberFeedWantToShowComments(post: Post)
+}
+
 class MemberFeedItemCell: UICollectionViewCell {
+    
+    @IBOutlet weak var commentView: UIView!
+    @IBOutlet weak var likeContainerView: UIView!
+    
+    weak var delegate: MemberFeedItemDelegate?
     
     static var dateFormatter: DateFormatter {
         get {
@@ -39,15 +48,34 @@ class MemberFeedItemCell: UICollectionViewCell {
     }
     
     @IBAction func onTapComment(_ sender: Any) {
+        guard let vm = self.vm else {
+            return
+        }
+        self.vm?.delegate?.memberFeedWantToShowComments(post: vm.post)
     }
 
+    var vm: MemberFeedItemViewModel?
+    
     func setUp(vm: MemberFeedItemViewModel) {
-        nameLabel.text = vm.post.chatterActor.displayName
-//        print(vm.post.chatterActor.profilePicSmallUrl)
-        profileImageView.kf.setImage(with: vm.post.chatterActor.profilePicSmallUrl)
-        dateLabel.text = MemberFeedItemCell.dateFormatter.string(from: vm.post.date)
-        textLabel.text = vm.post.text
-        likeCountLabel.text = "\(vm.post.likes)"
-        commentCountLabel.text = "\(vm.post.commentsCount)"
+        self.vm = vm
+        if let comment = vm.comment {
+            commentView.isHidden = true
+            nameLabel.text = comment.user?.displayName ?? ""
+            if let photoUrl = comment.user?.photo?.smallPhotoUrl {
+                profileImageView.kf.setImage(with: photoUrl)
+            }
+            dateLabel.text = MemberFeedItemCell.dateFormatter.string(from: comment.date)
+            textLabel.text = vm.comment?.body
+            likeCountLabel.text = "\(comment.likes)"
+        }
+        else {
+            commentView.isHidden = false
+            nameLabel.text = vm.post.chatterActor.displayName
+            profileImageView.kf.setImage(with: vm.post.chatterActor.profilePicSmallUrl)
+            dateLabel.text = MemberFeedItemCell.dateFormatter.string(from: vm.post.date)
+            textLabel.text = vm.post.text
+            likeCountLabel.text = "\(vm.post.likes)"
+            commentCountLabel.text = "\(vm.post.commentsCount)"
+        }
     }
 }

@@ -10,14 +10,15 @@ import Foundation
 
 struct Photo {
     var standardEmailPhotoUrl: String
-    var largePhotoUrl: String?
-    var mediumPhotoUrl: String
-    var smallPhotoUrl: String
+    var largePhotoUrl: URL?
+    var mediumPhotoUrl: URL?
+    var smallPhotoUrl: URL?
     
 }
 
 extension Photo {
     init?(json: [String: Any]) {
+//        print(json)
         guard
             let standardEmailPhotoUrl = json["standardEmailPhotoUrl"] as? String,
             let mediumPhotoUrl = json["mediumPhotoUrl"] as? String,
@@ -28,10 +29,10 @@ extension Photo {
         self.standardEmailPhotoUrl = standardEmailPhotoUrl
 
         if let largePhotoUrl = json["largePhotoUrl"] as? String {
-            self.largePhotoUrl = largePhotoUrl
+            self.largePhotoUrl = URL(string: largePhotoUrl)
         }
         
-        self.mediumPhotoUrl = mediumPhotoUrl
-        self.smallPhotoUrl = smallPhotoUrl
+        self.mediumPhotoUrl = URL(string: mediumPhotoUrl)
+        self.smallPhotoUrl = URL(string: smallPhotoUrl)
     }
 }
