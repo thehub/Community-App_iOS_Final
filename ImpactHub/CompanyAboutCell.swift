@@ -21,7 +21,7 @@ class CompanyAboutCell: UICollectionViewCell {
     func setup(vm: CompanyAboutViewModel) {
         self.locationNameLabel.text = vm.company.locationName
         self.memberCountLabel.text = vm.company.size
-        self.descriptionLabel.text = vm.company.blurb
+        self.descriptionLabel.text = vm.company.about
         
     }
     

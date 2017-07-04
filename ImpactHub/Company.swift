@@ -111,7 +111,7 @@ extension Company {
     var photoUrl: URL? {
         if let token = SFUserAccountManager.sharedInstance().currentUser?.credentials.accessToken,
             let photo = self.photo,
-            let url = URL(string: "\(Constants.host)\(photo)?oauth_token=\(token)") {
+            let url = URL(string: "\(photo)?oauth_token=\(token)") {
             return url
         }
         return nil
@@ -119,7 +119,7 @@ extension Company {
     var logoUrl: URL? {
         if let token = SFUserAccountManager.sharedInstance().currentUser?.credentials.accessToken,
             let logo = self.logo,
-            let url = URL(string: "\(Constants.host)\(logo)?oauth_token=\(token)") {
+            let url = URL(string: "\(logo)?oauth_token=\(token)") {
             return url
         }
         return nil

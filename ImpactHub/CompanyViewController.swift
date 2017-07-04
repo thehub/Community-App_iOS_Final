@@ -192,7 +192,11 @@ class CompanyViewController: ListFullBleedViewController {
         
         if let vm = data[indexPath.item] as? CompanyAboutViewModel {
             let cellWidth: CGFloat = self.collectionView.frame.width
-            let height = vm.company.blurb.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 50 // add extra height for the standard elements, titles, lines, sapcing etc.
+            var height:CGFloat = 100
+            if let about = vm.company.about {
+                height = about.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!)
+                height += 50 // add extra height for the standard elements, titles, lines, sapcing etc.
+            }
             return CGSize(width: view.frame.width, height: height)
         }
 
