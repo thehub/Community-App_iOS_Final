@@ -61,7 +61,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="18"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bc8-30-6v7">
-                                        <rect key="frame" x="19" y="0.5" width="11" height="17.5"/>
+                                        <rect key="frame" x="19" y="0.5" width="8.5" height="17.5"/>
                                         <fontDescription key="fontDescription" name="GTWalsheim-Medium" family="GT Walsheim" pointSize="14"/>
                                         <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -70,7 +70,7 @@
                                         <rect key="frame" x="0.0" y="3" width="14" height="12"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qW-0i-0kf" userLabel="likeButton">
-                                        <rect key="frame" x="0.0" y="3" width="30" height="12"/>
+                                        <rect key="frame" x="-10" y="-10" width="60" height="38"/>
                                         <connections>
                                             <action selector="onTapLike:" destination="gTV-IL-0wX" eventType="touchUpInside" id="FaH-PJ-T3x"/>
                                         </connections>
@@ -78,16 +78,16 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="7qW-0i-0kf" firstAttribute="leading" secondItem="Hc6-eO-k1i" secondAttribute="leading" constant="-10" id="54Q-lV-Fzt"/>
                                     <constraint firstItem="SbV-C9-ebI" firstAttribute="leading" secondItem="Hc6-eO-k1i" secondAttribute="leading" id="6hr-ei-6EA"/>
                                     <constraint firstItem="SbV-C9-ebI" firstAttribute="centerY" secondItem="bc8-30-6v7" secondAttribute="centerY" id="8HZ-jT-mMa"/>
-                                    <constraint firstItem="7qW-0i-0kf" firstAttribute="bottom" secondItem="SbV-C9-ebI" secondAttribute="bottom" id="CeZ-hh-nN6"/>
-                                    <constraint firstItem="7qW-0i-0kf" firstAttribute="top" secondItem="SbV-C9-ebI" secondAttribute="top" id="SJ5-65-P4D"/>
                                     <constraint firstItem="bc8-30-6v7" firstAttribute="leading" secondItem="SbV-C9-ebI" secondAttribute="trailing" constant="5" id="Sv2-fh-C1f"/>
-                                    <constraint firstItem="7qW-0i-0kf" firstAttribute="trailing" secondItem="bc8-30-6v7" secondAttribute="trailing" id="d4X-SO-EgO"/>
                                     <constraint firstAttribute="width" constant="50" id="gDQ-EV-ErX"/>
+                                    <constraint firstItem="7qW-0i-0kf" firstAttribute="top" secondItem="Hc6-eO-k1i" secondAttribute="top" constant="-10" id="ghR-ih-6ZN"/>
+                                    <constraint firstAttribute="trailing" secondItem="7qW-0i-0kf" secondAttribute="trailing" id="hTG-hC-PLj"/>
                                     <constraint firstAttribute="height" constant="18" id="ko8-o7-DrX"/>
+                                    <constraint firstAttribute="bottom" secondItem="7qW-0i-0kf" secondAttribute="bottom" constant="-10" id="pNf-zq-EVb"/>
                                     <constraint firstItem="SbV-C9-ebI" firstAttribute="centerY" secondItem="Hc6-eO-k1i" secondAttribute="centerY" id="usV-DX-EGq"/>
-                                    <constraint firstItem="7qW-0i-0kf" firstAttribute="leading" secondItem="SbV-C9-ebI" secondAttribute="leading" id="x5f-yj-bnf"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYD-Gg-513" userLabel="Comment">
@@ -103,7 +103,7 @@
                                         <rect key="frame" x="22" y="2.5" width="13" height="13"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnS-KB-Mk5" userLabel="commentButton">
-                                        <rect key="frame" x="0.0" y="0.0" width="41.5" height="18"/>
+                                        <rect key="frame" x="10" y="-10" width="50" height="38"/>
                                         <connections>
                                             <action selector="onTapComment:" destination="gTV-IL-0wX" eventType="touchUpInside" id="uqB-e1-LqW"/>
                                         </connections>
@@ -112,14 +112,14 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="0p2-G7-shA"/>
-                                    <constraint firstItem="pph-ND-ZSv" firstAttribute="leading" secondItem="vnS-KB-Mk5" secondAttribute="trailing" id="8ig-UR-OhT"/>
-                                    <constraint firstItem="vnS-KB-Mk5" firstAttribute="leading" secondItem="YYD-Gg-513" secondAttribute="leading" id="9wv-uX-4tU"/>
+                                    <constraint firstAttribute="bottom" secondItem="vnS-KB-Mk5" secondAttribute="bottom" constant="-10" id="4Th-3Y-s8a"/>
+                                    <constraint firstAttribute="trailing" secondItem="vnS-KB-Mk5" secondAttribute="trailing" constant="-10" id="Ak8-h1-RmX"/>
+                                    <constraint firstItem="vnS-KB-Mk5" firstAttribute="top" secondItem="YYD-Gg-513" secondAttribute="top" constant="-10" id="IqD-dE-w4L"/>
                                     <constraint firstAttribute="trailing" secondItem="pph-ND-ZSv" secondAttribute="trailing" id="MGj-PF-xxa"/>
-                                    <constraint firstItem="vnS-KB-Mk5" firstAttribute="top" secondItem="YYD-Gg-513" secondAttribute="top" id="Q1F-dP-Ckc"/>
                                     <constraint firstAttribute="width" constant="50" id="ScY-wd-dpO"/>
                                     <constraint firstItem="HJj-nn-W2u" firstAttribute="centerY" secondItem="pph-ND-ZSv" secondAttribute="centerY" id="XaK-Y3-RYF"/>
                                     <constraint firstItem="pph-ND-ZSv" firstAttribute="centerY" secondItem="YYD-Gg-513" secondAttribute="centerY" id="gMt-21-nhF"/>
-                                    <constraint firstAttribute="bottom" secondItem="vnS-KB-Mk5" secondAttribute="bottom" id="hbi-XO-vaN"/>
+                                    <constraint firstItem="vnS-KB-Mk5" firstAttribute="leading" secondItem="YYD-Gg-513" secondAttribute="leading" constant="10" id="n19-Hz-epf"/>
                                     <constraint firstItem="HJj-nn-W2u" firstAttribute="trailing" secondItem="pph-ND-ZSv" secondAttribute="trailing" constant="-15" id="ora-9W-rpJ"/>
                                 </constraints>
                             </view>
