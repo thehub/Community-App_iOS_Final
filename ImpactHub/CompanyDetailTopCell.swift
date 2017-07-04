@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CompanyDetailTopCell: UICollectionViewCell {
 
@@ -32,9 +33,13 @@ class CompanyDetailTopCell: UICollectionViewCell {
         self.vm = vm
         nameLabel.text = vm.company.name
         subNameLabel.text = vm.company.blurb
-        profileImageView.image = UIImage(named: vm.company.photo)
-        locationNameLabel.text = vm.locationNameLong
-        logoImageView.image = UIImage(named: vm.company.logo)
+        if let photoUrl = vm.company.photoUrl {
+            profileImageView.kf.setImage(with: photoUrl)
+        }
+        locationNameLabel.text = vm.company.locationName
+        if let logoUrl = vm.company.logoUrl {
+            logoImageView.kf.setImage(with: logoUrl)
+        }
         
     }
     

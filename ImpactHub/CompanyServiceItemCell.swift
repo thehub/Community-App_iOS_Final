@@ -19,8 +19,8 @@ class CompanyServiceItemCell: UICollectionViewCell {
     }
     
     func setUp(vm: CompanyServiceItemViewModel) {
-        titleLabel.text = "Title" // TODO
-        descriptionLabel.text = "Lorem ipusm dolores set etium non consig detum do et set etium non consig detum do et."
+        titleLabel.text = vm.service.name
+        descriptionLabel.text = vm.service.description
     }
 
 }

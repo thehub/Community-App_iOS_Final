@@ -60,7 +60,7 @@ class APIClient {
     }
 
     
-    func getCompanies() -> Promise<String> {
+    func getCompanies() -> Promise<[Company]> {
         return Promise { fullfill, reject in
             
             SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT id, name, Number_of_Employees__c, Impact_Hub_Cities__c, Sector_Industry__c, Logo_Image_Url__c, Banner_Image_Url__c, Twitter__c, Instagram__c, Facebook__c, LinkedIn__c , Website, About_Us__c from account where id in (select accountid from contact where user__c != null)", fail: { (error) in
@@ -68,12 +68,10 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
-//                    let items = records.flatMap { Member(json: $0) }
-//                    print(items.count)
-//                    print(items)
-                    fullfill("ok")
+                    let items = records.flatMap { Company(json: $0) }
+                    fullfill(items)
                 }
                 else {
                     reject(MyError.JSONError)
@@ -82,20 +80,42 @@ class APIClient {
         }
     }
     
-    func getCompanyService(companyId: String) -> Promise<String> {
+    func getCompany(companyId:String) -> Promise<Company> {
         return Promise { fullfill, reject in
-            
-            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, Company__c, Company__r.id, Service_Description__c from Company_Service__c where Company__r.id ='\(companyId)'", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT id, name, Number_of_Employees__c, Impact_Hub_Cities__c, Sector_Industry__c, Logo_Image_Url__c, Banner_Image_Url__c, Twitter__c, Instagram__c, Facebook__c, LinkedIn__c , Website, About_Us__c from account where id = '\(companyId)'", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
                 debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
-                    //                    let items = records.flatMap { Member(json: $0) }
-                    //                    print(items.count)
-                    //                    print(items)
-                    fullfill("ok")
+                    let items = records.flatMap { Company(json: $0) }
+                    if let item = items.first {
+                        fullfill(item)
+                    }
+                    else {
+                        reject(MyError.JSONError)
+                    }
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
+    func getCompanyServices(companyId: String) -> Promise<[Company.Service]> {
+        return Promise { fullfill, reject in
+            
+            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, Service_Description__c from Company_Service__c where Company__r.id ='\(companyId)'", fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON(result!)
+                debugPrint(jsonResult)
+                if let records = jsonResult["records"].array {
+                    let items = records.flatMap { Company.Service(json: $0) }
+                    fullfill(items)
                 }
                 else {
                     reject(MyError.JSONError)
@@ -350,29 +370,7 @@ class APIClient {
         }
     }
     
-    func getCompany(companyId:String) -> Promise<Company> {
-        return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT id,Name, website FROM Account where id = '\(companyId)'", fail: { (error) in
-                print("error \(error?.localizedDescription as Any)")
-                reject(error ?? MyError.JSONError)
-            }) { (result) in
-                let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
-                if let records = jsonResult["records"].array {
-                    let items = records.flatMap { Company(json: $0) }
-                    if let item = items.first {
-                        fullfill(item)
-                    }
-                    else {
-                        reject(MyError.JSONError)
-                    }
-                }
-                else {
-                    reject(MyError.JSONError)
-                }
-            }
-        }
-    }
+
     
     
     

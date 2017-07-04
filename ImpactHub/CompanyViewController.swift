@@ -8,6 +8,8 @@
 
 import UIKit
 import PromiseKit
+import SafariServices
+
 
 class CompanyViewController: ListFullBleedViewController {
 
@@ -23,7 +25,7 @@ class CompanyViewController: ListFullBleedViewController {
         super.viewDidLoad()
         
         if self.company != nil {
-            build()
+            getCompanyServices()
         }
         else if let companyId = self.compnayId {
             // Load in compnay
@@ -32,18 +34,36 @@ class CompanyViewController: ListFullBleedViewController {
                 APIClient.shared.getCompany(companyId: companyId)
                 }.then { item -> Void in
                     self.company = item
-                    self.build()
+                    self.getCompanyServices()
                 }.always {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }.catch { error in
                     debugPrint(error.localizedDescription)
             }
-            
         }
         else {
             debugPrint("No Company or companyId")
         }
         
+    }
+    
+    func getCompanyServices() {
+        guard let company = self.company else {
+            print("ERROR: no compnay set")
+            return
+        }
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        firstly {
+            APIClient.shared.getCompanyServices(companyId: company.id)
+            }.then { services -> Void in
+                self.company!.services = services
+                self.build()
+            }.always {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }.catch { error in
+                debugPrint(error.localizedDescription)
+                self.build()
+        }
     }
     
     func build() {
@@ -74,15 +94,10 @@ class CompanyViewController: ListFullBleedViewController {
         aboutData.append(CompanyDetailTopViewModel(company: company, cellSize: .zero)) // this will pick the full height instead
         aboutData.append(TitleViewModel(title: "ABOUT", cellSize: CGSize(width: view.frame.width, height: 60)))
         aboutData.append(CompanyAboutViewModel(company: company, cellSize: CGSize(width: view.frame.width, height: 0)))
-        aboutData.append(CompanyServiceItemViewModel(company: company, cellSize: CGSize(width: view.frame.width, height: 0)))
-        aboutData.append(CompanyServiceItemViewModel(company: company, cellSize: CGSize(width: view.frame.width, height: 0)))
-        aboutData.append(CompanyServiceItemViewModel(company: company, cellSize: CGSize(width: view.frame.width, height: 0)))
-        aboutData.append(CompanyServiceItemViewModel(company: company, cellSize: CGSize(width: view.frame.width, height: 0)))
-        aboutData.append(CompanyServiceItemViewModel(company: company, cellSize: CGSize(width: view.frame.width, height: 0)))
-        aboutData.append(CompanyServiceItemViewModel(company: company, cellSize: CGSize(width: view.frame.width, height: 0)))
-        aboutData.append(CompanyServiceItemViewModel(company: company, cellSize: CGSize(width: view.frame.width, height: 0)))
         
-        
+        company.services.forEach { (service) in
+            aboutData.append(CompanyServiceItemViewModel(service: service, cellSize: CGSize(width: view.frame.width, height: 0)))
+        }
         self.data = aboutData
         
         // Projects
@@ -138,6 +153,7 @@ class CompanyViewController: ListFullBleedViewController {
         membersData.append(viewModel3)
         membersData.append(viewModel4)
 
+        self.collectionView.reloadData()
     }
 
     
@@ -183,7 +199,7 @@ class CompanyViewController: ListFullBleedViewController {
         if let vm = data[indexPath.item] as? CompanyServiceItemViewModel {
             let cellWidth: CGFloat = self.collectionView.frame.width
             // TODO: Get the height here form the rpoper service item text, that is not yet added in the model...
-            let height = vm.company.blurb.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 50 // add extra height for the standard elements, titles, lines, sapcing etc.
+            let height = vm.service.description.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 50 // add extra height for the standard elements, titles, lines, sapcing etc.
             return CGSize(width: view.frame.width, height: height)
         }
         
@@ -234,13 +250,10 @@ class CompanyViewController: ListFullBleedViewController {
     @IBAction func connectTap(_ sender: Any) {
         guard let website = company?.website else { return }
         
-        let url = URL(string: website)!
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        } else {
-            UIApplication.shared.openURL(url)
+        if let url = URL(string: website) {
+            let svc = SFSafariViewController(url: url)
+            self.present(svc, animated: true, completion: nil)
         }
-
     }
     
 }

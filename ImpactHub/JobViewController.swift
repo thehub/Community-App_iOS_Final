@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class JobViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UIViewControllerPreviewingDelegate {
 
@@ -54,9 +55,9 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
 
         self.title = job.name
         
-        self.companyPhotoImageView.image = UIImage(named: job.company.photo)
-        
-        
+        if let photoUrl = job.company.photoUrl {
+            self.companyPhotoImageView.kf.setImage(with: photoUrl)
+        }
         
         collectionView.register(UINib.init(nibName: TitleViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: TitleViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: JobDetailViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: JobDetailViewModel.cellIdentifier)

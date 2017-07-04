@@ -19,15 +19,6 @@ class CompanyDetailTopViewModel: CellRepresentable {
         self.cellSize = cellSize
     }
     
-    var jobDescriptionLong: String {
-        return "\(company.type)"
-    }
-    
-    var locationNameLong: String {
-        return "\(company.locationName)"
-    }
-    
-    
     func cellInstance(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CompanyDetailTopViewModel.cellIdentifier, for: indexPath) as! CompanyDetailTopCell
         cell.setup(vm: self)

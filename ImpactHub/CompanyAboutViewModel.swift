@@ -20,7 +20,7 @@ class CompanyAboutViewModel: CellRepresentable {
     }
     
     var jobDescriptionLong: String {
-        return "\(company.type)"
+        return "\(company.sector)"
     }
     
     var locationNameLong: String {

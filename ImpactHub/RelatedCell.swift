@@ -30,7 +30,11 @@ class RelatedCell: UICollectionViewCell {
         if let job = vm.job {
             nameLabel.text = job.name
             companyLabel.text = job.company.name
-            profileImageView.image = UIImage(named: job.company.logo)
+            
+            if let logoUrl = job.company.logoUrl {
+                profileImageView.kf.setImage(with: logoUrl)
+            }
+
             viewButton.setTitle("View Job", for: .normal)
             viewButton.setTitle("View Job", for: .highlighted)
         }

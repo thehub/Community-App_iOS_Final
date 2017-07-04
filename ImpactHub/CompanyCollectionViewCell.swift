@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CompanyCollectionViewCell: UICollectionViewCell {
 
@@ -27,14 +28,18 @@ class CompanyCollectionViewCell: UICollectionViewCell {
     }
     
     func setUp(vm: CompanyViewModel) {
-        bigImageView.image = UIImage(named: "projectImage")
+        if let photoUrl = vm.company.photoUrl {
+            bigImageView.kf.setImage(with: photoUrl)
+        }
+
+        if let logoUrl = vm.company.logoUrl {
+            logoImageView.kf.setImage(with: logoUrl)
+        }
         
-        logoImageView.image = UIImage(named: "companyLogo")
-        
-        nameLabel.text = "Zero to one: new startups and Innovative Ideas"
-        companyNameLabel.text = "Equinox Consulting"
-        locationNameLabel.text = "London, UK"
-        memberCountLabel.text = "10 - 50"
+        nameLabel.text = vm.company.blurb
+        companyNameLabel.text = vm.company.name
+        locationNameLabel.text = vm.company.locationName ?? ""
+        memberCountLabel.text = vm.company.size ?? ""
     }
     
     

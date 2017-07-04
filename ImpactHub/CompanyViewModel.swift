@@ -10,15 +10,12 @@ import UIKit
 
 class CompanyViewModel: CellRepresentable {
     
-    
-
     var company: Company
     
     init(company: Company, cellSize: CGSize) {
         self.company = company
         self.cellSize = cellSize
     }
-    
     
     func cellInstance(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CompanyCell", for: indexPath) as! CompanyCollectionViewCell

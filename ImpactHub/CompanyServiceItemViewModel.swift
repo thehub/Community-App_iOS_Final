@@ -12,10 +12,10 @@ class CompanyServiceItemViewModel: CellRepresentable {
     
     static var cellIdentifier = "CompanyServiceItemCell"
     
-    var company: Company
+    var service: Company.Service
     
-    init(company: Company, cellSize: CGSize) {
-        self.company = company
+    init(service: Company.Service, cellSize: CGSize) {
+        self.service = service
         self.cellSize = cellSize
     }
     
