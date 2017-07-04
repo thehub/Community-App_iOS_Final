@@ -12,7 +12,7 @@ class MemberFeedItemViewModel: CellRepresentable {
     
     static var cellIdentifier = "MemberFeedItemCell"
 
-    var member: Member
+    var member: Member // TODO: Remove this it's for mocking only...
     var post: Post
     var comment: Comment?
     var delegate: MemberFeedItemDelegate?

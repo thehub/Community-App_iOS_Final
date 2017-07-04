@@ -123,6 +123,7 @@ extension CommentsViewController: CreatePostViewControllerDelegate {
         if let post = self.post {
             self.data.insert(MemberFeedItemViewModel(post: post, member: self.member, comment: comment, delegate: self, cellSize: CGSize(width: self.view.frame.width, height: 150)), at: 0)
             self.collectionView.insertItems(at: [IndexPath.init(row: 0, section: 0)])
+            self.collectionView.scrollToItem(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
         }
         else {
             print("Error did not have a post on CommentsViewController")

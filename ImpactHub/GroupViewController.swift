@@ -112,6 +112,7 @@ extension GroupViewController: CreatePostViewControllerDelegate {
     func didCreatePost(post: Post) {
         self.data.insert(MemberFeedItemViewModel(post: post, member: self.member, comment: nil, delegate: self, cellSize: CGSize(width: self.view.frame.width, height: 150)), at: self.indexPathToInsertNewPostsAt.item)
         self.collectionView.insertItems(at: [self.indexPathToInsertNewPostsAt])
+        self.collectionView.scrollToItem(at: self.indexPathToInsertNewPostsAt, at: .top, animated: true)
     }
     
     func didCreateComment(comment: Comment) {

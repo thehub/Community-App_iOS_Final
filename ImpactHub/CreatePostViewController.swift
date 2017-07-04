@@ -18,9 +18,30 @@ protocol CreatePostViewControllerDelegate: class {
 class CreatePostViewController: UIViewController, UITextViewDelegate {
 
     weak var delegate: CreatePostViewControllerDelegate?
+
+    enum CreateType {
+        case post(chatterGroupId: String)
+        case comment(postIdToCommentOn: String)
+        case unkown
+    }
     
-    var chatterGroupId: String?
-    var postIdToCommentOn: String?
+    var createType: CreateType = .unkown
+    
+    var chatterGroupId: String? {
+        didSet {
+            if let chatterGroupId = self.chatterGroupId {
+                createType = .post(chatterGroupId: chatterGroupId)
+            }
+        }
+    }
+    var postIdToCommentOn: String? {
+        didSet {
+            if let postIdToCommentOn = self.postIdToCommentOn {
+                createType = .comment(postIdToCommentOn: postIdToCommentOn)
+            }
+        }
+    }
+    
     var inTransit = false
     var mentionCompletions = [MentionCompletion]()
     let segmentBuilder = ChatterSegmentBuilder()
@@ -34,11 +55,19 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if self.postIdToCommentOn != nil {
-            self.title = "Add Comment"
-        }
-        else {
+
+
+        
+        switch createType {
+        case .post:
             self.title = "Create Post"
+            break
+        case .comment(postIdToCommentOn: _):
+            self.title = "Add Comment"
+            break
+        case .unkown:
+            print("Error createType not set")
+            break
         }
         
         //        if let parentId = groupId {
@@ -125,7 +154,8 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
                 let segments = self.segmentBuilder.buildSegmentsFrom(text: text, mentionCompletions: self.mentionCompletions)
 
                 // Create Comment
-                if let postIdToCommentOn = self.postIdToCommentOn {
+                switch createType {
+                case .comment(let postIdToCommentOn):
                     firstly {
                         APIClient.shared.postComment(newsID: postIdToCommentOn, message: text)
                         }.then { comment -> Void in
@@ -140,9 +170,8 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
                             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                             self.present(alert, animated: true, completion: nil)
                     }
-                }
-                // Create Post
-                else if let chatterGroupId = self.chatterGroupId {
+                    break
+                case .post(let chatterGroupId):
                     firstly {
                         APIClient.shared.postToGroup(groupID: chatterGroupId, messageSegments: segments, fileId: nil)
                         }.then { post -> Void in
@@ -157,7 +186,13 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
                             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                             self.present(alert, animated: true, completion: nil)
                     }
+                    break
+                case .unkown:
+                    print("Error createType not set")
+                    break
                 }
+                
+
             }
         }
     
