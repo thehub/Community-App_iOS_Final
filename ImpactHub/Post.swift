@@ -19,6 +19,7 @@ struct Post {
     var id: String?
     var likes: Int = 0
     var isLikedByCurrentUser = false
+    var myLikeId: String?
     var comments = [Comment]()
     var commentsCount: Int = 0
     var commentsNextPageUrl: String?
@@ -88,6 +89,10 @@ extension Post {
         
         self.likes = json["capabilities"]["chatterLikes"]["page"]["total"].int ?? 0
         self.isLikedByCurrentUser = json["capabilities"]["chatterLikes"]["isLikedByCurrentUser"].bool ?? false
+        
+        // myLike
+        self.myLikeId = json["capabilities"]["chatterLikes"]["myLike"]["id"].string
+        
         
         if let fileJson = json["capabilities"]["files"]["items"].array?.first?.dictionaryObject {
             if let file = File(json: fileJson) {

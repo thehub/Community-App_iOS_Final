@@ -498,7 +498,52 @@ class APIClient {
         }
     }
     
+    func likePost(post: Post) -> Promise<String> {
+        return Promise { fullfill, reject in
 
+            let request = SFRestRequest(method: .POST, path: "/services/data/v40.0/connect/communities/\(Constants.communityId)/chatter/feed-elements/\(post.id!)/capabilities/chatter-likes/items", queryParams: nil)
+            SFRestAPI.sharedInstance().send(request, fail: { (error) in
+                print(error?.localizedDescription as Any)
+                reject(MyError.JSONError)
+            }) { (result) in
+                debugPrint(result)
+                if let result = result {
+                    // Return myLikeId
+                    if let myLikeId = JSON(result)["id"].string {
+                        fullfill(myLikeId)
+                    }
+                    else {
+                        reject(MyError.JSONError)
+                    }
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+                
+            }
+        }
+    }
+    
+    func unlikePost(post: Post) -> Promise<String> {
+        return Promise { fullfill, reject in
+            
+            if let myLikeId = post.myLikeId {
+                let request = SFRestRequest(method: .DELETE, path: "/services/data/v40.0/connect/communities/\(Constants.communityId)/chatter/likes/\(myLikeId)", queryParams: nil)
+                SFRestAPI.sharedInstance().send(request, fail: { (error) in
+                    print(error?.localizedDescription as Any)
+                    reject(MyError.JSONError)
+                }) { (result) in
+                    debugPrint(result)
+                    fullfill("ok")
+                }
+            }
+            else {
+                print("ERROR: No myLikeId")
+                reject(MyError.Error("No myLikeId"))
+            }
+
+        }
+    }
     
     
     
