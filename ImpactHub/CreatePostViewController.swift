@@ -9,8 +9,16 @@
 import UIKit
 import PromiseKit
 
+
+protocol CreatePostViewControllerDelegate: class {
+    func didCreatePost(post: Post)
+    func didCreateComment(comment: Comment)
+}
+
 class CreatePostViewController: UIViewController, UITextViewDelegate {
 
+    weak var delegate: CreatePostViewControllerDelegate?
+    
     var chatterGroupId: String?
     var postIdToCommentOn: String?
     var inTransit = false
@@ -120,7 +128,8 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
                 if let postIdToCommentOn = self.postIdToCommentOn {
                     firstly {
                         APIClient.shared.postComment(newsID: postIdToCommentOn, message: text)
-                        }.then { post -> Void in
+                        }.then { comment -> Void in
+                            self.delegate?.didCreateComment(comment: comment)
                             self.onClose(self)
                         }.always {
                             self.inTransit = false
@@ -137,6 +146,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
                     firstly {
                         APIClient.shared.postToGroup(groupID: chatterGroupId, messageSegments: segments, fileId: nil)
                         }.then { post -> Void in
+                            self.delegate?.didCreatePost(post: post)
                             self.onClose(self)
                         }.always {
                             self.inTransit = false

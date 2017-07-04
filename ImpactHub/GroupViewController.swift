@@ -13,6 +13,8 @@ class GroupViewController: ListFullBleedViewController {
 
     var group: Group!
     
+    var indexPathToInsertNewPostsAt = IndexPath(item: 2, section: 0)
+    
     var member = Member(id: "sdfds", userId: "sdfsdf", firstName: "Niklas", lastName: "Test", job: "Test", photo: "photo", blurb: "Lorem ipusm", aboutMe: "Lorem ipsum", locationName: "London, UK")
 
     override func viewDidLoad() {
@@ -30,8 +32,7 @@ class GroupViewController: ListFullBleedViewController {
         data.append(GroupDetailTopViewModel(group: group, cellSize: .zero)) // this will pick the full height instead
         data.append(TitleViewModel(title: "DISCUSSION", cellSize: CGSize(width: view.frame.width, height: 70)))
         self.collectionView?.reloadData()
-
-        
+        // Posts starts from this postion, so when adding new they are inserted here in delegate indexPathToInsertNewPostsAt
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
             APIClient.shared.getGroupPosts(groupID: group.chatterId)
@@ -74,6 +75,7 @@ class GroupViewController: ListFullBleedViewController {
         if segue.identifier == "ShowCreatePost" {
             if let navVC = segue.destination as? UINavigationController {
                 if let vc = navVC.viewControllers.first as? CreatePostViewController {
+                    vc.delegate = self
                     vc.chatterGroupId = self.group.chatterId
                 }
             }
@@ -104,6 +106,16 @@ class GroupViewController: ListFullBleedViewController {
         // Dispose of any resources that can be recreated.
     }
     
+}
+
+extension GroupViewController: CreatePostViewControllerDelegate {
+    func didCreatePost(post: Post) {
+        self.data.insert(MemberFeedItemViewModel(post: post, member: self.member, comment: nil, delegate: self, cellSize: CGSize(width: self.view.frame.width, height: 150)), at: self.indexPathToInsertNewPostsAt.item)
+        self.collectionView.insertItems(at: [self.indexPathToInsertNewPostsAt])
+    }
+    
+    func didCreateComment(comment: Comment) {
+    }
 }
 
 extension GroupViewController: MemberFeedItemDelegate {

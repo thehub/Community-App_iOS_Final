@@ -106,7 +106,7 @@ extension Post {
         
         self.commentsNextPageUrl = json["capabilities"]["comments"]["page"]["nextPageUrl"].string ?? nil
         if let comments = json["capabilities"]["comments"]["page"]["items"].array {
-            self.comments = comments.flatMap { Comment(json: $0) }
+            self.comments = comments.reversed().flatMap { Comment(json: $0) }
         }
     }
     
