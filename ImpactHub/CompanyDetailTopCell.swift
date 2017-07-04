@@ -8,6 +8,8 @@
 
 import UIKit
 import Kingfisher
+import SafariServices
+
 
 class CompanyDetailTopCell: UICollectionViewCell {
 
@@ -16,12 +18,14 @@ class CompanyDetailTopCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var subNameLabel: UILabel!
     @IBOutlet weak var locationNameLabel: UILabel!
-    @IBOutlet weak var facebookImageView: UIImageView!
-    @IBOutlet weak var twitterImageView: UIImageView!
     @IBOutlet weak var fadeView: UIView!
     @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var linkedinImageView: UIImageView!
-    @IBOutlet weak var instagramImageView: UIImageView!
+
+    
+    @IBOutlet weak var facebookButton: Button!
+    @IBOutlet weak var twitterButton: Button!
+    @IBOutlet weak var linkedinButton: Button!
+    @IBOutlet weak var instagramButton: Button!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,6 +45,34 @@ class CompanyDetailTopCell: UICollectionViewCell {
             logoImageView.kf.setImage(with: logoUrl)
         }
         
+        if vm.company.social?.facebook != nil {
+            facebookButton.isHidden = false
+        }
+        else {
+            facebookButton.isHidden = true
+        }
+        
+        if vm.company.social?.twitter != nil {
+            twitterButton.isHidden = false
+        }
+        else {
+            twitterButton.isHidden = true
+        }
+
+        if vm.company.social?.linkedIn != nil {
+            linkedinButton.isHidden = false
+        }
+        else {
+            linkedinButton.isHidden = true
+        }
+
+        if vm.company.social?.instagram != nil {
+            instagramButton.isHidden = false
+        }
+        else {
+            instagramButton.isHidden = true
+        }
+
     }
     
     let gradientLayer: CAGradientLayer = CAGradientLayer()
@@ -55,6 +87,34 @@ class CompanyDetailTopCell: UICollectionViewCell {
         gradientLayer.colors = [startingColorOfGradient , endingColorOFGradient]
         fadeView.layer.insertSublayer(gradientLayer, at: 0)
     }
+    
+    @IBAction func onInstagram(_ sender: Any) {
+        if let url = vm.company.social?.instagram {
+            let svc = SFSafariViewController(url: url)
+            UIApplication.shared.keyWindow?.rootViewController?.present(svc, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func onLinkedin(_ sender: Any) {
+        if let url = vm.company.social?.linkedIn {
+            let svc = SFSafariViewController(url: url)
+            UIApplication.shared.keyWindow?.rootViewController?.present(svc, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func onTwitter(_ sender: Any) {
+        if let twitter = vm.company.social?.twitter, let url = URL(string: "https://twitter.com/\(twitter)") {
+            let svc = SFSafariViewController(url: url)
+            UIApplication.shared.keyWindow?.rootViewController?.present(svc, animated: true, completion: nil)
+        }
+    }
 
+    @IBAction func onFacebook(_ sender: Any) {
+        if let url = vm.company.social?.facebook {
+            let svc = SFSafariViewController(url: url)
+            UIApplication.shared.keyWindow?.rootViewController?.present(svc, animated: true, completion: nil)
+        }
+    }
+    
     
 }

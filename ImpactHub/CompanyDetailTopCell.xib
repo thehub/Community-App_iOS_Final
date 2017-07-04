@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -47,7 +47,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wWp-gi-IeX">
-                                <rect key="frame" x="125.5" y="224" width="50" height="18"/>
+                                <rect key="frame" x="125" y="224" width="50" height="18"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locationPin" translatesAutoresizingMaskIntoConstraints="NO" id="b6v-0m-84r">
                                         <rect key="frame" x="0.0" y="0.0" width="12" height="18"/>
@@ -67,36 +67,36 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mkK-iw-tM8">
-                                <rect key="frame" x="52" y="262" width="196" height="43"/>
+                                <rect key="frame" x="54" y="262" width="192" height="43"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Facebook" translatesAutoresizingMaskIntoConstraints="NO" id="nM6-hp-BW6">
-                                        <rect key="frame" x="0.0" y="0.0" width="43" height="43"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="43" id="apL-Iz-lt6"/>
-                                            <constraint firstAttribute="width" constant="43" id="hJz-gh-Mhq"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter" translatesAutoresizingMaskIntoConstraints="NO" id="mPI-gQ-0kO">
-                                        <rect key="frame" x="51" y="0.0" width="43" height="43"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="43" id="Efb-Dq-V6k"/>
-                                            <constraint firstAttribute="width" constant="43" id="nTp-Um-ZWW"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linkedin" translatesAutoresizingMaskIntoConstraints="NO" id="xOf-WT-rY1">
-                                        <rect key="frame" x="102" y="0.0" width="43" height="43"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="43" id="7uP-f1-zxo"/>
-                                            <constraint firstAttribute="width" constant="43" id="VMf-BQ-KNH"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instagram" translatesAutoresizingMaskIntoConstraints="NO" id="adW-W0-HFC">
-                                        <rect key="frame" x="153" y="0.0" width="43" height="43"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="43" id="ar3-kC-Tvj"/>
-                                            <constraint firstAttribute="height" constant="43" id="i1b-44-c8R"/>
-                                        </constraints>
-                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T7d-JH-XkM" customClass="Button" customModule="ImpactHub" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.5" width="42" height="42"/>
+                                        <state key="normal" image="Facebook"/>
+                                        <connections>
+                                            <action selector="onFacebook:" destination="gTV-IL-0wX" eventType="touchUpInside" id="lL9-MC-Dmc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mt8-2x-TmW" customClass="Button" customModule="ImpactHub" customModuleProvider="target">
+                                        <rect key="frame" x="50" y="0.5" width="42" height="42"/>
+                                        <state key="normal" image="Twitter"/>
+                                        <connections>
+                                            <action selector="onTwitter:" destination="gTV-IL-0wX" eventType="touchUpInside" id="DGg-vr-zv9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BeL-M7-goM" customClass="Button" customModule="ImpactHub" customModuleProvider="target">
+                                        <rect key="frame" x="100" y="0.5" width="42" height="42"/>
+                                        <state key="normal" image="linkedin"/>
+                                        <connections>
+                                            <action selector="onLinkedin:" destination="gTV-IL-0wX" eventType="touchUpInside" id="nZi-ds-5jx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3F-QL-7O9" customClass="Button" customModule="ImpactHub" customModuleProvider="target">
+                                        <rect key="frame" x="150" y="0.5" width="42" height="42"/>
+                                        <state key="normal" image="instagram"/>
+                                        <connections>
+                                            <action selector="onInstagram:" destination="gTV-IL-0wX" eventType="touchUpInside" id="arS-Hr-VXx"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="Ejt-d7-buS"/>
@@ -151,16 +151,16 @@
             </constraints>
             <connections>
                 <outlet property="containerView" destination="lH2-y5-Nlr" id="5OI-TF-fuX"/>
-                <outlet property="facebookImageView" destination="nM6-hp-BW6" id="ArL-SM-tOx"/>
+                <outlet property="facebookButton" destination="T7d-JH-XkM" id="mDn-FH-eI1"/>
                 <outlet property="fadeView" destination="eQT-Wa-q2H" id="cnv-ga-MW0"/>
-                <outlet property="instagramImageView" destination="adW-W0-HFC" id="hCL-ch-R1X"/>
-                <outlet property="linkedinImageView" destination="xOf-WT-rY1" id="uuZ-dA-4QK"/>
+                <outlet property="instagramButton" destination="m3F-QL-7O9" id="vEd-z2-3Do"/>
+                <outlet property="linkedinButton" destination="BeL-M7-goM" id="ZOV-A7-YQI"/>
                 <outlet property="locationNameLabel" destination="Urb-ZX-NKY" id="JpE-yG-QO8"/>
                 <outlet property="logoImageView" destination="aku-MA-sbw" id="R4d-Ol-DMT"/>
                 <outlet property="nameLabel" destination="pzG-7F-c8e" id="0ej-Fr-sDK"/>
                 <outlet property="profileImageView" destination="s40-UQ-UEf" id="fXa-ti-Q6e"/>
                 <outlet property="subNameLabel" destination="XXE-ip-ZY6" id="yh5-7a-XvT"/>
-                <outlet property="twitterImageView" destination="mPI-gQ-0kO" id="tbE-2H-dzb"/>
+                <outlet property="twitterButton" destination="mt8-2x-TmW" id="531-kk-PGn"/>
             </connections>
         </collectionViewCell>
     </objects>
