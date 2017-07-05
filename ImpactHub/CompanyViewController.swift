@@ -16,6 +16,7 @@ class CompanyViewController: ListFullBleedViewController {
     var company: Company?
     var compnayId: String?
     
+    var projects = [Project]()
 
     var aboutData = [CellRepresentable]()
     var projectsData = [CellRepresentable]()
@@ -25,7 +26,7 @@ class CompanyViewController: ListFullBleedViewController {
         super.viewDidLoad()
         
         if self.company != nil {
-            getCompanyServices()
+            getCompanyExtras()
         }
         else if let companyId = self.compnayId {
             // Load in compnay
@@ -34,8 +35,9 @@ class CompanyViewController: ListFullBleedViewController {
                 APIClient.shared.getCompany(companyId: companyId)
                 }.then { item -> Void in
                     self.company = item
-                    self.getCompanyServices()
-                }.always {
+                    self.getCompanyExtras()
+                }
+                .always {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }.catch { error in
                     debugPrint(error.localizedDescription)
@@ -47,7 +49,7 @@ class CompanyViewController: ListFullBleedViewController {
         
     }
     
-    func getCompanyServices() {
+    func getCompanyExtras() {
         guard let company = self.company else {
             print("ERROR: no compnay set")
             return
@@ -57,12 +59,16 @@ class CompanyViewController: ListFullBleedViewController {
             APIClient.shared.getCompanyServices(companyId: company.id)
             }.then { services -> Void in
                 self.company!.services = services
-                self.build()
+            }.then {
+                APIClient.shared.getProjects(companyId: company.id)
+            }.then { projects -> Void in
+                print(projects)
+                self.projects = projects
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.build()
             }.catch { error in
                 debugPrint(error.localizedDescription)
-                self.build()
         }
     }
     
@@ -102,28 +108,9 @@ class CompanyViewController: ListFullBleedViewController {
         
         // Projects
         projectsData.append(CompanyDetailTopViewModel(company: company, cellSize: .zero)) // this will pick the full height instead
-        
-        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
-        
-        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
-        
-        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
-        
-        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
-        
-        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
-        
-        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
-        
-        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
-        
-        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
-        
-        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
-        
-        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
-        
-        projectsData.append(ProjectViewModel(project: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage"), cellSize: CGSize(width: view.frame.width, height: 370)))
+        projects.forEach { (project) in
+            projectsData.append(ProjectViewModel(project: project, cellSize: CGSize(width: view.frame.width, height: 370)))
+        }
         
         
         

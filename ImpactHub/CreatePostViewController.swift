@@ -70,14 +70,39 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
             break
         }
         
-        //        if let parentId = groupId {
-        //
-        //            APIClient.shared.getValidMentionCompletions(parentId: parentId).then { result in
-        //                self.mentionCompletions = result
-        //                }.catch { error in
-        //                    debugPrint(error.localizedDescription)
-        //            }
-        //        }
+        if let parentId = chatterGroupId {
+            
+            
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            firstly {
+                APIClient.shared.getMentionCompletions()
+                }.then { items in
+                    APIClient.shared.getMentionValidations(parentId: parentId, mentionCompletions: items)
+                }.then { validItems -> Void in
+                    print(validItems)
+                    self.mentionCompletions = validItems
+                }.always {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }.catch { error in
+                    debugPrint(error.localizedDescription)
+            }
+            
+            
+            
+            
+            
+            
+
+
+            
+            
+
+//            APIClient.shared.getValidMentionCompletions(parentId: parentId).then { result in
+//                self.mentionCompletions = result
+//                }.catch { error in
+//                    debugPrint(error.localizedDescription)
+//            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

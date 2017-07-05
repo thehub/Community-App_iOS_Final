@@ -16,10 +16,8 @@ import SwiftyJSON
 class APIClient {
 
     
-    func getProjects() -> Promise<String> {
+    func getProjects() -> Promise<[Project]> {
         return Promise { fullfill, reject in
-            
-            //            let userId = SFUserAccountManager.sharedInstance().currentUser!.accountIdentity.userId
             SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, Group_Desc__c, ImageURL__c, Directory_Style__c, Organisation__r.id, Organisation__r.Number_of_Employees__c, Organisation__r.Impact_Hub_Cities__c, Organisation__r.name from Directory__c where Directory_Style__c = 'Project'", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
@@ -27,10 +25,8 @@ class APIClient {
                 let jsonResult = JSON(result!)
                 debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
-                    //                    let items = records.flatMap { Member(json: $0) }
-                    //                    print(items.count)
-                    //                    print(items)
-                    fullfill("ok")
+                    let items = records.flatMap { Project(json: $0) }
+                    fullfill(items)
                 }
                 else {
                     reject(MyError.JSONError)
@@ -146,6 +142,25 @@ class APIClient {
     func getProjects(contactId: String) -> Promise<[Project]> {
         return Promise { fullfill, reject in
             SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, CountOfMembers__c, ImageURL__c, Group_Desc__c, Organisation__r.Name, Organisation__c, Impact_Hub_Cities__c from Directory__c where Directory_Style__c ='Project' and id in (select DirectoryID__c from Directory_Member__c where ContactID__c ='\(contactId)')", fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON(result!)
+                debugPrint(jsonResult)
+                if let records = jsonResult["records"].array {
+                    let items = records.flatMap { Project(json: $0) }
+                    fullfill(items)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
+    func getProjects(companyId: String) -> Promise<[Project]> {
+        return Promise { fullfill, reject in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, CountOfMembers__c, ImageURL__c, Group_Desc__c, Organisation__r.Name, Organisation__c, Impact_Hub_Cities__c from Directory__c where Directory_Style__c ='Project' and Organisation__c ='\(companyId)')", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -544,7 +559,72 @@ class APIClient {
     
     
     
+    // Mentions
+//    func getValidMentionCompletions(parentId: String) -> Promise<[MentionCompletion]> {
+//        return Promise { fullfill, reject in
+//            firstly {
+//                self.getMentionCompletions()
+//                }.then { items -> Void in
+//                    self.getMentionValidations(parentId: parentId, mentionCompletions: items)
+//                }.then { validItems -> Void in
+//                    fullfill(validItems)
+//                }.catch { error in
+//                    debugPrint(error.localizedDescription)
+//                    reject(MyError.Error("Could not get mention completions"))
+//            }
+//        }
+//    }
     
+    func getMentionCompletions() -> Promise<[MentionCompletion]> {
+        return Promise { fullfill, reject in
+            let query: [String: String] = ["filterGroup" : "Small"]
+            
+            let request = SFRestRequest(method: .GET, path: "/services/data/v39.0/connect/communities/\(Constants.communityId)/chatter/mentions/completions", queryParams: query)
+            
+            SFRestAPI.sharedInstance().send(request, fail: { (error) in
+                print(error?.localizedDescription as Any)
+                reject(MyError.JSONError)
+            }) { (result) in
+                debugPrint(result)
+                if let tmp = (result as AnyObject)["mentionCompletions"], let json = tmp as? [[String: Any]] {
+                    let mentionCompletions = json.flatMap { MentionCompletion(json: $0) }
+                    fullfill(mentionCompletions)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
+    func getMentionValidations(parentId: String, mentionCompletions:[MentionCompletion], visibility: String = "AllUsers") -> Promise<[MentionCompletion]> {
+        return Promise { fullfill, reject in
+            var query: [String: String] = ["filterGroup" : "Small"]
+            
+            let first25 = mentionCompletions.prefix(25)
+            let recordIds = first25.flatMap({$0.recordId}).joined(separator: ",")
+            query = ["recordIds": recordIds, "visibility" : visibility, "parentId" : parentId]
+            let request = SFRestRequest(method: .GET, path: "/services/data/v39.0/connect/communities/\(Constants.communityId)/chatter/mentions/validations", queryParams: query)
+            
+            SFRestAPI.sharedInstance().send(request, fail: { (error) in
+                print(error?.localizedDescription as Any)
+                reject(MyError.JSONError)
+            }) { (result) in
+                if let tmp = (result as AnyObject)["mentionValidations"], let json = tmp as? [[String: Any]] {
+                    let validMentionCompletions = mentionCompletions.filter { mentionCompletion in
+                        return json.contains { mentionValidation in
+                            (mentionValidation as [String: Any])["validationStatus"] as! String == "Ok" && (mentionValidation as [String: Any])["recordId"] as! String == mentionCompletion.recordId
+                        }
+                    }
+                    fullfill(validMentionCompletions)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+            
+        }
+    }
     
     
     

@@ -27,58 +27,39 @@ class ProjectsViewController: ListWithSearchViewController {
 
         collectionView.register(UINib.init(nibName: ProjectViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectViewModel.cellIdentifier)
         
-        let item1 = Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage")
-        let item2 = Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage")
-        let item3 = Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage")
-        let item4 = Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage")
-        
-        
-        let cellWidth: CGFloat = self.view.frame.width
-        let viewModel1 = ProjectViewModel(project: item1, cellSize: CGSize(width: cellWidth, height: 370))
-        let viewModel2 = ProjectViewModel(project: item2, cellSize: CGSize(width: cellWidth, height: 370))
-        let viewModel3 = ProjectViewModel(project: item3, cellSize: CGSize(width: cellWidth, height: 370))
-        let viewModel4 = ProjectViewModel(project: item4, cellSize: CGSize(width: cellWidth, height: 370))
-        
-        self.allData.append(viewModel1)
-        self.allData.append(viewModel2)
-        self.allData.append(viewModel3)
-        self.allData.append(viewModel4)
-
-        self.allData.append(viewModel1)
-        self.allData.append(viewModel2)
-        self.allData.append(viewModel3)
-        self.allData.append(viewModel4)
-
-        self.allData.append(viewModel1)
-        self.allData.append(viewModel2)
-        self.allData.append(viewModel3)
-        self.allData.append(viewModel4)
-
-        self.data = allData
-        
-        // todo:
-        self.projectsYouManageData = Array(allData[0...4])
-        self.yourProjectsData = Array(allData[4...7])
-
-        
         topMenu?.setupWithItems(["ALL", "PROJECTS YOU MANAGE", "YOUR PROJECTS"])
 
-        // Do any additional setup after loading the view.
-        
-        
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        self.collectionView?.alpha = 0
         firstly {
             APIClient.shared.getProjects()
             }.then { items -> Void in
                 print(items)
-                //                self.dataSource = items
-                //                self.collectionView?.reloadData()
+                let cellWidth: CGFloat = self.view.frame.width
+                items.forEach({ (project) in
+                    let viewModel = ProjectViewModel(project: project, cellSize: CGSize(width: cellWidth, height: 370))
+                    self.allData.append(viewModel)
+                    self.data = self.allData
+                    // todo:
+                    self.projectsYouManageData = self.allData
+                    self.yourProjectsData = self.allData
+                })
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.collectionView?.alpha = 0
+                self.collectionView?.reloadData()
+                self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
+                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+                    self.collectionView?.alpha = 1
+                }, completion: { (_) in
+                    
+                })
+                
             }.catch { error in
                 debugPrint(error.localizedDescription)
         }
-    
+        
     }
     
 
