@@ -120,6 +120,12 @@ class TopMenu: UIView {
         scrollContentWidthConstraint.constant = lastButton!.frame.origin.x + lastButton!.frame.width + 10
     }
     
+    func selectButton(index: Int) {
+        if index > buttons.count - 1 {
+            return
+        }
+        buttonClicked(sender: buttons[index])
+    }
     
     func buttonClicked(sender: UIButton) {
         buttons.forEach { (button) in
