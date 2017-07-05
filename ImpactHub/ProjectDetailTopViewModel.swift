@@ -19,15 +19,6 @@ class ProjectDetailTopViewModel: CellRepresentable {
         self.cellSize = cellSize
     }
     
-//    var jobDescriptionLong: String {
-//        return "Consultant at \(member.job)"
-//    }
-//    
-//    var locationNameLong: String {
-//        return "Currently working in \(member.locationName)"
-//    }
-    
-    
     func cellInstance(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProjectDetailTopViewModel.cellIdentifier, for: indexPath) as! ProjectDetailTopCell
         cell.setup(vm: self)

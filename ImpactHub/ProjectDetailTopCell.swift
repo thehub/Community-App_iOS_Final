@@ -21,9 +21,8 @@ class ProjectDetailTopCell: UICollectionViewCell {
 
     func setup(vm: ProjectDetailTopViewModel) {
         nameLabel.text = vm.project.name
-        jobLabel.text = "by Equinox Consulting" // vm.jobDescriptionLong
-//        profileImageView.image = UIImage(named: vm.member.photo)
-        
+        jobLabel.text = "by \(vm.project.companyName ?? "")"
+        profileImageView.kf.setImage(with: vm.project.photoUrl)
     }
     
     

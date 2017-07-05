@@ -18,7 +18,7 @@ class APIClient {
     
     func getProjects() -> Promise<[Project]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, Group_Desc__c, ImageURL__c, Directory_Style__c, Organisation__r.id, Organisation__r.Number_of_Employees__c, Organisation__r.Impact_Hub_Cities__c, Organisation__r.name from Directory__c where Directory_Style__c = 'Project'", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name,Related_Impact_Goal__c,ChatterGroupId__c ,Group_Desc__c, ImageURL__c, Directory_Style__c, Organisation__r.id, Organisation__r.Number_of_Employees__c, Organisation__r.Impact_Hub_Cities__c, Organisation__r.name from Directory__c where Directory_Style__c = 'Project'", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -26,6 +26,83 @@ class APIClient {
                 debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Project(json: $0) }
+                    fullfill(items)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
+    func getObjectives(projectId: String) -> Promise<[Project.Objective]> {
+        return Promise { fullfill, reject in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT Directory__c,Goal_Summary__c,Goal__c,Id,Name FROM Directory_Goal__c where Directory__c='\(projectId)'", fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON(result!)
+                debugPrint(jsonResult)
+                if let records = jsonResult["records"].array {
+                    var items = records.flatMap { Project.Objective(json: $0) }
+                    if items.count > 0 {
+                        // Set ordering so they can be rendered correctly
+                        for index in 0..<items.count {
+                            items[index].setNumber(number: index + 1)
+                        }
+                        items[items.count - 1].setIsLast(isLast: true)
+                    }
+                    fullfill(items)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
+    func getMembers(projectId: String) -> Promise<[Member]> {
+        return Promise { fullfill, reject in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT id, firstname,lastname, ProfilePic__c, accountid,Profession__c, Impact_Hub_Cities__c, User__c, About_Me__c FROM Contact WHERE id in (SELECT contactID__c FROM Directory_Member__c where DirectoryID__c='\(projectId)')", fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON(result!)
+                debugPrint(jsonResult)
+                if let records = jsonResult["records"].array {
+                    let items = records.flatMap { Member(json: $0) }
+                    fullfill(items)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
+    
+//    SELECT Applications_Close_Date__c,Company__c,Contact__c,Description__c,Id,Job_Age_in_Days__c,Job_Type__c,Location__c,Project__c,Related_Impact_Goal__c,Salary__c,Sector__c FROM Job__c
+//    
+//    [1:14]
+//    Job_Type__c => Full Time/Part Time
+//    
+//    [1:15]
+//    Salary__c
+//    
+//    [1:15] 
+//    Description__c
+    
+
+    func getJobs(projectId: String) -> Promise<[Job]> {
+        return Promise { fullfill, reject in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, Description__c, Salary__c,Job_Type__c, Company__c, Company__r.name, Company__r.Logo_Image_Url__c,Sector__c,Contact__c, Location__c, Applications_Close_Date__c from Job__c where Project__r.id='\(projectId)'", fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON(result!)
+                debugPrint(jsonResult)
+                if let records = jsonResult["records"].array {
+                    let items = records.flatMap { Job(json: $0) }
                     fullfill(items)
                 }
                 else {
@@ -141,7 +218,7 @@ class APIClient {
     
     func getProjects(contactId: String) -> Promise<[Project]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, CountOfMembers__c, ImageURL__c, Group_Desc__c, Organisation__r.Name, Organisation__c, Impact_Hub_Cities__c from Directory__c where Directory_Style__c ='Project' and id in (select DirectoryID__c from Directory_Member__c where ContactID__c ='\(contactId)')", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("select id,ChatterGroupId__c, name, CountOfMembers__c, ImageURL__c, Group_Desc__c, Organisation__r.Name, Organisation__c, Impact_Hub_Cities__c from Directory__c where Directory_Style__c ='Project' and id in (select DirectoryID__c from Directory_Member__c where ContactID__c ='\(contactId)')", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -160,7 +237,7 @@ class APIClient {
     
     func getProjects(companyId: String) -> Promise<[Project]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, CountOfMembers__c, ImageURL__c, Group_Desc__c, Organisation__r.Name, Organisation__c, Impact_Hub_Cities__c from Directory__c where Directory_Style__c ='Project' and Organisation__c ='\(companyId)')", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("select id,ChatterGroupId__c, name, CountOfMembers__c, ImageURL__c, Group_Desc__c, Organisation__r.Name, Organisation__c, Impact_Hub_Cities__c from Directory__c where Directory_Style__c ='Project' and Organisation__c ='\(companyId)'", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in

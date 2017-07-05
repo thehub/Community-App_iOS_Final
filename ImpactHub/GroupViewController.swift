@@ -22,6 +22,8 @@ class GroupViewController: ListFullBleedViewController {
         
         self.title = group.name
         
+        super.chatterGroupId = group.chatterId
+        
         collectionView.register(UINib.init(nibName: GroupDetailTopViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: GroupDetailTopViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: MemberFeedItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberFeedItemViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: TitleViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: TitleViewModel.cellIdentifier)
@@ -70,22 +72,7 @@ class GroupViewController: ListFullBleedViewController {
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: self)
-        if segue.identifier == "ShowCreatePost" {
-            if let navVC = segue.destination as? UINavigationController {
-                if let vc = navVC.viewControllers.first as? CreatePostViewController {
-                    vc.delegate = self
-                    vc.chatterGroupId = self.group.chatterId
-                }
-            }
-        }
-        else if segue.identifier == "ShowComments" {
-            if let vc = segue.destination as? CommentsViewController, let post = self.postToShowCommentsFor {
-                vc.post = post
-            }
-        }
-    }
+
     
     var selectMember: Member?
     var selectJob: Job?
@@ -99,25 +86,24 @@ class GroupViewController: ListFullBleedViewController {
 
     
     
-    var postToShowCommentsFor: Post?
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-}
-
-extension GroupViewController: CreatePostViewControllerDelegate {
-    func didCreatePost(post: Post) {
+    
+    override func didCreatePost(post: Post) {
+        super.didCreatePost(post: post)
         self.data.insert(MemberFeedItemViewModel(post: post, member: self.member, comment: nil, delegate: self, cellSize: CGSize(width: self.view.frame.width, height: 150)), at: self.indexPathToInsertNewPostsAt.item)
         self.collectionView.insertItems(at: [self.indexPathToInsertNewPostsAt])
         self.collectionView.scrollToItem(at: self.indexPathToInsertNewPostsAt, at: .top, animated: true)
     }
     
-    func didCreateComment(comment: Comment) {
+    override func didCreateComment(comment: Comment) {
     }
 }
+
 
 extension GroupViewController: MemberFeedItemDelegate {
     func memberFeedWantToShowComments(post: Post) {

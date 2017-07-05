@@ -78,21 +78,21 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
         // Title
         data.append(TitleViewModel(title: "RELATED JOBS", cellSize: CGSize(width: view.frame.width, height: 50)))
         
-        let company = Company(id: "dsfsd", name: "Aspite", type: "dsfsdfs", photo: "companyImage", logo:"companyLogo", blurb: "Lorem ipsum", locationName: "London, UK", website: "www.bbc.co.uk", size: "10 - 50")
-        
-        let job1 = Job(id: "zxddz", name: "Marketing Strategist", company: company, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", locationName: "London, UK", type: "Fulltime", salary: "€ 30.000 / 40.000 p/a", companyName: "Aspire", companyId: "dsfsdfsdfs")
-        
-        
+//        let company = Company(id: "dsfsd", name: "Aspite", type: "dsfsdfs", photo: "companyImage", logo:"companyLogo", blurb: "Lorem ipsum", locationName: "London, UK", website: "www.bbc.co.uk", size: "10 - 50")
+//        
+//        let job1 = Job(id: "zxddz", name: "Marketing Strategist", company: company, companyId: "dsfsdfsdfs", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", locationName: "London, UK", type: "Fulltime", salary: "€ 30.000 / 40.000 p/a", companyName: "Aspire")
+//        
+//        
         let cellWidth: CGFloat = self.view.frame.width
-        let viewModel1 = RelatedViewModel(job: job1, cellSize: CGSize(width: cellWidth, height: 140))
-        let viewModel2 = RelatedViewModel(job: job1, cellSize: CGSize(width: cellWidth, height: 140))
-        let viewModel3 = RelatedViewModel(job: job1, cellSize: CGSize(width: cellWidth, height: 140))
-        let viewModel4 = RelatedViewModel(job: job1, cellSize: CGSize(width: cellWidth, height: 140))
-        
-        data.append(viewModel1)
-        data.append(viewModel2)
-        data.append(viewModel3)
-        data.append(viewModel4)
+//        let viewModel1 = RelatedViewModel(job: job1, cellSize: CGSize(width: cellWidth, height: 140))
+//        let viewModel2 = RelatedViewModel(job: job1, cellSize: CGSize(width: cellWidth, height: 140))
+//        let viewModel3 = RelatedViewModel(job: job1, cellSize: CGSize(width: cellWidth, height: 140))
+//        let viewModel4 = RelatedViewModel(job: job1, cellSize: CGSize(width: cellWidth, height: 140))
+//        
+//        data.append(viewModel1)
+//        data.append(viewModel2)
+//        data.append(viewModel3)
+//        data.append(viewModel4)
 
         // Title
         data.append(TitleViewModel(title: "RELATED PROJECTS", cellSize: CGSize(width: view.frame.width, height: 50)))

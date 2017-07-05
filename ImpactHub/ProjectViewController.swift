@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import PromiseKit
 
 class ProjectViewController: ListFullBleedViewController {
 
     var project: Project!
     
+    var indexPathToInsertNewPostsAt = IndexPath(item: 2, section: 0)
+
     var member = Member(id: "sdfds", userId: "sdfsdf", firstName: "Niklas", lastName: "Test", job: "Test", photo: "photo", blurb: "Lorem ipusm", aboutMe: "Lorem ipsum", locationName: "London, UK")
 
     var projectFeedData = [CellRepresentable]()
@@ -24,6 +27,8 @@ class ProjectViewController: ListFullBleedViewController {
         
         self.title = project.name
         
+        super.chatterGroupId = project.chatterId
+
         collectionView.register(UINib.init(nibName: ProjectDetailTopViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectDetailTopViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: MemberFeedItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberFeedItemViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: ProjectViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectViewModel.cellIdentifier)
@@ -32,74 +37,80 @@ class ProjectViewController: ListFullBleedViewController {
         collectionView.register(UINib.init(nibName: ProjectObjectiveViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectObjectiveViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: JobViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: JobViewModel.cellIdentifier)
 
-        
         topMenu?.setupWithItems(["FEED", "OBJECTIVES", "MEMBERS", "JOBS"])
 
         // Feed
         projectFeedData.append(ProjectDetailTopViewModel(project: project, cellSize: .zero)) // this will pick the full height instead
         projectFeedData.append(TitleViewModel(title: "DISCUSSIONS", cellSize: CGSize(width: view.frame.width, height: 70)))
-//        projectFeedData.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
-//        projectFeedData.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
-//        projectFeedData.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
-//        projectFeedData.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
-        self.data = projectFeedData
-
 
         // Objectives
         projectsObjectivesData.append(ProjectDetailTopViewModel(project: project, cellSize: .zero)) // this will pick the full height instead
         projectsObjectivesData.append(TitleViewModel(title: "GOALS", cellSize: CGSize(width: view.frame.width, height: 70)))
-        projectsObjectivesData.append(ProjectObjectiveViewModel(objective: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage").objectives[0], cellSize: CGSize(width: view.frame.width, height: 0)))
-        projectsObjectivesData.append(ProjectObjectiveViewModel(objective: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage").objectives[1], cellSize: CGSize(width: view.frame.width, height: 0)))
-        projectsObjectivesData.append(ProjectObjectiveViewModel(objective: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage").objectives[2], cellSize: CGSize(width: view.frame.width, height: 0)))
-        projectsObjectivesData.append(ProjectObjectiveViewModel(objective: Project(name: "Zero to one: new startups and Innovative Ideas", image: "projectImage").objectives[3], cellSize: CGSize(width: view.frame.width, height: 0)))
 
-        
         // Members
         projectsMembersData.append(ProjectDetailTopViewModel(project: project, cellSize: .zero)) // this will pick the full height instead
         projectsMembersData.append(TitleViewModel(title: "", cellSize: CGSize(width: view.frame.width, height: 70)))
 
         
-        let item1 = Member(id: "sdfds", userId: "sdfsdf", firstName: "Niklas", lastName: "Test", job: "Developer", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", aboutMe: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam. Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam. Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
-        let item2 = Member(id: "sdfds", userId: "sdfsdf", firstName: "Neela", lastName: "Test", job: "Salesforce", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", aboutMe: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
-        let item3 = Member(id: "sdfds", userId: "asdsad", firstName: "Russell", lastName: "Test", job: "Salesforce", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", aboutMe: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
-        let item4 = Member(id: "sdfds", userId: "sdfsdf", firstName: "Rob", lastName: "Test", job: "UX", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", aboutMe: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
-        
         let cellWidth: CGFloat = self.view.frame.width
-        let viewModel1 = MemberViewModel(member: item1, cellSize: CGSize(width: cellWidth, height: 105))
-        let viewModel2 = MemberViewModel(member: item2, cellSize: CGSize(width: cellWidth, height: 105))
-        let viewModel3 = MemberViewModel(member: item3, cellSize: CGSize(width: cellWidth, height: 105))
-        let viewModel4 = MemberViewModel(member: item4, cellSize: CGSize(width: cellWidth, height: 105))
-        
-        projectsMembersData.append(viewModel1)
-        projectsMembersData.append(viewModel2)
-        projectsMembersData.append(viewModel3)
-        projectsMembersData.append(viewModel4)
-
-        projectsMembersData.append(viewModel1)
-        projectsMembersData.append(viewModel2)
-        projectsMembersData.append(viewModel3)
-        projectsMembersData.append(viewModel4)
         
         // Jobs
         projectsJobsData.append(ProjectDetailTopViewModel(project: project, cellSize: .zero)) // this will pick the full height instead
-        let company = Company(id: "dsfsd", name: "Swift", type: "dsfsdfs", photo: "companyImage", logo:"companyLogo", blurb: "Lorem ipsum", locationName: "Amsterdam, UK", website: "www.bbc.co.uk", size: "10 - 20")
-        
         projectsJobsData.append(TitleViewModel(title: "JOBS FOR THIS PROJECT", cellSize: CGSize(width: view.frame.width, height: 70)))
         
-        let job1 = Job(id: "zxddz", name: "UI Designer", company: company, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", locationName: "London, UK", type: "Fulltime", salary: "€ 10.000 / 20.000 p/a", companyName: "Swift", companyId: "dsfsdfsdfs")
         
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        firstly {
+            APIClient.shared.getGroupPosts(groupID: self.project.chatterId)
+            }.then { posts -> Void in
+                print(posts)
+                posts.forEach({ (post) in
+                    self.projectFeedData.append(MemberFeedItemViewModel(post: post, member: self.member, comment: nil, delegate: self, cellSize: CGSize(width: cellWidth, height: 150)))
+                })
+            }.then {
+                APIClient.shared.getMembers(projectId: self.project.id)
+            }.then { members -> Void in
+                print(members)
+                members.forEach({ (member) in
+                    let viewModel1 = MemberViewModel(member: member, cellSize: CGSize(width: cellWidth, height: 105))
+                    self.projectsMembersData.append(viewModel1)
+                })
+            }.then {
+                APIClient.shared.getObjectives(projectId: self.project.id)
+            }.then { objectives -> Void in
+                print(objectives)
+                self.project.objectives = objectives
+                objectives.forEach({ (objective) in
+                    self.projectsObjectivesData.append(ProjectObjectiveViewModel(objective: objective, cellSize: CGSize(width: cellWidth, height: 0)))
+                })
+            }.then {
+                APIClient.shared.getJobs(projectId: self.project.id)
+            }.then { jobs -> Void in
+                print(jobs)
+                jobs.forEach({ (job) in
+                    let viewModelJob1 = JobViewModel(job: job, cellSize: CGSize(width: cellWidth, height: 145))
+                    self.projectsJobsData.append(viewModelJob1)
+                })
+            }.always {
+                self.data = self.projectFeedData
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.build()
+                self.collectionView?.reloadData()
+                self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
+                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+                    self.collectionView?.alpha = 1
+                    super.connectButton?.alpha = 1
+                }, completion: { (_) in
+                    
+                })
+            }.catch { error in
+                debugPrint(error.localizedDescription)
+        }
         
-        let viewModelJob1 = JobViewModel(job: job1, cellSize: CGSize(width: cellWidth, height: 145))
-        let viewModelJob2 = JobViewModel(job: job1, cellSize: CGSize(width: cellWidth, height: 145))
-        let viewModelJob3 = JobViewModel(job: job1, cellSize: CGSize(width: cellWidth, height: 145))
-        let viewModelJob4 = JobViewModel(job: job1, cellSize: CGSize(width: cellWidth, height: 145))
-        
-        projectsJobsData.append(viewModelJob1)
-        projectsJobsData.append(viewModelJob2)
-        projectsJobsData.append(viewModelJob3)
-        projectsJobsData.append(viewModelJob4)
-
-        
+    }
+    
+    func build() {
         
     }
     
@@ -155,6 +166,7 @@ class ProjectViewController: ListFullBleedViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: self)
         if segue.identifier == "ShowMember" {
             if let vc = segue.destination as? MemberViewController, let selectMember = selectMember {
                 vc.member = selectMember
@@ -198,13 +210,27 @@ class ProjectViewController: ListFullBleedViewController {
         }
     }
 
-
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+
+    override func didCreatePost(post: Post) {
+        super.didCreatePost(post: post)
+        self.projectFeedData.insert(MemberFeedItemViewModel(post: post, member: self.member, comment: nil, delegate: self, cellSize: CGSize(width: self.view.frame.width, height: 150)), at: self.indexPathToInsertNewPostsAt.item)
+        self.collectionView.insertItems(at: [self.indexPathToInsertNewPostsAt])
+        self.collectionView.scrollToItem(at: self.indexPathToInsertNewPostsAt, at: .top, animated: true)
+    }
+    
+    override func didCreateComment(comment: Comment) {
     }
     
 }
 
+
+
+extension ProjectViewController: MemberFeedItemDelegate {
+    func memberFeedWantToShowComments(post: Post) {
+        self.postToShowCommentsFor = post
+        self.performSegue(withIdentifier: "ShowComments", sender: self)
+    }
+}
 

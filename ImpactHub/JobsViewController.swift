@@ -24,29 +24,29 @@ class JobsViewController: ListWithSearchViewController {
         
         let company = Company(id: "dsfsd", name: "Aspite", type: "dsfsdfs", photo: "companyImage", logo:"companyLogo", blurb: "Lorem ipsum", locationName: "London, UK", website: "www.bbc.co.uk", size: "10 - 20")
         
-        let item1 = Job(id: "zxddz", name: "Marketing Strategist", company: company, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", locationName: "London, UK", type: "Fulltime", salary: "€ 30.000 / 40.000 p/a", companyName: "Aspire", companyId: "dsfsdfsdfs")
+//        let item1 = Job(id: "zxddz", name: "Marketing Strategist", company: company, companyId: "dsfsdfsdfs", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", locationName: "London, UK", type: "Fulltime", salary: "€ 30.000 / 40.000 p/a", companyName: "Aspire")
 
         
-        let cellWidth: CGFloat = self.view.frame.width
-        let viewModel1 = JobViewModel(job: item1, cellSize: CGSize(width: cellWidth, height: 145))
-        let viewModel2 = JobViewModel(job: item1, cellSize: CGSize(width: cellWidth, height: 145))
-        let viewModel3 = JobViewModel(job: item1, cellSize: CGSize(width: cellWidth, height: 145))
-        let viewModel4 = JobViewModel(job: item1, cellSize: CGSize(width: cellWidth, height: 145))
-        
-        self.data.append(viewModel1)
-        self.data.append(viewModel2)
-        self.data.append(viewModel3)
-        self.data.append(viewModel4)
-
-        self.data.append(viewModel1)
-        self.data.append(viewModel2)
-        self.data.append(viewModel3)
-        self.data.append(viewModel4)
-
-        self.data.append(viewModel1)
-        self.data.append(viewModel2)
-        self.data.append(viewModel3)
-        self.data.append(viewModel4)
+//        let cellWidth: CGFloat = self.view.frame.width
+//        let viewModel1 = JobViewModel(job: item1, cellSize: CGSize(width: cellWidth, height: 145))
+//        let viewModel2 = JobViewModel(job: item1, cellSize: CGSize(width: cellWidth, height: 145))
+//        let viewModel3 = JobViewModel(job: item1, cellSize: CGSize(width: cellWidth, height: 145))
+//        let viewModel4 = JobViewModel(job: item1, cellSize: CGSize(width: cellWidth, height: 145))
+//        
+//        self.data.append(viewModel1)
+//        self.data.append(viewModel2)
+//        self.data.append(viewModel3)
+//        self.data.append(viewModel4)
+//
+//        self.data.append(viewModel1)
+//        self.data.append(viewModel2)
+//        self.data.append(viewModel3)
+//        self.data.append(viewModel4)
+//
+//        self.data.append(viewModel1)
+//        self.data.append(viewModel2)
+//        self.data.append(viewModel3)
+//        self.data.append(viewModel4)
 
         
         // Do any additional setup after loading the view.

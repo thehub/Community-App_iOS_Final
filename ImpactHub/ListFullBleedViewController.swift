@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, TopMenuDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
+class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, TopMenuDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, CreatePostViewControllerDelegate {
 
     @IBOutlet weak var topMenu: TopMenu?
     
@@ -20,6 +20,8 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
 
     var data = [CellRepresentable]()
 
+    var chatterGroupId: String?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -151,6 +153,31 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
 
     }
     
+    var postToShowCommentsFor: Post?
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: self)
+        if segue.identifier == "ShowCreatePost" {
+            if let navVC = segue.destination as? UINavigationController {
+                if let vc = navVC.viewControllers.first as? CreatePostViewController {
+                    vc.delegate = self
+                    vc.chatterGroupId = self.chatterGroupId
+                }
+            }
+        }
+        else if segue.identifier == "ShowComments" {
+            if let vc = segue.destination as? CommentsViewController, let post = self.postToShowCommentsFor {
+                vc.post = post
+            }
+        }
+    }
+    
+    func didCreatePost(post: Post) {
+    }
+    
+    func didCreateComment(comment: Comment) {
+    }
 }
 
 extension ListFullBleedViewController: UICollectionViewDataSource {

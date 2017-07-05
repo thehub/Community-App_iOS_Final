@@ -14,6 +14,7 @@ import SwiftyJSON
 struct Project {
     
     var id: String
+    var chatterId: String
     var name: String
     var description: String?
     var image: String?
@@ -22,23 +23,37 @@ struct Project {
     var companyId: String?
     var impactHubCities: String?
     var locationName: String?
-    var objectives: [Project.Objective] {
-        get {
-            let objective1 = Objective(number: 1, title: "Objective", description: "Lorem ipsum dolor sit amet, consectetur adipiscing eli Lorem ipsum dolor sit amet, consectetur adipiscing eli Lorem ipsum dolor sit amet, consectetur adipiscing eli Lorem ipsum dolor sit amet, consectetur adipiscing eli.", isLast: false)
-            let objective2 = Objective(number: 2, title: "Objective", description: "Lorem ipsum dolor sit amet, consectetur adipiscing eli Lorem ipsum dolor sit amet, consectetur adipiscing eli Lorem ipsum dolor sit amet, consectetur adipiscing eli Lorem ipsum dolor sit amet, consectetur adipiscing eli.", isLast: false)
-            let objective3 = Objective(number: 3, title: "Objective", description: "Lorem ipsum dolor sit amet, consectetur adipiscing eli Lorem ipsum dolor sit amet, consectetur adipiscing eli Lorem ipsum dolor sit amet, consectetur adipiscing eli Lorem ipsum dolor sit amet, consectetur adipiscing eli.", isLast: false)
-            let objective4 = Objective(number: 4, title: "Objective", description: "Lorem ipsum dolor sit amet, consectetur adipiscing eli Lorem ipsum dolor sit amet, consectetur adipiscing eli Lorem ipsum dolor sit amet, consectetur adipiscing eli Lorem ipsum dolor sit amet, consectetur adipiscing eli.", isLast: true)
-
-            return [objective1, objective2, objective3, objective4]
-        }
-    }
+    var objectives = [Objective]()
     
     
     struct Objective {
-        var number: Int
+        var number: Int = 0
         var title: String
         var description: String
-        var isLast: Bool
+        var name: String
+        var isLast: Bool = false
+        
+        
+        mutating func setNumber(number: Int) {
+            self.number = number
+        }
+
+        mutating func setIsLast(isLast: Bool) {
+            self.isLast = isLast
+        }
+
+        init?(json: JSON) {
+            guard
+                let title = json["Goal__c"].string,
+                let name = json["Name"].string,
+                let description = json["Goal_Summary__c"].string
+                else {
+                    return nil
+            }
+            self.title = title
+            self.name = name
+            self.description = description
+        }
     }
     
     
@@ -48,6 +63,7 @@ struct Project {
         self.name = name
         self.image = image
         self.memberCount = 2
+        self.chatterId = "dsfds"
     }
     
 }
@@ -57,11 +73,13 @@ extension Project {
     init?(json: JSON) {
         guard
             let id = json["Id"].string,
-            let name = json["Name"].string
+            let name = json["Name"].string,
+            let chatterId = json["ChatterGroupId__c"].string
             else {
                 return nil
         }
         self.id = id
+        self.chatterId = chatterId
         self.name = name
         self.description = json["Group_Desc__c"].string
         self.memberCount = json["CountOfMembers__c"].intValue
