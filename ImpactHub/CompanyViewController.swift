@@ -17,6 +17,7 @@ class CompanyViewController: ListFullBleedViewController {
     var compnayId: String?
     
     var projects = [Project]()
+    var members = [Member]()
 
     var aboutData = [CellRepresentable]()
     var projectsData = [CellRepresentable]()
@@ -25,6 +26,8 @@ class CompanyViewController: ListFullBleedViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.collectionView?.alpha = 0
+        super.connectButton?.alpha = 0
         if self.company != nil {
             getCompanyExtras()
         }
@@ -62,11 +65,23 @@ class CompanyViewController: ListFullBleedViewController {
             }.then {
                 APIClient.shared.getProjects(companyId: company.id)
             }.then { projects -> Void in
-                print(projects)
                 self.projects = projects
+            }.then {
+                APIClient.shared.getMembers(companyId: company.id)
+            }.then { members -> Void in
+                self.members = members
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.build()
+                self.collectionView?.reloadData()
+                self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
+                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+                    self.collectionView?.alpha = 1
+                    super.connectButton?.alpha = 1
+                }, completion: { (_) in
+                    
+                })
             }.catch { error in
                 debugPrint(error.localizedDescription)
         }
@@ -93,7 +108,6 @@ class CompanyViewController: ListFullBleedViewController {
         collectionView.register(UINib.init(nibName: MemberViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: CompanyServiceItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: CompanyServiceItemViewModel.cellIdentifier)
 
-
         topMenu?.setupWithItems(["About", "Projects", "Members"])
         
         // About
@@ -112,35 +126,13 @@ class CompanyViewController: ListFullBleedViewController {
             projectsData.append(ProjectViewModel(project: project, cellSize: CGSize(width: view.frame.width, height: 370)))
         }
         
-        
-        
         // Members
-        
         membersData.append(CompanyDetailTopViewModel(company: company, cellSize: .zero)) // this will pick the full height instead
         membersData.append(TitleViewModel(title: "", cellSize: CGSize(width: view.frame.width, height: 70)))
+        members.forEach { (member) in
+            membersData.append(MemberViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 105)))
+        }
         
-        let item1 = Member(id: "sdfds", userId: "sdfsdf", firstName: "Niklas", lastName: "Test", job: "Developer", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", aboutMe: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam. Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam. Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
-        let item2 = Member(id: "sdfds", userId: "sdfsdf", firstName: "Neela", lastName: "Test", job: "Salesforce", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", aboutMe: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
-        let item3 = Member(id: "sdfds", userId: "asdsad", firstName: "Russell", lastName: "Test", job: "Salesforce", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", aboutMe: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
-        let item4 = Member(id: "sdfds", userId: "sdfsdf", firstName: "Rob", lastName: "Test", job: "UX", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", aboutMe: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
-        
-        let cellWidth: CGFloat = self.view.frame.width
-        let viewModel1 = MemberViewModel(member: item1, cellSize: CGSize(width: cellWidth, height: 105))
-        let viewModel2 = MemberViewModel(member: item2, cellSize: CGSize(width: cellWidth, height: 105))
-        let viewModel3 = MemberViewModel(member: item3, cellSize: CGSize(width: cellWidth, height: 105))
-        let viewModel4 = MemberViewModel(member: item4, cellSize: CGSize(width: cellWidth, height: 105))
-        
-        membersData.append(viewModel1)
-        membersData.append(viewModel2)
-        membersData.append(viewModel3)
-        membersData.append(viewModel4)
-        
-        membersData.append(viewModel1)
-        membersData.append(viewModel2)
-        membersData.append(viewModel3)
-        membersData.append(viewModel4)
-
-        self.collectionView.reloadData()
     }
 
     

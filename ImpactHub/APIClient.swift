@@ -15,7 +15,7 @@ import SwiftyJSON
 
 class APIClient {
 
-    
+    // Projects
     func getProjects() -> Promise<[Project]> {
         return Promise { fullfill, reject in
             SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name,Related_Impact_Goal__c,ChatterGroupId__c ,Group_Desc__c, ImageURL__c, Directory_Style__c, Organisation__r.id, Organisation__r.Number_of_Employees__c, Organisation__r.Impact_Hub_Cities__c, Organisation__r.name from Directory__c where Directory_Style__c = 'Project'", fail: { (error) in
@@ -80,19 +80,6 @@ class APIClient {
         }
     }
     
-    
-//    SELECT Applications_Close_Date__c,Company__c,Contact__c,Description__c,Id,Job_Age_in_Days__c,Job_Type__c,Location__c,Project__c,Related_Impact_Goal__c,Salary__c,Sector__c FROM Job__c
-//    
-//    [1:14]
-//    Job_Type__c => Full Time/Part Time
-//    
-//    [1:15]
-//    Salary__c
-//    
-//    [1:15] 
-//    Description__c
-    
-
     func getJobs(projectId: String) -> Promise<[Job]> {
         return Promise { fullfill, reject in
             SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, Description__c, Salary__c,Job_Type__c, Company__c, Company__r.name, Company__r.Logo_Image_Url__c,Sector__c,Contact__c, Location__c, Applications_Close_Date__c from Job__c where Project__r.id='\(projectId)'", fail: { (error) in
@@ -112,6 +99,7 @@ class APIClient {
         }
     }
     
+    // Filters
     func getFilters(grouping: Filter.Grouping) -> Promise<[Filter]> {
         return Promise { fullfill, reject in
             SFRestAPI.sharedInstance().performSOQLQueryAll("select name, Grouping__c from taxonomy__c where active__c = true and Grouping__c ='\(grouping.rawValue)'", fail: { (error) in
@@ -132,7 +120,7 @@ class APIClient {
         }
     }
 
-    
+    // Companies
     func getCompanies() -> Promise<[Company]> {
         return Promise { fullfill, reject in
             
@@ -177,6 +165,45 @@ class APIClient {
         }
     }
     
+    func getProjects(companyId: String) -> Promise<[Project]> {
+        return Promise { fullfill, reject in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("select id,ChatterGroupId__c, name, CountOfMembers__c, ImageURL__c, Group_Desc__c, Organisation__r.Name, Organisation__c, Impact_Hub_Cities__c from Directory__c where Directory_Style__c ='Project' and Organisation__c ='\(companyId)'", fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON(result!)
+                debugPrint(jsonResult)
+                if let records = jsonResult["records"].array {
+                    let items = records.flatMap { Project(json: $0) }
+                    fullfill(items)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
+    
+    func getMembers(companyId: String) -> Promise<[Member]> {
+        return Promise { fullfill, reject in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT id, firstname,lastname, ProfilePic__c, accountid,Profession__c, Impact_Hub_Cities__c, User__c, About_Me__c FROM Contact WHERE User__c != NULL and accountid='\(companyId)'", fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON(result!)
+                debugPrint(jsonResult)
+                if let records = jsonResult["records"].array {
+                    let items = records.flatMap { Member(json: $0) }
+                    fullfill(items)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
     func getCompanyServices(companyId: String) -> Promise<[Company.Service]> {
         return Promise { fullfill, reject in
             
@@ -197,6 +224,30 @@ class APIClient {
         }
     }
 
+
+    
+    // Members
+    func getMembers() -> Promise<[Member]> {
+        return Promise { fullfill, reject in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT id,firstname,lastname,ProfilePic__c, Profession__c,Impact_Hub_Cities__c,User__c,About_Me__c FROM Contact where User__c != null", fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON(result!)
+                debugPrint(jsonResult)
+                if let records = jsonResult["records"].array {
+                    let items = records.flatMap { Member(json: $0) }
+                    print(items.count)
+                    print(items)
+                    fullfill(items)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
     func getGroups(contactId: String) -> Promise<[Group]> {
         return Promise { fullfill, reject in
             print(contactId)
@@ -235,25 +286,6 @@ class APIClient {
         }
     }
     
-    func getProjects(companyId: String) -> Promise<[Project]> {
-        return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQueryAll("select id,ChatterGroupId__c, name, CountOfMembers__c, ImageURL__c, Group_Desc__c, Organisation__r.Name, Organisation__c, Impact_Hub_Cities__c from Directory__c where Directory_Style__c ='Project' and Organisation__c ='\(companyId)'", fail: { (error) in
-                print("error \(error?.localizedDescription as Any)")
-                reject(error ?? MyError.JSONError)
-            }) { (result) in
-                let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
-                if let records = jsonResult["records"].array {
-                    let items = records.flatMap { Project(json: $0) }
-                    fullfill(items)
-                }
-                else {
-                    reject(MyError.JSONError)
-                }
-            }
-        }
-    }
-    
     func getSkills(contactId: String) -> Promise<[Member.Skill]> {
         return Promise { fullfill, reject in
             print(contactId)
@@ -274,27 +306,7 @@ class APIClient {
         }
     }
     
-    func getMembers() -> Promise<[Member]> {
-        return Promise { fullfill, reject in
-//            let userId = SFUserAccountManager.sharedInstance().currentUser!.accountIdentity.userId
-            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT id,firstname,lastname,ProfilePic__c, Profession__c,Impact_Hub_Cities__c,User__c,About_Me__c FROM Contact where User__c != null", fail: { (error) in
-                print("error \(error?.localizedDescription as Any)")
-                reject(error ?? MyError.JSONError)
-            }) { (result) in
-                let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
-                if let records = jsonResult["records"].array {
-                    let items = records.flatMap { Member(json: $0) }
-                    print(items.count)
-                    print(items)
-                    fullfill(items)
-                }
-                else {
-                    reject(MyError.JSONError)
-                }
-            }
-        }
-    }
+
     
     
     func getContact(userId:String) -> Promise<Contact> {
