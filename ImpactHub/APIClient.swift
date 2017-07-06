@@ -15,10 +15,14 @@ import SwiftyJSON
 
 class APIClient {
 
+    
+//    select id, name, CountOfMembers__c, ImageURL__c, Directory_Grouping__c, Group_Desc__c, Directory_Style__c from Directory__c where Directory_Style__c = 'Project' and id in (select DirectoryID__c from Directory_Member__c where ContactID__c = <<currentuser's contactID>>)
+    
+    
     // Projects
     func getProjects() -> Promise<[Project]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name,Related_Impact_Goal__c,ChatterGroupId__c ,Group_Desc__c, ImageURL__c, Directory_Style__c, Organisation__r.id, Organisation__r.Number_of_Employees__c, Organisation__r.Impact_Hub_Cities__c, Organisation__r.name from Directory__c where Directory_Style__c = 'Project'", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("select id,CreatedById, name,Related_Impact_Goal__c,ChatterGroupId__c ,Group_Desc__c, ImageURL__c, Directory_Style__c, Organisation__r.id, Organisation__r.Number_of_Employees__c, Organisation__r.Impact_Hub_Cities__c, Organisation__r.name from Directory__c where Directory_Style__c = 'Project'", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -452,7 +456,11 @@ class APIClient {
         }
     }
     
+// to get related project to job
+//    select id, name, CountOfMembers__c, ImageURL__c, Directory_Grouping__c, Group_Desc__c, Directory_Style__c from Directory__c where id = <<company__C from jobs>>
 
+//    select id, name, CountOfMembers__c, ImageURL__c, Directory_Grouping__c, Group_Desc__c, Directory_Style__c from Directory__c where id = (select Company__c from Job__c where id =<current job id>>)
+    
     func getJobs(skip:Int, top:Int) -> Promise<[Job]> {
         return Promise { fullfill, reject in
             // TODO: Send in pagination

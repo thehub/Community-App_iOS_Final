@@ -102,6 +102,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().setBackgroundImage(UIImage(color: UIColor.white), for: .any, barMetrics: .default)
         
 //        UINavigationBar.appearance().backgroundColor = UIColor.white
+        
+        UITabBar.appearance().tintColor = UIColor(hexString: "3D3D3D")
+        
         UINavigationBar.appearance().shadowImage = UIImage()
         
         let customFont = UIFont(name: "GTWalsheim-Light", size: 14.0)!
