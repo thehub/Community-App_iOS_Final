@@ -311,11 +311,11 @@ class APIClient {
     }
     
 
-    
+    // SELECT AccountId,Id,User__c FROM Contact where User__c = <<current user id>>
     
     func getContact(userId:String) -> Promise<Contact> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT id,FirstName,LastName,Email,ProfilePic__c,User__c,About_Me__c,Profession__c,Taxonomy__c,Skills__c FROM Contact where User__c = '\(userId)'", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT id, email,firstname,lastname, ProfilePic__c, accountid,Profession__c, Impact_Hub_Cities__c, User__c, About_Me__c FROM Contact where User__c ='\(userId)'", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in

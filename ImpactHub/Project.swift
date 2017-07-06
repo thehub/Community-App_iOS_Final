@@ -24,7 +24,7 @@ struct Project {
     var impactHubCities: String?
     var locationName: String?
     var objectives = [Objective]()
-    var createdById: String
+    var createdById: String?
     
     
     struct Objective {
@@ -73,20 +73,21 @@ struct Project {
 
 extension Project {
     init?(json: JSON) {
+        print(json)
         guard
             let id = json["Id"].string,
             let name = json["Name"].string,
-            let chatterId = json["ChatterGroupId__c"].string,
-            let createdById = json["CreatedById"].string
+            let chatterId = json["ChatterGroupId__c"].string
             else {
                 return nil
         }
         self.id = id
-        self.createdById = createdById
         self.chatterId = chatterId
         self.name = name
         self.description = json["Group_Desc__c"].string
         self.memberCount = json["CountOfMembers__c"].intValue
+        
+        self.createdById = json["CreatedById"].string
         
         self.companyId = json["Organisation__c"].string
         

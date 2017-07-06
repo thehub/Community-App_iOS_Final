@@ -10,7 +10,7 @@ import UIKit
 import SalesforceSDKCore
 import Lock
 import Auth0
-
+import PromiseKit
 
 
 class ViewController: UIViewController {
@@ -32,17 +32,33 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        if let currentUser = SFUserAccountManager.sharedInstance().currentUser, currentUser.isSessionValid {
-            self.performSegue(withIdentifier: "ShowHome", sender: self)
-        }
-        //        else {
-        //            self.performSegue(withIdentifier: "ShowIntro", sender: self)
-        //        }
-        
+        loadMe()
         
         self.observer = NotificationCenter.default.addObserver(forName: NSNotification.Name.onLogin, object: nil, queue: OperationQueue.main) { (_) in
-            self.performSegue(withIdentifier: "ShowHome", sender: self)
+            self.loadMe()
+        }
+    }
+    
+    
+    func loadMe() {
+        if let currentUser = SFUserAccountManager.sharedInstance().currentUser, currentUser.isSessionValid {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            firstly {
+                APIClient.shared.getContact(userId: currentUser.accountIdentity.userId)
+                }.then { contact -> Void in
+                    print(contact)
+                    SessionManager.shared.me = contact
+                    self.performSegue(withIdentifier: "ShowHome", sender: self)
+                }.always {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }.catch { error in
+                    debugPrint(error.localizedDescription)
+                    let alert = UIAlertController(title: "Error", message: "Could not log in. Please try again.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+                        self.loadMe()
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     

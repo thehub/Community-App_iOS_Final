@@ -35,7 +35,7 @@ struct Contact {
 
 extension Contact {
     init?(json: JSON) {
-        print(json)
+//        print(json)
         guard
             let id = json["Id"].string,
             let userId = json["User__c"].string,

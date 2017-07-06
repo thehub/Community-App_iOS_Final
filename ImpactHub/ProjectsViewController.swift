@@ -8,6 +8,7 @@
 
 import UIKit
 import PromiseKit
+import SalesforceSDKCore
 
 class ProjectsViewController: ListWithSearchViewController {
 
@@ -34,15 +35,22 @@ class ProjectsViewController: ListWithSearchViewController {
         firstly {
             APIClient.shared.getProjects()
             }.then { items -> Void in
-                print(items)
                 let cellWidth: CGFloat = self.view.frame.width
                 items.forEach({ (project) in
                     let viewModel = ProjectViewModel(project: project, cellSize: CGSize(width: cellWidth, height: 370))
                     self.allData.append(viewModel)
-                    self.data = self.allData
-                    // todo:
-                    self.projectsYouManageData = self.allData
-                    self.yourProjectsData = self.allData
+                    if viewModel.project.createdById == SessionManager.shared.me?.id {
+                        self.projectsYouManageData.append(viewModel)
+                    }
+                })
+                self.data = self.allData
+            }.then {
+                APIClient.shared.getProjects(contactId: SessionManager.shared.me?.id ?? "")
+            }.then { yourProjects -> Void in
+                let cellWidth: CGFloat = self.view.frame.width
+                yourProjects.forEach({ (project) in
+                    let viewModel = ProjectViewModel(project: project, cellSize: CGSize(width: cellWidth, height: 370))
+                    self.yourProjectsData.append(viewModel)
                 })
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
