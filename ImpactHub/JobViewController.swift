@@ -196,6 +196,15 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
                 vc.project = selectProject
             }
         }
+        else if segue.identifier == "ShowApplyForJob" {
+            if let navVC = segue.destination as? UINavigationController {
+                if let vc = navVC.viewControllers.first as? CreatePostViewController {
+                    vc.delegate = self
+                    vc.jobId = self.job.id
+                }
+            }
+        }
+
     }
     
 
@@ -251,6 +260,14 @@ extension JobViewController: UICollectionViewDataSource {
         
         let cell = data[indexPath.item].cellInstance(collectionView, indexPath: indexPath)
         return cell
+    }
+}
+
+extension JobViewController: CreatePostViewControllerDelegate {
+    func didCreatePost(post: Post) {
+    }
+    
+    func didCreateComment(comment: Comment) {
     }
 }
 

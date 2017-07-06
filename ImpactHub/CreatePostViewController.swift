@@ -22,6 +22,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
     enum CreateType {
         case post(chatterGroupId: String)
         case comment(postIdToCommentOn: String)
+        case applyForJob(jobId: String)
         case unkown
     }
     
@@ -34,10 +35,19 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
             }
         }
     }
+    
     var postIdToCommentOn: String? {
         didSet {
             if let postIdToCommentOn = self.postIdToCommentOn {
                 createType = .comment(postIdToCommentOn: postIdToCommentOn)
+            }
+        }
+    }
+    
+    var jobId: String? {
+        didSet {
+            if let jobId = self.jobId {
+                createType = .applyForJob(jobId: jobId)
             }
         }
     }
@@ -65,14 +75,15 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
         case .comment(postIdToCommentOn: _):
             self.title = "Add Comment"
             break
+        case .applyForJob(jobId: _):
+            self.title = "Apply For Job"
+            break
         case .unkown:
             print("Error createType not set")
             break
         }
         
         if let parentId = chatterGroupId {
-            
-            
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
             firstly {
                 APIClient.shared.getMentionCompletions()
@@ -86,16 +97,6 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
                 }.catch { error in
                     debugPrint(error.localizedDescription)
             }
-            
-            
-            
-            
-            
-            
-
-
-            
-            
 
 //            APIClient.shared.getValidMentionCompletions(parentId: parentId).then { result in
 //                self.mentionCompletions = result
@@ -211,6 +212,10 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
                             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                             self.present(alert, animated: true, completion: nil)
                     }
+                    break
+                case .applyForJob(let jobId):
+                    print(jobId)
+                    self.onClose(self)
                     break
                 case .unkown:
                     print("Error createType not set")
