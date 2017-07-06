@@ -362,4 +362,22 @@ extension UIImage {
     }
 }
 
-
+extension String {
+    
+    var html2AttributedString: NSAttributedString? {
+        do {
+            let data = self.data(using: String.Encoding.utf8, allowLossyConversion: true)
+            if let d = data {
+                let str = try NSAttributedString(data: d,
+                                                 options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
+                                                 documentAttributes: nil)
+                return str
+            }
+        } catch {
+        }
+        return nil
+    }
+    var html2String: String {
+        return html2AttributedString?.string ?? ""
+    }
+}
