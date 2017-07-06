@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VtY-QA-dhx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VtY-QA-dhx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="gt-walsheim-web.ttf">
+            <string>GTWalsheim</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Profile-->
         <scene sceneID="FCy-DE-mcj">
@@ -20,11 +26,43 @@
                     <view key="view" contentMode="scaleToFill" id="nFn-zp-JV1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1i2-Ns-N3f">
+                                <rect key="frame" x="169.5" y="98" width="36" height="19"/>
+                                <fontDescription key="fontDescription" name="GTWalsheim" family="GT Walsheim" pointSize="15"/>
+                                <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DCS-cR-LOz" customClass="RedButton" customModule="ImpactHub" customModuleProvider="target">
+                                <rect key="frame" x="46" y="535" width="283" height="50"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="CmT-53-LoM"/>
+                                </constraints>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutTapped:" destination="8Tt-zS-dln" eventType="touchUpInside" id="wSn-Ti-cHy"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="DCS-cR-LOz" secondAttribute="trailing" constant="30" id="0W7-U3-CRK"/>
+                            <constraint firstItem="DCS-cR-LOz" firstAttribute="leading" secondItem="nFn-zp-JV1" secondAttribute="leadingMargin" constant="30" id="Ifu-5A-ypt"/>
+                            <constraint firstItem="DCS-cR-LOz" firstAttribute="centerX" secondItem="nFn-zp-JV1" secondAttribute="centerX" id="WvH-P9-CfL"/>
+                            <constraint firstItem="jrx-YE-1tM" firstAttribute="top" secondItem="DCS-cR-LOz" secondAttribute="bottom" constant="33" id="vPE-Gt-xkm"/>
+                            <constraint firstItem="1i2-Ns-N3f" firstAttribute="top" secondItem="64p-8H-9aa" secondAttribute="bottom" constant="34" id="vd4-2H-s02"/>
+                            <constraint firstItem="1i2-Ns-N3f" firstAttribute="centerX" secondItem="nFn-zp-JV1" secondAttribute="centerX" id="xqa-28-6rN"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="3kj-uv-f0x">
                         <barButtonItem key="backBarButtonItem" title=" " id="kgB-6i-isd"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="userName" destination="1i2-Ns-N3f" id="qPJ-y6-8tH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hyb-OA-n9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -39,7 +77,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="poE-gB-nNA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="poE-gB-nNA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import SalesforceSDKCore
 
 class ProfileViewController: UIViewController {
+    @IBOutlet weak var userName: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        userName.text = SessionManager.shared.me?.fullName
         // Do any additional setup after loading the view.
     }
 
@@ -21,6 +25,9 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func logoutTapped(_ sender: Any) {
+        SFAuthenticationManager.shared().logoutAllUsers()
+    }
 
     /*
     // MARK: - Navigation
