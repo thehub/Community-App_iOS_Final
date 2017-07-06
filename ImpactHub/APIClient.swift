@@ -456,9 +456,6 @@ class APIClient {
         }
     }
     
-// to get related project to job
-//    select id, name, CountOfMembers__c, ImageURL__c, Directory_Grouping__c, Group_Desc__c, Directory_Style__c from Directory__c where id = (select Company__c from Job__c where id =<current job id>>)
-    
     // Jobs
     func getJobs(skip:Int, top:Int) -> Promise<[Job]> {
         return Promise { fullfill, reject in
@@ -480,14 +477,15 @@ class APIClient {
         }
     }
     
+    // to get related project to job
     func getProject(jobId: String) -> Promise<[Project]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, CountOfMembers__c, ImageURL__c, Directory_Grouping__c, Group_Desc__c, Directory_Style__c from Directory__c where id ='\(jobId)'", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("select id,CreatedById, name,Related_Impact_Goal__c,ChatterGroupId__c ,Group_Desc__c, ImageURL__c, Directory_Style__c, Organisation__r.id, Organisation__r.Number_of_Employees__c, Organisation__r.Impact_Hub_Cities__c, Organisation__r.name from Directory__c where Organisation__c in (select Company__c from Job__c where id ='\(jobId)')", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.Error("Error"))
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Project(json: $0) }
                     fullfill(items)

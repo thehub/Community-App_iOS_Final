@@ -81,20 +81,28 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
 //        let viewModel1 = RelatedViewModel(job: job1, cellSize: CGSize(width: cellWidth, height: 140))
 //        data.append(viewModel1)
 
+        // Related Projects
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
             APIClient.shared.getProject(jobId: job.id)
             }.then { projects -> Void in
+//                var indexPaths = [IndexPath]()
+//                var startAtIndexItem = self.data.count - 1
                 if projects.count > 0 {
                     // Title
                     self.data.append(TitleViewModel(title: "RELATED PROJECTS", cellSize: CGSize(width: cellWidth, height: 50)))
+//                    indexPaths.append(IndexPath(item: startAtIndexItem, section: 0))
+//                    startAtIndexItem += 1
+                    projects.forEach({ (project) in
+                        self.data.append(RelatedViewModel(project: project, cellSize: CGSize(width: cellWidth, height: 140)))
+//                        indexPaths.append(IndexPath(item: startAtIndexItem, section: 0))
+//                        startAtIndexItem += 1
+                    })
+//                    self.collectionView.insertItems(at: indexPaths)
                 }
-                projects.forEach({ (project) in
-                    self.data.append(RelatedViewModel(project: project, cellSize: CGSize(width: cellWidth, height: 140)))
-                })
             }.always {
-                self.collectionView.reloadData()
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.collectionView.reloadData()
             }.catch { error in
                 debugPrint(error.localizedDescription)
         }
