@@ -611,6 +611,7 @@
 		859F97F31EFBD0ED001C0B33 /* GoalAboutItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalAboutItemCell.swift; sourceTree = "<group>"; };
 		859F97F41EFBD0ED001C0B33 /* GoalAboutItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoalAboutItemCell.xib; sourceTree = "<group>"; };
 		859F97FB1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWithTopMenuViewController.swift; sourceTree = "<group>"; };
+		85A8849A1F0E3BCD00DDB3C1 /* apple-app-site-association */ = {isa = PBXFileReference; lastKnownFileType = text; path = "apple-app-site-association"; sourceTree = "<group>"; };
 		85AD648E1F00FC9800F2CCA8 /* BigTitleTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BigTitleTopCell.xib; sourceTree = "<group>"; };
 		85AD64961F00FCA800F2CCA8 /* BigTitleTopViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigTitleTopViewModel.swift; sourceTree = "<group>"; };
 		85AD649A1F00FE2700F2CCA8 /* BigTitleTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigTitleTopCell.swift; sourceTree = "<group>"; };
@@ -896,6 +897,7 @@
 				85455D2A1EF2A52500243846 /* Fonts */,
 				85066FC21ED2EF100032391A /* ImpactHub.entitlements */,
 				85B361391ED59FD400DC2DE0 /* APIClient.swift */,
+				85A8849A1F0E3BCD00DDB3C1 /* apple-app-site-association */,
 				85B3613B1ED5A08600DC2DE0 /* Constants.swift */,
 				85DE9F041ECCAC7200291EF5 /* Models */,
 				85DE9F051ECCAC8200291EF5 /* ViewModels */,

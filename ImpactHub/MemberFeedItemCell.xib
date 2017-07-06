@@ -55,7 +55,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="rba-6n-oaI">
-                        <rect key="frame" x="170" y="102" width="100" height="18"/>
+                        <rect key="frame" x="170" y="76" width="100" height="18"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hc6-eO-k1i" userLabel="Like">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="18"/>
@@ -124,11 +124,13 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="irl-kT-RWD"/>
+                        </constraints>
                     </stackView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="rba-6n-oaI" secondAttribute="bottom" constant="20" id="8ro-Vg-lJ0"/>
                 <constraint firstItem="R2a-Xb-LpF" firstAttribute="leading" secondItem="MYM-OF-VM2" secondAttribute="trailing" constant="8" id="9Lf-JF-OdW"/>
                 <constraint firstAttribute="trailing" secondItem="rba-6n-oaI" secondAttribute="trailing" constant="30" id="GrJ-tV-mTP"/>
                 <constraint firstItem="hH6-Uy-FZ3" firstAttribute="top" secondItem="Dlf-0p-AmF" secondAttribute="bottom" constant="8" id="Vmb-SH-7QO"/>
@@ -137,6 +139,7 @@
                 <constraint firstItem="MYM-OF-VM2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="dGq-Lv-NG6"/>
                 <constraint firstItem="hH6-Uy-FZ3" firstAttribute="leading" secondItem="Dlf-0p-AmF" secondAttribute="leading" id="leX-ek-Hyz"/>
                 <constraint firstItem="MYM-OF-VM2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="ord-vL-IFC"/>
+                <constraint firstItem="rba-6n-oaI" firstAttribute="top" secondItem="hH6-Uy-FZ3" secondAttribute="bottom" constant="10" id="tXP-5J-BUv"/>
                 <constraint firstAttribute="trailing" secondItem="hH6-Uy-FZ3" secondAttribute="trailing" constant="8" id="uOy-Ly-Lus"/>
                 <constraint firstItem="Dlf-0p-AmF" firstAttribute="top" secondItem="R2a-Xb-LpF" secondAttribute="bottom" constant="-2" id="waR-w6-do7"/>
             </constraints>

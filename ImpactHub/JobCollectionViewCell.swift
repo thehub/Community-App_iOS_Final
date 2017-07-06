@@ -28,7 +28,7 @@ class JobCollectionViewCell: UICollectionViewCell {
         companyLabel.text = vm.job.companyName
         nameLabel.text = vm.job.name
         fulltimeLabel.text = vm.job.type
-        if let logoUrl = vm.job.company.logoUrl {
+        if let logoUrl = vm.job.logoUrl {
             profileImageView.kf.setImage(with: logoUrl)
         }
         locationNameLabel.text = vm.job.locationName

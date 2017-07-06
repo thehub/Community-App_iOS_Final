@@ -82,7 +82,7 @@ class APIClient {
     
     func getJobs(projectId: String) -> Promise<[Job]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, Description__c, Salary__c,Job_Type__c, Company__c, Company__r.name, Company__r.Logo_Image_Url__c,Sector__c,Contact__c, Location__c, Applications_Close_Date__c from Job__c where Project__r.id='\(projectId)'", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, Description__c, Salary__c,Job_Type__c, Company__c, Company__r.name, Company__r.Logo_Image_Url__c,Company__r.Banner_Image_Url__c,Sector__c,Contact__c, Location__c, Applications_Close_Date__c from Job__c where Project__r.id='\(projectId)'", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -453,11 +453,10 @@ class APIClient {
     }
     
 
-
     func getJobs(skip:Int, top:Int) -> Promise<[Job]> {
         return Promise { fullfill, reject in
             // TODO: Send in pagination
-            SFRestAPI.sharedInstance().performSOQLQueryAll("select id, name, Company__c, Company__r.name, Company__r. Logo_Image_Url__c, Location__c, Applications_Close_Date__c from Job__c where Applications_Close_Date__c >= system.today()", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT id, name, Description__c, Salary__c,Job_Type__c, Company__c, Company__r.name, Company__r.Logo_Image_Url__c,Company__r.Banner_Image_Url__c,Sector__c,Contact__c, Location__c, Applications_Close_Date__c FROM Job__c where Applications_Close_Date__c >= \(Date().shortDate())", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.Error("Error"))
             }) { (result) in

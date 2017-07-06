@@ -8,6 +8,8 @@
 
 import Foundation
 import SwiftyJSON
+import SalesforceSDKCore
+
 
 
 struct Job {
@@ -21,6 +23,8 @@ struct Job {
     var type: String
     var salary: String
     var companyName: String
+    var logo: String?
+    var photo: String?
     
 }
 
@@ -47,6 +51,29 @@ extension Job {
         self.companyId = companyId
         self.company = Company(id: "asdsad", name: "Test Compnay", type: "sdsdf", photo: "sdfdsf", logo:"companyLogo", blurb: "sdfdsfsdf", locationName: "sdfdsfs", website: "http://www.dn.se", size: "10 - 30")
         self.locationName = "London"
+        
+        self.logo = json["Company__r"]["Logo_Image_Url__c"].string
+        self.photo = json["Company__r"]["Banner_Image_Url__c"].string
+
     }
     
+}
+
+extension Job {
+    var photoUrl: URL? {
+        if let token = SFUserAccountManager.sharedInstance().currentUser?.credentials.accessToken,
+            let photo = self.photo,
+            let url = URL(string: "\(photo)?oauth_token=\(token)") {
+            return url
+        }
+        return nil
+    }
+    var logoUrl: URL? {
+        if let token = SFUserAccountManager.sharedInstance().currentUser?.credentials.accessToken,
+            let logo = self.logo,
+            let url = URL(string: "\(logo)?oauth_token=\(token)") {
+            return url
+        }
+        return nil
+    }
 }

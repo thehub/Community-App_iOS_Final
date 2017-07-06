@@ -93,6 +93,20 @@ extension Date {
         return dateString
     }
     
+    static let shortFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.calendar = Calendar(identifier: .iso8601)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter
+    }()
+    func shortDate() -> String {
+        let dateString = Date.shortFormatter.string(from: self)
+        return dateString
+    }
+    
+    
     func isoTwitterDate() -> String {
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "EEE MMM d HH:mm:ss Z yyyy"

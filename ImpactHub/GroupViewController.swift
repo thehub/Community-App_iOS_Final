@@ -58,10 +58,9 @@ class GroupViewController: ListFullBleedViewController {
         
         if let vm = data[indexPath.item] as? MemberFeedItemViewModel {
             let cellWidth: CGFloat = self.collectionView.frame.width
-            let height = vm.post.text.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 125 // add extra height for the standard elements, titles, lines, sapcing etc.
+            let height = vm.post.text.height(withConstrainedWidth: cellWidth - 76, font:UIFont(name: "GTWalsheim-Light", size: 14)!) + 85 // add extra height for the standard elements, titles, lines, sapcing etc.
             return CGSize(width: view.frame.width, height: height)
         }
-
         
         var cellSize = data[indexPath.item].cellSize
         if cellSize == .zero {
