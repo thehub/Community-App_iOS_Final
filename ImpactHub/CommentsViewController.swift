@@ -93,9 +93,9 @@ class CommentsViewController: UIViewController, UICollectionViewDelegate, UIColl
         super.prepare(for: segue, sender: self)
         if segue.identifier == "ShowCreateComment" {
             if let navVC = segue.destination as? UINavigationController {
-                if let vc = navVC.viewControllers.first as? CreatePostViewController, let post = self.post {
+                if let vc = navVC.viewControllers.first as? CreatePostViewController, let postId = self.post?.id {
                     vc.delegate = self
-                    vc.postIdToCommentOn = post.id
+                    vc.createType = .comment(postIdToCommentOn: postId)
                 }
             }
         }

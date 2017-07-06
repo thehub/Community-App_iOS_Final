@@ -160,9 +160,9 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
         super.prepare(for: segue, sender: self)
         if segue.identifier == "ShowCreatePost" {
             if let navVC = segue.destination as? UINavigationController {
-                if let vc = navVC.viewControllers.first as? CreatePostViewController {
+                if let vc = navVC.viewControllers.first as? CreatePostViewController, let chatterGroupId = self.chatterGroupId {
                     vc.delegate = self
-                    vc.chatterGroupId = self.chatterGroupId
+                    vc.createType = .post(chatterGroupId: chatterGroupId)
                 }
             }
         }

@@ -200,7 +200,7 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
             if let navVC = segue.destination as? UINavigationController {
                 if let vc = navVC.viewControllers.first as? CreatePostViewController {
                     vc.delegate = self
-                    vc.jobId = self.job.id
+                    vc.createType = .applyForJob(jobId: self.job.id)
                 }
             }
         }

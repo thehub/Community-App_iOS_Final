@@ -28,30 +28,6 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
     
     var createType: CreateType = .unkown
     
-    var chatterGroupId: String? {
-        didSet {
-            if let chatterGroupId = self.chatterGroupId {
-                createType = .post(chatterGroupId: chatterGroupId)
-            }
-        }
-    }
-    
-    var postIdToCommentOn: String? {
-        didSet {
-            if let postIdToCommentOn = self.postIdToCommentOn {
-                createType = .comment(postIdToCommentOn: postIdToCommentOn)
-            }
-        }
-    }
-    
-    var jobId: String? {
-        didSet {
-            if let jobId = self.jobId {
-                createType = .applyForJob(jobId: jobId)
-            }
-        }
-    }
-    
     var inTransit = false
     var mentionCompletions = [MentionCompletion]()
     let segmentBuilder = ChatterSegmentBuilder()
@@ -83,27 +59,31 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
             break
         }
         
-        if let parentId = chatterGroupId {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = true
-            firstly {
-                APIClient.shared.getMentionCompletions()
-                }.then { items in
-                    APIClient.shared.getMentionValidations(parentId: parentId, mentionCompletions: items)
-                }.then { validItems -> Void in
-                    print(validItems)
-                    self.mentionCompletions = validItems
-                }.always {
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                }.catch { error in
-                    debugPrint(error.localizedDescription)
-            }
-
-//            APIClient.shared.getValidMentionCompletions(parentId: parentId).then { result in
-//                self.mentionCompletions = result
-//                }.catch { error in
-//                    debugPrint(error.localizedDescription)
-//            }
+        switch self.createType {
+            case .post(let chatterGroupId):
+                UIApplication.shared.isNetworkActivityIndicatorVisible = true
+                firstly {
+                    APIClient.shared.getMentionCompletions()
+                    }.then { items in
+                        APIClient.shared.getMentionValidations(parentId: chatterGroupId, mentionCompletions: items)
+                    }.then { validItems -> Void in
+                        print(validItems)
+                        self.mentionCompletions = validItems
+                    }.always {
+                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    }.catch { error in
+                        debugPrint(error.localizedDescription)
+                }
+                //            APIClient.shared.getValidMentionCompletions(parentId: parentId).then { result in
+                //                self.mentionCompletions = result
+                //                }.catch { error in
+                //                    debugPrint(error.localizedDescription)
+                //            }
+            break
+            default:
+            break
         }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
