@@ -28,7 +28,7 @@ struct Contact {
     
     var fullName: String {
         get {
-            return "\(firstName ?? "") \(lastName ?? "")"
+            return "\(firstName) \(lastName)"
         }
     }
 }

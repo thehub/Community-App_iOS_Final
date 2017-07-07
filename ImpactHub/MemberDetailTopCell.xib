@@ -38,13 +38,13 @@
                         <rect key="frame" x="0.0" y="15" width="300" height="310"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzG-7F-c8e">
-                                <rect key="frame" x="126" y="103" width="49.5" height="27"/>
+                                <rect key="frame" x="126" y="103.5" width="49.5" height="27"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="21"/>
                                 <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wWp-gi-IeX">
-                                <rect key="frame" x="125" y="137" width="50" height="18"/>
+                                <rect key="frame" x="125.5" y="137.5" width="50" height="18"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locationPin" translatesAutoresizingMaskIntoConstraints="NO" id="b6v-0m-84r">
                                         <rect key="frame" x="0.0" y="0.0" width="12" height="18"/>
@@ -58,35 +58,49 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXE-ip-ZY6">
-                                <rect key="frame" x="133.5" y="170" width="33" height="18"/>
+                                <rect key="frame" x="134" y="170.5" width="33" height="18"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="14"/>
                                 <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mkK-iw-tM8">
-                                <rect key="frame" x="103" y="203" width="94" height="43"/>
+                                <rect key="frame" x="54" y="203.5" width="192" height="43"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Facebook" translatesAutoresizingMaskIntoConstraints="NO" id="nM6-hp-BW6">
-                                        <rect key="frame" x="0.0" y="0.0" width="43" height="43"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="43" id="apL-Iz-lt6"/>
-                                            <constraint firstAttribute="width" constant="43" id="hJz-gh-Mhq"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter" translatesAutoresizingMaskIntoConstraints="NO" id="mPI-gQ-0kO">
-                                        <rect key="frame" x="51" y="0.0" width="43" height="43"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="43" id="Efb-Dq-V6k"/>
-                                            <constraint firstAttribute="width" constant="43" id="nTp-Um-ZWW"/>
-                                        </constraints>
-                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifF-8z-Vo2" customClass="Button" customModule="ImpactHub" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.5" width="42" height="42"/>
+                                        <state key="normal" image="linkedin"/>
+                                        <connections>
+                                            <action selector="onLinkedin:" destination="gTV-IL-0wX" eventType="touchUpInside" id="jMB-td-eiO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YF6-Ng-b44" customClass="Button" customModule="ImpactHub" customModuleProvider="target">
+                                        <rect key="frame" x="50" y="0.5" width="42" height="42"/>
+                                        <state key="normal" image="Twitter"/>
+                                        <connections>
+                                            <action selector="onTwitter:" destination="gTV-IL-0wX" eventType="touchUpInside" id="VYu-IW-4GM"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0C-ER-ht3" customClass="Button" customModule="ImpactHub" customModuleProvider="target">
+                                        <rect key="frame" x="100" y="0.5" width="42" height="42"/>
+                                        <state key="normal" image="instagram"/>
+                                        <connections>
+                                            <action selector="onInstagram:" destination="gTV-IL-0wX" eventType="touchUpInside" id="guJ-F7-l8r"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1d-pT-M3h" customClass="Button" customModule="ImpactHub" customModuleProvider="target">
+                                        <rect key="frame" x="150" y="0.5" width="42" height="42"/>
+                                        <state key="normal" image="Facebook"/>
+                                        <connections>
+                                            <action selector="onFacebook:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Ll0-gp-gUm"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="Ejt-d7-buS"/>
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcG-Ur-bPh">
-                                <rect key="frame" x="32" y="256" width="236" height="19.5"/>
+                                <rect key="frame" x="32" y="256.5" width="236" height="19.5"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="15"/>
                                 <color key="textColor" red="0.50588235294117645" green="0.5725490196078431" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -129,13 +143,15 @@
             <connections>
                 <outlet property="blurbLabel" destination="mcG-Ur-bPh" id="gWF-bV-Hed"/>
                 <outlet property="containerView" destination="lH2-y5-Nlr" id="5OI-TF-fuX"/>
-                <outlet property="facebookImageView" destination="nM6-hp-BW6" id="ArL-SM-tOx"/>
+                <outlet property="facebookButton" destination="d1d-pT-M3h" id="0s0-pH-dgV"/>
                 <outlet property="fadeView" destination="eQT-Wa-q2H" id="cnv-ga-MW0"/>
+                <outlet property="instagramButton" destination="g0C-ER-ht3" id="NAV-eH-6ca"/>
                 <outlet property="jobLabel" destination="XXE-ip-ZY6" id="mZr-yu-KUG"/>
+                <outlet property="linkedinButton" destination="ifF-8z-Vo2" id="ayO-Ul-7qd"/>
                 <outlet property="locationNameLabel" destination="Urb-ZX-NKY" id="JpE-yG-QO8"/>
                 <outlet property="nameLabel" destination="pzG-7F-c8e" id="0ej-Fr-sDK"/>
                 <outlet property="profileImageView" destination="s40-UQ-UEf" id="fXa-ti-Q6e"/>
-                <outlet property="twitterImageView" destination="mPI-gQ-0kO" id="tbE-2H-dzb"/>
+                <outlet property="twitterButton" destination="YF6-Ng-b44" id="naB-jb-3R5"/>
             </connections>
         </collectionViewCell>
     </objects>
@@ -143,6 +159,8 @@
         <image name="Facebook" width="42" height="42"/>
         <image name="Twitter" width="42" height="42"/>
         <image name="arrowDown" width="17" height="10"/>
+        <image name="instagram" width="41" height="42"/>
+        <image name="linkedin" width="41" height="42"/>
         <image name="locationPin" width="12" height="17"/>
         <image name="photo" width="2511" height="2415"/>
     </resources>

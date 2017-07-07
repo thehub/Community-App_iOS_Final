@@ -16,7 +16,27 @@ import SwiftyJSON
 class APIClient {
 
     
-//    select id, name, CountOfMembers__c, ImageURL__c, Directory_Grouping__c, Group_Desc__c, Directory_Style__c from Directory__c where Directory_Style__c = 'Project' and id in (select DirectoryID__c from Directory_Member__c where ContactID__c = <<currentuser's contactID>>)
+
+    // Goals
+    func getGoals() -> Promise<[Goal]> {
+        return Promise { fullfill, reject in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT Directory__c,Goal_Summary__c,Goal__c,Id,Name FROM Directory_Goal__c", fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON(result!)
+                debugPrint(jsonResult)
+                if let records = jsonResult["records"].array {
+                    let items = records.flatMap { Goal(json: $0) }
+                    fullfill(items)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
     
     
     // Projects

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class MemberDetailTopCell: UICollectionViewCell {
 
@@ -20,11 +21,20 @@ class MemberDetailTopCell: UICollectionViewCell {
     @IBOutlet weak var twitterImageView: UIImageView!
     @IBOutlet weak var fadeView: UIView!
     
+    @IBOutlet weak var facebookButton: Button!
+    @IBOutlet weak var twitterButton: Button!
+    @IBOutlet weak var linkedinButton: Button!
+    @IBOutlet weak var instagramButton: Button!
+
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
+    var vm: MemberDetailTopViewModel?
+    
     func setup(vm: MemberDetailTopViewModel) {
+        self.vm = vm
         nameLabel.text = vm.member.name
         jobLabel.text = vm.jobDescriptionLong
         if let photoUrl = vm.member.photoUrl {
@@ -32,6 +42,34 @@ class MemberDetailTopCell: UICollectionViewCell {
         }
         blurbLabel.text = vm.member.blurb
         locationNameLabel.text = vm.locationNameLong
+        
+        if vm.member.social?.facebook != nil {
+            facebookButton.isHidden = false
+        }
+        else {
+            facebookButton.isHidden = true
+        }
+        
+        if vm.member.social?.twitter != nil {
+            twitterButton.isHidden = false
+        }
+        else {
+            twitterButton.isHidden = true
+        }
+        
+        if vm.member.social?.linkedIn != nil {
+            linkedinButton.isHidden = false
+        }
+        else {
+            linkedinButton.isHidden = true
+        }
+        
+        if vm.member.social?.instagram != nil {
+            instagramButton.isHidden = false
+        }
+        else {
+            instagramButton.isHidden = true
+        }
         
     }
     
@@ -48,6 +86,32 @@ class MemberDetailTopCell: UICollectionViewCell {
         fadeView.layer.insertSublayer(gradientLayer, at: 0)
     }
 
+    @IBAction func onInstagram(_ sender: Any) {
+        if let url = vm?.member.social?.instagram {
+            let svc = SFSafariViewController(url: url)
+            UIApplication.shared.keyWindow?.rootViewController?.present(svc, animated: true, completion: nil)
+        }
+    }
     
+    @IBAction func onLinkedin(_ sender: Any) {
+        if let url = vm?.member.social?.linkedIn {
+            let svc = SFSafariViewController(url: url)
+            UIApplication.shared.keyWindow?.rootViewController?.present(svc, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func onTwitter(_ sender: Any) {
+        if let twitter = vm?.member.social?.twitter, let url = URL(string: "https://twitter.com/\(twitter)") {
+            let svc = SFSafariViewController(url: url)
+            UIApplication.shared.keyWindow?.rootViewController?.present(svc, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func onFacebook(_ sender: Any) {
+        if let url = vm?.member.social?.facebook {
+            let svc = SFSafariViewController(url: url)
+            UIApplication.shared.keyWindow?.rootViewController?.present(svc, animated: true, completion: nil)
+        }
+    }
     
 }

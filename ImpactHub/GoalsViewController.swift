@@ -20,59 +20,63 @@ class GoalsViewController: ListWithTopMenuViewController {
 
         collectionView.register(UINib.init(nibName: GoalViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: GoalViewModel.cellIdentifier)
         
-        let item1 = Goal(name: "What Important issues is the community working", blurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", photo: "goalPhoto")
-        let item2 = Goal(name: "A guide to reaching your sustainable development goals", blurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", photo: "goalPhoto")
-        let item3 = Goal(name: "What Important issues is the community working", blurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", photo: "goalPhoto")
-        let item4 = Goal(name: "A guide to reaching your sustainable development goals", blurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", photo: "goalPhoto")
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        firstly {
+            APIClient.shared.getGoals()
+            //            APIClient.shared.getCompanyService(companyId: "0019E00000Fq2JHQAZ")
+            }.then { items -> Void in
+                print(items)
+                //                let cellWidth: CGFloat = self.view.frame.width - 30
+                //                items.forEach({ (company) in
+                //                    let viewModel1 = CompanyViewModel(company: company, cellSize: CGSize(width: cellWidth, height: 200))
+                //                    self.data.append(viewModel1)
+                //                })
+                //                self.collectionView?.reloadData()
+            }.always {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }.catch { error in
+                debugPrint(error.localizedDescription)
+        }
         
-        
-        let cellWidth: CGFloat = self.view.frame.width
-        let viewModel1 = GoalViewModel(goal: item1, cellSize: CGSize(width: cellWidth, height: 370))
-        let viewModel2 = GoalViewModel(goal: item2, cellSize: CGSize(width: cellWidth, height: 370))
-        let viewModel3 = GoalViewModel(goal: item3, cellSize: CGSize(width: cellWidth, height: 370))
-        let viewModel4 = GoalViewModel(goal: item4, cellSize: CGSize(width: cellWidth, height: 370))
-        
-        self.allData.append(viewModel1)
-        self.allData.append(viewModel2)
-        self.allData.append(viewModel3)
-        self.allData.append(viewModel4)
-
-        self.allData.append(viewModel1)
-        self.allData.append(viewModel2)
-        self.allData.append(viewModel3)
-        self.allData.append(viewModel4)
-
-        self.allData.append(viewModel1)
-        self.allData.append(viewModel2)
-        self.allData.append(viewModel3)
-        self.allData.append(viewModel4)
-        
-        self.data = allData
-        
-        self.sustainableData.append(viewModel1)
-        self.sustainableData.append(viewModel2)
-
-        self.humanData.append(viewModel2)
-        self.humanData.append(viewModel1)
-
+//        let item1 = Goal(name: "What Important issues is the community working", blurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", photo: "goalPhoto")
+//        let item2 = Goal(name: "A guide to reaching your sustainable development goals", blurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", photo: "goalPhoto")
+//        let item3 = Goal(name: "What Important issues is the community working", blurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", photo: "goalPhoto")
+//        let item4 = Goal(name: "A guide to reaching your sustainable development goals", blurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", photo: "goalPhoto")
+//        
+//        
+//        let cellWidth: CGFloat = self.view.frame.width
+//        let viewModel1 = GoalViewModel(goal: item1, cellSize: CGSize(width: cellWidth, height: 370))
+//        let viewModel2 = GoalViewModel(goal: item2, cellSize: CGSize(width: cellWidth, height: 370))
+//        let viewModel3 = GoalViewModel(goal: item3, cellSize: CGSize(width: cellWidth, height: 370))
+//        let viewModel4 = GoalViewModel(goal: item4, cellSize: CGSize(width: cellWidth, height: 370))
+//        
+//        self.allData.append(viewModel1)
+//        self.allData.append(viewModel2)
+//        self.allData.append(viewModel3)
+//        self.allData.append(viewModel4)
+//
+//        self.allData.append(viewModel1)
+//        self.allData.append(viewModel2)
+//        self.allData.append(viewModel3)
+//        self.allData.append(viewModel4)
+//
+//        self.allData.append(viewModel1)
+//        self.allData.append(viewModel2)
+//        self.allData.append(viewModel3)
+//        self.allData.append(viewModel4)
+//        
+//        self.data = allData
+//        
+//        self.sustainableData.append(viewModel1)
+//        self.sustainableData.append(viewModel2)
+//
+//        self.humanData.append(viewModel2)
+//        self.humanData.append(viewModel1)
+//
         
         topMenu.setupWithItems(["ALL", "SUSTAINABLE DEVELOPMENT", "HUMAN RIGHTS"])
 
-        // Do any additional setup after loading the view.
-        
-        
-//        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-//        firstly {
-//            APIClient.shared.getJobs(skip: 0, top: 100)
-//            }.then { items -> Void in
-//                print(items)
-////                self.dataSource = items
-////                self.collectionView?.reloadData()
-//            }.always {
-//                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-//            }.catch { error in
-//                debugPrint(error.localizedDescription)
-//        }
+
     
     }
     

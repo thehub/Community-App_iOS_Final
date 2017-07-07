@@ -23,6 +23,15 @@ struct Member {
     var locationName: String = ""
     var impactHubCities: String = ""
     var skills = [Skill]()
+    var social: Social?
+    
+    struct Social {
+        var instagram: URL?
+        var twitter: String?
+        var linkedIn: URL?
+        var facebook: URL?
+    }
+
     
     struct Skill {
         var id: String
@@ -104,6 +113,22 @@ extension Member {
                 self.locationName = firstCity
             }
         }
+        
+        var instagram: URL?
+        var facebook: URL?
+        var linkedIn: URL?
+        if let tmp = json["Instagram__c"].string {
+            instagram = URL(string: tmp)
+        }
+        if let tmp = json["LinkedIn__c"].string {
+            linkedIn = URL(string: tmp)
+        }
+        if let tmp = json["Facebook__c"].string {
+            facebook = URL(string: tmp)
+        }
+        let twitter = json["Twitter__c"].string
+        self.social = Social(instagram: instagram, twitter: twitter, linkedIn: linkedIn, facebook: facebook)
+
         
         
 //        if let taxonomy = json["Taxonomy__c"].string {

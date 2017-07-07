@@ -23,7 +23,7 @@ class GoalCollectionViewCell: UICollectionViewCell {
     func setUp(vm: GoalViewModel) {
         bigImageView.image = UIImage(named: vm.goal.photo)
         nameLabel.text = vm.goal.name
-        blurbLabel.text = vm.goal.blurb
+        blurbLabel.text = vm.goal.summary
     }
     
     

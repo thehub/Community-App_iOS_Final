@@ -21,7 +21,7 @@ class GoalDetailTopCell: UICollectionViewCell {
 
     func setup(vm: GoalDetailTopViewModel) {
         nameLabel.text = vm.goal.name
-        jobLabel.text = vm.goal.blurb
+        jobLabel.text = vm.goal.summary
         profileImageView.image = UIImage(named: vm.goal.photo)
         
     }

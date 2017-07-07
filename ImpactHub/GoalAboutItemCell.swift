@@ -20,7 +20,7 @@ class GoalAboutItemCell: UICollectionViewCell {
 
     func setUp(vm: GoalAboutItemViewModel) {
         titleLabel.text = vm.goal.name
-        contentLabel.text = vm.goal.blurb
+        contentLabel.text = vm.goal.summary
     }
     
 }
