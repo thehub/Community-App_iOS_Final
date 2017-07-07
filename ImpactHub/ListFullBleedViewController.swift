@@ -42,11 +42,6 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
 
         
         
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
-            self.setNeedsStatusBarAppearanceUpdate()
-        }) { (_) in
-            
-        }
 
     }
     
@@ -70,6 +65,7 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
 
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print(scrollView.contentOffset.y)
         if scrollView.contentOffset.y > 200 && !(topMenu?.isShow ?? false) {
             topMenu?.show()
             self.tabBarController?.tabBar.isHidden = false
@@ -97,6 +93,10 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
                 
             }
         }
+        // This will happen when we go back to a previous controller that already was scrolled down a bit...
+        else if topMenu?.isShow ?? true {
+            self.navigationController?.setNavigationBarHidden(false, animated: false)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -106,34 +106,20 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
+            self.setNeedsStatusBarAppearanceUpdate()
+        }) { (_) in
+            
+        }
         
-        
-        
-        
-        //        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        //        self.navigationController?.navigationBar.shadowImage = UIImage()
-        //        self.navigationController?.navigationBar.isTranslucent = true
-        //        self.navigationController?.view.backgroundColor = UIColor.clear
-        //        self.navigationController?.navigationBar.backgroundColor = UIColor.clear
-        //
-        //
-        //
-        //        self.navigationController?.navigationBar.layer.borderColor = UIColor.clear.cgColor
-        //        self.navigationController?.navigationBar.layer.borderWidth = 0
-        //        self.navigationController?.navigationBar.layer.shadowColor = UIColor.clear.cgColor
-        //        self.navigationController?.navigationBar.layer.shadowOffset = CGSize.zero
-        //        self.navigationController?.navigationBar.layer.shadowRadius = 0
-        //        self.navigationController?.navigationBar.layer.shadowOpacity = 0
-        //        self.navigationController?.navigationBar.layer.masksToBounds = true
-        
-        
-        
+        self.scrollViewDidScroll(self.collectionView)
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        //        self.navigationController?.navigationBar.shadowImage = nil
         
     }
 
