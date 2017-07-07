@@ -50,7 +50,6 @@ class MembersViewController: ListWithSearchViewController {
                 }, completion: { (_) in
                     
                 })
-
             }.catch { error in
                 debugPrint(error.localizedDescription)
         }

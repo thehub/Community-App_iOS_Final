@@ -22,7 +22,7 @@ class GoalDetailTopCell: UICollectionViewCell {
     func setup(vm: GoalDetailTopViewModel) {
         nameLabel.text = vm.goal.name
         jobLabel.text = vm.goal.summary
-        profileImageView.image = UIImage(named: vm.goal.photo)
+        profileImageView.image = UIImage(named: vm.goal.photo)  // TODO: Once in salesforce
         
     }
     

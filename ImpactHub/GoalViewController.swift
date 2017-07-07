@@ -11,9 +11,11 @@ import PromiseKit
 
 class GoalViewController: ListFullBleedViewController {
 
-    var goal: Goal!
-    
-    var member = Member(id: "sdfds", userId: "sdfsdf", firstName: "Test", lastName: "Test", job: "Test", photo: "photo", blurb: "Lorem ipusm", aboutMe: "Lorem ipsum", locationName: "London, UK")
+    var goal: Goal?
+
+    var groups = [Group]()
+    var members = [Member]()
+
     
     var aboutData = [CellRepresentable]()
     var groupsData = [CellRepresentable]()
@@ -22,7 +24,7 @@ class GoalViewController: ListFullBleedViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = goal.name
+        self.title = goal?.name
         
         collectionView.register(UINib.init(nibName: GoalDetailTopViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: GoalDetailTopViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: GoalAboutItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: GoalAboutItemViewModel.cellIdentifier)
@@ -33,56 +35,66 @@ class GoalViewController: ListFullBleedViewController {
 
         
         topMenu?.setupWithItems(["ABOUT", "GROUPS", "MEMBERS"])
+        
+        guard let goal = self.goal else {
+            return
+        }
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        firstly {
+            APIClient.shared.getGroups(goalId: goal.id)
+            }.then { groups -> Void in
+                self.groups = groups
+//            }.then {
+//                APIClient.shared.getMembers(goalId: goal.id)
+//            }.then { members -> Void in
+//                self.members = members
+            }.always {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.build()
+                self.collectionView?.reloadData()
+                self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
+                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+                    self.collectionView?.alpha = 1
+                    super.connectButton?.alpha = 1
+                }, completion: { (_) in
+                    
+                })
+            }.catch { error in
+                debugPrint(error.localizedDescription)
+        }
+    }
+    
+    func build() {
+        guard let goal = self.goal else {
+            return
+        }
+        
 
         // Feed
         aboutData.append(GoalDetailTopViewModel(goal: goal, cellSize: .zero)) // this will pick the full height instead
         aboutData.append(GoalAboutItemViewModel(goal: goal, cellSize: CGSize(width: view.frame.width, height: 0)))
         self.data = aboutData
-
-
+        
+        
         // Groups
         groupsData.append(GoalDetailTopViewModel(goal: goal, cellSize: .zero)) // this will pick the full height instead
-        
-        let group1 = Group(id: "aasdsa", name: "A guide to reaching your sustainable development goals", image: "groupPhoto", description: "A guide to reaching your sustainable development goals", memberCount: 400, locationName: "London, UK")
-        let group2 = Group(id: "aasdsa", name: "Zero to one: new startups and Innovative Ideas", image: "groupPhoto", description: "Zero to one: new startups and Innovative Ideas", memberCount: 160, locationName: "Amsterdam, NL")
         groupsData.append(TitleViewModel(title: "", cellSize: CGSize(width: view.frame.width, height: 40)))
-        groupsData.append(GroupViewModel(group: group1, cellSize: CGSize(width: view.frame.width, height: 165)))
-        groupsData.append(GroupViewModel(group: group2, cellSize: CGSize(width: view.frame.width, height: 165)))
-        groupsData.append(GroupViewModel(group: group1, cellSize: CGSize(width: view.frame.width, height: 165)))
-        groupsData.append(GroupViewModel(group: group2, cellSize: CGSize(width: view.frame.width, height: 165)))
-        groupsData.append(GroupViewModel(group: group1, cellSize: CGSize(width: view.frame.width, height: 165)))
+        groups.forEach { (group) in
+            groupsData.append(GroupViewModel(group: group, cellSize: CGSize(width: view.frame.width, height: 165)))
+        }
 
-
-        
         // Members
         membersData.append(GoalDetailTopViewModel(goal: goal, cellSize: .zero)) // this will pick the full height instead
         membersData.append(TitleViewModel(title: "", cellSize: CGSize(width: view.frame.width, height: 40)))
+        // todo
+//        members.forEach { (member) in
+//            membersData.append(MemberViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 105)))
+//        }
 
-        
-        let item1 = Member(id: "sdfds", userId: "sdfsdf", firstName: "Niklas", lastName: "Test", job: "Developer", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", aboutMe: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam. Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam. Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
-        let item2 = Member(id: "sdfds", userId: "sdfsdf", firstName: "Neela", lastName: "Test", job: "Salesforce", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", aboutMe: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
-        let item3 = Member(id: "sdfds", userId: "asdsad", firstName: "Russell", lastName: "Test", job: "Salesforce", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", aboutMe: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
-        let item4 = Member(id: "sdfds", userId: "sdfsdf", firstName: "Rob", lastName: "Test", job: "UX", photo: "photo", blurb: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", aboutMe: "Lorem ipsum dolor sit amet, habitasse a suspendisse et, nec suscipit imperdiet sed, libero mollis felis egestas vivamus velit, felis velit interdum phasellus luctus, nulla molestie felis ligula diam.", locationName: "London")
-        
-        
-        let cellWidth: CGFloat = self.view.frame.width
-        let viewModel1 = MemberViewModel(member: item1, cellSize: CGSize(width: cellWidth, height: 105))
-        let viewModel2 = MemberViewModel(member: item2, cellSize: CGSize(width: cellWidth, height: 105))
-        let viewModel3 = MemberViewModel(member: item3, cellSize: CGSize(width: cellWidth, height: 105))
-        let viewModel4 = MemberViewModel(member: item4, cellSize: CGSize(width: cellWidth, height: 105))
-        
-        membersData.append(viewModel1)
-        membersData.append(viewModel2)
-        membersData.append(viewModel3)
-        membersData.append(viewModel4)
-
-        membersData.append(viewModel1)
-        membersData.append(viewModel2)
-        membersData.append(viewModel3)
-        membersData.append(viewModel4)
         
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         

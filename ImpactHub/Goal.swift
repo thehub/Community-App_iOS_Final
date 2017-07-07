@@ -14,7 +14,7 @@ struct Goal {
     var id: String
     var name: String
     var summary: String
-    var photo: String = ""
+    var photo: String = "goalPhoto" // TODO
     
 }
 
@@ -22,7 +22,7 @@ extension Goal {
     init?(json: JSON) {
         guard
             let id = json["Id"].string,
-            let name = json["Name"].string,
+            let name = json["Goal__c"].string,
             let summary = json["Goal_Summary__c"].string
             else {
                 return nil

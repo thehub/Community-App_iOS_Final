@@ -37,6 +37,44 @@ class APIClient {
         }
     }
     
+    func getGroups(goalId: String) -> Promise<[Group]> {
+        return Promise { fullfill, reject in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT Directory_Style__c,Directory_Type__c FROM Directory__c WHERE Directory_Style__c = 'Group' and id in (SELECT Directory__c FROM Directory_Goal__c where id ='\(goalId)')", fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON(result!)
+                print(jsonResult)
+                if let records = jsonResult["records"].array {
+                    let items = records.flatMap { Group(json: $0) }
+                    fullfill(items)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
+    func getMembers(goalId: String) -> Promise<[Member]> {
+        return Promise { fullfill, reject in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT id, firstname,lastname, ProfilePic__c, Profession__c, Impact_Hub_Cities__c, User__c, About_Me__c FROM Contact where id in (SELECT ContactID__c FROM Directory_Member__c where DirectoryID__c in (SELECT Directory__c FROM Directory_Goal__c where id ='\(goalId)')", fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON(result!)
+                debugPrint(jsonResult)
+                if let records = jsonResult["records"].array {
+                    let items = records.flatMap { Member(json: $0) }
+                    fullfill(items)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
     
     
     // Projects

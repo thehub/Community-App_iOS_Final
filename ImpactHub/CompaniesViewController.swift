@@ -23,9 +23,9 @@ class CompaniesViewController: ListWithSearchViewController {
         collectionView.register(UINib.init(nibName: "CompanyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CompanyCell")
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        self.collectionView?.alpha = 0
         firstly {
             APIClient.shared.getCompanies()
-//            APIClient.shared.getCompanyService(companyId: "0019E00000Fq2JHQAZ")
             }.then { items -> Void in
                 print(items)
                 let cellWidth: CGFloat = self.view.frame.width - 30
@@ -36,6 +36,15 @@ class CompaniesViewController: ListWithSearchViewController {
                 self.collectionView?.reloadData()
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.collectionView?.alpha = 0
+                self.collectionView?.reloadData()
+                self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
+                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+                    self.collectionView?.alpha = 1
+                }, completion: { (_) in
+                    
+                })
             }.catch { error in
                 debugPrint(error.localizedDescription)
         }
