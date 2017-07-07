@@ -39,10 +39,19 @@ class MemberFeedItemCell: UICollectionViewCell {
     @IBOutlet weak var commentImageView: UIImageView!
     @IBOutlet weak var commentCountLabel: UILabel!
 
+    @available(iOS 10.0, *)
+    var generatorNotification: UINotificationFeedbackGenerator {
+        return UINotificationFeedbackGenerator()
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         profileImageView.layer.cornerRadius = profileImageView.frame.width/2
         profileImageView.clipsToBounds = true
+        
+        if #available(iOS 10.0, *) {
+            generatorNotification.prepare()
+        }
     }
     
     var inTransit = false
@@ -65,12 +74,18 @@ class MemberFeedItemCell: UICollectionViewCell {
                     if post.likes > 0 {
                         self.vm?.post.likes = post.likes - 1
                     }
+                    if #available(iOS 10.0, *) {
+                        self.generatorNotification.notificationOccurred(.success)
+                    }
                     self.updateLikes()
                 }.always {
                     self.inTransit = false
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }.catch { error in
                     debugPrint(error.localizedDescription)
+                    if #available(iOS 10.0, *) {
+                        self.generatorNotification.notificationOccurred(.error)
+                    }
                     let alert = UIAlertController(title: "Error", message: "Could not unlike post. Please try again.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                     UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
@@ -85,12 +100,18 @@ class MemberFeedItemCell: UICollectionViewCell {
                     self.vm?.post.isLikedByCurrentUser = true
                     self.vm?.post.likes = post.likes + 1
                     self.vm?.post.myLikeId = myLikeId
+                    if #available(iOS 10.0, *) {
+                        self.generatorNotification.notificationOccurred(.success)
+                    }
                     self.updateLikes()
                 }.always {
                     self.inTransit = false
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }.catch { error in
                     debugPrint(error.localizedDescription)
+                    if #available(iOS 10.0, *) {
+                        self.generatorNotification.notificationOccurred(.error)
+                    }
                     let alert = UIAlertController(title: "Error", message: "Could not like post. Please try again.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                     UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)

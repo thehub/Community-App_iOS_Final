@@ -34,15 +34,38 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var textView: UITextView!
     
+    @available(iOS 10.0, *)
+    var generatorNotification: UINotificationFeedbackGenerator {
+        return UINotificationFeedbackGenerator()
+    }
+    
+    @available(iOS 10.0, *)
+    var generatorFeedback: UISelectionFeedbackGenerator {
+        return UISelectionFeedbackGenerator()
+    }
+    
+    @available(iOS 10.0, *)
+    var generatorImpact: UIImpactFeedbackGenerator {
+        return UIImpactFeedbackGenerator(style: .medium)
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 10.0, *) {
+            self.generatorImpact.impactOccurred()
+        }
 
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-
+        if #available(iOS 10.0, *) {
+            generatorNotification.prepare()
+            generatorFeedback.prepare()
+            generatorImpact.prepare()
+        }
         
         switch createType {
         case .post:
@@ -89,8 +112,6 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.textView.becomeFirstResponder()
-        
-
     }
     
     @IBAction func onClose(_ sender: Any) {
@@ -165,6 +186,9 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
                     firstly {
                         APIClient.shared.postComment(newsID: postIdToCommentOn, message: text)
                         }.then { comment -> Void in
+                            if #available(iOS 10.0, *) {
+                                self.generatorNotification.notificationOccurred(.success)
+                            }
                             self.delegate?.didCreateComment(comment: comment)
                             self.onClose(self)
                         }.always {
@@ -172,6 +196,9 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
                             UIApplication.shared.isNetworkActivityIndicatorVisible = false
                         }.catch { error in
                             debugPrint(error.localizedDescription)
+                            if #available(iOS 10.0, *) {
+                                self.generatorNotification.notificationOccurred(.error)
+                            }
                             let alert = UIAlertController(title: "Error", message: "Could not add comment. Please try again.", preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                             self.present(alert, animated: true, completion: nil)
@@ -181,6 +208,9 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
                     firstly {
                         APIClient.shared.postToGroup(groupID: chatterGroupId, messageSegments: segments, fileId: nil)
                         }.then { post -> Void in
+                            if #available(iOS 10.0, *) {
+                                self.generatorNotification.notificationOccurred(.success)
+                            }
                             self.delegate?.didCreatePost(post: post)
                             self.onClose(self)
                         }.always {
@@ -188,6 +218,9 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
                             UIApplication.shared.isNetworkActivityIndicatorVisible = false
                         }.catch { error in
                             debugPrint(error.localizedDescription)
+                            if #available(iOS 10.0, *) {
+                                self.generatorNotification.notificationOccurred(.error)
+                            }
                             let alert = UIAlertController(title: "Error", message: "Could not create post. Please try again.", preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                             self.present(alert, animated: true, completion: nil)

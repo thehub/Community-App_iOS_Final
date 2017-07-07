@@ -17,6 +17,20 @@ class FilterDetailViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @available(iOS 10.0, *)
+    var generatorNotification: UINotificationFeedbackGenerator {
+        return UINotificationFeedbackGenerator()
+    }
+    
+    @available(iOS 10.0, *)
+    var generatorFeedback: UISelectionFeedbackGenerator {
+        return UISelectionFeedbackGenerator()
+    }
+    
+    @available(iOS 10.0, *)
+    var generatorImpact: UIImpactFeedbackGenerator {
+        return UIImpactFeedbackGenerator(style: .medium)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +43,12 @@ class FilterDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if #available(iOS 10.0, *) {
+            generatorNotification.prepare()
+            generatorFeedback.prepare()
+            generatorImpact.prepare()
+        }
         if let first = data.first as? FilterViewModel {
             title = first.filter.grouping.displayName
         }
@@ -68,11 +88,19 @@ class FilterDetailViewController: UIViewController {
     
     
     @IBAction func onDoneTap(_ sender: Any) {
+        if #available(iOS 10.0, *) {
+            self.generatorNotification.notificationOccurred(.success)
+        }
         self.presentingViewController?.dismiss(animated: true, completion: {
         })
     }
     
     @IBAction func onClearAll(_ sender: Any) {
+        
+        if #available(iOS 10.0, *) {
+            self.generatorNotification.notificationOccurred(.success)
+        }
+
         let selectedItems = collectionView.indexPathsForSelectedItems
         
         selectedItems?.forEach({ (indexPath) in
@@ -93,11 +121,17 @@ class FilterDetailViewController: UIViewController {
 
 extension FilterDetailViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if #available(iOS 10.0, *) {
+            self.generatorFeedback.selectionChanged()
+        }
         let filter = (data[indexPath.item] as! FilterViewModel).filter
         FilterManager.shared.addFilter(filter: filter)
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if #available(iOS 10.0, *) {
+            self.generatorFeedback.selectionChanged()
+        }
         let filter = (data[indexPath.item] as! FilterViewModel).filter
         FilterManager.shared.removeFilter(filter: filter)
     }

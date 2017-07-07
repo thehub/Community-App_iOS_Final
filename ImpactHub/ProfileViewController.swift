@@ -8,15 +8,24 @@
 
 import UIKit
 import SalesforceSDKCore
+import Kingfisher
 
 class ProfileViewController: UIViewController {
     @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var profileImageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
         userName.text = SessionManager.shared.me?.fullName
+        
+        
+        if let photoUrl = SessionManager.shared.me?.profilePicUrl {
+            profileImageView.kf.setImage(with: photoUrl)
+        }
+        
+        
         // Do any additional setup after loading the view.
     }
 

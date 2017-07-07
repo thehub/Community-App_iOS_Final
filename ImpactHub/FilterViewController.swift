@@ -20,6 +20,17 @@ class FilterViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
 
+    @available(iOS 10.0, *)
+    var generatorImpact: UIImpactFeedbackGenerator {
+        return UIImpactFeedbackGenerator(style: .medium)
+    }
+
+    @available(iOS 10.0, *)
+    var generatorNotification: UINotificationFeedbackGenerator {
+        return UINotificationFeedbackGenerator()
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -75,6 +86,13 @@ class FilterViewController: UIViewController {
             }
             break
         }
+        
+        if #available(iOS 10.0, *) {
+            generatorImpact.prepare()
+            generatorNotification.prepare()
+            self.generatorImpact.impactOccurred()
+        }
+
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -83,6 +101,7 @@ class FilterViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         
         update()
     }
@@ -114,11 +133,17 @@ class FilterViewController: UIViewController {
     
 
     @IBAction func onDoneTap(_ sender: Any) {
+        if #available(iOS 10.0, *) {
+            self.generatorNotification.notificationOccurred(.success)
+        }
         self.presentingViewController?.dismiss(animated: true, completion: {
         })
     }
     
     @IBAction func onClearAll(_ sender: Any) {
+        if #available(iOS 10.0, *) {
+            self.generatorNotification.notificationOccurred(.success)
+        }
         FilterManager.shared.clearAll()
         update()
     }

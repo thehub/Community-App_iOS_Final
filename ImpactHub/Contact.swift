@@ -78,8 +78,8 @@ extension Contact {
 extension Contact {
     var profilePicUrl: URL? {
         if let token = SFUserAccountManager.sharedInstance().currentUser?.credentials.accessToken,
-            let profilePic = self.profilePic,
-            let url = URL(string: "\(profilePic)?oauth_token=\(token)") {
+            let photo = self.profilePic,
+            let url = URL(string: "\(Constants.host)\(photo)?oauth_token=\(token)") {
             return url
         }
         return nil

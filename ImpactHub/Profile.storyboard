@@ -28,7 +28,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1i2-Ns-N3f">
-                                <rect key="frame" x="169.5" y="98" width="36" height="19"/>
+                                <rect key="frame" x="169.5" y="174" width="36" height="19"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim" family="GT Walsheim" pointSize="15"/>
                                 <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -46,14 +46,28 @@
                                     <action selector="logoutTapped:" destination="8Tt-zS-dln" eventType="touchUpInside" id="wSn-Ti-cHy"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EiP-9t-Ccq">
+                                <rect key="frame" x="152" y="84" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="7O9-Ke-7Xl"/>
+                                    <constraint firstAttribute="height" constant="70" id="GYb-FF-T4f"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="35"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="DCS-cR-LOz" secondAttribute="trailing" constant="30" id="0W7-U3-CRK"/>
+                            <constraint firstItem="EiP-9t-Ccq" firstAttribute="centerX" secondItem="nFn-zp-JV1" secondAttribute="centerX" id="FsG-ua-RJX"/>
                             <constraint firstItem="DCS-cR-LOz" firstAttribute="leading" secondItem="nFn-zp-JV1" secondAttribute="leadingMargin" constant="30" id="Ifu-5A-ypt"/>
                             <constraint firstItem="DCS-cR-LOz" firstAttribute="centerX" secondItem="nFn-zp-JV1" secondAttribute="centerX" id="WvH-P9-CfL"/>
+                            <constraint firstItem="EiP-9t-Ccq" firstAttribute="top" secondItem="64p-8H-9aa" secondAttribute="bottom" constant="20" id="jo0-17-EuI"/>
+                            <constraint firstItem="1i2-Ns-N3f" firstAttribute="top" secondItem="EiP-9t-Ccq" secondAttribute="bottom" constant="20" id="lz2-pN-wY2"/>
                             <constraint firstItem="jrx-YE-1tM" firstAttribute="top" secondItem="DCS-cR-LOz" secondAttribute="bottom" constant="33" id="vPE-Gt-xkm"/>
-                            <constraint firstItem="1i2-Ns-N3f" firstAttribute="top" secondItem="64p-8H-9aa" secondAttribute="bottom" constant="34" id="vd4-2H-s02"/>
                             <constraint firstItem="1i2-Ns-N3f" firstAttribute="centerX" secondItem="nFn-zp-JV1" secondAttribute="centerX" id="xqa-28-6rN"/>
                         </constraints>
                     </view>
@@ -61,6 +75,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="kgB-6i-isd"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="profileImageView" destination="EiP-9t-Ccq" id="1HZ-Z0-lFn"/>
                         <outlet property="userName" destination="1i2-Ns-N3f" id="qPJ-y6-8tH"/>
                     </connections>
                 </viewController>
@@ -77,7 +92,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="poE-gB-nNA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="poE-gB-nNA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

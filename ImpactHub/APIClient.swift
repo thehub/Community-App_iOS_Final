@@ -67,7 +67,7 @@ class APIClient {
     
     func getMembers(projectId: String) -> Promise<[Member]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT id, firstname,lastname, ProfilePic__c, accountid,Profession__c, Impact_Hub_Cities__c, User__c, About_Me__c FROM Contact WHERE id in (SELECT contactID__c FROM Directory_Member__c where DirectoryID__c='\(projectId)')", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT id, firstname,lastname, ProfilePic__c, accountid,Profession__c, Impact_Hub_Cities__c, User__c, About_Me__c,Twitter__c,Instagram__c,Facebook__c,Linked_In__c FROM Contact WHERE id in (SELECT contactID__c FROM Directory_Member__c where DirectoryID__c='\(projectId)')", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -128,7 +128,7 @@ class APIClient {
     func getCompanies() -> Promise<[Company]> {
         return Promise { fullfill, reject in
             
-            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT id, name, Number_of_Employees__c, Impact_Hub_Cities__c, Sector_Industry__c, Logo_Image_Url__c, Banner_Image_Url__c, Twitter__c, Instagram__c, Facebook__c, LinkedIn__c , Website, About_Us__c from account where id in (select accountid from contact where user__c != null)", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT id, name, Number_of_Employees__c, Impact_Hub_Cities__c, Sector_Industry__c, Logo_Image_Url__c, Banner_Image_Url__c, Twitter__c, Instagram__c, Facebook__c, LinkedIn__c, Website, About_Us__c from account where id in (select accountid from contact where user__c != null)", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -191,7 +191,7 @@ class APIClient {
     
     func getMembers(companyId: String) -> Promise<[Member]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT id, firstname,lastname, ProfilePic__c, accountid,Profession__c, Impact_Hub_Cities__c, User__c, About_Me__c FROM Contact WHERE User__c != NULL and accountid='\(companyId)'", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT id, firstname,lastname, ProfilePic__c, accountid,Profession__c, Impact_Hub_Cities__c, User__c, About_Me__c,Twitter__c,Instagram__c,Facebook__c,Linked_In__c FROM Contact WHERE User__c != NULL and accountid='\(companyId)'", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -233,7 +233,7 @@ class APIClient {
     // Members
     func getMembers() -> Promise<[Member]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT id,firstname,lastname,ProfilePic__c, Profession__c,Impact_Hub_Cities__c,User__c,About_Me__c FROM Contact where User__c != null", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT id,firstname,lastname,ProfilePic__c, Profession__c,Impact_Hub_Cities__c,User__c,About_Me__c,Twitter__c,Instagram__c,Facebook__c,Linked_In__c FROM Contact where User__c != null", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
