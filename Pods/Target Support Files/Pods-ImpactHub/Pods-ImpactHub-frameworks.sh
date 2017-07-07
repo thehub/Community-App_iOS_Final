@@ -99,7 +99,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/SalesforceAnalytics/SalesforceAnalytics.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SalesforceSDKCore/SalesforceSDKCore.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SimpleKeychain/SimpleKeychain.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SlackTextViewController/SlackTextViewController.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -113,7 +112,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/SalesforceAnalytics/SalesforceAnalytics.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SalesforceSDKCore/SalesforceSDKCore.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SimpleKeychain/SimpleKeychain.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SlackTextViewController/SlackTextViewController.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON/SwiftyJSON.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

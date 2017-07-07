@@ -7,10 +7,8 @@ target 'ImpactHub' do
     source 'https://github.com/CocoaPods/Specs.git'
     
     use_frameworks!
-    pod 'SalesforceAnalytics'
     pod 'SalesforceSDKCore'
     pod 'Kingfisher'
-    pod 'SlackTextViewController'
     pod 'PromiseKit'
     pod 'SwiftyJSON'
     pod 'DeckTransition'

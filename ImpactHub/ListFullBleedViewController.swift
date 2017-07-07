@@ -65,7 +65,6 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
 
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(scrollView.contentOffset.y)
         if scrollView.contentOffset.y > 200 && !(topMenu?.isShow ?? false) {
             topMenu?.show()
             self.tabBarController?.tabBar.isHidden = false

@@ -10,7 +10,7 @@ PODS:
   - CocoaLumberjack/Extensions (2.4.0):
     - CocoaLumberjack/Default
   - DeckTransition (0.3.0)
-  - Kingfisher (3.10.2)
+  - Kingfisher (3.10.3)
   - Lock (2.3.0):
     - Auth0 (~> 1.6)
     - Lock/Classic (= 2.3.0)
@@ -52,7 +52,6 @@ PODS:
     - SalesforceAnalytics
     - SalesforceSDKCore/SalesforceSDKCore/base
   - SimpleKeychain (0.8.0)
-  - SlackTextViewController (1.9.5)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
@@ -62,26 +61,23 @@ DEPENDENCIES:
   - Lock (~> 2.0)
   - PromiseKit
   - ReverseExtension
-  - SalesforceAnalytics
   - SalesforceSDKCore
   - SimpleKeychain
-  - SlackTextViewController
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Auth0: 088b12e4551725f4e92a25349f1db597b7cd71c1
   CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
   DeckTransition: 00ccc14e8a2347725241512d8b66ee5f0ae48116
-  Kingfisher: 7297492bf8cec9b2e2dee3519f2219948580d98e
+  Kingfisher: a0ac82dc5bcf0388dd74b294cf2cc13730c63436
   Lock: ec2db377459348063814326ad75b8148919ca317
   PromiseKit: 00e8886881f151c7e573d06b437915b0bb2970ec
   ReverseExtension: 78dcc8414c4efb6115d787694649d9f4f020324a
   SalesforceAnalytics: 30a23e143fc10859f6ced7c66814506568708a73
   SalesforceSDKCore: 1e0d81215e10b89b742f267a6a8f0d4774a58cb6
   SimpleKeychain: 84c748463eec601dfee5e7990f55cc82edc5488d
-  SlackTextViewController: fbcdadbb8090673f604484ff5b6eb8d77baed42a
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 9768467f72f843bd600c3a9c9fec934db3ced043
+PODFILE CHECKSUM: 41b2dd4c78eab73641a9f8c1f08dd0de4a39ce07
 
 COCOAPODS: 1.2.1
