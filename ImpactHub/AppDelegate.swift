@@ -146,8 +146,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func handleSdkManagerLogout() {
         self.log(.debug, msg: "SFAuthenticationManager logged out.  Resetting app.")
-        SalesforceSDKManager.shared().launch()
-        _ = self.window?.rootViewController?.navigationController?.popToRootViewController(animated: false)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+            SalesforceSDKManager.shared().launch()
+        }
+        
+
         
         //        exit(0)
         //        self.resetViewState { () -> () in

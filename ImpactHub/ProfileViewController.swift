@@ -35,7 +35,15 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func logoutTapped(_ sender: Any) {
-        SFAuthenticationManager.shared().logoutAllUsers()
+        if let vc = UIApplication.shared.windows.first?.rootViewController as? UINavigationController {
+            vc.popToRootViewController(animated: true)
+            vc.dismiss(animated: true, completion: {
+            })
+            SFAuthenticationManager.shared().logoutAllUsers()
+        }
+
+        
+        
     }
 
     /*

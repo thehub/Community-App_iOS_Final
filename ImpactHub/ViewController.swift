@@ -39,6 +39,7 @@ class ViewController: UIViewController {
         }
     }
     
+    var retries = 1
     
     func loadMe() {
         if let currentUser = SFUserAccountManager.sharedInstance().currentUser, currentUser.isSessionValid {
@@ -53,11 +54,17 @@ class ViewController: UIViewController {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }.catch { error in
                     debugPrint(error.localizedDescription)
-                    let alert = UIAlertController(title: "Error", message: "Could not log in. Please try again.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
-                        self.loadMe()
-                    }))
-                    self.present(alert, animated: true, completion: nil)
+                    if self.retries > 0 {
+                        self.retries -= 1
+                        let alert = UIAlertController(title: "Error", message: "Could not log in. Please try again.", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+                            self.loadMe()
+                        }))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    else {
+                        SFAuthenticationManager.shared().logoutAllUsers()
+                    }
             }
         }
     }
