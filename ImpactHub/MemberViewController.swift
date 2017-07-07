@@ -56,9 +56,9 @@ class MemberViewController: ListFullBleedViewController {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.build()
                 self.collectionView?.reloadData()
-                self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
+//                self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
                 UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
-                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+//                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
                     self.collectionView?.alpha = 1
                     super.connectButton?.alpha = 1
                 }, completion: { (_) in
@@ -129,13 +129,15 @@ class MemberViewController: ListFullBleedViewController {
 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let vm = data[indexPath.item] as? ProjectViewModel {
-            self.selectProject = vm.project
-            self.performSegue(withIdentifier: "ShowProject", sender: self)
-        }
-        if let vm = data[indexPath.item] as? GroupViewModel {
-            self.selectGroup = vm.group
-            self.performSegue(withIdentifier: "ShowGroup", sender: self)
+        DispatchQueue.main.async {
+            if let vm = self.data[indexPath.item] as? ProjectViewModel {
+                self.selectProject = vm.project
+                self.performSegue(withIdentifier: "ShowProject", sender: self)
+            }
+            if let vm = self.data[indexPath.item] as? GroupViewModel {
+                self.selectGroup = vm.group
+                self.performSegue(withIdentifier: "ShowGroup", sender: self)
+            }
         }
     }
     

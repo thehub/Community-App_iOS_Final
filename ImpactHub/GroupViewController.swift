@@ -46,6 +46,13 @@ class GroupViewController: ListFullBleedViewController {
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.collectionView?.reloadData()
+                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                    //                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+                    self.collectionView?.alpha = 1
+                    super.connectButton?.alpha = 1
+                }, completion: { (_) in
+                    
+                })
             }.catch { error in
                 debugPrint(error.localizedDescription)
         }
