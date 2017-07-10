@@ -20,6 +20,9 @@ class FilterManager {
     
     var currenttlySelectingFor: Source = .members
     
+    var filterData: [[CellRepresentable]]?
+    var dataViewModel: [CellRepresentable]?
+
     
     var membersFilters = [Filter]()
     var companiesFilters = [Filter]()
