@@ -48,6 +48,13 @@ class GroupViewController: ListFullBleedViewController {
         }
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if needsToUpdateCommentCount {
+            self.collectionView.reloadData()
+        }
+    }
 
     
     
@@ -82,7 +89,7 @@ class GroupViewController: ListFullBleedViewController {
     }
 
     
-    
+    var needsToUpdateCommentCount = false
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -99,8 +106,22 @@ class GroupViewController: ListFullBleedViewController {
     
     override func didCreateComment(comment: Comment) {
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowComments" {
+            if let vc = segue.destination as? CommentsViewController {
+                vc.post = self.postToShowCommentsFor
+                vc.commentsViewControllerDelegate = self
+            }
+        }
+    }
 }
 
+extension GroupViewController: CommentsViewControllerDelegate {
+    func setNeedsToUpdateCommentCount() {
+        self.needsToUpdateCommentCount = true
+    }
+}
 
 extension GroupViewController: MemberFeedItemDelegate {
     func memberFeedWantToShowComments(post: Post) {

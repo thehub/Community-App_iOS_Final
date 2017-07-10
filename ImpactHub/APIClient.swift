@@ -304,7 +304,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Member(json: $0) }
                     print(items.count)
@@ -682,10 +682,10 @@ class APIClient {
         }
     }
     
-    func likePost(post: Post) -> Promise<String> {
+    func likeFeedItem(feedId: String) -> Promise<String> {
         return Promise { fullfill, reject in
 
-            let request = SFRestRequest(method: .POST, path: "/services/data/v40.0/connect/communities/\(Constants.communityId)/chatter/feed-elements/\(post.id!)/capabilities/chatter-likes/items?include=/id", queryParams: nil)
+            let request = SFRestRequest(method: .POST, path: "/services/data/v40.0/connect/communities/\(Constants.communityId)/chatter/feed-elements/\(feedId)/capabilities/chatter-likes/items?include=/id", queryParams: nil)
             SFRestAPI.sharedInstance().send(request, fail: { (error) in
                 print(error?.localizedDescription as Any)
                 reject(MyError.JSONError)
@@ -707,24 +707,16 @@ class APIClient {
         }
     }
     
-    func unlikePost(post: Post) -> Promise<String> {
+    func unlikeFeedItem(myLikeId: String) -> Promise<String> {
         return Promise { fullfill, reject in
-            
-            if let myLikeId = post.myLikeId {
-                let request = SFRestRequest(method: .DELETE, path: "/services/data/v40.0/connect/communities/\(Constants.communityId)/chatter/likes/\(myLikeId)", queryParams: nil)
-                SFRestAPI.sharedInstance().send(request, fail: { (error) in
-                    print(error?.localizedDescription as Any)
-                    reject(MyError.JSONError)
-                }) { (result) in
-                    debugPrint(result)
-                    fullfill("ok")
-                }
+            let request = SFRestRequest(method: .DELETE, path: "/services/data/v40.0/connect/communities/\(Constants.communityId)/chatter/likes/\(myLikeId)", queryParams: nil)
+            SFRestAPI.sharedInstance().send(request, fail: { (error) in
+                print(error?.localizedDescription as Any)
+                reject(MyError.JSONError)
+            }) { (result) in
+                debugPrint(result)
+                fullfill("ok")
             }
-            else {
-                print("ERROR: No myLikeId")
-                reject(MyError.Error("No myLikeId"))
-            }
-
         }
     }
     

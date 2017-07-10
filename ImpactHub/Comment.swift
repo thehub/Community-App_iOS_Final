@@ -9,19 +9,27 @@
 import Foundation
 import SwiftyJSON
 
-struct Comment {
+class Comment {
     
     var body: String
     var groupID: String
     var date: Date
     var user: User?
-    var id: String?
-    var likes: Int = 0 // todo:
-}
+    var id: String
+    var likes: Int = 0
+    // This is not coming out from chatter api on a comment so use myLikeId
+    var isLikedByCurrentUser: Bool {
+        if myLikeId != nil {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    var myLikeId: String?
 
-extension Comment {
     init?(json: JSON) {
-//        print(json)
+        print(json)
         guard
             let postedTimeString = json["createdDate"].string,
             let postedTime = postedTimeString.dateFromISOString(),
@@ -41,9 +49,17 @@ extension Comment {
             return nil
         }
         
-        self.likes = json["likes"]["total"].int ?? 0 
+        self.likes = json["likes"]["total"].int ?? 0
+        
+        // myLike
+        self.myLikeId = json["capabilities"]["chatterLikes"]["myLike"]["id"].string
+        
         
         self.groupID = ""
     }
+}
+
+extension Comment {
+
 
 }

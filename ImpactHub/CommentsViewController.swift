@@ -9,6 +9,11 @@
 import UIKit
 import PromiseKit
 
+
+protocol CommentsViewControllerDelegate: class {
+    func setNeedsToUpdateCommentCount()
+}
+
 class CommentsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -16,6 +21,8 @@ class CommentsViewController: UIViewController, UICollectionViewDelegate, UIColl
     var post: Post?
     
     var data = [CellRepresentable]()
+    
+    weak var commentsViewControllerDelegate: CommentsViewControllerDelegate?
     
     var member = Member(id: "sdfds", userId: "sdfsdf", firstName: "Niklas", lastName: "Test", job: "Test", photo: "photo", blurb: "Lorem ipusm", aboutMe: "Lorem ipsum", locationName: "London, UK")
     
@@ -124,6 +131,8 @@ extension CommentsViewController: CreatePostViewControllerDelegate {
             self.data.insert(MemberFeedItemViewModel(post: post, member: self.member, comment: comment, delegate: self, cellSize: CGSize(width: self.view.frame.width, height: 150)), at: 0)
             self.collectionView.insertItems(at: [IndexPath.init(row: 0, section: 0)])
             self.collectionView.scrollToItem(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
+            self.post?.commentsCount += 1
+            self.commentsViewControllerDelegate?.setNeedsToUpdateCommentCount()
         }
         else {
             print("Error did not have a post on CommentsViewController")

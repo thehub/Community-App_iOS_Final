@@ -10,13 +10,13 @@ import Foundation
 import SalesforceSDKCore
 import SwiftyJSON
 
-struct Post {
+class Post {
     
     var text: String
     var blurb: String
     var group: Group?
     var date: Date
-    var id: String?
+    var id: String
     var likes: Int = 0
     var isLikedByCurrentUser = false
     var myLikeId: String?
@@ -27,48 +27,6 @@ struct Post {
     var file: File?
     var segments: [MessageSegment]
     
-    struct File {
-        var id: String
-        var renditionUrl: String
-        var downloadUrl: String
-        var mimeType: String
-        var title: String
-        var sharingOption: String
-        var description: String?
-        
-        init?(json: [String: Any]) {
-            print(json)
-            guard
-                let id = json["id"] as? String,
-                let renditionUrl = json["renditionUrl"] as? String,
-                let downloadUrl = json["downloadUrl"] as? String,
-                let mimeType = json["mimeType"] as? String,
-                let title = json["title"] as? String,
-                let sharingOption = json["sharingOption"] as? String
-                else {
-                    return nil
-            }
-            self.id = id
-            self.renditionUrl = renditionUrl
-            self.downloadUrl = downloadUrl
-            self.mimeType = mimeType
-            self.title = title
-            self.sharingOption = sharingOption
-            self.description = json["description"] as? String
-        }
-        
-        var url: URL? {
-            if let token = SFUserAccountManager.sharedInstance().currentUser?.credentials.accessToken,
-                let url = URL(string: "\(Constants.host)\(renditionUrl)&oauth_token=\(token)") {
-                return url
-            }
-            return nil
-        }
-    }
-    
-}
-
-extension Post {
     init?(json: JSON) {
         guard
             let postedTimeString = json["createdDate"].string,
@@ -114,5 +72,49 @@ extension Post {
             self.comments = comments.reversed().flatMap { Comment(json: $0) }
         }
     }
+    
+    struct File {
+        var id: String
+        var renditionUrl: String
+        var downloadUrl: String
+        var mimeType: String
+        var title: String
+        var sharingOption: String
+        var description: String?
+        
+        init?(json: [String: Any]) {
+            print(json)
+            guard
+                let id = json["id"] as? String,
+                let renditionUrl = json["renditionUrl"] as? String,
+                let downloadUrl = json["downloadUrl"] as? String,
+                let mimeType = json["mimeType"] as? String,
+                let title = json["title"] as? String,
+                let sharingOption = json["sharingOption"] as? String
+                else {
+                    return nil
+            }
+            self.id = id
+            self.renditionUrl = renditionUrl
+            self.downloadUrl = downloadUrl
+            self.mimeType = mimeType
+            self.title = title
+            self.sharingOption = sharingOption
+            self.description = json["description"] as? String
+        }
+        
+        var url: URL? {
+            if let token = SFUserAccountManager.sharedInstance().currentUser?.credentials.accessToken,
+                let url = URL(string: "\(Constants.host)\(renditionUrl)&oauth_token=\(token)") {
+                return url
+            }
+            return nil
+        }
+    }
+    
+}
+
+extension Post {
+
     
 }
