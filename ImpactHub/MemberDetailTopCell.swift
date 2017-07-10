@@ -38,6 +38,7 @@ class MemberDetailTopCell: UICollectionViewCell {
         nameLabel.text = vm.member.name
         jobLabel.text = vm.jobDescriptionLong
         if let photoUrl = vm.member.photoUrl {
+            print(photoUrl)
             profileImageView.kf.setImage(with: photoUrl)
         }
         blurbLabel.text = vm.member.blurb

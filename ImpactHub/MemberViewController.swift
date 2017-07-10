@@ -35,8 +35,10 @@ class MemberViewController: ListFullBleedViewController {
 
         topMenu?.setupWithItems(["ABOUT", "PROJECTS", "GROUPS"])
         
-        self.collectionView?.alpha = 0
-        super.connectButton?.alpha = 0
+        memberAboutData.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
+        memberAboutData.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 0)))
+        self.data = memberAboutData
+        
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
                 APIClient.shared.getSkills(contactId: member.id)
@@ -56,9 +58,7 @@ class MemberViewController: ListFullBleedViewController {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.build()
                 self.collectionView?.reloadData()
-//                self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
                 UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
-//                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
                     self.collectionView?.alpha = 1
                     super.connectButton?.alpha = 1
                 }, completion: { (_) in
@@ -73,8 +73,6 @@ class MemberViewController: ListFullBleedViewController {
 
     func build() {
         
-        memberAboutData.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
-        memberAboutData.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 0)))
         member.skills.forEach { (skill) in
             memberAboutData.append(MemberSkillItemViewModel(skill: skill, cellSize: CGSize(width: view.frame.width, height: 80)))
         }
