@@ -40,6 +40,11 @@ class GoalViewController: ListFullBleedViewController {
             return
         }
         
+        // Feed
+        aboutData.append(GoalDetailTopViewModel(goal: goal, cellSize: .zero)) // this will pick the full height instead
+        aboutData.append(GoalAboutItemViewModel(goal: goal, cellSize: CGSize(width: view.frame.width, height: 0)))
+        self.data = aboutData
+
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.collectionView?.alpha = 1
         firstly {
@@ -54,9 +59,7 @@ class GoalViewController: ListFullBleedViewController {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.build()
                 self.collectionView?.reloadData()
-//                self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
                 UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
-//                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
                     self.collectionView?.alpha = 1
                     super.connectButton?.alpha = 1
                 }, completion: { (_) in
@@ -71,13 +74,6 @@ class GoalViewController: ListFullBleedViewController {
         guard let goal = self.goal else {
             return
         }
-        
-
-        // Feed
-        aboutData.append(GoalDetailTopViewModel(goal: goal, cellSize: .zero)) // this will pick the full height instead
-        aboutData.append(GoalAboutItemViewModel(goal: goal, cellSize: CGSize(width: view.frame.width, height: 0)))
-        self.data = aboutData
-        
         
         // Groups
         groupsData.append(GoalDetailTopViewModel(goal: goal, cellSize: .zero)) // this will pick the full height instead
