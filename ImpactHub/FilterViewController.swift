@@ -60,6 +60,26 @@ class FilterViewController: UIViewController {
                     let filters = sortedItems.map({FilterViewModel(filter: $0, cellSize: CGSize(width: cellWidth, height: 37))})
                     self.filterData.append(filters)
                 }.then {
+                    APIClient.shared.getFilters(grouping: .skill)
+                }.then { items -> Void in
+                    let sortedItems = items.sorted(by: {$0.name < $1.name})
+                    if let first = sortedItems.first {
+                        let viewModel = FilterGroupingViewModel(grouping: first.grouping, cellSize: CGSize(width: cellWidth, height: 37))
+                        self.data.append(viewModel)
+                    }
+                    let filters = items.map({FilterViewModel(filter: $0, cellSize: CGSize(width: cellWidth, height: 37))})
+                    self.filterData.append(filters)
+                }.then {
+                    APIClient.shared.getFilters(grouping: .sdg)
+                }.then { items -> Void in
+                    let sortedItems = items.sorted(by: {$0.name < $1.name})
+                    if let first = sortedItems.first {
+                        let viewModel = FilterGroupingViewModel(grouping: first.grouping, cellSize: CGSize(width: cellWidth, height: 37))
+                        self.data.append(viewModel)
+                    }
+                    let filters = items.map({FilterViewModel(filter: $0, cellSize: CGSize(width: cellWidth, height: 37))})
+                    self.filterData.append(filters)
+                }.then {
                     APIClient.shared.getFilters(grouping: .sector)
                 }.then { items -> Void in
                     let sortedItems = items.sorted(by: {$0.name < $1.name})

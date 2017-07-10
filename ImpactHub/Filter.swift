@@ -16,6 +16,8 @@ struct Filter {
     enum Grouping : String {
         case city
         case sector
+        case skill
+        case sdg
         
         var displayName: String {
             get {
@@ -24,6 +26,10 @@ struct Filter {
                     return "City"
                 case .sector:
                     return "Sector"
+                case .skill:
+                    return "Skill"
+                case .sdg:
+                    return "Goal"
                 }
             }
         }

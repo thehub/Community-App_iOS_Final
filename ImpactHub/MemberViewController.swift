@@ -147,7 +147,6 @@ class MemberViewController: ListFullBleedViewController {
             }
         }
         if segue.identifier == "ShowProject" {
-            self.tabBarController?.tabBar.isHidden = true
             if let vc = segue.destination as? ProjectViewController, let selectProject = selectProject {
                 vc.project = selectProject
             }
