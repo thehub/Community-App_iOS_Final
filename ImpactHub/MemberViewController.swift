@@ -127,15 +127,13 @@ class MemberViewController: ListFullBleedViewController {
 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        DispatchQueue.main.async {
-            if let vm = self.data[indexPath.item] as? ProjectViewModel {
-                self.selectProject = vm.project
-                self.performSegue(withIdentifier: "ShowProject", sender: self)
-            }
-            if let vm = self.data[indexPath.item] as? GroupViewModel {
-                self.selectGroup = vm.group
-                self.performSegue(withIdentifier: "ShowGroup", sender: self)
-            }
+        if let vm = self.data[indexPath.item] as? ProjectViewModel {
+            self.selectProject = vm.project
+            self.performSegue(withIdentifier: "ShowProject", sender: self)
+        }
+        if let vm = self.data[indexPath.item] as? GroupViewModel {
+            self.selectGroup = vm.group
+            self.performSegue(withIdentifier: "ShowGroup", sender: self)
         }
     }
     

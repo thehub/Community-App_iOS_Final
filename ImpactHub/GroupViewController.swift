@@ -29,35 +29,26 @@ class GroupViewController: ListFullBleedViewController {
         collectionView.register(UINib.init(nibName: TitleViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: TitleViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: GroupViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: GroupViewModel.cellIdentifier)
 
-        topMenu?.hide()
-        
         data.append(GroupDetailTopViewModel(group: group, cellSize: .zero)) // this will pick the full height instead
         data.append(TitleViewModel(title: "DISCUSSION", cellSize: CGSize(width: view.frame.width, height: 70)))
-        self.collectionView?.reloadData()
         // Posts starts from this postion, so when adding new they are inserted here in delegate indexPathToInsertNewPostsAt
+        self.collectionView.reloadData()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
             APIClient.shared.getGroupPosts(groupID: group.chatterId)
             }.then { posts -> Void in
-                print(posts)
                 posts.forEach({ (post) in
                     self.data.append(MemberFeedItemViewModel(post: post, member: self.member, comment: nil, delegate: self, cellSize: CGSize(width: self.view.frame.width, height: 150)))
                 })
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.collectionView?.reloadData()
-                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
-                    //                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
-                    self.collectionView?.alpha = 1
-                    super.connectButton?.alpha = 1
-                }, completion: { (_) in
-                    
-                })
             }.catch { error in
                 debugPrint(error.localizedDescription)
         }
         
     }
+
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

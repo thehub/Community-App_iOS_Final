@@ -81,16 +81,19 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
         else if scrollView.contentOffset.y < 200 && (topMenu?.isShow ?? true) {
             topMenu?.hide()
             self.tabBarController?.tabBar.isHidden = true
-            connectButtonBottomConsatraint?.constant = connectButtonBottomConsatraintDefault
             self.shouldHideStatusBar = true
             self.navigationController?.setNavigationBarHidden(true, animated: true)
-            
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
-                self.setNeedsStatusBarAppearanceUpdate()
-                self.view.layoutIfNeeded()
-            }) { (_) in
-                
+            // Avoid setting this if it's nil on this contrller, as it'll cause things to animate when we don't want it to
+            if connectButtonBottomConsatraint != nil {
+                connectButtonBottomConsatraint?.constant = connectButtonBottomConsatraintDefault
+                UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
+                    self.setNeedsStatusBarAppearanceUpdate()
+                    self.view.layoutIfNeeded()
+                }) { (_) in
+                    
+                }
             }
+            
         }
         // This will happen when we go back to a previous controller that already was scrolled down a bit...
         else if topMenu?.isShow ?? true {
