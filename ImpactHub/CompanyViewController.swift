@@ -26,18 +26,20 @@ class CompanyViewController: ListFullBleedViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.collectionView?.alpha = 0
-        super.connectButton?.alpha = 0
         if self.company != nil {
+            buildCompany()
             getCompanyExtras()
         }
         else if let companyId = self.compnayId {
-            // Load in compnay
+            self.collectionView?.alpha = 0
+            super.connectButton?.alpha = 0
+            // Load in company
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
             firstly {
                 APIClient.shared.getCompany(companyId: companyId)
                 }.then { item -> Void in
                     self.company = item
+                    self.buildCompany()
                     self.getCompanyExtras()
                 }
                 .always {
@@ -72,11 +74,9 @@ class CompanyViewController: ListFullBleedViewController {
                 self.members = members
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                self.build()
+                self.buildExtras()
                 self.collectionView?.reloadData()
-//                self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
                 UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
-//                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
                     self.collectionView?.alpha = 1
                     super.connectButton?.alpha = 1
                 }, completion: { (_) in
@@ -87,7 +87,7 @@ class CompanyViewController: ListFullBleedViewController {
         }
     }
     
-    func build() {
+    func buildCompany() {
         guard let company = self.company else {
             return
         }
@@ -107,14 +107,25 @@ class CompanyViewController: ListFullBleedViewController {
         collectionView.register(UINib.init(nibName: ProjectViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: MemberViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: CompanyServiceItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: CompanyServiceItemViewModel.cellIdentifier)
-
+        
         topMenu?.setupWithItems(["About", "Projects", "Members"])
         
         // About
         aboutData.append(CompanyDetailTopViewModel(company: company, cellSize: .zero)) // this will pick the full height instead
         aboutData.append(TitleViewModel(title: "ABOUT", cellSize: CGSize(width: view.frame.width, height: 60)))
         aboutData.append(CompanyAboutViewModel(company: company, cellSize: CGSize(width: view.frame.width, height: 0)))
+
+        self.data = aboutData
+
+    }
+    
+    func buildExtras() {
+        guard let company = self.company else {
+            return
+        }
         
+        
+        // Services
         company.services.forEach { (service) in
             aboutData.append(CompanyServiceItemViewModel(service: service, cellSize: CGSize(width: view.frame.width, height: 0)))
         }
