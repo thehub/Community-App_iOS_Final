@@ -296,9 +296,10 @@ class APIClient {
 
     
     // Members
-    func getMembers() -> Promise<[Member]> {
+    func getMembers(offset: Int = 0, limit: Int = 2000) -> Promise<[Member]> {
+        // TODO: Add pagination
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT id,firstname,lastname,ProfilePic__c, Profession__c,Impact_Hub_Cities__c,User__c,Skills__c,About_Me__c,Twitter__c,Instagram__c,Facebook__c,Linked_In__c FROM Contact where User__c != null", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT id,firstname,lastname,ProfilePic__c, Profession__c,Impact_Hub_Cities__c,User__c,Skills__c,About_Me__c,Twitter__c,Instagram__c,Facebook__c,Linked_In__c FROM Contact where User__c != null LIMIT \(limit) OFFSET \(offset)", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
