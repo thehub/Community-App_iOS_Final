@@ -42,6 +42,7 @@ class ProjectViewController: ListFullBleedViewController {
         // Feed
         projectFeedData.append(ProjectDetailTopViewModel(project: project, cellSize: .zero)) // this will pick the full height instead
         projectFeedData.append(TitleViewModel(title: "DISCUSSIONS", cellSize: CGSize(width: view.frame.width, height: 70)))
+        self.data = self.projectFeedData // let it show these items while loading the rest
 
         // Objectives
         projectsObjectivesData.append(ProjectDetailTopViewModel(project: project, cellSize: .zero)) // this will pick the full height instead
@@ -58,20 +59,16 @@ class ProjectViewController: ListFullBleedViewController {
         projectsJobsData.append(ProjectDetailTopViewModel(project: project, cellSize: .zero)) // this will pick the full height instead
         projectsJobsData.append(TitleViewModel(title: "JOBS FOR THIS PROJECT", cellSize: CGSize(width: view.frame.width, height: 70)))
         
-        
-        self.collectionView?.alpha = 0
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
             APIClient.shared.getGroupPosts(groupID: self.project.chatterId)
             }.then { posts -> Void in
-                print(posts)
                 posts.forEach({ (post) in
                     self.projectFeedData.append(MemberFeedItemViewModel(post: post, member: self.member, comment: nil, delegate: self, cellSize: CGSize(width: cellWidth, height: 150)))
                 })
             }.then {
                 APIClient.shared.getMembers(projectId: self.project.id)
             }.then { members -> Void in
-                print(members)
                 members.forEach({ (member) in
                     let viewModel1 = MemberViewModel(member: member, cellSize: CGSize(width: cellWidth, height: 105))
                     self.projectsMembersData.append(viewModel1)
@@ -79,7 +76,6 @@ class ProjectViewController: ListFullBleedViewController {
             }.then {
                 APIClient.shared.getObjectives(projectId: self.project.id)
             }.then { objectives -> Void in
-                print(objectives)
                 self.project.objectives = objectives
                 objectives.forEach({ (objective) in
                     self.projectsObjectivesData.append(ProjectObjectiveViewModel(objective: objective, cellSize: CGSize(width: cellWidth, height: 0)))
@@ -87,7 +83,6 @@ class ProjectViewController: ListFullBleedViewController {
             }.then {
                 APIClient.shared.getJobs(projectId: self.project.id)
             }.then { jobs -> Void in
-                print(jobs)
                 jobs.forEach({ (job) in
                     let viewModelJob1 = JobViewModel(job: job, cellSize: CGSize(width: cellWidth, height: 145))
                     self.projectsJobsData.append(viewModelJob1)
@@ -95,11 +90,8 @@ class ProjectViewController: ListFullBleedViewController {
             }.always {
                 self.data = self.projectFeedData
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                self.build()
                 self.collectionView?.reloadData()
-//                self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
                 UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
-//                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
                     self.collectionView?.alpha = 1
                     super.connectButton?.alpha = 1
                 }, completion: { (_) in
@@ -108,10 +100,6 @@ class ProjectViewController: ListFullBleedViewController {
             }.catch { error in
                 debugPrint(error.localizedDescription)
         }
-        
-    }
-    
-    func build() {
         
     }
     
