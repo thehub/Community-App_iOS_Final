@@ -96,17 +96,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 if (granted) {
                     application.registerForRemoteNotifications()
                 }
-                else{
+                else {
                     //Do stuff if unsuccessful...
                 }
             })
         } else {
-            let notificationSettings = UIUserNotificationSettings(forTypes: [.badge, .sound, .alert], categories: nil)
-            application.registerUserNotificationSettings(notificationSettings)
+            let types:UIUserNotificationType = ([.alert, .sound, .badge])
+            let settings:UIUserNotificationSettings = UIUserNotificationSettings(types: types, categories: nil)
+            application.registerUserNotificationSettings(settings)
+            application.registerForRemoteNotifications()
         }
         
         SalesforceSDKManager.shared().launch()
-
 
         return true
     }

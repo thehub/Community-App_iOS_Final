@@ -28,7 +28,7 @@ struct DMRequest {
         case .Approved:
             return "Contact"
         case .Outstanding:
-            if contactToId == Model.shared.me?.contactId {
+            if contactToId == SessionManager.shared.me?.id {
                 return "Accept"
             }
             else {
