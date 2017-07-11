@@ -192,7 +192,17 @@ class MemberViewController: ListFullBleedViewController {
     }
 
     @IBAction func connectTap(_ sender: Any) {
-
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        firstly {
+            APIClient.shared.createDMRequest(fromContactId: SessionManager.shared.me?.id ?? "", toContactId: self.member.id)
+            }.then { result -> Void in
+                print(result)
+            }.always {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }.catch { error in
+                debugPrint(error.localizedDescription)
+        }
+        
     }
 }
 

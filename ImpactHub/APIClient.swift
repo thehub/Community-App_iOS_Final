@@ -852,8 +852,7 @@ class APIClient {
     }
     
     func getDMRequest(contactId:String) -> Promise<DMRequest?> {
-        return Promise { fullfill, reject in
-            
+        return Promise { fullfill, reject in            
             firstly {
                 self.getDMRequests()
                 }.then { items -> Void in
@@ -917,12 +916,10 @@ class APIClient {
     }
     
     
-    func sendPush(fromUserId: String, toUserIds: String, pushType: String, relatedId: String) -> Promise<String> {
+    func sendPush(fromUserId: String, toUserIds: String, pushType: PushNotification.Kind, relatedId: String) -> Promise<String> {
         return Promise { fullfill, reject in
-            let query: [String: String] = ["fromUserId" : fromUserId, "toUserIds" : toUserIds, "pushType" : pushType, "relatedId" : relatedId]
-            
+            let query: [String: String] = ["fromUserId" : fromUserId, "toUserIds" : toUserIds, "pushType" : pushType.getParameter(), "relatedId" : relatedId]
             //            debugPrint(query)
-            
             let body = SFJsonUtils.jsonDataRepresentation(query)
             let request = SFRestRequest(method: .POST, path: "/services/apexrest/pushNotificationFromSF", queryParams: nil)
             request.endpoint = "/services/apexrest/pushNotificationFromSF"

@@ -24,6 +24,18 @@ class MessagesViewController: UIViewController {
         collectionView.register(UINib.init(nibName: "MessagesCell", bundle: nil), forCellWithReuseIdentifier: MessagesVM.cellIdentifier)
         
 //        loadData()
+        
+//        print(SessionManager.shared.me)
+//        print(SessionManager.shared.me?.id)
+//        firstly {
+//            APIClient.shared.getDMRequest(contactId: SessionManager.shared.me?.id ?? "")
+//            }.then { items -> Void in
+//                print(items)
+//            }.always {
+//                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+//            }.catch { error in
+//                debugPrint(error.localizedDescription)
+//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,42 +50,42 @@ class MessagesViewController: UIViewController {
     
     func loadData() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        firstly {
-            
-            APIClient.shared.getConversations()
-            }.then { items -> Void in
-                var newData = [CellRepresentable]()
-                let cellWidth: CGFloat = self.view.frame.width
-                items.forEach({ (conversation) in
-                    let viewModel = MessagesVM.init(conversation: conversation, cellSize: CGSize(width: cellWidth, height: 80))
-                    newData.append(viewModel)
-                })
-                if self.skip == 0 {
-                    self.data = newData
-                    self.collectionView.alpha = 0
-                    self.collectionView.frame = self.collectionView.frame.offsetBy(dx: 0, dy: 20)
-                    self.collectionView.reloadData()
-                    if self.collectionView.alpha == 0 {
-                        UIView.animate(withDuration: 0.5, delay: 0.2, options: .curveEaseInOut, animations: {
-                            self.collectionView.alpha = 1
-                            self.collectionView.frame = self.collectionView.frame.offsetBy(dx: 0, dy: -20)
-                        }, completion: { (_) in
-                        })
-                    }
-                }
-                else {
-                    self.data.append(contentsOf: newData)
-                    var indexes = [IndexPath]()
-                    for (index, _) in newData.enumerated() {
-                        indexes.append(IndexPath(item: self.top + index - 1, section: 0))
-                    }
-                    self.collectionView.insertItems(at: indexes)
-                }
-            }.always {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            }.catch { error in
-                debugPrint(error.localizedDescription)
-        }
+//        firstly {
+//            
+//            APIClient.shared.getConversations()
+//            }.then { items -> Void in
+//                var newData = [CellRepresentable]()
+//                let cellWidth: CGFloat = self.view.frame.width
+//                items.forEach({ (conversation) in
+//                    let viewModel = MessagesVM.init(conversation: conversation, cellSize: CGSize(width: cellWidth, height: 80))
+//                    newData.append(viewModel)
+//                })
+//                if self.skip == 0 {
+//                    self.data = newData
+//                    self.collectionView.alpha = 0
+//                    self.collectionView.frame = self.collectionView.frame.offsetBy(dx: 0, dy: 20)
+//                    self.collectionView.reloadData()
+//                    if self.collectionView.alpha == 0 {
+//                        UIView.animate(withDuration: 0.5, delay: 0.2, options: .curveEaseInOut, animations: {
+//                            self.collectionView.alpha = 1
+//                            self.collectionView.frame = self.collectionView.frame.offsetBy(dx: 0, dy: -20)
+//                        }, completion: { (_) in
+//                        })
+//                    }
+//                }
+//                else {
+//                    self.data.append(contentsOf: newData)
+//                    var indexes = [IndexPath]()
+//                    for (index, _) in newData.enumerated() {
+//                        indexes.append(IndexPath(item: self.top + index - 1, section: 0))
+//                    }
+//                    self.collectionView.insertItems(at: indexes)
+//                }
+//            }.always {
+//                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+//            }.catch { error in
+//                debugPrint(error.localizedDescription)
+//        }
     }
     
     

@@ -43,7 +43,7 @@ class TabBarController: UITabBarController {
 //            nvc.pushViewController(vc, animated: true)
 //            AppDelegate.pushNotification = nil
             break
-        case .mention(let postId):
+        case .postMention(let postId):
             debugPrint(postId)
 //            self.selectedIndex = 0
 //            let nvc = self.viewControllers?[0] as! UINavigationController
@@ -55,6 +55,8 @@ class TabBarController: UITabBarController {
             break
         case .unknown:
             debugPrint("unkown push kind")
+        default:
+            break
         }
     }
     

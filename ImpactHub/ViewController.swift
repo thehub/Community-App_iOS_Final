@@ -44,6 +44,7 @@ class ViewController: UIViewController {
     func loadMe() {
         if let currentUser = SFUserAccountManager.sharedInstance().currentUser, currentUser.isSessionValid {
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            print(currentUser.accountIdentity.userId)
             firstly {
                 APIClient.shared.getContact(userId: currentUser.accountIdentity.userId)
                 }.then { contact -> Void in

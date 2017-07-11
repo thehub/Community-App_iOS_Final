@@ -19,8 +19,32 @@ struct PushNotification {
     
     enum Kind {
         case comment(id: String, feedElementId: String)
-        case mention(postId: String)
+        case commentMention(commentId: String)
+        case postMention(postId: String)
+        case likePost(postId: String)
+        case likeComment(commentId: String)
+        case privateMessage(messageId: String)
         case unknown
+        
+        func getParameter() -> String {
+            switch self {
+            case .comment:
+                return "Comment"
+            case .commentMention:
+                return "CommentMention"
+            case .postMention:
+                return "PostMention"
+            case .likePost:
+                return "LikePost"
+            case .likeComment:
+                return "LikeComment"
+            case .privateMessage:
+                return "PrivateMessage"
+            case .unknown:
+                return ""
+            }
+        }
+        
     }
 
 }
@@ -42,7 +66,7 @@ extension PushNotification {
             self.kind = .comment(id: relatedId, feedElementId: relatedId)
             break
         case "Mention":
-            self.kind = .mention(postId: relatedId)
+            self.kind = .postMention(postId: relatedId)
             break
         default:
             self.kind = .unknown
@@ -70,7 +94,7 @@ extension PushNotification {
                 }
             case "mention":
                 if let postId = userInfo["postId"] as? String {
-                    return PushNotification.Kind.mention(postId: postId)
+                    return PushNotification.Kind.postMention(postId: postId)
                 }
                 else {
                     return nil
