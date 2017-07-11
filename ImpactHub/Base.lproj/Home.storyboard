@@ -1835,22 +1835,21 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eventPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="Iqj-Lo-81g">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
                                     </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xPG-ax-ope" userLabel="fadeView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Iqj-Lo-81g" secondAttribute="bottom" id="6LY-Sh-POl"/>
-                                    <constraint firstAttribute="bottom" secondItem="xPG-ax-ope" secondAttribute="bottom" id="CDv-sN-kY4"/>
-                                    <constraint firstAttribute="trailing" secondItem="xPG-ax-ope" secondAttribute="trailing" id="F6O-ti-Zaj"/>
                                     <constraint firstItem="Iqj-Lo-81g" firstAttribute="leading" secondItem="Kg9-kG-hpW" secondAttribute="leading" id="Fzg-gX-x3p"/>
-                                    <constraint firstItem="xPG-ax-ope" firstAttribute="leading" secondItem="Kg9-kG-hpW" secondAttribute="leading" id="KoM-cV-oVd"/>
                                     <constraint firstAttribute="height" constant="250" id="Mhu-fi-EEA"/>
                                     <constraint firstItem="Iqj-Lo-81g" firstAttribute="top" secondItem="Kg9-kG-hpW" secondAttribute="top" id="daU-bt-YHN"/>
                                     <constraint firstAttribute="trailing" secondItem="Iqj-Lo-81g" secondAttribute="trailing" id="iaJ-1J-yKv"/>
-                                    <constraint firstItem="xPG-ax-ope" firstAttribute="top" secondItem="Kg9-kG-hpW" secondAttribute="top" id="qP5-eX-ljZ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xPG-ax-ope" userLabel="fadeView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="250"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="yUK-7F-cUa"/>
                                 </constraints>
                             </view>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Dmm-fw-Ebm">
@@ -1889,14 +1888,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xPG-ax-ope" firstAttribute="bottom" secondItem="Kg9-kG-hpW" secondAttribute="bottom" id="0cC-Yx-AO4"/>
                             <constraint firstAttribute="trailing" secondItem="ah5-Y5-F7s" secondAttribute="trailing" constant="35" id="7ad-70-5si"/>
+                            <constraint firstItem="xPG-ax-ope" firstAttribute="leading" secondItem="Kg9-kG-hpW" secondAttribute="leading" id="7yc-5L-Fql"/>
                             <constraint firstItem="hoa-dE-LE1" firstAttribute="top" secondItem="Dmm-fw-Ebm" secondAttribute="bottom" id="D4c-eI-RlB"/>
                             <constraint firstItem="hoa-dE-LE1" firstAttribute="top" secondItem="ah5-Y5-F7s" secondAttribute="bottom" constant="29" id="ER8-dm-XSK"/>
                             <constraint firstAttribute="trailing" secondItem="Kg9-kG-hpW" secondAttribute="trailing" id="G3S-GO-0Rp"/>
                             <constraint firstAttribute="trailing" secondItem="Dmm-fw-Ebm" secondAttribute="trailing" id="aJn-9r-azH"/>
                             <constraint firstItem="Kg9-kG-hpW" firstAttribute="leading" secondItem="tgf-jg-uBb" secondAttribute="leading" id="eUW-q9-JCi"/>
+                            <constraint firstItem="xPG-ax-ope" firstAttribute="trailing" secondItem="Kg9-kG-hpW" secondAttribute="trailing" id="ew7-CK-BMh"/>
                             <constraint firstItem="ah5-Y5-F7s" firstAttribute="leading" secondItem="tgf-jg-uBb" secondAttribute="leading" constant="35" id="g5K-Ss-SMZ"/>
                             <constraint firstItem="Dmm-fw-Ebm" firstAttribute="leading" secondItem="tgf-jg-uBb" secondAttribute="leading" id="lSO-o4-2Zl"/>
+                            <constraint firstItem="xPG-ax-ope" firstAttribute="bottom" secondItem="Kg9-kG-hpW" secondAttribute="bottom" id="n5s-9r-upF"/>
                             <constraint firstItem="Kg9-kG-hpW" firstAttribute="top" secondItem="6Lz-me-dwZ" secondAttribute="bottom" id="sQU-MM-HW3"/>
                             <constraint firstItem="Dmm-fw-Ebm" firstAttribute="top" secondItem="6Lz-me-dwZ" secondAttribute="bottom" id="zD2-78-hzJ"/>
                         </constraints>

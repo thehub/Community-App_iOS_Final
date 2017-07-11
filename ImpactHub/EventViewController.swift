@@ -129,7 +129,13 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     }
     
+    var shouldDrawFade = true
+    
     func drawFade() {
+        if !shouldDrawFade {
+            return
+        }
+        print("drawfade")
         if gradientLayer.superlayer == nil {
             gradientLayer.removeFromSuperlayer()
             let startingColorOfGradient = UIColor(hexString: "252424").withAlphaComponent(0.0).cgColor
@@ -212,8 +218,8 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
         let offset = scrollView.contentOffset.y
 
         if offset < 0 {
+            shouldDrawFade = false
             compnayPhotoHeightConstraint.constant = compnayPhotoHeightConstraintDefault + abs(offset)
-            drawFade()
         }
         
         else if offset < 450 {
