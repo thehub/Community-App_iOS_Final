@@ -32,7 +32,8 @@ class GroupViewController: ListFullBleedViewController {
         data.append(GroupDetailTopViewModel(group: group, cellSize: .zero)) // this will pick the full height instead
         data.append(TitleViewModel(title: "DISCUSSION", cellSize: CGSize(width: view.frame.width, height: 70)))
         // Posts starts from this postion, so when adding new they are inserted here in delegate indexPathToInsertNewPostsAt
-        self.collectionView.reloadData()
+        let countBefore = indexPathToInsertNewPostsAt.item
+
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
             APIClient.shared.getGroupPosts(groupID: group.chatterId)
@@ -42,7 +43,12 @@ class GroupViewController: ListFullBleedViewController {
                 })
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                self.collectionView?.reloadData()
+                // Add the new data
+                var indexPathsToInsert = [IndexPath]()
+                for i in countBefore...self.data.count - 1 {
+                    indexPathsToInsert.append(IndexPath(item: i, section: 0))
+                }
+                self.collectionView.insertItems(at: indexPathsToInsert)
             }.catch { error in
                 debugPrint(error.localizedDescription)
         }

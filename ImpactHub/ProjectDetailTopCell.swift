@@ -11,6 +11,7 @@ import UIKit
 class ProjectDetailTopCell: UICollectionViewCell {
 
     @IBOutlet weak var imageViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var arrowImage: UIImageView!
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -27,6 +28,9 @@ class ProjectDetailTopCell: UICollectionViewCell {
         profileImageView.kf.setImage(with: vm.project.photoUrl)
         
         self.clipsToBounds = false
+        
+        self.arrowImage.layer.add(Animations.slideAnimation, forKey: "slideAnimation")
+
     }
     
     func didScrollWith(offsetY: CGFloat) {

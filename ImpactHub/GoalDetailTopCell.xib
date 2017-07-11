@@ -72,6 +72,7 @@
                 <constraint firstItem="lH2-y5-Nlr" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="sIz-wA-3hW"/>
             </constraints>
             <connections>
+                <outlet property="arrowImage" destination="dXn-81-vkg" id="crX-ZQ-tCJ"/>
                 <outlet property="containerView" destination="lH2-y5-Nlr" id="5OI-TF-fuX"/>
                 <outlet property="imageViewTopConstraint" destination="8dQ-KE-y4Y" id="h2A-jl-wTf"/>
                 <outlet property="jobLabel" destination="XXE-ip-ZY6" id="mZr-yu-KUG"/>

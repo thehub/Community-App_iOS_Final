@@ -26,7 +26,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="300" height="340"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" translatesAutoresizingMaskIntoConstraints="NO" id="s40-UQ-UEf">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s40-UQ-UEf">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="340"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQT-Wa-q2H" userLabel="fadeView">
@@ -46,7 +46,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wWp-gi-IeX">
-                                <rect key="frame" x="125" y="224" width="50" height="18"/>
+                                <rect key="frame" x="125.5" y="224" width="50" height="18"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locationPin" translatesAutoresizingMaskIntoConstraints="NO" id="b6v-0m-84r">
                                         <rect key="frame" x="0.0" y="0.0" width="12" height="18"/>
@@ -149,6 +149,7 @@
                 <constraint firstItem="dXn-81-vkg" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="uLE-Wx-NsI"/>
             </constraints>
             <connections>
+                <outlet property="arrowImage" destination="dXn-81-vkg" id="2jd-xa-dL4"/>
                 <outlet property="containerView" destination="lH2-y5-Nlr" id="5OI-TF-fuX"/>
                 <outlet property="facebookButton" destination="T7d-JH-XkM" id="mDn-FH-eI1"/>
                 <outlet property="fadeView" destination="eQT-Wa-q2H" id="cnv-ga-MW0"/>
@@ -171,6 +172,5 @@
         <image name="instagram" width="41" height="42"/>
         <image name="linkedin" width="41" height="42"/>
         <image name="locationPin" width="12" height="17"/>
-        <image name="photo" width="2511" height="2415"/>
     </resources>
 </document>

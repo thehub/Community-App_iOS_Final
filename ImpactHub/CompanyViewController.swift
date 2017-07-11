@@ -75,7 +75,6 @@ class CompanyViewController: ListFullBleedViewController {
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.buildExtras()
-                self.collectionView?.reloadData()
                 UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
                     self.collectionView?.alpha = 1
                     super.connectButton?.alpha = 1
@@ -124,7 +123,7 @@ class CompanyViewController: ListFullBleedViewController {
             return
         }
         
-        
+        let countBefore = self.data.count
         // Services
         company.services.forEach { (service) in
             aboutData.append(CompanyServiceItemViewModel(service: service, cellSize: CGSize(width: view.frame.width, height: 0)))
@@ -143,6 +142,14 @@ class CompanyViewController: ListFullBleedViewController {
         members.forEach { (member) in
             membersData.append(MemberViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 105)))
         }
+        
+        // Add the new data
+        var indexPathsToInsert = [IndexPath]()
+        for i in countBefore...self.data.count - 1 {
+            indexPathsToInsert.append(IndexPath(item: i, section: 0))
+        }
+        self.collectionView.insertItems(at: indexPathsToInsert)
+
         
     }
 

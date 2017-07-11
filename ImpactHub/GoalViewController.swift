@@ -44,27 +44,18 @@ class GoalViewController: ListFullBleedViewController {
         aboutData.append(GoalDetailTopViewModel(goal: goal, cellSize: .zero)) // this will pick the full height instead
         aboutData.append(GoalAboutItemViewModel(goal: goal, cellSize: CGSize(width: view.frame.width, height: 0)))
         self.data = aboutData
-
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        self.collectionView?.alpha = 1
         firstly {
-            APIClient.shared.getGroups(goalId: goal.id)
+            APIClient.shared.getGroups(goalNameId: goal.nameId)
             }.then { groups -> Void in
                 self.groups = groups
-//            }.then {
-//                APIClient.shared.getMembers(goalId: goal.id)
-//            }.then { members -> Void in
-//                self.members = members
+            }.then {
+                APIClient.shared.getMembers(goalNameId: goal.nameId)
+            }.then { members -> Void in
+                self.members = members
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.build()
-                self.collectionView?.reloadData()
-                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
-                    self.collectionView?.alpha = 1
-                    super.connectButton?.alpha = 1
-                }, completion: { (_) in
-                    
-                })
             }.catch { error in
                 debugPrint(error.localizedDescription)
         }
@@ -85,10 +76,9 @@ class GoalViewController: ListFullBleedViewController {
         // Members
         membersData.append(GoalDetailTopViewModel(goal: goal, cellSize: .zero)) // this will pick the full height instead
         membersData.append(TitleViewModel(title: "", cellSize: CGSize(width: view.frame.width, height: 40)))
-        // todo
-//        members.forEach { (member) in
-//            membersData.append(MemberViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 105)))
-//        }
+        members.forEach { (member) in
+            membersData.append(MemberViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 105)))
+        }
     }
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -107,7 +97,7 @@ class GoalViewController: ListFullBleedViewController {
             return CGSize(width: view.frame.width, height: height)
         }
 
-        if let vm = data[indexPath.item] as? ProjectViewModel {
+        if data[indexPath.item] is ProjectViewModel {
             let cellWidth: CGFloat = self.collectionView.frame.width
             let width = ((cellWidth - 40) / 1.6)
             let heightToUse = width + 155

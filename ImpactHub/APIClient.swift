@@ -37,9 +37,17 @@ class APIClient {
         }
     }
     
-    func getGroups(goalId: String) -> Promise<[Group]> {
+    // "select id, name, CountOfMembers__c, ImageURL__c, Group_Desc__c, Impact_Hub_Cities__c, ChatterGroupId__c from Directory__c where Directory_Style__c = 'Group' and id in (select DirectoryID__c from Directory_Member__c where ContactID__c ='\(contactId)')"
+    
+    
+    // select id, name, CountOfMembers__c, ImageURL__c, Group_Desc__c, Impact_Hub_Cities__c, ChatterGroupId__c from from Directory__c where Related_Impact_Goal__c like '%SDG name%' <= this is for associated group members
+    
+    
+    
+    
+    func getGroups(goalNameId: String) -> Promise<[Group]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT Directory_Style__c,Directory_Type__c FROM Directory__c WHERE Directory_Style__c = 'Group' and id in (SELECT Directory__c FROM Directory_Goal__c where id ='\(goalId)')", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("select id, name, CountOfMembers__c, ImageURL__c, Group_Desc__c, Impact_Hub_Cities__c, ChatterGroupId__c from Directory__c where Directory_Style__c = 'Group' and Related_Impact_Goal__c like '%\(goalNameId)%'", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -56,9 +64,12 @@ class APIClient {
         }
     }
     
-    func getMembers(goalId: String) -> Promise<[Member]> {
+    // SELECT Department,Email,FirstName,Interested_SDG__c,LastName FROM Contact WHERE Interested_SDG__c INCLUDES ('%SDG name%')
+
+    func getMembers(goalNameId: String) -> Promise<[Member]> {
+        print(goalNameId)
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT id, firstname,lastname, ProfilePic__c, Profession__c, Impact_Hub_Cities__c, User__c,Skills__c, About_Me__c FROM Contact where id in (SELECT ContactID__c FROM Directory_Member__c where DirectoryID__c in (SELECT Directory__c FROM Directory_Goal__c where id ='\(goalId)')", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT id, firstname,lastname, ProfilePic__c, Profession__c, Impact_Hub_Cities__c, User__c,Skills__c, About_Me__c, Interested_SDG__c FROM Contact WHERE Interested_SDG__c INCLUDES ('%\(goalNameId)%')", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in

@@ -37,6 +37,9 @@ class CompanyDetailTopCell: UICollectionViewCell {
 
     var vm:CompanyDetailTopViewModel!
 
+    @IBOutlet weak var arrowImage: UIImageView!
+    
+    
     func setup(vm: CompanyDetailTopViewModel) {
         self.vm = vm
         nameLabel.text = vm.company.name
@@ -78,6 +81,9 @@ class CompanyDetailTopCell: UICollectionViewCell {
         }
         
         self.clipsToBounds = false
+        
+        self.arrowImage.layer.add(Animations.slideAnimation, forKey: "slideAnimation")
+
     }
     
     let gradientLayer: CAGradientLayer = CAGradientLayer()

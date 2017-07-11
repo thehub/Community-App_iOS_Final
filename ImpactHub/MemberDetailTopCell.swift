@@ -28,6 +28,7 @@ class MemberDetailTopCell: UICollectionViewCell {
     @IBOutlet weak var twitterButton: Button!
     @IBOutlet weak var linkedinButton: Button!
     @IBOutlet weak var instagramButton: Button!
+    @IBOutlet weak var arrowImage: UIImageView!
 
     var imageViewHeightConstraintDefault: CGFloat = 0.5
     
@@ -79,6 +80,9 @@ class MemberDetailTopCell: UICollectionViewCell {
         self.clipsToBounds = false
 
         imageViewHeightConstraintDefault = self.imageViewHeightConstraint.constant
+        
+        self.arrowImage.layer.add(Animations.slideAnimation, forKey: "slideAnimation")
+
     }
     
     let gradientLayer: CAGradientLayer = CAGradientLayer()

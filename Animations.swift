@@ -20,5 +20,14 @@ class Animations {
         return translation
     }()
 
+    static var slideAnimation: CAKeyframeAnimation = {
+        let translation = CAKeyframeAnimation(keyPath: "transform.translation.y");
+        translation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        translation.values = [5, 15]
+        translation.repeatCount = Float.infinity
+        translation.autoreverses = true
+        translation.duration = 1
+        return translation
+    }()
     
 }

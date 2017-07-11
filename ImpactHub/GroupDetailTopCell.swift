@@ -10,6 +10,7 @@ import UIKit
 
 class GroupDetailTopCell: UICollectionViewCell {
 
+    @IBOutlet weak var arrowImage: UIImageView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -25,7 +26,8 @@ class GroupDetailTopCell: UICollectionViewCell {
         if let photoUrl = vm.group.photoUrl {
             profileImageView.kf.setImage(with: photoUrl)
         }
-        
+        self.arrowImage.layer.add(Animations.slideAnimation, forKey: "slideAnimation")
+
     }
     
     
