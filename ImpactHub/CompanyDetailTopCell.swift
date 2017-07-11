@@ -13,6 +13,9 @@ import SafariServices
 
 class CompanyDetailTopCell: UICollectionViewCell {
 
+    @IBOutlet weak var imageViewTopConstraint: NSLayoutConstraint!
+
+    
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -26,6 +29,7 @@ class CompanyDetailTopCell: UICollectionViewCell {
     @IBOutlet weak var twitterButton: Button!
     @IBOutlet weak var linkedinButton: Button!
     @IBOutlet weak var instagramButton: Button!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -72,7 +76,8 @@ class CompanyDetailTopCell: UICollectionViewCell {
         else {
             instagramButton.isHidden = true
         }
-
+        
+        self.clipsToBounds = false
     }
     
     let gradientLayer: CAGradientLayer = CAGradientLayer()
@@ -87,6 +92,16 @@ class CompanyDetailTopCell: UICollectionViewCell {
         gradientLayer.colors = [startingColorOfGradient , endingColorOFGradient]
         fadeView.layer.insertSublayer(gradientLayer, at: 0)
     }
+    
+    func didScrollWith(offsetY: CGFloat) {
+        if offsetY < 0 {
+            self.imageViewTopConstraint.constant = offsetY
+        }
+        else {
+            self.imageViewTopConstraint.constant = 0
+        }
+    }
+    
     
     @IBAction func onInstagram(_ sender: Any) {
         if let url = vm.company.social?.instagram {

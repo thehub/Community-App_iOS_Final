@@ -11,6 +11,9 @@ import SafariServices
 
 class MemberDetailTopCell: UICollectionViewCell {
 
+    @IBOutlet weak var fadeViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -26,6 +29,7 @@ class MemberDetailTopCell: UICollectionViewCell {
     @IBOutlet weak var linkedinButton: Button!
     @IBOutlet weak var instagramButton: Button!
 
+    var imageViewHeightConstraintDefault: CGFloat = 0.5
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -72,6 +76,9 @@ class MemberDetailTopCell: UICollectionViewCell {
             instagramButton.isHidden = true
         }
         
+        self.clipsToBounds = false
+
+        imageViewHeightConstraintDefault = self.imageViewHeightConstraint.constant
     }
     
     let gradientLayer: CAGradientLayer = CAGradientLayer()
@@ -87,6 +94,20 @@ class MemberDetailTopCell: UICollectionViewCell {
         fadeView.layer.insertSublayer(gradientLayer, at: 0)
     }
 
+    func didScrollWith(offsetY: CGFloat) {
+        
+        if offsetY < 0 {
+            self.imageViewTopConstraint.constant = offsetY
+            self.fadeViewBottomConstraint.constant = -offsetY
+            self.imageViewHeightConstraint.constant = imageViewHeightConstraintDefault + ((abs(offsetY) / self.frame.height) * 500)
+        }
+        else {
+            self.imageViewHeightConstraint.constant = imageViewHeightConstraintDefault
+            self.imageViewTopConstraint.constant = 0
+            self.fadeViewBottomConstraint.constant = 0
+        }
+    }
+    
     @IBAction func onInstagram(_ sender: Any) {
         if let url = vm?.member.social?.instagram {
             let svc = SFSafariViewController(url: url)

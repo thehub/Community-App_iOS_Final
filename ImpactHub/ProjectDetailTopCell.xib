@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -74,6 +73,7 @@
             </constraints>
             <connections>
                 <outlet property="containerView" destination="lH2-y5-Nlr" id="5OI-TF-fuX"/>
+                <outlet property="imageViewTopConstraint" destination="8dQ-KE-y4Y" id="INU-pQ-goD"/>
                 <outlet property="jobLabel" destination="XXE-ip-ZY6" id="mZr-yu-KUG"/>
                 <outlet property="nameLabel" destination="pzG-7F-c8e" id="0ej-Fr-sDK"/>
                 <outlet property="profileImageView" destination="s40-UQ-UEf" id="fXa-ti-Q6e"/>

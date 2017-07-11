@@ -89,8 +89,13 @@ class GoalViewController: ListFullBleedViewController {
 //        members.forEach { (member) in
 //            membersData.append(MemberViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 105)))
 //        }
+    }
 
-        
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        super.scrollViewDidScroll(scrollView)
+        if let topCell = collectionView.cellForItem(at: IndexPath(item: 0, section: 0)) as? GoalDetailTopCell {
+            topCell.didScrollWith(offsetY: scrollView.contentOffset.y)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

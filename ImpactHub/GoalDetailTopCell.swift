@@ -10,6 +10,8 @@ import UIKit
 
 class GoalDetailTopCell: UICollectionViewCell {
 
+    @IBOutlet weak var imageViewTopConstraint: NSLayoutConstraint!
+
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -24,8 +26,17 @@ class GoalDetailTopCell: UICollectionViewCell {
         jobLabel.text = vm.goal.summary
         profileImageView.image = UIImage(named: vm.goal.photo)  // TODO: Once in salesforce
         
+        self.clipsToBounds = false
     }
     
-    
+    func didScrollWith(offsetY: CGFloat) {
+        if offsetY < 0 {
+            self.imageViewTopConstraint.constant = offsetY
+        }
+        else {
+            self.imageViewTopConstraint.constant = 0
+        }
+    }
+
     
 }

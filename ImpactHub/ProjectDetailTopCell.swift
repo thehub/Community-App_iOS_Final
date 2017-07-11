@@ -10,6 +10,8 @@ import UIKit
 
 class ProjectDetailTopCell: UICollectionViewCell {
 
+    @IBOutlet weak var imageViewTopConstraint: NSLayoutConstraint!
+
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -23,8 +25,18 @@ class ProjectDetailTopCell: UICollectionViewCell {
         nameLabel.text = vm.project.name
         jobLabel.text = "by \(vm.project.companyName ?? "")"
         profileImageView.kf.setImage(with: vm.project.photoUrl)
+        
+        self.clipsToBounds = false
     }
     
-    
+    func didScrollWith(offsetY: CGFloat) {
+        if offsetY < 0 {
+            self.imageViewTopConstraint.constant = offsetY
+        }
+        else {
+            self.imageViewTopConstraint.constant = 0
+        }
+    }
+
     
 }

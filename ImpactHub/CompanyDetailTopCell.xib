@@ -46,7 +46,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wWp-gi-IeX">
-                                <rect key="frame" x="125.5" y="224" width="50" height="18"/>
+                                <rect key="frame" x="125" y="224" width="50" height="18"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locationPin" translatesAutoresizingMaskIntoConstraints="NO" id="b6v-0m-84r">
                                         <rect key="frame" x="0.0" y="0.0" width="12" height="18"/>
@@ -152,6 +152,7 @@
                 <outlet property="containerView" destination="lH2-y5-Nlr" id="5OI-TF-fuX"/>
                 <outlet property="facebookButton" destination="T7d-JH-XkM" id="mDn-FH-eI1"/>
                 <outlet property="fadeView" destination="eQT-Wa-q2H" id="cnv-ga-MW0"/>
+                <outlet property="imageViewTopConstraint" destination="8dQ-KE-y4Y" id="GVe-7f-hrb"/>
                 <outlet property="instagramButton" destination="m3F-QL-7O9" id="vEd-z2-3Do"/>
                 <outlet property="linkedinButton" destination="BeL-M7-goM" id="ZOV-A7-YQI"/>
                 <outlet property="locationNameLabel" destination="Urb-ZX-NKY" id="JpE-yG-QO8"/>

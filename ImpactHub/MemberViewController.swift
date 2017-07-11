@@ -70,7 +70,7 @@ class MemberViewController: ListFullBleedViewController {
         
     }
     
-
+    
     func build() {
         
         member.skills.forEach { (skill) in
@@ -95,6 +95,15 @@ class MemberViewController: ListFullBleedViewController {
     }
     
 
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        super.scrollViewDidScroll(scrollView)
+        if let topCell = collectionView.cellForItem(at: IndexPath(item: 0, section: 0)) as? MemberDetailTopCell {
+            topCell.didScrollWith(offsetY: scrollView.contentOffset.y)
+        }
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         

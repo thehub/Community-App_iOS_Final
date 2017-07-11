@@ -15,7 +15,7 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
     @IBOutlet weak var companyPhotoImageView: UIImageView!
     @IBOutlet weak var fadeView: UIView!
     @IBOutlet weak var compnayPhotoTopConstraint: NSLayoutConstraint!
-
+    @IBOutlet weak var compnayPhotoHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleLabelContainerView: UIView!
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -24,6 +24,7 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     @IBOutlet weak var connectButtonBottomConsatraint: NSLayoutConstraint?
     var connectButtonBottomConsatraintDefault: CGFloat = 0
+    var compnayPhotoHeightConstraintDefault: CGFloat = 0
     @IBOutlet weak var connectButton: UIButton?
 
 
@@ -118,23 +119,32 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        gradientLayer.removeFromSuperlayer()
+        drawFade()
         
-        let startingColorOfGradient = UIColor(hexString: "252424").withAlphaComponent(0.0).cgColor
-        let midColor = UIColor(hexString: "181818").withAlphaComponent(0.66).cgColor
-        let endingColorOFGradient = UIColor(hexString: "252424").withAlphaComponent(1.0).cgColor
-        gradientLayer.frame = self.fadeView.layer.bounds
-        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 0.5, y:1.0)
-        gradientLayer.locations = [NSNumber.init(value: 0.0), NSNumber.init(value: 0.8), NSNumber.init(value: 1.0)]
-        gradientLayer.colors = [startingColorOfGradient, midColor, endingColorOFGradient]
-        fadeView.layer.insertSublayer(gradientLayer, at: 0)
-
         if !didLayout {
             didLayout = true
             connectButtonBottomConsatraintDefault = connectButtonBottomConsatraint?.constant ?? 0
+            compnayPhotoHeightConstraintDefault = compnayPhotoHeightConstraint.constant
         }
 
+    }
+    
+    func drawFade() {
+        if gradientLayer.superlayer == nil {
+            gradientLayer.removeFromSuperlayer()
+            let startingColorOfGradient = UIColor(hexString: "252424").withAlphaComponent(0.0).cgColor
+            let midColor = UIColor(hexString: "181818").withAlphaComponent(0.66).cgColor
+            let endingColorOFGradient = UIColor(hexString: "252424").withAlphaComponent(1.0).cgColor
+            gradientLayer.frame = self.fadeView.layer.bounds
+            gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
+            gradientLayer.endPoint = CGPoint(x: 0.5, y:1.0)
+            gradientLayer.locations = [NSNumber.init(value: 0.0), NSNumber.init(value: 0.8), NSNumber.init(value: 1.0)]
+            gradientLayer.colors = [startingColorOfGradient, midColor, endingColorOFGradient]
+            fadeView.layer.insertSublayer(gradientLayer, at: 0)
+        }
+        else {
+            gradientLayer.frame = self.fadeView.layer.bounds
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -200,7 +210,13 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         let offset = scrollView.contentOffset.y
-        if offset < 450 && offset > -100 {
+
+        if offset < 0 {
+            compnayPhotoHeightConstraint.constant = compnayPhotoHeightConstraintDefault + abs(offset)
+            drawFade()
+        }
+        
+        else if offset < 450 {
             compnayPhotoTopConstraint.constant = -(offset * 1.0)
             
             var newScale = initialCompanyPhotoScale - (offset * 0.007)
