@@ -8,6 +8,8 @@
 
 import UIKit
 import SalesforceSDKCore
+import UserNotifications
+
 
 
 let RemoteAccessConsumerKey = "3MVG9lcxCTdG2Vbsh1Tk8y8c1rEtTORpQ0eLPM_32J0Lf_4Kyllw6Zdyy.o9IDUJhsyKJ8uoxjEDw2tXFj2HH";
@@ -16,7 +18,7 @@ let OAuthRedirectURI        = "impacthub://auth/success";
 // community-impacthub.cs88.force.com
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
@@ -87,38 +89,101 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         loginViewController.navBarColor = UIColor.white
         loginViewController.navBarTextColor = UIColor.darkGray
         
+        
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().delegate = self
+            UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .sound, .alert], completionHandler: {(granted, error) in
+                if (granted) {
+                    application.registerForRemoteNotifications()
+                }
+                else{
+                    //Do stuff if unsuccessful...
+                }
+            })
+        } else {
+            let notificationSettings = UIUserNotificationSettings(
+                forTypes: [.badge, .sound, .alert], categories: nil)
+            application.registerUserNotificationSettings(notificationSettings)
+        }
+        
         SalesforceSDKManager.shared().launch()
 
 
         return true
     }
 
+    
     func stylize() {
-        
         UIApplication.shared.statusBarStyle = .default
-        
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.imaGreyishBrown, NSFontAttributeName: UIFont(name:"GTWalsheim", size:18)!]
-        
         UINavigationBar.appearance().setBackgroundImage(UIImage(color: UIColor.white), for: .any, barMetrics: .default)
-        
-//        UINavigationBar.appearance().backgroundColor = UIColor.white
-        
         UITabBar.appearance().tintColor = UIColor(hexString: "3D3D3D")
-        
         UINavigationBar.appearance().shadowImage = UIImage()
-        
         let customFont = UIFont(name: "GTWalsheim-Light", size: 14.0)!
         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: customFont], for: .normal)
-        
         
         let titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont(name: "GTWalsheim", size: 16)!]
         UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .normal)
         UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .highlighted)
-        
-        
     }
 
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        print(deviceTokenString)
+        
+        SFPushNotificationManager.sharedInstance().didRegisterForRemoteNotifications(withDeviceToken: deviceToken)
+        if (SFUserAccountManager.sharedInstance().currentUser?.credentials.accessToken != nil) {
+            SFPushNotificationManager.sharedInstance().registerForSalesforceNotifications()
+        }
+        
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("i am not available in simulator \(error)")
+    }
+    
+    //    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    //        print("note")
+    //        debugPrint(userInfo)
+    //
+    //    }
+    
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        let userInfo = response.notification.request.content.userInfo
+        handleNotification(userInfo: userInfo)
+        completionHandler()
+    }
+    
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound])
+    }
+    
+    
+    @available(iOS 9.0, *)
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        handleNotification(userInfo: userInfo)
+    }
+    
+    
+    
+    static var pushNotification: PushNotification.Kind?
+    
+    func handleNotification(userInfo: [AnyHashable: Any]) {
+        debugPrint(userInfo)
+        if let pushNotification = PushNotification.createFromUserInfo(userInfo) {
+            let userInfoToSend = ["pushNotification" : pushNotification]
+            NotificationCenter.default.post(name: .openPush, object: nil, userInfo: userInfoToSend)
+            AppDelegate.pushNotification = pushNotification
+        }
+        else {
+            debugPrint("Push type unknown")
+        }
+    }
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

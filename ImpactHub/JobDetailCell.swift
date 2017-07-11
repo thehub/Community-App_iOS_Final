@@ -26,9 +26,9 @@ class JobDetailCell: UICollectionViewCell {
         locationNameLabel.text = vm.job.locationName
         companySizeLabel.text = vm.job.company.size
         payLabel.text = vm.job.salary
-        descriptionLabel.lineBreakMode = .byWordWrapping
-        descriptionLabel.attributedText = "<span style=\"font-family:GTWalsheim-Light; font-size: 15\">\(vm.job.description)</span>".html2AttributedString
-//        descriptionLabel.text = vm.job.description
+//        descriptionLabel.lineBreakMode = .byWordWrapping
+//        descriptionLabel.attributedText = "<span style=\"font-family:GTWalsheim-Light; font-size: 15\">\(vm.job.description)</span>".html2AttributedString
+        descriptionLabel.text = vm.job.description
     }
 
 }

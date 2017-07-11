@@ -404,6 +404,12 @@
 		85BFF10D1F02B0E10010AD51 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BFF10C1F02B0E10010AD51 /* Filter.swift */; };
 		85BFF10E1F02B0E10010AD51 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BFF10C1F02B0E10010AD51 /* Filter.swift */; };
 		85BFF10F1F02B0E10010AD51 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BFF10C1F02B0E10010AD51 /* Filter.swift */; };
+		85C802561F14E074003DBC01 /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C802541F14E074003DBC01 /* PushNotification.swift */; };
+		85C802571F14E074003DBC01 /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C802541F14E074003DBC01 /* PushNotification.swift */; };
+		85C802581F14E074003DBC01 /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C802541F14E074003DBC01 /* PushNotification.swift */; };
+		85C802591F14E074003DBC01 /* DMRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C802551F14E074003DBC01 /* DMRequest.swift */; };
+		85C8025A1F14E074003DBC01 /* DMRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C802551F14E074003DBC01 /* DMRequest.swift */; };
+		85C8025B1F14E074003DBC01 /* DMRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C802551F14E074003DBC01 /* DMRequest.swift */; };
 		85DE9EC91ECC8CD900291EF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE9EC81ECC8CD900291EF5 /* AppDelegate.swift */; };
 		85DE9ECB1ECC8CD900291EF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE9ECA1ECC8CD900291EF5 /* ViewController.swift */; };
 		85DE9ECE1ECC8CD900291EF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85DE9ECC1ECC8CD900291EF5 /* Main.storyboard */; };
@@ -620,6 +626,8 @@
 		85B3613B1ED5A08600DC2DE0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		85BFF1081F0244930010AD51 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		85BFF10C1F02B0E10010AD51 /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		85C802541F14E074003DBC01 /* PushNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotification.swift; sourceTree = "<group>"; };
+		85C802551F14E074003DBC01 /* DMRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMRequest.swift; sourceTree = "<group>"; };
 		85DE9EC51ECC8CD900291EF5 /* ImpactHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImpactHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85DE9EC81ECC8CD900291EF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85DE9ECA1ECC8CD900291EF5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -1022,6 +1030,8 @@
 			isa = PBXGroup;
 			children = (
 				853433D21EE6B77B003C26F8 /* Chatter */,
+				85C802541F14E074003DBC01 /* PushNotification.swift */,
+				85C802551F14E074003DBC01 /* DMRequest.swift */,
 				85DE9F081ECCACCB00291EF5 /* Member.swift */,
 				8570C1E21ECF028200FA1CE9 /* Company.swift */,
 				85BFF10C1F02B0E10010AD51 /* Filter.swift */,
@@ -1363,7 +1373,9 @@
 				857480511EE802D0005F73A2 /* MessageSegment.swift in Sources */,
 				859F97E11EFBBF10001C0B33 /* GoalDetailTopViewModel.swift in Sources */,
 				857480751EE846C2005F73A2 /* WhiteButton.swift in Sources */,
+				85C802591F14E074003DBC01 /* DMRequest.swift in Sources */,
 				850B70151EFBF1FB00596315 /* GroupViewModel.swift in Sources */,
+				85C802561F14E074003DBC01 /* PushNotification.swift in Sources */,
 				8570C1D71ECEE35F00FA1CE9 /* ProfileViewController.swift in Sources */,
 				850B702E1EFC0F4300596315 /* EventViewModel.swift in Sources */,
 				85DE9EFF1ECCA8D500291EF5 /* MemberCollectionViewCell.swift in Sources */,
@@ -1548,6 +1560,7 @@
 				859F97C51EFBBEE6001C0B33 /* Goal.swift in Sources */,
 				85AD649C1F00FE2700F2CCA8 /* BigTitleTopCell.swift in Sources */,
 				85523DC81EFAC92D00F66B53 /* CompanyServiceItemCell.swift in Sources */,
+				85C802571F14E074003DBC01 /* PushNotification.swift in Sources */,
 				858C58B21EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */,
 				850B700F1EFBF1CA00596315 /* GroupCollectionViewCell.swift in Sources */,
 				85455D241EF28D3D00243846 /* TabBarController.swift in Sources */,
@@ -1556,6 +1569,7 @@
 				858C58D91EF9868900136DAC /* JobDetailViewModel.swift in Sources */,
 				850226551F01197100942C9F /* RelatedViewModel.swift in Sources */,
 				853434151EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
+				85C8025A1F14E074003DBC01 /* DMRequest.swift in Sources */,
 				859F97E21EFBBF10001C0B33 /* GoalDetailTopViewModel.swift in Sources */,
 				85E7DA8E1EF81EA500C9DA15 /* Project.swift in Sources */,
 				8574806A1EE83B17005F73A2 /* LoginViewController.swift in Sources */,
@@ -1654,6 +1668,7 @@
 				859F97C61EFBBEE6001C0B33 /* Goal.swift in Sources */,
 				85AD649D1F00FE2700F2CCA8 /* BigTitleTopCell.swift in Sources */,
 				85523DC91EFAC92D00F66B53 /* CompanyServiceItemCell.swift in Sources */,
+				85C802581F14E074003DBC01 /* PushNotification.swift in Sources */,
 				858C58B31EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */,
 				850B70101EFBF1CA00596315 /* GroupCollectionViewCell.swift in Sources */,
 				85455D251EF28D3D00243846 /* TabBarController.swift in Sources */,
@@ -1662,6 +1677,7 @@
 				858C58DA1EF9868900136DAC /* JobDetailViewModel.swift in Sources */,
 				850226561F01197100942C9F /* RelatedViewModel.swift in Sources */,
 				853434161EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
+				85C8025B1F14E074003DBC01 /* DMRequest.swift in Sources */,
 				859F97E31EFBBF10001C0B33 /* GoalDetailTopViewModel.swift in Sources */,
 				85E7DA8F1EF81EA500C9DA15 /* Project.swift in Sources */,
 				8574806B1EE83B17005F73A2 /* LoginViewController.swift in Sources */,
