@@ -39,8 +39,8 @@ class CommentsViewController: UIViewController, UICollectionViewDelegate, UIColl
             post.comments.forEach({ (comment) in
                 self.data.append(MemberFeedItemViewModel(post: post, member: self.member, comment: comment, delegate: self, cellSize: CGSize(width: self.view.frame.width, height: 150)))
             })
-            
-            
+
+            // Are there more comments to load
             if let commentsNextPageUrl = post.commentsNextPageUrl {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = true
                 firstly {
@@ -60,6 +60,17 @@ class CommentsViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
         
         
+    }
+    
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // If no comments show create comment
+        if post?.comments.isEmpty ?? false {
+            self.performSegue(withIdentifier: "ShowCreateComment", sender: self)
+        }
+
     }
     
     
