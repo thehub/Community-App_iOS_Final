@@ -10,6 +10,7 @@ import UIKit
 
 class GroupDetailTopCell: UICollectionViewCell {
 
+    @IBOutlet weak var imageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var arrowImage: UIImageView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -18,6 +19,8 @@ class GroupDetailTopCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.clipsToBounds = false
+
     }
 
     func setup(vm: GroupDetailTopViewModel) {
@@ -27,7 +30,15 @@ class GroupDetailTopCell: UICollectionViewCell {
             profileImageView.kf.setImage(with: photoUrl)
         }
         self.arrowImage.layer.add(Animations.slideAnimation, forKey: "slideAnimation")
-
+    }
+    
+    func didScrollWith(offsetY: CGFloat) {
+        if offsetY < 0 {
+            self.imageViewTopConstraint.constant = offsetY
+        }
+        else {
+            self.imageViewTopConstraint.constant = 0
+        }
     }
     
     

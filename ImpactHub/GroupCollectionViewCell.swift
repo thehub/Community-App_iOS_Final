@@ -18,6 +18,7 @@ class GroupCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         profileImageView.clipsToBounds = true
+
     }
 
     func setUp(vm: GroupViewModel) {
