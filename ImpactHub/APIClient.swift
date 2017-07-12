@@ -930,7 +930,7 @@ class APIClient {
     func sendPush(fromUserId: String, toUserIds: String, pushType: PushNotification.Kind, relatedId: String) -> Promise<String> {
         return Promise { fullfill, reject in
             let query: [String: String] = ["fromUserId" : fromUserId, "toUserIds" : toUserIds, "pushType" : pushType.getParameter(), "relatedId" : relatedId]
-            //            debugPrint(query)
+            debugPrint(query)
             let body = SFJsonUtils.jsonDataRepresentation(query)
             let request = SFRestRequest(method: .POST, path: "/services/apexrest/pushNotificationFromSF", queryParams: nil)
             request.endpoint = "/services/apexrest/pushNotificationFromSF"
@@ -938,17 +938,23 @@ class APIClient {
             request.setCustomRequestBodyData(body!, contentType: "application/json")
             request.setHeaderValue("\(u_long(body?.count ?? 0))", forHeaderName: "Content-Length")
             
+            print(Constants.communityId)
+            print(request)
+            
             SFRestAPI.sharedInstance().send(request, fail: { (error) in
                 print(error?.localizedDescription as Any)
                 reject(MyError.JSONError)
             }) { (result) in
-                let jsonResult = JSON.init(result!)
-                if jsonResult.string == "Success" {
-                    fullfill("ok")
-                }
-                else {
-                    reject(MyError.JSONError)
-                }
+                // For now sales force won't give an error or sucess, so just silently accept it
+                fullfill("ok")
+//                let jsonResult = JSON.init(result!)
+//                print(jsonResult)
+//                if jsonResult.string == "Success" {
+//                    fullfill("ok")
+//                }
+//                else {
+//                    reject(MyError.JSONError)
+//                }
             }
         }
     }

@@ -51,6 +51,7 @@ struct PushNotification {
 
 extension PushNotification {
     init?(json: JSON) {
+        print(json)
         guard
             let id = json["Id"].string,
             let type = json["Type__c"].string,
@@ -65,8 +66,20 @@ extension PushNotification {
         case "Comment":
             self.kind = .comment(id: relatedId, feedElementId: relatedId)
             break
-        case "Mention":
+        case "PostMention":
             self.kind = .postMention(postId: relatedId)
+            break
+        case "CommentMention":
+            self.kind = .commentMention(commentId: relatedId)
+            break
+        case "LikePost":
+            self.kind = .likePost(postId: relatedId)
+            break
+        case "LikeComment":
+            self.kind = .likeComment(commentId: relatedId)
+            break
+        case "PrivateMessage":
+            self.kind = .privateMessage(messageId: relatedId)
             break
         default:
             self.kind = .unknown
