@@ -20,14 +20,27 @@ class ProjectDetailTopCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        // Motion effect
+        let m1 = UIInterpolatingMotionEffect(keyPath:"center.x", type:.tiltAlongHorizontalAxis)
+        m1.maximumRelativeValue = 30.0
+        m1.minimumRelativeValue = -30.0
+        let m2 = UIInterpolatingMotionEffect(keyPath:"center.y", type:.tiltAlongVerticalAxis)
+        m2.maximumRelativeValue = 30.0
+        m2.minimumRelativeValue = -30.0
+        let g = UIMotionEffectGroup()
+        g.motionEffects = [m1,m2]
+        nameLabel.addMotionEffect(g)
+        jobLabel.addMotionEffect(g)
+        
+        self.clipsToBounds = false
+
     }
 
     func setup(vm: ProjectDetailTopViewModel) {
         nameLabel.text = vm.project.name
         jobLabel.text = "by \(vm.project.companyName ?? "")"
         profileImageView.kf.setImage(with: vm.project.photoUrl)
-        
-        self.clipsToBounds = false
         
         self.arrowImage.layer.add(Animations.slideAnimation, forKey: "slideAnimation")
 
