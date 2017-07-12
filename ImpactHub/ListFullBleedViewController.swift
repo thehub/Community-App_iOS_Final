@@ -119,6 +119,19 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
 
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // TODO: Fix this issue with bar hiding when switching tabs
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+            print("call it")
+            if self.collectionView.contentOffset.y > 50 {
+                self.tabBarController?.tabBar.isHidden = false
+            }
+        }
+
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         

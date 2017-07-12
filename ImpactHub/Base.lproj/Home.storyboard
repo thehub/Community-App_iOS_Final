@@ -296,7 +296,7 @@
         <!--Members-->
         <scene sceneID="BjI-Oo-zJe">
             <objects>
-                <viewController title="Members" automaticallyAdjustsScrollViewInsets="NO" id="j8C-9J-4ey" customClass="MembersViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Members" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="j8C-9J-4ey" customClass="MembersViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Yag-w3-ADU"/>
                         <viewControllerLayoutGuide type="bottom" id="xee-p6-RLn"/>
@@ -1561,7 +1561,7 @@
         <!--Group View Controller-->
         <scene sceneID="UOO-7R-eeS">
             <objects>
-                <viewController storyboardIdentifier="GroupViewController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="ytP-JQ-5XJ" customClass="GroupViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GroupViewController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="ytP-JQ-5XJ" customClass="GroupViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h6w-ro-TIc"/>
                         <viewControllerLayoutGuide type="bottom" id="pqR-Rb-Nin"/>

@@ -58,6 +58,7 @@ class GroupViewController: ListFullBleedViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if needsToUpdateCommentCount {
+            needsToUpdateCommentCount = false
             self.collectionView.reloadData()
         }
     }

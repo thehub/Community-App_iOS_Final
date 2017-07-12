@@ -26,7 +26,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="projectImage" translatesAutoresizingMaskIntoConstraints="NO" id="mHX-u7-K71">
-                        <rect key="frame" x="8" y="12.5" width="30" height="30"/>
+                        <rect key="frame" x="20" y="12.5" width="30" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="NRd-u1-p1o"/>
                             <constraint firstAttribute="width" constant="30" id="yo7-F6-7R2"/>
@@ -38,13 +38,13 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jx9-Ra-lb3">
-                        <rect key="frame" x="46" y="8" width="246" height="39"/>
+                        <rect key="frame" x="58" y="8" width="222" height="39"/>
                         <fontDescription key="fontDescription" name="GTWalsheim" family="GT Walsheim" pointSize="13"/>
                         <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 day ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRm-2b-nRG">
-                        <rect key="frame" x="253" y="3" width="39" height="12"/>
+                        <rect key="frame" x="246" y="3" width="39" height="12"/>
                         <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="9"/>
                         <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -65,11 +65,11 @@
                 <constraint firstAttribute="trailing" secondItem="12n-nn-Yl3" secondAttribute="trailing" id="N5g-SO-4ST"/>
                 <constraint firstAttribute="bottom" secondItem="12n-nn-Yl3" secondAttribute="bottom" id="O7z-wX-JZG"/>
                 <constraint firstAttribute="bottom" secondItem="Jx9-Ra-lb3" secondAttribute="bottom" constant="8" id="Pqf-MS-2yB"/>
-                <constraint firstAttribute="trailing" secondItem="pRm-2b-nRG" secondAttribute="trailing" constant="8" id="U00-47-K4z"/>
-                <constraint firstItem="mHX-u7-K71" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Uyh-w3-9U5"/>
+                <constraint firstAttribute="trailing" secondItem="pRm-2b-nRG" secondAttribute="trailing" constant="15" id="U00-47-K4z"/>
+                <constraint firstItem="mHX-u7-K71" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="Uyh-w3-9U5"/>
                 <constraint firstItem="pRm-2b-nRG" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="3" id="X4g-CZ-PIy"/>
                 <constraint firstItem="12n-nn-Yl3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="39" id="ZeF-a0-T9l"/>
-                <constraint firstAttribute="trailing" secondItem="Jx9-Ra-lb3" secondAttribute="trailing" constant="8" id="aGV-Fc-jle"/>
+                <constraint firstAttribute="trailing" secondItem="Jx9-Ra-lb3" secondAttribute="trailing" constant="20" id="aGV-Fc-jle"/>
                 <constraint firstItem="Jx9-Ra-lb3" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="iQt-bm-sK5"/>
                 <constraint firstItem="Jx9-Ra-lb3" firstAttribute="leading" secondItem="mHX-u7-K71" secondAttribute="trailing" constant="8" id="iha-hq-ogo"/>
             </constraints>
