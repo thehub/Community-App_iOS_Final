@@ -28,11 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         SalesforceSDKManager.shared().connectedAppId = RemoteAccessConsumerKey
         SalesforceSDKManager.shared().connectedAppCallbackUri = OAuthRedirectURI
-        SalesforceSDKManager.shared().authScopes = ["web", "api"];
+        SalesforceSDKManager.shared().authScopes = ["web", "api", "refresh_token"];
+//        SalesforceSDKManager.shared().authenticateAtLaunch = false  // Turn this to false when using auth0
+
+        // https://trailhead.salesforce.com/en/modules/mobile_sdk_introduction/units/mobilesdk_intro_security
         
         SalesforceSDKManager.shared().postLaunchAction = {
             [unowned self] (launchActionList: SFSDKLaunchAction) in
-            
             
             SalesforceSDKManager.shared()
             
@@ -89,7 +91,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         loginViewController.navBarColor = UIColor.white
         loginViewController.navBarTextColor = UIColor.darkGray
         
-        
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self
             UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .sound, .alert], completionHandler: {(granted, error) in
@@ -106,6 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             application.registerUserNotificationSettings(settings)
             application.registerForRemoteNotifications()
         }
+        
         
         SalesforceSDKManager.shared().launch()
 

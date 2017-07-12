@@ -8,6 +8,7 @@
 
 import UIKit
 import Auth0
+import SalesforceSDKCore
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
@@ -101,6 +102,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     debugPrint(credentials.expiresIn)
                     debugPrint(credentials.tokenType)
                     
+                    
 //                    self.sessionManager.storeTokens(accessToken, idToken: idToken, refreshToken: credentials.refreshToken)
 //                    sessionManager.shared.storeTokens(idToken, refreshToken: credentials.refreshToken)
                     self.sessionManager.retrieveProfile { error in
@@ -112,8 +114,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 }
                             }
                             else {
-                                self.presentingViewController?.dismiss(animated: true, completion: { 
-                                    
+                                self.presentingViewController?.dismiss(animated: true, completion: {
+                                    NotificationCenter.default.post(name: .onLogin, object: nil, userInfo: nil)
                                 })
                             }
                         }

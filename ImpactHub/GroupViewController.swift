@@ -120,6 +120,7 @@ class GroupViewController: ListFullBleedViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         if segue.identifier == "ShowComments" {
             if let vc = segue.destination as? CommentsViewController {
                 vc.post = self.postToShowCommentsFor

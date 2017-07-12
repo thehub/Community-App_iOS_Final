@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadMe()
+        loadMe() // Turn of for auth0
         
         self.observer = NotificationCenter.default.addObserver(forName: NSNotification.Name.onLogin, object: nil, queue: OperationQueue.main) { (_) in
             self.loadMe()
@@ -70,10 +70,10 @@ class ViewController: UIViewController {
         }
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        self.checkAccessToken()
-//    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        self.checkAccessToken() // turn on for auth0
+    }
     
     deinit {
         if let observer = self.observer {
@@ -100,17 +100,22 @@ class ViewController: UIViewController {
             showLoginController()
             return
         }
+        print("haveSession")
         debugPrint(token)
         
         let authenticationManager = SFAuthenticationManager.shared()
-//        authenticationManager.oauthClientId = ""
-        SFAuthenticationManager.shared().login(withJwtToken: token, completion: { (authInfo, userAccount) in
+        authenticationManager.oauthClientId = "3MVG9lcxCTdG2Vbsh1Tk8y8c1rJI3k2NcjhqU64_RUJL9FRsLMA.YWqHIpocRx.hDakLQbYS7eAB16YOMuPyL"
+        authenticationManager.login(withJwtToken: token, completion: { (authInfo, userAccount) in
             SFUserAccountManager.sharedInstance().currentUser = userAccount
             print("Hurray!")
         }) { (authInfo, error) in
             debugPrint(error.localizedDescription)
         }
         
+        
+        // lightful-impacthub.cs88.force.com/services/oauth2/token
+        
+//        SFAuthenticationViewHandler
         
     
     }

@@ -124,7 +124,6 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
         
         // TODO: Fix this issue with bar hiding when switching tabs
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-            print("call it")
             if self.collectionView.contentOffset.y > 50 {
                 self.tabBarController?.tabBar.isHidden = false
             }
@@ -158,7 +157,7 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: self)
+        super.prepare(for: segue, sender: sender)
         if segue.identifier == "ShowCreatePost" {
             if let navVC = segue.destination as? UINavigationController {
                 if let vc = navVC.viewControllers.first as? CreatePostViewController, let chatterGroupId = self.chatterGroupId {
