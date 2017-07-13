@@ -15,8 +15,6 @@ class ProjectViewController: ListFullBleedViewController {
     
     var indexPathToInsertNewPostsAt = IndexPath(item: 2, section: 0)
 
-    var member = Member(id: "sdfds", userId: "sdfsdf", firstName: "Niklas", lastName: "Test", job: "Test", photo: "photo", blurb: "Lorem ipusm", aboutMe: "Lorem ipsum", locationName: "London, UK")
-
     var projectFeedData = [CellRepresentable]()
     var projectsObjectivesData = [CellRepresentable]()
     var projectsMembersData = [CellRepresentable]()
@@ -64,7 +62,7 @@ class ProjectViewController: ListFullBleedViewController {
             APIClient.shared.getGroupPosts(groupID: self.project.chatterId)
             }.then { posts -> Void in
                 posts.forEach({ (post) in
-                    self.projectFeedData.append(MemberFeedItemViewModel(post: post, member: self.member, comment: nil, delegate: self, cellSize: CGSize(width: cellWidth, height: 150)))
+                    self.projectFeedData.append(MemberFeedItemViewModel(post: post, comment: nil, delegate: self, cellSize: CGSize(width: cellWidth, height: 150)))
                 })
             }.then {
                 APIClient.shared.getMembers(projectId: self.project.id)
@@ -215,7 +213,7 @@ class ProjectViewController: ListFullBleedViewController {
 
     override func didCreatePost(post: Post) {
         super.didCreatePost(post: post)
-        self.projectFeedData.insert(MemberFeedItemViewModel(post: post, member: self.member, comment: nil, delegate: self, cellSize: CGSize(width: self.view.frame.width, height: 150)), at: self.indexPathToInsertNewPostsAt.item)
+        self.projectFeedData.insert(MemberFeedItemViewModel(post: post, comment: nil, delegate: self, cellSize: CGSize(width: self.view.frame.width, height: 150)), at: self.indexPathToInsertNewPostsAt.item)
         topMenu?.selectButton(index: 0)
         self.collectionView.scrollToItem(at: self.indexPathToInsertNewPostsAt, at: .top, animated: true)
     }

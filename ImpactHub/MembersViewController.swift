@@ -30,14 +30,16 @@ class MembersViewController: ListWithSearchViewController {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.collectionView?.alpha = 0
         firstly {
-            APIClient.shared.getMembers()
+            APIClient.shared.getDMRequests()
+            }.then { contactRequests -> Void in
+                ContactRequestManager.shared.contactRequests = contactRequests
+            }.then {
+                APIClient.shared.getMembers()
             }.then { items -> Void in
-                print(items)
-                
                 let cellWidth: CGFloat = self.view.frame.width
                 items.forEach({ (member) in
-                    let viewModel1 = MemberViewModel(member: member, cellSize: CGSize(width: cellWidth, height: 105))
-                    self.data.append(viewModel1)
+                    member.contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
+                    self.data.append(MemberViewModel(member: member, cellSize: CGSize(width: cellWidth, height: 105)))
                 })
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false

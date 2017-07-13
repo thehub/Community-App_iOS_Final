@@ -15,8 +15,6 @@ class GroupViewController: ListFullBleedViewController {
     
     var indexPathToInsertNewPostsAt = IndexPath(item: 2, section: 0)
     
-    var member = Member(id: "sdfds", userId: "sdfsdf", firstName: "Niklas", lastName: "Test", job: "Test", photo: "photo", blurb: "Lorem ipusm", aboutMe: "Lorem ipsum", locationName: "London, UK")
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,7 +37,7 @@ class GroupViewController: ListFullBleedViewController {
             APIClient.shared.getGroupPosts(groupID: group.chatterId)
             }.then { posts -> Void in
                 posts.forEach({ (post) in
-                    self.data.append(MemberFeedItemViewModel(post: post, member: self.member, comment: nil, delegate: self, cellSize: CGSize(width: self.view.frame.width, height: 150)))
+                    self.data.append(MemberFeedItemViewModel(post: post, comment: nil, delegate: self, cellSize: CGSize(width: self.view.frame.width, height: 150)))
                 })
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -111,7 +109,7 @@ class GroupViewController: ListFullBleedViewController {
     
     override func didCreatePost(post: Post) {
         super.didCreatePost(post: post)
-        self.data.insert(MemberFeedItemViewModel(post: post, member: self.member, comment: nil, delegate: self, cellSize: CGSize(width: self.view.frame.width, height: 150)), at: self.indexPathToInsertNewPostsAt.item)
+        self.data.insert(MemberFeedItemViewModel(post: post, comment: nil, delegate: self, cellSize: CGSize(width: self.view.frame.width, height: 150)), at: self.indexPathToInsertNewPostsAt.item)
         self.collectionView.insertItems(at: [self.indexPathToInsertNewPostsAt])
         self.collectionView.scrollToItem(at: self.indexPathToInsertNewPostsAt, at: .top, animated: true)
     }

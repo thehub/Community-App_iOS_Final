@@ -12,15 +12,13 @@ class MemberFeedItemViewModel: CellRepresentable {
     
     static var cellIdentifier = "MemberFeedItemCell"
 
-    var member: Member // TODO: Remove this it's for mocking only...
     var post: Post
     var comment: Comment?
     var delegate: MemberFeedItemDelegate?
     
-    init(post: Post, member: Member, comment: Comment?, delegate: MemberFeedItemDelegate?, cellSize: CGSize) {
+    init(post: Post, comment: Comment?, delegate: MemberFeedItemDelegate?, cellSize: CGSize) {
         self.post = post
         self.comment = comment
-        self.member = member
         self.delegate = delegate
         self.cellSize = cellSize
     }

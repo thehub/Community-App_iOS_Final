@@ -11,7 +11,7 @@ import SalesforceSDKCore
 import SwiftyJSON
 
 
-struct Member {
+class Member {
     var id: String
     var userId: String
     var firstName: String
@@ -24,6 +24,7 @@ struct Member {
     var impactHubCities: String = ""
     var skills = [Skill]()
     var social: Social?
+    var contactRequest: DMRequest?
     
     struct Social {
         var instagram: URL?
@@ -54,32 +55,6 @@ struct Member {
     }
     
     
-    // For mock testing
-    init(id: String, userId: String, firstName: String, lastName: String, job: String, photo: String, blurb: String, aboutMe: String, locationName: String) {
-        self.id = id
-        self.userId = userId
-        self.firstName = firstName
-        self.lastName = lastName
-        self.job = job
-        self.photo = photo
-        self.blurb = blurb
-        self.aboutMe = aboutMe
-        self.locationName = locationName
-    }
-    
-}
-
-
-
-extension Member {
-    var name: String {
-        get {
-            return "\(firstName) \(lastName)"
-        }
-    }
-}
-
-extension Member {
     init?(json: JSON) {
         print(json)
         guard
@@ -106,7 +81,7 @@ extension Member {
         if let profession = json["Profession__c"].string, profession != "<null>" {
             self.job = profession
         }
-
+        
         if let impactHubCities = json["Impact_Hub_Cities__c"].string, impactHubCities != "<null>" {
             self.impactHubCities = impactHubCities
             if let firstCity = impactHubCities.components(separatedBy: ";").first {
@@ -128,18 +103,42 @@ extension Member {
         }
         let twitter = json["Twitter__c"].string
         self.social = Social(instagram: instagram, twitter: twitter, linkedIn: linkedIn, facebook: facebook)
+        
+        
+        
+        //        if let taxonomy = json["Taxonomy__c"].string {
+        //            self.taxonomy = taxonomy
+        //        }
+        //
+        //        if let skills = json["Skills__c"].string {
+        //            self.skills = skills.components(separatedBy: ",")
+        //        }
+        
+        
+    }
+    
+    // For mock testing
+//    init(id: String, userId: String, firstName: String, lastName: String, job: String, photo: String, blurb: String, aboutMe: String, locationName: String) {
+//        self.id = id
+//        self.userId = userId
+//        self.firstName = firstName
+//        self.lastName = lastName
+//        self.job = job
+//        self.photo = photo
+//        self.blurb = blurb
+//        self.aboutMe = aboutMe
+//        self.locationName = locationName
+//    }
+    
+}
 
-        
-        
-//        if let taxonomy = json["Taxonomy__c"].string {
-//            self.taxonomy = taxonomy
-//        }
-//        
-//        if let skills = json["Skills__c"].string {
-//            self.skills = skills.components(separatedBy: ",")
-//        }
-        
-        
+
+
+extension Member {
+    var name: String {
+        get {
+            return "\(firstName) \(lastName)"
+        }
     }
 }
 

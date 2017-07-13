@@ -292,6 +292,9 @@
 		858597DE1F17850C00821E6A /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1DD1ECEE66300FA1CE9 /* Home.storyboard */; };
 		858597DF1F17850F00821E6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85DE9ECC1ECC8CD900291EF5 /* Main.storyboard */; };
 		858597E01F17851100821E6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85DE9ECC1ECC8CD900291EF5 /* Main.storyboard */; };
+		858597E21F17AE8A00821E6A /* ContactRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858597E11F17AE8A00821E6A /* ContactRequestManager.swift */; };
+		858597E31F17AE8A00821E6A /* ContactRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858597E11F17AE8A00821E6A /* ContactRequestManager.swift */; };
+		858597E41F17AE8A00821E6A /* ContactRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858597E11F17AE8A00821E6A /* ContactRequestManager.swift */; };
 		858C588D1EF91DC600136DAC /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C588C1EF91DC600136DAC /* TestViewController.swift */; };
 		858C58901EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 858C588F1EF928E000136DAC /* ProjectDetailTopCell.xib */; };
 		858C58911EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 858C588F1EF928E000136DAC /* ProjectDetailTopCell.xib */; };
@@ -597,6 +600,7 @@
 		8574807C1EE84735005F73A2 /* Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		857480801EE84752005F73A2 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		858597D11F17830F00821E6A /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		858597E11F17AE8A00821E6A /* ContactRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactRequestManager.swift; sourceTree = "<group>"; };
 		858C588C1EF91DC600136DAC /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		858C588F1EF928E000136DAC /* ProjectDetailTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectDetailTopCell.xib; sourceTree = "<group>"; };
 		858C58931EF928F500136DAC /* ProjectDetailTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailTopCell.swift; sourceTree = "<group>"; };
@@ -948,6 +952,7 @@
 				857480681EE83B17005F73A2 /* LoginViewController.swift */,
 				8574806C1EE83B67005F73A2 /* ResetPasswordViewController.swift */,
 				850C142E1F03B04400F00DAE /* FilterManager.swift */,
+				858597E11F17AE8A00821E6A /* ContactRequestManager.swift */,
 				85DE9ECC1ECC8CD900291EF5 /* Main.storyboard */,
 				8570C1DD1ECEE66300FA1CE9 /* Home.storyboard */,
 				8570C1CF1ECEE0D200FA1CE9 /* Search.storyboard */,
@@ -1448,6 +1453,7 @@
 				8501B9F51EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
 				8570C1E31ECF028200FA1CE9 /* Company.swift in Sources */,
 				859C41691ECDA70900637295 /* MemberDetailTopViewModel.swift in Sources */,
+				858597E21F17AE8A00821E6A /* ContactRequestManager.swift in Sources */,
 				851D03851F02B81C00641976 /* FilterGroupingCell.swift in Sources */,
 				8574807D1EE84735005F73A2 /* Animations.swift in Sources */,
 				857480571EE802D0005F73A2 /* Post.swift in Sources */,
@@ -1560,6 +1566,7 @@
 			files = (
 				857480821EE84752005F73A2 /* Button.swift in Sources */,
 				850B70351EFC0F6D00596315 /* EventCollectionViewCell.swift in Sources */,
+				858597E31F17AE8A00821E6A /* ContactRequestManager.swift in Sources */,
 				853433D01EE6B726003C26F8 /* MessagesVM.swift in Sources */,
 				8500723D1EE7126C008A725A /* MessagesThreadMeTimeVM.swift in Sources */,
 				858C58C11EF9667300136DAC /* JobFilterViewController.swift in Sources */,
@@ -1671,6 +1678,7 @@
 			files = (
 				857480831EE84752005F73A2 /* Button.swift in Sources */,
 				850B70361EFC0F6D00596315 /* EventCollectionViewCell.swift in Sources */,
+				858597E41F17AE8A00821E6A /* ContactRequestManager.swift in Sources */,
 				853433D11EE6B726003C26F8 /* MessagesVM.swift in Sources */,
 				8500723E1EE7126C008A725A /* MessagesThreadMeTimeVM.swift in Sources */,
 				858C58C21EF9667300136DAC /* JobFilterViewController.swift in Sources */,

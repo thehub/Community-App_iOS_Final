@@ -21,23 +21,24 @@ struct DMRequest {
         case Outstanding
         case Approved
         case Declined
+        case NotRequested
     }
     
-    func displayLabel() -> String {
-        switch status {
-        case .Approved:
-            return "Contact"
-        case .Outstanding:
-            if contactToId == SessionManager.shared.me?.id {
-                return "Accept"
-            }
-            else {
-                return "Awaiting Response"
-            }
-        case .Declined:
-            return "Declined"
-        }
-    }
+//    func displayLabel() -> String {
+//        switch status {
+//        case .Approved:
+//            return "Contact"
+//        case .Outstanding:
+//            if contactToId == SessionManager.shared.me?.id {
+//                return "Accept"
+//            }
+//            else {
+//                return "Awaiting Response"
+//            }
+//        case .Declined:
+//            return "Declined"
+//        }
+//    }
 
     
 }

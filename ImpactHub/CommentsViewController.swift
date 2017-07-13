@@ -24,8 +24,6 @@ class CommentsViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     weak var commentsViewControllerDelegate: CommentsViewControllerDelegate?
     
-    var member = Member(id: "sdfds", userId: "sdfsdf", firstName: "Niklas", lastName: "Test", job: "Test", photo: "photo", blurb: "Lorem ipusm", aboutMe: "Lorem ipsum", locationName: "London, UK")
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,7 +35,7 @@ class CommentsViewController: UIViewController, UICollectionViewDelegate, UIColl
 
         if let post = post {
             post.comments.forEach({ (comment) in
-                self.data.append(MemberFeedItemViewModel(post: post, member: self.member, comment: comment, delegate: self, cellSize: CGSize(width: self.view.frame.width, height: 150)))
+                self.data.append(MemberFeedItemViewModel(post: post, comment: comment, delegate: self, cellSize: CGSize(width: self.view.frame.width, height: 150)))
             })
 
             // Are there more comments to load
@@ -47,7 +45,7 @@ class CommentsViewController: UIViewController, UICollectionViewDelegate, UIColl
                     APIClient.shared.loadComments(nextPageUrl: commentsNextPageUrl)
                     }.then { comments -> Void in
                         comments.forEach({ (comment) in
-                            self.data.append(MemberFeedItemViewModel(post: post, member: self.member, comment: comment, delegate: self, cellSize: CGSize(width: self.view.frame.width, height: 150)))
+                            self.data.append(MemberFeedItemViewModel(post: post, comment: comment, delegate: self, cellSize: CGSize(width: self.view.frame.width, height: 150)))
                             // TODO: Load more here if still more available
                         })
                     }.always {
@@ -139,7 +137,7 @@ extension CommentsViewController: CreatePostViewControllerDelegate {
     
     func didCreateComment(comment: Comment) {
         if let post = self.post {
-            self.data.insert(MemberFeedItemViewModel(post: post, member: self.member, comment: comment, delegate: self, cellSize: CGSize(width: self.view.frame.width, height: 150)), at: 0)
+            self.data.insert(MemberFeedItemViewModel(post: post, comment: comment, delegate: self, cellSize: CGSize(width: self.view.frame.width, height: 150)), at: 0)
             self.collectionView.insertItems(at: [IndexPath.init(row: 0, section: 0)])
             self.collectionView.scrollToItem(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
             self.post?.commentsCount += 1

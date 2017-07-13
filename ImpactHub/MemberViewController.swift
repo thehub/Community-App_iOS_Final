@@ -19,12 +19,25 @@ class MemberViewController: ListFullBleedViewController {
     var memberProjectsData = [CellRepresentable]()
     var memberGroupsData = [CellRepresentable]()
 
+    var connectRequestStatus = DMRequest.Satus.NotRequested
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        connectButton?.setTitle("Connect with \(member.name)", for: .normal)
-
         self.title = member.name
+
+        self.connectRequestStatus = member.contactRequest?.status ?? .NotRequested
+        switch connectRequestStatus {
+        case .Approved:
+            connectButton?.setTitle("Contact \(member.name)", for: .normal)
+        case .Declined:
+            connectButton?.isHidden = true
+        case .Outstanding:
+            connectButton?.setTitle("Awaiting Response", for: .normal)
+            connectButton?.isEnabled = false
+        case .NotRequested:
+            connectButton?.setTitle("Connect with \(member.name)", for: .normal)
+        }
         
         collectionView.register(UINib.init(nibName: MemberDetailTopViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberDetailTopViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: MemberAboutItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberAboutItemViewModel.cellIdentifier)
@@ -168,7 +181,9 @@ class MemberViewController: ListFullBleedViewController {
         if index == 0 {
             self.data = self.memberAboutData
             self.collectionView.reloadData()
-            showConnectButton()
+            if connectRequestStatus != .Declined {
+                showConnectButton()
+            }
         }
         else if index == 1 {
             self.data = self.memberProjectsData
@@ -192,16 +207,26 @@ class MemberViewController: ListFullBleedViewController {
     }
 
     @IBAction func connectTap(_ sender: Any) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        firstly {
-            APIClient.shared.createDMRequest(fromContactId: SessionManager.shared.me?.id ?? "", toContactId: self.member.id)
-            }.then { result -> Void in
-                print(result)
-            }.always {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            }.catch { error in
-                debugPrint(error.localizedDescription)
+        
+        if connectRequestStatus == .NotRequested {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            firstly {
+                APIClient.shared.createDMRequest(fromContactId: SessionManager.shared.me?.id ?? "", toContactId: self.member.id)
+                }.then { result -> Void in
+                    print(result)
+                }.always {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }.catch { error in
+                    debugPrint(error.localizedDescription)
+                    let alert = UIAlertController(title: "Error", message: "Could not send request. Please try again.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+            }
         }
+        else if connectRequestStatus == .Approved {
+            // TODO: Show Messages here
+        }
+        
         
     }
 }

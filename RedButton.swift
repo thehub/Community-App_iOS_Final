@@ -18,6 +18,7 @@ class RedButton: Button {
         self.setTitleColor(UIColor.white, for: .normal)
         self.setTitleColor(UIColor.white, for: .highlighted)
         self.setTitleColor(UIColor.white, for: .selected)
+        self.setTitleColor(UIColor.imaWarmGrey, for: .disabled)
 
         if isEnabled {
             backgroundColor = UIColor.imaGrapefruit
