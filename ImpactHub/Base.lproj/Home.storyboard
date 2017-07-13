@@ -296,7 +296,7 @@
         <!--Members-->
         <scene sceneID="BjI-Oo-zJe">
             <objects>
-                <viewController title="Members" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="j8C-9J-4ey" customClass="MembersViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Members" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="j8C-9J-4ey" customClass="MembersViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Yag-w3-ADU"/>
                         <viewControllerLayoutGuide type="bottom" id="xee-p6-RLn"/>
@@ -531,7 +531,6 @@
                             <constraint firstAttribute="trailing" secondItem="VB6-Ch-zvJ" secondAttribute="trailing" id="rv1-Sj-GpY"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="VB6-Ch-zvJ" id="JTA-zh-Ptp"/>
@@ -608,7 +607,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="daq-qw-gvH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="daq-qw-gvH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -701,7 +700,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g4N-jp-PsD" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mWd-pG-I7a">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mWd-pG-I7a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -719,7 +718,7 @@
             <objects>
                 <navigationController title="Filter" automaticallyAdjustsScrollViewInsets="NO" id="3P0-zD-GQr" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="li8-wY-ywY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="li8-wY-ywY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -786,7 +785,6 @@
                             <constraint firstItem="XFL-Su-sXY" firstAttribute="top" secondItem="odh-qO-HwQ" secondAttribute="bottom" id="rja-a1-KJl"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="LBr-qP-EDO">
                         <barButtonItem key="backBarButtonItem" title=" " id="8e8-48-whF"/>
                         <barButtonItem key="rightBarButtonItem" image="create" style="plain" id="nQD-ZY-ogt">
@@ -812,7 +810,7 @@
         <!--Projects-->
         <scene sceneID="bME-CD-FME">
             <objects>
-                <viewController storyboardIdentifier="ProjectsViewController" title="Members" automaticallyAdjustsScrollViewInsets="NO" id="LuZ-Q5-6Ya" userLabel="Projects" customClass="ProjectsViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProjectsViewController" title="Members" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="LuZ-Q5-6Ya" userLabel="Projects" customClass="ProjectsViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ycw-fC-MRY"/>
                         <viewControllerLayoutGuide type="bottom" id="iyj-K9-BSU"/>
@@ -999,7 +997,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="286" height="54"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mUx-B0-oCl">
-                                                <rect key="frame" x="15" y="17" width="238" height="20"/>
+                                                <rect key="frame" x="15" y="18" width="238" height="18"/>
                                                 <color key="textColor" red="0.37647058820000001" green="0.37647058820000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
@@ -1199,7 +1197,7 @@
         <!--Companies-->
         <scene sceneID="vBS-b8-fm2">
             <objects>
-                <viewController storyboardIdentifier="CompaniesViewController" title="Members" automaticallyAdjustsScrollViewInsets="NO" id="9ww-Ny-2Or" userLabel="Companies" customClass="CompaniesViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CompaniesViewController" title="Members" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="9ww-Ny-2Or" userLabel="Companies" customClass="CompaniesViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q4g-a6-6ks"/>
                         <viewControllerLayoutGuide type="bottom" id="AhQ-hG-HEX"/>
@@ -1409,7 +1407,6 @@
                             <constraint firstItem="EGe-v8-GFy" firstAttribute="top" secondItem="YYU-wJ-Gb2" secondAttribute="bottom" id="zLV-be-iee"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="YYU-wJ-Gb2" id="nIQ-Y1-Prs"/>
@@ -1478,7 +1475,6 @@
                             <constraint firstItem="iTB-Fi-VWb" firstAttribute="leading" secondItem="ZrU-kV-LCD" secondAttribute="leading" id="gvQ-OG-93n"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="mWh-Qr-m6A" id="cxa-1D-AYh"/>
@@ -1494,7 +1490,7 @@
         <!--Goals-->
         <scene sceneID="If8-51-Mgl">
             <objects>
-                <viewController storyboardIdentifier="GoalsViewController" title="Goals" automaticallyAdjustsScrollViewInsets="NO" id="7yq-SW-q8k" customClass="GoalsViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GoalsViewController" title="Goals" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="7yq-SW-q8k" customClass="GoalsViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q9D-Ac-y7v"/>
                         <viewControllerLayoutGuide type="bottom" id="jIR-jN-mA7"/>
@@ -1977,7 +1973,7 @@
             <objects>
                 <navigationController title="Filter" automaticallyAdjustsScrollViewInsets="NO" id="s53-44-0Ip" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="TJX-Az-6nl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TJX-Az-6nl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2069,7 +2065,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iz5-ct-zW9" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="C4D-zJ-TGR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C4D-zJ-TGR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2158,13 +2154,13 @@
         <image name="tabBarHome" width="22" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="E6m-rq-9b6"/>
-        <segue reference="2YP-O4-F5Z"/>
-        <segue reference="4CN-lM-E9S"/>
-        <segue reference="9tv-11-54j"/>
+        <segue reference="Nsv-q8-zjz"/>
+        <segue reference="fwI-8D-BHi"/>
         <segue reference="ODp-Jh-V7d"/>
-        <segue reference="vHi-eY-5aJ"/>
-        <segue reference="r4W-Rs-mKq"/>
+        <segue reference="tPM-PS-46L"/>
+        <segue reference="MFH-uD-O6a"/>
+        <segue reference="hAb-Na-Ctt"/>
+        <segue reference="saB-EM-KuP"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>
