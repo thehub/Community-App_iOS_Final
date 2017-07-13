@@ -24,7 +24,7 @@ class RedButton: Button {
             backgroundColor = UIColor.imaGrapefruit
         }
         else {
-            self.backgroundColor = UIColor.init(white: 1.0, alpha: 0.8)
+            backgroundColor = UIColor.white
         }
         
     }
@@ -33,9 +33,9 @@ class RedButton: Button {
         didSet {
             switch isEnabled {
             case true:
-                backgroundColor = UIColor.white
+                backgroundColor = UIColor.imaGrapefruit
             case false:
-                self.backgroundColor = UIColor.init(white: 1.0, alpha: 0.8)
+                backgroundColor = UIColor.white
             }
         }
     }

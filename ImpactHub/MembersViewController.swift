@@ -23,9 +23,11 @@ class MembersViewController: ListWithSearchViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         collectionView.register(UINib.init(nibName: MemberViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberViewModel.cellIdentifier)
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.collectionView?.alpha = 0
@@ -36,10 +38,14 @@ class MembersViewController: ListWithSearchViewController {
             }.then {
                 APIClient.shared.getMembers()
             }.then { items -> Void in
+                self.data.removeAll()
                 let cellWidth: CGFloat = self.view.frame.width
                 items.forEach({ (member) in
-                    member.contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
-                    self.data.append(MemberViewModel(member: member, cellSize: CGSize(width: cellWidth, height: 105)))
+                    // Remove our selves
+                    if member.id != SessionManager.shared.me?.id ?? "" {
+                        member.contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
+                        self.data.append(MemberViewModel(member: member, cellSize: CGSize(width: cellWidth, height: 105)))
+                    }
                 })
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -55,7 +61,6 @@ class MembersViewController: ListWithSearchViewController {
             }.catch { error in
                 debugPrint(error.localizedDescription)
         }
-
     }
 
     override func didReceiveMemoryWarning() {

@@ -15,6 +15,7 @@ class ContactRequestManager {
     
     func getRelevantContactRequestFor(member: Member) -> DMRequest? {
         let contactRequest = contactRequests.filter({ $0.contactFromId == member.id || $0.contactToId == member.id }).first
+        print(contactRequest?.status)
         return contactRequest
     }
     

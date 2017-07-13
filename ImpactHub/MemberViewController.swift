@@ -19,7 +19,30 @@ class MemberViewController: ListFullBleedViewController {
     var memberProjectsData = [CellRepresentable]()
     var memberGroupsData = [CellRepresentable]()
 
-    var connectRequestStatus = DMRequest.Satus.NotRequested
+    var connectRequestStatus = DMRequest.Satus.NotRequested {
+        didSet {
+            updateConnectButton()
+        }
+    }
+    
+    func updateConnectButton() {
+        switch connectRequestStatus {
+        case .Approved:
+            connectButton?.setTitle("Contact \(member.name)", for: .normal)
+            connectButton?.isHidden = false
+            connectButton?.isEnabled = true
+        case .Declined:
+            connectButton?.isHidden = true
+        case .Outstanding:
+            connectButton?.setTitle("Awaiting Response", for: .normal)
+            connectButton?.isEnabled = false
+            connectButton?.isHidden = false
+        case .NotRequested:
+            connectButton?.setTitle("Connect with \(member.name)", for: .normal)
+            connectButton?.isHidden = false
+            connectButton?.isEnabled = true
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,17 +50,6 @@ class MemberViewController: ListFullBleedViewController {
         self.title = member.name
 
         self.connectRequestStatus = member.contactRequest?.status ?? .NotRequested
-        switch connectRequestStatus {
-        case .Approved:
-            connectButton?.setTitle("Contact \(member.name)", for: .normal)
-        case .Declined:
-            connectButton?.isHidden = true
-        case .Outstanding:
-            connectButton?.setTitle("Awaiting Response", for: .normal)
-            connectButton?.isEnabled = false
-        case .NotRequested:
-            connectButton?.setTitle("Connect with \(member.name)", for: .normal)
-        }
         
         collectionView.register(UINib.init(nibName: MemberDetailTopViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberDetailTopViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: MemberAboutItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberAboutItemViewModel.cellIdentifier)
@@ -51,6 +63,7 @@ class MemberViewController: ListFullBleedViewController {
         memberAboutData.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
         memberAboutData.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 0)))
         self.data = memberAboutData
+        let countBefore = self.data.count
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
@@ -65,12 +78,16 @@ class MemberViewController: ListFullBleedViewController {
             }.then {
                 APIClient.shared.getGroups(contactId: self.member.id)
             }.then { groups -> Void in
-                print(groups)
                 self.groups = groups
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.build()
-                self.collectionView?.reloadData()
+                // Add the new data
+                var indexPathsToInsert = [IndexPath]()
+                for i in countBefore...self.data.count - 1 {
+                    indexPathsToInsert.append(IndexPath(item: i, section: 0))
+                }
+                self.collectionView.insertItems(at: indexPathsToInsert)
                 UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
                     self.collectionView?.alpha = 1
                     super.connectButton?.alpha = 1
@@ -126,7 +143,7 @@ class MemberViewController: ListFullBleedViewController {
             return CGSize(width: view.frame.width, height: height)
         }
         
-        if let vm = data[indexPath.item] as? ProjectViewModel {
+        if data[indexPath.item] is ProjectViewModel {
             let cellWidth: CGFloat = self.collectionView.frame.width
             let width = ((cellWidth - 40) / 1.6)
             let heightToUse = width + 155
@@ -213,7 +230,9 @@ class MemberViewController: ListFullBleedViewController {
             firstly {
                 APIClient.shared.createDMRequest(fromContactId: SessionManager.shared.me?.id ?? "", toContactId: self.member.id)
                 }.then { result -> Void in
-                    print(result)
+                    // TOOD: Neela will add to return whole object
+                    // TODO: Refresh list on going back
+                    self.connectRequestStatus = .Outstanding
                 }.always {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }.catch { error in

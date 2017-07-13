@@ -35,6 +35,14 @@ class MemberCollectionViewCell: UICollectionViewCell {
         }
         locationNameLabel.text = vm.member.locationName
 
+        
+        if vm.member.contactRequest?.status == DMRequest.Satus.Outstanding || vm.member.contactRequest?.status == DMRequest.Satus.Declined {
+            connectionImageView.image = UIImage(named: "waitingSmall")
+        }
+        else {
+            connectionImageView.image = UIImage(named: "memberConnected")
+        }
+        
     }
 
     
