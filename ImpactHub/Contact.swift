@@ -15,7 +15,6 @@ struct Contact {
     var userId: String
     var firstName: String
     var lastName: String
-    var email: String
     internal var profilePic: String?
 
     var profession: String?
@@ -35,13 +34,12 @@ struct Contact {
 
 extension Contact {
     init?(json: JSON) {
-//        print(json)
+        print(json)
         guard
             let id = json["Id"].string,
             let userId = json["User__c"].string,
             let firstName = json["FirstName"].string,
-            let lastName = json["LastName"].string,
-            let email = json["Email"].string
+            let lastName = json["LastName"].string
             else {
                 return nil
         }
@@ -49,29 +47,13 @@ extension Contact {
         self.userId = userId
         self.firstName = firstName
         self.lastName = lastName
-        self.email = email
-        
-        if let profilePic = json["ProfilePic__c"].string {
-            self.profilePic = profilePic
-        }
-
-        if let aboutMe = json["About_Me__c"].string, aboutMe != "<null>" {
-            self.aboutMe = aboutMe
-        }
-        
-        if let profession = json["Profession__c"].string, profession != "<null>" {
-            self.profession = profession
-        }
-        
-        if let taxonomy = json["Taxonomy__c"].string {
-            self.taxonomy = taxonomy
-        }
-
+        self.profilePic = json["ProfilePic__c"].string
+        self.aboutMe = json["About_Me__c"].string
+        self.profession = json["Profession__c"].string
+        self.taxonomy = json["Taxonomy__c"].string
         if let skills = json["Skills__c"].string {
             self.skills = skills.components(separatedBy: ",")
         }
-
-
     }
 }
 

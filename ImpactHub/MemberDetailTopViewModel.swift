@@ -20,7 +20,7 @@ class MemberDetailTopViewModel: CellRepresentable {
     }
     
     var jobDescriptionLong: String {
-        return "Consultant at \(member.job)"
+        return "\(member.job)"
     }
     
     var locationNameLong: String {
