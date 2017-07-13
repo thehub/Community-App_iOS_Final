@@ -277,6 +277,21 @@
 		857480811EE84752005F73A2 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480801EE84752005F73A2 /* Button.swift */; };
 		857480821EE84752005F73A2 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480801EE84752005F73A2 /* Button.swift */; };
 		857480831EE84752005F73A2 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480801EE84752005F73A2 /* Button.swift */; };
+		858597D21F17830F00821E6A /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858597D11F17830F00821E6A /* ContactsViewController.swift */; };
+		858597D31F17830F00821E6A /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858597D11F17830F00821E6A /* ContactsViewController.swift */; };
+		858597D41F17830F00821E6A /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858597D11F17830F00821E6A /* ContactsViewController.swift */; };
+		858597D51F1784EB00821E6A /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1D81ECEE39B00FA1CE9 /* Messages.storyboard */; };
+		858597D61F1784EC00821E6A /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1D81ECEE39B00FA1CE9 /* Messages.storyboard */; };
+		858597D71F1784F500821E6A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1DB1ECEE3F300FA1CE9 /* Profile.storyboard */; };
+		858597D81F1784F600821E6A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1DB1ECEE3F300FA1CE9 /* Profile.storyboard */; };
+		858597D91F1784F800821E6A /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1C71ECEDE3300FA1CE9 /* Notifications.storyboard */; };
+		858597DA1F1784F900821E6A /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1C71ECEDE3300FA1CE9 /* Notifications.storyboard */; };
+		858597DB1F17850300821E6A /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1CF1ECEE0D200FA1CE9 /* Search.storyboard */; };
+		858597DC1F17850400821E6A /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1CF1ECEE0D200FA1CE9 /* Search.storyboard */; };
+		858597DD1F17850800821E6A /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1DD1ECEE66300FA1CE9 /* Home.storyboard */; };
+		858597DE1F17850C00821E6A /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1DD1ECEE66300FA1CE9 /* Home.storyboard */; };
+		858597DF1F17850F00821E6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85DE9ECC1ECC8CD900291EF5 /* Main.storyboard */; };
+		858597E01F17851100821E6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85DE9ECC1ECC8CD900291EF5 /* Main.storyboard */; };
 		858C588D1EF91DC600136DAC /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C588C1EF91DC600136DAC /* TestViewController.swift */; };
 		858C58901EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 858C588F1EF928E000136DAC /* ProjectDetailTopCell.xib */; };
 		858C58911EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 858C588F1EF928E000136DAC /* ProjectDetailTopCell.xib */; };
@@ -581,6 +596,7 @@
 		857480781EE846EE005F73A2 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		8574807C1EE84735005F73A2 /* Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		857480801EE84752005F73A2 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		858597D11F17830F00821E6A /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		858C588C1EF91DC600136DAC /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		858C588F1EF928E000136DAC /* ProjectDetailTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectDetailTopCell.xib; sourceTree = "<group>"; };
 		858C58931EF928F500136DAC /* ProjectDetailTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailTopCell.swift; sourceTree = "<group>"; };
@@ -818,6 +834,7 @@
 				8500722A1EE70F30008A725A /* MessageThreadThemPicCell.swift */,
 				850072321EE711E4008A725A /* MessageThreadMeTimeCell.swift */,
 				850072331EE711E4008A725A /* MessageThreadThemTimeCell.swift */,
+				858597D11F17830F00821E6A /* ContactsViewController.swift */,
 			);
 			name = Messages;
 			sourceTree = "<group>";
@@ -1273,19 +1290,25 @@
 				85523DCB1EFAC92D00F66B53 /* CompanyServiceItemCell.xib in Resources */,
 				8502265D1F0119D000942C9F /* RelatedCell.xib in Resources */,
 				85E7DA861EF818D200C9DA15 /* ProjectCollectionViewCell.xib in Resources */,
+				858597DB1F17850300821E6A /* Search.storyboard in Resources */,
 				858C58A91EF9492000136DAC /* TitleCell.xib in Resources */,
 				851D03891F02B81C00641976 /* FilterGroupingCell.xib in Resources */,
+				858597DD1F17850800821E6A /* Home.storyboard in Resources */,
 				85523DB31EFAA3F100F66B53 /* CompanyCollectionViewCell.xib in Resources */,
 				850B70381EFC0F6D00596315 /* EventCollectionViewCell.xib in Resources */,
 				857480721EE83D44005F73A2 /* Auth0.plist in Resources */,
 				85455D3D1EF2A53200243846 /* gt-walsheim-web.ttf in Resources */,
+				858597D51F1784EB00821E6A /* Messages.storyboard in Resources */,
 				85455D341EF2A53200243846 /* gt-walsheim-light-oblique-web.ttf in Resources */,
 				850B701F1EFBF84600596315 /* GroupDetailTopCell.xib in Resources */,
+				858597D91F1784F800821E6A /* Notifications.storyboard in Resources */,
 				85455D311EF2A53200243846 /* gt-walsheim-bold-web.ttf in Resources */,
 				859F97D71EFBBF01001C0B33 /* GoalDetailTopCell.xib in Resources */,
 				858C58911EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */,
+				858597DF1F17850F00821E6A /* Main.storyboard in Resources */,
 				851655181EFD326F00002786 /* EventDetailCell.xib in Resources */,
 				859E02A81F03946F00600C3E /* FilterCell.xib in Resources */,
+				858597D71F1784F500821E6A /* Profile.storyboard in Resources */,
 				85455D371EF2A53200243846 /* gt-walsheim-light-web.ttf in Resources */,
 				850B70121EFBF1CA00596315 /* GroupCollectionViewCell.xib in Resources */,
 			);
@@ -1307,19 +1330,25 @@
 				85523DCC1EFAC92D00F66B53 /* CompanyServiceItemCell.xib in Resources */,
 				8502265E1F0119D000942C9F /* RelatedCell.xib in Resources */,
 				85E7DA871EF818D200C9DA15 /* ProjectCollectionViewCell.xib in Resources */,
+				858597DC1F17850400821E6A /* Search.storyboard in Resources */,
 				858C58AA1EF9492000136DAC /* TitleCell.xib in Resources */,
 				851D038A1F02B81C00641976 /* FilterGroupingCell.xib in Resources */,
+				858597DE1F17850C00821E6A /* Home.storyboard in Resources */,
 				85523DB41EFAA3F100F66B53 /* CompanyCollectionViewCell.xib in Resources */,
 				850B70391EFC0F6D00596315 /* EventCollectionViewCell.xib in Resources */,
 				857480731EE83D44005F73A2 /* Auth0.plist in Resources */,
 				85455D3E1EF2A53200243846 /* gt-walsheim-web.ttf in Resources */,
+				858597D61F1784EC00821E6A /* Messages.storyboard in Resources */,
 				85455D351EF2A53200243846 /* gt-walsheim-light-oblique-web.ttf in Resources */,
 				850B70201EFBF84600596315 /* GroupDetailTopCell.xib in Resources */,
+				858597DA1F1784F900821E6A /* Notifications.storyboard in Resources */,
 				85455D321EF2A53200243846 /* gt-walsheim-bold-web.ttf in Resources */,
 				859F97D81EFBBF01001C0B33 /* GoalDetailTopCell.xib in Resources */,
 				858C58921EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */,
+				858597E01F17851100821E6A /* Main.storyboard in Resources */,
 				851655191EFD326F00002786 /* EventDetailCell.xib in Resources */,
 				859E02A91F03946F00600C3E /* FilterCell.xib in Resources */,
+				858597D81F1784F600821E6A /* Profile.storyboard in Resources */,
 				85455D381EF2A53200243846 /* gt-walsheim-light-web.ttf in Resources */,
 				850B70131EFBF1CA00596315 /* GroupCollectionViewCell.xib in Resources */,
 			);
@@ -1491,6 +1520,7 @@
 				850072341EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
 				85523DB61EFAABD700F66B53 /* ListFullBleedViewController.swift in Sources */,
 				850226591F0119D000942C9F /* RelatedCell.swift in Sources */,
+				858597D21F17830F00821E6A /* ContactsViewController.swift in Sources */,
 				8574803F1EE802D0005F73A2 /* ChatterActor.swift in Sources */,
 				850B703A1EFC0F6D00596315 /* EventsViewController.swift in Sources */,
 				8574804E1EE802D0005F73A2 /* Message.swift in Sources */,
@@ -1581,6 +1611,7 @@
 				85AD64981F00FCA800F2CCA8 /* BigTitleTopViewModel.swift in Sources */,
 				859F97C51EFBBEE6001C0B33 /* Goal.swift in Sources */,
 				85AD649C1F00FE2700F2CCA8 /* BigTitleTopCell.swift in Sources */,
+				858597D31F17830F00821E6A /* ContactsViewController.swift in Sources */,
 				85523DC81EFAC92D00F66B53 /* CompanyServiceItemCell.swift in Sources */,
 				85C802571F14E074003DBC01 /* PushNotification.swift in Sources */,
 				858C58B21EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */,
@@ -1691,6 +1722,7 @@
 				85AD64991F00FCA800F2CCA8 /* BigTitleTopViewModel.swift in Sources */,
 				859F97C61EFBBEE6001C0B33 /* Goal.swift in Sources */,
 				85AD649D1F00FE2700F2CCA8 /* BigTitleTopCell.swift in Sources */,
+				858597D41F17830F00821E6A /* ContactsViewController.swift in Sources */,
 				85523DC91EFAC92D00F66B53 /* CompanyServiceItemCell.swift in Sources */,
 				85C802581F14E074003DBC01 /* PushNotification.swift in Sources */,
 				858C58B31EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyJSON
+import SalesforceSDKCore
 
 struct PushNotification {
     var id: String
@@ -15,7 +16,9 @@ struct PushNotification {
     var isRead: Bool
     var relatedId: String
     var createdDate: Date
+    var profilePic: String?
     var kind: Kind
+    var message: String
     
     enum Kind {
         case comment(id: String, feedElementId: String)
@@ -49,6 +52,8 @@ struct PushNotification {
 
 }
 
+
+
 extension PushNotification {
     init?(json: JSON) {
         print(json)
@@ -57,11 +62,13 @@ extension PushNotification {
             let type = json["Type__c"].string,
             let fromUserId = json["FromUserId__c"].string,
             let relatedId = json["RelatedId__c"].string,
-            let createdDate = json["CreatedDate"].string?.dateFromISOString()
+            let createdDate = json["CreatedDate"].string?.dateFromISOString(),
+            let message = json["Message__c"].string
             else {
                 return nil
         }
         self.id = id
+        self.message = message
         switch type {
         case "Comment":
             self.kind = .comment(id: relatedId, feedElementId: relatedId)
@@ -90,6 +97,9 @@ extension PushNotification {
         self.relatedId = relatedId
         self.createdDate = createdDate
         self.isRead = json["isRead__c"].bool ?? false
+        
+        self.profilePic = json["ProfilePicURL__c"].string
+        
     }
     
 }
@@ -121,3 +131,16 @@ extension PushNotification {
         }
     }
 }
+
+extension PushNotification {
+    var profilePicUrl: URL? {
+        if let token = SFUserAccountManager.sharedInstance().currentUser?.credentials.accessToken,
+            let profilePic = self.profilePic,
+            let url = URL(string: "\(profilePic)?oauth_token=\(token)") {
+            return url
+        }
+        return nil
+    }
+}
+
+

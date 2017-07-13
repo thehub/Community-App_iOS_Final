@@ -487,7 +487,163 @@ class APIClient {
     }
     
     
+    // Direct Message Request
+    func createDMRequest(fromContactId:String, toContactId:String) -> Promise<String> {
+        
+        return Promise { fullfill, reject in
+            
+            let query: [String: String] = ["fromContactId" : fromContactId, "toContactId" : toContactId]
+            let body = SFJsonUtils.jsonDataRepresentation(query)
+            let request = SFRestRequest(method: .POST, path: "/services/apexrest/CreateDMRequest", queryParams: nil)
+            request.endpoint = "/services/apexrest/CreateDMRequest"
+            request.path = "/services/apexrest/CreateDMRequest"
+            request.setCustomRequestBodyData(body!, contentType: "application/json")
+            request.setHeaderValue("\(u_long(body?.count ?? 0))", forHeaderName: "Content-Length")
+            
+            SFRestAPI.sharedInstance().send(request, fail: { (error) in
+                print(error?.localizedDescription as Any)
+                reject(MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON.init(result!)
+                debugPrint(jsonResult) // id
+                if let id = jsonResult.string {
+                    fullfill(id)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
     
+    func updateDMRequest(id:String, status:DMRequest.Satus) -> Promise<String> {
+        
+        return Promise { fullfill, reject in
+            
+            let query: [String: String] = ["DM_id" : id, "Req_status" : status.rawValue]
+            debugPrint(query)
+            let body = SFJsonUtils.jsonDataRepresentation(query)
+            let request = SFRestRequest(method: .POST, path: "/services/apexrest/UpdateDMRequest", queryParams: nil)
+            request.endpoint = "/services/apexrest/UpdateDMRequest"
+            request.path = "/services/apexrest/UpdateDMRequest"
+            request.setCustomRequestBodyData(body!, contentType: "application/json")
+            request.setHeaderValue("\(u_long(body?.count ?? 0))", forHeaderName: "Content-Length")
+            
+            SFRestAPI.sharedInstance().send(request, fail: { (error) in
+                print(error?.localizedDescription as Any)
+                reject(MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON.init(result!)
+                debugPrint(jsonResult)
+                if jsonResult.string == "Success" {
+                    fullfill("ok")
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
+    func getDMRequest(contactId:String) -> Promise<DMRequest?> {
+        return Promise { fullfill, reject in
+            firstly {
+                self.getDMRequests()
+                }.then { items -> Void in
+                    let item = items.filter({ ($0.contactFromId == SessionManager.shared.me?.id && $0.contactToId == contactId) || $0.contactToId == SessionManager.shared.me?.id && $0.contactFromId == contactId }).first
+                    fullfill(item)
+                }.catch { error in
+                    debugPrint(error.localizedDescription)
+            }
+            
+        }
+    }
+    
+    func getDMRequests() -> Promise<[DMRequest]> {
+        return Promise { fullfill, reject in
+            guard let contactId = SessionManager.shared.me?.id else {
+                reject(MyError.Error("No contactId for me"))
+                return
+            }
+            
+            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT ContactFrom__c,ContactTo__c,CreatedDate,Id,Name,Status__c FROM DM_Request__c where ContactFrom__c = '\(contactId)' or contactTo__c = '\(contactId)'", fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON(result!)
+                debugPrint(jsonResult)
+                if let records = jsonResult["records"].array {
+                    let items = records.flatMap { DMRequest(json: $0) }
+                    fullfill(items)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    // Notifications
+    func getNotifications() -> Promise<[PushNotification]> {
+        return Promise { fullfill, reject in
+            
+            let userAccount = SFUserAccountManager.sharedInstance().currentUser!.accountIdentity
+            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT CreatedDate,FromUserId__c,Id,isRead__c,Name,RelatedId__c,Sent__c,Type__c,ProfilePicURL__c,Message__c FROM PushNotification__c WHERE toUserId__c = '\(userAccount.userId!)' ORDER BY CreatedDate DESC LIMIT 20", fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON(result!)
+                debugPrint(jsonResult)
+                if let records = jsonResult["records"].array {
+                    let items = records.flatMap { PushNotification(json: $0) }
+                    fullfill(items)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
+    
+    func sendPush(fromUserId: String, toUserIds: String, pushType: PushNotification.Kind, relatedId: String) -> Promise<String> {
+        return Promise { fullfill, reject in
+            let query: [String: String] = ["fromUserId" : fromUserId, "toUserIds" : toUserIds, "pushType" : pushType.getParameter(), "relatedId" : relatedId]
+            debugPrint(query)
+            let body = SFJsonUtils.jsonDataRepresentation(query)
+            let request = SFRestRequest(method: .POST, path: "/services/apexrest/pushNotificationFromSF", queryParams: nil)
+            request.endpoint = "/services/apexrest/pushNotificationFromSF"
+            request.path = "/services/apexrest/pushNotificationFromSF"
+            request.setCustomRequestBodyData(body!, contentType: "application/json")
+            request.setHeaderValue("\(u_long(body?.count ?? 0))", forHeaderName: "Content-Length")
+            
+            print(Constants.communityId)
+            print(request)
+            
+            SFRestAPI.sharedInstance().send(request, fail: { (error) in
+                print(error?.localizedDescription as Any)
+                reject(MyError.JSONError)
+            }) { (result) in
+                // For now sales force won't give an error or sucess, so just silently accept it
+                fullfill("ok")
+                //                let jsonResult = JSON.init(result!)
+                //                print(jsonResult)
+                //                if jsonResult.string == "Success" {
+                //                    fullfill("ok")
+                //                }
+                //                else {
+                //                    reject(MyError.JSONError)
+                //                }
+            }
+        }
+    }
+    
+    
+
     
     
     
@@ -809,169 +965,6 @@ class APIClient {
             }
         }
     }
-    
-    
-    // Direct Message Request
-    func createDMRequest(fromContactId:String, toContactId:String) -> Promise<String> {
-        
-        return Promise { fullfill, reject in
-            
-            let query: [String: String] = ["fromContactId" : fromContactId, "toContactId" : toContactId]
-            let body = SFJsonUtils.jsonDataRepresentation(query)
-            let request = SFRestRequest(method: .POST, path: "/services/apexrest/CreateDMRequest", queryParams: nil)
-            request.endpoint = "/services/apexrest/CreateDMRequest"
-            request.path = "/services/apexrest/CreateDMRequest"
-            request.setCustomRequestBodyData(body!, contentType: "application/json")
-            request.setHeaderValue("\(u_long(body?.count ?? 0))", forHeaderName: "Content-Length")
-            
-            SFRestAPI.sharedInstance().send(request, fail: { (error) in
-                print(error?.localizedDescription as Any)
-                reject(MyError.JSONError)
-            }) { (result) in
-                let jsonResult = JSON.init(result!)
-                debugPrint(jsonResult) // id
-                if let id = jsonResult.string {
-                    fullfill(id)
-                }
-                else {
-                    reject(MyError.JSONError)
-                }
-            }
-        }
-    }
-    
-    func updateDMRequest(id:String, status:DMRequest.Satus) -> Promise<String> {
-        
-        return Promise { fullfill, reject in
-            
-            let query: [String: String] = ["DM_id" : id, "Req_status" : status.rawValue]
-            debugPrint(query)
-            let body = SFJsonUtils.jsonDataRepresentation(query)
-            let request = SFRestRequest(method: .POST, path: "/services/apexrest/UpdateDMRequest", queryParams: nil)
-            request.endpoint = "/services/apexrest/UpdateDMRequest"
-            request.path = "/services/apexrest/UpdateDMRequest"
-            request.setCustomRequestBodyData(body!, contentType: "application/json")
-            request.setHeaderValue("\(u_long(body?.count ?? 0))", forHeaderName: "Content-Length")
-            
-            SFRestAPI.sharedInstance().send(request, fail: { (error) in
-                print(error?.localizedDescription as Any)
-                reject(MyError.JSONError)
-            }) { (result) in
-                let jsonResult = JSON.init(result!)
-                debugPrint(jsonResult)
-                if jsonResult.string == "Success" {
-                    fullfill("ok")
-                }
-                else {
-                    reject(MyError.JSONError)
-                }
-            }
-        }
-    }
-    
-    func getDMRequest(contactId:String) -> Promise<DMRequest?> {
-        return Promise { fullfill, reject in            
-            firstly {
-                self.getDMRequests()
-                }.then { items -> Void in
-                    let item = items.filter({ ($0.contactFromId == SessionManager.shared.me?.id && $0.contactToId == contactId) || $0.contactToId == SessionManager.shared.me?.id && $0.contactFromId == contactId }).first
-                    fullfill(item)
-                }.catch { error in
-                    debugPrint(error.localizedDescription)
-            }
-            
-        }
-    }
-    
-    func getDMRequests() -> Promise<[DMRequest]> {
-        return Promise { fullfill, reject in
-            guard let contactId = SessionManager.shared.me?.id else {
-                reject(MyError.Error("No contactId for me"))
-                return
-            }
-            
-            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT ContactFrom__c,ContactTo__c,CreatedDate,Id,Name,Status__c FROM DM_Request__c where ContactFrom__c = '\(contactId)' or contactTo__c = '\(contactId)'", fail: { (error) in
-                print("error \(error?.localizedDescription as Any)")
-                reject(error ?? MyError.JSONError)
-            }) { (result) in
-                let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
-                if let records = jsonResult["records"].array {
-                    let items = records.flatMap { DMRequest(json: $0) }
-                    fullfill(items)
-                }
-                else {
-                    reject(MyError.JSONError)
-                }
-            }
-        }
-    }
-    
-    
-
-    
-    
-    // Notifications
-    func getNotifications() -> Promise<[PushNotification]> {
-        return Promise { fullfill, reject in
-            
-            let userAccount = SFUserAccountManager.sharedInstance().currentUser!.accountIdentity
-            SFRestAPI.sharedInstance().performSOQLQueryAll("SELECT CreatedDate,FromUserId__c,Id,isRead__c,Name,RelatedId__c,Sent__c,Type__c FROM PushNotification__c WHERE toUserId__c = '\(userAccount.userId!)' ORDER BY CreatedDate DESC LIMIT 20", fail: { (error) in
-                print("error \(error?.localizedDescription as Any)")
-                reject(error ?? MyError.JSONError)
-            }) { (result) in
-                let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
-                if let records = jsonResult["records"].array {
-                    let items = records.flatMap { PushNotification(json: $0) }
-                    fullfill(items)
-                }
-                else {
-                    reject(MyError.JSONError)
-                }
-            }
-        }
-    }
-    
-    
-    func sendPush(fromUserId: String, toUserIds: String, pushType: PushNotification.Kind, relatedId: String) -> Promise<String> {
-        return Promise { fullfill, reject in
-            let query: [String: String] = ["fromUserId" : fromUserId, "toUserIds" : toUserIds, "pushType" : pushType.getParameter(), "relatedId" : relatedId]
-            debugPrint(query)
-            let body = SFJsonUtils.jsonDataRepresentation(query)
-            let request = SFRestRequest(method: .POST, path: "/services/apexrest/pushNotificationFromSF", queryParams: nil)
-            request.endpoint = "/services/apexrest/pushNotificationFromSF"
-            request.path = "/services/apexrest/pushNotificationFromSF"
-            request.setCustomRequestBodyData(body!, contentType: "application/json")
-            request.setHeaderValue("\(u_long(body?.count ?? 0))", forHeaderName: "Content-Length")
-            
-            print(Constants.communityId)
-            print(request)
-            
-            SFRestAPI.sharedInstance().send(request, fail: { (error) in
-                print(error?.localizedDescription as Any)
-                reject(MyError.JSONError)
-            }) { (result) in
-                // For now sales force won't give an error or sucess, so just silently accept it
-                fullfill("ok")
-//                let jsonResult = JSON.init(result!)
-//                print(jsonResult)
-//                if jsonResult.string == "Success" {
-//                    fullfill("ok")
-//                }
-//                else {
-//                    reject(MyError.JSONError)
-//                }
-            }
-        }
-    }
-
-    
-    
-    
-    
-    
-    
     
     
     

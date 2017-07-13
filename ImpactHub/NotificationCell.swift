@@ -20,7 +20,15 @@ class NotificationCell: UICollectionViewCell {
     }
 
     func setUp(vm: NotificationViewModel) {
-        messageLabel.text = "\(vm.pushNotification.kind.getParameter()) \(vm.pushNotification.fromUserId) \(vm.pushNotification.relatedId)"
+        
+        if let profilePicUrl = vm.pushNotification.profilePicUrl {
+            profileImageView.kf.setImage(with: profilePicUrl, placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (image, error, cacheType, url) in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+            })
+        }
+        messageLabel.text = "\(vm.pushNotification.message)"
         timeLabel.text = Utils.timeStringFromDate(date: vm.pushNotification.createdDate)
     }
     
