@@ -18,7 +18,6 @@ class ListWithSearchViewController: UIViewController, UITextFieldDelegate, TopMe
         }
     }
 
-
     var data = [CellRepresentable]()
     @IBOutlet weak var topMenu: TopMenu?
     

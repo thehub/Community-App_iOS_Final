@@ -230,8 +230,6 @@ class MemberViewController: ListFullBleedViewController {
             firstly {
                 APIClient.shared.createDMRequest(fromContactId: SessionManager.shared.me?.id ?? "", toContactId: self.member.id)
                 }.then { result -> Void in
-                    // TOOD: Neela will add to return whole object
-                    // TODO: Refresh list on going back
                     self.connectRequestStatus = .Outstanding
                 }.always {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false

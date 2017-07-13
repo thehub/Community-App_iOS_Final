@@ -424,7 +424,7 @@ class APIClient {
         }
     }
     
-    func getContacts(contactIds:[String]) -> Promise<[Contact]> {
+    func getMembers(contactIds:[String]) -> Promise<[Member]> {
         return Promise { fullfill, reject in
             let contactIdsString = contactIds.map({"'\($0)'"}).joined(separator: ",")
             SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.CONTACT) FROM Contact where id IN (\(contactIdsString))", fail: { (error) in
@@ -434,7 +434,7 @@ class APIClient {
                 let jsonResult = JSON(result!)
                 debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
-                    let items = records.flatMap { Contact(json: $0) }
+                    let items = records.flatMap { Member(json: $0) }
                     fullfill(items)
                 }
                 else {
@@ -505,7 +505,7 @@ class APIClient {
                 reject(MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON.init(result!)
-                debugPrint(jsonResult) // id  // TODO: Neela will chnage to return whole object...
+                debugPrint(jsonResult) // id  
                 if let id = jsonResult.string {
                     fullfill(id)
                 }

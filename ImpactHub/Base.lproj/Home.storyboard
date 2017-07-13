@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -529,7 +528,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="daq-qw-gvH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="daq-qw-gvH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -622,7 +621,7 @@
             <objects>
                 <navigationController title="Filter" automaticallyAdjustsScrollViewInsets="NO" id="3P0-zD-GQr" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="li8-wY-ywY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="li8-wY-ywY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1141,7 +1140,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="286" height="54"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TST-hM-BGk">
-                                                <rect key="frame" x="15" y="17" width="238" height="20"/>
+                                                <rect key="frame" x="15" y="18" width="238" height="18"/>
                                                 <color key="textColor" red="0.37647058820000001" green="0.37647058820000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
@@ -1877,7 +1876,7 @@
             <objects>
                 <navigationController title="Filter" automaticallyAdjustsScrollViewInsets="NO" id="s53-44-0Ip" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="TJX-Az-6nl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TJX-Az-6nl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1969,7 +1968,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iz5-ct-zW9" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="C4D-zJ-TGR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C4D-zJ-TGR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2058,13 +2057,13 @@
         <image name="tabBarHome" width="22" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2YP-O4-F5Z"/>
-        <segue reference="E6m-rq-9b6"/>
-        <segue reference="9tv-11-54j"/>
-        <segue reference="4CN-lM-E9S"/>
+        <segue reference="Nsv-q8-zjz"/>
+        <segue reference="fwI-8D-BHi"/>
         <segue reference="ODp-Jh-V7d"/>
         <segue reference="tPM-PS-46L"/>
         <segue reference="MFH-uD-O6a"/>
+        <segue reference="E6m-rq-9b6"/>
+        <segue reference="9tv-11-54j"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>

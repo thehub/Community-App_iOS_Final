@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-struct DMRequest {
+class DMRequest {
     var id: String
     var name: String
     var status: DMRequest.Satus
@@ -22,6 +22,27 @@ struct DMRequest {
         case Approved
         case Declined
         case NotRequested
+    }
+    
+    
+    init?(json: JSON) {
+        guard
+            let id = json["Id"].string,
+            let name = json["Name"].string,
+            let createdDate = json["CreatedDate"].string?.dateFromISOString(),
+            let statusString = json["Status__c"].string,
+            let status = DMRequest.Satus.init(rawValue: statusString),
+            let contactFromId = json["ContactFrom__c"].string,
+            let contactToId = json["ContactTo__c"].string
+            else {
+                return nil
+        }
+        self.id = id
+        self.name = name
+        self.status = status
+        self.createdDate = createdDate
+        self.contactFromId = contactFromId
+        self.contactToId = contactToId
     }
     
 //    func displayLabel() -> String {
@@ -43,24 +64,4 @@ struct DMRequest {
     
 }
 
-extension DMRequest {
-    init?(json: JSON) {
-        guard
-            let id = json["Id"].string,
-            let name = json["Name"].string,
-            let createdDate = json["CreatedDate"].string?.dateFromISOString(),
-            let statusString = json["Status__c"].string,
-            let status = DMRequest.Satus.init(rawValue: statusString),
-            let contactFromId = json["ContactFrom__c"].string,
-            let contactToId = json["ContactTo__c"].string
-            else {
-                return nil
-        }
-        self.id = id
-        self.name = name
-        self.status = status
-        self.createdDate = createdDate
-        self.contactFromId = contactFromId
-        self.contactToId = contactToId
-    }
-}
+
