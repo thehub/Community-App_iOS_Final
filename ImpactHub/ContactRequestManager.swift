@@ -15,39 +15,23 @@ class ContactRequestManager {
     
     func getRelevantContactRequestFor(member: Member) -> DMRequest? {
         let contactRequest = contactRequests.filter({ $0.contactFromId == member.id || $0.contactToId == member.id }).first
-        print(contactRequest?.status)
         return contactRequest
     }
     
     
     func getConnectedContactRequests() -> [DMRequest] {
         let connectedContactRequests = ContactRequestManager.shared.contactRequests.filter({$0.status == .Approved})
-        if connectedContactRequests != nil {
-            return connectedContactRequests
-        }
-        else {
-            return [DMRequest]()
-        }
+        return connectedContactRequests
     }
 
     func getIncommingContactRequests() -> [DMRequest] {
         let connectedContactRequests = ContactRequestManager.shared.contactRequests.filter({$0.status == .Outstanding && $0.contactToId == SessionManager.shared.me?.id ?? "" })
-        if connectedContactRequests != nil {
-            return connectedContactRequests
-        }
-        else {
-            return [DMRequest]()
-        }
+        return connectedContactRequests
     }
 
     func getAwaitingContactRequests() -> [DMRequest] {
         let connectedContactRequests = ContactRequestManager.shared.contactRequests.filter({$0.status == .Outstanding && $0.contactFromId == SessionManager.shared.me?.id ?? "" })
-        if connectedContactRequests != nil {
-            return connectedContactRequests
-        }
-        else {
-            return [DMRequest]()
-        }
+        return connectedContactRequests
     }
     
     static let shared = ContactRequestManager()
