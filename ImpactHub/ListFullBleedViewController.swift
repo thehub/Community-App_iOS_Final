@@ -17,6 +17,8 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
     @IBOutlet weak var connectButtonBottomConsatraint: NSLayoutConstraint?
     var connectButtonBottomConsatraintDefault: CGFloat = 0
     @IBOutlet weak var connectButton: UIButton?
+    @IBOutlet weak var connectContainer: UIView?
+    @IBOutlet weak var approveDeclineStackView: UIStackView?
 
     var data = [CellRepresentable]()
 

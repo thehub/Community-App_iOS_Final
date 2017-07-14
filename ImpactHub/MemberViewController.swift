@@ -28,19 +28,29 @@ class MemberViewController: ListFullBleedViewController {
     func updateConnectButton() {
         switch connectRequestStatus {
         case .Approved:
+            connectContainer?.isHidden = false
             connectButton?.setTitle("Contact \(member.name)", for: .normal)
             connectButton?.isHidden = false
             connectButton?.isEnabled = true
-        case .Declined:
+            approveDeclineStackView?.isHidden = true
+        case .ApproveDecline:
+            connectContainer?.isHidden = false
             connectButton?.isHidden = true
+            approveDeclineStackView?.isHidden = false
+        case .Declined:
+            connectContainer?.isHidden = true
         case .Outstanding:
+            connectContainer?.isHidden = false
             connectButton?.setTitle("Awaiting Response", for: .normal)
             connectButton?.isEnabled = false
             connectButton?.isHidden = false
+            approveDeclineStackView?.isHidden = true
         case .NotRequested:
+            connectContainer?.isHidden = false
             connectButton?.setTitle("Connect with \(member.name)", for: .normal)
             connectButton?.isHidden = false
             connectButton?.isEnabled = true
+            approveDeclineStackView?.isHidden = true
         }
     }
     

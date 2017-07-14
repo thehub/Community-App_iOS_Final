@@ -36,7 +36,7 @@ class MemberCollectionViewCell: UICollectionViewCell {
         locationNameLabel.text = vm.member.locationName
 
         
-        if vm.member.contactRequest?.status == DMRequest.Satus.Outstanding || vm.member.contactRequest?.status == DMRequest.Satus.Declined {
+        if vm.member.contactRequest?.status == .Outstanding || vm.member.contactRequest?.status == .Declined || vm.member.contactRequest?.status == .ApproveDecline {
             connectionImageView.image = UIImage(named: "waitingSmall")
         }
         else {

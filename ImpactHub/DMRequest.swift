@@ -19,6 +19,7 @@ class DMRequest {
     
     enum Satus: String {
         case Outstanding
+        case ApproveDecline
         case Approved
         case Declined
         case NotRequested
@@ -39,7 +40,13 @@ class DMRequest {
         }
         self.id = id
         self.name = name
-        self.status = status
+        if status == .Outstanding && contactToId == SessionManager.shared.me?.id ?? "" {
+            self.status = .ApproveDecline
+        }
+        else {
+            self.status = status
+        }
+        
         self.createdDate = createdDate
         self.contactFromId = contactFromId
         self.contactToId = contactToId

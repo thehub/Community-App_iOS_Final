@@ -477,39 +477,76 @@
                                     <constraint firstAttribute="height" constant="40" id="uHz-Zp-op8"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiW-q6-9OO" customClass="RedButton" customModule="ImpactHub" customModuleProvider="target">
-                                <rect key="frame" x="35" y="588" width="305" height="50"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVV-LA-LSg">
+                                <rect key="frame" x="20" y="597" width="335" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiW-q6-9OO" customClass="RedButton" customModule="ImpactHub" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Connect">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="connectTap:" destination="v6r-jd-8oy" eventType="touchUpInside" id="Kg2-Iz-tT3"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bFT-Oe-BYH">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5KU-CV-nmz" customClass="RedButton" customModule="ImpactHub" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="162.5" height="50"/>
+                                                <inset key="titleEdgeInsets" minX="-50" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="100" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Approve" image="aproveIcon">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbd-B1-Jj9" customClass="RedButton" customModule="ImpactHub" customModuleProvider="target">
+                                                <rect key="frame" x="172.5" y="0.0" width="162.5" height="50"/>
+                                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="50" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="100" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Decline" image="declineIcon">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="gmD-dJ-p4S"/>
+                                    <constraint firstAttribute="height" constant="50" id="2cQ-up-vhp"/>
+                                    <constraint firstAttribute="trailing" secondItem="bFT-Oe-BYH" secondAttribute="trailing" id="AKl-Yf-G2w"/>
+                                    <constraint firstAttribute="bottom" secondItem="KiW-q6-9OO" secondAttribute="bottom" id="Fzf-Xz-G3h"/>
+                                    <constraint firstItem="KiW-q6-9OO" firstAttribute="leading" secondItem="XVV-LA-LSg" secondAttribute="leading" id="IrB-Fq-0cY"/>
+                                    <constraint firstAttribute="trailing" secondItem="KiW-q6-9OO" secondAttribute="trailing" id="XL6-D5-awd"/>
+                                    <constraint firstAttribute="bottom" secondItem="bFT-Oe-BYH" secondAttribute="bottom" id="nH4-2j-o1Q"/>
+                                    <constraint firstItem="bFT-Oe-BYH" firstAttribute="top" secondItem="XVV-LA-LSg" secondAttribute="top" id="u7a-o7-OI0"/>
+                                    <constraint firstItem="bFT-Oe-BYH" firstAttribute="leading" secondItem="XVV-LA-LSg" secondAttribute="leading" id="ut8-jX-WAu"/>
+                                    <constraint firstItem="KiW-q6-9OO" firstAttribute="top" secondItem="XVV-LA-LSg" secondAttribute="top" id="ygg-fg-Ylf"/>
                                 </constraints>
-                                <state key="normal" title="Connect">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="connectTap:" destination="v6r-jd-8oy" eventType="touchUpInside" id="Kg2-Iz-tT3"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="VB6-Ch-zvJ" firstAttribute="top" secondItem="g0Z-6H-bcJ" secondAttribute="bottom" id="4cN-eP-sle"/>
                             <constraint firstItem="D7m-9w-jg5" firstAttribute="top" secondItem="g0Z-6H-bcJ" secondAttribute="bottom" id="6A2-JP-gO9"/>
-                            <constraint firstAttribute="bottom" secondItem="KiW-q6-9OO" secondAttribute="bottom" constant="29" id="Khi-EF-ayo"/>
+                            <constraint firstItem="b1s-Ph-JgV" firstAttribute="top" secondItem="XVV-LA-LSg" secondAttribute="bottom" constant="20" id="7nt-eo-Bba"/>
                             <constraint firstItem="VB6-Ch-zvJ" firstAttribute="leading" secondItem="qRb-cA-ujY" secondAttribute="leading" id="M2U-Ma-qgi"/>
                             <constraint firstItem="b1s-Ph-JgV" firstAttribute="top" secondItem="VB6-Ch-zvJ" secondAttribute="bottom" id="PoH-GT-e7b"/>
                             <constraint firstAttribute="trailing" secondItem="D7m-9w-jg5" secondAttribute="trailing" id="Y1y-8m-FJE"/>
                             <constraint firstItem="D7m-9w-jg5" firstAttribute="leading" secondItem="qRb-cA-ujY" secondAttribute="leading" id="axH-Ch-cl2"/>
-                            <constraint firstItem="KiW-q6-9OO" firstAttribute="leading" secondItem="qRb-cA-ujY" secondAttribute="leading" constant="35" id="lue-lh-FdG"/>
-                            <constraint firstAttribute="trailing" secondItem="KiW-q6-9OO" secondAttribute="trailing" constant="35" id="qzw-qc-xhR"/>
+                            <constraint firstItem="XVV-LA-LSg" firstAttribute="leading" secondItem="qRb-cA-ujY" secondAttribute="leading" constant="20" id="eKU-wb-l1r"/>
+                            <constraint firstAttribute="trailing" secondItem="XVV-LA-LSg" secondAttribute="trailing" constant="20" id="oHa-ST-d42"/>
                             <constraint firstAttribute="trailing" secondItem="VB6-Ch-zvJ" secondAttribute="trailing" id="rv1-Sj-GpY"/>
                         </constraints>
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="approveDeclineStackView" destination="bFT-Oe-BYH" id="Rex-fs-rLg"/>
                         <outlet property="collectionView" destination="VB6-Ch-zvJ" id="JTA-zh-Ptp"/>
                         <outlet property="connectButton" destination="KiW-q6-9OO" id="t6p-Q6-P06"/>
-                        <outlet property="connectButtonBottomConsatraint" destination="Khi-EF-ayo" id="5K4-0U-oXb"/>
+                        <outlet property="connectButtonBottomConsatraint" destination="7nt-eo-Bba" id="wy5-SJ-Z9e"/>
+                        <outlet property="connectContainer" destination="XVV-LA-LSg" id="AID-K5-6Eb"/>
                         <outlet property="topMenu" destination="D7m-9w-jg5" id="NXx-Ul-QCd"/>
                         <segue destination="Fsg-7e-ZtL" kind="show" identifier="ShowProject" id="4CN-lM-E9S"/>
                         <segue destination="ytP-JQ-5XJ" kind="show" identifier="ShowGroup" id="9tv-11-54j"/>
@@ -517,7 +554,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="reP-pU-XlA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3458" y="-11"/>
+            <point key="canvasLocation" x="3456.8000000000002" y="-11.244377811094454"/>
         </scene>
         <!--Home-->
         <scene sceneID="r0J-gs-CjN">
@@ -528,7 +565,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="daq-qw-gvH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="daq-qw-gvH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -621,7 +658,7 @@
             <objects>
                 <navigationController title="Filter" automaticallyAdjustsScrollViewInsets="NO" id="3P0-zD-GQr" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="li8-wY-ywY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="li8-wY-ywY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1140,7 +1177,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="286" height="54"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TST-hM-BGk">
-                                                <rect key="frame" x="15" y="18" width="238" height="18"/>
+                                                <rect key="frame" x="15" y="17" width="238" height="20"/>
                                                 <color key="textColor" red="0.37647058820000001" green="0.37647058820000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
@@ -1876,7 +1913,7 @@
             <objects>
                 <navigationController title="Filter" automaticallyAdjustsScrollViewInsets="NO" id="s53-44-0Ip" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TJX-Az-6nl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="TJX-Az-6nl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1968,7 +2005,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iz5-ct-zW9" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C4D-zJ-TGR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="C4D-zJ-TGR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2047,8 +2084,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="aproveIcon" width="29" height="29"/>
         <image name="companyImage" width="160" height="120"/>
         <image name="create" width="19" height="19"/>
+        <image name="declineIcon" width="29" height="29"/>
         <image name="eventPhoto" width="338" height="223"/>
         <image name="filterButton" width="64" height="65"/>
         <image name="filterTick" width="21" height="22"/>
@@ -2057,13 +2096,13 @@
         <image name="tabBarHome" width="22" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Nsv-q8-zjz"/>
+        <segue reference="E6m-rq-9b6"/>
         <segue reference="fwI-8D-BHi"/>
+        <segue reference="4CN-lM-E9S"/>
+        <segue reference="9tv-11-54j"/>
         <segue reference="ODp-Jh-V7d"/>
         <segue reference="tPM-PS-46L"/>
         <segue reference="MFH-uD-O6a"/>
-        <segue reference="E6m-rq-9b6"/>
-        <segue reference="9tv-11-54j"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>
