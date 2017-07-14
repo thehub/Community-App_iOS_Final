@@ -59,7 +59,7 @@
                     <navigationItem key="navigationItem" title="Messages" id="Ur0-iC-cV7">
                         <barButtonItem key="backBarButtonItem" title=" " id="eTH-5P-C4b"/>
                         <barButtonItem key="rightBarButtonItem" image="compose" style="plain" id="dku-uQ-fIX">
-                            <color key="tintColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="1" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="4P0-mH-JTy" kind="show" identifier="ShowContacts" id="3iT-8n-03j"/>
                             </connections>
@@ -323,7 +323,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ONi-iY-MGH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ONi-iY-MGH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
