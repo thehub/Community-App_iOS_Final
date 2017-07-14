@@ -19,7 +19,7 @@ class MemberViewController: ListFullBleedViewController {
     var memberProjectsData = [CellRepresentable]()
     var memberGroupsData = [CellRepresentable]()
 
-    var connectRequestStatus = DMRequest.Satus.NotRequested {
+    var connectRequestStatus = DMRequest.Satus.notRequested {
         didSet {
             updateConnectButton()
         }
@@ -27,25 +27,25 @@ class MemberViewController: ListFullBleedViewController {
     
     func updateConnectButton() {
         switch connectRequestStatus {
-        case .Approved:
+        case .approved:
             connectContainer?.isHidden = false
             connectButton?.setTitle("Contact \(member.name)", for: .normal)
             connectButton?.isHidden = false
             connectButton?.isEnabled = true
             approveDeclineStackView?.isHidden = true
-        case .ApproveDecline:
+        case .approveDecline:
             connectContainer?.isHidden = false
             connectButton?.isHidden = true
             approveDeclineStackView?.isHidden = false
-        case .Declined:
+        case .declined:
             connectContainer?.isHidden = true
-        case .Outstanding:
+        case .outstanding:
             connectContainer?.isHidden = false
             connectButton?.setTitle("Awaiting Response", for: .normal)
             connectButton?.isEnabled = false
             connectButton?.isHidden = false
             approveDeclineStackView?.isHidden = true
-        case .NotRequested:
+        case .notRequested:
             connectContainer?.isHidden = false
             connectButton?.setTitle("Connect with \(member.name)", for: .normal)
             connectButton?.isHidden = false
@@ -59,7 +59,7 @@ class MemberViewController: ListFullBleedViewController {
         
         self.title = member.name
 
-        self.connectRequestStatus = member.contactRequest?.status ?? .NotRequested
+        self.connectRequestStatus = member.contactRequest?.status ?? .notRequested
         
         collectionView.register(UINib.init(nibName: MemberDetailTopViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberDetailTopViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: MemberAboutItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberAboutItemViewModel.cellIdentifier)
@@ -208,7 +208,7 @@ class MemberViewController: ListFullBleedViewController {
         if index == 0 {
             self.data = self.memberAboutData
             self.collectionView.reloadData()
-            if connectRequestStatus != .Declined {
+            if connectRequestStatus != .declined {
                 showConnectButton()
             }
         }
@@ -235,12 +235,12 @@ class MemberViewController: ListFullBleedViewController {
 
     @IBAction func connectTap(_ sender: Any) {
         
-        if connectRequestStatus == .NotRequested {
+        if connectRequestStatus == .notRequested {
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
             firstly {
                 APIClient.shared.createDMRequest(fromContactId: SessionManager.shared.me?.id ?? "", toContactId: self.member.id)
                 }.then { result -> Void in
-                    self.connectRequestStatus = .Outstanding
+                    self.connectRequestStatus = .outstanding
                 }.always {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }.catch { error in
@@ -250,7 +250,7 @@ class MemberViewController: ListFullBleedViewController {
                     self.present(alert, animated: true, completion: nil)
             }
         }
-        else if connectRequestStatus == .Approved {
+        else if connectRequestStatus == .approved {
             // TODO: Show Messages here
         }
         

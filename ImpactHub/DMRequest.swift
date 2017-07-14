@@ -18,11 +18,11 @@ class DMRequest {
     var contactToId: String
     
     enum Satus: String {
-        case Outstanding
-        case ApproveDecline
-        case Approved
-        case Declined
-        case NotRequested
+        case outstanding
+        case approveDecline
+        case approved
+        case declined
+        case notRequested
     }
     
     
@@ -31,7 +31,7 @@ class DMRequest {
             let id = json["Id"].string,
             let name = json["Name"].string,
             let createdDate = json["CreatedDate"].string?.dateFromISOString(),
-            let statusString = json["Status__c"].string,
+            let statusString = json["Status__c"].string?.lowercased(),
             let status = DMRequest.Satus.init(rawValue: statusString),
             let contactFromId = json["ContactFrom__c"].string,
             let contactToId = json["ContactTo__c"].string
@@ -40,8 +40,8 @@ class DMRequest {
         }
         self.id = id
         self.name = name
-        if status == .Outstanding && contactToId == SessionManager.shared.me?.id ?? "" {
-            self.status = .ApproveDecline
+        if status == .outstanding && contactToId == SessionManager.shared.me?.id ?? "" {
+            self.status = .approveDecline
         }
         else {
             self.status = status

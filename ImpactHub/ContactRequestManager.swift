@@ -20,17 +20,17 @@ class ContactRequestManager {
     
     
     func getConnectedContactRequests() -> [DMRequest] {
-        let connectedContactRequests = ContactRequestManager.shared.contactRequests.filter({$0.status == .Approved})
+        let connectedContactRequests = ContactRequestManager.shared.contactRequests.filter({$0.status == .approved})
         return connectedContactRequests
     }
 
     func getIncommingContactRequests() -> [DMRequest] {
-        let connectedContactRequests = ContactRequestManager.shared.contactRequests.filter({$0.status == .Outstanding && $0.contactToId == SessionManager.shared.me?.id ?? "" })
+        let connectedContactRequests = ContactRequestManager.shared.contactRequests.filter({$0.status == .approveDecline })
         return connectedContactRequests
     }
 
     func getAwaitingContactRequests() -> [DMRequest] {
-        let connectedContactRequests = ContactRequestManager.shared.contactRequests.filter({$0.status == .Outstanding && $0.contactFromId == SessionManager.shared.me?.id ?? "" })
+        let connectedContactRequests = ContactRequestManager.shared.contactRequests.filter({$0.status == .outstanding })
         return connectedContactRequests
     }
     
