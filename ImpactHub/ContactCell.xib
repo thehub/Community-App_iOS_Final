@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -56,6 +57,35 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="memberWaiting" translatesAutoresizingMaskIntoConstraints="NO" id="2mM-bW-44q">
                                 <rect key="frame" x="213" y="16" width="66" height="66"/>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="c5n-eP-aJg">
+                                <rect key="frame" x="221" y="2" width="45" height="90"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lw5-gS-er9" customClass="Button" customModule="ImpactHub" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Lw5-gS-er9" secondAttribute="height" multiplier="1:1" id="XbI-yk-Zey"/>
+                                        </constraints>
+                                        <state key="normal" image="approveButton"/>
+                                        <connections>
+                                            <action selector="approveTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="cj8-fB-NaP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bi-hE-HF9" customClass="Button" customModule="ImpactHub" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="45" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="3bi-hE-HF9" secondAttribute="height" multiplier="1:1" id="5F2-kG-rLU"/>
+                                        </constraints>
+                                        <state key="normal" image="declineButton"/>
+                                        <connections>
+                                            <action selector="declineTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="1Ch-cV-RhU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="3DF-uv-41P"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -66,11 +96,13 @@
                             <constraint firstItem="lul-Kl-LZ0" firstAttribute="leading" secondItem="EW1-y4-D6A" secondAttribute="leading" constant="12" id="I5s-bU-G6t"/>
                             <constraint firstItem="lul-Kl-LZ0" firstAttribute="centerY" secondItem="EW1-y4-D6A" secondAttribute="centerY" id="Lko-Ti-qQZ"/>
                             <constraint firstItem="w9K-Wp-tPX" firstAttribute="top" secondItem="A3O-XH-KGb" secondAttribute="bottom" constant="4" id="Lld-3F-BQ1"/>
+                            <constraint firstAttribute="trailing" secondItem="c5n-eP-aJg" secondAttribute="trailing" id="LtO-8C-CwY"/>
                             <constraint firstItem="w9K-Wp-tPX" firstAttribute="leading" secondItem="A3O-XH-KGb" secondAttribute="leading" id="PNl-dm-6CH"/>
                             <constraint firstItem="obn-32-78V" firstAttribute="top" secondItem="lul-Kl-LZ0" secondAttribute="top" id="R0b-2V-xSp"/>
                             <constraint firstItem="A3O-XH-KGb" firstAttribute="top" secondItem="obn-32-78V" secondAttribute="bottom" constant="4" id="XEM-dX-BiT"/>
                             <constraint firstItem="A3O-XH-KGb" firstAttribute="leading" secondItem="obn-32-78V" secondAttribute="leading" id="YZT-MJ-YaG"/>
                             <constraint firstItem="obn-32-78V" firstAttribute="leading" secondItem="lul-Kl-LZ0" secondAttribute="trailing" constant="23" id="hvf-wA-2gy"/>
+                            <constraint firstItem="c5n-eP-aJg" firstAttribute="centerY" secondItem="EW1-y4-D6A" secondAttribute="centerY" constant="2" id="kzE-Hf-o2W"/>
                             <constraint firstAttribute="height" constant="90" id="vjI-71-Vzg"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -89,6 +121,7 @@
                 <constraint firstAttribute="trailing" secondItem="EW1-y4-D6A" secondAttribute="trailing" constant="17" id="w2L-b9-ht4"/>
             </constraints>
             <connections>
+                <outlet property="approveDeclineStack" destination="c5n-eP-aJg" id="loC-Df-e5J"/>
                 <outlet property="bgView" destination="EW1-y4-D6A" id="ag5-I6-A7Y"/>
                 <outlet property="connectionImageView" destination="2mM-bW-44q" id="llW-Vl-CO4"/>
                 <outlet property="jobLabel" destination="A3O-XH-KGb" id="YPQ-Jq-ybK"/>
@@ -100,6 +133,8 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="approveButton" width="54" height="54"/>
+        <image name="declineButton" width="54" height="54"/>
         <image name="locationPinSmall" width="11" height="17"/>
         <image name="memberWaiting" width="66" height="66"/>
     </resources>

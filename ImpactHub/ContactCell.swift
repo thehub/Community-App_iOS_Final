@@ -16,6 +16,7 @@ class ContactCell: UICollectionViewCell {
     @IBOutlet weak var connectionImageView: UIImageView!
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var locationNameLabel: UILabel!
+    @IBOutlet weak var approveDeclineStack: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,15 +37,28 @@ class ContactCell: UICollectionViewCell {
         locationNameLabel.text = vm.member.locationName
 
         
-        if vm.member.contactRequest?.status == .outstanding || vm.member.contactRequest?.status == .declined {
+        switch vm.connectionRequest.status {
+        case .outstanding, .declined:
             connectionImageView.image = UIImage(named: "waitingSmall")
-        }
-        else {
+            connectionImageView.isHidden = false
+            approveDeclineStack.isHidden = true
+        case .approved, .notRequested:
             connectionImageView.image = UIImage(named: "memberConnected")
+            connectionImageView.isHidden = false
+            approveDeclineStack.isHidden = true
+        case .approveDecline:
+            connectionImageView.isHidden = true
+            approveDeclineStack.isHidden = false
         }
-        
     }
 
+    
+    @IBAction func approveTap(_ sender: Any) {
+    }
+    
+    @IBAction func declineTap(_ sender: Any) {
+    }
+    
     
     override func draw(_ rect: CGRect) {
         self.bgView.clipsToBounds = false

@@ -233,7 +233,13 @@ class MemberViewController: ListFullBleedViewController {
         }
     }
 
+    var inTransit = false
+    
     @IBAction func connectTap(_ sender: Any) {
+        if inTransit {
+            return
+        }
+        inTransit = true
         
         if connectRequestStatus == .notRequested {
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -243,6 +249,7 @@ class MemberViewController: ListFullBleedViewController {
                     self.connectRequestStatus = .outstanding
                 }.always {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    self.inTransit = false
                 }.catch { error in
                     debugPrint(error.localizedDescription)
                     let alert = UIAlertController(title: "Error", message: "Could not send request. Please try again.", preferredStyle: .alert)
@@ -256,6 +263,60 @@ class MemberViewController: ListFullBleedViewController {
         
         
     }
+    
+    @IBAction func approveTap(_ sender: Any) {
+        guard let contactRequest = member.contactRequest else {
+            print(("Error no member.contactRequest"))
+            return
+        }
+        if inTransit {
+            return
+        }
+        inTransit = true
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        firstly {
+            APIClient.shared.updateDMRequest(id: contactRequest.id, status: DMRequest.Satus.approved)
+            }.then { result -> Void in
+                self.connectRequestStatus = .approved
+            }.always {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.inTransit = false
+            }.catch { error in
+                debugPrint(error.localizedDescription)
+                let alert = UIAlertController(title: "Error", message: "Could not approve request. Please try again.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func declineTap(_ sender: Any) {
+        guard let contactRequest = member.contactRequest else {
+            print(("Error no member.contactRequest"))
+            return
+        }
+        if inTransit {
+            return
+        }
+        inTransit = true
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        firstly {
+            APIClient.shared.updateDMRequest(id: contactRequest.id, status: DMRequest.Satus.declined)
+            }.then { result -> Void in
+                self.connectRequestStatus = .declined
+            }.always {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.inTransit = false
+            }.catch { error in
+                debugPrint(error.localizedDescription)
+                let alert = UIAlertController(title: "Error", message: "Could not decline request. Please try again.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    
 }
 
 extension MemberViewController {

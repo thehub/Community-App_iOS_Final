@@ -571,7 +571,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { DMRequest(json: $0) }
                     fullfill(items)
