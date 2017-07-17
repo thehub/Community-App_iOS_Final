@@ -13,11 +13,9 @@ class ContactViewModel: CellRepresentable {
     static var cellIdentifier = "ContactCell"
 
     var member: Member
-    var connectionRequest: DMRequest
     
-    init(member: Member, connectionRequest: DMRequest, cellSize: CGSize) {
+    init(member: Member, cellSize: CGSize) {
         self.member = member
-        self.connectionRequest = connectionRequest
         self.cellSize = cellSize
     }
     

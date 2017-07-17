@@ -16,6 +16,7 @@ class DMRequest {
     var createdDate: Date
     var contactFromId: String
     var contactToId: String
+    var message: String?
     
     enum Satus: String {
         case outstanding
@@ -40,6 +41,8 @@ class DMRequest {
         }
         self.id = id
         self.name = name
+        self.message = json["Introduction_Message__c"].string
+        
         if status == .outstanding && contactToId == SessionManager.shared.me?.id ?? "" {
             self.status = .approveDecline
         }

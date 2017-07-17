@@ -27,6 +27,8 @@ struct PushNotification {
         case likePost(postId: String)
         case likeComment(commentId: String)
         case privateMessage(messageId: String)
+        case contactRequestIncomming(contactId: String)
+        case contactRequestApproved(contactId: String)
         case unknown
         
         func getParameter() -> String {
@@ -43,6 +45,10 @@ struct PushNotification {
                 return "LikeComment"
             case .privateMessage:
                 return "PrivateMessage"
+            case .contactRequestIncomming:
+                return "DMRequestSent"
+            case .contactRequestApproved:
+                return "DMRequestApproved"
             case .unknown:
                 return ""
             }
@@ -72,25 +78,22 @@ extension PushNotification {
         switch type {
         case "Comment":
             self.kind = .comment(id: relatedId, feedElementId: relatedId)
-            break
         case "PostMention":
             self.kind = .postMention(postId: relatedId)
-            break
         case "CommentMention":
             self.kind = .commentMention(commentId: relatedId)
-            break
         case "LikePost":
             self.kind = .likePost(postId: relatedId)
-            break
         case "LikeComment":
             self.kind = .likeComment(commentId: relatedId)
-            break
         case "PrivateMessage":
             self.kind = .privateMessage(messageId: relatedId)
-            break
+        case "DMRequestSent":
+            self.kind = .contactRequestIncomming(contactId: fromUserId)
+        case "DMRequestApproved":
+            self.kind = .contactRequestApproved(contactId: fromUserId)
         default:
             self.kind = .unknown
-            break
         }
         
         self.fromUserId = fromUserId

@@ -11,7 +11,8 @@ import PromiseKit
 
 class MemberViewController: ListFullBleedViewController {
 
-    var member: Member!
+    var member: Member?
+    var memberId: String?
     var projects = [Project]()
     var groups = [Group]()
     
@@ -26,6 +27,10 @@ class MemberViewController: ListFullBleedViewController {
     }
     
     func updateConnectButton() {
+        guard let member = self.member else {
+            debugPrint("No member set")
+            return
+        }
         switch connectRequestStatus {
         case .approved:
             connectContainer?.isHidden = false
@@ -57,9 +62,6 @@ class MemberViewController: ListFullBleedViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = member.name
-
-        self.connectRequestStatus = member.contactRequest?.status ?? .notRequested
         
         collectionView.register(UINib.init(nibName: MemberDetailTopViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberDetailTopViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: MemberAboutItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberAboutItemViewModel.cellIdentifier)
@@ -70,6 +72,40 @@ class MemberViewController: ListFullBleedViewController {
 
         topMenu?.setupWithItems(["ABOUT", "PROJECTS", "GROUPS"])
         
+        if let member = self.member {
+            buildMember(member)
+        }
+        // If we're deeplinking in we only have the memberId, so load the member data
+        else if let memberId = self.memberId {
+            loadMember(memberId)
+        }
+        else {
+            debugPrint("Error no member or memberId was set")
+        }
+        
+        
+    }
+    
+    func loadMember(_ memberId: String) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        firstly {
+            APIClient.shared.getMember(contactId: memberId)
+            }.then { member -> Void in
+                self.member = member
+                self.buildMember(member)
+            }.always {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }.catch { error in
+                debugPrint(error.localizedDescription)
+        }
+    }
+    
+    func buildMember(_ member: Member) {
+        
+        self.title = member.name
+        
+        self.connectRequestStatus = member.contactRequest?.status ?? .notRequested
+
         memberAboutData.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
         memberAboutData.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 0)))
         self.data = memberAboutData
@@ -77,21 +113,21 @@ class MemberViewController: ListFullBleedViewController {
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
-                APIClient.shared.getSkills(contactId: member.id)
+            APIClient.shared.getSkills(contactId: member.id)
             }.then { skills -> Void in
-                self.member.skills = skills
+                member.skills = skills
             }.then {
-                APIClient.shared.getProjects(contactId: self.member.id)
+                APIClient.shared.getProjects(contactId: member.id)
             }.then { projects -> Void in
                 print(projects)
                 self.projects = projects
             }.then {
-                APIClient.shared.getGroups(contactId: self.member.id)
+                APIClient.shared.getGroups(contactId: member.id)
             }.then { groups -> Void in
                 self.groups = groups
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                self.build()
+                self.buildExtra(member)
                 // Add the new data
                 var indexPathsToInsert = [IndexPath]()
                 for i in countBefore...self.data.count - 1 {
@@ -110,8 +146,7 @@ class MemberViewController: ListFullBleedViewController {
         
     }
     
-    
-    func build() {
+    func buildExtra(_ member: Member) {
         
         member.skills.forEach { (skill) in
             memberAboutData.append(MemberSkillItemViewModel(skill: skill, cellSize: CGSize(width: view.frame.width, height: 80)))
@@ -236,6 +271,10 @@ class MemberViewController: ListFullBleedViewController {
     var inTransit = false
     
     @IBAction func connectTap(_ sender: Any) {
+        guard let member = self.member else {
+            debugPrint("No member set")
+            return
+        }
         if inTransit {
             return
         }
@@ -244,7 +283,7 @@ class MemberViewController: ListFullBleedViewController {
         if connectRequestStatus == .notRequested {
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
             firstly {
-                APIClient.shared.createDMRequest(fromContactId: SessionManager.shared.me?.id ?? "", toContactId: self.member.id)
+                APIClient.shared.createDMRequest(fromContactId: SessionManager.shared.me?.id ?? "", toContactId: member.id)
                 }.then { result -> Void in
                     self.connectRequestStatus = .outstanding
                 }.always {
@@ -265,6 +304,10 @@ class MemberViewController: ListFullBleedViewController {
     }
     
     @IBAction func approveTap(_ sender: Any) {
+        guard let member = self.member else {
+            debugPrint("No member set")
+            return
+        }
         guard let contactRequest = member.contactRequest else {
             print(("Error no member.contactRequest"))
             return
@@ -291,6 +334,10 @@ class MemberViewController: ListFullBleedViewController {
     }
     
     @IBAction func declineTap(_ sender: Any) {
+        guard let member = self.member else {
+            debugPrint("No member set")
+            return
+        }
         guard let contactRequest = member.contactRequest else {
             print(("Error no member.contactRequest"))
             return

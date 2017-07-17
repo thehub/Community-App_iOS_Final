@@ -24,7 +24,7 @@ class Member {
     var impactHubCities: String = ""
     var skills = [Skill]()
     var social: Social?
-    var contactRequest: DMRequest?
+    var contactRequest: DMRequest? // set after DMRequests have been loaded in...
     
     struct Social {
         var instagram: URL?

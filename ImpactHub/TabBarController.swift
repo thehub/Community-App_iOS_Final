@@ -55,6 +55,14 @@ class TabBarController: UITabBarController {
             break
         case .unknown:
             debugPrint("unkown push kind")
+        case .contactRequestApproved(let contactId):
+            self.selectedIndex = 0
+            let nvc = self.viewControllers?[0] as! UINavigationController
+            let storyboard = UIStoryboard(name: "Home", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "MemberViewController") as! MemberViewController
+            vc.memberId = contactId
+            nvc.pushViewController(vc, animated: true)
+            AppDelegate.pushNotification = nil
         default:
             break
         }
