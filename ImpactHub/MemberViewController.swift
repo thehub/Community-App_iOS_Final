@@ -291,10 +291,8 @@ class MemberViewController: ListFullBleedViewController {
             self.performSegue(withIdentifier: "ShowCreatePost", sender: self)
         }
         else if connectRequestStatus == .approved {
-            // TODO: Show Messages here
+            self.performSegue(withIdentifier: "ShowMessageThread", sender: self)
         }
-        
-        
     }
     
     @IBAction func approveTap(_ sender: Any) {

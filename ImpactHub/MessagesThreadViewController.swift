@@ -23,7 +23,7 @@ class MessagesThreadViewController: UIViewController {
     
     var data = [TableCellRepresentable]()
     
-    var conversationId: String!
+    var conversationId: String? // Will be null if we're creating a new message from Member page for instance
     
     var mentionCompletions = [MentionCompletion]()
     
@@ -49,6 +49,9 @@ class MessagesThreadViewController: UIViewController {
         registerForKeyboardNotifications()
         
         self.inputTextView.text = placeholderText
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+//        self.tabBarController?.tabBar.isHidden = true
 
     }
     
@@ -104,6 +107,9 @@ class MessagesThreadViewController: UIViewController {
     var top = 20
     
     func loadData() {
+        guard let conversationId = self.conversationId else {
+            return
+        }
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
             

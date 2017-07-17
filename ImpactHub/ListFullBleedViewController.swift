@@ -37,13 +37,9 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         
         topMenu?.delegate = self
-
     
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.tabBarController?.tabBar.isHidden = true
-
-        
-        
 
     }
     

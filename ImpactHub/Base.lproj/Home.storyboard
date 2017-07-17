@@ -557,11 +557,20 @@
                         <segue destination="Fsg-7e-ZtL" kind="show" identifier="ShowProject" id="4CN-lM-E9S"/>
                         <segue destination="ytP-JQ-5XJ" kind="show" identifier="ShowGroup" id="9tv-11-54j"/>
                         <segue destination="iz5-ct-zW9" kind="custom" identifier="ShowCreatePost" customClass="DeckSegue" customModule="DeckTransition" id="h9b-GT-wI4"/>
+                        <segue destination="B8n-VV-shN" kind="show" identifier="ShowMessageThread" id="wlv-A0-0zb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="reP-pU-XlA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3456.8000000000002" y="-11.244377811094454"/>
+        </scene>
+        <!--MessagesThreadViewController-->
+        <scene sceneID="Cx7-qF-1nq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Messages" referencedIdentifier="MessagesThreadViewController" id="B8n-VV-shN" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HRM-XS-31v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4201" y="-79"/>
         </scene>
         <!--Home-->
         <scene sceneID="r0J-gs-CjN">
@@ -2012,7 +2021,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iz5-ct-zW9" userLabel="Create Post Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C4D-zJ-TGR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="C4D-zJ-TGR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

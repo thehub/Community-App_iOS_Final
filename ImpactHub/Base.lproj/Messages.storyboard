@@ -77,7 +77,7 @@
         <!--MessagesThreadViewController-->
         <scene sceneID="LIS-Gk-ChY">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="bHi-nG-fUx" userLabel="MessagesThreadViewController" customClass="MessagesThreadViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MessagesThreadViewController" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="bHi-nG-fUx" userLabel="MessagesThreadViewController" customClass="MessagesThreadViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xaW-9M-60z"/>
                         <viewControllerLayoutGuide type="bottom" id="Ibj-NA-DDk"/>
@@ -285,10 +285,10 @@
                                     <constraint firstItem="R32-Uk-vVm" firstAttribute="leading" secondItem="iBs-aq-kfA" secondAttribute="leading" id="256-Qa-TnX"/>
                                     <constraint firstItem="gQJ-fC-sU7" firstAttribute="top" secondItem="iBs-aq-kfA" secondAttribute="top" id="BvU-f3-Mi4"/>
                                     <constraint firstItem="R32-Uk-vVm" firstAttribute="top" secondItem="gQJ-fC-sU7" secondAttribute="bottom" id="LYG-Lj-y7U"/>
-                                    <constraint firstAttribute="bottom" secondItem="R32-Uk-vVm" secondAttribute="bottom" id="b5Y-4I-Hav"/>
                                     <constraint firstAttribute="trailing" secondItem="gQJ-fC-sU7" secondAttribute="trailing" id="emu-g3-13I"/>
                                     <constraint firstItem="gQJ-fC-sU7" firstAttribute="leading" secondItem="iBs-aq-kfA" secondAttribute="leading" id="fq0-0R-3Tg"/>
                                     <constraint firstAttribute="trailing" secondItem="R32-Uk-vVm" secondAttribute="trailing" id="iRV-mK-lRj"/>
+                                    <constraint firstAttribute="bottom" secondItem="R32-Uk-vVm" secondAttribute="bottom" id="mVz-yY-3Gp"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -323,7 +323,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ONi-iY-MGH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ONi-iY-MGH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -465,6 +465,7 @@
                         <outlet property="searchTextBg" destination="Fao-g0-j5L" id="NYT-W9-YCq"/>
                         <outlet property="topMenu" destination="ZlV-bu-oE7" id="5sy-R2-D8X"/>
                         <segue destination="afu-nY-01i" kind="show" identifier="ShowMember" id="v7v-3b-vgD"/>
+                        <segue destination="bHi-nG-fUx" kind="show" identifier="ShowMessageThread" id="DPj-Yd-XnV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7YH-VN-feX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -478,5 +479,8 @@
         <image name="search" width="17" height="16"/>
         <image name="tabBarMessages" width="20" height="20"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="FjO-gx-hbh"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>
