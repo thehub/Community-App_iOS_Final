@@ -13,6 +13,7 @@ import PromiseKit
 protocol CreatePostViewControllerDelegate: class {
     func didCreatePost(post: Post)
     func didCreateComment(comment: Comment)
+    func didSendContactRequest()
 }
 
 class CreatePostViewController: UIViewController, UITextViewDelegate {
@@ -23,6 +24,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
         case post(chatterGroupId: String)
         case comment(postIdToCommentOn: String)
         case applyForJob(jobId: String)
+        case contactRequest(contactId: String)
         case unkown
     }
     
@@ -77,6 +79,8 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
         case .applyForJob(jobId: _):
             self.title = "Apply For Job"
             break
+        case .contactRequest(contactId: _):
+            self.title = "Introduction Message"
         case .unkown:
             print("Error createType not set")
             break
@@ -230,6 +234,24 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
                     print(jobId)
                     self.onClose(self)
                     break
+                case .contactRequest(let contactId):
+                    firstly {
+                        APIClient.shared.createDMRequest(fromContactId: SessionManager.shared.me?.id ?? "", toContactId: contactId, message: self.textView.text)
+                        }.then { result -> Void in
+                            if #available(iOS 10.0, *) {
+                                self.generatorNotification.notificationOccurred(.success)
+                            }
+                            self.delegate?.didSendContactRequest()
+                            self.onClose(self)
+                        }.always {
+                            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                            self.inTransit = false
+                        }.catch { error in
+                            debugPrint(error.localizedDescription)
+                            let alert = UIAlertController(title: "Error", message: "Could not send request. Please try again.", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                    }
                 case .unkown:
                     print("Error createType not set")
                     break
@@ -257,7 +279,14 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
         }
         
         let newLength = oldText.utf16.count + text.utf16.count - range.length
-        return newLength <= 5000
+        
+        switch createType {
+        case .contactRequest(contactId: _):
+            return newLength <= 254
+        default:
+            return newLength <= 5000
+        }
+        
         
     }
 

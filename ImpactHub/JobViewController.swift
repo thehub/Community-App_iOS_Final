@@ -264,6 +264,9 @@ extension JobViewController: UICollectionViewDataSource {
 }
 
 extension JobViewController: CreatePostViewControllerDelegate {
+    func didSendContactRequest() {
+    }
+
     func didCreatePost(post: Post) {
     }
     

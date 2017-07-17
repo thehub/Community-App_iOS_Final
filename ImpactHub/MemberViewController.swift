@@ -233,6 +233,14 @@ class MemberViewController: ListFullBleedViewController {
                 vc.project = selectProject
             }
         }
+        if segue.identifier == "ShowCreatePost" {
+            if let navVC = segue.destination as? UINavigationController {
+                if let vc = navVC.viewControllers.first as? CreatePostViewController, let contactId = member?.id {
+                    vc.delegate = self
+                    vc.createType = .contactRequest(contactId: contactId)
+                }
+            }
+        }
     }
     
     
@@ -271,30 +279,13 @@ class MemberViewController: ListFullBleedViewController {
     var inTransit = false
     
     @IBAction func connectTap(_ sender: Any) {
-        guard let member = self.member else {
+        guard self.member != nil else {
             debugPrint("No member set")
             return
         }
-        if inTransit {
-            return
-        }
-        inTransit = true
         
         if connectRequestStatus == .notRequested {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = true
-            firstly {
-                APIClient.shared.createDMRequest(fromContactId: SessionManager.shared.me?.id ?? "", toContactId: member.id)
-                }.then { result -> Void in
-                    self.connectRequestStatus = .outstanding
-                }.always {
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                    self.inTransit = false
-                }.catch { error in
-                    debugPrint(error.localizedDescription)
-                    let alert = UIAlertController(title: "Error", message: "Could not send request. Please try again.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-            }
+            self.performSegue(withIdentifier: "ShowCreatePost", sender: self)
         }
         else if connectRequestStatus == .approved {
             // TODO: Show Messages here
@@ -364,7 +355,22 @@ class MemberViewController: ListFullBleedViewController {
     }
     
     
+    override func didCreatePost(post: Post) {
+        
+    }
+    
+    override func didCreateComment(comment: Comment) {
+        
+    }
+    
+    override func didSendContactRequest() {
+        self.connectRequestStatus = .outstanding
+    }
+    
 }
+
+
+
 
 extension MemberViewController {
     

@@ -131,6 +131,9 @@ extension CommentsViewController: MemberFeedItemDelegate {
 }
 
 extension CommentsViewController: CreatePostViewControllerDelegate {
+    func didSendContactRequest() {
+    }
+
     func didCreatePost(post: Post) {
         
     }

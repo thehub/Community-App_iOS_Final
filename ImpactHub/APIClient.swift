@@ -512,11 +512,11 @@ class APIClient {
     
     
     // Direct Message Request
-    func createDMRequest(fromContactId:String, toContactId:String) -> Promise<String> {
+    func createDMRequest(fromContactId:String, toContactId:String, message: String) -> Promise<String> {
         
         return Promise { fullfill, reject in
             
-            let query: [String: String] = ["fromContactId" : fromContactId, "toContactId" : toContactId]
+            let query: [String: String] = ["fromContactId" : fromContactId, "toContactId" : toContactId, "introMessage" : message]
             let body = SFJsonUtils.jsonDataRepresentation(query)
             let request = SFRestRequest(method: .POST, path: "/services/apexrest/CreateDMRequest", queryParams: nil)
             request.endpoint = "/services/apexrest/CreateDMRequest"

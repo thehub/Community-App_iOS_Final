@@ -180,6 +180,8 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
     
     func didCreateComment(comment: Comment) {
     }
+    func didSendContactRequest() {
+    }
 }
 
 extension ListFullBleedViewController: UICollectionViewDataSource {

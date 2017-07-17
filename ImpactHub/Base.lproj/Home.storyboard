@@ -556,6 +556,7 @@
                         <outlet property="topMenu" destination="D7m-9w-jg5" id="NXx-Ul-QCd"/>
                         <segue destination="Fsg-7e-ZtL" kind="show" identifier="ShowProject" id="4CN-lM-E9S"/>
                         <segue destination="ytP-JQ-5XJ" kind="show" identifier="ShowGroup" id="9tv-11-54j"/>
+                        <segue destination="iz5-ct-zW9" kind="custom" identifier="ShowCreatePost" customClass="DeckSegue" customModule="DeckTransition" id="h9b-GT-wI4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="reP-pU-XlA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2006,12 +2007,12 @@
             </objects>
             <point key="canvasLocation" x="4015" y="-815"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Create Post Navigation Controller-->
         <scene sceneID="B0P-ua-KHR">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iz5-ct-zW9" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iz5-ct-zW9" userLabel="Create Post Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="C4D-zJ-TGR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C4D-zJ-TGR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2102,13 +2103,13 @@
         <image name="tabBarHome" width="22" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fwI-8D-BHi"/>
-        <segue reference="9tv-11-54j"/>
-        <segue reference="rv5-tf-Hia"/>
+        <segue reference="2YP-O4-F5Z"/>
+        <segue reference="E6m-rq-9b6"/>
         <segue reference="4CN-lM-E9S"/>
+        <segue reference="h9b-GT-wI4"/>
+        <segue reference="9tv-11-54j"/>
         <segue reference="ODp-Jh-V7d"/>
         <segue reference="r4W-Rs-mKq"/>
-        <segue reference="vHi-eY-5aJ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>
