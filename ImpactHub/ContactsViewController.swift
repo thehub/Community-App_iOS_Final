@@ -40,7 +40,6 @@ class ContactsViewController: ListWithSearchViewController {
                 APIClient.shared.getMembers(contactIds: self.contactIds)
             }.then { members -> Void in
                 let cellWidth: CGFloat = self.view.frame.width
-                
                 // Connected
                 let connected = ContactRequestManager.shared.getConnectedContactRequests()
                 connected.forEach({ (connectionRequest) in
@@ -49,7 +48,8 @@ class ContactsViewController: ListWithSearchViewController {
                         self.dataConnected.append(viewModel)
                     }
                 })
-
+                self.data = self.dataConnected
+                
                 // Incomming
                 let incomming = ContactRequestManager.shared.getIncommingContactRequests()
                 incomming.forEach({ (connectionRequest) in
