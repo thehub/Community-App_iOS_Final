@@ -88,7 +88,7 @@ extension PushNotification {
             self.kind = .likeComment(commentId: relatedId)
         case "PrivateMessage":
             self.kind = .privateMessage(messageId: relatedId)
-        case "DMRequestSent":
+        case "DMRequestCreate":
             self.kind = .contactRequestIncomming(contactId: fromUserId)
         case "DMRequestApproved":
             self.kind = .contactRequestApproved(contactId: fromUserId)
@@ -111,16 +111,30 @@ extension PushNotification {
     static func createFromUserInfo(_ userInfo: [AnyHashable: Any]) -> PushNotification.Kind? {
         if let type = userInfo["type"] as? String {
             switch type {
-            case "comment":
+            case "Comment":
                 if let id = userInfo["id"] as? String, let feedElementId = userInfo["feedElementId"] as? String {
                     return PushNotification.Kind.comment(id: id, feedElementId: feedElementId)
                 }
                 else {
                     return nil
                 }
-            case "mention":
+            case "PostMention", "CommentMention":
                 if let postId = userInfo["postId"] as? String {
                     return PushNotification.Kind.postMention(postId: postId)
+                }
+                else {
+                    return nil
+                }
+            case "DMRequestCreate":
+                if let relatedId = userInfo["relatedId"] as? String {
+                    return PushNotification.Kind.contactRequestIncomming(contactId: relatedId)
+                }
+                else {
+                    return nil
+                }
+            case "DMRequestApproved":
+                if let relatedId = userInfo["relatedId"] as? String {
+                    return PushNotification.Kind.contactRequestApproved(contactId: relatedId)
                 }
                 else {
                     return nil

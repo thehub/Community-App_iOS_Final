@@ -43,7 +43,7 @@ class TabBarController: UITabBarController {
 //            nvc.pushViewController(vc, animated: true)
 //            AppDelegate.pushNotification = nil
             break
-        case .postMention(let postId):
+        case .postMention(let postId), .commentMention(let postId):
             debugPrint(postId)
 //            self.selectedIndex = 0
 //            let nvc = self.viewControllers?[0] as! UINavigationController
@@ -53,8 +53,18 @@ class TabBarController: UITabBarController {
 //            nvc.pushViewController(vc, animated: true)
 //            AppDelegate.pushNotification = nil
             break
-        case .unknown:
-            debugPrint("unkown push kind")
+        case .likePost(let postId), .likeComment(let postId):
+            debugPrint(postId)
+        case .privateMessage(let postId):
+            debugPrint(postId)
+        case .contactRequestIncomming(let contactId):
+            self.selectedIndex = 0
+            let nvc = self.viewControllers?[0] as! UINavigationController
+            let storyboard = UIStoryboard(name: "Home", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "MemberViewController") as! MemberViewController
+            vc.memberId = contactId
+            nvc.pushViewController(vc, animated: true)
+            AppDelegate.pushNotification = nil
         case .contactRequestApproved(let contactId):
             self.selectedIndex = 0
             let nvc = self.viewControllers?[0] as! UINavigationController
@@ -63,8 +73,8 @@ class TabBarController: UITabBarController {
             vc.memberId = contactId
             nvc.pushViewController(vc, animated: true)
             AppDelegate.pushNotification = nil
-        default:
-            break
+        case .unknown:
+            debugPrint("unkown push kind")
         }
     }
     

@@ -62,7 +62,6 @@ class MemberViewController: ListFullBleedViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         collectionView.register(UINib.init(nibName: MemberDetailTopViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberDetailTopViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: MemberAboutItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberAboutItemViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: MemberSkillItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberSkillItemViewModel.cellIdentifier)
@@ -77,6 +76,7 @@ class MemberViewController: ListFullBleedViewController {
         }
         // If we're deeplinking in we only have the memberId, so load the member data
         else if let memberId = self.memberId {
+            self.connectContainer?.isHidden = true
             loadMember(memberId)
         }
         else {
@@ -92,6 +92,7 @@ class MemberViewController: ListFullBleedViewController {
             APIClient.shared.getMember(contactId: memberId)
             }.then { member -> Void in
                 self.member = member
+                self.collectionView.reloadData()
                 self.buildMember(member)
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -104,6 +105,8 @@ class MemberViewController: ListFullBleedViewController {
         
         self.title = member.name
         
+        self.connectContainer?.isHidden = false
+
         self.connectRequestStatus = member.contactRequest?.status ?? .notRequested
 
         memberAboutData.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
