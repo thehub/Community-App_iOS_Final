@@ -11,6 +11,8 @@ import SalesforceSDKCore
 import Lock
 import Auth0
 import PromiseKit
+import UserNotifications
+
 
 
 class ViewController: UIViewController {

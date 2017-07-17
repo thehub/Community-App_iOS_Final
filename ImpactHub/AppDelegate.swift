@@ -45,12 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             self.log(.info, msg:"Post-launch: launch actions taken: \(launchActionString)");
             
             if launchActionList.contains(SFSDKLaunchAction.alreadyAuthenticated) {
-                SFPushNotificationManager.sharedInstance().registerForRemoteNotifications()
                 NotificationCenter.default.post(name: .onLogin, object: nil, userInfo: nil)
             }
             else {
-                SFPushNotificationManager.sharedInstance().registerForRemoteNotifications()
-                //            self.setupRootViewController();
                 NotificationCenter.default.post(name: .onLogin, object: nil, userInfo: nil)
             }
             
@@ -90,24 +87,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         loginViewController.showSettingsIcon = false
         loginViewController.navBarColor = UIColor.white
         loginViewController.navBarTextColor = UIColor.darkGray
-        
-        if #available(iOS 10.0, *) {
-            UNUserNotificationCenter.current().delegate = self
-            UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .sound, .alert], completionHandler: {(granted, error) in
-                if (granted) {
-                    application.registerForRemoteNotifications()
-                }
-                else {
-                    //Do stuff if unsuccessful...
-                }
-            })
-        } else {
-            let types:UIUserNotificationType = ([.alert, .sound, .badge])
-            let settings:UIUserNotificationSettings = UIUserNotificationSettings(types: types, categories: nil)
-            application.registerUserNotificationSettings(settings)
-            application.registerForRemoteNotifications()
-        }
-        
         
         SalesforceSDKManager.shared().launch()
 
