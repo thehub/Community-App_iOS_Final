@@ -39,6 +39,7 @@ class ContactCell: UICollectionViewCell {
     
     func setUp(vm: ContactViewModel) {
         self.vm = vm
+        self.contactCellDelegate = vm.contactCellDelegate
         nameLabel.text = vm.member.name
         jobLabel.text = vm.member.job
         if let photoUrl = vm.member.photoUrl {

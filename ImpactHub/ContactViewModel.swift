@@ -13,9 +13,11 @@ class ContactViewModel: CellRepresentable {
     static var cellIdentifier = "ContactCell"
 
     var member: Member
-    
-    init(member: Member, cellSize: CGSize) {
+    weak var contactCellDelegate: ContactCellDelegate?
+
+    init(member: Member, contactCellDelegate: ContactCellDelegate, cellSize: CGSize) {
         self.member = member
+        self.contactCellDelegate = contactCellDelegate
         self.cellSize = cellSize
     }
     
