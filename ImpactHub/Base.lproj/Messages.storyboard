@@ -359,6 +359,16 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUb-mg-8MQ">
+                                <rect key="frame" x="12.5" y="76.5" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="3jE-It-MTi"/>
+                                    <constraint firstAttribute="width" constant="45" id="FDH-gb-onQ"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="afu-nY-01i" kind="show" identifier="ShowMember" id="Yv3-tT-FXL"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AUi-o8-iT0">
                                 <rect key="frame" x="20" y="124" width="279" height="80"/>
                                 <subviews>
@@ -382,7 +392,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcr-5N-Me4">
-                                <rect key="frame" x="20" y="216" width="29.5" height="14"/>
+                                <rect key="frame" x="20" y="216" width="28.5" height="15.5"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12"/>
                                 <color key="textColor" red="0.54117647058823526" green="0.55686274509803924" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -415,7 +425,9 @@
                             <constraint firstItem="pcr-5N-Me4" firstAttribute="top" secondItem="AUi-o8-iT0" secondAttribute="bottom" constant="12" id="MMd-my-SIc"/>
                             <constraint firstItem="AUi-o8-iT0" firstAttribute="top" secondItem="tVC-qb-doR" secondAttribute="bottom" constant="10" id="N3i-q3-GJd"/>
                             <constraint firstItem="HYz-jm-W3a" firstAttribute="centerX" secondItem="KoS-XR-e2T" secondAttribute="centerX" id="NAd-97-57p"/>
+                            <constraint firstItem="bUb-mg-8MQ" firstAttribute="centerX" secondItem="tVC-qb-doR" secondAttribute="centerX" id="O7x-85-YkP"/>
                             <constraint firstItem="AUi-o8-iT0" firstAttribute="leading" secondItem="tVC-qb-doR" secondAttribute="leading" id="ZwU-ba-Lmd"/>
+                            <constraint firstItem="bUb-mg-8MQ" firstAttribute="centerY" secondItem="tVC-qb-doR" secondAttribute="centerY" id="xJ9-bv-g3U"/>
                             <constraint firstItem="pcr-5N-Me4" firstAttribute="leading" secondItem="tVC-qb-doR" secondAttribute="leading" id="y1V-cQ-3g1"/>
                             <constraint firstItem="A5l-2d-O4J" firstAttribute="top" secondItem="HYz-jm-W3a" secondAttribute="bottom" constant="20" id="ylo-bU-v0h"/>
                         </constraints>
@@ -437,7 +449,7 @@
                 <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="MemberViewController" id="afu-nY-01i" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PdU-s8-7UI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3098" y="233"/>
+            <point key="canvasLocation" x="2928" y="274"/>
         </scene>
         <!--Contacts-->
         <scene sceneID="Fmr-SR-ge8">
@@ -488,7 +500,7 @@
                                         <rect key="frame" x="20" y="60" width="335" height="54"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dyd-YF-kdf">
-                                                <rect key="frame" x="15" y="18" width="287" height="18"/>
+                                                <rect key="frame" x="15" y="17" width="287" height="20"/>
                                                 <color key="textColor" red="0.37647058820000001" green="0.37647058820000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
@@ -578,6 +590,7 @@
         <image name="tabBarMessages" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Yv3-tT-FXL"/>
         <segue reference="DPj-Yd-XnV"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>

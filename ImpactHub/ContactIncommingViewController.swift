@@ -24,6 +24,8 @@ class ContactIncommingViewController: UIViewController {
 
         self.title = member?.name ?? "Member"
         
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+
         if let photoUrl = member?.photoUrl {
             profileImageView.kf.setImage(with: photoUrl, placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (image, error, cacheType, url) in
                 if let error = error {
@@ -116,7 +118,14 @@ class ContactIncommingViewController: UIViewController {
         }
     }
 
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: self)
+        if segue.identifier == "ShowMember" {
+            if let vc = segue.destination as? MemberViewController, let member = self.member {
+                vc.member = member
+            }
+        }
+    }
 
     
 }
