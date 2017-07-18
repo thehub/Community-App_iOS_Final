@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="gt-walsheim-light-web.ttf">
-            <string>GTWalsheim-Light</string>
+        <array key="gt-walsheim-medium-web.ttf">
+            <string>GTWalsheim-Medium</string>
         </array>
         <array key="gt-walsheim-web.ttf">
             <string>GTWalsheim</string>
@@ -19,39 +19,42 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NotificationCell" id="gTV-IL-0wX" customClass="NotificationCell" customModule="ImpactHub" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="300" height="55"/>
+            <rect key="frame" x="0.0" y="0.0" width="300" height="60"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="300" height="55"/>
+                <rect key="frame" x="0.0" y="0.0" width="300" height="60"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="projectImage" translatesAutoresizingMaskIntoConstraints="NO" id="mHX-u7-K71">
-                        <rect key="frame" x="20" y="12.5" width="30" height="30"/>
+                        <rect key="frame" x="20" y="11" width="38" height="38"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="NRd-u1-p1o"/>
-                            <constraint firstAttribute="width" constant="30" id="yo7-F6-7R2"/>
+                            <constraint firstAttribute="height" constant="38" id="NRd-u1-p1o"/>
+                            <constraint firstAttribute="width" constant="38" id="yo7-F6-7R2"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="15"/>
+                                <integer key="value" value="19"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jx9-Ra-lb3">
-                        <rect key="frame" x="58" y="8" width="222" height="39"/>
-                        <fontDescription key="fontDescription" name="GTWalsheim" family="GT Walsheim" pointSize="13"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jx9-Ra-lb3">
+                        <rect key="frame" x="67" y="14" width="193" height="14"/>
+                        <fontDescription key="fontDescription" name="GTWalsheim" family="GT Walsheim" pointSize="12"/>
                         <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 day ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRm-2b-nRG">
-                        <rect key="frame" x="246" y="3" width="39" height="12"/>
-                        <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="9"/>
-                        <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                        <rect key="frame" x="67" y="32" width="53.5" height="14"/>
+                        <fontDescription key="fontDescription" name="GTWalsheim-Medium" family="GT Walsheim" pointSize="12"/>
+                        <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notificationCommentIcon" translatesAutoresizingMaskIntoConstraints="NO" id="p8b-83-d72">
+                        <rect key="frame" x="265" y="23.5" width="15" height="13"/>
+                    </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="12n-nn-Yl3" userLabel="line">
-                        <rect key="frame" x="39" y="54" width="261" height="1"/>
-                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <rect key="frame" x="20" y="59" width="260" height="1"/>
+                        <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="U8a-cp-yAy"/>
                         </constraints>
@@ -60,28 +63,30 @@
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Jx9-Ra-lb3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="2b6-OO-fS0"/>
+                <constraint firstAttribute="trailing" secondItem="p8b-83-d72" secondAttribute="trailing" constant="20" id="2Lw-b2-CWS"/>
                 <constraint firstItem="mHX-u7-K71" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="3Eo-3C-d4e"/>
-                <constraint firstAttribute="trailing" secondItem="12n-nn-Yl3" secondAttribute="trailing" id="N5g-SO-4ST"/>
+                <constraint firstItem="pRm-2b-nRG" firstAttribute="bottom" secondItem="mHX-u7-K71" secondAttribute="bottom" constant="-3" id="8aS-vN-Jt3"/>
+                <constraint firstAttribute="trailing" secondItem="12n-nn-Yl3" secondAttribute="trailing" constant="20" id="N5g-SO-4ST"/>
                 <constraint firstAttribute="bottom" secondItem="12n-nn-Yl3" secondAttribute="bottom" id="O7z-wX-JZG"/>
-                <constraint firstAttribute="bottom" secondItem="Jx9-Ra-lb3" secondAttribute="bottom" constant="8" id="Pqf-MS-2yB"/>
-                <constraint firstAttribute="trailing" secondItem="pRm-2b-nRG" secondAttribute="trailing" constant="15" id="U00-47-K4z"/>
+                <constraint firstItem="12n-nn-Yl3" firstAttribute="leading" secondItem="mHX-u7-K71" secondAttribute="leading" id="OTH-rd-LEv"/>
+                <constraint firstItem="Jx9-Ra-lb3" firstAttribute="top" secondItem="mHX-u7-K71" secondAttribute="top" constant="3" id="OxU-RC-lcf"/>
+                <constraint firstItem="p8b-83-d72" firstAttribute="centerY" secondItem="mHX-u7-K71" secondAttribute="centerY" id="P14-jj-Xs9"/>
                 <constraint firstItem="mHX-u7-K71" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="Uyh-w3-9U5"/>
-                <constraint firstItem="pRm-2b-nRG" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="3" id="X4g-CZ-PIy"/>
-                <constraint firstItem="12n-nn-Yl3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="39" id="ZeF-a0-T9l"/>
-                <constraint firstAttribute="trailing" secondItem="Jx9-Ra-lb3" secondAttribute="trailing" constant="20" id="aGV-Fc-jle"/>
-                <constraint firstItem="Jx9-Ra-lb3" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="iQt-bm-sK5"/>
-                <constraint firstItem="Jx9-Ra-lb3" firstAttribute="leading" secondItem="mHX-u7-K71" secondAttribute="trailing" constant="8" id="iha-hq-ogo"/>
+                <constraint firstItem="p8b-83-d72" firstAttribute="leading" secondItem="Jx9-Ra-lb3" secondAttribute="trailing" constant="5" id="WN2-MB-5jd"/>
+                <constraint firstItem="pRm-2b-nRG" firstAttribute="leading" secondItem="Jx9-Ra-lb3" secondAttribute="leading" id="ehK-Cy-Qft"/>
+                <constraint firstItem="Jx9-Ra-lb3" firstAttribute="leading" secondItem="mHX-u7-K71" secondAttribute="trailing" constant="9" id="kch-5S-DcU"/>
             </constraints>
             <connections>
+                <outlet property="iconImageView" destination="p8b-83-d72" id="9te-hQ-eHZ"/>
                 <outlet property="messageLabel" destination="Jx9-Ra-lb3" id="DNM-MB-FqR"/>
                 <outlet property="profileImageView" destination="mHX-u7-K71" id="T6t-yU-8Cd"/>
                 <outlet property="timeLabel" destination="pRm-2b-nRG" id="swX-kx-vbk"/>
             </connections>
-            <point key="canvasLocation" x="34" y="139.5"/>
+            <point key="canvasLocation" x="-42" y="103"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="notificationCommentIcon" width="15" height="13"/>
         <image name="projectImage" width="388" height="259"/>
     </resources>
 </document>

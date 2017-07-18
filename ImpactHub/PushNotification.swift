@@ -54,6 +54,29 @@ struct PushNotification {
             }
         }
         
+        func getIconImage() -> UIImage {
+            switch self {
+            case .comment:
+                return UIImage(named: "notificationCommentIcon")!
+            case .commentMention:
+                return UIImage(named: "notificationMentionIcon")!
+            case .postMention:
+                return UIImage(named: "notificationMentionIcon")!
+            case .likePost:
+                return UIImage(named: "notificationLikeIcon")!
+            case .likeComment:
+                return UIImage(named: "notificationLikeIcon")!
+            case .privateMessage:
+                return UIImage(named: "notificationMessageIcon")!
+            case .contactRequestIncomming:
+                return UIImage(named: "notificationRequestContactIcon")!
+            case .contactRequestApproved:
+                return UIImage(named: "notificationAccepetedIcon")!
+            case .unknown:
+                return UIImage(named: "notificationCommentIcon")!
+            }
+        }
+        
     }
 
 }

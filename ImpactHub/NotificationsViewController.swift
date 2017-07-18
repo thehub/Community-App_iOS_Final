@@ -32,7 +32,7 @@ class NotificationsViewController: UIViewController {
                 self.data.removeAll()
                 let cellWidth: CGFloat = self.view.frame.width
                 items.forEach({ (item) in
-                    self.data.append(NotificationViewModel(pushNotification: item, cellSize: CGSize(width: cellWidth, height: 55)))
+                    self.data.append(NotificationViewModel(pushNotification: item, cellSize: CGSize(width: cellWidth, height: 60)))
                 })
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false

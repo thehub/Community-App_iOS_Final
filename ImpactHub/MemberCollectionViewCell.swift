@@ -27,6 +27,7 @@ class MemberCollectionViewCell: UICollectionViewCell {
         nameLabel.text = vm.member.name
         jobLabel.text = vm.member.job
         if let photoUrl = vm.member.photoUrl {
+            print(photoUrl)
             profileImageView.kf.setImage(with: photoUrl, placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (image, error, cacheType, url) in
                 if let error = error {
                     print(error.localizedDescription)

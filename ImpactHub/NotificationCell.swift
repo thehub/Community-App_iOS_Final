@@ -10,6 +10,7 @@ import UIKit
 
 class NotificationCell: UICollectionViewCell {
 
+    @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -30,6 +31,9 @@ class NotificationCell: UICollectionViewCell {
         }
         messageLabel.text = "\(vm.pushNotification.message)"
         timeLabel.text = Utils.timeStringFromDate(date: vm.pushNotification.createdDate)
+        
+        self.iconImageView.image = vm.pushNotification.kind.getIconImage()
+        
     }
     
 }
