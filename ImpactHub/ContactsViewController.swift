@@ -27,7 +27,6 @@ class ContactsViewController: ListWithSearchViewController {
         
         topMenu?.setupWithItems(["CONNECTED", "INCOMING", "PENDING", "DECLINED"])
         
-        loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,7 +34,14 @@ class ContactsViewController: ListWithSearchViewController {
         loadData()
     }
     
+    var inTransit = false
+    
+    
     func loadData() {
+        if inTransit {
+            return
+        }
+        inTransit = true
         dataConnected.removeAll()
         dataIncomming.removeAll()
         dataAwaiting.removeAll()
@@ -108,7 +114,7 @@ class ContactsViewController: ListWithSearchViewController {
                     self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
                     self.collectionView?.alpha = 1
                 }, completion: { (_) in
-                    
+                    self.inTransit = false
                 })
             }.catch { error in
                 debugPrint(error.localizedDescription)
