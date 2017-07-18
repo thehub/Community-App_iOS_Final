@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import PromiseKit
 
 
 class ContactRequestManager {
@@ -39,6 +40,27 @@ class ContactRequestManager {
         return connectedContactRequests
     }
 
+    
+    func refresh() -> Promise<[DMRequest]> {
+        return Promise { fullfill, reject in
+            firstly {
+                APIClient.shared.getDMRequests()
+                }.then { contactRequests -> Void in
+                    ContactRequestManager.shared.contactRequests = contactRequests
+                    fullfill(contactRequests)
+                }.always {
+                }.catch { error in
+                    debugPrint(error.localizedDescription)
+                    reject(MyError.Error("regresh failed"))
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
     static let shared = ContactRequestManager()
 
 }

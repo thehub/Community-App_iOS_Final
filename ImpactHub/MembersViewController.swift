@@ -32,9 +32,9 @@ class MembersViewController: ListWithSearchViewController {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.collectionView?.alpha = 0
         firstly {
-            APIClient.shared.getDMRequests()
+            ContactRequestManager.shared.refresh()
             }.then { contactRequests -> Void in
-                ContactRequestManager.shared.contactRequests = contactRequests
+                print("refreshed")
             }.then {
                 APIClient.shared.getMembers()
             }.then { items -> Void in

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PromiseKit
 
 class TabBarController: UITabBarController {
 
@@ -24,7 +25,7 @@ class TabBarController: UITabBarController {
         }
     }
 
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if let pushNotification = AppDelegate.pushNotification {
             self.handlePushNotification(pushNotification)
@@ -57,22 +58,21 @@ class TabBarController: UITabBarController {
             debugPrint(postId)
         case .privateMessage(let postId):
             debugPrint(postId)
-        case .contactRequestIncomming(let contactId):
-            self.selectedIndex = 0
-            let nvc = self.viewControllers?[0] as! UINavigationController
-            let storyboard = UIStoryboard(name: "Home", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "MemberViewController") as! MemberViewController
-            vc.memberId = contactId
-            nvc.pushViewController(vc, animated: true)
-            AppDelegate.pushNotification = nil
-        case .contactRequestApproved(let contactId):
-            self.selectedIndex = 0
-            let nvc = self.viewControllers?[0] as! UINavigationController
-            let storyboard = UIStoryboard(name: "Home", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "MemberViewController") as! MemberViewController
-            vc.memberId = contactId
-            nvc.pushViewController(vc, animated: true)
-            AppDelegate.pushNotification = nil
+        case .contactRequestIncomming(let contactId), .contactRequestApproved(let contactId):
+            firstly {
+                ContactRequestManager.shared.refresh()
+                }.then { contactRequests -> Void in
+                    self.selectedIndex = 0
+                    let nvc = self.viewControllers?[0] as! UINavigationController
+                    let storyboard = UIStoryboard(name: "Home", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "MemberViewController") as! MemberViewController
+                    vc.memberId = contactId
+                    nvc.pushViewController(vc, animated: true)
+                }.always {
+                    AppDelegate.pushNotification = nil
+                }.catch { error in
+                    debugPrint(error.localizedDescription)
+            }
         case .unknown:
             debugPrint("unkown push kind")
         }

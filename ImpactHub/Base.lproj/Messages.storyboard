@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ELV-2N-JeE">
-                                <rect key="frame" x="0.0" y="68" width="375" height="599"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ty5-x8-2T1">
                                     <size key="itemSize" width="50" height="50"/>
@@ -42,7 +42,7 @@
                                 </connections>
                             </collectionView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="pzX-t1-oFj">
-                                <rect key="frame" x="0.0" y="68" width="375" height="5"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="5"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -87,10 +87,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBs-aq-kfA">
-                                <rect key="frame" x="0.0" y="68" width="375" height="599"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gQJ-fC-sU7">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="546"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="550"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MeCell" rowHeight="90" id="DPm-0Y-yFH" customClass="MessageThreadMeCell" customModule="ImpactHub" customModuleProvider="target">
@@ -266,7 +266,7 @@
                                         </connections>
                                     </tableView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type something..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="R32-Uk-vVm">
-                                        <rect key="frame" x="0.0" y="546" width="375" height="53"/>
+                                        <rect key="frame" x="0.0" y="550" width="375" height="53"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="53" id="776-ul-TNC"/>
@@ -356,7 +356,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nCT-Rf-7VU">
-                                <rect key="frame" x="0.0" y="68" width="375" height="599"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LRv-Mm-vaH">
                                     <size key="itemSize" width="50" height="50"/>
@@ -380,7 +380,7 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2u-RA-qmo">
-                                <rect key="frame" x="0.0" y="88" width="375" height="140"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="140"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZlV-bu-oE7" customClass="TopMenu" customModule="ImpactHub" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
@@ -392,7 +392,7 @@
                                         <rect key="frame" x="20" y="60" width="335" height="54"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dyd-YF-kdf">
-                                                <rect key="frame" x="15" y="17" width="287" height="20"/>
+                                                <rect key="frame" x="15" y="18" width="287" height="18"/>
                                                 <color key="textColor" red="0.37647058820000001" green="0.37647058820000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>

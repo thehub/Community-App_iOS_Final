@@ -22,7 +22,9 @@ class HomeViewController: UIViewController {
                 UNUserNotificationCenter.current().delegate = UIApplication.shared.delegate as? UNUserNotificationCenterDelegate
                 UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .sound, .alert], completionHandler: {(granted, error) in
                     if (granted) {
-                        UIApplication.shared.registerForRemoteNotifications()
+                        DispatchQueue.main.async {
+                            UIApplication.shared.registerForRemoteNotifications()
+                        }
                     }
                     else {
                         //Do stuff if unsuccessful...

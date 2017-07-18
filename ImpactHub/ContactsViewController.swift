@@ -30,6 +30,11 @@ class ContactsViewController: ListWithSearchViewController {
         loadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadData()
+    }
+    
     func loadData() {
         dataConnected.removeAll()
         dataIncomming.removeAll()
@@ -39,10 +44,9 @@ class ContactsViewController: ListWithSearchViewController {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.collectionView?.alpha = 0
         firstly {
-            APIClient.shared.getDMRequests()
+            ContactRequestManager.shared.refresh()
             }.then { contactRequests -> Void in
                 // Get all contact requests again
-                ContactRequestManager.shared.contactRequests = contactRequests
                 let contactToIds = Set(contactRequests.map { $0.contactToId })
                 let contactFromIds = Set(contactRequests.map { $0.contactFromId })
                 self.contactIds = contactToIds.union(contactFromIds)
