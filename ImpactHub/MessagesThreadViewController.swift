@@ -24,6 +24,7 @@ class MessagesThreadViewController: UIViewController {
     var data = [TableCellRepresentable]()
     
     var conversationId: String? // Will be null if we're creating a new message from Member page for instance
+    var member: Member? // If we're creating a new message to
     
     var mentionCompletions = [MentionCompletion]()
     
@@ -107,6 +108,7 @@ class MessagesThreadViewController: UIViewController {
     var top = 20
     
     func loadData() {
+        // TODO: User Member as message id here...
         guard let conversationId = self.conversationId else {
             return
         }

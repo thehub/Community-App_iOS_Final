@@ -245,6 +245,11 @@ class MemberViewController: ListFullBleedViewController {
                 }
             }
         }
+        if segue.identifier == "ShowMessageThread" {
+            if let vc = segue.destination as? MessagesThreadViewController, let member = self.member {
+                vc.member = member
+            }
+        }
     }
     
     

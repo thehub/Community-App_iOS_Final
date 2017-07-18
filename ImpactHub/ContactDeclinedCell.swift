@@ -10,13 +10,7 @@ import UIKit
 import PromiseKit
 
 
-protocol ContactCellDelegate: class {
-    func didApprove(member: Member)
-    func didDecline(member: Member)
-    func wantsToCreateNewMessage(member: Member)
-}
-
-class ContactCell: UICollectionViewCell {
+class ContactDeclinedCell: UICollectionViewCell {
     
     weak var contactCellDelegate: ContactCellDelegate?
     
@@ -24,7 +18,6 @@ class ContactCell: UICollectionViewCell {
     @IBOutlet weak var jobLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
 
-    @IBOutlet weak var connectionImageView: UIImageView!
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var locationNameLabel: UILabel!
     
@@ -34,10 +27,10 @@ class ContactCell: UICollectionViewCell {
         profileImageView.clipsToBounds = true
     }
 
-    var vm: ContactViewModel!
+    var vm: ContactDeclinedViewModel!
     var inTransit = false
     
-    func setUp(vm: ContactViewModel) {
+    func setUp(vm: ContactDeclinedViewModel) {
         self.vm = vm
         self.contactCellDelegate = vm.contactCellDelegate
         nameLabel.text = vm.member.name
@@ -54,11 +47,8 @@ class ContactCell: UICollectionViewCell {
     }
 
     
-    @IBAction func newMessageTap(_ sender: Any) {
-        self.contactCellDelegate?.wantsToCreateNewMessage(member: self.vm.member)
-    }
     
-    @IBAction func declineTap(_ sender: Any) {
+    @IBAction func approveTap(_ sender: Any) {
         guard let contactRequest = vm?.member.contactRequest else {
             print(("Error no member.contactRequest"))
             return
@@ -70,20 +60,22 @@ class ContactCell: UICollectionViewCell {
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
-            APIClient.shared.updateDMRequest(id: contactRequest.id, status: DMRequest.Satus.declined)
+            APIClient.shared.updateDMRequest(id: contactRequest.id, status: DMRequest.Satus.approved)
             }.then { result -> Void in
-                contactRequest.status = .declined
-                self.contactCellDelegate?.didDecline(member: self.vm.member)
+                contactRequest.status = .approved
+                self.contactCellDelegate?.didApprove(member: self.vm.member)
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.inTransit = false
             }.catch { error in
                 debugPrint(error.localizedDescription)
-                let alert = UIAlertController(title: "Error", message: "Could not decline request. Please try again.", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Error", message: "Could not approve request. Please try again.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                 UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
         }
     }
+    
+
     
     override func draw(_ rect: CGRect) {
         self.bgView.clipsToBounds = false

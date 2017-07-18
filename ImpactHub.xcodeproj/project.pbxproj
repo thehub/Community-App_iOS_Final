@@ -434,6 +434,33 @@
 		85B361381ED59D3800DC2DE0 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B361371ED59D3800DC2DE0 /* Notifications.swift */; };
 		85B3613A1ED59FD400DC2DE0 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B361391ED59FD400DC2DE0 /* APIClient.swift */; };
 		85B3613C1ED5A08600DC2DE0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B3613B1ED5A08600DC2DE0 /* Constants.swift */; };
+		85BB26021F1E1DDD007E8210 /* ContactPendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BB26011F1E1DDC007E8210 /* ContactPendingViewModel.swift */; };
+		85BB26031F1E1DDD007E8210 /* ContactPendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BB26011F1E1DDC007E8210 /* ContactPendingViewModel.swift */; };
+		85BB26041F1E1DDD007E8210 /* ContactPendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BB26011F1E1DDC007E8210 /* ContactPendingViewModel.swift */; };
+		85BB260F1F1E1E26007E8210 /* ContactPendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BB260D1F1E1E26007E8210 /* ContactPendingCell.swift */; };
+		85BB26101F1E1E26007E8210 /* ContactPendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BB260D1F1E1E26007E8210 /* ContactPendingCell.swift */; };
+		85BB26111F1E1E26007E8210 /* ContactPendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BB260D1F1E1E26007E8210 /* ContactPendingCell.swift */; };
+		85BB26121F1E1E26007E8210 /* ContactPendingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85BB260E1F1E1E26007E8210 /* ContactPendingCell.xib */; };
+		85BB26131F1E1E26007E8210 /* ContactPendingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85BB260E1F1E1E26007E8210 /* ContactPendingCell.xib */; };
+		85BB26141F1E1E26007E8210 /* ContactPendingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85BB260E1F1E1E26007E8210 /* ContactPendingCell.xib */; };
+		85BB26171F1E1F57007E8210 /* ContactDeclinedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85BB26151F1E1F57007E8210 /* ContactDeclinedCell.xib */; };
+		85BB26181F1E1F57007E8210 /* ContactDeclinedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85BB26151F1E1F57007E8210 /* ContactDeclinedCell.xib */; };
+		85BB26191F1E1F57007E8210 /* ContactDeclinedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85BB26151F1E1F57007E8210 /* ContactDeclinedCell.xib */; };
+		85BB261A1F1E1F57007E8210 /* ContactDeclinedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BB26161F1E1F57007E8210 /* ContactDeclinedCell.swift */; };
+		85BB261B1F1E1F57007E8210 /* ContactDeclinedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BB26161F1E1F57007E8210 /* ContactDeclinedCell.swift */; };
+		85BB261C1F1E1F57007E8210 /* ContactDeclinedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BB26161F1E1F57007E8210 /* ContactDeclinedCell.swift */; };
+		85BB261E1F1E1F60007E8210 /* ContactDeclinedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BB261D1F1E1F60007E8210 /* ContactDeclinedViewModel.swift */; };
+		85BB261F1F1E1F60007E8210 /* ContactDeclinedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BB261D1F1E1F60007E8210 /* ContactDeclinedViewModel.swift */; };
+		85BB26201F1E1F60007E8210 /* ContactDeclinedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BB261D1F1E1F60007E8210 /* ContactDeclinedViewModel.swift */; };
+		85BB262A1F1E2227007E8210 /* ContactIncommingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BB26291F1E2227007E8210 /* ContactIncommingViewModel.swift */; };
+		85BB262B1F1E2227007E8210 /* ContactIncommingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BB26291F1E2227007E8210 /* ContactIncommingViewModel.swift */; };
+		85BB262C1F1E2227007E8210 /* ContactIncommingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BB26291F1E2227007E8210 /* ContactIncommingViewModel.swift */; };
+		85BB26371F1E26F5007E8210 /* ContactIncommingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85BB26351F1E26F5007E8210 /* ContactIncommingCell.xib */; };
+		85BB26381F1E26F5007E8210 /* ContactIncommingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85BB26351F1E26F5007E8210 /* ContactIncommingCell.xib */; };
+		85BB26391F1E26F5007E8210 /* ContactIncommingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85BB26351F1E26F5007E8210 /* ContactIncommingCell.xib */; };
+		85BB263A1F1E26F5007E8210 /* ContactIncommingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BB26361F1E26F5007E8210 /* ContactIncommingCell.swift */; };
+		85BB263B1F1E26F5007E8210 /* ContactIncommingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BB26361F1E26F5007E8210 /* ContactIncommingCell.swift */; };
+		85BB263C1F1E26F5007E8210 /* ContactIncommingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BB26361F1E26F5007E8210 /* ContactIncommingCell.swift */; };
 		85BFF1091F0244930010AD51 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BFF1081F0244930010AD51 /* FilterViewController.swift */; };
 		85BFF10A1F0244930010AD51 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BFF1081F0244930010AD51 /* FilterViewController.swift */; };
 		85BFF10B1F0244930010AD51 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BFF1081F0244930010AD51 /* FilterViewController.swift */; };
@@ -668,6 +695,15 @@
 		85B361371ED59D3800DC2DE0 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		85B361391ED59FD400DC2DE0 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		85B3613B1ED5A08600DC2DE0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		85BB26011F1E1DDC007E8210 /* ContactPendingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactPendingViewModel.swift; sourceTree = "<group>"; };
+		85BB260D1F1E1E26007E8210 /* ContactPendingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactPendingCell.swift; sourceTree = "<group>"; };
+		85BB260E1F1E1E26007E8210 /* ContactPendingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactPendingCell.xib; sourceTree = "<group>"; };
+		85BB26151F1E1F57007E8210 /* ContactDeclinedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactDeclinedCell.xib; sourceTree = "<group>"; };
+		85BB26161F1E1F57007E8210 /* ContactDeclinedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDeclinedCell.swift; sourceTree = "<group>"; };
+		85BB261D1F1E1F60007E8210 /* ContactDeclinedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDeclinedViewModel.swift; sourceTree = "<group>"; };
+		85BB26291F1E2227007E8210 /* ContactIncommingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactIncommingViewModel.swift; sourceTree = "<group>"; };
+		85BB26351F1E26F5007E8210 /* ContactIncommingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactIncommingCell.xib; sourceTree = "<group>"; };
+		85BB26361F1E26F5007E8210 /* ContactIncommingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactIncommingCell.swift; sourceTree = "<group>"; };
 		85BFF1081F0244930010AD51 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		85BFF10C1F02B0E10010AD51 /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		85C802541F14E074003DBC01 /* PushNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotification.swift; sourceTree = "<group>"; };
@@ -853,6 +889,12 @@
 				858597D11F17830F00821E6A /* ContactsViewController.swift */,
 				85568ACA1F17CA9200CD362F /* ContactCell.swift */,
 				85568AC31F17CA6700CD362F /* ContactCell.xib */,
+				85BB26361F1E26F5007E8210 /* ContactIncommingCell.swift */,
+				85BB26351F1E26F5007E8210 /* ContactIncommingCell.xib */,
+				85BB260D1F1E1E26007E8210 /* ContactPendingCell.swift */,
+				85BB260E1F1E1E26007E8210 /* ContactPendingCell.xib */,
+				85BB26161F1E1F57007E8210 /* ContactDeclinedCell.swift */,
+				85BB26151F1E1F57007E8210 /* ContactDeclinedCell.xib */,
 			);
 			name = Messages;
 			sourceTree = "<group>";
@@ -1100,6 +1142,9 @@
 				853433CD1EE6B6F9003C26F8 /* Messages */,
 				85DE9F061ECCACB100291EF5 /* MemberViewModel.swift */,
 				85568ACE1F17CB0600CD362F /* ContactViewModel.swift */,
+				85BB26011F1E1DDC007E8210 /* ContactPendingViewModel.swift */,
+				85BB261D1F1E1F60007E8210 /* ContactDeclinedViewModel.swift */,
+				85BB26291F1E2227007E8210 /* ContactIncommingViewModel.swift */,
 				853762F61F1639D50053B178 /* NotificationViewModel.swift */,
 				851D037B1F02B79700641976 /* FilterGroupingViewModel.swift */,
 				859E029E1F03940500600C3E /* FilterViewModel.swift */,
@@ -1258,6 +1303,7 @@
 				859C417F1ECDFFD700637295 /* MemberAboutItemCell.xib in Resources */,
 				85568AC71F17CA6700CD362F /* ContactCell.xib in Resources */,
 				85455D3C1EF2A53200243846 /* gt-walsheim-web.ttf in Resources */,
+				85BB26171F1E1F57007E8210 /* ContactDeclinedCell.xib in Resources */,
 				859F97F81EFBD0ED001C0B33 /* GoalAboutItemCell.xib in Resources */,
 				85066FC61ED33E6F0032391A /* MemberSkillItemCell.xib in Resources */,
 				8570C1DF1ECEE66300FA1CE9 /* Home.storyboard in Resources */,
@@ -1267,9 +1313,11 @@
 				85DE9F001ECCA8D500291EF5 /* MemberCollectionViewCell.xib in Resources */,
 				85E7DA851EF818D200C9DA15 /* ProjectCollectionViewCell.xib in Resources */,
 				85455D301EF2A53200243846 /* gt-walsheim-bold-web.ttf in Resources */,
+				85BB26371F1E26F5007E8210 /* ContactIncommingCell.xib in Resources */,
 				850B70371EFC0F6D00596315 /* EventCollectionViewCell.xib in Resources */,
 				858C58A81EF9492000136DAC /* TitleCell.xib in Resources */,
 				859C41731ECDB6CD00637295 /* TopMenu.xib in Resources */,
+				85BB26121F1E1E26007E8210 /* ContactPendingCell.xib in Resources */,
 				85523DC21EFAB4B300F66B53 /* CompanyDetailTopCell.xib in Resources */,
 				850B70111EFBF1CA00596315 /* GroupCollectionViewCell.xib in Resources */,
 				8570C1D11ECEE0D200FA1CE9 /* Search.storyboard in Resources */,
@@ -1299,6 +1347,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85BB26181F1E1F57007E8210 /* ContactDeclinedCell.xib in Resources */,
 				85AD64911F00FC9800F2CCA8 /* BigTitleTopCell.xib in Resources */,
 				858C58D51EF9848E00136DAC /* JobDetailCell.xib in Resources */,
 				853762F41F1636930053B178 /* NotificationCell.xib in Resources */,
@@ -1309,6 +1358,7 @@
 				859F97F91EFBD0ED001C0B33 /* GoalAboutItemCell.xib in Resources */,
 				859F97D11EFBBF01001C0B33 /* GoalCollectionViewCell.xib in Resources */,
 				85523DCB1EFAC92D00F66B53 /* CompanyServiceItemCell.xib in Resources */,
+				85BB26381F1E26F5007E8210 /* ContactIncommingCell.xib in Resources */,
 				8502265D1F0119D000942C9F /* RelatedCell.xib in Resources */,
 				85E7DA861EF818D200C9DA15 /* ProjectCollectionViewCell.xib in Resources */,
 				858597DB1F17850300821E6A /* Search.storyboard in Resources */,
@@ -1326,6 +1376,7 @@
 				858597D91F1784F800821E6A /* Notifications.storyboard in Resources */,
 				85455D311EF2A53200243846 /* gt-walsheim-bold-web.ttf in Resources */,
 				859F97D71EFBBF01001C0B33 /* GoalDetailTopCell.xib in Resources */,
+				85BB26131F1E1E26007E8210 /* ContactPendingCell.xib in Resources */,
 				858C58911EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */,
 				858597DF1F17850F00821E6A /* Main.storyboard in Resources */,
 				851655181EFD326F00002786 /* EventDetailCell.xib in Resources */,
@@ -1340,6 +1391,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85BB26191F1E1F57007E8210 /* ContactDeclinedCell.xib in Resources */,
 				85AD64921F00FC9800F2CCA8 /* BigTitleTopCell.xib in Resources */,
 				858C58D61EF9848E00136DAC /* JobDetailCell.xib in Resources */,
 				853762F51F1636930053B178 /* NotificationCell.xib in Resources */,
@@ -1350,6 +1402,7 @@
 				859F97FA1EFBD0ED001C0B33 /* GoalAboutItemCell.xib in Resources */,
 				859F97D21EFBBF01001C0B33 /* GoalCollectionViewCell.xib in Resources */,
 				85523DCC1EFAC92D00F66B53 /* CompanyServiceItemCell.xib in Resources */,
+				85BB26391F1E26F5007E8210 /* ContactIncommingCell.xib in Resources */,
 				8502265E1F0119D000942C9F /* RelatedCell.xib in Resources */,
 				85E7DA871EF818D200C9DA15 /* ProjectCollectionViewCell.xib in Resources */,
 				858597DC1F17850400821E6A /* Search.storyboard in Resources */,
@@ -1367,6 +1420,7 @@
 				858597DA1F1784F900821E6A /* Notifications.storyboard in Resources */,
 				85455D321EF2A53200243846 /* gt-walsheim-bold-web.ttf in Resources */,
 				859F97D81EFBBF01001C0B33 /* GoalDetailTopCell.xib in Resources */,
+				85BB26141F1E1E26007E8210 /* ContactPendingCell.xib in Resources */,
 				858C58921EF928E000136DAC /* ProjectDetailTopCell.xib in Resources */,
 				858597E01F17851100821E6A /* Main.storyboard in Resources */,
 				851655191EFD326F00002786 /* EventDetailCell.xib in Resources */,
@@ -1467,6 +1521,7 @@
 				85DE9ECB1ECC8CD900291EF5 /* ViewController.swift in Sources */,
 				8570C2091ECF24A400FA1CE9 /* JobViewModel.swift in Sources */,
 				85455D481EF2E7A000243846 /* RedButton.swift in Sources */,
+				85BB262A1F1E2227007E8210 /* ContactIncommingViewModel.swift in Sources */,
 				858C589C1EF92BD600136DAC /* ProjectViewController.swift in Sources */,
 				8501B9F51EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
 				8570C1E31ECF028200FA1CE9 /* Company.swift in Sources */,
@@ -1484,6 +1539,7 @@
 				858C58CC1EF96EB600136DAC /* JobViewController.swift in Sources */,
 				853762F01F1636930053B178 /* NotificationCell.swift in Sources */,
 				850C142B1F03ADED00F00DAE /* FilterableDelegate.swift in Sources */,
+				85BB261A1F1E1F57007E8210 /* ContactDeclinedCell.swift in Sources */,
 				8570C1F81ECF15CE00FA1CE9 /* CompanyDetailTopViewModel.swift in Sources */,
 				85066FCA1ED343160032391A /* Utils.swift in Sources */,
 				8574804B1EE802D0005F73A2 /* MentionCompletion.swift in Sources */,
@@ -1495,6 +1551,7 @@
 				850B70341EFC0F6D00596315 /* EventCollectionViewCell.swift in Sources */,
 				850B702A1EFC0F2D00596315 /* Event.swift in Sources */,
 				859F97C41EFBBEE6001C0B33 /* Goal.swift in Sources */,
+				85BB260F1F1E1E26007E8210 /* ContactPendingCell.swift in Sources */,
 				858C58AC1EF94A2A00136DAC /* TitleViewModel.swift in Sources */,
 				85B361381ED59D3800DC2DE0 /* Notifications.swift in Sources */,
 				8570C1EA1ECF03FE00FA1CE9 /* CompanyViewController.swift in Sources */,
@@ -1506,6 +1563,7 @@
 				857480811EE84752005F73A2 /* Button.swift in Sources */,
 				853434101EE6E9DC003C26F8 /* MessageThreadMeCell.swift in Sources */,
 				85DE9EF81ECC902B00291EF5 /* HomeViewController.swift in Sources */,
+				85BB263A1F1E26F5007E8210 /* ContactIncommingCell.swift in Sources */,
 				8500723C1EE7126C008A725A /* MessagesThreadMeTimeVM.swift in Sources */,
 				853434141EE6E9F5003C26F8 /* MessageThreadThemCell.swift in Sources */,
 				857480541EE802D0005F73A2 /* Photo.swift in Sources */,
@@ -1544,6 +1602,7 @@
 				8501B9F91EE6FD5D00F9EFFA /* MessagesThreadThemVM.swift in Sources */,
 				858C58981EF92B6900136DAC /* ProjectDetailTopViewModel.swift in Sources */,
 				850072341EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
+				85BB261E1F1E1F60007E8210 /* ContactDeclinedViewModel.swift in Sources */,
 				85523DB61EFAABD700F66B53 /* ListFullBleedViewController.swift in Sources */,
 				850226591F0119D000942C9F /* RelatedCell.swift in Sources */,
 				858597D21F17830F00821E6A /* ContactsViewController.swift in Sources */,
@@ -1557,6 +1616,7 @@
 				85066FC51ED33E6F0032391A /* MemberSkillItemCell.swift in Sources */,
 				850B700E1EFBF1CA00596315 /* GroupCollectionViewCell.swift in Sources */,
 				851655141EFD326F00002786 /* EventDetailCell.swift in Sources */,
+				85BB26021F1E1DDD007E8210 /* ContactPendingViewModel.swift in Sources */,
 				8574805A1EE802D0005F73A2 /* Reference.swift in Sources */,
 				859C41711ECDB6BF00637295 /* TopMenu.swift in Sources */,
 				851D037C1F02B79700641976 /* FilterGroupingViewModel.swift in Sources */,
@@ -1606,6 +1666,7 @@
 				858C58D21EF9848E00136DAC /* JobDetailCell.swift in Sources */,
 				858C58991EF92B6900136DAC /* ProjectDetailTopViewModel.swift in Sources */,
 				859E02A51F03946F00600C3E /* FilterCell.swift in Sources */,
+				85BB263B1F1E26F5007E8210 /* ContactIncommingCell.swift in Sources */,
 				850B70161EFBF1FB00596315 /* GroupViewModel.swift in Sources */,
 				8574806E1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
 				85E5FF511F0A74AE0053189B /* CreatePostViewController.swift in Sources */,
@@ -1628,6 +1689,7 @@
 				851655201EFD5F0200002786 /* AddPostViewController.swift in Sources */,
 				8574804C1EE802D0005F73A2 /* MentionCompletion.swift in Sources */,
 				85523DC01EFAB4B300F66B53 /* CompanyDetailTopCell.swift in Sources */,
+				85BB261F1F1E1F60007E8210 /* ContactDeclinedViewModel.swift in Sources */,
 				858C58CD1EF96EB600136DAC /* JobViewController.swift in Sources */,
 				858C58951EF928F500136DAC /* ProjectDetailTopCell.swift in Sources */,
 				859F97CE1EFBBF01001C0B33 /* GoalCollectionViewCell.swift in Sources */,
@@ -1638,9 +1700,11 @@
 				85AD64981F00FCA800F2CCA8 /* BigTitleTopViewModel.swift in Sources */,
 				859F97C51EFBBEE6001C0B33 /* Goal.swift in Sources */,
 				85AD649C1F00FE2700F2CCA8 /* BigTitleTopCell.swift in Sources */,
+				85BB261B1F1E1F57007E8210 /* ContactDeclinedCell.swift in Sources */,
 				858597D31F17830F00821E6A /* ContactsViewController.swift in Sources */,
 				85523DC81EFAC92D00F66B53 /* CompanyServiceItemCell.swift in Sources */,
 				85C802571F14E074003DBC01 /* PushNotification.swift in Sources */,
+				85BB262B1F1E2227007E8210 /* ContactIncommingViewModel.swift in Sources */,
 				858C58B21EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */,
 				850B700F1EFBF1CA00596315 /* GroupCollectionViewCell.swift in Sources */,
 				85455D241EF28D3D00243846 /* TabBarController.swift in Sources */,
@@ -1673,6 +1737,7 @@
 				858C58C51EF9670E00136DAC /* JobCollectionViewCell.swift in Sources */,
 				850072301EE70F56008A725A /* MessagesThreadThemPicVM.swift in Sources */,
 				850C142C1F03ADED00F00DAE /* FilterableDelegate.swift in Sources */,
+				85BB26031F1E1DDD007E8210 /* ContactPendingViewModel.swift in Sources */,
 				850B702B1EFC0F2D00596315 /* Event.swift in Sources */,
 				857480461EE802D0005F73A2 /* Conversation.swift in Sources */,
 				859F97FD1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift in Sources */,
@@ -1682,6 +1747,7 @@
 				857480401EE802D0005F73A2 /* ChatterActor.swift in Sources */,
 				857480581EE802D0005F73A2 /* Post.swift in Sources */,
 				8516551C1EFD32A000002786 /* EventDetailViewModel.swift in Sources */,
+				85BB26101F1E1E26007E8210 /* ContactPendingCell.swift in Sources */,
 				850B70261EFBF86800596315 /* GroupDetailTopViewModel.swift in Sources */,
 				857480521EE802D0005F73A2 /* MessageSegment.swift in Sources */,
 				851655151EFD326F00002786 /* EventDetailCell.swift in Sources */,
@@ -1720,6 +1786,7 @@
 				858C58D31EF9848E00136DAC /* JobDetailCell.swift in Sources */,
 				858C589A1EF92B6900136DAC /* ProjectDetailTopViewModel.swift in Sources */,
 				859E02A61F03946F00600C3E /* FilterCell.swift in Sources */,
+				85BB263C1F1E26F5007E8210 /* ContactIncommingCell.swift in Sources */,
 				850B70171EFBF1FB00596315 /* GroupViewModel.swift in Sources */,
 				8574806F1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
 				85E5FF521F0A74AE0053189B /* CreatePostViewController.swift in Sources */,
@@ -1742,6 +1809,7 @@
 				851655211EFD5F0200002786 /* AddPostViewController.swift in Sources */,
 				8574804D1EE802D0005F73A2 /* MentionCompletion.swift in Sources */,
 				85523DC11EFAB4B300F66B53 /* CompanyDetailTopCell.swift in Sources */,
+				85BB26201F1E1F60007E8210 /* ContactDeclinedViewModel.swift in Sources */,
 				858C58CE1EF96EB600136DAC /* JobViewController.swift in Sources */,
 				858C58961EF928F500136DAC /* ProjectDetailTopCell.swift in Sources */,
 				859F97CF1EFBBF01001C0B33 /* GoalCollectionViewCell.swift in Sources */,
@@ -1752,9 +1820,11 @@
 				85AD64991F00FCA800F2CCA8 /* BigTitleTopViewModel.swift in Sources */,
 				859F97C61EFBBEE6001C0B33 /* Goal.swift in Sources */,
 				85AD649D1F00FE2700F2CCA8 /* BigTitleTopCell.swift in Sources */,
+				85BB261C1F1E1F57007E8210 /* ContactDeclinedCell.swift in Sources */,
 				858597D41F17830F00821E6A /* ContactsViewController.swift in Sources */,
 				85523DC91EFAC92D00F66B53 /* CompanyServiceItemCell.swift in Sources */,
 				85C802581F14E074003DBC01 /* PushNotification.swift in Sources */,
+				85BB262C1F1E2227007E8210 /* ContactIncommingViewModel.swift in Sources */,
 				858C58B31EF94C7700136DAC /* ProjectObjectiveCell.swift in Sources */,
 				850B70101EFBF1CA00596315 /* GroupCollectionViewCell.swift in Sources */,
 				85455D251EF28D3D00243846 /* TabBarController.swift in Sources */,
@@ -1787,6 +1857,7 @@
 				858C58C61EF9670E00136DAC /* JobCollectionViewCell.swift in Sources */,
 				850072311EE70F56008A725A /* MessagesThreadThemPicVM.swift in Sources */,
 				850C142D1F03ADED00F00DAE /* FilterableDelegate.swift in Sources */,
+				85BB26041F1E1DDD007E8210 /* ContactPendingViewModel.swift in Sources */,
 				850B702C1EFC0F2D00596315 /* Event.swift in Sources */,
 				857480471EE802D0005F73A2 /* Conversation.swift in Sources */,
 				859F97FE1EFBD7E1001C0B33 /* ListWithTopMenuViewController.swift in Sources */,
@@ -1796,6 +1867,7 @@
 				857480411EE802D0005F73A2 /* ChatterActor.swift in Sources */,
 				857480591EE802D0005F73A2 /* Post.swift in Sources */,
 				8516551D1EFD32A000002786 /* EventDetailViewModel.swift in Sources */,
+				85BB26111F1E1E26007E8210 /* ContactPendingCell.swift in Sources */,
 				850B70271EFBF86800596315 /* GroupDetailTopViewModel.swift in Sources */,
 				857480531EE802D0005F73A2 /* MessageSegment.swift in Sources */,
 				851655161EFD326F00002786 /* EventDetailCell.swift in Sources */,

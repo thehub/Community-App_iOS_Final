@@ -24,8 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     override init() {
         super.init()
-        SFLogger.shared().logLevel = .debug
-        
+        SFSDKLogger.sharedDefaultInstance().logLevel = .debug
         SalesforceSDKManager.shared().connectedAppId = RemoteAccessConsumerKey
         SalesforceSDKManager.shared().connectedAppCallbackUri = OAuthRedirectURI
         SalesforceSDKManager.shared().authScopes = ["web", "api", "refresh_token"];
@@ -42,7 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             //            debugPrint(userAccount?.userId.description)
             
             let launchActionString = SalesforceSDKManager.launchActionsStringRepresentation(launchActionList)
-            self.log(.info, msg:"Post-launch: launch actions taken: \(launchActionString)");
             
             if launchActionList.contains(SFSDKLaunchAction.alreadyAuthenticated) {
                 NotificationCenter.default.post(name: .onLogin, object: nil, userInfo: nil)
@@ -57,9 +55,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         SalesforceSDKManager.shared().launchErrorAction = {
             [unowned self] (error: Any, launchActionList: Any) in
             if let actualError = error as? NSError {
-                self.log(.error, msg:"Error during SDK launch: \(actualError.localizedDescription)")
+//                self.log(.error, msg:"Error during SDK launch: \(actualError.localizedDescription)")
             } else {
-                self.log(.error, msg:"Unknown error during SDK launch.")
+//                self.log(.error, msg:"Unknown error during SDK launch.")
             }
             //            self.initializeAppViewState()
             SalesforceSDKManager.shared().launch()

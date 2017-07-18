@@ -24,7 +24,10 @@ class ContactsViewController: ListWithSearchViewController {
         
         
         collectionView.register(UINib.init(nibName: ContactViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ContactViewModel.cellIdentifier)
-        
+        collectionView.register(UINib.init(nibName: ContactPendingViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ContactPendingViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: ContactDeclinedViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ContactDeclinedViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: ContactIncommingViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ContactIncommingViewModel.cellIdentifier)
+
         topMenu?.setupWithItems(["CONNECTED", "INCOMING", "PENDING", "DECLINED"])
         
     }
@@ -67,7 +70,7 @@ class ContactsViewController: ListWithSearchViewController {
                     if let contactRequest = connected.filter ({$0.contactToId == member.id || $0.contactFromId == member.id }).first {
                         if member.id != SessionManager.shared.me!.id {
                             member.contactRequest = contactRequest
-                            let viewModel = ContactViewModel(member: member, contactCellDelegate: self, cellSize: CGSize(width: cellWidth, height: 105))
+                            let viewModel = ContactViewModel(member: member, contactCellDelegate: self, cellSize: CGSize(width: cellWidth, height: 120))
                             self.dataConnected.append(viewModel)
                         }
                     }
@@ -79,7 +82,7 @@ class ContactsViewController: ListWithSearchViewController {
                 incomming.forEach({ (contactRequest) in
                     if let member = members.filter ({$0.id == contactRequest.contactFromId }).first {
                         member.contactRequest = contactRequest
-                        let viewModel = ContactViewModel(member: member, contactCellDelegate: self, cellSize: CGSize(width: cellWidth, height: 105))
+                        let viewModel = ContactIncommingViewModel(member: member, contactCellDelegate: self, cellSize: CGSize(width: cellWidth, height: 105))
                         self.dataIncomming.append(viewModel)
                     }
                 })
@@ -89,7 +92,7 @@ class ContactsViewController: ListWithSearchViewController {
                 awaiting.forEach({ (contactRequest) in
                     if let member = members.filter ({$0.id == contactRequest.contactToId }).first {
                         member.contactRequest = contactRequest
-                        let viewModel = ContactViewModel(member: member, contactCellDelegate: self, cellSize: CGSize(width: cellWidth, height: 105))
+                        let viewModel = ContactPendingViewModel(member: member, cellSize: CGSize(width: cellWidth, height: 115))
                         self.dataAwaiting.append(viewModel)
                     }
                 })
@@ -99,7 +102,7 @@ class ContactsViewController: ListWithSearchViewController {
                 rejected.forEach({ (contactRequest) in
                     if let member = members.filter ({$0.id == contactRequest.contactToId }).first {
                         member.contactRequest = contactRequest
-                        let viewModel = ContactViewModel(member: member, contactCellDelegate: self, cellSize: CGSize(width: cellWidth, height: 105))
+                        let viewModel = ContactDeclinedViewModel(member: member, contactCellDelegate: self, cellSize: CGSize(width: cellWidth, height: 105))
                         self.dataRejected.append(viewModel)
                     }
                 })
@@ -124,6 +127,7 @@ class ContactsViewController: ListWithSearchViewController {
     
     var selectedTopMenuIndex: Int = 0
     var selectedVM: ContactViewModel?
+    var selectedMember: Member?
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -131,6 +135,11 @@ class ContactsViewController: ListWithSearchViewController {
         if segue.identifier == "ShowMember" {
             if let vc = segue.destination as? MemberViewController, let selectedItem = selectedVM {
                 vc.member = selectedItem.member
+            }
+        }
+        if segue.identifier == "ShowMessageThread" {
+            if let vc = segue.destination as? MessagesThreadViewController, let selectedMember = selectedMember {
+                vc.member = selectedMember
             }
         }
     }
@@ -189,6 +198,11 @@ extension ContactsViewController: ContactCellDelegate {
     
     func didDecline(member: Member) -> Void {
         self.loadData()
+    }
+    
+    func wantsToCreateNewMessage(member: Member) {
+        self.selectedMember = member
+        self.performSegue(withIdentifier: "ShowMessageThread", sender: self)
     }
 }
 
