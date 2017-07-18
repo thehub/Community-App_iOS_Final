@@ -23,6 +23,9 @@ struct Contact {
     var city: String?
     var country: String?
     var taxonomy: String?
+    var job: String = ""
+    var locationName: String = ""
+    var impactHubCities: String = ""
 
     
     var fullName: String {
@@ -54,6 +57,18 @@ extension Contact {
         if let skills = json["Skills__c"].string {
             self.skills = skills.components(separatedBy: ",")
         }
+        
+        if let profession = json["Profession__c"].string, profession != "<null>" {
+            self.job = profession
+        }
+        
+        if let impactHubCities = json["Impact_Hub_Cities__c"].string, impactHubCities != "<null>" {
+            self.impactHubCities = impactHubCities
+            if let firstCity = impactHubCities.components(separatedBy: ";").first {
+                self.locationName = firstCity
+            }
+        }
+
     }
 }
 

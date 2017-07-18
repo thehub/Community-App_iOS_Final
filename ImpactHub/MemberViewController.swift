@@ -31,6 +31,11 @@ class MemberViewController: ListFullBleedViewController {
             debugPrint("No member set")
             return
         }
+        // If we are ourselves, pushed form profile page, hide connect button
+        if self.memberId == SessionManager.shared.me?.id {
+            self.connectContainer?.isHidden = true
+            return
+        }
         switch connectRequestStatus {
         case .approved:
             connectContainer?.isHidden = false
@@ -82,7 +87,6 @@ class MemberViewController: ListFullBleedViewController {
         else {
             debugPrint("Error no member or memberId was set")
         }
-        
         
     }
     

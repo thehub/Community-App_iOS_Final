@@ -13,26 +13,27 @@ import Kingfisher
 class ProfileViewController: UIViewController {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
-
+    @IBOutlet weak var jobTitleLabel: UILabel!
+    
+    @IBOutlet weak var locationLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         userName.text = SessionManager.shared.me?.fullName
         
+        jobTitleLabel.text = SessionManager.shared.me?.job ?? ""
+        locationLabel.text = SessionManager.shared.me?.locationName ?? ""
         
         if let photoUrl = SessionManager.shared.me?.profilePicUrl {
             profileImageView.kf.setImage(with: photoUrl)
         }
         
-        
-        // Do any additional setup after loading the view.
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBAction func logoutTapped(_ sender: Any) {
         if let vc = UIApplication.shared.windows.first?.rootViewController as? UINavigationController {
@@ -41,19 +42,14 @@ class ProfileViewController: UIViewController {
             })
             SFAuthenticationManager.shared().logoutAllUsers()
         }
-
-        
-        
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: self)
+        if segue.identifier == "ShowMember" {
+            if let vc = segue.destination as? MemberViewController {
+                vc.memberId = SessionManager.shared.me?.id
+            }
+        }
     }
-    */
-
 }

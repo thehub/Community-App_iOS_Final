@@ -842,7 +842,6 @@
 				8574803C1EE802D0005F73A2 /* Post.swift */,
 				8574803D1EE802D0005F73A2 /* Reference.swift */,
 				8574803E1EE802D0005F73A2 /* Subscription.swift */,
-				857480601EE802E3005F73A2 /* Contact.swift */,
 			);
 			name = Chatter;
 			sourceTree = "<group>";
@@ -1129,6 +1128,7 @@
 				853433D21EE6B77B003C26F8 /* Chatter */,
 				85C802541F14E074003DBC01 /* PushNotification.swift */,
 				85C802551F14E074003DBC01 /* DMRequest.swift */,
+				857480601EE802E3005F73A2 /* Contact.swift */,
 				85DE9F081ECCACCB00291EF5 /* Member.swift */,
 				8570C1E21ECF028200FA1CE9 /* Company.swift */,
 				85BFF10C1F02B0E10010AD51 /* Filter.swift */,
