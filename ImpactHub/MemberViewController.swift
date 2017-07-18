@@ -91,6 +91,7 @@ class MemberViewController: ListFullBleedViewController {
         firstly {
             APIClient.shared.getMember(contactId: memberId)
             }.then { member -> Void in
+                member.contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
                 self.member = member
                 self.collectionView.reloadData()
                 self.buildMember(member)

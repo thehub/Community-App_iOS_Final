@@ -23,17 +23,16 @@ class TabBarController: UITabBarController {
                 self.handlePushNotification(pushNotification)
             }
         }
-    }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         if let pushNotification = AppDelegate.pushNotification {
             self.handlePushNotification(pushNotification)
         }
     }
+
     
     
     func handlePushNotification(_ pushNotification: PushNotification.Kind) {
+        AppDelegate.pushNotification = nil
         switch pushNotification {
         case .comment( _, let feedElementId):
 //            self.selectedIndex = 0
@@ -69,7 +68,6 @@ class TabBarController: UITabBarController {
                     vc.memberId = contactId
                     nvc.pushViewController(vc, animated: true)
                 }.always {
-                    AppDelegate.pushNotification = nil
                 }.catch { error in
                     debugPrint(error.localizedDescription)
             }
