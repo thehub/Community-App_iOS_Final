@@ -10,12 +10,17 @@
 #endif
 #endif
 
+#import "NSUserDefaults+SFAdditions.h"
 #import "SFSDKAILTNTransform.h"
+#import "SFSDKAnalyticsLogger.h"
 #import "SFSDKAnalyticsManager.h"
+#import "SFSDKDatasharingHelper.h"
 #import "SFSDKDeviceAppAttributes.h"
 #import "SFSDKEventStoreManager.h"
+#import "SFSDKFileLogger.h"
 #import "SFSDKInstrumentationEvent.h"
 #import "SFSDKInstrumentationEventBuilder.h"
+#import "SFSDKLogger.h"
 #import "SFSDKReachability.h"
 #import "SFSDKTransform.h"
 #import "SalesforceAnalytics.h"

@@ -1,5 +1,5 @@
 PODS:
-  - Auth0 (1.7.0):
+  - Auth0 (1.7.1):
     - SimpleKeychain
   - CocoaLumberjack (2.4.0):
     - CocoaLumberjack/Default (= 2.4.0)
@@ -11,10 +11,10 @@ PODS:
     - CocoaLumberjack/Default
   - DeckTransition (0.3.0)
   - Kingfisher (3.10.3)
-  - Lock (2.3.0):
+  - Lock (2.3.1):
     - Auth0 (~> 1.6)
-    - Lock/Classic (= 2.3.0)
-  - Lock/Classic (2.3.0):
+    - Lock/Classic (= 2.3.1)
+  - Lock/Classic (2.3.1):
     - Auth0 (~> 1.6)
   - PromiseKit (4.2.2):
     - PromiseKit/Foundation (= 4.2.2)
@@ -28,27 +28,24 @@ PODS:
   - PromiseKit/UIKit (4.2.2):
     - PromiseKit/CorePromise
   - ReverseExtension (0.4.8)
-  - SalesforceAnalytics (5.1.0):
-    - SalesforceAnalytics/SalesforceAnalytics (= 5.1.0)
-  - SalesforceAnalytics/SalesforceAnalytics (5.1.0)
-  - SalesforceSDKCore (5.1.0):
-    - SalesforceSDKCore/SalesforceSDKCore (= 5.1.0)
-  - SalesforceSDKCore/SalesforceSDKCore (5.1.0):
+  - SalesforceAnalytics (5.2.0):
+    - SalesforceAnalytics/SalesforceAnalytics (= 5.2.0)
+  - SalesforceAnalytics/SalesforceAnalytics (5.2.0):
     - CocoaLumberjack (~> 2.4.0)
+  - SalesforceSDKCore (5.2.0):
+    - SalesforceSDKCore/SalesforceSDKCore (= 5.2.0)
+  - SalesforceSDKCore/SalesforceSDKCore (5.2.0):
     - SalesforceAnalytics
-    - SalesforceSDKCore/SalesforceSDKCore/arc (= 5.1.0)
-    - SalesforceSDKCore/SalesforceSDKCore/base (= 5.1.0)
-    - SalesforceSDKCore/SalesforceSDKCore/no-arc (= 5.1.0)
-  - SalesforceSDKCore/SalesforceSDKCore/arc (5.1.0):
-    - CocoaLumberjack (~> 2.4.0)
+    - SalesforceSDKCore/SalesforceSDKCore/arc (= 5.2.0)
+    - SalesforceSDKCore/SalesforceSDKCore/base (= 5.2.0)
+    - SalesforceSDKCore/SalesforceSDKCore/no-arc (= 5.2.0)
+  - SalesforceSDKCore/SalesforceSDKCore/arc (5.2.0):
     - SalesforceAnalytics
     - SalesforceSDKCore/SalesforceSDKCore/base
     - SalesforceSDKCore/SalesforceSDKCore/no-arc
-  - SalesforceSDKCore/SalesforceSDKCore/base (5.1.0):
-    - CocoaLumberjack (~> 2.4.0)
+  - SalesforceSDKCore/SalesforceSDKCore/base (5.2.0):
     - SalesforceAnalytics
-  - SalesforceSDKCore/SalesforceSDKCore/no-arc (5.1.0):
-    - CocoaLumberjack (~> 2.4.0)
+  - SalesforceSDKCore/SalesforceSDKCore/no-arc (5.2.0):
     - SalesforceAnalytics
     - SalesforceSDKCore/SalesforceSDKCore/base
   - SimpleKeychain (0.8.0)
@@ -66,15 +63,15 @@ DEPENDENCIES:
   - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Auth0: 088b12e4551725f4e92a25349f1db597b7cd71c1
+  Auth0: b23f0d9f45bdcd70652f5427d3411519d79ddaa1
   CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
   DeckTransition: 00ccc14e8a2347725241512d8b66ee5f0ae48116
   Kingfisher: a0ac82dc5bcf0388dd74b294cf2cc13730c63436
-  Lock: ec2db377459348063814326ad75b8148919ca317
+  Lock: ff300a4039e2191bc1b2a29f6ed956412c252ffd
   PromiseKit: 00e8886881f151c7e573d06b437915b0bb2970ec
   ReverseExtension: 78dcc8414c4efb6115d787694649d9f4f020324a
-  SalesforceAnalytics: 30a23e143fc10859f6ced7c66814506568708a73
-  SalesforceSDKCore: 1e0d81215e10b89b742f267a6a8f0d4774a58cb6
+  SalesforceAnalytics: 55e84cd47da19a78655b4192ee6c4f5e47572c47
+  SalesforceSDKCore: f3de02ab7d6a8c0411dfc1e660bed79ae6f9b7d7
   SimpleKeychain: 84c748463eec601dfee5e7990f55cc82edc5488d
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 

@@ -10,5 +10,5 @@
 #endif
 #endif
 
-#import "SFLogger.h"
+#import "SFSDKCoreLogger.h"
 #import "SalesforceSDKConstants.h"

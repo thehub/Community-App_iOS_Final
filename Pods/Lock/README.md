@@ -79,9 +79,21 @@ In your application bundle you can add a `plist` file named `Auth0.plist` with t
 </plist>
 ```
 
-### Classic
+## Lock Classic
 
 Lock Classic handles authentication using Database, Social & Enterprise connections.
+
+### OIDC Conformant Mode
+
+It is strongly encouraged that this SDK be used in OIDC Conformant mode. When this mode is enabled, it will force the SDK to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. By default this is `false`
+
+```swift
+.withOptions {
+    $0.oidcConformant = true
+}
+```
+
+For more information, please see the [OIDC adoption guide](https://auth0.com/docs/api-auth/tutorials/adoption).
 
 To show Lock, add the following snippet in your `UIViewController`
 
@@ -90,6 +102,7 @@ Lock
     .classic()
     .withOptions {
         $0.closable = false
+        $0.oidcConformant = true
     }
     .withStyle {
       $0.title = "Welcome to my App!"
@@ -179,9 +192,11 @@ Lock provides many styling options to help you apply your own brand identity to 
 }
 ```
 
-## Passwordless
+## Lock Passwordless
 
 Lock Passwordless handles authentication using Passwordless & Social Connections.
+
+> The Passwordless feature requires your client to have the *Resource Owner* Legacy Grant Type enabled. Check [this article](https://auth0.com/docs/clients/client-grant-types) for more information.
 
 To show Lock, add the following snippet in your `UIViewController`
 
@@ -391,6 +406,18 @@ You will need to add the following to your app's `info.plist`:
     <string>org-appextension-feature-password-management</string>
 </array>
 ```
+
+#### Show Password
+
+By default a show password icon is shown in password fields to toggle visibility of the input text. You can disable this using the `allowShowPassword` option.
+
+```swift
+.withOptions {
+    $0.allowShowPassword = false
+}
+```
+
+**Note:** Show password will not be available if the [Password Manager](#Password Manager) is available.
 
 #### Enterprise
 
