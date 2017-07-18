@@ -82,7 +82,7 @@ class ContactsViewController: ListWithSearchViewController {
                 incomming.forEach({ (contactRequest) in
                     if let member = members.filter ({$0.id == contactRequest.contactFromId }).first {
                         member.contactRequest = contactRequest
-                        let viewModel = ContactIncommingViewModel(member: member, contactCellDelegate: self, cellSize: CGSize(width: cellWidth, height: 105))
+                        let viewModel = ContactIncommingViewModel(member: member, contactCellDelegate: self, cellSize: CGSize(width: cellWidth, height: 215))
                         self.dataIncomming.append(viewModel)
                     }
                 })
@@ -127,6 +127,7 @@ class ContactsViewController: ListWithSearchViewController {
     
     var selectedTopMenuIndex: Int = 0
     var selectedVM: ContactViewModel?
+    var selectedIncomingVM: ContactIncommingViewModel?
     var selectedMember: Member?
     
     
@@ -134,6 +135,11 @@ class ContactsViewController: ListWithSearchViewController {
         super.prepare(for: segue, sender: self)
         if segue.identifier == "ShowMember" {
             if let vc = segue.destination as? MemberViewController, let selectedItem = selectedVM {
+                vc.member = selectedItem.member
+            }
+        }
+        if segue.identifier == "ShowIncomming" {
+            if let vc = segue.destination as? ContactIncommingViewController, let selectedItem = selectedIncomingVM {
                 vc.member = selectedItem.member
             }
         }
@@ -186,6 +192,10 @@ extension ContactsViewController {
         if let vm = data[indexPath.item] as? ContactViewModel {
             selectedVM = vm
             performSegue(withIdentifier: "ShowMember", sender: self)
+        }
+        else if let vm = data[indexPath.item] as? ContactIncommingViewModel {
+            selectedIncomingVM = vm
+            performSegue(withIdentifier: "ShowIncomming", sender: self)
         }
     }
 }

@@ -590,12 +590,12 @@ class APIClient {
                 return
             }
             
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT ContactFrom__c,ContactTo__c,CreatedDate,Id,Name,Status__c FROM DM_Request__c where ContactFrom__c = '\(contactId)' or contactTo__c = '\(contactId)'", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT ContactFrom__c,ContactTo__c,CreatedDate,Id,Name,Status__c,Introduction_Message__c FROM DM_Request__c WHERE ContactFrom__c = '\(contactId)' OR contactTo__c = '\(contactId)'", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-//                debugPrint(jsonResult)
+                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { DMRequest(json: $0) }
                     fullfill(items)

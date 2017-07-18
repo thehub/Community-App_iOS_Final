@@ -50,9 +50,9 @@ class CompanyCollectionViewCell: UICollectionViewCell {
         self.bgView.layer.shadowOpacity = 0.42
         self.bgView.layer.shadowPath = UIBezierPath(rect: self.bgView.bounds).cgPath
         self.bgView.layer.shadowRadius = 10.0
-        bigImageView.roundCorners([.topLeft, .topRight], radius: 10)
+        bigImageView.round(corners:[.topLeft, .topRight], radius: 10)
 
-        redBottomView.roundCorners([.bottomLeft, .bottomRight], radius: 10)
+        redBottomView.round(corners:[.bottomLeft, .bottomRight], radius: 10)
 
         logoImageContainer.layer.cornerRadius = 44
         self.logoImageContainer.clipsToBounds = false

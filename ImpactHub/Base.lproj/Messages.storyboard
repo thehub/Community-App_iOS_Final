@@ -335,13 +335,109 @@
             </objects>
             <point key="canvasLocation" x="684" y="704"/>
         </scene>
+        <!--Contact Incomming View Controller-->
+        <scene sceneID="w1S-JP-nwW">
+            <objects>
+                <viewController id="tYM-Wr-OJ3" customClass="ContactIncommingViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CH7-Dh-Vc3"/>
+                        <viewControllerLayoutGuide type="bottom" id="A5l-2d-O4J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="KoS-XR-e2T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tVC-qb-doR">
+                                <rect key="frame" x="20" y="84" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="QLv-ea-19H"/>
+                                    <constraint firstAttribute="height" constant="30" id="rR1-cr-ySm"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AUi-o8-iT0">
+                                <rect key="frame" x="20" y="124" width="279" height="80"/>
+                                <subviews>
+                                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1z-SQ-DFQ">
+                                        <rect key="frame" x="20" y="20" width="231" height="40"/>
+                                        <color key="backgroundColor" red="1" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="3er-Mj-FXT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="l1z-SQ-DFQ" secondAttribute="bottom" constant="20" id="0Op-9w-iUC"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="l1z-SQ-DFQ" secondAttribute="trailing" constant="20" id="RXK-Xe-5aB"/>
+                                    <constraint firstItem="l1z-SQ-DFQ" firstAttribute="leading" secondItem="AUi-o8-iT0" secondAttribute="leading" constant="20" id="f8g-5t-FQ9"/>
+                                    <constraint firstItem="l1z-SQ-DFQ" firstAttribute="top" secondItem="AUi-o8-iT0" secondAttribute="top" constant="20" id="kP8-Dl-YkI"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcr-5N-Me4">
+                                <rect key="frame" x="20" y="216" width="29.5" height="14"/>
+                                <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12"/>
+                                <color key="textColor" red="0.54117647058823526" green="0.55686274509803924" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HYz-jm-W3a">
+                                <rect key="frame" x="109.5" y="579" width="156" height="68"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4E-az-PCe" customClass="Button" customModule="ImpactHub" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="68" height="68"/>
+                                        <state key="normal" image="declineConnectionLarge"/>
+                                        <connections>
+                                            <action selector="declineTap:" destination="tYM-Wr-OJ3" eventType="touchUpInside" id="6VT-Ul-e7s"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sb7-Tn-McC" customClass="Button" customModule="ImpactHub" customModuleProvider="target">
+                                        <rect key="frame" x="88" y="0.0" width="68" height="68"/>
+                                        <state key="normal" image="acceptConnectionLarge"/>
+                                        <connections>
+                                            <action selector="approveTap:" destination="tYM-Wr-OJ3" eventType="touchUpInside" id="8Ka-PF-swy"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="AUi-o8-iT0" secondAttribute="trailing" constant="60" id="4KJ-Ef-KA8"/>
+                            <constraint firstItem="tVC-qb-doR" firstAttribute="top" secondItem="CH7-Dh-Vc3" secondAttribute="bottom" constant="20" id="HHk-zZ-abu"/>
+                            <constraint firstItem="tVC-qb-doR" firstAttribute="leading" secondItem="KoS-XR-e2T" secondAttribute="leading" constant="20" id="Kmz-ul-xux"/>
+                            <constraint firstItem="pcr-5N-Me4" firstAttribute="top" secondItem="AUi-o8-iT0" secondAttribute="bottom" constant="12" id="MMd-my-SIc"/>
+                            <constraint firstItem="AUi-o8-iT0" firstAttribute="top" secondItem="tVC-qb-doR" secondAttribute="bottom" constant="10" id="N3i-q3-GJd"/>
+                            <constraint firstItem="HYz-jm-W3a" firstAttribute="centerX" secondItem="KoS-XR-e2T" secondAttribute="centerX" id="NAd-97-57p"/>
+                            <constraint firstItem="AUi-o8-iT0" firstAttribute="leading" secondItem="tVC-qb-doR" secondAttribute="leading" id="ZwU-ba-Lmd"/>
+                            <constraint firstItem="pcr-5N-Me4" firstAttribute="leading" secondItem="tVC-qb-doR" secondAttribute="leading" id="y1V-cQ-3g1"/>
+                            <constraint firstItem="A5l-2d-O4J" firstAttribute="top" secondItem="HYz-jm-W3a" secondAttribute="bottom" constant="20" id="ylo-bU-v0h"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="messageContainerView" destination="AUi-o8-iT0" id="R8s-2u-ecb"/>
+                        <outlet property="messageLabel" destination="l1z-SQ-DFQ" id="9Id-PM-7Tg"/>
+                        <outlet property="profileImageView" destination="tVC-qb-doR" id="6MT-zk-Mrr"/>
+                        <outlet property="timeLabel" destination="pcr-5N-Me4" id="1lF-fs-J1O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Po-Yd-4DG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3285.5999999999999" y="-159.67016491754123"/>
+        </scene>
         <!--MemberViewController-->
         <scene sceneID="YiX-Cw-WF0">
             <objects>
                 <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="MemberViewController" id="afu-nY-01i" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PdU-s8-7UI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3077" y="-44"/>
+            <point key="canvasLocation" x="3098" y="233"/>
         </scene>
         <!--Contacts-->
         <scene sceneID="Fmr-SR-ge8">
@@ -465,6 +561,7 @@
                         <outlet property="topMenu" destination="ZlV-bu-oE7" id="5sy-R2-D8X"/>
                         <segue destination="afu-nY-01i" kind="show" identifier="ShowMember" id="v7v-3b-vgD"/>
                         <segue destination="bHi-nG-fUx" kind="show" identifier="ShowMessageThread" id="DPj-Yd-XnV"/>
+                        <segue destination="tYM-Wr-OJ3" kind="show" identifier="ShowIncomming" id="pih-5C-s0F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7YH-VN-feX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -473,13 +570,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="acceptConnectionLarge" width="68" height="68"/>
         <image name="compose" width="19" height="19"/>
+        <image name="declineConnectionLarge" width="68" height="68"/>
         <image name="navBarShadow" width="100" height="5"/>
         <image name="search" width="17" height="16"/>
         <image name="tabBarMessages" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FjO-gx-hbh"/>
+        <segue reference="DPj-Yd-XnV"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>

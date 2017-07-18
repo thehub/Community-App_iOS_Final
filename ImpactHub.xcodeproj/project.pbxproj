@@ -505,6 +505,9 @@
 		85E7DA8D1EF81EA500C9DA15 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E7DA8C1EF81EA500C9DA15 /* Project.swift */; };
 		85E7DA8E1EF81EA500C9DA15 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E7DA8C1EF81EA500C9DA15 /* Project.swift */; };
 		85E7DA8F1EF81EA500C9DA15 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E7DA8C1EF81EA500C9DA15 /* Project.swift */; };
+		85FF278F1F1E543E00333779 /* ContactIncommingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FF278E1F1E543D00333779 /* ContactIncommingViewController.swift */; };
+		85FF27901F1E543E00333779 /* ContactIncommingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FF278E1F1E543D00333779 /* ContactIncommingViewController.swift */; };
+		85FF27911F1E543E00333779 /* ContactIncommingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FF278E1F1E543D00333779 /* ContactIncommingViewController.swift */; };
 		AFBEC2220D21C423B8E3A2DB /* Pods_ImpactHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9CE54E4F4D1D21B311691DB /* Pods_ImpactHub.framework */; };
 /* End PBXBuildFile section */
 
@@ -734,6 +737,7 @@
 		85E7DA811EF818D200C9DA15 /* ProjectCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectCollectionViewCell.xib; sourceTree = "<group>"; };
 		85E7DA881EF81C7B00C9DA15 /* ProjectViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
 		85E7DA8C1EF81EA500C9DA15 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		85FF278E1F1E543D00333779 /* ContactIncommingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactIncommingViewController.swift; sourceTree = "<group>"; };
 		9B1485DED7708F1D61AE0572 /* Pods-ImpactHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImpactHub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImpactHub/Pods-ImpactHub.debug.xcconfig"; sourceTree = "<group>"; };
 		B9CE54E4F4D1D21B311691DB /* Pods_ImpactHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImpactHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DED6C43230136AE901DCA5B3 /* Pods-ImpactHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImpactHub.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImpactHub/Pods-ImpactHub.release.xcconfig"; sourceTree = "<group>"; };
@@ -891,6 +895,7 @@
 				85568AC31F17CA6700CD362F /* ContactCell.xib */,
 				85BB26361F1E26F5007E8210 /* ContactIncommingCell.swift */,
 				85BB26351F1E26F5007E8210 /* ContactIncommingCell.xib */,
+				85FF278E1F1E543D00333779 /* ContactIncommingViewController.swift */,
 				85BB260D1F1E1E26007E8210 /* ContactPendingCell.swift */,
 				85BB260E1F1E1E26007E8210 /* ContactPendingCell.xib */,
 				85BB26161F1E1F57007E8210 /* ContactDeclinedCell.swift */,
@@ -1555,6 +1560,7 @@
 				858C58AC1EF94A2A00136DAC /* TitleViewModel.swift in Sources */,
 				85B361381ED59D3800DC2DE0 /* Notifications.swift in Sources */,
 				8570C1EA1ECF03FE00FA1CE9 /* CompanyViewController.swift in Sources */,
+				85FF278F1F1E543E00333779 /* ContactIncommingViewController.swift in Sources */,
 				857480691EE83B17005F73A2 /* LoginViewController.swift in Sources */,
 				8570C1CB1ECEDE6200FA1CE9 /* NotificationsViewController.swift in Sources */,
 				859C417E1ECDFFD700637295 /* MemberAboutItemCell.swift in Sources */,
@@ -1692,6 +1698,7 @@
 				85BB261F1F1E1F60007E8210 /* ContactDeclinedViewModel.swift in Sources */,
 				858C58CD1EF96EB600136DAC /* JobViewController.swift in Sources */,
 				858C58951EF928F500136DAC /* ProjectDetailTopCell.swift in Sources */,
+				85FF27901F1E543E00333779 /* ContactIncommingViewController.swift in Sources */,
 				859F97CE1EFBBF01001C0B33 /* GoalCollectionViewCell.swift in Sources */,
 				853762F81F1639D50053B178 /* NotificationViewModel.swift in Sources */,
 				8533811C1F02C0BA00232E7E /* FilterDetailViewController.swift in Sources */,
@@ -1812,6 +1819,7 @@
 				85BB26201F1E1F60007E8210 /* ContactDeclinedViewModel.swift in Sources */,
 				858C58CE1EF96EB600136DAC /* JobViewController.swift in Sources */,
 				858C58961EF928F500136DAC /* ProjectDetailTopCell.swift in Sources */,
+				85FF27911F1E543E00333779 /* ContactIncommingViewController.swift in Sources */,
 				859F97CF1EFBBF01001C0B33 /* GoalCollectionViewCell.swift in Sources */,
 				853762F91F1639D50053B178 /* NotificationViewModel.swift in Sources */,
 				8533811D1F02C0BA00232E7E /* FilterDetailViewController.swift in Sources */,
