@@ -22,7 +22,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
 
     enum CreateType {
         case post(chatterGroupId: String)
-        case comment(postIdToCommentOn: String)
+        case comment(postIdToCommentOn: String, toUserId:String)
         case applyForJob(jobId: String)
         case contactRequest(contactId: String)
         case unkown
@@ -186,7 +186,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
 
                 // Create Comment
                 switch createType {
-                case .comment(let postIdToCommentOn):
+                case .comment(let postIdToCommentOn, let toUserId):
                     firstly {
                         APIClient.shared.postComment(newsID: postIdToCommentOn, message: text)
                         }.then { comment -> Void in
@@ -194,6 +194,9 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
                                 self.generatorNotification.notificationOccurred(.success)
                             }
                             self.delegate?.didCreateComment(comment: comment)
+                        }.then {_ in
+                            APIClient.shared.sendPush(fromUserId: SessionManager.shared.me?.member.userId ?? "", toUserIds: toUserId, pushType: .comment(id: postIdToCommentOn, feedElementId: postIdToCommentOn), relatedId: postIdToCommentOn)
+                        }.then {_ in
                             self.onClose(self)
                         }.always {
                             self.inTransit = false

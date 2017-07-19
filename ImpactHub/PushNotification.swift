@@ -133,31 +133,38 @@ extension PushNotification {
 extension PushNotification {
     static func createFromUserInfo(_ userInfo: [AnyHashable: Any]) -> PushNotification.Kind? {
         if let type = userInfo["type"] as? String {
-            switch type {
-            case "Comment":
+            switch type.lowercased() {
+            case "comment":
                 if let id = userInfo["id"] as? String, let feedElementId = userInfo["feedElementId"] as? String {
                     return PushNotification.Kind.comment(id: id, feedElementId: feedElementId)
                 }
                 else {
                     return nil
                 }
-            case "PostMention", "CommentMention":
+            case "postmention", "commentmention":
                 if let postId = userInfo["postId"] as? String {
                     return PushNotification.Kind.postMention(postId: postId)
                 }
                 else {
                     return nil
                 }
-            case "DMRequestCreate":
+            case "dmrequestcreate":
                 if let relatedId = userInfo["relatedId"] as? String {
                     return PushNotification.Kind.contactRequestIncomming(contactId: relatedId)
                 }
                 else {
                     return nil
                 }
-            case "DMRequestApproved":
+            case "dmrequestapproved":
                 if let relatedId = userInfo["relatedId"] as? String {
                     return PushNotification.Kind.contactRequestApproved(contactId: relatedId)
+                }
+                else {
+                    return nil
+                }
+            case "likepost":
+                if let postId = userInfo["postId"] as? String {
+                    return PushNotification.Kind.likePost(postId: postId)
                 }
                 else {
                     return nil

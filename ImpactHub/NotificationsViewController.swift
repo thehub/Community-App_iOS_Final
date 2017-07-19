@@ -85,6 +85,8 @@ extension NotificationsViewController {
             case .contactRequestIncomming(let contactId):
                 self.selectedId = contactId
                 performSegue(withIdentifier: "ShowMember", sender: self)
+            case .likeComment(let commentId):
+                print("liked comment")
             default:
                 break
             }

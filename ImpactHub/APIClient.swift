@@ -546,7 +546,7 @@ class APIClient {
             request.endpoint = "/services/apexrest/CreateDMRequest"
             request.path = "/services/apexrest/CreateDMRequest"
             request.setCustomRequestBodyData(body!, contentType: "application/json")
-            request.setHeaderValue("\(u_long(body?.count ?? 0))", forHeaderName: "Content-Length")
+//            request.setHeaderValue("\(u_long(body?.count ?? 0))", forHeaderName: "Content-Length")
             
             SFRestAPI.sharedInstance().send(request, fail: { (error) in
                 print(error?.localizedDescription as Any)
@@ -575,7 +575,7 @@ class APIClient {
             request.endpoint = "/services/apexrest/UpdateDMRequest"
             request.path = "/services/apexrest/UpdateDMRequest"
             request.setCustomRequestBodyData(body!, contentType: "application/json")
-            request.setHeaderValue("\(u_long(body?.count ?? 0))", forHeaderName: "Content-Length")
+//            request.setHeaderValue("\(u_long(body?.count ?? 0))", forHeaderName: "Content-Length")
             
             SFRestAPI.sharedInstance().send(request, fail: { (error) in
                 print(error?.localizedDescription as Any)
@@ -667,7 +667,7 @@ class APIClient {
             request.endpoint = "/services/apexrest/pushNotificationFromSF"
             request.path = "/services/apexrest/pushNotificationFromSF"
             request.setCustomRequestBodyData(body!, contentType: "application/json")
-            request.setHeaderValue("\(u_long(body?.count ?? 0))", forHeaderName: "Content-Length")
+//            request.setHeaderValue("\(u_long(body?.count ?? 0))", forHeaderName: "Content-Length")
             
             print(Constants.communityId)
             print(request)
@@ -771,7 +771,7 @@ class APIClient {
             let body = SFJsonUtils.jsonDataRepresentation(query.dictionaryObject)
             let request = SFRestRequest(method: .POST, path: "/services/data/v39.0/connect/communities/\(Constants.communityId)/chatter/feed-elements", queryParams: nil)
             request.setCustomRequestBodyData(body!, contentType: "application/json")
-            request.setHeaderValue("\(u_long(body?.count ?? 0))", forHeaderName: "Content-Length")
+//            request.setHeaderValue("\(u_long(body?.count ?? 0))", forHeaderName: "Content-Length")
             
             SFRestAPI.sharedInstance().send(request, fail: { (error) in
                 print(error?.localizedDescription as Any)
@@ -793,7 +793,7 @@ class APIClient {
             let query = "{\"body\": {\"messageSegments\": [{\"type\": \"Text\", \"text\": \"\(message)\"}]}}"
             let request = SFRestRequest(method: .POST, path: "/services/data/v39.0/connect/communities/\(Constants.communityId)/chatter/feed-elements/\(newsID)/capabilities/comments/items", queryParams: nil)
             request.setCustomRequestBodyString(query, contentType: "application/json")
-            request.setHeaderValue("\(u_long(query.characters.count))", forHeaderName: "Content-Length")
+//            request.setHeaderValue("\(u_long(query.characters.count))", forHeaderName: "Content-Length")
             
             SFRestAPI.sharedInstance().send(request, fail: { (error) in
                 print(error?.localizedDescription as Any)
@@ -937,7 +937,7 @@ class APIClient {
             let request = SFRestRequest(method: .POST, path: "/services/data/v39.0/connect/communities/\(Constants.communityId)/chatter/users/me/messages/", queryParams: nil)
             
             request.setCustomRequestBodyData(body!, contentType: "application/json")
-            request.setHeaderValue("\(u_long(body?.count ?? 0))", forHeaderName: "Content-Length")
+//            request.setHeaderValue("\(u_long(body?.count ?? 0))", forHeaderName: "Content-Length")
             
             SFRestAPI.sharedInstance().send(request, fail: { (error) in
                 print(error?.localizedDescription as Any)
