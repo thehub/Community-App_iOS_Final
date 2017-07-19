@@ -104,7 +104,8 @@ class CommentsViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     
     var postIdToCommentOn: String?
-    
+    var userIdToShow: String?
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: self)
         if segue.identifier == "ShowCreateComment" {
@@ -113,6 +114,12 @@ class CommentsViewController: UIViewController, UICollectionViewDelegate, UIColl
                     vc.delegate = self
                     vc.createType = .comment(postIdToCommentOn: post.id, toUserId: post.chatterActor.id)
                 }
+            }
+        }
+        else if segue.identifier == "ShowMember" {
+            if let vc = segue.destination as? MemberViewController {
+                vc.member = selectMember
+                vc.userId = userIdToShow
             }
         }
     }
@@ -125,6 +132,11 @@ class CommentsViewController: UIViewController, UICollectionViewDelegate, UIColl
 }
 
 extension CommentsViewController: MemberFeedItemDelegate {
+    func memberFeedWantToShowMember(userId: String) {
+        self.userIdToShow = userId
+        self.performSegue(withIdentifier: "ShowMember", sender: self)
+    }
+    
     func memberFeedWantToShowComments(post: Post) {
         // do nothing
     }

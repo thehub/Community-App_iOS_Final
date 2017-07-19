@@ -66,7 +66,7 @@ class NotificationsViewController: UIViewController {
         super.prepare(for: segue, sender: self)
         if segue.identifier == "ShowMember" {
             if let vc = segue.destination as? MemberViewController, let selectedId = selectedId {
-                vc.memberId = selectedId
+                vc.userId = selectedId // FIXME ?
             }
         }
     }

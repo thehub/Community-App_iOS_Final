@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -36,32 +36,44 @@
                             <constraint firstAttribute="height" constant="40" id="qka-Ep-Wcl"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aml-r8-SVM">
+                        <rect key="frame" x="20" y="8" width="40" height="40"/>
+                        <connections>
+                            <action selector="showMemberTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="izD-YL-ty6"/>
+                        </connections>
+                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2a-Xb-LpF">
-                        <rect key="frame" x="68" y="8" width="33.5" height="18"/>
+                        <rect key="frame" x="68" y="8" width="34.5" height="30"/>
                         <fontDescription key="fontDescription" name="GTWalsheim" family="GT Walsheim" pointSize="14"/>
                         <color key="textColor" red="0.34901960784313724" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUX-aQ-svK">
+                        <rect key="frame" x="68" y="8" width="34.5" height="30"/>
+                        <connections>
+                            <action selector="showMemberTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="n9x-PT-6sh"/>
+                        </connections>
+                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dlf-0p-AmF">
-                        <rect key="frame" x="68" y="24" width="29.5" height="16"/>
+                        <rect key="frame" x="68" y="36" width="31" height="15"/>
                         <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12.5"/>
                         <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hH6-Uy-FZ3">
-                        <rect key="frame" x="68" y="48" width="224" height="18"/>
+                        <rect key="frame" x="68" y="59" width="224" height="16.5"/>
                         <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="14"/>
                         <color key="textColor" red="0.44313725490196076" green="0.43529411764705883" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="rba-6n-oaI">
-                        <rect key="frame" x="170" y="76" width="100" height="18"/>
+                        <rect key="frame" x="170" y="85.5" width="100" height="18"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hc6-eO-k1i" userLabel="Like">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="18"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bc8-30-6v7">
-                                        <rect key="frame" x="19" y="0.5" width="8.5" height="17.5"/>
+                                        <rect key="frame" x="19" y="1" width="8" height="16.5"/>
                                         <fontDescription key="fontDescription" name="GTWalsheim-Medium" family="GT Walsheim" pointSize="14"/>
                                         <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -94,7 +106,7 @@
                                 <rect key="frame" x="50" y="0.0" width="50" height="18"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pph-ND-ZSv">
-                                        <rect key="frame" x="41.5" y="-0.5" width="8.5" height="17.5"/>
+                                        <rect key="frame" x="42" y="0.0" width="8" height="16.5"/>
                                         <fontDescription key="fontDescription" name="GTWalsheim-Medium" family="GT Walsheim" pointSize="14"/>
                                         <color key="textColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -133,15 +145,23 @@
             <constraints>
                 <constraint firstItem="R2a-Xb-LpF" firstAttribute="leading" secondItem="MYM-OF-VM2" secondAttribute="trailing" constant="8" id="9Lf-JF-OdW"/>
                 <constraint firstAttribute="trailing" secondItem="rba-6n-oaI" secondAttribute="trailing" constant="30" id="GrJ-tV-mTP"/>
+                <constraint firstItem="aml-r8-SVM" firstAttribute="centerX" secondItem="MYM-OF-VM2" secondAttribute="centerX" id="Pvi-my-HWe"/>
+                <constraint firstItem="aml-r8-SVM" firstAttribute="width" secondItem="MYM-OF-VM2" secondAttribute="width" id="QDG-8K-8va"/>
                 <constraint firstItem="hH6-Uy-FZ3" firstAttribute="top" secondItem="Dlf-0p-AmF" secondAttribute="bottom" constant="8" id="Vmb-SH-7QO"/>
+                <constraint firstItem="aml-r8-SVM" firstAttribute="height" secondItem="MYM-OF-VM2" secondAttribute="height" id="Z2V-RS-cD2"/>
                 <constraint firstItem="R2a-Xb-LpF" firstAttribute="top" secondItem="MYM-OF-VM2" secondAttribute="top" id="b64-y0-Or0"/>
+                <constraint firstItem="eUX-aQ-svK" firstAttribute="height" secondItem="R2a-Xb-LpF" secondAttribute="height" id="bRI-Tv-9Zj"/>
+                <constraint firstItem="aml-r8-SVM" firstAttribute="centerY" secondItem="MYM-OF-VM2" secondAttribute="centerY" id="cO5-Uy-EuV"/>
                 <constraint firstItem="Dlf-0p-AmF" firstAttribute="leading" secondItem="R2a-Xb-LpF" secondAttribute="leading" id="d6Y-W9-047"/>
                 <constraint firstItem="MYM-OF-VM2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="dGq-Lv-NG6"/>
+                <constraint firstItem="eUX-aQ-svK" firstAttribute="top" secondItem="R2a-Xb-LpF" secondAttribute="top" id="eho-QF-6c9"/>
                 <constraint firstItem="hH6-Uy-FZ3" firstAttribute="leading" secondItem="Dlf-0p-AmF" secondAttribute="leading" id="leX-ek-Hyz"/>
                 <constraint firstItem="MYM-OF-VM2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="ord-vL-IFC"/>
                 <constraint firstItem="rba-6n-oaI" firstAttribute="top" secondItem="hH6-Uy-FZ3" secondAttribute="bottom" constant="10" id="tXP-5J-BUv"/>
                 <constraint firstAttribute="trailing" secondItem="hH6-Uy-FZ3" secondAttribute="trailing" constant="8" id="uOy-Ly-Lus"/>
+                <constraint firstItem="eUX-aQ-svK" firstAttribute="width" secondItem="R2a-Xb-LpF" secondAttribute="width" id="vs0-W4-NV3"/>
                 <constraint firstItem="Dlf-0p-AmF" firstAttribute="top" secondItem="R2a-Xb-LpF" secondAttribute="bottom" constant="-2" id="waR-w6-do7"/>
+                <constraint firstItem="eUX-aQ-svK" firstAttribute="leading" secondItem="R2a-Xb-LpF" secondAttribute="leading" id="yUL-sD-xPW"/>
             </constraints>
             <connections>
                 <outlet property="commentCountLabel" destination="pph-ND-ZSv" id="D8U-jY-3Z2"/>

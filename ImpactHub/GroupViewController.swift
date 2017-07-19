@@ -117,12 +117,19 @@ class GroupViewController: ListFullBleedViewController {
     override func didCreateComment(comment: Comment) {
     }
     
+    var userIdToShow: String?
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if segue.identifier == "ShowComments" {
             if let vc = segue.destination as? CommentsViewController {
                 vc.post = self.postToShowCommentsFor
                 vc.commentsViewControllerDelegate = self
+            }
+        }
+        else if segue.identifier == "ShowMember" {
+            if let vc = segue.destination as? MemberViewController {
+                vc.userId = userIdToShow
             }
         }
     }
@@ -135,6 +142,11 @@ extension GroupViewController: CommentsViewControllerDelegate {
 }
 
 extension GroupViewController: MemberFeedItemDelegate {
+    func memberFeedWantToShowMember(userId: String) {
+        self.userIdToShow = userId
+        self.performSegue(withIdentifier: "ShowMember", sender: self)
+    }
+    
     func memberFeedWantToShowComments(post: Post) {
         self.postToShowCommentsFor = post
         self.performSegue(withIdentifier: "ShowComments", sender: self)

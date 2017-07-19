@@ -12,7 +12,7 @@ import PromiseKit
 class MemberViewController: ListFullBleedViewController {
 
     var member: Member?
-    var memberId: String?
+    var userId: String?
     var projects = [Project]()
     var groups = [Group]()
     
@@ -32,7 +32,7 @@ class MemberViewController: ListFullBleedViewController {
             return
         }
         // If we are ourselves, pushed form profile page, hide connect button
-        if self.memberId == SessionManager.shared.me?.member.id {
+        if self.userId == SessionManager.shared.me?.member.userId {
             self.connectContainer?.isHidden = true
             return
         }
@@ -80,9 +80,9 @@ class MemberViewController: ListFullBleedViewController {
             buildMember(member)
         }
         // If we're deeplinking in we only have the memberId, so load the member data
-        else if let memberId = self.memberId {
+        else if let userId = self.userId {
             self.connectContainer?.isHidden = true
-            loadMember(memberId)
+            loadMember(userId)
         }
         else {
             debugPrint("Error no member or memberId was set")
@@ -90,10 +90,10 @@ class MemberViewController: ListFullBleedViewController {
         
     }
     
-    func loadMember(_ memberId: String) {
+    func loadMember(_ userId: String) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
-            APIClient.shared.getMember(contactId: memberId)
+            APIClient.shared.getMember(userId: userId)
             }.then { member -> Void in
                 member.contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
                 self.member = member

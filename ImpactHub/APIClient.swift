@@ -492,6 +492,30 @@ class APIClient {
         }
     }
     
+    func getMember(userId:String) -> Promise<Member> {
+        return Promise { fullfill, reject in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.CONTACT) FROM Contact WHERE User__c = '\(userId)'", fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON(result!)
+                debugPrint(jsonResult)
+                if let records = jsonResult["records"].array {
+                    let items = records.flatMap { Member(json: $0) }
+                    if let item = items.first {
+                        fullfill(item)
+                    }
+                    else {
+                        reject(MyError.JSONError)
+                    }
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
     
     // Jobs
     func getJobs(skip:Int, top:Int) -> Promise<[Job]> {

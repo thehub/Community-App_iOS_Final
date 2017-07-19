@@ -65,7 +65,7 @@ class TabBarController: UITabBarController {
                     let nvc = self.viewControllers?[0] as! UINavigationController
                     let storyboard = UIStoryboard(name: "Home", bundle: nil)
                     let vc = storyboard.instantiateViewController(withIdentifier: "MemberViewController") as! MemberViewController
-                    vc.memberId = contactId
+                    vc.userId = contactId // FIXME:
                     nvc.pushViewController(vc, animated: true)
                 }.always {
                 }.catch { error in

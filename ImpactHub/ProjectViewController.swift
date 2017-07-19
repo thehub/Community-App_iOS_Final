@@ -150,6 +150,7 @@ class ProjectViewController: ListFullBleedViewController {
     }
     
     var selectMember: Member?
+    var userIdToShow: String?
     var selectJob: Job?
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -166,8 +167,9 @@ class ProjectViewController: ListFullBleedViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: self)
         if segue.identifier == "ShowMember" {
-            if let vc = segue.destination as? MemberViewController, let selectMember = selectMember {
+            if let vc = segue.destination as? MemberViewController {
                 vc.member = selectMember
+                vc.userId = userIdToShow
             }
         }
         if segue.identifier == "ShowJob" {
@@ -226,6 +228,11 @@ class ProjectViewController: ListFullBleedViewController {
 
 
 extension ProjectViewController: MemberFeedItemDelegate {
+    func memberFeedWantToShowMember(userId: String) {
+        self.userIdToShow = userId
+        self.performSegue(withIdentifier: "ShowMember", sender: self)
+    }
+    
     func memberFeedWantToShowComments(post: Post) {
         self.postToShowCommentsFor = post
         self.performSegue(withIdentifier: "ShowComments", sender: self)

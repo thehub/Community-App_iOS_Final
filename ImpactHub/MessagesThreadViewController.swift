@@ -247,7 +247,6 @@ class MessagesThreadViewController: UIViewController {
 extension MessagesThreadViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        print("begin")
 //        if textView.text == placeholderText {
 //            textView.text = nil
 //            textView.textColor = UIColor.darkGray   //UIColor(hex: 0xcccccc)
@@ -255,20 +254,15 @@ extension MessagesThreadViewController: UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        print("end")
 //        textView.text = nil
     }
     
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
-        print("should")
-        
         return true
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        print("sould change")
         guard let oldText = textView.text else { return true }
-        
         
         if inputTextView.text == placeholderText {
             inputTextView.text = text

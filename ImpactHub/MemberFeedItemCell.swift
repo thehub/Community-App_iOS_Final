@@ -12,6 +12,7 @@ import PromiseKit
 
 protocol MemberFeedItemDelegate: class {
     func memberFeedWantToShowComments(post: Post)
+    func memberFeedWantToShowMember(userId: String)
 }
 
 class MemberFeedItemCell: UICollectionViewCell {
@@ -238,6 +239,23 @@ class MemberFeedItemCell: UICollectionViewCell {
                 }
             }
         }
-        
     }
+    
+    
+    @IBAction func showMemberTap(_ sender: Any) {
+        if let comment = vm?.comment {
+            if let id = comment.user?.id {
+                self.vm?.delegate?.memberFeedWantToShowMember(userId: id)
+            }
+        }
+        else {
+            if let id = vm?.post.chatterActor.id {
+                self.vm?.delegate?.memberFeedWantToShowMember(userId: id)
+            }
+        }
+    }
+    
+    
+    
+    
 }
