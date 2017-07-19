@@ -103,6 +103,7 @@ class MemberViewController: ListFullBleedViewController {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }.catch { error in
                 debugPrint(error.localizedDescription)
+                self.navigationController?.popViewController(animated: true)
         }
     }
     

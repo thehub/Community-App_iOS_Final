@@ -59,6 +59,38 @@ class NotificationsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    var selectedId: String?
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: self)
+        if segue.identifier == "ShowMember" {
+            if let vc = segue.destination as? MemberViewController, let selectedId = selectedId {
+                vc.memberId = selectedId
+            }
+        }
+    }
+}
+
+extension NotificationsViewController {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let vm = data[indexPath.item] as? NotificationViewModel {
+            
+            switch vm.pushNotification.kind {
+            case .comment(let id, let feedElementId):
+                break
+            case .contactRequestApproved(let contactId):
+                self.selectedId = contactId
+                performSegue(withIdentifier: "ShowMember", sender: self)
+            case .contactRequestIncomming(let contactId):
+                self.selectedId = contactId
+                performSegue(withIdentifier: "ShowMember", sender: self)
+            default:
+                break
+            }
+            
+        }
+    }
 }
 
 extension NotificationsViewController: UICollectionViewDataSource {
