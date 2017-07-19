@@ -917,7 +917,7 @@ class APIClient {
     }
     
     
-    func sendMessage(message: String, members: [Contact]?, inReplyTo: String?) -> Promise<Message> {
+    func sendMessage(message: String, members: [Member]?, inReplyTo: String?) -> Promise<Message> {
         return Promise { fullfill, reject in
             var query: [String: AnyObject]!
             if let members = members {

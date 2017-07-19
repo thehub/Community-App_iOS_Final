@@ -279,13 +279,13 @@
                                     </tableView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type something..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="R32-Uk-vVm">
                                         <rect key="frame" x="0.0" y="550" width="375" height="53"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="1" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="53" id="776-ul-TNC"/>
                                         </constraints>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
                                         <connections>
                                             <outlet property="delegate" destination="bHi-nG-fUx" id="hDx-MP-Eb6"/>
                                         </connections>
@@ -318,6 +318,7 @@
                     <connections>
                         <outlet property="bottomConstraint" destination="VL7-vh-3az" id="gbo-qC-skq"/>
                         <outlet property="inputTextView" destination="R32-Uk-vVm" id="wUg-Bg-3ta"/>
+                        <outlet property="inputTextViewBottomConstraint" destination="mVz-yY-3Gp" id="Fzk-Xc-0Fu"/>
                         <outlet property="tableView" destination="gQJ-fC-sU7" id="SCQ-aD-XhP"/>
                     </connections>
                 </viewController>

@@ -12,9 +12,9 @@ import SalesforceSDKCore
 import ReverseExtension
 
 
-
 class MessagesThreadViewController: UIViewController {
 
+    @IBOutlet weak var inputTextViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var inputTextView: UITextView!
@@ -48,12 +48,12 @@ class MessagesThreadViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         registerForKeyboardNotifications()
-        
+
         self.inputTextView.text = placeholderText
-        
         self.navigationController?.setNavigationBarHidden(false, animated: true)
 //        self.tabBarController?.tabBar.isHidden = true
-
+        
+        self.inputTextView.becomeFirstResponder()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -200,6 +200,30 @@ class MessagesThreadViewController: UIViewController {
                 debugPrint(error.localizedDescription)
         }
     }
+ 
+    var inTransit = false
+    
+    func sendPost(text: String) {
+        guard let text = self.inputTextView.text, let member = self.member else {
+            return
+        }
+        if self.inTransit {
+            return
+        }
+        
+        inTransit = true
+        
+        firstly {
+            APIClient.shared.sendMessage(message: text, members: [member], inReplyTo: self.conversationId)
+            }.then { message -> Void in
+                print(message)
+            }.always {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }.catch { error in
+                debugPrint(error.localizedDescription)
+        }
+        
+    }
     
 }
 
@@ -216,6 +240,12 @@ extension MessagesThreadViewController: UITextViewDelegate {
         textView.text = nil
     }
     
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        if let text = textView.text {
+            sendPost(text: text)
+        }
+        return true
+    }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         guard let oldText = textView.text else { return true }
@@ -241,7 +271,7 @@ extension MessagesThreadViewController: UITextViewDelegate {
 //                newLength += 24
 //            }
 //            shortTextCounter.text = "\(140 - newLength + 1)"
-            return newLength <= 250
+            return newLength <= 254
         }
         else {
             return true
