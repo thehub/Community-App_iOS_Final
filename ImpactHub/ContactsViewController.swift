@@ -50,6 +50,7 @@ class ContactsViewController: ListWithSearchViewController {
         dataAwaiting.removeAll()
         dataRejected.removeAll()
         data.removeAll()
+        collectionView.reloadData()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.collectionView?.alpha = 0
         firstly {
@@ -68,7 +69,7 @@ class ContactsViewController: ListWithSearchViewController {
                 let connected = ContactRequestManager.shared.getConnectedContactRequests()
                 members.forEach({ (member) in
                     if let contactRequest = connected.filter ({$0.contactToId == member.id || $0.contactFromId == member.id }).first {
-                        if member.id != SessionManager.shared.me!.id {
+                        if member.id != SessionManager.shared.me!.member.id {
                             member.contactRequest = contactRequest
                             let viewModel = ContactViewModel(member: member, contactCellDelegate: self, cellSize: CGSize(width: cellWidth, height: 120))
                             self.dataConnected.append(viewModel)

@@ -487,6 +487,9 @@
 		85DE9F031ECCABCD00291EF5 /* CellRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE9F021ECCABCD00291EF5 /* CellRepresentable.swift */; };
 		85DE9F071ECCACB100291EF5 /* MemberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE9F061ECCACB100291EF5 /* MemberViewModel.swift */; };
 		85DE9F091ECCACCB00291EF5 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE9F081ECCACCB00291EF5 /* Member.swift */; };
+		85DF01CA1F1F5FEB00E5325A /* Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DF01C91F1F5FEB00E5325A /* Me.swift */; };
+		85DF01CB1F1F5FEB00E5325A /* Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DF01C91F1F5FEB00E5325A /* Me.swift */; };
+		85DF01CC1F1F5FEB00E5325A /* Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DF01C91F1F5FEB00E5325A /* Me.swift */; };
 		85E5FF501F0A74AE0053189B /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5FF4F1F0A74AE0053189B /* CreatePostViewController.swift */; };
 		85E5FF511F0A74AE0053189B /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5FF4F1F0A74AE0053189B /* CreatePostViewController.swift */; };
 		85E5FF521F0A74AE0053189B /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5FF4F1F0A74AE0053189B /* CreatePostViewController.swift */; };
@@ -731,6 +734,7 @@
 		85DE9F021ECCABCD00291EF5 /* CellRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellRepresentable.swift; sourceTree = "<group>"; };
 		85DE9F061ECCACB100291EF5 /* MemberViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberViewModel.swift; sourceTree = "<group>"; };
 		85DE9F081ECCACCB00291EF5 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		85DF01C91F1F5FEB00E5325A /* Me.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Me.swift; sourceTree = "<group>"; };
 		85E5FF4F1F0A74AE0053189B /* CreatePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		85E5FF531F0A8D750053189B /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		85E7DA801EF818D200C9DA15 /* ProjectCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -1137,6 +1141,7 @@
 				85E7DA8C1EF81EA500C9DA15 /* Project.swift */,
 				859F97C31EFBBEE6001C0B33 /* Goal.swift */,
 				850B70291EFC0F2D00596315 /* Event.swift */,
+				85DF01C91F1F5FEB00E5325A /* Me.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1628,6 +1633,7 @@
 				851D037C1F02B79700641976 /* FilterGroupingViewModel.swift in Sources */,
 				85523DCE1EFAC99E00F66B53 /* CompanyServiceItemViewModel.swift in Sources */,
 				857480481EE802D0005F73A2 /* Group.swift in Sources */,
+				85DF01CA1F1F5FEB00E5325A /* Me.swift in Sources */,
 				8500723F1EE7126C008A725A /* MessagesThreadThemTimeVM.swift in Sources */,
 				859E029F1F03940500600C3E /* FilterViewModel.swift in Sources */,
 				850B701B1EFBF84600596315 /* GroupDetailTopCell.swift in Sources */,
@@ -1753,6 +1759,7 @@
 				85455D491EF2E7A000243846 /* RedButton.swift in Sources */,
 				857480401EE802D0005F73A2 /* ChatterActor.swift in Sources */,
 				857480581EE802D0005F73A2 /* Post.swift in Sources */,
+				85DF01CB1F1F5FEB00E5325A /* Me.swift in Sources */,
 				8516551C1EFD32A000002786 /* EventDetailViewModel.swift in Sources */,
 				85BB26101F1E1E26007E8210 /* ContactPendingCell.swift in Sources */,
 				850B70261EFBF86800596315 /* GroupDetailTopViewModel.swift in Sources */,
@@ -1874,6 +1881,7 @@
 				85455D4A1EF2E7A000243846 /* RedButton.swift in Sources */,
 				857480411EE802D0005F73A2 /* ChatterActor.swift in Sources */,
 				857480591EE802D0005F73A2 /* Post.swift in Sources */,
+				85DF01CC1F1F5FEB00E5325A /* Me.swift in Sources */,
 				8516551D1EFD32A000002786 /* EventDetailViewModel.swift in Sources */,
 				85BB26111F1E1E26007E8210 /* ContactPendingCell.swift in Sources */,
 				850B70271EFBF86800596315 /* GroupDetailTopViewModel.swift in Sources */,

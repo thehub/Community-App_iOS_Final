@@ -398,8 +398,32 @@ class APIClient {
     }
     
 
-    // SELECT AccountId,Id,User__c FROM Contact where User__c = <<current user id>>
     
+    func getMe(userId:String) -> Promise<Me> {
+        return Promise { fullfill, reject in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.CONTACT) FROM Contact WHERE User__c = '\(userId)'", fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON(result!)
+                debugPrint(jsonResult)
+                if let records = jsonResult["records"].array {
+                    let items = records.flatMap { Member(json: $0) }
+                    if let item = items.first {
+                        fullfill(Me(member: item))
+                    }
+                    else {
+                        reject(MyError.JSONError)
+                    }
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
+    // SELECT AccountId,Id,User__c FROM Contact where User__c = <<current user id>>
     func getContact(userId:String) -> Promise<Contact> {
         return Promise { fullfill, reject in
             SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.CONTACT) FROM Contact WHERE User__c ='\(userId)'", fail: { (error) in
@@ -574,7 +598,7 @@ class APIClient {
             firstly {
                 self.getDMRequests()
                 }.then { items -> Void in
-                    let item = items.filter({ ($0.contactFromId == SessionManager.shared.me?.id && $0.contactToId == contactId) || $0.contactToId == SessionManager.shared.me?.id && $0.contactFromId == contactId }).first
+                    let item = items.filter({ ($0.contactFromId == SessionManager.shared.me?.member.id && $0.contactToId == contactId) || $0.contactToId == SessionManager.shared.me?.member.id && $0.contactFromId == contactId }).first
                     fullfill(item)
                 }.catch { error in
                     debugPrint(error.localizedDescription)
@@ -585,7 +609,7 @@ class APIClient {
     
     func getDMRequests() -> Promise<[DMRequest]> {
         return Promise { fullfill, reject in
-            guard let contactId = SessionManager.shared.me?.id else {
+            guard let contactId = SessionManager.shared.me?.member.id else {
                 reject(MyError.Error("No contactId for me"))
                 return
             }

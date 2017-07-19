@@ -162,8 +162,8 @@ class MemberFeedItemCell: UICollectionViewCell {
                             self.generatorNotification.notificationOccurred(.success)
                         }
                         self.updateLikes()
-                    }.then {
-                        APIClient.shared.sendPush(fromUserId: SessionManager.shared.me?.userId ?? "", toUserIds: post.chatterActor.id, pushType: .likePost(postId: post.id), relatedId: post.id)
+                    }.then {_ in
+                        APIClient.shared.sendPush(fromUserId: SessionManager.shared.me?.member.userId ?? "", toUserIds: post.chatterActor.id, pushType: .likePost(postId: post.id), relatedId: post.id)
                     }.always {
                         self.inTransit = false
                         UIApplication.shared.isNetworkActivityIndicatorVisible = false

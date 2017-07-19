@@ -21,12 +21,12 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        userName.text = SessionManager.shared.me?.fullName
+        userName.text = SessionManager.shared.me?.member.name
         
-        jobTitleLabel.text = SessionManager.shared.me?.job ?? ""
-        locationLabel.text = SessionManager.shared.me?.locationName ?? ""
+        jobTitleLabel.text = SessionManager.shared.me?.member.job ?? ""
+        locationLabel.text = SessionManager.shared.me?.member.locationName ?? ""
         
-        if let photoUrl = SessionManager.shared.me?.profilePicUrl {
+        if let photoUrl = SessionManager.shared.me?.member.photoUrl {
             profileImageView.kf.setImage(with: photoUrl)
         }
         
@@ -48,7 +48,7 @@ class ProfileViewController: UIViewController {
         super.prepare(for: segue, sender: self)
         if segue.identifier == "ShowMember" {
             if let vc = segue.destination as? MemberViewController {
-                vc.memberId = SessionManager.shared.me?.id
+                vc.member = SessionManager.shared.me?.member
             }
         }
     }

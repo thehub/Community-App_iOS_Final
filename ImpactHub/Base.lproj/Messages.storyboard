@@ -12,6 +12,9 @@
         <array key="gt-walsheim-light-web.ttf">
             <string>GTWalsheim-Light</string>
         </array>
+        <array key="gt-walsheim-web.ttf">
+            <string>GTWalsheim</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Messages-->
@@ -44,21 +47,29 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="pzX-t1-oFj">
                                 <rect key="frame" x="0.0" y="64" width="375" height="5"/>
                             </imageView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No messages..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMw-bH-8wE">
+                                <rect key="frame" x="20" y="89" width="118.5" height="20"/>
+                                <fontDescription key="fontDescription" name="GTWalsheim" family="GT Walsheim" pointSize="17"/>
+                                <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ELV-2N-JeE" secondAttribute="trailing" id="Bwe-oV-9qN"/>
+                            <constraint firstItem="tMw-bH-8wE" firstAttribute="top" secondItem="pzX-t1-oFj" secondAttribute="bottom" constant="20" id="CxS-LU-j4W"/>
                             <constraint firstItem="pzX-t1-oFj" firstAttribute="top" secondItem="iiQ-ke-vmb" secondAttribute="bottom" id="H5z-Zs-hwd"/>
                             <constraint firstItem="ELV-2N-JeE" firstAttribute="leading" secondItem="vwx-kq-vgY" secondAttribute="leading" id="RJE-mt-Ure"/>
                             <constraint firstItem="pzX-t1-oFj" firstAttribute="leading" secondItem="vwx-kq-vgY" secondAttribute="leading" id="VaX-G3-WJ5"/>
                             <constraint firstAttribute="trailing" secondItem="pzX-t1-oFj" secondAttribute="trailing" id="ba3-hK-ZNd"/>
                             <constraint firstItem="ELV-2N-JeE" firstAttribute="top" secondItem="iiQ-ke-vmb" secondAttribute="bottom" id="cHN-El-gjK"/>
                             <constraint firstItem="0nm-50-eU1" firstAttribute="top" secondItem="ELV-2N-JeE" secondAttribute="bottom" id="jvD-dJ-ZAb"/>
+                            <constraint firstItem="tMw-bH-8wE" firstAttribute="leading" secondItem="vwx-kq-vgY" secondAttribute="leading" constant="20" id="lb0-tn-6uS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Messages" id="Ur0-iC-cV7">
                         <barButtonItem key="backBarButtonItem" title=" " id="eTH-5P-C4b"/>
-                        <barButtonItem key="rightBarButtonItem" image="compose" style="plain" id="dku-uQ-fIX">
+                        <barButtonItem key="rightBarButtonItem" image="contactIcon" style="plain" id="dku-uQ-fIX">
                             <color key="tintColor" red="1" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="4P0-mH-JTy" kind="show" identifier="ShowContacts" id="3iT-8n-03j"/>
@@ -67,6 +78,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="ELV-2N-JeE" id="q3e-nC-uMG"/>
+                        <outlet property="noMessagesLabel" destination="tMw-bH-8wE" id="O1X-OP-8is"/>
                         <segue destination="bHi-nG-fUx" kind="show" identifier="ShowMessageThread" id="FjO-gx-hbh"/>
                     </connections>
                 </viewController>
@@ -583,15 +595,15 @@
     </scenes>
     <resources>
         <image name="acceptConnectionLarge" width="68" height="68"/>
-        <image name="compose" width="19" height="19"/>
+        <image name="contactIcon" width="17" height="18"/>
         <image name="declineConnectionLarge" width="68" height="68"/>
         <image name="navBarShadow" width="100" height="5"/>
         <image name="search" width="17" height="16"/>
         <image name="tabBarMessages" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="FjO-gx-hbh"/>
         <segue reference="Yv3-tT-FXL"/>
-        <segue reference="DPj-Yd-XnV"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>

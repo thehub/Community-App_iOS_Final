@@ -39,10 +39,11 @@ class MembersViewController: ListWithSearchViewController {
                 APIClient.shared.getMembers()
             }.then { items -> Void in
                 self.data.removeAll()
+                self.collectionView.reloadData()
                 let cellWidth: CGFloat = self.view.frame.width
                 items.forEach({ (member) in
                     // Remove our selves
-                    if member.id != SessionManager.shared.me?.id ?? "" {
+                    if member.id != SessionManager.shared.me?.member.id ?? "" {
                         member.contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
                         self.data.append(MemberViewModel(member: member, cellSize: CGSize(width: cellWidth, height: 105)))
                     }

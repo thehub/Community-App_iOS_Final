@@ -62,7 +62,9 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.data.removeAll()
+        collectionView.reloadData()
+
 
         self.title = event.name
         

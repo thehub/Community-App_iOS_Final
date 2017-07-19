@@ -53,6 +53,8 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.data.removeAll()
+        collectionView.reloadData()
 
         self.title = job.name
         

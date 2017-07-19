@@ -32,7 +32,7 @@ class MemberViewController: ListFullBleedViewController {
             return
         }
         // If we are ourselves, pushed form profile page, hide connect button
-        if self.memberId == SessionManager.shared.me?.id {
+        if self.memberId == SessionManager.shared.me?.member.id {
             self.connectContainer?.isHidden = true
             return
         }

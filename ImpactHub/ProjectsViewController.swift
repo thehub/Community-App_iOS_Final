@@ -39,13 +39,13 @@ class ProjectsViewController: ListWithSearchViewController {
                 items.forEach({ (project) in
                     let viewModel = ProjectViewModel(project: project, cellSize: CGSize(width: cellWidth, height: 370))
                     self.allData.append(viewModel)
-                    if viewModel.project.createdById == SessionManager.shared.me?.id {
+                    if viewModel.project.createdById == SessionManager.shared.me?.member.id {
                         self.projectsYouManageData.append(viewModel)
                     }
                 })
                 self.data = self.allData
-            }.then {
-                APIClient.shared.getProjects(contactId: SessionManager.shared.me?.id ?? "")
+            }.then {_ in 
+                APIClient.shared.getProjects(contactId: SessionManager.shared.me?.member.id ?? "")
             }.then { yourProjects -> Void in
                 let cellWidth: CGFloat = self.view.frame.width
                 yourProjects.forEach({ (project) in

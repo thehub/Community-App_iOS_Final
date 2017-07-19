@@ -115,12 +115,18 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="tYc-pU-av1">
+                                <rect key="frame" x="0.0" y="64" width="375" height="5"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="WVu-Ul-Hhf" firstAttribute="leading" secondItem="nFn-zp-JV1" secondAttribute="leading" constant="24" id="9NT-5j-enZ"/>
+                            <constraint firstItem="tYc-pU-av1" firstAttribute="top" secondItem="64p-8H-9aa" secondAttribute="bottom" id="Bkt-X3-ZMw"/>
+                            <constraint firstAttribute="trailing" secondItem="tYc-pU-av1" secondAttribute="trailing" id="K4A-s1-H7x"/>
                             <constraint firstAttribute="trailing" secondItem="WVu-Ul-Hhf" secondAttribute="trailing" constant="24" id="NUo-Ar-huv"/>
                             <constraint firstItem="WVu-Ul-Hhf" firstAttribute="top" secondItem="64p-8H-9aa" secondAttribute="bottom" constant="20" id="Osd-9z-IfL"/>
+                            <constraint firstItem="tYc-pU-av1" firstAttribute="leading" secondItem="nFn-zp-JV1" secondAttribute="leading" id="Wg1-6y-kIv"/>
                             <constraint firstItem="jrx-YE-1tM" firstAttribute="top" secondItem="WVu-Ul-Hhf" secondAttribute="bottom" constant="20" id="XgS-gD-Tf0"/>
                         </constraints>
                     </view>
@@ -171,6 +177,7 @@
     </scenes>
     <resources>
         <image name="locationPinSmall" width="11" height="17"/>
+        <image name="navBarShadow" width="100" height="5"/>
         <image name="tabBarProfile" width="22" height="22"/>
     </resources>
     <color key="tintColor" red="1" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>

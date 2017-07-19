@@ -48,10 +48,9 @@ class ViewController: UIViewController {
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
             print(currentUser.accountIdentity.userId)
             firstly {
-                APIClient.shared.getContact(userId: currentUser.accountIdentity.userId)
-                }.then { contact -> Void in
-                    print(contact)
-                    SessionManager.shared.me = contact
+                APIClient.shared.getMe(userId: currentUser.accountIdentity.userId)
+                }.then { me -> Void in
+                    SessionManager.shared.me = me
                     self.performSegue(withIdentifier: "ShowHome", sender: self)
                 }.always {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false

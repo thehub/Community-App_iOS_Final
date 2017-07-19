@@ -33,7 +33,7 @@ enum SessionManagerError: Error {
 class SessionManager {
     static let shared = SessionManager()
     
-    var me: Contact?
+    var me: Me?
     
     
     let keychain = A0SimpleKeychain(service: "ImpactHub")

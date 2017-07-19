@@ -236,7 +236,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
                     break
                 case .contactRequest(let contactId):
                     firstly {
-                        APIClient.shared.createDMRequest(fromContactId: SessionManager.shared.me?.id ?? "", toContactId: contactId, message: self.textView.text)
+                        APIClient.shared.createDMRequest(fromContactId: SessionManager.shared.me?.member.id ?? "", toContactId: contactId, message: self.textView.text)
                         }.then { result -> Void in
                             if #available(iOS 10.0, *) {
                                 self.generatorNotification.notificationOccurred(.success)

@@ -43,7 +43,7 @@ class DMRequest {
         self.name = name
         self.message = json["Introduction_Message__c"].string
         
-        if status == .outstanding && contactToId == SessionManager.shared.me?.id ?? "" {
+        if status == .outstanding && contactToId == SessionManager.shared.me?.member.id ?? "" {
             self.status = .approveDecline
         }
         else {
