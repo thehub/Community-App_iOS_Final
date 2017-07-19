@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="A1i-kk-ec4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="A1i-kk-ec4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,7 +30,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ELV-2N-JeE">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ty5-x8-2T1">
                                     <size key="itemSize" width="50" height="50"/>
@@ -48,7 +48,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="5"/>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No messages..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMw-bH-8wE">
-                                <rect key="frame" x="20" y="89" width="118.5" height="20"/>
+                                <rect key="frame" x="20" y="89" width="113.5" height="21.5"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim" family="GT Walsheim" pointSize="17"/>
                                 <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -102,7 +102,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gQJ-fC-sU7">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="550"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="553"/>
                                         <color key="backgroundColor" red="0.9882352941176471" green="0.9882352941176471" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MeCell" rowHeight="90" id="DPm-0Y-yFH" customClass="MessageThreadMeCell" customModule="ImpactHub" customModuleProvider="target">
@@ -283,29 +283,28 @@
                                             <outlet property="delegate" destination="bHi-nG-fUx" id="JlI-WR-PeB"/>
                                         </connections>
                                     </tableView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type something..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="R32-Uk-vVm">
-                                        <rect key="frame" x="0.0" y="550" width="375" height="53"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="67V-oy-KFy">
+                                        <rect key="frame" x="15" y="553" width="345" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="53" id="776-ul-TNC"/>
+                                            <constraint firstAttribute="height" constant="50" id="lkx-Oc-hwt"/>
                                         </constraints>
-                                        <color key="textColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
                                         <connections>
-                                            <outlet property="delegate" destination="bHi-nG-fUx" id="hDx-MP-Eb6"/>
+                                            <outlet property="delegate" destination="bHi-nG-fUx" id="t3i-DZ-3n5"/>
                                         </connections>
                                     </textView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.9882352941176471" green="0.9882352941176471" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="R32-Uk-vVm" firstAttribute="leading" secondItem="iBs-aq-kfA" secondAttribute="leading" id="256-Qa-TnX"/>
                                     <constraint firstItem="gQJ-fC-sU7" firstAttribute="top" secondItem="iBs-aq-kfA" secondAttribute="top" id="BvU-f3-Mi4"/>
-                                    <constraint firstItem="R32-Uk-vVm" firstAttribute="top" secondItem="gQJ-fC-sU7" secondAttribute="bottom" id="LYG-Lj-y7U"/>
+                                    <constraint firstAttribute="trailing" secondItem="67V-oy-KFy" secondAttribute="trailing" constant="15" id="J3i-Nr-6AM"/>
                                     <constraint firstAttribute="trailing" secondItem="gQJ-fC-sU7" secondAttribute="trailing" id="emu-g3-13I"/>
                                     <constraint firstItem="gQJ-fC-sU7" firstAttribute="leading" secondItem="iBs-aq-kfA" secondAttribute="leading" id="fq0-0R-3Tg"/>
-                                    <constraint firstAttribute="trailing" secondItem="R32-Uk-vVm" secondAttribute="trailing" id="iRV-mK-lRj"/>
-                                    <constraint firstAttribute="bottom" secondItem="R32-Uk-vVm" secondAttribute="bottom" id="mVz-yY-3Gp"/>
+                                    <constraint firstItem="67V-oy-KFy" firstAttribute="top" secondItem="gQJ-fC-sU7" secondAttribute="bottom" id="kPV-eE-wFb"/>
+                                    <constraint firstAttribute="bottom" secondItem="67V-oy-KFy" secondAttribute="bottom" id="lg3-SE-nAN"/>
+                                    <constraint firstItem="67V-oy-KFy" firstAttribute="leading" secondItem="iBs-aq-kfA" secondAttribute="leading" constant="15" id="wBR-OT-UkE"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -323,8 +322,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="bottomConstraint" destination="VL7-vh-3az" id="gbo-qC-skq"/>
-                        <outlet property="inputTextView" destination="R32-Uk-vVm" id="wUg-Bg-3ta"/>
-                        <outlet property="inputTextViewBottomConstraint" destination="mVz-yY-3Gp" id="Fzk-Xc-0Fu"/>
+                        <outlet property="inputTextView" destination="67V-oy-KFy" id="NUx-b5-85d"/>
                         <outlet property="tableView" destination="gQJ-fC-sU7" id="SCQ-aD-XhP"/>
                     </connections>
                 </viewController>
@@ -341,7 +339,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ONi-iY-MGH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ONi-iY-MGH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -362,7 +360,7 @@
                         <viewControllerLayoutGuide type="top" id="CH7-Dh-Vc3"/>
                         <viewControllerLayoutGuide type="bottom" id="A5l-2d-O4J"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="KoS-XR-e2T">
+                    <view key="view" contentMode="scaleToFill" id="KoS-XR-e2T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -388,7 +386,7 @@
                                     <segue destination="afu-nY-01i" kind="show" identifier="ShowMember" id="Yv3-tT-FXL"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AUi-o8-iT0">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUi-o8-iT0">
                                 <rect key="frame" x="20" y="124" width="279" height="80"/>
                                 <subviews>
                                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1z-SQ-DFQ">
@@ -411,13 +409,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcr-5N-Me4">
-                                <rect key="frame" x="20" y="216" width="29.5" height="14"/>
+                                <rect key="frame" x="20" y="216" width="28.5" height="15.5"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12"/>
                                 <color key="textColor" red="0.54117647058823526" green="0.55686274509803924" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HYz-jm-W3a">
-                                <rect key="frame" x="109.5" y="579" width="156" height="68"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HYz-jm-W3a">
+                                <rect key="frame" x="109.5" y="530" width="156" height="68"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4E-az-PCe" customClass="Button" customModule="ImpactHub" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="68" height="68"/>
@@ -519,7 +517,7 @@
                                         <rect key="frame" x="20" y="60" width="335" height="54"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dyd-YF-kdf">
-                                                <rect key="frame" x="15" y="18" width="287" height="18"/>
+                                                <rect key="frame" x="15" y="17" width="287" height="20"/>
                                                 <color key="textColor" red="0.37647058820000001" green="0.37647058820000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>

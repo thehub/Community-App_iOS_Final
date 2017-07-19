@@ -126,7 +126,6 @@ class ViewController: UIViewController {
     fileprivate func showMissingProfileOrTokenAlert(withTouch: Bool = true) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: "Error", message: "Could not login. Please try again.", preferredStyle: .alert)
-            
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (alertAction) in
                 self.showLoginController(withTouch: withTouch)
             }))

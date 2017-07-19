@@ -42,6 +42,8 @@ class MessagesThreadViewController: UIViewController {
         tableView.re.scrollViewDidReachBottom = { scrollView in
             print("scrollViewDidReachBottom")
         }
+        
+
         loadData()
     }
 
@@ -49,15 +51,24 @@ class MessagesThreadViewController: UIViewController {
         super.viewWillAppear(animated)
         registerForKeyboardNotifications()
 
+        self.title = self.member?.name ?? "Thread"
+        
         self.inputTextView.text = placeholderText
         self.navigationController?.setNavigationBarHidden(false, animated: true)
 //        self.tabBarController?.tabBar.isHidden = true
+        self.viewDidCancel = false
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         self.inputTextView.becomeFirstResponder()
     }
+
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        self.viewDidCancel = true
         deregisterFromKeyboardNotifications()
     }
     
@@ -219,17 +230,24 @@ class MessagesThreadViewController: UIViewController {
                 print(message)
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.inTransit = false
             }.catch { error in
                 debugPrint(error.localizedDescription)
+                let alert = UIAlertController(title: "Error", message: "Could not send message. Please try again.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
         }
         
     }
     
+    var viewDidCancel = false // to prevent textViewShouldEndEditing from being called when going back
+
 }
 
 extension MessagesThreadViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
+        print("begin")
 //        if textView.text == placeholderText {
 //            textView.text = nil
 //            textView.textColor = UIColor.darkGray   //UIColor(hex: 0xcccccc)
@@ -237,17 +255,18 @@ extension MessagesThreadViewController: UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        textView.text = nil
+        print("end")
+//        textView.text = nil
     }
     
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
-        if let text = textView.text {
-            sendPost(text: text)
-        }
+        print("should")
+        
         return true
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        print("sould change")
         guard let oldText = textView.text else { return true }
         
         
@@ -256,9 +275,17 @@ extension MessagesThreadViewController: UITextViewDelegate {
         }
         
         if text == "\n" {
-            textView.resignFirstResponder()
             if inputTextView.text.characters.count == 0 {
                 inputTextView.text = placeholderText
+            }
+            else {
+                if inputTextView.text != self.placeholderText && !viewDidCancel {
+                    sendPost(text: text)
+                }
+                else {
+                    self.inputTextView.text = self.placeholderText
+                    return false
+                }
             }
             return false
         }
