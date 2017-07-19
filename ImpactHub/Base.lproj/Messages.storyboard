@@ -103,7 +103,7 @@
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gQJ-fC-sU7">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="550"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.9882352941176471" green="0.9882352941176471" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MeCell" rowHeight="90" id="DPm-0Y-yFH" customClass="MessageThreadMeCell" customModule="ImpactHub" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
@@ -136,6 +136,7 @@
                                                         <constraint firstItem="0j4-2w-p0V" firstAttribute="top" secondItem="uN8-qb-jDk" secondAttribute="top" constant="8" id="yL6-Uk-Hnz"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <outlet property="messageLabel" destination="96l-DM-oKs" id="Khc-mj-NQQ"/>
                                                     <outlet property="messageLabelContainer" destination="0j4-2w-p0V" id="qKl-a7-4hO"/>
@@ -172,6 +173,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="2bZ-fJ-eEc" secondAttribute="trailing" constant="8" id="yPC-Hi-X1L"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <outlet property="messageLabel" destination="LzS-qu-Anb" id="RU9-7x-GFb"/>
                                                     <outlet property="messageLabelContainer" destination="2bZ-fJ-eEc" id="ioz-Mx-tcf"/>
@@ -197,6 +199,7 @@
                                                         <constraint firstItem="LUD-RF-S4H" firstAttribute="centerY" secondItem="9nf-Ay-Tkp" secondAttribute="centerY" id="u6S-vM-6y5"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <outlet property="profileImageView" destination="LUD-RF-S4H" id="KN5-vi-Rdz"/>
                                                 </connections>
@@ -221,6 +224,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="Xt4-BE-6TX" secondAttribute="trailing" constant="10" id="tIw-On-vbT"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <outlet property="profileImageView" destination="Xt4-BE-6TX" id="rM1-5D-42v"/>
                                                 </connections>
@@ -244,6 +248,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="4Ar-2R-YUD" secondAttribute="trailing" constant="10" id="OuG-y3-Yc3"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <outlet property="timeLabel" destination="4Ar-2R-YUD" id="VpA-9P-aub"/>
                                                 </connections>
@@ -267,6 +272,7 @@
                                                         <constraint firstItem="KQV-Jc-dkP" firstAttribute="leading" secondItem="gbt-4l-LqU" secondAttribute="leading" constant="10" id="iMw-oj-eDG"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <outlet property="timeLabel" destination="KQV-Jc-dkP" id="7Ca-37-0Td"/>
                                                 </connections>
@@ -279,19 +285,19 @@
                                     </tableView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type something..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="R32-Uk-vVm">
                                         <rect key="frame" x="0.0" y="550" width="375" height="53"/>
-                                        <color key="backgroundColor" red="1" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="53" id="776-ul-TNC"/>
                                         </constraints>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
                                         <connections>
                                             <outlet property="delegate" destination="bHi-nG-fUx" id="hDx-MP-Eb6"/>
                                         </connections>
                                     </textView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.9882352941176471" green="0.9882352941176471" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="R32-Uk-vVm" firstAttribute="leading" secondItem="iBs-aq-kfA" secondAttribute="leading" id="256-Qa-TnX"/>
                                     <constraint firstItem="gQJ-fC-sU7" firstAttribute="top" secondItem="iBs-aq-kfA" secondAttribute="top" id="BvU-f3-Mi4"/>

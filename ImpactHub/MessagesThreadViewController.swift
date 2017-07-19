@@ -78,7 +78,7 @@ class MessagesThreadViewController: UIViewController {
     func keyboardWasShown(notification: NSNotification) {
         var info : Dictionary = notification.userInfo!
         if let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size {
-            self.bottomConstraint.constant = keyboardSize.height + 30
+            self.bottomConstraint.constant = keyboardSize.height
             UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
                 self.view.layoutIfNeeded()
             }) { (_) in
@@ -230,10 +230,10 @@ class MessagesThreadViewController: UIViewController {
 extension MessagesThreadViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == placeholderText {
-            textView.text = nil
-            textView.textColor = UIColor.darkGray   //UIColor(hex: 0xcccccc)
-        }
+//        if textView.text == placeholderText {
+//            textView.text = nil
+//            textView.textColor = UIColor.darkGray   //UIColor(hex: 0xcccccc)
+//        }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -250,11 +250,15 @@ extension MessagesThreadViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         guard let oldText = textView.text else { return true }
         
+        
+        if inputTextView.text == placeholderText {
+            inputTextView.text = text
+        }
+        
         if text == "\n" {
             textView.resignFirstResponder()
             if inputTextView.text.characters.count == 0 {
                 inputTextView.text = placeholderText
-//                inputTextView.textColor = Constants.textPlaceHolderColor
             }
             return false
         }
