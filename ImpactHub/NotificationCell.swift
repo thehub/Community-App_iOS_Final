@@ -29,7 +29,15 @@ class NotificationCell: UICollectionViewCell {
                 }
             })
         }
-        messageLabel.text = "\(vm.pushNotification.message)"
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 0.82
+        
+        let attrString = NSMutableAttributedString(string: vm.pushNotification.message)
+        attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
+        messageLabel.attributedText = attrString
+        
+//        messageLabel.text = "\(vm.pushNotification.message)"
         timeLabel.text = Utils.timeStringFromDate(date: vm.pushNotification.createdDate)
         
         self.iconImageView.image = vm.pushNotification.kind.getIconImage()

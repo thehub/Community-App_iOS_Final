@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -37,14 +37,14 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jx9-Ra-lb3">
-                        <rect key="frame" x="67" y="14" width="193" height="14"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Label asd  sad ad asd asd as das das das da sd asd sad as dsa dsa dasd" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jx9-Ra-lb3">
+                        <rect key="frame" x="67" y="11" width="190" height="30.5"/>
                         <fontDescription key="fontDescription" name="GTWalsheim" family="GT Walsheim" pointSize="12"/>
                         <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 day ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRm-2b-nRG">
-                        <rect key="frame" x="67" y="32" width="53.5" height="14"/>
+                        <rect key="frame" x="67" y="34" width="53.5" height="15"/>
                         <fontDescription key="fontDescription" name="GTWalsheim-Medium" family="GT Walsheim" pointSize="12"/>
                         <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -65,14 +65,14 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="p8b-83-d72" secondAttribute="trailing" constant="20" id="2Lw-b2-CWS"/>
                 <constraint firstItem="mHX-u7-K71" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="3Eo-3C-d4e"/>
-                <constraint firstItem="pRm-2b-nRG" firstAttribute="bottom" secondItem="mHX-u7-K71" secondAttribute="bottom" constant="-3" id="8aS-vN-Jt3"/>
+                <constraint firstItem="pRm-2b-nRG" firstAttribute="bottom" secondItem="mHX-u7-K71" secondAttribute="bottom" id="8aS-vN-Jt3"/>
                 <constraint firstAttribute="trailing" secondItem="12n-nn-Yl3" secondAttribute="trailing" constant="20" id="N5g-SO-4ST"/>
                 <constraint firstAttribute="bottom" secondItem="12n-nn-Yl3" secondAttribute="bottom" id="O7z-wX-JZG"/>
                 <constraint firstItem="12n-nn-Yl3" firstAttribute="leading" secondItem="mHX-u7-K71" secondAttribute="leading" id="OTH-rd-LEv"/>
-                <constraint firstItem="Jx9-Ra-lb3" firstAttribute="top" secondItem="mHX-u7-K71" secondAttribute="top" constant="3" id="OxU-RC-lcf"/>
+                <constraint firstItem="Jx9-Ra-lb3" firstAttribute="top" secondItem="mHX-u7-K71" secondAttribute="top" id="OxU-RC-lcf"/>
                 <constraint firstItem="p8b-83-d72" firstAttribute="centerY" secondItem="mHX-u7-K71" secondAttribute="centerY" id="P14-jj-Xs9"/>
                 <constraint firstItem="mHX-u7-K71" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="Uyh-w3-9U5"/>
-                <constraint firstItem="p8b-83-d72" firstAttribute="leading" secondItem="Jx9-Ra-lb3" secondAttribute="trailing" constant="5" id="WN2-MB-5jd"/>
+                <constraint firstItem="p8b-83-d72" firstAttribute="leading" secondItem="Jx9-Ra-lb3" secondAttribute="trailing" constant="8" id="WN2-MB-5jd"/>
                 <constraint firstItem="pRm-2b-nRG" firstAttribute="leading" secondItem="Jx9-Ra-lb3" secondAttribute="leading" id="ehK-Cy-Qft"/>
                 <constraint firstItem="Jx9-Ra-lb3" firstAttribute="leading" secondItem="mHX-u7-K71" secondAttribute="trailing" constant="9" id="kch-5S-DcU"/>
             </constraints>

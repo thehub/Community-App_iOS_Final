@@ -194,9 +194,8 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
                                 self.generatorNotification.notificationOccurred(.success)
                             }
                             self.delegate?.didCreateComment(comment: comment)
-                        }.then {_ in
-                            APIClient.shared.sendPush(fromUserId: SessionManager.shared.me?.member.userId ?? "", toUserIds: toUserId, pushType: .comment(id: postIdToCommentOn, feedElementId: postIdToCommentOn), relatedId: postIdToCommentOn)
-                        }.then {_ in
+                            _ = APIClient.shared.sendPush(fromUserId: SessionManager.shared.me?.member.userId ?? "", toUserIds: toUserId, pushType: .comment(id: postIdToCommentOn, feedElementId: postIdToCommentOn), relatedId: comment.id)
+                        }.then { result in
                             self.onClose(self)
                         }.always {
                             self.inTransit = false

@@ -111,11 +111,12 @@ extension PushNotification {
             self.kind = .likeComment(commentId: relatedId)
         case "PrivateMessage":
             self.kind = .privateMessage(messageId: relatedId)
-        case "DMRequestCreate":
+        case "DMRequestSent":
             self.kind = .contactRequestIncomming(contactId: fromUserId)
         case "DMRequestApproved":
             self.kind = .contactRequestApproved(contactId: fromUserId)
         default:
+            print("Error DMRequest of unknown type")
             self.kind = .unknown
         }
         

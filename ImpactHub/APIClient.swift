@@ -700,6 +700,10 @@ class APIClient {
                 print(error?.localizedDescription as Any)
                 reject(MyError.JSONError)
             }) { (result) in
+                print(result)
+                let jsonResult = JSON.init(result!)
+                print(jsonResult)
+                
                 // For now sales force won't give an error or sucess, so just silently accept it
                 fullfill("ok")
                 //                let jsonResult = JSON.init(result!)
