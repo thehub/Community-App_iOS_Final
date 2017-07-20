@@ -493,24 +493,24 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bFT-Oe-BYH">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5KU-CV-nmz" customClass="RedButton" customModule="ImpactHub" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="162.5" height="50"/>
-                                                <inset key="imageEdgeInsets" minX="-15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Approve" image="aproveIcon">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="approveTap:" destination="v6r-jd-8oy" eventType="touchUpInside" id="Ihq-QI-h0l"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbd-B1-Jj9" customClass="RedButton" customModule="ImpactHub" customModuleProvider="target">
-                                                <rect key="frame" x="172.5" y="0.0" width="162.5" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="162.5" height="50"/>
                                                 <inset key="imageEdgeInsets" minX="-15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Decline" image="declineIcon">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="declineTap:" destination="v6r-jd-8oy" eventType="touchUpInside" id="e3l-io-HlT"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5KU-CV-nmz" customClass="RedButton" customModule="ImpactHub" customModuleProvider="target">
+                                                <rect key="frame" x="172.5" y="0.0" width="162.5" height="50"/>
+                                                <inset key="imageEdgeInsets" minX="-15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Approve" image="aproveIcon">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="approveTap:" destination="v6r-jd-8oy" eventType="touchUpInside" id="Ihq-QI-h0l"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -579,7 +579,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="daq-qw-gvH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="daq-qw-gvH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -672,7 +672,7 @@
             <objects>
                 <navigationController title="Filter" automaticallyAdjustsScrollViewInsets="NO" id="3P0-zD-GQr" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="li8-wY-ywY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="li8-wY-ywY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1928,7 +1928,7 @@
             <objects>
                 <navigationController title="Filter" automaticallyAdjustsScrollViewInsets="NO" id="s53-44-0Ip" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TJX-Az-6nl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="TJX-Az-6nl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2020,7 +2020,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iz5-ct-zW9" userLabel="Create Post Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C4D-zJ-TGR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="C4D-zJ-TGR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
