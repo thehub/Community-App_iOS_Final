@@ -57,17 +57,41 @@ class TabBarController: UITabBarController {
             debugPrint(postId)
         case .privateMessage(let postId):
             debugPrint(postId)
-        case .contactRequestIncomming(let contactId), .contactRequestApproved(let contactId):
+        case .contactRequestApproved(let contactId):
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             firstly {
                 ContactRequestManager.shared.refresh()
                 }.then { contactRequests -> Void in
-                    self.selectedIndex = 0
+//                    self.selectedIndex = 0
                     let nvc = self.viewControllers?[0] as! UINavigationController
                     let storyboard = UIStoryboard(name: "Home", bundle: nil)
                     let vc = storyboard.instantiateViewController(withIdentifier: "MemberViewController") as! MemberViewController
                     vc.userId = contactId // FIXME:
                     nvc.pushViewController(vc, animated: true)
                 }.always {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }.catch { error in
+                    debugPrint(error.localizedDescription)
+            }
+        case .contactRequestIncomming(let contactId):
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            firstly {
+                ContactRequestManager.shared.refresh()
+                }.then { contactRequests -> Void in
+                    print("has contacts")
+                }.then {
+                    APIClient.shared.getMember(userId: contactId)
+                }.then { member -> Void in
+                    let contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
+                    member.contactRequest = contactRequest
+  //                  self.selectedIndex = 0
+                    let nvc = self.viewControllers?[0] as! UINavigationController
+                    let storyboard = UIStoryboard(name: "Messages", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "ContactIncommingViewController") as! ContactIncommingViewController
+                    vc.member = member
+                    nvc.pushViewController(vc, animated: true)
+                }.always {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = true
                 }.catch { error in
                     debugPrint(error.localizedDescription)
             }
