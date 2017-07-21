@@ -36,6 +36,12 @@ class MemberViewController: ListFullBleedViewController {
             self.connectContainer?.isHidden = true
             return
         }
+        // Do not show if ourselves...
+        if self.member?.id == SessionManager.shared.me?.member.id {
+            self.connectContainer?.isHidden = true
+            return
+        }
+
         switch connectRequestStatus {
         case .approved:
             connectContainer?.isHidden = false
