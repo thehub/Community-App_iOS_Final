@@ -47,6 +47,7 @@ class MemberCollectionViewCell: UICollectionViewCell {
         else if member.contactRequest?.status == .approved {
             memberCollectionViewCellDelegate?.wantsToCreateNewMessage(member: member)
         }
+
     }
     
     var vm:MemberViewModel?
@@ -79,6 +80,13 @@ class MemberCollectionViewCell: UICollectionViewCell {
             connectionImageView.image = UIImage(named: "memberConnected")
             openMessageButton.isHidden = false
         }
+        
+        // Do not show if ourselves...
+        if vm?.member.id == SessionManager.shared.me?.member.id {
+            openMessageButton.isHidden = true
+            connectionImageView.isHidden = true
+        }
+
     }
     
     override func draw(_ rect: CGRect) {
