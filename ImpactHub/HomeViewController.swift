@@ -155,10 +155,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(color: UIColor.imaGrapefruit), for: .default)
-        
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white, NSFontAttributeName: UIFont(name:"GTWalsheim", size:18)!]
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white, NSFontAttributeName: UIFont(name:"GTWalsheim", size:18)!]
         self.navigationController?.navigationBar.barStyle = .black
 
     }

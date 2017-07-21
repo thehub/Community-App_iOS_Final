@@ -24,6 +24,11 @@ class NotificationsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.imaGreyishBrown, NSFontAttributeName: UIFont(name:"GTWalsheim", size:18)!]
+        self.navigationController?.navigationBar.barStyle = .default
+
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -30,7 +30,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tHe-EA-Qrw">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tHe-EA-Qrw">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FgC-oa-Usp">
@@ -54,7 +54,7 @@
                                     <outlet property="delegate" destination="P6E-kn-fVk" id="wiK-Nn-Gam"/>
                                 </connections>
                             </collectionView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="ikr-9s-bxw">
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="ikr-9s-bxw">
                                 <rect key="frame" x="0.0" y="64" width="375" height="5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
@@ -195,7 +195,7 @@
                                     <constraint firstItem="hXf-31-sSk" firstAttribute="top" secondItem="0MB-Nn-Az2" secondAttribute="top" constant="2" id="xMA-5e-g80"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="0lI-oZ-k0a">
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="0lI-oZ-k0a">
                                 <rect key="frame" x="0.0" y="64" width="375" height="5"/>
                             </imageView>
                         </subviews>
@@ -815,7 +815,7 @@
                                     <constraint firstAttribute="height" constant="100" id="q84-mH-IUN"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="NyV-ci-Ppy">
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="NyV-ci-Ppy">
                                 <rect key="frame" x="0.0" y="64" width="375" height="5"/>
                             </imageView>
                         </subviews>
@@ -893,7 +893,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="lzQ-al-fJS">
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="lzQ-al-fJS">
                                 <rect key="frame" x="0.0" y="64" width="375" height="5"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ye1-uo-Wne" customClass="RedButton" customModule="ImpactHub" customModuleProvider="target">
@@ -1055,7 +1055,7 @@
                                     <constraint firstItem="X9D-Rp-hsW" firstAttribute="leading" secondItem="jDd-9e-K5x" secondAttribute="trailing" constant="8" id="x3i-2p-5dk"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="QLY-se-f7C">
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="QLY-se-f7C">
                                 <rect key="frame" x="0.0" y="64" width="375" height="5"/>
                             </imageView>
                         </subviews>
@@ -1916,14 +1916,14 @@
         <image name="tabBarHome" width="22" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2YP-O4-F5Z"/>
+        <segue reference="C30-D0-cHv"/>
         <segue reference="u3D-lG-cq4"/>
-        <segue reference="E6m-rq-9b6"/>
-        <segue reference="h9b-GT-wI4"/>
-        <segue reference="wlv-A0-0zb"/>
-        <segue reference="4CN-lM-E9S"/>
-        <segue reference="9tv-11-54j"/>
+        <segue reference="ej2-mE-x7A"/>
+        <segue reference="S7V-vf-Xt8"/>
+        <segue reference="zjS-3Z-0nA"/>
+        <segue reference="uEF-zv-7JY"/>
         <segue reference="tPM-PS-46L"/>
+        <segue reference="9tv-11-54j"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>

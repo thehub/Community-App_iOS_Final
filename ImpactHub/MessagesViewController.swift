@@ -27,12 +27,17 @@ class MessagesViewController: UIViewController {
         loadData()
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.imaGreyishBrown, NSFontAttributeName: UIFont(name:"GTWalsheim", size:18)!]
+        self.navigationController?.navigationBar.barStyle = .default
+        
+    }
+
     var selectedVM: MessagesVM?
     
     var skip = 0

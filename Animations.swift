@@ -31,3 +31,33 @@ class Animations {
     }()
     
 }
+
+class FadeInPushSegue: UIStoryboardSegue {
+    
+    var animated: Bool = true
+    
+    override func perform() {
+        
+            let transition: CATransition = CATransition()
+            transition.type = kCATransitionFade; //kCATransitionMoveIn; //, kCATransitionPush, kCATransitionReveal, kCATransitionFade
+            source.view.window?.layer.add(transition, forKey: "kCATransition")
+            source.navigationController?.pushViewController(destination, animated: false)
+            
+    }
+    
+}
+
+class FadeOutPopSegue: UIStoryboardSegue {
+    
+    override func perform() {
+        
+            let transition: CATransition = CATransition()
+            transition.duration = 1
+            transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            transition.type = kCATransitionFade; //kCATransitionMoveIn; //, kCATransitionPush, kCATransitionReveal, kCATransitionFade
+            
+            source.view.window?.layer.add(transition, forKey: "kCATransition")
+            source.navigationController?.popViewController(animated: false)
+    }
+    
+}
