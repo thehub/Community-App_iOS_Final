@@ -57,7 +57,7 @@ class TabBarController: UITabBarController {
             debugPrint(postId)
         case .privateMessage(let postId):
             debugPrint(postId)
-        case .contactRequestApproved(let contactId):
+        case .contactRequestApproved(let userId):
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
             firstly {
                 ContactRequestManager.shared.refresh()
@@ -66,21 +66,29 @@ class TabBarController: UITabBarController {
                     let nvc = self.viewControllers?[0] as! UINavigationController
                     let storyboard = UIStoryboard(name: "Home", bundle: nil)
                     let vc = storyboard.instantiateViewController(withIdentifier: "MemberViewController") as! MemberViewController
-                    vc.userId = contactId // FIXME:
+                    vc.userId = userId // FIXME:
                     nvc.pushViewController(vc, animated: true)
                 }.always {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }.catch { error in
                     debugPrint(error.localizedDescription)
             }
-        case .contactRequestIncomming(let contactId):
+        case .contactRequestIncomming(let userId):
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
             firstly {
                 ContactRequestManager.shared.refresh()
                 }.then { contactRequests -> Void in
-                    print("has contacts")
+                    // Incomming
+//                    let incomming = ContactRequestManager.shared.getIncommingContactRequests()
+//                    incomming.forEach({ (contactRequest) in
+//                        if let member = members.filter ({$0.id == contactRequest.contactFromId }).first {
+//                            member.contactRequest = contactRequest
+//                            let viewModel = ContactIncommingViewModel(member: member, contactCellDelegate: self, cellSize: CGSize(width: cellWidth, height: 215))
+//                            self.dataIncomming.append(viewModel)
+//                        }
+//                    })
                 }.then {
-                    APIClient.shared.getMember(userId: contactId)
+                    APIClient.shared.getMember(userId: userId)
                 }.then { member -> Void in
                     let contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
                     member.contactRequest = contactRequest
@@ -91,7 +99,7 @@ class TabBarController: UITabBarController {
                     vc.member = member
                     nvc.pushViewController(vc, animated: true)
                 }.always {
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = true
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }.catch { error in
                     debugPrint(error.localizedDescription)
             }

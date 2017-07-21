@@ -57,6 +57,16 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="memberWaiting" translatesAutoresizingMaskIntoConstraints="NO" id="2mM-bW-44q">
                                 <rect key="frame" x="213" y="16" width="66" height="66"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLD-uB-YeT">
+                                <rect key="frame" x="221" y="24" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="1qp-Hg-Cyj"/>
+                                    <constraint firstAttribute="height" constant="40" id="bmw-By-veM"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="openMessageTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="yzm-3O-wcK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -70,8 +80,10 @@
                             <constraint firstItem="w9K-Wp-tPX" firstAttribute="leading" secondItem="A3O-XH-KGb" secondAttribute="leading" id="PNl-dm-6CH"/>
                             <constraint firstItem="obn-32-78V" firstAttribute="top" secondItem="lul-Kl-LZ0" secondAttribute="top" id="R0b-2V-xSp"/>
                             <constraint firstItem="A3O-XH-KGb" firstAttribute="top" secondItem="obn-32-78V" secondAttribute="bottom" constant="4" id="XEM-dX-BiT"/>
+                            <constraint firstItem="pLD-uB-YeT" firstAttribute="centerY" secondItem="2mM-bW-44q" secondAttribute="centerY" constant="-5" id="YEa-cn-kJ6"/>
                             <constraint firstItem="A3O-XH-KGb" firstAttribute="leading" secondItem="obn-32-78V" secondAttribute="leading" id="YZT-MJ-YaG"/>
                             <constraint firstItem="obn-32-78V" firstAttribute="leading" secondItem="lul-Kl-LZ0" secondAttribute="trailing" constant="23" id="hvf-wA-2gy"/>
+                            <constraint firstItem="pLD-uB-YeT" firstAttribute="centerX" secondItem="2mM-bW-44q" secondAttribute="centerX" constant="-5" id="q71-TO-fol"/>
                             <constraint firstAttribute="height" constant="90" id="vjI-71-Vzg"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -95,6 +107,7 @@
                 <outlet property="jobLabel" destination="A3O-XH-KGb" id="YPQ-Jq-ybK"/>
                 <outlet property="locationNameLabel" destination="J35-42-Kx3" id="BiJ-Gl-k09"/>
                 <outlet property="nameLabel" destination="obn-32-78V" id="BX0-0g-pgR"/>
+                <outlet property="openMessageButton" destination="pLD-uB-YeT" id="Bih-iQ-jZR"/>
                 <outlet property="profileImageView" destination="lul-Kl-LZ0" id="wxM-AG-f3m"/>
             </connections>
             <point key="canvasLocation" x="74" y="53.5"/>

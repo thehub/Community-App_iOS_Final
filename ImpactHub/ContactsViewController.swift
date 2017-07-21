@@ -68,7 +68,7 @@ class ContactsViewController: ListWithSearchViewController {
                 // Connected
                 let connected = ContactRequestManager.shared.getConnectedContactRequests()
                 members.forEach({ (member) in
-                    if let contactRequest = connected.filter ({$0.contactToId == member.id || $0.contactFromId == member.id }).first {
+                    if let contactRequest = connected.filter ({$0.contactToId == member.id || $0.contactFromId == member.id && $0.id != SessionManager.shared.me?.member.id}).first {
                         if member.id != SessionManager.shared.me!.member.id {
                             member.contactRequest = contactRequest
                             let viewModel = ContactViewModel(member: member, contactCellDelegate: self, cellSize: CGSize(width: cellWidth, height: 120))
@@ -81,7 +81,7 @@ class ContactsViewController: ListWithSearchViewController {
                 // Incomming
                 let incomming = ContactRequestManager.shared.getIncommingContactRequests()
                 incomming.forEach({ (contactRequest) in
-                    if let member = members.filter ({$0.id == contactRequest.contactFromId }).first {
+                    if let member = members.filter ({$0.id == contactRequest.contactFromId && $0.id != SessionManager.shared.me?.member.id}).first {
                         member.contactRequest = contactRequest
                         let viewModel = ContactIncommingViewModel(member: member, contactCellDelegate: self, cellSize: CGSize(width: cellWidth, height: 215))
                         self.dataIncomming.append(viewModel)
@@ -91,7 +91,7 @@ class ContactsViewController: ListWithSearchViewController {
                 // Pending
                 let awaiting = ContactRequestManager.shared.getAwaitingContactRequests()
                 awaiting.forEach({ (contactRequest) in
-                    if let member = members.filter ({$0.id == contactRequest.contactToId }).first {
+                    if let member = members.filter ({$0.id == contactRequest.contactToId && $0.id != SessionManager.shared.me?.member.id}).first {
                         member.contactRequest = contactRequest
                         let viewModel = ContactPendingViewModel(member: member, cellSize: CGSize(width: cellWidth, height: 115))
                         self.dataAwaiting.append(viewModel)
@@ -101,11 +101,13 @@ class ContactsViewController: ListWithSearchViewController {
                 // Declined
                 let rejected = ContactRequestManager.shared.getRejectedContactRequests()
                 rejected.forEach({ (contactRequest) in
-                    if let member = members.filter ({$0.id == contactRequest.contactToId }).first {
-                        member.contactRequest = contactRequest
-                        let viewModel = ContactDeclinedViewModel(member: member, contactCellDelegate: self, cellSize: CGSize(width: cellWidth, height: 105))
-                        self.dataRejected.append(viewModel)
-                    }
+//                    if contactRequest.contactToId != SessionManager.shared.me?.member.id {
+                        if let member = members.filter ({$0.id == contactRequest.contactFromId }).first {
+                            member.contactRequest = contactRequest
+                            let viewModel = ContactDeclinedViewModel(member: member, contactCellDelegate: self, cellSize: CGSize(width: cellWidth, height: 105))
+                            self.dataRejected.append(viewModel)
+                        }
+//                    }
                 })
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false

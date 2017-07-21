@@ -588,11 +588,10 @@ class APIClient {
         }
     }
     
-    func updateDMRequest(id:String, status:DMRequest.Satus) -> Promise<String> {
+    func updateDMRequest(id:String, status:DMRequest.Satus, pushUserId: String) -> Promise<String> {
         
         return Promise { fullfill, reject in
-            
-            let query: [String: String] = ["DM_id" : id, "Req_status" : status.rawValue]
+            let query: [String: String] = ["DM_id" : id, "Req_status" : status.rawValue, "pushUserId" : pushUserId]
             debugPrint(query)
             let body = SFJsonUtils.jsonDataRepresentation(query)
             let request = SFRestRequest(method: .POST, path: "/services/apexrest/UpdateDMRequest", queryParams: nil)

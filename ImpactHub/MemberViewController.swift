@@ -322,7 +322,7 @@ class MemberViewController: ListFullBleedViewController {
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
-            APIClient.shared.updateDMRequest(id: contactRequest.id, status: DMRequest.Satus.approved)
+            APIClient.shared.updateDMRequest(id: contactRequest.id, status: DMRequest.Satus.approved, pushUserId: member.userId)
             }.then { result -> Void in
                 self.connectRequestStatus = .approved
             }.always {
@@ -352,7 +352,7 @@ class MemberViewController: ListFullBleedViewController {
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
-            APIClient.shared.updateDMRequest(id: contactRequest.id, status: DMRequest.Satus.declined)
+            APIClient.shared.updateDMRequest(id: contactRequest.id, status: DMRequest.Satus.declined, pushUserId: member.userId)
             }.then { result -> Void in
                 self.connectRequestStatus = .declined
             }.always {

@@ -62,7 +62,7 @@ class ContactIncommingCell: UICollectionViewCell {
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
-            APIClient.shared.updateDMRequest(id: contactRequest.id, status: DMRequest.Satus.approved)
+            APIClient.shared.updateDMRequest(id: contactRequest.id, status: DMRequest.Satus.approved, pushUserId: vm.member.userId)
             }.then { result -> Void in
                 contactRequest.status = .approved
                 self.contactCellDelegate?.didApprove(member: self.vm.member)
@@ -89,7 +89,7 @@ class ContactIncommingCell: UICollectionViewCell {
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
-            APIClient.shared.updateDMRequest(id: contactRequest.id, status: DMRequest.Satus.declined)
+            APIClient.shared.updateDMRequest(id: contactRequest.id, status: DMRequest.Satus.declined, pushUserId: vm.member.userId)
             }.then { result -> Void in
                 contactRequest.status = .declined
                 self.contactCellDelegate?.didDecline(member: self.vm.member)

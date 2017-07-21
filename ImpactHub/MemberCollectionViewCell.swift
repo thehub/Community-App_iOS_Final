@@ -8,7 +8,16 @@
 
 import UIKit
 
+protocol MemberCollectionViewCellDelegate: class {
+    func wantsToCreateNewMessage(member: Member)
+    func wantsToSendContactRequest(member: Member)
+}
+
 class MemberCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var openMessageButton: UIButton!
+    
+    weak var memberCollectionViewCellDelegate: MemberCollectionViewCellDelegate?
+
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var jobLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -23,6 +32,19 @@ class MemberCollectionViewCell: UICollectionViewCell {
         profileImageView.clipsToBounds = true
     }
 
+    @IBAction func openMessageTap(_ sender: Any) {
+        guard let member = vm?.member else { return }
+        
+        if member.contactRequest?.status == .outstanding {
+            memberCollectionViewCellDelegate?.wantsToSendContactRequest(member: member)
+        }
+        else if member.contactRequest?.status == .approved {
+            memberCollectionViewCellDelegate?.wantsToCreateNewMessage(member: member)
+        }
+    }
+    
+    var vm:MemberViewModel?
+    
     func setUp(vm: MemberViewModel) {
         nameLabel.text = vm.member.name
         jobLabel.text = vm.member.job
@@ -39,9 +61,11 @@ class MemberCollectionViewCell: UICollectionViewCell {
         
         if vm.member.contactRequest?.status == .outstanding || vm.member.contactRequest?.status == .declined || vm.member.contactRequest?.status == .approveDecline {
             connectionImageView.image = UIImage(named: "waitingSmall")
+            openMessageButton.isHidden = true
         }
         else {
             connectionImageView.image = UIImage(named: "memberConnected")
+            openMessageButton.isHidden = false
         }
         
     }

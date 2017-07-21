@@ -27,8 +27,8 @@ struct PushNotification {
         case likePost(postId: String)
         case likeComment(commentId: String)
         case privateMessage(messageId: String)
-        case contactRequestIncomming(contactId: String)
-        case contactRequestApproved(contactId: String)
+        case contactRequestIncomming(fromUserId: String)
+        case contactRequestApproved(fromUserId: String)
         case unknown
         
         func getParameter() -> String {
@@ -112,9 +112,9 @@ extension PushNotification {
         case "PrivateMessage":
             self.kind = .privateMessage(messageId: relatedId)
         case "DMRequestSent":
-            self.kind = .contactRequestIncomming(contactId: fromUserId)
+            self.kind = .contactRequestIncomming(fromUserId: fromUserId)
         case "DMRequestApproved":
-            self.kind = .contactRequestApproved(contactId: fromUserId)
+            self.kind = .contactRequestApproved(fromUserId: fromUserId)
         default:
             print("Error DMRequest of unknown type")
             self.kind = .unknown
@@ -151,14 +151,14 @@ extension PushNotification {
                 }
             case "dmrequestcreate":
                 if let relatedId = userInfo["relatedId"] as? String {
-                    return PushNotification.Kind.contactRequestIncomming(contactId: relatedId)
+                    return PushNotification.Kind.contactRequestIncomming(fromUserId: relatedId)
                 }
                 else {
                     return nil
                 }
             case "dmrequestapproved":
                 if let relatedId = userInfo["relatedId"] as? String {
-                    return PushNotification.Kind.contactRequestApproved(contactId: relatedId)
+                    return PushNotification.Kind.contactRequestApproved(fromUserId: relatedId)
                 }
                 else {
                     return nil
