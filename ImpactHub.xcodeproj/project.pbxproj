@@ -202,6 +202,15 @@
 		85568ACF1F17CB0600CD362F /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85568ACE1F17CB0600CD362F /* ContactViewModel.swift */; };
 		85568AD01F17CB0600CD362F /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85568ACE1F17CB0600CD362F /* ContactViewModel.swift */; };
 		85568AD11F17CB0600CD362F /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85568ACE1F17CB0600CD362F /* ContactViewModel.swift */; };
+		856589431F22491900C794B6 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856589411F22491900C794B6 /* HomeCell.swift */; };
+		856589441F22491900C794B6 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856589411F22491900C794B6 /* HomeCell.swift */; };
+		856589451F22491900C794B6 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856589411F22491900C794B6 /* HomeCell.swift */; };
+		856589461F22491900C794B6 /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 856589421F22491900C794B6 /* HomeCell.xib */; };
+		856589471F22491900C794B6 /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 856589421F22491900C794B6 /* HomeCell.xib */; };
+		856589481F22491900C794B6 /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 856589421F22491900C794B6 /* HomeCell.xib */; };
+		8565894A1F22495100C794B6 /* HomeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856589491F22495100C794B6 /* HomeCellViewModel.swift */; };
+		8565894B1F22495100C794B6 /* HomeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856589491F22495100C794B6 /* HomeCellViewModel.swift */; };
+		8565894C1F22495100C794B6 /* HomeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856589491F22495100C794B6 /* HomeCellViewModel.swift */; };
 		8570C1C81ECEDE3300FA1CE9 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8570C1C71ECEDE3300FA1CE9 /* Notifications.storyboard */; };
 		8570C1CB1ECEDE6200FA1CE9 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1CA1ECEDE6200FA1CE9 /* NotificationsViewController.swift */; };
 		8570C1CE1ECEE0BA00FA1CE9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570C1CD1ECEE0BA00FA1CE9 /* SearchViewController.swift */; };
@@ -602,6 +611,9 @@
 		85568AC31F17CA6700CD362F /* ContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
 		85568ACA1F17CA9200CD362F /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		85568ACE1F17CB0600CD362F /* ContactViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
+		856589411F22491900C794B6 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
+		856589421F22491900C794B6 /* HomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
+		856589491F22495100C794B6 /* HomeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellViewModel.swift; sourceTree = "<group>"; };
 		8570C1C71ECEDE3300FA1CE9 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		8570C1CA1ECEDE6200FA1CE9 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		8570C1CD1ECEE0BA00FA1CE9 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -1059,6 +1071,8 @@
 			isa = PBXGroup;
 			children = (
 				85DE9EF71ECC902B00291EF5 /* HomeViewController.swift */,
+				856589411F22491900C794B6 /* HomeCell.swift */,
+				856589421F22491900C794B6 /* HomeCell.xib */,
 				85BFF1081F0244930010AD51 /* FilterViewController.swift */,
 				8533811A1F02C0BA00232E7E /* FilterDetailViewController.swift */,
 				851D03831F02B81C00641976 /* FilterGroupingCell.swift */,
@@ -1151,6 +1165,7 @@
 			children = (
 				853433CD1EE6B6F9003C26F8 /* Messages */,
 				85DE9F061ECCACB100291EF5 /* MemberViewModel.swift */,
+				856589491F22495100C794B6 /* HomeCellViewModel.swift */,
 				85568ACE1F17CB0600CD362F /* ContactViewModel.swift */,
 				85BB26011F1E1DDC007E8210 /* ContactPendingViewModel.swift */,
 				85BB261D1F1E1F60007E8210 /* ContactDeclinedViewModel.swift */,
@@ -1325,6 +1340,7 @@
 				85455D301EF2A53200243846 /* gt-walsheim-bold-web.ttf in Resources */,
 				85BB26371F1E26F5007E8210 /* ContactIncommingCell.xib in Resources */,
 				850B70371EFC0F6D00596315 /* EventCollectionViewCell.xib in Resources */,
+				856589461F22491900C794B6 /* HomeCell.xib in Resources */,
 				858C58A81EF9492000136DAC /* TitleCell.xib in Resources */,
 				859C41731ECDB6CD00637295 /* TopMenu.xib in Resources */,
 				85BB26121F1E1E26007E8210 /* ContactPendingCell.xib in Resources */,
@@ -1377,6 +1393,7 @@
 				858597DD1F17850800821E6A /* Home.storyboard in Resources */,
 				85523DB31EFAA3F100F66B53 /* CompanyCollectionViewCell.xib in Resources */,
 				850B70381EFC0F6D00596315 /* EventCollectionViewCell.xib in Resources */,
+				856589471F22491900C794B6 /* HomeCell.xib in Resources */,
 				85568AC81F17CA6700CD362F /* ContactCell.xib in Resources */,
 				857480721EE83D44005F73A2 /* Auth0.plist in Resources */,
 				85455D3D1EF2A53200243846 /* gt-walsheim-web.ttf in Resources */,
@@ -1421,6 +1438,7 @@
 				858597DE1F17850C00821E6A /* Home.storyboard in Resources */,
 				85523DB41EFAA3F100F66B53 /* CompanyCollectionViewCell.xib in Resources */,
 				850B70391EFC0F6D00596315 /* EventCollectionViewCell.xib in Resources */,
+				856589481F22491900C794B6 /* HomeCell.xib in Resources */,
 				85568AC91F17CA6700CD362F /* ContactCell.xib in Resources */,
 				857480731EE83D44005F73A2 /* Auth0.plist in Resources */,
 				85455D3E1EF2A53200243846 /* gt-walsheim-web.ttf in Resources */,
@@ -1508,6 +1526,7 @@
 				859F97E11EFBBF10001C0B33 /* GoalDetailTopViewModel.swift in Sources */,
 				857480751EE846C2005F73A2 /* WhiteButton.swift in Sources */,
 				85C802591F14E074003DBC01 /* DMRequest.swift in Sources */,
+				8565894A1F22495100C794B6 /* HomeCellViewModel.swift in Sources */,
 				850B70151EFBF1FB00596315 /* GroupViewModel.swift in Sources */,
 				85C802561F14E074003DBC01 /* PushNotification.swift in Sources */,
 				8570C1D71ECEE35F00FA1CE9 /* ProfileViewController.swift in Sources */,
@@ -1532,6 +1551,7 @@
 				8570C2091ECF24A400FA1CE9 /* JobViewModel.swift in Sources */,
 				85455D481EF2E7A000243846 /* RedButton.swift in Sources */,
 				85BB262A1F1E2227007E8210 /* ContactIncommingViewModel.swift in Sources */,
+				856589431F22491900C794B6 /* HomeCell.swift in Sources */,
 				858C589C1EF92BD600136DAC /* ProjectViewController.swift in Sources */,
 				8501B9F51EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
 				8570C1E31ECF028200FA1CE9 /* Company.swift in Sources */,
@@ -1710,6 +1730,7 @@
 				8533811C1F02C0BA00232E7E /* FilterDetailViewController.swift in Sources */,
 				859F97D41EFBBF01001C0B33 /* GoalDetailTopCell.swift in Sources */,
 				850072241EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
+				856589441F22491900C794B6 /* HomeCell.swift in Sources */,
 				85AD64981F00FCA800F2CCA8 /* BigTitleTopViewModel.swift in Sources */,
 				859F97C51EFBBEE6001C0B33 /* Goal.swift in Sources */,
 				85AD649C1F00FE2700F2CCA8 /* BigTitleTopCell.swift in Sources */,
@@ -1730,6 +1751,7 @@
 				85C8025A1F14E074003DBC01 /* DMRequest.swift in Sources */,
 				859F97E21EFBBF10001C0B33 /* GoalDetailTopViewModel.swift in Sources */,
 				85E7DA8E1EF81EA500C9DA15 /* Project.swift in Sources */,
+				8565894B1F22495100C794B6 /* HomeCellViewModel.swift in Sources */,
 				8574806A1EE83B17005F73A2 /* LoginViewController.swift in Sources */,
 				85568ACC1F17CA9200CD362F /* ContactCell.swift in Sources */,
 				85BFF10A1F0244930010AD51 /* FilterViewController.swift in Sources */,
@@ -1832,6 +1854,7 @@
 				8533811D1F02C0BA00232E7E /* FilterDetailViewController.swift in Sources */,
 				859F97D51EFBBF01001C0B33 /* GoalDetailTopCell.swift in Sources */,
 				850072251EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
+				856589451F22491900C794B6 /* HomeCell.swift in Sources */,
 				85AD64991F00FCA800F2CCA8 /* BigTitleTopViewModel.swift in Sources */,
 				859F97C61EFBBEE6001C0B33 /* Goal.swift in Sources */,
 				85AD649D1F00FE2700F2CCA8 /* BigTitleTopCell.swift in Sources */,
@@ -1852,6 +1875,7 @@
 				85C8025B1F14E074003DBC01 /* DMRequest.swift in Sources */,
 				859F97E31EFBBF10001C0B33 /* GoalDetailTopViewModel.swift in Sources */,
 				85E7DA8F1EF81EA500C9DA15 /* Project.swift in Sources */,
+				8565894C1F22495100C794B6 /* HomeCellViewModel.swift in Sources */,
 				8574806B1EE83B17005F73A2 /* LoginViewController.swift in Sources */,
 				85568ACD1F17CA9200CD362F /* ContactCell.swift in Sources */,
 				85BFF10B1F0244930010AD51 /* FilterViewController.swift in Sources */,
