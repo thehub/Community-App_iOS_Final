@@ -11,7 +11,7 @@ import PromiseKit
 import SalesforceSDKCore
 
 
-class MembersViewController: ListWithSearchViewController {
+class MembersViewController: ListWithSearchViewController, CreatePostViewControllerDelegate {
 
     
     override var filterSource: FilterManager.Source {
@@ -37,15 +37,15 @@ class MembersViewController: ListWithSearchViewController {
                 print("refreshed")
             }.then {
                 APIClient.shared.getMembers()
-            }.then { items -> Void in
+            }.then { members -> Void in
                 self.data.removeAll()
                 self.collectionView.reloadData()
                 let cellWidth: CGFloat = self.view.frame.width
-                items.forEach({ (member) in
+                members.forEach({ (member) in
                     // Remove our selves
                     if member.id != SessionManager.shared.me?.member.id ?? "" {
                         member.contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
-                        self.data.append(MemberViewModel(member: member, cellSize: CGSize(width: cellWidth, height: 105)))
+                        self.data.append(MemberViewModel(member: member, delegate: self, cellSize: CGSize(width: cellWidth, height: 105)))
                     }
                 })
             }.always {
@@ -79,11 +79,50 @@ class MembersViewController: ListWithSearchViewController {
                 vc.member = selectedItem.member
             }
         }
+        else if segue.identifier == "ShowCreatePost" {
+            if let navVC = segue.destination as? UINavigationController {
+                if let vc = navVC.viewControllers.first as? CreatePostViewController, let contactId = cellWantsToSendContactRequest?.vm?.member.id {
+                    vc.delegate = self
+                    vc.createType = .contactRequest(contactId: contactId)
+                }
+            }
+        }
+        else if segue.identifier == "ShowMessageThread" {
+            if let vc = segue.destination as? MessagesThreadViewController, let member = cellWantsToSendContactRequest?.vm?.member {
+                vc.member = member
+            }
+        }
+    }
+    
+    func didCreatePost(post: Post) {
+        
+    }
+    
+    func didCreateComment(comment: Comment) {
+        
+    }
+    
+    func didSendContactRequest() {
+        self.cellWantsToSendContactRequest?.connectRequestStatus = .outstanding
+    }
+    
+    var cellWantsToSendContactRequest: MemberCollectionViewCell?
+}
+
+
+extension MembersViewController: MemberCollectionViewCellDelegate {
+
+    func wantsToCreateNewMessage(member: Member) {
+        self.performSegue(withIdentifier: "ShowMessageThread", sender: self)
     }
     
     
-}
+    func wantsToSendContactRequest(member: Member, cell: MemberCollectionViewCell) {
+        self.cellWantsToSendContactRequest = cell
+        self.performSegue(withIdentifier: "ShowCreatePost", sender: self)
+    }
 
+}
 
 
 extension MembersViewController {

@@ -178,6 +178,23 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
     }
     func didSendContactRequest() {
     }
+    
+    var cellWantsToSendContactRequest: MemberCollectionViewCell?
+
+}
+
+extension ListFullBleedViewController: MemberCollectionViewCellDelegate {
+    
+    func wantsToCreateNewMessage(member: Member) {
+        self.performSegue(withIdentifier: "ShowMessageThread", sender: self)
+    }
+    
+    
+    func wantsToSendContactRequest(member: Member, cell: MemberCollectionViewCell) {
+        self.cellWantsToSendContactRequest = cell
+        self.performSegue(withIdentifier: "ShowCreatePostContactMessage", sender: self)
+    }
+    
 }
 
 extension ListFullBleedViewController: UICollectionViewDataSource {

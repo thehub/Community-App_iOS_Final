@@ -10,7 +10,7 @@ import UIKit
 
 protocol MemberCollectionViewCellDelegate: class {
     func wantsToCreateNewMessage(member: Member)
-    func wantsToSendContactRequest(member: Member)
+    func wantsToSendContactRequest(member: Member, cell: MemberCollectionViewCell)
 }
 
 class MemberCollectionViewCell: UICollectionViewCell {
@@ -18,6 +18,12 @@ class MemberCollectionViewCell: UICollectionViewCell {
     
     weak var memberCollectionViewCellDelegate: MemberCollectionViewCellDelegate?
 
+    var connectRequestStatus = DMRequest.Satus.notRequested {
+        didSet {
+            updateConnectButton()
+        }
+    }
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var jobLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -35,8 +41,8 @@ class MemberCollectionViewCell: UICollectionViewCell {
     @IBAction func openMessageTap(_ sender: Any) {
         guard let member = vm?.member else { return }
         
-        if member.contactRequest?.status == .outstanding {
-            memberCollectionViewCellDelegate?.wantsToSendContactRequest(member: member)
+        if member.contactRequest?.status == .notRequested || member.contactRequest == nil {
+            memberCollectionViewCellDelegate?.wantsToSendContactRequest(member: member, cell: self)
         }
         else if member.contactRequest?.status == .approved {
             memberCollectionViewCellDelegate?.wantsToCreateNewMessage(member: member)
@@ -46,10 +52,12 @@ class MemberCollectionViewCell: UICollectionViewCell {
     var vm:MemberViewModel?
     
     func setUp(vm: MemberViewModel) {
+        self.vm = vm
+        self.memberCollectionViewCellDelegate = vm.delegate
         nameLabel.text = vm.member.name
         jobLabel.text = vm.member.job
         if let photoUrl = vm.member.photoUrl {
-            print(photoUrl)
+//            print(photoUrl)
             profileImageView.kf.setImage(with: photoUrl, placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (image, error, cacheType, url) in
                 if let error = error {
                     print(error.localizedDescription)
@@ -58,8 +66,12 @@ class MemberCollectionViewCell: UICollectionViewCell {
         }
         locationNameLabel.text = vm.member.locationName
 
+        self.connectRequestStatus = vm.member.contactRequest?.status ?? .notRequested
         
-        if vm.member.contactRequest?.status == .outstanding || vm.member.contactRequest?.status == .declined || vm.member.contactRequest?.status == .approveDecline {
+    }
+
+    func updateConnectButton() {
+        if connectRequestStatus == .outstanding || connectRequestStatus == .declined || connectRequestStatus == .approveDecline {
             connectionImageView.image = UIImage(named: "waitingSmall")
             openMessageButton.isHidden = true
         }
@@ -67,9 +79,7 @@ class MemberCollectionViewCell: UICollectionViewCell {
             connectionImageView.image = UIImage(named: "memberConnected")
             openMessageButton.isHidden = false
         }
-        
     }
-
     
     override func draw(_ rect: CGRect) {
         self.bgView.clipsToBounds = false

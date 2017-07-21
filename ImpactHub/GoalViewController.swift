@@ -77,7 +77,8 @@ class GoalViewController: ListFullBleedViewController {
         membersData.append(GoalDetailTopViewModel(goal: goal, cellSize: .zero)) // this will pick the full height instead
         membersData.append(TitleViewModel(title: "", cellSize: CGSize(width: view.frame.width, height: 40)))
         members.forEach { (member) in
-            membersData.append(MemberViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 105)))
+            member.contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
+            membersData.append(MemberViewModel(member: member, delegate: self, cellSize: CGSize(width: view.frame.width, height: 105)))
         }
     }
 
@@ -130,14 +131,28 @@ class GoalViewController: ListFullBleedViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         if segue.identifier == "ShowGroup" {
             if let vc = segue.destination as? GroupViewController, let selectGroup = selectGroup {
                 vc.group = selectGroup
             }
         }
-        if segue.identifier == "ShowMember" {
+        else if segue.identifier == "ShowMember" {
             if let vc = segue.destination as? MemberViewController, let selectMember = selectMember {
                 vc.member = selectMember
+            }
+        }
+        else if segue.identifier == "ShowCreatePostContactMessage" {
+            if let navVC = segue.destination as? UINavigationController {
+                if let vc = navVC.viewControllers.first as? CreatePostViewController, let contactId = cellWantsToSendContactRequest?.vm?.member.id {
+                    vc.delegate = self
+                    vc.createType = .contactRequest(contactId: contactId)
+                }
+            }
+        }
+        else if segue.identifier == "ShowMessageThread" {
+            if let vc = segue.destination as? MessagesThreadViewController, let member = cellWantsToSendContactRequest?.vm?.member {
+                vc.member = member
             }
         }
     }
@@ -169,7 +184,17 @@ class GoalViewController: ListFullBleedViewController {
         }
     }
 
-
+    override func didCreatePost(post: Post) {
+        
+    }
+    
+    override func didCreateComment(comment: Comment) {
+        
+    }
+    
+    override func didSendContactRequest() {
+        self.cellWantsToSendContactRequest?.connectRequestStatus = .outstanding
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

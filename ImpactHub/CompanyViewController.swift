@@ -140,7 +140,8 @@ class CompanyViewController: ListFullBleedViewController {
         membersData.append(CompanyDetailTopViewModel(company: company, cellSize: .zero)) // this will pick the full height instead
         membersData.append(TitleViewModel(title: "", cellSize: CGSize(width: view.frame.width, height: 70)))
         members.forEach { (member) in
-            membersData.append(MemberViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 105)))
+            member.contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
+            membersData.append(MemberViewModel(member: member, delegate:self, cellSize: CGSize(width: view.frame.width, height: 105)))
         }
         
         // Add the new data
@@ -243,14 +244,28 @@ class CompanyViewController: ListFullBleedViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         if segue.identifier == "ShowMember" {
             if let vc = segue.destination as? MemberViewController, let selectMember = selectMember {
                 vc.member = selectMember
             }
         }
-        if segue.identifier == "ShowProject" {
+        else if segue.identifier == "ShowProject" {
             if let vc = segue.destination as? ProjectViewController, let selectProject = selectProject {
                 vc.project = selectProject
+            }
+        }
+        else if segue.identifier == "ShowCreatePostContactMessage" {
+            if let navVC = segue.destination as? UINavigationController {
+                if let vc = navVC.viewControllers.first as? CreatePostViewController, let contactId = cellWantsToSendContactRequest?.vm?.member.id {
+                    vc.delegate = self
+                    vc.createType = .contactRequest(contactId: contactId)
+                }
+            }
+        }
+        else if segue.identifier == "ShowMessageThread" {
+            if let vc = segue.destination as? MessagesThreadViewController, let member = cellWantsToSendContactRequest?.vm?.member {
+                vc.member = member
             }
         }
     }
@@ -262,6 +277,18 @@ class CompanyViewController: ListFullBleedViewController {
             let svc = SFSafariViewController(url: url)
             self.present(svc, animated: true, completion: nil)
         }
+    }
+    
+    override func didCreatePost(post: Post) {
+        
+    }
+    
+    override func didCreateComment(comment: Comment) {
+        
+    }
+    
+    override func didSendContactRequest() {
+        self.cellWantsToSendContactRequest?.connectRequestStatus = .outstanding
     }
     
 }

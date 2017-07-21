@@ -97,6 +97,7 @@ class MessagesViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         if segue.identifier == "ShowMessageThread" {
             if let vc = segue.destination as? MessagesThreadViewController, let selectedItem = selectedVM {
                 vc.conversationId = selectedItem.conversation.id

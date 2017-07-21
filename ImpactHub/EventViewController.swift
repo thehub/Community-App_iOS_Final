@@ -206,6 +206,7 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         if segue.identifier == "ShowProject" {
             if let vc = segue.destination as? ProjectViewController, let selectProject = selectProject {
                 vc.project = selectProject

@@ -68,7 +68,8 @@ class ProjectViewController: ListFullBleedViewController {
                 APIClient.shared.getMembers(projectId: self.project.id)
             }.then { members -> Void in
                 members.forEach({ (member) in
-                    let viewModel1 = MemberViewModel(member: member, cellSize: CGSize(width: cellWidth, height: 105))
+                    member.contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
+                    let viewModel1 = MemberViewModel(member: member, delegate: self, cellSize: CGSize(width: cellWidth, height: 105))
                     self.projectsMembersData.append(viewModel1)
                 })
             }.then {
@@ -172,9 +173,22 @@ class ProjectViewController: ListFullBleedViewController {
                 vc.userId = userIdToShow
             }
         }
-        if segue.identifier == "ShowJob" {
+        else if segue.identifier == "ShowJob" {
             if let vc = segue.destination as? JobViewController, let selectJob = selectJob {
                 vc.job = selectJob
+            }
+        }
+        else if segue.identifier == "ShowCreatePostContactMessage" {
+            if let navVC = segue.destination as? UINavigationController {
+                if let vc = navVC.viewControllers.first as? CreatePostViewController, let contactId = cellWantsToSendContactRequest?.vm?.member.id {
+                    vc.delegate = self
+                    vc.createType = .contactRequest(contactId: contactId)
+                }
+            }
+        }
+        else if segue.identifier == "ShowMessageThread" {
+            if let vc = segue.destination as? MessagesThreadViewController, let member = cellWantsToSendContactRequest?.vm?.member {
+                vc.member = member
             }
         }
     }
@@ -222,10 +236,13 @@ class ProjectViewController: ListFullBleedViewController {
     
     override func didCreateComment(comment: Comment) {
     }
+ 
+    override func didSendContactRequest() {
+        self.cellWantsToSendContactRequest?.connectRequestStatus = .outstanding
+    }
+    
     
 }
-
-
 
 extension ProjectViewController: MemberFeedItemDelegate {
     func memberFeedWantToShowMember(userId: String) {

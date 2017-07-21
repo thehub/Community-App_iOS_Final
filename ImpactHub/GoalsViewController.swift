@@ -97,6 +97,7 @@ class GoalsViewController: ListWithTopMenuViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         if segue.identifier == "ShowGoal" {
             if let vc = segue.destination as? GoalViewController, let selectedItem = selectedVM {
                 vc.goal = selectedItem.goal

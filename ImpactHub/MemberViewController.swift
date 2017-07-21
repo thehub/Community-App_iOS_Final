@@ -232,17 +232,18 @@ class MemberViewController: ListFullBleedViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         if segue.identifier == "ShowGroup" {
             if let vc = segue.destination as? GroupViewController, let selectGroup = selectGroup {
                 vc.group = selectGroup
             }
         }
-        if segue.identifier == "ShowProject" {
+        else if segue.identifier == "ShowProject" {
             if let vc = segue.destination as? ProjectViewController, let selectProject = selectProject {
                 vc.project = selectProject
             }
         }
-        if segue.identifier == "ShowCreatePost" {
+        else if segue.identifier == "ShowCreatePost" {
             if let navVC = segue.destination as? UINavigationController {
                 if let vc = navVC.viewControllers.first as? CreatePostViewController, let contactId = member?.id {
                     vc.delegate = self
@@ -250,7 +251,7 @@ class MemberViewController: ListFullBleedViewController {
                 }
             }
         }
-        if segue.identifier == "ShowMessageThread" {
+        else if segue.identifier == "ShowMessageThread" {
             if let vc = segue.destination as? MessagesThreadViewController, let member = self.member {
                 vc.member = member
             }
