@@ -148,6 +148,7 @@ class HomeViewController: UIViewController {
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(color: UIColor.imaGrapefruit), for: .default)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white, NSFontAttributeName: UIFont(name:"GTWalsheim", size:18)!]
+        self.navigationController?.navigationBar.barStyle = .black
 
     }
 
@@ -157,8 +158,8 @@ class HomeViewController: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(color: UIColor.imaGrapefruit), for: .default)
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white, NSFontAttributeName: UIFont(name:"GTWalsheim", size:18)!]
-        
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white, NSFontAttributeName: UIFont(name:"GTWalsheim", size:18)!]
+        self.navigationController?.navigationBar.barStyle = .black
 
     }
 
@@ -166,9 +167,9 @@ class HomeViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.imaGreyishBrown, NSFontAttributeName: UIFont(name:"GTWalsheim", size:18)!]
-
+        self.navigationController?.navigationBar.barStyle = .default
     }
-    
+
 }
 
 

@@ -107,6 +107,11 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
     }
     
     var cellWantsToSendContactRequest: MemberCollectionViewCell?
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+
 }
 
 
