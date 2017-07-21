@@ -34,27 +34,34 @@ class TabBarController: UITabBarController {
     func handlePushNotification(_ pushNotification: PushNotification.Kind) {
         AppDelegate.pushNotification = nil
         switch pushNotification {
-        case .comment( _, let feedElementId):
+            
+        case .comment(let id, let feedElementId, let chatterGroupId):
 //            self.selectedIndex = 0
-//            let nvc = self.viewControllers?[0] as! UINavigationController
+//            let nvc = self.viewControllers?[self.selectedIndex] as! UINavigationController
 //            let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //            let vc = storyboard.instantiateViewController(withIdentifier: "GroupNewsItem") as! GroupNewsItemViewController
 //            vc.postId = feedElementId
 //            nvc.pushViewController(vc, animated: true)
 //            AppDelegate.pushNotification = nil
             break
-        case .postMention(let postId), .commentMention(let postId):
+            
+        case .postMention(let postId, let chatterGroupId):
             debugPrint(postId)
 //            self.selectedIndex = 0
-//            let nvc = self.viewControllers?[0] as! UINavigationController
+//            let nvc = self.viewControllers?[self.selectedIndex] as! UINavigationController
 //            let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //            let vc = storyboard.instantiateViewController(withIdentifier: "GroupNewsItem") as! GroupNewsItemViewController
 //            vc.postId = postId
 //            nvc.pushViewController(vc, animated: true)
 //            AppDelegate.pushNotification = nil
             break
-        case .likePost(let postId), .likeComment(let postId):
+        case .commentMention(let commentId, let chatterGroupId):
+            break
+        case .likePost(let postId, let chatterGroupId):
             debugPrint(postId)
+            break
+        case .likeComment(let commentId, let chatterGroupId):
+            break
         case .privateMessage(let postId):
             debugPrint(postId)
         case .contactRequestApproved(let userId):
@@ -63,7 +70,7 @@ class TabBarController: UITabBarController {
                 ContactRequestManager.shared.refresh()
                 }.then { contactRequests -> Void in
 //                    self.selectedIndex = 0
-                    let nvc = self.viewControllers?[0] as! UINavigationController
+                    let nvc = self.viewControllers?[self.selectedIndex] as! UINavigationController
                     let storyboard = UIStoryboard(name: "Home", bundle: nil)
                     let vc = storyboard.instantiateViewController(withIdentifier: "MemberViewController") as! MemberViewController
                     vc.userId = userId // FIXME:
@@ -93,7 +100,7 @@ class TabBarController: UITabBarController {
                     let contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
                     member.contactRequest = contactRequest
   //                  self.selectedIndex = 0
-                    let nvc = self.viewControllers?[0] as! UINavigationController
+                    let nvc = self.viewControllers?[self.selectedIndex] as! UINavigationController
                     let storyboard = UIStoryboard(name: "Messages", bundle: nil)
                     let vc = storyboard.instantiateViewController(withIdentifier: "ContactIncommingViewController") as! ContactIncommingViewController
                     vc.member = member

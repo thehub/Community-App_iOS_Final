@@ -21,6 +21,11 @@ class NotificationsViewController: UIViewController {
         collectionView.register(UINib.init(nibName: NotificationViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: NotificationViewModel.cellIdentifier)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -77,7 +82,7 @@ extension NotificationsViewController {
         if let vm = data[indexPath.item] as? NotificationViewModel {
             
             switch vm.pushNotification.kind {
-            case .comment(let id, let feedElementId):
+            case .comment(let id, let feedElementId, let chatterGroupId):
                 break
             case .contactRequestApproved(let contactId):
                 self.selectedId = contactId

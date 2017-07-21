@@ -15,17 +15,18 @@ struct PushNotification {
     var fromUserId: String
     var isRead: Bool
     var relatedId: String
+    var chatterGroupId: String?
     var createdDate: Date
     var profilePic: String?
     var kind: Kind
     var message: String
     
     enum Kind {
-        case comment(id: String, feedElementId: String)
-        case commentMention(commentId: String)
-        case postMention(postId: String)
-        case likePost(postId: String)
-        case likeComment(commentId: String)
+        case comment(id: String, feedElementId: String, chatterGroupId: String)
+        case commentMention(commentId: String, chatterGroupId: String)
+        case postMention(postId: String, chatterGroupId: String)
+        case likePost(postId: String, chatterGroupId: String)
+        case likeComment(commentId: String, chatterGroupId: String)
         case privateMessage(messageId: String)
         case contactRequestIncomming(fromUserId: String)
         case contactRequestApproved(fromUserId: String)
@@ -96,19 +97,20 @@ extension PushNotification {
             else {
                 return nil
         }
+        self.chatterGroupId = json["RelatedGroup__c"].string  // FIXME: Once neela added this
         self.id = id
         self.message = message
         switch type {
         case "Comment":
-            self.kind = .comment(id: relatedId, feedElementId: relatedId)
+            self.kind = .comment(id: relatedId, feedElementId: relatedId, chatterGroupId: chatterGroupId ?? "")
         case "PostMention":
-            self.kind = .postMention(postId: relatedId)
+            self.kind = .postMention(postId: relatedId, chatterGroupId: chatterGroupId ?? "")
         case "CommentMention":
-            self.kind = .commentMention(commentId: relatedId)
+            self.kind = .commentMention(commentId: relatedId, chatterGroupId: chatterGroupId ?? "")
         case "LikePost":
-            self.kind = .likePost(postId: relatedId)
+            self.kind = .likePost(postId: relatedId, chatterGroupId: chatterGroupId ?? "")
         case "LikeComment":
-            self.kind = .likeComment(commentId: relatedId)
+            self.kind = .likeComment(commentId: relatedId, chatterGroupId: chatterGroupId ?? "")
         case "PrivateMessage":
             self.kind = .privateMessage(messageId: relatedId)
         case "DMRequestSent":
@@ -136,15 +138,15 @@ extension PushNotification {
         if let type = userInfo["type"] as? String {
             switch type.lowercased() {
             case "comment":
-                if let id = userInfo["id"] as? String, let feedElementId = userInfo["feedElementId"] as? String {
-                    return PushNotification.Kind.comment(id: id, feedElementId: feedElementId)
+                if let id = userInfo["id"] as? String, let feedElementId = userInfo["feedElementId"] as? String, let chatterGroupId = userInfo["relatedGroup"] as? String {
+                    return PushNotification.Kind.comment(id: id, feedElementId: feedElementId, chatterGroupId: chatterGroupId)
                 }
                 else {
                     return nil
                 }
             case "postmention", "commentmention":
-                if let postId = userInfo["postId"] as? String {
-                    return PushNotification.Kind.postMention(postId: postId)
+                if let postId = userInfo["postId"] as? String, let chatterGroupId = userInfo["relatedGroup"] as? String {
+                    return PushNotification.Kind.postMention(postId: postId, chatterGroupId: chatterGroupId)
                 }
                 else {
                     return nil
@@ -164,8 +166,8 @@ extension PushNotification {
                     return nil
                 }
             case "likepost":
-                if let postId = userInfo["postId"] as? String {
-                    return PushNotification.Kind.likePost(postId: postId)
+                if let postId = userInfo["postId"] as? String, let chatterGroupId = userInfo["relatedGroup"] as? String {
+                    return PushNotification.Kind.likePost(postId: postId, chatterGroupId: chatterGroupId)
                 }
                 else {
                     return nil
