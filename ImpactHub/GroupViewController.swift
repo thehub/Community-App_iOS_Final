@@ -13,7 +13,8 @@ class GroupViewController: ListFullBleedViewController {
 
     var group: Group!
     var showPushNotification: PushNotification?
-    
+    var posts = [Post]()
+
     var indexPathToInsertNewPostsAt = IndexPath(item: 2, section: 0)
     
     override func viewDidLoad() {
@@ -47,16 +48,26 @@ class GroupViewController: ListFullBleedViewController {
         firstly {
             APIClient.shared.getGroupPosts(groupID: group.chatterId)
             }.then { posts -> Void in
+                self.posts = posts
                 posts.forEach({ (post) in
                     self.data.append(MemberFeedItemViewModel(post: post, comment: nil, delegate: self, cellSize: CGSize(width: self.view.frame.width, height: 150)))
                 })
+            }.always {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                // Add the new data
+                var indexPathsToInsert = [IndexPath]()
+                for i in countBefore...self.data.count - 1 {
+                    indexPathsToInsert.append(IndexPath(item: i, section: 0))
+                }
+                self.collectionView.insertItems(at: indexPathsToInsert)
+                
                 // If we're showing a push notification, push into respective view from here...
                 if let showPushNotification = self.showPushNotification {
                     switch showPushNotification.kind {
                     case .comment(let id, let feedElementId, let chatterGroupId):
                         // Find comment in posts
                         var postToShowCommentsFor: Post?
-                        for post in posts {
+                        for post in self.posts {
                             if let comment = post.comments.filter({$0.id == feedElementId}).first {
                                 // We found it
                                 postToShowCommentsFor = post
@@ -67,20 +78,42 @@ class GroupViewController: ListFullBleedViewController {
                             self.performSegue(withIdentifier: "ShowComments", sender: self)
                         }
                         break
-                    case .likeComment(let commentId):
-                        print("liked comment")
+                    case .likeComment(let commentId, let chatterGroupId):
+                        // Find comment in posts
+                        var postToShowCommentsFor: Post?
+                        for post in self.posts {
+                            if let comment = post.comments.filter({$0.id == commentId}).first {
+                                // We found it
+                                postToShowCommentsFor = post
+                            }
+                        }
+                        if postToShowCommentsFor != nil {
+                            self.postToShowCommentsFor = postToShowCommentsFor
+                            self.performSegue(withIdentifier: "ShowComments", sender: self)
+                        }
+                        break
+                    case .likePost(let postId, let chatterGroupId):
+                        // TODO: Scroll to the post
+                        // Find index path
+                        var indexToShow: Int?
+                        for (index, vm) in self.data.enumerated() {
+                            if let vm = vm as? MemberFeedItemViewModel {
+                                if vm.post.id == postId {
+                                    indexToShow = index
+                                    break
+                                }
+                            }
+                        }
+                        if let indexToShow = indexToShow {
+                            self.collectionView.scrollToItem(at: IndexPath.init(row: indexToShow, section: 0), at: .top, animated: true)
+                        }
+                        break
                     default:
                         break
                     }
                 }
-            }.always {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                // Add the new data
-                var indexPathsToInsert = [IndexPath]()
-                for i in countBefore...self.data.count - 1 {
-                    indexPathsToInsert.append(IndexPath(item: i, section: 0))
-                }
-                self.collectionView.insertItems(at: indexPathsToInsert)
+                
+                
             }.catch { error in
                 debugPrint(error.localizedDescription)
         }
