@@ -70,7 +70,7 @@ class HomeViewController: UIViewController {
             case .companies:
                 return "ShowCompanies"
             case .groups:
-                return "ShowMembers"  // FIXME
+                return "ShowGroups"
             case .goals:
                 return "ShowGoals"
             case .jobs:

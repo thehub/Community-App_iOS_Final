@@ -110,6 +110,9 @@
 		8516551F1EFD5F0200002786 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516551E1EFD5F0200002786 /* AddPostViewController.swift */; };
 		851655201EFD5F0200002786 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516551E1EFD5F0200002786 /* AddPostViewController.swift */; };
 		851655211EFD5F0200002786 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516551E1EFD5F0200002786 /* AddPostViewController.swift */; };
+		8516EDD71F25FA37003C7164 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516EDD61F25FA37003C7164 /* GroupsViewController.swift */; };
+		8516EDD81F25FA37003C7164 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516EDD61F25FA37003C7164 /* GroupsViewController.swift */; };
+		8516EDD91F25FA37003C7164 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516EDD61F25FA37003C7164 /* GroupsViewController.swift */; };
 		851D037C1F02B79700641976 /* FilterGroupingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D037B1F02B79700641976 /* FilterGroupingViewModel.swift */; };
 		851D037D1F02B79700641976 /* FilterGroupingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D037B1F02B79700641976 /* FilterGroupingViewModel.swift */; };
 		851D037E1F02B79700641976 /* FilterGroupingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D037B1F02B79700641976 /* FilterGroupingViewModel.swift */; };
@@ -579,6 +582,7 @@
 		851655131EFD326F00002786 /* EventDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailCell.xib; sourceTree = "<group>"; };
 		8516551A1EFD32A000002786 /* EventDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewModel.swift; sourceTree = "<group>"; };
 		8516551E1EFD5F0200002786 /* AddPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
+		8516EDD61F25FA37003C7164 /* GroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		851D037B1F02B79700641976 /* FilterGroupingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterGroupingViewModel.swift; sourceTree = "<group>"; };
 		851D03831F02B81C00641976 /* FilterGroupingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterGroupingCell.swift; sourceTree = "<group>"; };
 		851D03841F02B81C00641976 /* FilterGroupingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterGroupingCell.xib; sourceTree = "<group>"; };
@@ -805,6 +809,7 @@
 		850B700B1EFBF13300596315 /* Groups */ = {
 			isa = PBXGroup;
 			children = (
+				8516EDD61F25FA37003C7164 /* GroupsViewController.swift */,
 				850B701A1EFBF84600596315 /* GroupViewController.swift */,
 				850B700C1EFBF1CA00596315 /* GroupCollectionViewCell.swift */,
 				850B700D1EFBF1CA00596315 /* GroupCollectionViewCell.xib */,
@@ -1558,6 +1563,7 @@
 				859C41691ECDA70900637295 /* MemberDetailTopViewModel.swift in Sources */,
 				858597E21F17AE8A00821E6A /* ContactRequestManager.swift in Sources */,
 				85568ACB1F17CA9200CD362F /* ContactCell.swift in Sources */,
+				8516EDD71F25FA37003C7164 /* GroupsViewController.swift in Sources */,
 				851D03851F02B81C00641976 /* FilterGroupingCell.swift in Sources */,
 				8574807D1EE84735005F73A2 /* Animations.swift in Sources */,
 				857480571EE802D0005F73A2 /* Post.swift in Sources */,
@@ -1700,6 +1706,7 @@
 				859E02A51F03946F00600C3E /* FilterCell.swift in Sources */,
 				85BB263B1F1E26F5007E8210 /* ContactIncommingCell.swift in Sources */,
 				850B70161EFBF1FB00596315 /* GroupViewModel.swift in Sources */,
+				8516EDD81F25FA37003C7164 /* GroupsViewController.swift in Sources */,
 				8574806E1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
 				85E5FF511F0A74AE0053189B /* CreatePostViewController.swift in Sources */,
 				85523DB71EFAABD700F66B53 /* ListFullBleedViewController.swift in Sources */,
@@ -1824,6 +1831,7 @@
 				859E02A61F03946F00600C3E /* FilterCell.swift in Sources */,
 				85BB263C1F1E26F5007E8210 /* ContactIncommingCell.swift in Sources */,
 				850B70171EFBF1FB00596315 /* GroupViewModel.swift in Sources */,
+				8516EDD91F25FA37003C7164 /* GroupsViewController.swift in Sources */,
 				8574806F1EE83B67005F73A2 /* ResetPasswordViewController.swift in Sources */,
 				85E5FF521F0A74AE0053189B /* CreatePostViewController.swift in Sources */,
 				85523DB81EFAABD700F66B53 /* ListFullBleedViewController.swift in Sources */,
