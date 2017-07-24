@@ -32,7 +32,8 @@ extension Message {
         }
         
         self.id = id
-        self.text = body["text"] as? String ?? ""
+        let encodedText = body["text"] as? String ?? ""
+        self.text = String(htmlEncodedString:encodedText) ?? ""
         self.messageSegments = body["messageSegments"] as? [String: Any] ?? nil
         self.sentDate = sendDateISOString.dateFromISOString()!
 

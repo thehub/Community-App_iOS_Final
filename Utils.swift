@@ -206,6 +206,27 @@ extension UITextField{
     }
 }
 
+extension String {
+    
+    init?(htmlEncodedString: String) {
+        guard let data = htmlEncodedString.data(using: .utf8) else {
+            return nil
+        }
+        
+        let options: [String: Any] = [
+            NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+            NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue
+        ]
+        
+        guard let attributedString = try? NSAttributedString(data: data, options: options, documentAttributes: nil) else {
+            return nil
+        }
+        
+        self.init(attributedString.string)
+    }
+    
+}
+
 extension UILabel {
     func setHTMLFromString(text: String) {
         let modifiedFont = String(format:"<span style=\"color:\(self.textColor.toHexString());font-family: \(self.font!.fontName); font-size: \(self.font!.pointSize)\">%@</span>", text) as String

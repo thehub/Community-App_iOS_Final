@@ -97,7 +97,7 @@ extension PushNotification {
             else {
                 return nil
         }
-        self.chatterGroupId = json["RelatedGroup__c"].string  // FIXME: Once neela added this
+        self.chatterGroupId = json["ChatterGroupId__c"].string  // FIXME: Once neela added this
         self.id = id
         self.message = message
         switch type {

@@ -39,7 +39,7 @@ class Comment {
             else {
                 return nil
         }
-        self.body = text
+        self.body = String(htmlEncodedString:text) ?? ""
         self.date = postedTime
         self.id = id
         if let user = User(json: userJson) {
