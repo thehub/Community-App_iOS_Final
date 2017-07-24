@@ -147,8 +147,6 @@ class HomeViewController: UIViewController {
         self.data.append(HomeCellViewModel(section: HomeViewController.Section.events, cellSize: CGSize(width: cellWidth, height: 70)))
         self.data.append(HomeCellViewModel(section: HomeViewController.Section.projects, cellSize: CGSize(width: cellWidth, height: 70)))
         
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(color: UIColor.imaGrapefruit), for: .default)
-//        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white, NSFontAttributeName: UIFont(name:"GTWalsheim", size:18)!]
         self.navigationController?.navigationBar.barStyle = .black
         homeNavBar.barStyle = .black
         
@@ -156,7 +154,6 @@ class HomeViewController: UIViewController {
         homeNavBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white, NSFontAttributeName: UIFont(name:"GTWalsheim", size:18)!]
         
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-
     }
 
     
@@ -167,11 +164,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(color: UIColor.imaGrapefruit), for: .default)
-//        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white, NSFontAttributeName: UIFont(name:"GTWalsheim", size:18)!]
         self.navigationController?.navigationBar.barStyle = .black
-
     }
 
     override func viewWillDisappear(_ animated: Bool) {
