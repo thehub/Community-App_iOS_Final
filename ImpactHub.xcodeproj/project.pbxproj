@@ -113,6 +113,8 @@
 		8516EDD71F25FA37003C7164 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516EDD61F25FA37003C7164 /* GroupsViewController.swift */; };
 		8516EDD81F25FA37003C7164 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516EDD61F25FA37003C7164 /* GroupsViewController.swift */; };
 		8516EDD91F25FA37003C7164 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516EDD61F25FA37003C7164 /* GroupsViewController.swift */; };
+		8516EDDA1F26006D003C7164 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE9EF71ECC902B00291EF5 /* HomeViewController.swift */; };
+		8516EDDB1F26006E003C7164 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE9EF71ECC902B00291EF5 /* HomeViewController.swift */; };
 		851D037C1F02B79700641976 /* FilterGroupingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D037B1F02B79700641976 /* FilterGroupingViewModel.swift */; };
 		851D037D1F02B79700641976 /* FilterGroupingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D037B1F02B79700641976 /* FilterGroupingViewModel.swift */; };
 		851D037E1F02B79700641976 /* FilterGroupingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D037B1F02B79700641976 /* FilterGroupingViewModel.swift */; };
@@ -1736,6 +1738,7 @@
 				853762F81F1639D50053B178 /* NotificationViewModel.swift in Sources */,
 				8533811C1F02C0BA00232E7E /* FilterDetailViewController.swift in Sources */,
 				859F97D41EFBBF01001C0B33 /* GoalDetailTopCell.swift in Sources */,
+				8516EDDA1F26006D003C7164 /* HomeViewController.swift in Sources */,
 				850072241EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
 				856589441F22491900C794B6 /* HomeCell.swift in Sources */,
 				85AD64981F00FCA800F2CCA8 /* BigTitleTopViewModel.swift in Sources */,
@@ -1861,6 +1864,7 @@
 				853762F91F1639D50053B178 /* NotificationViewModel.swift in Sources */,
 				8533811D1F02C0BA00232E7E /* FilterDetailViewController.swift in Sources */,
 				859F97D51EFBBF01001C0B33 /* GoalDetailTopCell.swift in Sources */,
+				8516EDDB1F26006E003C7164 /* HomeViewController.swift in Sources */,
 				850072251EE70D94008A725A /* MessageThreadMePicCell.swift in Sources */,
 				856589451F22491900C794B6 /* HomeCell.swift in Sources */,
 				85AD64991F00FCA800F2CCA8 /* BigTitleTopViewModel.swift in Sources */,

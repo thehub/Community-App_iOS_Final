@@ -712,7 +712,7 @@
         <!--Jobs-->
         <scene sceneID="Xvu-w3-f8O">
             <objects>
-                <viewController storyboardIdentifier="JobsViewController" title="Members" automaticallyAdjustsScrollViewInsets="NO" id="40Q-Rc-Bhn" userLabel="Jobs" customClass="JobsViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="JobsViewController" title="Members" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="40Q-Rc-Bhn" userLabel="Jobs" customClass="JobsViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6Gf-te-2xO"/>
                         <viewControllerLayoutGuide type="bottom" id="j4Z-qa-He3"/>
@@ -933,7 +933,6 @@
                             <constraint firstItem="hlO-zm-QUd" firstAttribute="top" secondItem="cgi-nN-1X3" secondAttribute="bottom" id="xyr-uW-rRP"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="cgi-nN-1X3" id="vfr-Uf-Jh8"/>
@@ -1316,7 +1315,7 @@
         <!--Group View Controller-->
         <scene sceneID="UOO-7R-eeS">
             <objects>
-                <viewController storyboardIdentifier="GroupViewController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="ytP-JQ-5XJ" customClass="GroupViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GroupViewController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="ytP-JQ-5XJ" customClass="GroupViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h6w-ro-TIc"/>
                         <viewControllerLayoutGuide type="bottom" id="pqR-Rb-Nin"/>
@@ -1429,7 +1428,7 @@
         <!--Events-->
         <scene sceneID="uPY-qT-eKA">
             <objects>
-                <viewController storyboardIdentifier="EventsViewController" title="Events" automaticallyAdjustsScrollViewInsets="NO" id="zuP-v2-6RO" customClass="EventsViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventsViewController" title="Events" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="zuP-v2-6RO" customClass="EventsViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6kX-tB-u2X"/>
                         <viewControllerLayoutGuide type="bottom" id="ja0-3b-5m8"/>
@@ -1906,7 +1905,7 @@
         <!--Groups-->
         <scene sceneID="XsZ-kY-CPL">
             <objects>
-                <viewController storyboardIdentifier="GroupsViewController" title="Groups" automaticallyAdjustsScrollViewInsets="NO" id="wUL-Tv-wok" customClass="GroupsViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GroupsViewController" title="Groups" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="wUL-Tv-wok" customClass="GroupsViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b2X-Xg-efB"/>
                         <viewControllerLayoutGuide type="bottom" id="Hxh-qh-udy"/>
@@ -2057,14 +2056,14 @@
         <image name="tabBarHome" width="22" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="S7V-vf-Xt8"/>
-        <segue reference="tPM-PS-46L"/>
+        <segue reference="Nsv-q8-zjz"/>
         <segue reference="zv2-am-uws"/>
-        <segue reference="wU7-Qa-AtJ"/>
+        <segue reference="r4W-Rs-mKq"/>
         <segue reference="E6m-rq-9b6"/>
         <segue reference="RAM-VD-ZBW"/>
+        <segue reference="C30-D0-cHv"/>
         <segue reference="u3D-lG-cq4"/>
-        <segue reference="0Kb-id-67l"/>
+        <segue reference="FiV-U6-Klt"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>
