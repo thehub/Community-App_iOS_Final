@@ -14,6 +14,7 @@ class ProjectViewController: ListFullBleedViewController {
     var project: Project!
     var showPushNotification: PushNotification?
 
+    var posts = [Post]()
     
     var indexPathToInsertNewPostsAt = IndexPath(item: 2, section: 0)
 
@@ -63,6 +64,7 @@ class ProjectViewController: ListFullBleedViewController {
         firstly {
             APIClient.shared.getGroupPosts(groupID: self.project.chatterId)
             }.then { posts -> Void in
+                self.posts = posts // cache here, so below we can check these if we're coming from a push notification
                 posts.forEach({ (post) in
                     self.projectFeedData.append(MemberFeedItemViewModel(post: post, comment: nil, delegate: self, cellSize: CGSize(width: cellWidth, height: 150)))
                 })
@@ -101,6 +103,32 @@ class ProjectViewController: ListFullBleedViewController {
                     self.collectionView?.alpha = 1
                     super.connectButton?.alpha = 1
                 }, completion: { (_) in
+                    
+                    
+                    // If we're showing a push notification, push into respective view from here...
+                    if let showPushNotification = self.showPushNotification {
+                        switch showPushNotification.kind {
+                        case .comment(let id, let feedElementId, let chatterGroupId):
+                            // Find comment in posts
+                            var postToShowCommentsFor: Post?
+                            for post in self.posts {
+                                if let comment = post.comments.filter({$0.id == feedElementId}).first {
+                                    // We found it
+                                    postToShowCommentsFor = post
+                                }
+                            }
+                            if postToShowCommentsFor != nil {
+                                self.postToShowCommentsFor = postToShowCommentsFor
+                                self.performSegue(withIdentifier: "ShowComments", sender: self)
+                            }
+                            break
+                        case .likeComment(let commentId):
+                            print("liked comment")
+                        default:
+                            break
+                        }
+                    }
+
                     
                 })
             }.catch { error in

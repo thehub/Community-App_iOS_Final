@@ -67,6 +67,7 @@
                         <outlet property="collectionView" destination="X2o-Bm-8Nm" id="RgV-Q7-qIm"/>
                         <segue destination="jE7-48-XCU" kind="show" identifier="ShowMember" id="tbH-QX-320"/>
                         <segue destination="1vw-pR-Yke" kind="show" identifier="ShowGroup" id="GXJ-Qg-FXM"/>
+                        <segue destination="erS-B1-kub" kind="show" identifier="ShowProject" id="NEt-XG-ctd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HNh-n1-Zwn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -87,7 +88,15 @@
                 <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="GroupViewController" id="1vw-pR-Yke" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nZf-aP-j2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1265" y="309"/>
+            <point key="canvasLocation" x="1215" y="233"/>
+        </scene>
+        <!--ProjectViewController-->
+        <scene sceneID="doD-AR-kch">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="ProjectViewController" id="erS-B1-kub" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oXn-05-Yk6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1134" y="326"/>
         </scene>
         <!--Navigation View Controller-->
         <scene sceneID="e0C-vI-SVo">
