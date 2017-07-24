@@ -12,12 +12,23 @@ import PromiseKit
 class GroupViewController: ListFullBleedViewController {
 
     var group: Group!
+    var showPushNotification: PushNotification?
     
     var indexPathToInsertNewPostsAt = IndexPath(item: 2, section: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let group = self.group {
+            build(group: group)
+        }
+        else {
+            print("ERROR: No group was set?")
+        }
+        
+    }
+    
+    func build(group: Group) {
         self.title = group.name
         
         super.chatterGroupId = group.chatterId
@@ -26,12 +37,12 @@ class GroupViewController: ListFullBleedViewController {
         collectionView.register(UINib.init(nibName: MemberFeedItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberFeedItemViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: TitleViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: TitleViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: GroupViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: GroupViewModel.cellIdentifier)
-
+        
         data.append(GroupDetailTopViewModel(group: group, cellSize: .zero)) // this will pick the full height instead
         data.append(TitleViewModel(title: "DISCUSSION", cellSize: CGSize(width: view.frame.width, height: 70)))
         // Posts starts from this postion, so when adding new they are inserted here in delegate indexPathToInsertNewPostsAt
         let countBefore = indexPathToInsertNewPostsAt.item
-
+        
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
             APIClient.shared.getGroupPosts(groupID: group.chatterId)
@@ -39,6 +50,29 @@ class GroupViewController: ListFullBleedViewController {
                 posts.forEach({ (post) in
                     self.data.append(MemberFeedItemViewModel(post: post, comment: nil, delegate: self, cellSize: CGSize(width: self.view.frame.width, height: 150)))
                 })
+                // If we're showing a push notification, push into respective view from here...
+                if let showPushNotification = self.showPushNotification {
+                    switch showPushNotification.kind {
+                    case .comment(let id, let feedElementId, let chatterGroupId):
+                        // Find comment in posts
+                        var postToShowCommentsFor: Post?
+                        for post in posts {
+                            if let comment = post.comments.filter({$0.id == feedElementId}).first {
+                                // We found it
+                                postToShowCommentsFor = post
+                            }
+                        }
+                        if postToShowCommentsFor != nil {
+                            self.postToShowCommentsFor = postToShowCommentsFor
+                            self.performSegue(withIdentifier: "ShowComments", sender: self)
+                        }
+                        break
+                    case .likeComment(let commentId):
+                        print("liked comment")
+                    default:
+                        break
+                    }
+                }
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 // Add the new data
@@ -50,8 +84,8 @@ class GroupViewController: ListFullBleedViewController {
             }.catch { error in
                 debugPrint(error.localizedDescription)
         }
-        
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

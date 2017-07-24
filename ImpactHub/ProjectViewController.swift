@@ -12,6 +12,8 @@ import PromiseKit
 class ProjectViewController: ListFullBleedViewController {
 
     var project: Project!
+    var showPushNotification: PushNotification?
+
     
     var indexPathToInsertNewPostsAt = IndexPath(item: 2, section: 0)
 

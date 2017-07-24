@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZGB-t5-Myg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZGB-t5-Myg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="X2o-Bm-8Nm">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="15" maxX="0.0" maxY="100"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eEn-9l-8mq">
@@ -66,6 +66,7 @@
                     <connections>
                         <outlet property="collectionView" destination="X2o-Bm-8Nm" id="RgV-Q7-qIm"/>
                         <segue destination="jE7-48-XCU" kind="show" identifier="ShowMember" id="tbH-QX-320"/>
+                        <segue destination="1vw-pR-Yke" kind="show" identifier="ShowGroup" id="GXJ-Qg-FXM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HNh-n1-Zwn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -80,6 +81,14 @@
             </objects>
             <point key="canvasLocation" x="1227" y="138"/>
         </scene>
+        <!--GroupViewController-->
+        <scene sceneID="FAj-JN-h3f">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="GroupViewController" id="1vw-pR-Yke" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nZf-aP-j2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1265" y="309"/>
+        </scene>
         <!--Navigation View Controller-->
         <scene sceneID="e0C-vI-SVo">
             <objects>
@@ -89,7 +98,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eAp-fo-tKX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="eAp-fo-tKX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

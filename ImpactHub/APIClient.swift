@@ -18,10 +18,13 @@ class APIClient {
     // id, email,firstname,lastname, ProfilePic__c, accountid,Profession__c, Impact_Hub_Cities__c, User__c, About_Me__c
     
     struct SelectFields {
-        static let GROUP = "id, name, CountOfMembers__c, ImageURL__c, Group_Desc__c, Impact_Hub_Cities__c, ChatterGroupId__c"
+        static let GROUP = "id, name, CountOfMembers__c, ImageURL__c, Group_Desc__c, Impact_Hub_Cities__c, ChatterGroupId__c, Directory_Style__c"
+        static let PROJECT = "id,CreatedById, name,Related_Impact_Goal__c,ChatterGroupId__c ,Group_Desc__c, ImageURL__c, Directory_Style__c, Organisation__r.id, Organisation__r.Number_of_Employees__c, Organisation__r.Impact_Hub_Cities__c, Organisation__r.name"
+        // When we're asking for either a Project or a Group, merge both select values. Doing it code didn't work...
+        static let GROUP_PROJECT = "id, name, CountOfMembers__c, ImageURL__c, Group_Desc__c, Impact_Hub_Cities__c, ChatterGroupId__c, Directory_Style__c, CreatedById, Related_Impact_Goal__c, Organisation__r.id, Organisation__r.Number_of_Employees__c, Organisation__r.Impact_Hub_Cities__c, Organisation__r.name"
+        
         static let GOAL = "Directory__c,Goal_Summary__c,Goal__c,Id,Name"
         static let CONTACT = "id, firstname,lastname, ProfilePic__c, Profession__c, Impact_Hub_Cities__c, User__c,Skills__c, About_Me__c, Interested_SDG__c,Twitter__c,Instagram__c,Facebook__c,Linked_In__c"
-        static let PROJECT = "id,CreatedById, name,Related_Impact_Goal__c,ChatterGroupId__c ,Group_Desc__c, ImageURL__c, Directory_Style__c, Organisation__r.id, Organisation__r.Number_of_Employees__c, Organisation__r.Impact_Hub_Cities__c, Organisation__r.name"
         static let COMPANY = "id, name, Number_of_Employees__c, Impact_Hub_Cities__c, Sector_Industry__c, Logo_Image_Url__c, Banner_Image_Url__c, Twitter__c, Instagram__c, Facebook__c, LinkedIn__c, Website, About_Us__c"
     }
 
@@ -350,6 +353,44 @@ class APIClient {
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Group(json: $0) }
                     fullfill(items)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
+    // When a push comes if for a comment, we don't know if it's on a project or a group, so incude this in the query, then return a tuple ith only one of them set
+    func getGroupOrProject(chatterGroupId: String) -> Promise<(group: Group?, project: Project?)> {
+        return Promise { fullfill, reject in
+            // Since we're asking for either a Project or a Group, merge both select values
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.GROUP_PROJECT) FROM Directory__c WHERE ChatterGroupId__c ='\(chatterGroupId)'", fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON(result!)
+//                print(jsonResult)
+                if let record = jsonResult["records"].array?.first {
+                    if record["Directory_Style__c"].string == "Group" {
+                        if let group = Group(json: record) {
+                            fullfill((group:group, project: nil))
+                        }
+                        else {
+                            reject(MyError.Error("No group found"))
+                        }
+                    }
+                    else if record["Directory_Style__c"].string == "Project" {
+                        if let project = Project(json: record) {
+                            fullfill((group:nil, project: project))
+                        }
+                        else {
+                            reject(MyError.Error("No project found"))
+                        }
+                    }
+                    else {
+                        reject(MyError.JSONError)
+                    }
                 }
                 else {
                     reject(MyError.JSONError)
@@ -748,8 +789,7 @@ class APIClient {
                 reject(MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON.init(result!)
-                print(jsonResult)
-
+//                print(jsonResult)
                 if let json = jsonResult["elements"].array {
                     let items = json.flatMap { Post(json: $0) }
                     fullfill(items)

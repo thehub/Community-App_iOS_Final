@@ -817,6 +817,7 @@
 				850B700D1EFBF1CA00596315 /* GroupCollectionViewCell.xib */,
 				850B70181EFBF84600596315 /* GroupDetailTopCell.swift */,
 				850B70191EFBF84600596315 /* GroupDetailTopCell.xib */,
+				85E5FF531F0A8D750053189B /* CommentsViewController.swift */,
 			);
 			name = Groups;
 			sourceTree = "<group>";
@@ -1094,7 +1095,6 @@
 				8516551E1EFD5F0200002786 /* AddPostViewController.swift */,
 				850C142A1F03ADED00F00DAE /* FilterableDelegate.swift */,
 				85E5FF4F1F0A74AE0053189B /* CreatePostViewController.swift */,
-				85E5FF531F0A8D750053189B /* CommentsViewController.swift */,
 				85DE9EFA1ECC9D2700291EF5 /* Members */,
 				858C588E1EF927C100136DAC /* Projects */,
 				8570C1E61ECF035700FA1CE9 /* Companies */,

@@ -30,7 +30,8 @@ class CommentsViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.title = "Comments"
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
-        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+
         collectionView.register(UINib.init(nibName: MemberFeedItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberFeedItemViewModel.cellIdentifier)
 
         if let post = post {

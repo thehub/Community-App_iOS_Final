@@ -62,6 +62,8 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
     }
 
     
+    
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > 200 && !(topMenu?.isShow ?? false) {
             topMenu?.show()
@@ -114,7 +116,6 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
         }
         
         self.scrollViewDidScroll(self.collectionView)
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -125,14 +126,15 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
             if self.collectionView.contentOffset.y > 50 {
                 self.tabBarController?.tabBar.isHidden = false
             }
+            // If we're pushing back after pushing into Comments vc for instance, while in fuillscreen (from a push notification)
+            if self.collectionView.contentOffset.y == 0 {
+                self.navigationController?.setNavigationBarHidden(true, animated: true)
+            }
         }
-
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        
     }
 
     

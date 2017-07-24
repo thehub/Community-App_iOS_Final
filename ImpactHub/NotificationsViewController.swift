@@ -71,6 +71,9 @@ class NotificationsViewController: UIViewController {
     }
     
     var selectedId: String?
+    var showPushNotification: PushNotification?
+    var selectedGroup: Group?
+    var selectedProject: Project?
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: self)
@@ -79,15 +82,55 @@ class NotificationsViewController: UIViewController {
                 vc.userId = selectedId // FIXME ?
             }
         }
+        else if segue.identifier == "ShowGroup" {
+            if let vc = segue.destination as? GroupViewController, let showPushNotification = showPushNotification, let selectedGroup = self.selectedGroup {
+                vc.group = selectedGroup
+                vc.showPushNotification = showPushNotification
+            }
+        }
+        else if segue.identifier == "ShowProject" {
+            if let vc = segue.destination as? ProjectViewController, let showPushNotification = showPushNotification, let selectedProject = self.selectedProject {
+                vc.project = selectedProject
+                vc.showPushNotification = showPushNotification
+            }
+        }
+
     }
+    
+    var inTransit = false
 }
 
 extension NotificationsViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if inTransit {
+            return
+        }
         if let vm = data[indexPath.item] as? NotificationViewModel {
             
             switch vm.pushNotification.kind {
             case .comment(let id, let feedElementId, let chatterGroupId):
+                self.selectedId = chatterGroupId
+                self.showPushNotification = vm.pushNotification
+                // Check if we're pushing to Group or to Project
+                UIApplication.shared.isNetworkActivityIndicatorVisible = true
+                self.inTransit = true
+                firstly {
+                    APIClient.shared.getGroupOrProject(chatterGroupId: chatterGroupId)
+                    }.then { item -> Void in
+                        if let group = item.group {
+                            self.selectedGroup = group
+                            self.performSegue(withIdentifier: "ShowGroup", sender: self)
+                        }
+                        else if let project = item.project {
+                            self.selectedProject = project
+                            self.performSegue(withIdentifier: "ShowProject", sender: self)
+                        }
+                    }.always {
+                        self.inTransit = false
+                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    }.catch { error in
+                        debugPrint(error.localizedDescription)
+                }
                 break
             case .contactRequestApproved(let contactId):
                 self.selectedId = contactId
