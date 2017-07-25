@@ -68,7 +68,7 @@ class GroupViewController: ListFullBleedViewController {
                         // Find comment in posts
                         var postToShowCommentsFor: Post?
                         for post in self.posts {
-                            if let comment = post.comments.filter({$0.id == feedElementId}).first {
+                            if let comment = post.comments.filter({$0.id == id}).first {
                                 // We found it
                                 postToShowCommentsFor = post
                             }

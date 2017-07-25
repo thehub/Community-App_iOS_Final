@@ -19,7 +19,7 @@ class TabBarController: UITabBarController {
         self.tabBar.selectionIndicatorImage = UIImage().createSelectionIndicator(color: UIColor.imaGrapefruit, size: CGSize(width: 22, height: tabBar.frame.height), lineWidth: 3.0)
         
         self.observer = NotificationCenter.default.addObserver(forName: NSNotification.Name.openPush, object: nil, queue: OperationQueue.main) { note in
-            if let pushNotification = note.userInfo?["pushNotification"] as? PushNotification.Kind {
+            if let pushNotification = note.userInfo?["pushNotification"] as? PushNotification {
                 self.handlePushNotification(pushNotification)
             }
         }
@@ -29,47 +29,116 @@ class TabBarController: UITabBarController {
         }
     }
 
+    var inTransit = false
     
-    
-    func handlePushNotification(_ pushNotification: PushNotification.Kind) {
+    func handlePushNotification(_ pushNotification: PushNotification) {
         AppDelegate.pushNotification = nil
-        switch pushNotification {
+        if inTransit {
+            return
+        }
+        switch pushNotification.kind {
             
         case .comment(let id, let feedElementId, let chatterGroupId):
-//            self.selectedIndex = 0
-//            let nvc = self.viewControllers?[self.selectedIndex] as! UINavigationController
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let vc = storyboard.instantiateViewController(withIdentifier: "GroupNewsItem") as! GroupNewsItemViewController
-//            vc.postId = feedElementId
-//            nvc.pushViewController(vc, animated: true)
-//            AppDelegate.pushNotification = nil
+            // Check if we're pushing to Group or to Project
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            self.inTransit = true
+            firstly {
+                APIClient.shared.getGroupOrProject(chatterGroupId: chatterGroupId)
+                }.then { item -> Void in
+                    if let group = item.group {
+                        let nvc = self.viewControllers?[self.selectedIndex] as! UINavigationController
+                        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+                        let vc = storyboard.instantiateViewController(withIdentifier: "GroupViewController") as! GroupViewController
+                        vc.group = group
+                        vc.showPushNotification = pushNotification
+                        nvc.pushViewController(vc, animated: true)
+                    }
+                    else if let project = item.project {
+                        let nvc = self.viewControllers?[self.selectedIndex] as! UINavigationController
+                        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+                        let vc = storyboard.instantiateViewController(withIdentifier: "ProjectViewController") as! ProjectViewController
+                        vc.project = project
+                        vc.showPushNotification = pushNotification
+                        nvc.pushViewController(vc, animated: true)
+                    }
+                }.always {
+                    self.inTransit = false
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }.catch { error in
+                    debugPrint(error.localizedDescription)
+            }
             break
-            
         case .postMention(let postId, let chatterGroupId):
             debugPrint(postId)
-//            self.selectedIndex = 0
-//            let nvc = self.viewControllers?[self.selectedIndex] as! UINavigationController
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let vc = storyboard.instantiateViewController(withIdentifier: "GroupNewsItem") as! GroupNewsItemViewController
-//            vc.postId = postId
-//            nvc.pushViewController(vc, animated: true)
-//            AppDelegate.pushNotification = nil
             break
         case .commentMention(let commentId, let chatterGroupId):
             break
         case .likePost(let postId, let chatterGroupId):
-            debugPrint(postId)
+             // Check if we're pushing to Group or to Project
+             UIApplication.shared.isNetworkActivityIndicatorVisible = true
+             self.inTransit = true
+             firstly {
+                APIClient.shared.getGroupOrProject(chatterGroupId: chatterGroupId)
+                }.then { item -> Void in
+                    if let group = item.group {
+                        let nvc = self.viewControllers?[self.selectedIndex] as! UINavigationController
+                        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+                        let vc = storyboard.instantiateViewController(withIdentifier: "GroupViewController") as! GroupViewController
+                        vc.group = group
+                        vc.showPushNotification = pushNotification
+                        nvc.pushViewController(vc, animated: true)
+                    }
+                    else if let project = item.project {
+                        let nvc = self.viewControllers?[self.selectedIndex] as! UINavigationController
+                        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+                        let vc = storyboard.instantiateViewController(withIdentifier: "ProjectViewController") as! ProjectViewController
+                        vc.project = project
+                        vc.showPushNotification = pushNotification
+                        nvc.pushViewController(vc, animated: true)
+                    }
+                }.always {
+                    self.inTransit = false
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }.catch { error in
+                    debugPrint(error.localizedDescription)
+             }
             break
         case .likeComment(let commentId, let chatterGroupId):
-            break
-        case .privateMessage(let postId):
+            // Check if we're pushing to Group or to Project
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            self.inTransit = true
+            firstly {
+                APIClient.shared.getGroupOrProject(chatterGroupId: chatterGroupId)
+                }.then { item -> Void in
+                    if let group = item.group {
+                        let nvc = self.viewControllers?[self.selectedIndex] as! UINavigationController
+                        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+                        let vc = storyboard.instantiateViewController(withIdentifier: "GroupViewController") as! GroupViewController
+                        vc.group = group
+                        vc.showPushNotification = pushNotification
+                        nvc.pushViewController(vc, animated: true)
+                    }
+                    else if let project = item.project {
+                        let nvc = self.viewControllers?[self.selectedIndex] as! UINavigationController
+                        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+                        let vc = storyboard.instantiateViewController(withIdentifier: "ProjectViewController") as! ProjectViewController
+                        vc.project = project
+                        vc.showPushNotification = pushNotification
+                        nvc.pushViewController(vc, animated: true)
+                    }
+                }.always {
+                    self.inTransit = false
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }.catch { error in
+                    debugPrint(error.localizedDescription)
+            }
+            break        case .privateMessage(let postId):
             debugPrint(postId)
         case .contactRequestApproved(let userId):
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
             firstly {
                 ContactRequestManager.shared.refresh()
                 }.then { contactRequests -> Void in
-//                    self.selectedIndex = 0
                     let nvc = self.viewControllers?[self.selectedIndex] as! UINavigationController
                     let storyboard = UIStoryboard(name: "Home", bundle: nil)
                     let vc = storyboard.instantiateViewController(withIdentifier: "MemberViewController") as! MemberViewController
@@ -85,21 +154,11 @@ class TabBarController: UITabBarController {
             firstly {
                 ContactRequestManager.shared.refresh()
                 }.then { contactRequests -> Void in
-                    // Incomming
-//                    let incomming = ContactRequestManager.shared.getIncommingContactRequests()
-//                    incomming.forEach({ (contactRequest) in
-//                        if let member = members.filter ({$0.id == contactRequest.contactFromId }).first {
-//                            member.contactRequest = contactRequest
-//                            let viewModel = ContactIncommingViewModel(member: member, contactCellDelegate: self, cellSize: CGSize(width: cellWidth, height: 215))
-//                            self.dataIncomming.append(viewModel)
-//                        }
-//                    })
                 }.then {
                     APIClient.shared.getMember(userId: userId)
                 }.then { member -> Void in
                     let contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
                     member.contactRequest = contactRequest
-  //                  self.selectedIndex = 0
                     let nvc = self.viewControllers?[self.selectedIndex] as! UINavigationController
                     let storyboard = UIStoryboard(name: "Messages", bundle: nil)
                     let vc = storyboard.instantiateViewController(withIdentifier: "ContactIncommingViewController") as! ContactIncommingViewController

@@ -134,40 +134,42 @@ extension PushNotification {
 }
 
 extension PushNotification {
-    static func createFromUserInfo(_ userInfo: [AnyHashable: Any]) -> PushNotification.Kind? {
+    // Creates a PiushNotification form the incoming opush pyaload, so we can pass this around and open the correct view. This is handled in TabBarController.swft.
+    // Note, PushNotification object is the same object used when loading in the istory of push notifications in the NotificationsViewController form the server. Since the payload being sent out int he push as opposed to when loaded form server won't have all the data we create an object with the other data set to nil or "". This way we can still get the relevant .kind properties and deeplink.
+    static func createFromUserInfo(_ userInfo: [AnyHashable: Any]) -> PushNotification? {
         if let type = userInfo["type"] as? String {
             switch type.lowercased() {
             case "comment":
                 if let id = userInfo["id"] as? String, let feedElementId = userInfo["feedElementId"] as? String, let chatterGroupId = userInfo["relatedGroup"] as? String {
-                    return PushNotification.Kind.comment(id: id, feedElementId: feedElementId, chatterGroupId: chatterGroupId)
+                    return PushNotification(id: "", fromUserId: "", isRead: false, relatedId: "", chatterGroupId: chatterGroupId, createdDate: Date(), profilePic: nil, kind: PushNotification.Kind.comment(id: id, feedElementId: feedElementId, chatterGroupId: chatterGroupId), message: "")
                 }
                 else {
                     return nil
                 }
             case "postmention", "commentmention":
                 if let postId = userInfo["postId"] as? String, let chatterGroupId = userInfo["relatedGroup"] as? String {
-                    return PushNotification.Kind.postMention(postId: postId, chatterGroupId: chatterGroupId)
+                    return PushNotification(id: "", fromUserId: "", isRead: false, relatedId: "", chatterGroupId: chatterGroupId, createdDate: Date(), profilePic: nil, kind: PushNotification.Kind.postMention(postId: postId, chatterGroupId: chatterGroupId), message: "")
                 }
                 else {
                     return nil
                 }
             case "dmrequestcreate":
                 if let relatedId = userInfo["relatedId"] as? String {
-                    return PushNotification.Kind.contactRequestIncomming(fromUserId: relatedId)
+                    return PushNotification(id: "", fromUserId: "", isRead: false, relatedId: "", chatterGroupId: "", createdDate: Date(), profilePic: nil, kind: PushNotification.Kind.contactRequestIncomming(fromUserId: relatedId), message: "")
                 }
                 else {
                     return nil
                 }
             case "dmrequestapproved":
                 if let relatedId = userInfo["relatedId"] as? String {
-                    return PushNotification.Kind.contactRequestApproved(fromUserId: relatedId)
+                    return PushNotification(id: "", fromUserId: "", isRead: false, relatedId: "", chatterGroupId: "", createdDate: Date(), profilePic: nil, kind: PushNotification.Kind.contactRequestApproved(fromUserId: relatedId), message: "")
                 }
                 else {
                     return nil
                 }
             case "likepost":
                 if let postId = userInfo["postId"] as? String, let chatterGroupId = userInfo["relatedGroup"] as? String {
-                    return PushNotification.Kind.likePost(postId: postId, chatterGroupId: chatterGroupId)
+                    return PushNotification(id: "", fromUserId: "", isRead: false, relatedId: "", chatterGroupId: chatterGroupId, createdDate: Date(), profilePic: nil, kind: PushNotification.Kind.likePost(postId: postId, chatterGroupId: chatterGroupId), message: "")
                 }
                 else {
                     return nil

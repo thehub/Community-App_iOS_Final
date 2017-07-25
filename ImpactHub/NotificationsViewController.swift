@@ -137,7 +137,30 @@ extension NotificationsViewController {
             case .contactRequestIncomming(let contactId):
                 self.selectedId = contactId
                 performSegue(withIdentifier: "ShowMember", sender: self)
-            case .likePost(let postId, let chatterGroupId), .likePost(let postId, let chatterGroupId):
+            case .likePost(let postId, let chatterGroupId):
+                self.showPushNotification = vm.pushNotification
+                // Check if we're pushing to Group or to Project
+                UIApplication.shared.isNetworkActivityIndicatorVisible = true
+                self.inTransit = true
+                firstly {
+                    APIClient.shared.getGroupOrProject(chatterGroupId: chatterGroupId)
+                    }.then { item -> Void in
+                        if let group = item.group {
+                            self.selectedGroup = group
+                            self.performSegue(withIdentifier: "ShowGroup", sender: self)
+                        }
+                        else if let project = item.project {
+                            self.selectedProject = project
+                            self.performSegue(withIdentifier: "ShowProject", sender: self)
+                        }
+                    }.always {
+                        self.inTransit = false
+                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    }.catch { error in
+                        debugPrint(error.localizedDescription)
+                }
+                break
+            case .likeComment(let commentId, let chatterGroupId):
                 self.showPushNotification = vm.pushNotification
                 // Check if we're pushing to Group or to Project
                 UIApplication.shared.isNetworkActivityIndicatorVisible = true

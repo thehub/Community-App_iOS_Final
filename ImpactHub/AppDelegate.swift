@@ -150,7 +150,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     
     
-    static var pushNotification: PushNotification.Kind?
+    static var pushNotification: PushNotification?
     
     func handleNotification(userInfo: [AnyHashable: Any]) {
         debugPrint(userInfo)
