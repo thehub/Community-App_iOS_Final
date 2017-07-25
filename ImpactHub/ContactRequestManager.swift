@@ -35,7 +35,7 @@ class ContactRequestManager {
         return connectedContactRequests
     }
 
-    func getRejectedContactRequests() -> [DMRequest] {
+    func getDeclinedContactRequests() -> [DMRequest] {
         let connectedContactRequests = ContactRequestManager.shared.contactRequests.filter({$0.status == .declined })
         return connectedContactRequests
     }

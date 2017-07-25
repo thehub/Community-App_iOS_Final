@@ -99,15 +99,16 @@ class ContactsViewController: ListWithSearchViewController {
                 })
                 
                 // Declined
-                let rejected = ContactRequestManager.shared.getRejectedContactRequests()
-                rejected.forEach({ (contactRequest) in
-//                    if contactRequest.contactToId != SessionManager.shared.me?.member.id {
+                let declined = ContactRequestManager.shared.getDeclinedContactRequests()
+                declined.forEach({ (contactRequest) in
+                    // Only show this where the to user is the me, as if the from user declines it it'll be deleted, and in this case only the to user should be able to change the decline...
+                    if contactRequest.contactToId == SessionManager.shared.me?.member.id {
                         if let member = members.filter ({$0.id == contactRequest.contactFromId }).first {
                             member.contactRequest = contactRequest
                             let viewModel = ContactDeclinedViewModel(member: member, contactCellDelegate: self, cellSize: CGSize(width: cellWidth, height: 105))
                             self.dataRejected.append(viewModel)
                         }
-//                    }
+                    }
                 })
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false

@@ -638,8 +638,32 @@ class APIClient {
             request.endpoint = "/services/apexrest/UpdateDMRequest"
             request.path = "/services/apexrest/UpdateDMRequest"
             request.setCustomRequestBodyData(body!, contentType: "application/json")
-//            request.setHeaderValue("\(u_long(body?.count ?? 0))", forHeaderName: "Content-Length")
-            
+            SFRestAPI.sharedInstance().send(request, fail: { (error) in
+                print(error?.localizedDescription as Any)
+                reject(MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON.init(result!)
+                debugPrint(jsonResult)
+                if jsonResult.string == "Success" {
+                    fullfill("ok")
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
+    func deleteDMRequest(id:String) -> Promise<String> {
+        
+        return Promise { fullfill, reject in
+            let query: [String: String] = ["DM_id" : id]
+            debugPrint(query)
+            let body = SFJsonUtils.jsonDataRepresentation(query)
+            let request = SFRestRequest(method: .POST, path: "/services/apexrest/DeleteDMRequest", queryParams: nil)
+            request.endpoint = "/services/apexrest/DeleteDMRequest"
+            request.path = "/services/apexrest/DeleteDMRequest"
+            request.setCustomRequestBodyData(body!, contentType: "application/json")
             SFRestAPI.sharedInstance().send(request, fail: { (error) in
                 print(error?.localizedDescription as Any)
                 reject(MyError.JSONError)

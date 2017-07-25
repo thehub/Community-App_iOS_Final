@@ -69,19 +69,39 @@ class ContactCell: UICollectionViewCell {
         inTransit = true
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        firstly {
-            APIClient.shared.updateDMRequest(id: contactRequest.id, status: DMRequest.Satus.declined, pushUserId: vm.member.userId)
-            }.then { result -> Void in
-                contactRequest.status = .declined
-                self.contactCellDelegate?.didDecline(member: self.vm.member)
-            }.always {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                self.inTransit = false
-            }.catch { error in
-                debugPrint(error.localizedDescription)
-                let alert = UIAlertController(title: "Error", message: "Could not decline request. Please try again.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+        
+        // If we are the to user, put it into declined state, so we later can change out mind
+        if contactRequest.contactToId == SessionManager.shared.me?.member.id {
+            firstly {
+                APIClient.shared.updateDMRequest(id: contactRequest.id, status: DMRequest.Satus.declined, pushUserId: vm.member.userId)
+                }.then { result -> Void in
+                    contactRequest.status = .declined
+                    self.contactCellDelegate?.didDecline(member: self.vm.member)
+                }.always {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    self.inTransit = false
+                }.catch { error in
+                    debugPrint(error.localizedDescription)
+                    let alert = UIAlertController(title: "Error", message: "Could not decline request. Please try again.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+            }
+        }
+        // If we are the sender, just delete it...
+        else {
+            firstly {
+                APIClient.shared.deleteDMRequest(id: contactRequest.id)
+                }.then { result -> Void in
+                    self.contactCellDelegate?.didDecline(member: self.vm.member)
+                }.always {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    self.inTransit = false
+                }.catch { error in
+                    debugPrint(error.localizedDescription)
+                    let alert = UIAlertController(title: "Error", message: "Could not decline request. Please try again.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
