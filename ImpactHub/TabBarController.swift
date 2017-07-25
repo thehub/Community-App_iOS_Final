@@ -23,8 +23,8 @@ class TabBarController: UITabBarController {
                 self.handlePushNotification(pushNotification)
             }
         }
-
-        if let pushNotification = AppDelegate.pushNotification {
+        
+        if let pushNotification = SessionManager.shared.pushNotification {
             self.handlePushNotification(pushNotification)
         }
     }
@@ -32,7 +32,7 @@ class TabBarController: UITabBarController {
     var inTransit = false
     
     func handlePushNotification(_ pushNotification: PushNotification) {
-        AppDelegate.pushNotification = nil
+        SessionManager.shared.pushNotification = nil
         if inTransit {
             return
         }

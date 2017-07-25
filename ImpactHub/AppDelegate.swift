@@ -87,7 +87,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         loginViewController.navBarTextColor = UIColor.darkGray
         
         SalesforceSDKManager.shared().launch()
-
+        
+        if let remoteNotification = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? NSDictionary {
+            handleNotification(userInfo: remoteNotification as! [AnyHashable : Any])
+        }
+        
         return true
     }
 
@@ -150,14 +154,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     
     
-    static var pushNotification: PushNotification?
-    
     func handleNotification(userInfo: [AnyHashable: Any]) {
         debugPrint(userInfo)
         if let pushNotification = PushNotification.createFromUserInfo(userInfo) {
             let userInfoToSend = ["pushNotification" : pushNotification]
             NotificationCenter.default.post(name: .openPush, object: nil, userInfo: userInfoToSend)
-            AppDelegate.pushNotification = pushNotification
+            SessionManager.shared.pushNotification = pushNotification
         }
         else {
             debugPrint("Push type unknown")
