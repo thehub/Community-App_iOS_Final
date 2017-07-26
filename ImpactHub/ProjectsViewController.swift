@@ -12,7 +12,6 @@ import SalesforceSDKCore
 
 class ProjectsViewController: ListWithSearchViewController {
 
-    var allData = [CellRepresentable]()
     var projectsYouManageData = [CellRepresentable]()
     var yourProjectsData = [CellRepresentable]()
 
@@ -38,12 +37,12 @@ class ProjectsViewController: ListWithSearchViewController {
                 let cellWidth: CGFloat = self.view.frame.width
                 items.forEach({ (project) in
                     let viewModel = ProjectViewModel(project: project, cellSize: CGSize(width: cellWidth, height: 370))
-                    self.allData.append(viewModel)
+                    self.dataAll.append(viewModel)
                     if viewModel.project.createdById == SessionManager.shared.me?.member.id {
                         self.projectsYouManageData.append(viewModel)
                     }
                 })
-                self.data = self.allData
+                self.data = self.dataAll
             }.then {_ in 
                 APIClient.shared.getProjects(contactId: SessionManager.shared.me?.member.id ?? "")
             }.then { yourProjects -> Void in
@@ -89,14 +88,17 @@ class ProjectsViewController: ListWithSearchViewController {
         self.collectionView.alpha = 0
         
         if index == 0 {
-            self.data = self.allData
+            self.cancelSearching()
+            self.data = self.dataAll
             self.collectionView.reloadData()
         }
         else if index == 1 {
+            self.cancelSearching()
             self.data = self.projectsYouManageData
             self.collectionView.reloadData()
         }
         else if index == 2 {
+            self.cancelSearching()
             self.data = self.yourProjectsData
             self.collectionView.reloadData()
         }
@@ -113,6 +115,19 @@ class ProjectsViewController: ListWithSearchViewController {
         }
     }
     
+    // MARK: Search
+    override func filterContentForSearchText(searchText:String) -> [CellRepresentable] {
+        return self.dataAll.filter({ (item) -> Bool in
+            if let vm = item as? ProjectViewModel {
+                let companyName = vm.project.companyName ?? ""
+                let locationName = vm.project.locationName ?? ""
+                return vm.project.name.lowercased().contains(searchText.lowercased()) || companyName.lowercased().contains(searchText.lowercased()) || locationName.lowercased().contains(searchText.lowercased())
+            }
+            else {
+                return false
+            }
+        })
+    }
 }
 
 extension ProjectsViewController {

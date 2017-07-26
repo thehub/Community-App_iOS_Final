@@ -10,9 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="gt-walsheim-light-web.ttf">
-            <string>GTWalsheim-Light</string>
-        </array>
         <array key="gt-walsheim-web.ttf">
             <string>GTWalsheim</string>
         </array>
@@ -161,37 +158,20 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sIN-jb-FgO">
                                         <rect key="frame" x="0.0" y="0.0" width="286" height="54"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xzw-Ca-KDb">
-                                                <rect key="frame" x="15" y="18" width="238" height="18"/>
-                                                <color key="textColor" red="0.37647058823529411" green="0.37647058823529411" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <outlet property="delegate" destination="j8C-9J-4ey" id="fPB-QE-VXQ"/>
-                                                </connections>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXa-hp-ZZI">
-                                                <rect key="frame" x="257" y="16" width="17" height="22"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="22" id="BNq-j9-21d"/>
-                                                    <constraint firstAttribute="width" constant="17" id="FDm-Ee-ZY6"/>
-                                                </constraints>
-                                                <state key="normal" image="search"/>
-                                            </button>
+                                            <searchBar contentMode="redraw" placeholder="Search" translucent="NO" backgroundImage="trans" translatesAutoresizingMaskIntoConstraints="NO" id="Smk-au-UYB" customClass="LeftAlignedSearchBar" customModule="ImpactHub" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="286" height="54"/>
+                                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <offsetWrapper key="searchTextPositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </searchBar>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="Smk-au-UYB" firstAttribute="leading" secondItem="sIN-jb-FgO" secondAttribute="leading" id="4AL-x8-b7b"/>
+                                            <constraint firstAttribute="trailing" secondItem="Smk-au-UYB" secondAttribute="trailing" id="8bc-jB-fkF"/>
                                             <constraint firstAttribute="height" constant="54" id="Cwo-FO-hnF"/>
-                                            <constraint firstAttribute="trailing" secondItem="XXa-hp-ZZI" secondAttribute="trailing" constant="12" id="Y8s-bv-MCT"/>
-                                            <constraint firstItem="xzw-Ca-KDb" firstAttribute="centerY" secondItem="sIN-jb-FgO" secondAttribute="centerY" id="kbO-3b-9WW"/>
-                                            <constraint firstItem="xzw-Ca-KDb" firstAttribute="leading" secondItem="sIN-jb-FgO" secondAttribute="leading" constant="15" id="rcE-st-XwR"/>
-                                            <constraint firstItem="XXa-hp-ZZI" firstAttribute="centerY" secondItem="sIN-jb-FgO" secondAttribute="centerY" id="rxT-iV-44P"/>
-                                            <constraint firstItem="XXa-hp-ZZI" firstAttribute="leading" secondItem="xzw-Ca-KDb" secondAttribute="trailing" constant="4" id="xwq-Ul-sLO"/>
+                                            <constraint firstAttribute="bottom" secondItem="Smk-au-UYB" secondAttribute="bottom" id="Ef4-QO-pRv"/>
+                                            <constraint firstItem="Smk-au-UYB" firstAttribute="top" secondItem="sIN-jb-FgO" secondAttribute="top" id="hA3-dr-31a"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -252,9 +232,9 @@
                         <outlet property="collectionView" destination="dt5-dE-uD5" id="cWx-s2-9om"/>
                         <outlet property="filterButton" destination="0MB-Nn-Az2" id="YeM-Ym-k72"/>
                         <outlet property="filterTickImageView" destination="hXf-31-sSk" id="gkd-VT-Exe"/>
+                        <outlet property="searchBar" destination="Smk-au-UYB" id="5DH-hR-UZw"/>
                         <outlet property="searchContainer" destination="8fM-Kb-kNr" id="iVT-TR-9Ej"/>
                         <outlet property="searchContainerTopConstraint" destination="8VF-Fg-zJd" id="1fa-pW-GdG"/>
-                        <outlet property="searchInputTextField" destination="xzw-Ca-KDb" id="Zrj-wq-b9d"/>
                         <outlet property="searchTextBg" destination="sIN-jb-FgO" id="mhb-1m-g98"/>
                         <segue destination="v6r-jd-8oy" kind="show" identifier="ShowMember" id="E6m-rq-9b6"/>
                         <segue destination="B8n-VV-shN" kind="show" identifier="ShowMessageThread" id="RAM-VD-ZBW"/>
@@ -641,37 +621,20 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rs4-y9-HTw">
                                         <rect key="frame" x="20" y="60" width="278" height="54"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4YL-fy-8PF">
-                                                <rect key="frame" x="15" y="18" width="230" height="18"/>
-                                                <color key="textColor" red="0.37647058820000001" green="0.37647058820000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <outlet property="delegate" destination="LuZ-Q5-6Ya" id="l0w-5o-h03"/>
-                                                </connections>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewQ-PM-f6R">
-                                                <rect key="frame" x="249" y="16" width="17" height="22"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="17" id="8y8-vc-Go2"/>
-                                                    <constraint firstAttribute="height" constant="22" id="tFO-2q-et7"/>
-                                                </constraints>
-                                                <state key="normal" image="search"/>
-                                            </button>
+                                            <searchBar contentMode="redraw" placeholder="Search" translucent="NO" backgroundImage="trans" translatesAutoresizingMaskIntoConstraints="NO" id="Vg4-yn-L3l" customClass="LeftAlignedSearchBar" customModule="ImpactHub" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="278" height="54"/>
+                                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <offsetWrapper key="searchTextPositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </searchBar>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="ewQ-PM-f6R" secondAttribute="trailing" constant="12" id="Hmf-P4-mh4"/>
-                                            <constraint firstItem="4YL-fy-8PF" firstAttribute="leading" secondItem="Rs4-y9-HTw" secondAttribute="leading" constant="15" id="RVO-fN-A8l"/>
-                                            <constraint firstItem="ewQ-PM-f6R" firstAttribute="leading" secondItem="4YL-fy-8PF" secondAttribute="trailing" constant="4" id="S2z-Ll-EQO"/>
-                                            <constraint firstItem="4YL-fy-8PF" firstAttribute="centerY" secondItem="Rs4-y9-HTw" secondAttribute="centerY" id="a04-tE-yE7"/>
-                                            <constraint firstItem="ewQ-PM-f6R" firstAttribute="centerY" secondItem="Rs4-y9-HTw" secondAttribute="centerY" id="iaP-u6-ajK"/>
+                                            <constraint firstAttribute="bottom" secondItem="Vg4-yn-L3l" secondAttribute="bottom" id="b5e-Rm-7u2"/>
+                                            <constraint firstItem="Vg4-yn-L3l" firstAttribute="leading" secondItem="Rs4-y9-HTw" secondAttribute="leading" id="cHa-r9-t3G"/>
                                             <constraint firstAttribute="height" constant="54" id="o9S-Em-GHg"/>
+                                            <constraint firstAttribute="trailing" secondItem="Vg4-yn-L3l" secondAttribute="trailing" id="oko-p1-x9G"/>
+                                            <constraint firstItem="Vg4-yn-L3l" firstAttribute="top" secondItem="Rs4-y9-HTw" secondAttribute="top" id="uyo-Dd-nKV"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -728,9 +691,9 @@
                         <outlet property="collectionView" destination="kjh-cr-rqS" id="wx2-FQ-b7J"/>
                         <outlet property="filterButton" destination="6Sr-BN-FN9" id="LqS-b2-NNn"/>
                         <outlet property="filterTickImageView" destination="kJI-bN-RLN" id="Wxc-Dz-4qw"/>
+                        <outlet property="searchBar" destination="Vg4-yn-L3l" id="u4U-pf-rRM"/>
                         <outlet property="searchContainer" destination="07J-fM-12O" id="VxY-Tn-bLv"/>
                         <outlet property="searchContainerTopConstraint" destination="H7b-QX-JRV" id="PU0-C0-HV5"/>
-                        <outlet property="searchInputTextField" destination="4YL-fy-8PF" id="5sr-us-YFo"/>
                         <outlet property="searchTextBg" destination="Rs4-y9-HTw" id="rDv-cj-2F8"/>
                         <outlet property="topMenu" destination="bjp-zz-OCa" id="1ay-qI-xhm"/>
                         <segue destination="Fsg-7e-ZtL" kind="show" identifier="ShowProject" id="Nsv-q8-zjz"/>
@@ -782,37 +745,20 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xmm-1E-shu">
                                         <rect key="frame" x="0.0" y="0.0" width="286" height="54"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mUx-B0-oCl">
-                                                <rect key="frame" x="15" y="18" width="238" height="18"/>
-                                                <color key="textColor" red="0.37647058820000001" green="0.37647058820000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <outlet property="delegate" destination="40Q-Rc-Bhn" id="gLK-7q-fcf"/>
-                                                </connections>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YL2-kj-c2O">
-                                                <rect key="frame" x="257" y="16" width="17" height="22"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="22" id="dON-Xd-q8U"/>
-                                                    <constraint firstAttribute="width" constant="17" id="vVl-mR-1mb"/>
-                                                </constraints>
-                                                <state key="normal" image="search"/>
-                                            </button>
+                                            <searchBar contentMode="redraw" placeholder="Search" translucent="NO" backgroundImage="trans" translatesAutoresizingMaskIntoConstraints="NO" id="Icx-B9-BCu" customClass="LeftAlignedSearchBar" customModule="ImpactHub" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="286" height="54"/>
+                                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <offsetWrapper key="searchTextPositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </searchBar>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="YL2-kj-c2O" firstAttribute="centerY" secondItem="Xmm-1E-shu" secondAttribute="centerY" id="Bik-SH-d1e"/>
+                                            <constraint firstItem="Icx-B9-BCu" firstAttribute="top" secondItem="Xmm-1E-shu" secondAttribute="top" id="A2d-8O-auL"/>
                                             <constraint firstAttribute="height" constant="54" id="OJJ-qq-hz1"/>
-                                            <constraint firstItem="YL2-kj-c2O" firstAttribute="leading" secondItem="mUx-B0-oCl" secondAttribute="trailing" constant="4" id="eQw-FC-d0z"/>
-                                            <constraint firstItem="mUx-B0-oCl" firstAttribute="centerY" secondItem="Xmm-1E-shu" secondAttribute="centerY" id="ncx-Km-fcU"/>
-                                            <constraint firstAttribute="trailing" secondItem="YL2-kj-c2O" secondAttribute="trailing" constant="12" id="pTC-7U-eHQ"/>
-                                            <constraint firstItem="mUx-B0-oCl" firstAttribute="leading" secondItem="Xmm-1E-shu" secondAttribute="leading" constant="15" id="x8L-Xf-cmy"/>
+                                            <constraint firstItem="Icx-B9-BCu" firstAttribute="leading" secondItem="Xmm-1E-shu" secondAttribute="leading" id="Zrb-nW-z2m"/>
+                                            <constraint firstAttribute="bottom" secondItem="Icx-B9-BCu" secondAttribute="bottom" id="v90-yU-Dz7"/>
+                                            <constraint firstAttribute="trailing" secondItem="Icx-B9-BCu" secondAttribute="trailing" id="zsc-I6-uKi"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -872,9 +818,9 @@
                         <outlet property="collectionView" destination="HdI-dh-w7M" id="oZp-9s-DHi"/>
                         <outlet property="filterButton" destination="cCs-ER-aNN" id="Zb5-w2-vk6"/>
                         <outlet property="filterTickImageView" destination="LDl-Er-qEU" id="k1d-q8-M2H"/>
+                        <outlet property="searchBar" destination="Icx-B9-BCu" id="XJX-97-ED9"/>
                         <outlet property="searchContainer" destination="VO1-GI-NAv" id="Jfa-xn-GOD"/>
                         <outlet property="searchContainerTopConstraint" destination="Ts9-iU-pwc" id="fL3-eD-wrj"/>
-                        <outlet property="searchInputTextField" destination="mUx-B0-oCl" id="URJ-BW-yxf"/>
                         <outlet property="searchTextBg" destination="Xmm-1E-shu" id="7s6-jW-mkf"/>
                         <segue destination="0qJ-8x-KOR" kind="show" identifier="ShowJob" id="u3D-lG-cq4"/>
                     </connections>
@@ -1021,37 +967,20 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDd-9e-K5x">
                                         <rect key="frame" x="0.0" y="0.0" width="286" height="54"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TST-hM-BGk">
-                                                <rect key="frame" x="15" y="18" width="238" height="18"/>
-                                                <color key="textColor" red="0.37647058820000001" green="0.37647058820000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <outlet property="delegate" destination="9ww-Ny-2Or" id="qCY-rF-PMo"/>
-                                                </connections>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krg-F5-TJr">
-                                                <rect key="frame" x="257" y="16" width="17" height="22"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="17" id="QM4-lM-jQt"/>
-                                                    <constraint firstAttribute="height" constant="22" id="vWF-eO-4C7"/>
-                                                </constraints>
-                                                <state key="normal" image="search"/>
-                                            </button>
+                                            <searchBar contentMode="redraw" placeholder="Search" translucent="NO" backgroundImage="trans" translatesAutoresizingMaskIntoConstraints="NO" id="AwQ-Mb-fhJ" customClass="LeftAlignedSearchBar" customModule="ImpactHub" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="286" height="54"/>
+                                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <offsetWrapper key="searchTextPositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </searchBar>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="54" id="1a6-9g-kMR"/>
-                                            <constraint firstItem="TST-hM-BGk" firstAttribute="centerY" secondItem="jDd-9e-K5x" secondAttribute="centerY" id="5e8-tI-PTE"/>
-                                            <constraint firstItem="krg-F5-TJr" firstAttribute="centerY" secondItem="jDd-9e-K5x" secondAttribute="centerY" id="BjZ-mD-Y2J"/>
-                                            <constraint firstItem="TST-hM-BGk" firstAttribute="leading" secondItem="jDd-9e-K5x" secondAttribute="leading" constant="15" id="cjL-MU-yqE"/>
-                                            <constraint firstAttribute="trailing" secondItem="krg-F5-TJr" secondAttribute="trailing" constant="12" id="nA8-ic-ofG"/>
-                                            <constraint firstItem="krg-F5-TJr" firstAttribute="leading" secondItem="TST-hM-BGk" secondAttribute="trailing" constant="4" id="oOo-Z9-FxT"/>
+                                            <constraint firstAttribute="bottom" secondItem="AwQ-Mb-fhJ" secondAttribute="bottom" id="7HF-Mr-7Hz"/>
+                                            <constraint firstItem="AwQ-Mb-fhJ" firstAttribute="leading" secondItem="jDd-9e-K5x" secondAttribute="leading" id="KUF-Tu-bSH"/>
+                                            <constraint firstAttribute="trailing" secondItem="AwQ-Mb-fhJ" secondAttribute="trailing" id="jq2-ao-k5r"/>
+                                            <constraint firstItem="AwQ-Mb-fhJ" firstAttribute="top" secondItem="jDd-9e-K5x" secondAttribute="top" id="xYA-tW-8EE"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1111,9 +1040,9 @@
                         <outlet property="collectionView" destination="hWA-Qu-8hr" id="cuB-k8-6fp"/>
                         <outlet property="filterButton" destination="X9D-Rp-hsW" id="44h-Gy-Gau"/>
                         <outlet property="filterTickImageView" destination="d9n-Sh-OLg" id="hli-ri-0A5"/>
+                        <outlet property="searchBar" destination="AwQ-Mb-fhJ" id="e2c-lw-Xfa"/>
                         <outlet property="searchContainer" destination="TL7-IA-YfO" id="zCl-fD-zgd"/>
                         <outlet property="searchContainerTopConstraint" destination="gFY-3q-UrJ" id="nYN-AG-FvJ"/>
-                        <outlet property="searchInputTextField" destination="TST-hM-BGk" id="COy-x2-UT6"/>
                         <outlet property="searchTextBg" destination="jDd-9e-K5x" id="6OJ-Qf-pYM"/>
                         <segue destination="cWc-Ug-elU" kind="show" identifier="ShowCompany" id="BrT-Tm-bh9"/>
                     </connections>
@@ -1504,37 +1433,20 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UHf-6N-Gib">
                                         <rect key="frame" x="20" y="60" width="278" height="54"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ijL-ZZ-gFb">
-                                                <rect key="frame" x="15" y="18" width="230" height="18"/>
-                                                <color key="textColor" red="0.37647058820000001" green="0.37647058820000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <outlet property="delegate" destination="zuP-v2-6RO" id="Bk6-df-4Pz"/>
-                                                </connections>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuG-c2-PaF">
-                                                <rect key="frame" x="249" y="16" width="17" height="22"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="17" id="NjH-g9-W4t"/>
-                                                    <constraint firstAttribute="height" constant="22" id="iHb-vD-dmO"/>
-                                                </constraints>
-                                                <state key="normal" image="search"/>
-                                            </button>
+                                            <searchBar contentMode="redraw" placeholder="Search" translucent="NO" backgroundImage="trans" translatesAutoresizingMaskIntoConstraints="NO" id="RAA-YR-2Td" customClass="LeftAlignedSearchBar" customModule="ImpactHub" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="278" height="54"/>
+                                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <offsetWrapper key="searchTextPositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </searchBar>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="MuG-c2-PaF" secondAttribute="trailing" constant="12" id="0tp-AO-auH"/>
-                                            <constraint firstItem="ijL-ZZ-gFb" firstAttribute="centerY" secondItem="UHf-6N-Gib" secondAttribute="centerY" id="Mab-6I-aCX"/>
-                                            <constraint firstItem="ijL-ZZ-gFb" firstAttribute="leading" secondItem="UHf-6N-Gib" secondAttribute="leading" constant="15" id="a1b-x9-0Hu"/>
+                                            <constraint firstItem="RAA-YR-2Td" firstAttribute="leading" secondItem="UHf-6N-Gib" secondAttribute="leading" id="UDv-by-HdJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="RAA-YR-2Td" secondAttribute="bottom" id="fuQ-Pt-5kz"/>
                                             <constraint firstAttribute="height" constant="54" id="hnc-e2-VEc"/>
-                                            <constraint firstItem="MuG-c2-PaF" firstAttribute="leading" secondItem="ijL-ZZ-gFb" secondAttribute="trailing" constant="4" id="p9H-CV-zz6"/>
-                                            <constraint firstItem="MuG-c2-PaF" firstAttribute="centerY" secondItem="UHf-6N-Gib" secondAttribute="centerY" id="uum-RR-17j"/>
+                                            <constraint firstAttribute="trailing" secondItem="RAA-YR-2Td" secondAttribute="trailing" id="v0z-xo-Wn2"/>
+                                            <constraint firstItem="RAA-YR-2Td" firstAttribute="top" secondItem="UHf-6N-Gib" secondAttribute="top" id="xQc-Zx-c1u"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1591,9 +1503,9 @@
                         <outlet property="collectionView" destination="jEt-te-pLg" id="KSq-rn-yA9"/>
                         <outlet property="filterButton" destination="cUu-s9-P3v" id="yPr-wl-gBe"/>
                         <outlet property="filterTickImageView" destination="eE5-7Z-gRf" id="xzb-F2-fkE"/>
+                        <outlet property="searchBar" destination="RAA-YR-2Td" id="biU-ms-2QH"/>
                         <outlet property="searchContainer" destination="zHr-XS-hCB" id="kvE-vs-aia"/>
                         <outlet property="searchContainerTopConstraint" destination="eQA-VQ-cYL" id="1yE-PA-QiW"/>
-                        <outlet property="searchInputTextField" destination="ijL-ZZ-gFb" id="ajN-md-QO6"/>
                         <outlet property="searchTextBg" destination="UHf-6N-Gib" id="AUm-T2-beB"/>
                         <outlet property="topMenu" destination="mhx-G6-cf5" id="DZD-Ga-IFb"/>
                         <segue destination="KMD-2F-WkY" kind="show" identifier="ShowEvent" id="w7F-75-Dle"/>
@@ -1975,37 +1887,20 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="puc-EV-BbQ">
                                         <rect key="frame" x="0.0" y="0.0" width="286" height="54"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="efN-Wg-XPP">
-                                                <rect key="frame" x="15" y="18" width="238" height="18"/>
-                                                <color key="textColor" red="0.37647058820000001" green="0.37647058820000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <outlet property="delegate" destination="wUL-Tv-wok" id="ed3-hk-zdV"/>
-                                                </connections>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oo7-jy-VpX">
-                                                <rect key="frame" x="257" y="16" width="17" height="22"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="22" id="Cq1-gX-7sB"/>
-                                                    <constraint firstAttribute="width" constant="17" id="DpI-ea-ehX"/>
-                                                </constraints>
-                                                <state key="normal" image="search"/>
-                                            </button>
+                                            <searchBar contentMode="redraw" placeholder="Search" translucent="NO" backgroundImage="trans" translatesAutoresizingMaskIntoConstraints="NO" id="9fi-Oj-bLk" customClass="LeftAlignedSearchBar" customModule="ImpactHub" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="286" height="54"/>
+                                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <offsetWrapper key="searchTextPositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </searchBar>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Oo7-jy-VpX" secondAttribute="trailing" constant="12" id="AdJ-ml-I9x"/>
-                                            <constraint firstItem="Oo7-jy-VpX" firstAttribute="centerY" secondItem="puc-EV-BbQ" secondAttribute="centerY" id="NLf-KW-23C"/>
+                                            <constraint firstAttribute="trailing" secondItem="9fi-Oj-bLk" secondAttribute="trailing" id="37R-EN-yGR"/>
+                                            <constraint firstAttribute="bottom" secondItem="9fi-Oj-bLk" secondAttribute="bottom" id="FmB-Px-bz9"/>
                                             <constraint firstAttribute="height" constant="54" id="aQ9-jf-5ND"/>
-                                            <constraint firstItem="Oo7-jy-VpX" firstAttribute="leading" secondItem="efN-Wg-XPP" secondAttribute="trailing" constant="4" id="fRd-1p-y6f"/>
-                                            <constraint firstItem="efN-Wg-XPP" firstAttribute="centerY" secondItem="puc-EV-BbQ" secondAttribute="centerY" id="nfM-q1-7gx"/>
-                                            <constraint firstItem="efN-Wg-XPP" firstAttribute="leading" secondItem="puc-EV-BbQ" secondAttribute="leading" constant="15" id="oqJ-lY-vqg"/>
+                                            <constraint firstItem="9fi-Oj-bLk" firstAttribute="top" secondItem="puc-EV-BbQ" secondAttribute="top" id="rKZ-dt-7oW"/>
+                                            <constraint firstItem="9fi-Oj-bLk" firstAttribute="leading" secondItem="puc-EV-BbQ" secondAttribute="leading" id="zG9-YG-GJj"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -2062,9 +1957,9 @@
                         <outlet property="collectionView" destination="xGP-Bc-dew" id="ehC-KC-eov"/>
                         <outlet property="filterButton" destination="vn8-yz-DG6" id="Ied-0k-gFA"/>
                         <outlet property="filterTickImageView" destination="LTl-Yt-d2d" id="uQP-uS-1Mu"/>
+                        <outlet property="searchBar" destination="9fi-Oj-bLk" id="eqQ-vR-fPo"/>
                         <outlet property="searchContainer" destination="V8G-oZ-Nna" id="lRT-gx-KDv"/>
                         <outlet property="searchContainerTopConstraint" destination="wfL-Sl-T3s" id="dtC-td-a1J"/>
-                        <outlet property="searchInputTextField" destination="efN-Wg-XPP" id="EwL-5p-cxp"/>
                         <outlet property="searchTextBg" destination="puc-EV-BbQ" id="zdq-xr-Kbw"/>
                         <segue destination="ytP-JQ-5XJ" kind="show" identifier="ShowGroup" id="zv2-am-uws"/>
                     </connections>
@@ -2083,18 +1978,18 @@
         <image name="filterButton" width="64" height="65"/>
         <image name="filterTick" width="21" height="22"/>
         <image name="navBarShadow" width="100" height="5"/>
-        <image name="search" width="17" height="16"/>
         <image name="tabBarHome" width="22" height="21"/>
+        <image name="trans" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="0Kb-id-67l"/>
+        <segue reference="Nsv-q8-zjz"/>
         <segue reference="zv2-am-uws"/>
         <segue reference="r4W-Rs-mKq"/>
-        <segue reference="wU7-Qa-AtJ"/>
         <segue reference="RAM-VD-ZBW"/>
+        <segue reference="wU7-Qa-AtJ"/>
         <segue reference="E6m-rq-9b6"/>
-        <segue reference="2YP-O4-F5Z"/>
         <segue reference="u3D-lG-cq4"/>
-        <segue reference="Nsv-q8-zjz"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>

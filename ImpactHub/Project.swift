@@ -58,16 +58,6 @@ struct Project {
     }
     
     
-    // For mock testing
-    init(name: String, image: String) {
-        self.id = "asdsad"
-        self.name = name
-        self.image = image
-        self.memberCount = 2
-        self.chatterId = "dsfds"
-        self.createdById = "ddf"
-    }
-    
 }
 
 

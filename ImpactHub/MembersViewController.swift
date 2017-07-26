@@ -24,6 +24,7 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
         super.viewDidLoad()
 
         collectionView.register(UINib.init(nibName: MemberViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberViewModel.cellIdentifier)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +39,7 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
             }.then {
                 APIClient.shared.getMembers()
             }.then { members -> Void in
+                self.dataAll.removeAll()
                 self.data.removeAll()
                 self.collectionView.reloadData()
                 let cellWidth: CGFloat = self.view.frame.width
@@ -45,11 +47,12 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
                     // Remove our selves
                     if member.id != SessionManager.shared.me?.member.id ?? "" {
                         member.contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
-                        self.data.append(MemberViewModel(member: member, delegate: self, cellSize: CGSize(width: cellWidth, height: 105)))
+                        self.dataAll.append(MemberViewModel(member: member, delegate: self, cellSize: CGSize(width: cellWidth, height: 105)))
                     }
                 })
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.data = self.dataAll
                 self.collectionView?.alpha = 0
                 self.collectionView?.reloadData()
                 self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
@@ -64,10 +67,12 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.cancelSearching()
+        
     }
+    
     
     var selectedVM: MemberViewModel?
     
@@ -112,6 +117,22 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
         return .default
     }
 
+    
+    
+    
+    // MARK: Search
+    override func filterContentForSearchText(searchText:String) -> [CellRepresentable] {
+        return self.dataAll.filter({ (item) -> Bool in
+            if let vm = item as? MemberViewModel {
+                return vm.member.name.lowercased().contains(searchText.lowercased()) || vm.member.locationName.lowercased().contains(searchText.lowercased())
+            }
+            else {
+                return false
+            }
+        })
+    }
+    
+    
 }
 
 

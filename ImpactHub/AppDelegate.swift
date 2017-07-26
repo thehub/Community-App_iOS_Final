@@ -109,6 +109,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .normal)
         UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .highlighted)
+        
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSFontAttributeName:UIFont(name: "GTWalsheim-Light", size: 15)!, NSForegroundColorAttributeName: UIColor.imaWarmGrey]
     }
 
     

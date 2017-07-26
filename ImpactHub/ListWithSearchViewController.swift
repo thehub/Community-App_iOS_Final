@@ -8,10 +8,12 @@
 
 import UIKit
 
-class ListWithSearchViewController: UIViewController, UITextFieldDelegate, TopMenuDelegate {
+class ListWithSearchViewController: UIViewController, UITextFieldDelegate, TopMenuDelegate, UISearchBarDelegate {
 
     var filters = [Filter]()
 
+    @IBOutlet weak var searchBar: UISearchBar?
+    
     var filterSource :FilterManager.Source {
         get {
             return FilterManager.Source.members
@@ -19,6 +21,8 @@ class ListWithSearchViewController: UIViewController, UITextFieldDelegate, TopMe
     }
 
     var data = [CellRepresentable]()
+    var dataAll = [CellRepresentable]()
+
     @IBOutlet weak var topMenu: TopMenu?
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -46,6 +50,8 @@ class ListWithSearchViewController: UIViewController, UITextFieldDelegate, TopMe
         topMenu?.show()
 
         self.searchContainerTopConstraintDefault = searchContainerTopConstraint.constant
+        
+        self.searchBar?.delegate = self
         
     }
     
@@ -80,11 +86,9 @@ class ListWithSearchViewController: UIViewController, UITextFieldDelegate, TopMe
         self.searchTextBg.layer.shadowPath = UIBezierPath(rect: self.searchTextBg.bounds).cgPath
         self.searchTextBg.layer.shadowRadius = 15.0
         
-        
         let collectionViewLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
         collectionViewLayout?.sectionInset = UIEdgeInsetsMake(self.searchContainer.frame.height, 0, 60, 0)
         collectionViewLayout?.invalidateLayout()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -100,7 +104,7 @@ class ListWithSearchViewController: UIViewController, UITextFieldDelegate, TopMe
             
         }
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: self)
         if segue.identifier == "ShowFilter" {
@@ -175,8 +179,59 @@ class ListWithSearchViewController: UIViewController, UITextFieldDelegate, TopMe
         
         
     }
-}
+    
+    
+    // MARK: Search
+    // Implemented in respective child class
+    func filterContentForSearchText(searchText:String) -> [CellRepresentable] {
+        return []
+    }
 
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // user did type something, check our datasource for text that looks the same
+        if searchText.characters.count > 0 {
+            // search and reload data source
+            self.data = self.filterContentForSearchText(searchText: searchText)
+            self.collectionView?.reloadData()
+        }
+        else{
+            // if text lenght == 0
+            // we will consider the searchbar is not active
+            self.data = self.dataAll
+            self.collectionView?.reloadData()
+        }
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.cancelSearching()
+        self.collectionView?.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        //        self.searchBar!.setShowsCancelButton(true, animated: true)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        // this method is being called when search btn in the keyboard tapped
+        // we set searchBarActive = NO
+        // but no need to reloadCollectionView
+        self.searchBar!.setShowsCancelButton(false, animated: false)
+    }
+    func cancelSearching(){
+        self.view.endEditing(true)
+        self.searchBar?.resignFirstResponder()
+        self.searchBar?.text = ""
+    }
+    
+    
+    
+}
 
 extension ListWithSearchViewController: FilterableDelegate {
     func updateFilters(filters: [Filter]) {

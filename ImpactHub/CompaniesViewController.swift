@@ -31,8 +31,9 @@ class CompaniesViewController: ListWithSearchViewController {
                 let cellWidth: CGFloat = self.view.frame.width - 30
                 items.forEach({ (company) in
                     let viewModel1 = CompanyViewModel(company: company, cellSize: CGSize(width: cellWidth, height: 200))
-                    self.data.append(viewModel1)
+                    self.dataAll.append(viewModel1)
                 })
+                self.data = self.dataAll
                 self.collectionView?.reloadData()
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -59,6 +60,21 @@ class CompaniesViewController: ListWithSearchViewController {
                 vc.company = selectedItem.company
             }
         }
+    }
+    
+    
+    // MARK: Search
+    override func filterContentForSearchText(searchText:String) -> [CellRepresentable] {
+        return self.dataAll.filter({ (item) -> Bool in
+            if let vm = item as? CompanyViewModel {
+                let sector = vm.company.sector ?? ""
+                let locationName = vm.company.locationName ?? ""
+                return vm.company.name.lowercased().contains(searchText.lowercased()) || sector.lowercased().contains(searchText.lowercased()) || locationName.lowercased().contains(searchText.lowercased())
+            }
+            else {
+                return false
+            }
+        })
     }
     
 }

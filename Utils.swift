@@ -458,3 +458,31 @@ extension String {
         return html2AttributedString?.string ?? ""
     }
 }
+
+
+class LeftAlignedSearchBar: UISearchBar, UISearchBarDelegate {
+    override var placeholder:String? {
+        didSet {
+            if let text = placeholder {
+                if text.characters.last! != " " {
+                    // get the font attribute
+                    let attr = UITextField.appearance(whenContainedInInstancesOf: [LeftAlignedSearchBar.self]).defaultTextAttributes
+                    // define a max size
+                    let maxSize = CGSize(width: UIScreen.main.bounds.size.width - 87, height: 40)
+                    // let maxSize = CGSize(width:self.bounds.size.width - 92,height: 40)
+                    // get the size of the text
+                    let widthText = text.boundingRect( with: maxSize, options: .usesLineFragmentOrigin, attributes:attr, context:nil).size.width
+                    // get the size of one space
+                    let widthSpace = " ".boundingRect( with: maxSize, options: .usesLineFragmentOrigin, attributes:attr, context:nil).size.width
+                    let spaces = floor((maxSize.width - widthText) / widthSpace)
+                    // add the spaces
+                    let newText = text + ((Array(repeating: " ", count: Int(spaces)).joined(separator: "")))
+                    // apply the new text if nescessary
+                    if newText != text {
+                        placeholder = newText
+                    }
+                }
+            }
+        }
+    }
+}

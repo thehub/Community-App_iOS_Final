@@ -28,10 +28,11 @@ class GroupsViewController: ListWithSearchViewController {
             APIClient.shared.getGroups(contactId: SessionManager.shared.me?.member.id ?? "")
             }.then { groups -> Void in
                 groups.forEach({ (group) in
-                    self.data.append(GroupViewModel(group: group, cellSize: CGSize(width: self.view.frame.width, height: 170)))
+                    self.dataAll.append(GroupViewModel(group: group, cellSize: CGSize(width: self.view.frame.width, height: 170)))
                 })
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.data = self.dataAll
                 self.collectionView?.alpha = 0
                 self.collectionView?.reloadData()
                 self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
@@ -57,6 +58,20 @@ class GroupsViewController: ListWithSearchViewController {
                 vc.group = selectedItem.group
             }
         }
+    }
+    
+    // MARK: Search
+    override func filterContentForSearchText(searchText:String) -> [CellRepresentable] {
+        return self.dataAll.filter({ (item) -> Bool in
+            if let vm = item as? GroupViewModel {
+                let locationName = vm.group.locationName ?? ""
+                let description = vm.group.description ?? ""
+                return vm.group.name.lowercased().contains(searchText.lowercased()) || locationName.contains(searchText.lowercased()) || description.lowercased().contains(searchText.lowercased())
+            }
+            else {
+                return false
+            }
+        })
     }
     
 }

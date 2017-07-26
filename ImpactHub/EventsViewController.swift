@@ -11,7 +11,6 @@ import PromiseKit
 
 class EventsViewController: ListWithSearchViewController {
 
-    var allData = [CellRepresentable]()
     var eventsYouManageData = [CellRepresentable]()
     var yourEventData = [CellRepresentable]()
 
@@ -38,26 +37,26 @@ class EventsViewController: ListWithSearchViewController {
         let viewModel3 = EventViewModel(event: item3, cellSize: CGSize(width: cellWidth, height: 370))
         let viewModel4 = EventViewModel(event: item4, cellSize: CGSize(width: cellWidth, height: 370))
         
-        self.allData.append(viewModel1)
-        self.allData.append(viewModel2)
-        self.allData.append(viewModel3)
-        self.allData.append(viewModel4)
+        self.dataAll.append(viewModel1)
+        self.dataAll.append(viewModel2)
+        self.dataAll.append(viewModel3)
+        self.dataAll.append(viewModel4)
 
-        self.allData.append(viewModel1)
-        self.allData.append(viewModel2)
-        self.allData.append(viewModel3)
-        self.allData.append(viewModel4)
+        self.dataAll.append(viewModel1)
+        self.dataAll.append(viewModel2)
+        self.dataAll.append(viewModel3)
+        self.dataAll.append(viewModel4)
 
-        self.allData.append(viewModel1)
-        self.allData.append(viewModel2)
-        self.allData.append(viewModel3)
-        self.allData.append(viewModel4)
+        self.dataAll.append(viewModel1)
+        self.dataAll.append(viewModel2)
+        self.dataAll.append(viewModel3)
+        self.dataAll.append(viewModel4)
         
-        self.data = allData
+        self.data = dataAll
         
         // todo:
-        self.eventsYouManageData = Array(allData[0...4])
-        self.yourEventData = Array(allData[4...7])
+        self.eventsYouManageData = Array(dataAll[0...4])
+        self.yourEventData = Array(dataAll[4...7])
 
         topMenu?.setupWithItems(["ALL", "EVENTS YOU MANAGE", "YOUR EVENTS"])
 
@@ -99,14 +98,17 @@ class EventsViewController: ListWithSearchViewController {
         self.collectionView.alpha = 0
         
         if index == 0 {
-            self.data = self.allData
+            self.cancelSearching()
+            self.data = self.dataAll
             self.collectionView.reloadData()
         }
         else if index == 1 {
+            self.cancelSearching()
             self.data = self.eventsYouManageData
             self.collectionView.reloadData()
         }
         else if index == 2 {
+            self.cancelSearching()
             self.data = self.yourEventData
             self.collectionView.reloadData()
         }
@@ -123,6 +125,19 @@ class EventsViewController: ListWithSearchViewController {
         }
     }
     
+    // MARK: Search
+    override func filterContentForSearchText(searchText:String) -> [CellRepresentable] {
+        return self.dataAll.filter({ (item) -> Bool in
+            if let vm = item as? EventViewModel {
+                let locationName = vm.event.locationName
+                let description = vm.event.description
+                return vm.event.name.lowercased().contains(searchText.lowercased()) || locationName.contains(searchText.lowercased()) || description.lowercased().contains(searchText.lowercased())
+            }
+            else {
+                return false
+            }
+        })
+    }
 }
 
 extension EventsViewController {

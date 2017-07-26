@@ -28,10 +28,11 @@ class JobsViewController: ListWithSearchViewController {
             APIClient.shared.getJobs(skip: 0, top: 100)
             }.then { jobs -> Void in
                 jobs.forEach({ (job) in
-                    self.data.append(JobViewModel(job: job, cellSize: CGSize(width: self.view.frame.width, height: 145)))
+                    self.dataAll.append(JobViewModel(job: job, cellSize: CGSize(width: self.view.frame.width, height: 145)))
                 })
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.data = self.dataAll
                 self.collectionView?.alpha = 0
                 self.collectionView?.reloadData()
                 self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
@@ -57,6 +58,19 @@ class JobsViewController: ListWithSearchViewController {
                 vc.job = selectedItem.job
             }
         }
+    }
+    
+    // MARK: Search
+    override func filterContentForSearchText(searchText:String) -> [CellRepresentable] {
+        return self.dataAll.filter({ (item) -> Bool in
+            if let vm = item as? JobViewModel {
+                let sector = vm.job.sector ?? ""
+                return vm.job.name.lowercased().contains(searchText.lowercased()) || vm.job.locationName.lowercased().contains(searchText.lowercased()) || vm.job.description.lowercased().contains(searchText.lowercased()) || vm.job.company.name.lowercased().contains(searchText.lowercased()) || sector.lowercased().contains(searchText.lowercased())
+            }
+            else {
+                return false
+            }
+        })
     }
     
 }
