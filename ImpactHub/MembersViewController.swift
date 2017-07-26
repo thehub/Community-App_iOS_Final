@@ -19,7 +19,7 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
             return FilterManager.Source.members
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

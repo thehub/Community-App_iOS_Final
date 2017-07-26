@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListWithSearchViewController: UIViewController, UITextFieldDelegate, TopMenuDelegate, UISearchBarDelegate {
+class ListWithSearchViewController: UIViewController, UITextFieldDelegate, TopMenuDelegate, UISearchBarDelegate, FilterManagerSource {
 
     var filters = [Filter]()
 

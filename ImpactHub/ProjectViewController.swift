@@ -95,10 +95,13 @@ class ProjectViewController: ListFullBleedViewController {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 // Add the new data
                 var indexPathsToInsert = [IndexPath]()
-                for i in self.indexPathToInsertNewPostsAt.item...self.data.count - 1 {
-                    indexPathsToInsert.append(IndexPath(item: i, section: 0))
+                
+                if self.data.count > self.indexPathToInsertNewPostsAt.item {
+                    for i in self.indexPathToInsertNewPostsAt.item...self.data.count - 1 {
+                        indexPathsToInsert.append(IndexPath(item: i, section: 0))
+                    }
+                    self.collectionView.insertItems(at: indexPathsToInsert)
                 }
-                self.collectionView.insertItems(at: indexPathsToInsert)
                 UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
                     self.collectionView?.alpha = 1
                     super.connectButton?.alpha = 1

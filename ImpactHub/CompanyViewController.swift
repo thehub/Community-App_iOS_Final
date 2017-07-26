@@ -145,12 +145,13 @@ class CompanyViewController: ListFullBleedViewController {
         }
         
         // Add the new data
-        var indexPathsToInsert = [IndexPath]()
-        for i in countBefore...self.data.count - 1 {
-            indexPathsToInsert.append(IndexPath(item: i, section: 0))
+        if self.data.count > countBefore {
+            var indexPathsToInsert = [IndexPath]()
+            for i in countBefore...self.data.count - 1 {
+                indexPathsToInsert.append(IndexPath(item: i, section: 0))
+            }
+            self.collectionView.insertItems(at: indexPathsToInsert)
         }
-        self.collectionView.insertItems(at: indexPathsToInsert)
-
         
     }
 

@@ -8,6 +8,11 @@
 
 import Foundation
 
+protocol FilterManagerSource {
+    var filterSource: FilterManager.Source { get }
+}
+
+
 class FilterManager {
 
     public enum Source {

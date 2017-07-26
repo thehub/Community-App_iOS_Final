@@ -55,12 +55,13 @@ class GroupViewController: ListFullBleedViewController {
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 // Add the new data
-                var indexPathsToInsert = [IndexPath]()
-                for i in countBefore...self.data.count - 1 {
-                    indexPathsToInsert.append(IndexPath(item: i, section: 0))
+                if self.data.count > countBefore {
+                    var indexPathsToInsert = [IndexPath]()
+                    for i in countBefore...self.data.count - 1 {
+                        indexPathsToInsert.append(IndexPath(item: i, section: 0))
+                    }
+                    self.collectionView.insertItems(at: indexPathsToInsert)
                 }
-                self.collectionView.insertItems(at: indexPathsToInsert)
-                
                 // If we're showing a push notification, push into respective view from here...
                 if let showPushNotification = self.showPushNotification {
                     switch showPushNotification.kind {
