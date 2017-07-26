@@ -25,6 +25,8 @@ class APIClient {
         static let GOAL = "Directory__c,Goal_Summary__c,Goal__c,Id,Name"
         static let CONTACT = "id, firstname,lastname, ProfilePic__c, Profession__c, Impact_Hub_Cities__c, User__c,Skills__c, About_Me__c, Interested_SDG__c,Twitter__c,Instagram__c,Facebook__c,Linked_In__c"
         static let COMPANY = "id, name, Number_of_Employees__c, Impact_Hub_Cities__c, Sector_Industry__c, Logo_Image_Url__c, Banner_Image_Url__c, Twitter__c, Instagram__c, Facebook__c, LinkedIn__c, Website, About_Us__c"
+        // Job also has COMPANY fields by relation, to avoid extra api calls If updating COMPANY, make sure to also add these to Company__r. on JOB
+        static let JOB = "id, name, Description__c, Salary__c, Job_Type__c, Sector__c,Contact__c, Location__c, Applications_Close_Date__c, Company__c,Company__r.name,Company__r.Number_of_Employees__c, Company__r.Impact_Hub_Cities__c, Company__r.Sector_Industry__c, Company__r.Logo_Image_Url__c, Company__r.Banner_Image_Url__c, Company__r.Twitter__c, Company__r.Instagram__c, Company__r.Facebook__c, Company__r.LinkedIn__c, Company__r.Website, Company__r.About_Us__c"
     }
 
     // id,FirstName,LastName,Email,ProfilePic__c,User__c,About_Me__c,Profession__c,Taxonomy__c,Skills__c  --> Contact
@@ -167,7 +169,7 @@ class APIClient {
     
     func getJobs(projectId: String) -> Promise<[Job]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT id, name, Description__c, Salary__c,Job_Type__c, Company__c, Company__r.name, Company__r.Logo_Image_Url__c,Company__r.Banner_Image_Url__c,Sector__c,Contact__c, Location__c, Applications_Close_Date__c FROM Job__c WHERE Project__r.id='\(projectId)'", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.JOB) FROM Job__c WHERE Project__r.id='\(projectId)'", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -561,12 +563,12 @@ class APIClient {
     func getJobs(skip:Int, top:Int) -> Promise<[Job]> {
         return Promise { fullfill, reject in
             // TODO: Send in pagination?
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT id, name, Description__c, Salary__c,Job_Type__c, Company__c, Company__r.name, Company__r.Logo_Image_Url__c,Company__r.Banner_Image_Url__c,Sector__c,Contact__c, Location__c, Applications_Close_Date__c FROM Job__c where Applications_Close_Date__c >= \(Date().shortDate())", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.JOB) FROM Job__c WHERE Applications_Close_Date__c >= \(Date().shortDate())", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.Error("Error"))
             }) { (result) in
                 let jsonResult = JSON(result!)
-//                debugPrint(jsonResult)
+                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Job(json: $0) }
                     fullfill(items)

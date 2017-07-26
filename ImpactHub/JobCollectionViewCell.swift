@@ -25,7 +25,7 @@ class JobCollectionViewCell: UICollectionViewCell {
     }
 
     func setUp(vm: JobViewModel) {
-        companyLabel.text = vm.job.companyName
+        companyLabel.text = vm.job.company.name
         nameLabel.text = vm.job.name
         fulltimeLabel.text = vm.job.type
         if let logoUrl = vm.job.logoUrl {

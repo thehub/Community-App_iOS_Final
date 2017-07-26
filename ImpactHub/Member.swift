@@ -117,19 +117,6 @@ class Member {
         
     }
     
-    // For mock testing
-//    init(id: String, userId: String, firstName: String, lastName: String, job: String, photo: String, blurb: String, aboutMe: String, locationName: String) {
-//        self.id = id
-//        self.userId = userId
-//        self.firstName = firstName
-//        self.lastName = lastName
-//        self.job = job
-//        self.photo = photo
-//        self.blurb = blurb
-//        self.aboutMe = aboutMe
-//        self.locationName = locationName
-//    }
-    
 }
 
 

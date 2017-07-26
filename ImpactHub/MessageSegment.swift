@@ -51,12 +51,6 @@ struct EntityLink: MessageSegment {
     init?(json: JSON) {
         self.text = json["text"].stringValue
         self.url = json["url"].stringValue
-//        if let reference = Reference(json: json["reference"].dictionaryObject!) {
-//            self.reference = reference
-//        }
-//        else {
-//            return nil
-//        }
     }
 }
 

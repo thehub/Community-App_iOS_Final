@@ -50,22 +50,10 @@ struct Company {
 
     }
 
-    // TODO: Mock data call
-    init(id: String, name: String, type: String, photo: String, logo:String, blurb: String, locationName: String, website: String, size: String) {
-        self.id = id
-        self.name = name
-        self.photo = photo
-        self.about = blurb
-        self.locationName = locationName
-        self.website = website
-        
-    }
-    
 }
 
 extension Company {
     init?(json: JSON) {
-        debugPrint(json)
         guard
             let id = json["Id"].string,
             let name = json["Name"].string

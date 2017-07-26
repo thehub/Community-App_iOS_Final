@@ -16,28 +16,27 @@ struct Job {
     var id: String
     var name: String
     var company: Company
-    var companyId: String
     var description: String = ""
     var sector: String?
     var locationName: String
     var type: String
     var salary: String
-    var companyName: String
     var logo: String?
     var photo: String?
-    
 }
+
+
 
 extension Job {
     init?(json: JSON) {
-        debugPrint(json)
         guard
             let id = json["Id"].string,
             let name = json["Name"].string,
             let type = json["Job_Type__c"].string,
-            let companyName = json["Company__r"]["Name"].string,
+            var companyJson = json["Company__r"].dictionary,
             let companyId = json["Company__c"].string,
-            let salary = json["Salary__c"].string
+            let salary = json["Salary__c"].string,
+            let locationName = json["Location__c"].string
             else {
                 return nil
         }
@@ -47,10 +46,14 @@ extension Job {
         self.name = name
         self.type = type
         self.salary = salary
-        self.companyName = companyName
-        self.companyId = companyId
-        self.company = Company(id: "asdsad", name: "Test Compnay", type: "sdsdf", photo: "sdfdsf", logo:"companyLogo", blurb: "sdfdsfsdf", locationName: "sdfdsfs", website: "http://www.dn.se", size: "10 - 30")
-        self.locationName = "London"
+        companyJson["Id"] = JSON.init(stringLiteral: companyId)
+        if let company = Company(json: JSON(companyJson)) {
+            self.company = company
+        }
+        else {
+            return nil
+        }
+        self.locationName = locationName
         
         self.logo = json["Company__r"]["Logo_Image_Url__c"].string
         self.photo = json["Company__r"]["Banner_Image_Url__c"].string
