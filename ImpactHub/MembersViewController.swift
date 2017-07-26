@@ -70,9 +70,7 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.cancelSearching()
-        
     }
-    
     
     var selectedVM: MemberViewModel?
     

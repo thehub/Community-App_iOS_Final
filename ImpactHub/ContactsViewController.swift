@@ -36,7 +36,12 @@ class ContactsViewController: ListWithSearchViewController {
         super.viewWillAppear(animated)
         loadData()
     }
-    
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.cancelSearching()
+    }
+
     var inTransit = false
     
     
@@ -49,7 +54,7 @@ class ContactsViewController: ListWithSearchViewController {
         dataIncomming.removeAll()
         dataAwaiting.removeAll()
         dataRejected.removeAll()
-        data.removeAll()
+        dataAll.removeAll()
         collectionView.reloadData()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.collectionView?.alpha = 0
@@ -161,19 +166,27 @@ class ContactsViewController: ListWithSearchViewController {
         self.selectedTopMenuIndex = index // cache it here for when we reload.
         
         if index == 0 {
+            self.cancelSearching()
             self.data = self.dataConnected
+            self.dataAll = self.data
             self.collectionView.reloadData()
         }
         else if index == 1 {
+            self.cancelSearching()
             self.data = self.dataIncomming
+            self.dataAll = self.data
             self.collectionView.reloadData()
         }
         else if index == 2 {
+            self.cancelSearching()
             self.data = self.dataAwaiting
+            self.dataAll = self.data
             self.collectionView.reloadData()
         }
         else if index == 3 {
+            self.cancelSearching()
             self.data = self.dataRejected
+            self.dataAll = self.data
             self.collectionView.reloadData()
         }
         self.collectionView.scrollRectToVisible(CGRect.zero, animated: false)
@@ -189,6 +202,47 @@ class ContactsViewController: ListWithSearchViewController {
         }
     }
 
+    // MARK: Search
+    override func filterContentForSearchText(searchText:String) -> [CellRepresentable] {
+        return self.dataAll.filter({ (item) -> Bool in
+            if selectedTopMenuIndex == 0 {
+                if let vm = item as? ContactViewModel {
+                    return vm.member.name.lowercased().contains(searchText.lowercased()) || vm.member.locationName.lowercased().contains(searchText.lowercased())
+                }
+                else {
+                    return false
+                }
+            }
+            else if selectedTopMenuIndex == 1 {
+                if let vm = item as? ContactIncommingViewModel {
+                    return vm.member.name.lowercased().contains(searchText.lowercased()) || vm.member.locationName.lowercased().contains(searchText.lowercased())
+                }
+                else {
+                    return false
+                }
+            }
+            else if selectedTopMenuIndex == 2 {
+                if let vm = item as? ContactPendingViewModel {
+                    return vm.member.name.lowercased().contains(searchText.lowercased()) || vm.member.locationName.lowercased().contains(searchText.lowercased())
+                }
+                else {
+                    return false
+                }
+            }
+            else if selectedTopMenuIndex == 3 {
+                if let vm = item as? ContactDeclinedViewModel {
+                    return vm.member.name.lowercased().contains(searchText.lowercased()) || vm.member.locationName.lowercased().contains(searchText.lowercased())
+                }
+                else {
+                    return false
+                }
+            }
+            else {
+                return false
+            }
+        })
+    }
+    
 }
 
 extension ContactsViewController {
