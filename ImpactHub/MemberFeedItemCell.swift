@@ -13,10 +13,12 @@ import PromiseKit
 protocol MemberFeedItemDelegate: class {
     func memberFeedWantToShowComments(post: Post)
     func memberFeedWantToShowMember(userId: String)
+    func tappedLink(url: URL)
 }
 
-class MemberFeedItemCell: UICollectionViewCell {
+class MemberFeedItemCell: UICollectionViewCell, UITextViewDelegate {
     
+    @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var commentView: UIView!
     @IBOutlet weak var likeContainerView: UIView!
     
@@ -34,6 +36,7 @@ class MemberFeedItemCell: UICollectionViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var likeImageView: UIImageView!
     @IBOutlet weak var likeCountLabel: UILabel!
@@ -192,8 +195,13 @@ class MemberFeedItemCell: UICollectionViewCell {
 
     var vm: MemberFeedItemViewModel?
     
+    let segmentBuilder = ChatterSegmentBuilder()
+    let linkAttributes = [ NSFontAttributeName: UIFont(name: "GTWalsheim-Light", size: 14.0)!, NSForegroundColorAttributeName : UIColor.imaGrapefruit]
+
+
     func setUp(vm: MemberFeedItemViewModel) {
         self.vm = vm
+        textView.delegate = self
         if let comment = vm.comment {
             commentView.isHidden = true
             nameLabel.text = comment.user?.displayName ?? ""
@@ -201,14 +209,26 @@ class MemberFeedItemCell: UICollectionViewCell {
                 profileImageView.kf.setImage(with: photoUrl)
             }
             dateLabel.text = MemberFeedItemCell.dateFormatter.string(from: comment.date)
-            textLabel.text = vm.comment?.body
+            textView.isScrollEnabled = false
+            textView.linkTextAttributes = linkAttributes
+            textView.isScrollEnabled = false
+            textView.text = vm.comment?.body
+            let sizeThatShouldFitTheContent = textView.sizeThatFits(textView.frame.size)
+            textViewHeightConstraint.constant = sizeThatShouldFitTheContent.height
         }
         else {
             commentView.isHidden = false
             nameLabel.text = vm.post.chatterActor.displayName
             profileImageView.kf.setImage(with: vm.post.chatterActor.profilePicSmallUrl)
             dateLabel.text = MemberFeedItemCell.dateFormatter.string(from: vm.post.date)
-            textLabel.text = vm.post.text
+            
+            let textToShow = segmentBuilder.attributedTextFromSegments(segments: vm.post.segments)
+            textView.linkTextAttributes = linkAttributes
+            textView.isScrollEnabled = false
+            textView.attributedText = textToShow
+            let sizeThatShouldFitTheContent = textView.sizeThatFits(textView.frame.size)
+            textViewHeightConstraint.constant = sizeThatShouldFitTheContent.height
+            
             commentCountLabel.text = "\(vm.post.commentsCount)"
         }
         updateLikes()
@@ -255,7 +275,17 @@ class MemberFeedItemCell: UICollectionViewCell {
         }
     }
     
+
+    @available(iOS 10.0, *)
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        self.vm?.delegate?.tappedLink(url: URL)
+        return false
+    }
     
-    
+    @available(iOS 9.0, *)
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
+        self.vm?.delegate?.tappedLink(url: URL)
+        return false
+    }
     
 }

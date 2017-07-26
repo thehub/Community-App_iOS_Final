@@ -8,6 +8,8 @@
 
 import UIKit
 import PromiseKit
+import SafariServices
+
 
 class ProjectViewController: ListFullBleedViewController {
 
@@ -152,7 +154,7 @@ class ProjectViewController: ListFullBleedViewController {
         
         if let vm = data[indexPath.item] as? MemberFeedItemViewModel {
             let cellWidth: CGFloat = self.collectionView.frame.width
-            let height = vm.post.text.height(withConstrainedWidth: cellWidth - 76, font:UIFont(name: "GTWalsheim-Light", size: 14)!) + 85 // add extra height for the standard elements, titles, lines, sapcing etc.
+            let height = vm.post.text.height(withConstrainedWidth: cellWidth - 76, font:UIFont(name: "GTWalsheim-Light", size: 14)!) + 125 // add extra height for the standard elements, titles, lines, sapcing etc.
             return CGSize(width: view.frame.width, height: height)
         }
         
@@ -286,6 +288,33 @@ extension ProjectViewController: MemberFeedItemDelegate {
     func memberFeedWantToShowComments(post: Post) {
         self.postToShowCommentsFor = post
         self.performSegue(withIdentifier: "ShowComments", sender: self)
+    }
+    
+    func tappedLink(url: URL) {
+        // Get the id out, then get that record from the item.segment to check what to link to
+        if url.scheme == "mention" {
+            let mentionId = url.absoluteString.replacingOccurrences(of: "mention://", with: "")
+            // TODO: Implement mentions here
+            //            if let segment = self.item?.segments.filter({$0 is Mention }).first as? Mention {
+            //                if segment.record["id"].string == mentionId {
+            //                    if segment.record["type"].string == "User" {
+            //                        let userId = segment.record["id"].stringValue
+            //                        print(userId)
+            //                        self.userIdToShow = userId
+            //                        self.performSegue(withIdentifier: "ShowAuthor", sender: self)
+            //                    }
+            //                    else if segment.record["type"].string == "CollaborationGroup" {
+            //                        let groupId = segment.record["id"].stringValue
+            //                        self.groupIdToShow = groupId
+            //                        self.performSegue(withIdentifier: "ShowGroup", sender: self)
+            //                    }
+            //                }
+            //            }
+        }
+        else {
+            let svc = SFSafariViewController(url: url)
+            self.present(svc, animated: true, completion: nil)
+        }
     }
 }
 

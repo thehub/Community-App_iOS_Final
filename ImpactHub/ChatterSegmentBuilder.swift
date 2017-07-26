@@ -13,16 +13,17 @@ class ChatterSegmentBuilder {
     
     func attributedTextFromSegments(segments: [MessageSegment]) -> NSAttributedString {
         
+        let attributes = [ NSFontAttributeName: UIFont(name: "GTWalsheim-Light", size: 14.0)!, NSForegroundColorAttributeName : UIColor(hexString: "716F81")]
         let textToShow = NSMutableAttributedString()
         
         segments.forEach({ (segment) in
             
             if segment is Text {
-                textToShow.append(NSAttributedString(string: segment.text))
+                textToShow.append(NSAttributedString(string: segment.text, attributes: attributes))
             }
             else if segment is Mention {
                 let mention = segment as! Mention
-                let mentionString = NSMutableAttributedString(string: segment.text)
+                let mentionString = NSMutableAttributedString(string: segment.text, attributes: attributes)
                 // TODO: How to determain wether the current user can access this mention link?
                 //                    if segment["record"]["visibility"].string == "PublicAccess" {
                 _ = mentionString.setAsLink(textToFind: segment.text, linkURL: URL.init(string: "mention://\(mention.record["id"].stringValue)")!)
@@ -31,7 +32,7 @@ class ChatterSegmentBuilder {
             }
             else if segment is EntityLink {
                 let link = segment as! EntityLink
-                let linkString = NSMutableAttributedString(string: link.text)
+                let linkString = NSMutableAttributedString(string: link.text, attributes: attributes)
                 _ = linkString.setAsLink(textToFind: link.text, linkURL: URL.init(string: link.url)!)
                 textToShow.append(linkString)
             }
