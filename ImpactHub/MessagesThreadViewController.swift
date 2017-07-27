@@ -293,6 +293,9 @@ class MessagesThreadViewController: UIViewController {
             APIClient.shared.sendMessage(message: text, members: members, inReplyTo: self.inReplyTo)
             }.then { message -> Void in
                 print(message)
+                // TODO: Insert this without reload.
+                self.inputTextView.text = self.placeholderText
+                self.loadData()
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.inTransit = false
