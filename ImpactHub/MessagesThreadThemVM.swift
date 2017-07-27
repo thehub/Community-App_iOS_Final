@@ -13,9 +13,11 @@ class MessagesThreadThemVM: TableCellRepresentable {
     static var cellIdentifier = "ThemCell"
     
     var message: Message
+    var corners: UIRectCorner
     
-    init(message: Message, cellSize: CGSize) {
+    init(message: Message, cellSize: CGSize, corners: UIRectCorner) {
         self.message = message
+        self.corners = corners
         self.cellSize = cellSize
     }
     

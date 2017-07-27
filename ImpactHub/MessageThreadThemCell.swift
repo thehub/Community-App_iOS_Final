@@ -21,12 +21,17 @@ class MessageThreadThemCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
     func setUp(vm: MessagesThreadThemVM) {
         
         messageLabel.text = vm.message.text
+        
+        // TODO: Where is the draw call for this?
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.messageLabelContainer.round(corners: vm.corners, radius: 20)
+        }
+
         
     }
 

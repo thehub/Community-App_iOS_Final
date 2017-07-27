@@ -23,7 +23,7 @@ class MessagesThreadViewController: UIViewController {
     
     var data = [TableCellRepresentable]()
     
-    var conversationId: String? // Will be null if we're creating a new message from Member page for instance
+    var conversation: Conversation? // Will be null if we're creating a new message from Member page for instance
     var member: Member? // If we're creating a new message to
     
     var mentionCompletions = [MentionCompletion]()
@@ -49,8 +49,23 @@ class MessagesThreadViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         registerForKeyboardNotifications()
-
-        self.title = self.member?.name ?? "Thread"
+        
+        if let conversation = self.conversation {
+            print(SFUserAccountManager.sharedInstance().currentUser!.accountIdentity.userId)
+            print(SessionManager.shared.me!.member.userId)
+            print(conversation.latestMessage.sender.id)
+            print(conversation.latestMessage.recipients.first?.id)
+            // Find the other user
+            if conversation.latestMessage.sender.id != SessionManager.shared.me!.member.userId {
+                self.title = conversation.latestMessage.sender.displayName
+            }
+            else if conversation.latestMessage.recipients.first?.id != SessionManager.shared.me!.member.userId {
+                self.title = conversation.latestMessage.recipients.first?.displayName ?? "Thread"
+            }
+        }
+        else {
+            self.title = self.member?.name ?? "Thread"
+        }
         
         self.inputTextView.text = placeholderText
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -65,30 +80,51 @@ class MessagesThreadViewController: UIViewController {
     }
 
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         self.viewDidCancel = true
         deregisterFromKeyboardNotifications()
     }
     
+    var observer1: NSObjectProtocol?
+    var observer2: NSObjectProtocol?
+
     
     func registerForKeyboardNotifications() {
         //Adding notifies on keyboard appearing
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        
+        self.observer1 = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillShow, object: nil, queue: OperationQueue.main) { (note) in
+            self.keyboardWasShown(notification: note)
+        }
+        
+        self.observer2 = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillHide, object: nil, queue: OperationQueue.main) { (note) in
+            self.keyboardWillBeHidden(notification: note)
+        }
+
     }
     
     
     func deregisterFromKeyboardNotifications() {
-        //Removing notifies on keyboard appearing
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        if let observer = self.observer1 {
+            NotificationCenter.default.removeObserver(observer)
+        }
+        if let observer = self.observer2 {
+            NotificationCenter.default.removeObserver(observer)
+        }
     }
     
-    func keyboardWasShown(notification: NSNotification) {
+    func keyboardWasShown(notification: Notification) {
         var info : Dictionary = notification.userInfo!
         if let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size {
-            self.bottomConstraint.constant = keyboardSize.height + 10
+            // odd behaviour, sometimes the height comes as 0, on second time the view is shown
+            if keyboardSize.height == 0 {
+                self.bottomConstraint.constant = SessionManager.shared.keyboardHeight + 10
+            }
+            else {
+                SessionManager.shared.keyboardHeight = keyboardSize.height
+                self.bottomConstraint.constant = keyboardSize.height + 10
+            }
             UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
                 self.view.layoutIfNeeded()
             }) { (_) in
@@ -96,14 +132,11 @@ class MessagesThreadViewController: UIViewController {
         }
     }
     
-    func keyboardWillBeHidden(notification: NSNotification) {
-        var info : Dictionary = notification.userInfo!
-        if let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size {
-            self.bottomConstraint.constant = 0
-            UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
-                self.view.layoutIfNeeded()
-            }) { (_) in
-            }
+    func keyboardWillBeHidden(notification: Notification?) {
+        self.bottomConstraint.constant = 0
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+            self.view.layoutIfNeeded()
+        }) { (_) in
         }
     }
     
@@ -116,69 +149,99 @@ class MessagesThreadViewController: UIViewController {
     var skip = 0
     var top = 20
     
+    var inReplyTo: String?
+    
     func loadData() {
         // TODO: User Member as message id here...
-        guard let conversationId = self.conversationId else {
+        guard let conversationId = self.conversation?.id else {
             return
         }
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
-            
             APIClient.shared.getMessagesForConversation(conversationId: conversationId)
             }.then { items -> Void in
+                self.inReplyTo = items.last?.id
                 var newData = [TableCellRepresentable]()
                 let cellWidth: CGFloat = self.view.frame.width
                 var previousMessage: Message?
                 
-                for (index, message) in items.enumerated() {
-                    let myUserId = "\(SFUserAccountManager.sharedInstance().currentUser!.accountIdentity.userId!)QAS"  // FIXME: User name seems to need QAS appended to it?
+                let itemsSorted = items.sorted(by: {$0.sentDate > $1.sentDate})
+                
+                for (index, message) in itemsSorted.enumerated() {
+                    let myUserId = SessionManager.shared.me?.member.userId ?? ""
                     // It's me
                     if message.sender.id == myUserId {
                         if previousMessage?.sender.id != myUserId {
-                            let viewModelPic = MessagesThreadMePicVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 30))
-                            newData.append(viewModelPic)
-                        }
-                        let viewModel = MessagesThreadMeVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 75))
-                        newData.append(viewModel)
-
-                        if index + 1 < items.count {
-                            let nextItem = items[index + 1]
-                            if nextItem.sender.id != myUserId {
-                                // Time stamp
-                                let viewModelTime = MessagesThreadMeTimeVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 30))
-                                newData.append(viewModelTime)
-                            }
-                        }
-                        else {
                             // Time stamp
                             let viewModelTime = MessagesThreadMeTimeVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 30))
                             newData.append(viewModelTime)
                         }
                         
+                        // Message bubble, with corners depending on position
+                        if index + 1 < items.count {
+                            let nextItem = items[index + 1]
+                            if nextItem.sender.id != myUserId {
+                                let viewModel = MessagesThreadMeVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 55), corners: [.topRight, .bottomRight, .bottomLeft])
+                                newData.append(viewModel)
+                            } else {
+                                let viewModel = MessagesThreadMeVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 55), corners: [.topLeft, .topRight, .bottomRight, .bottomLeft])
+                                newData.append(viewModel)
+                            }
+                        }
+                        else {
+                            let viewModel = MessagesThreadMeVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 55), corners: [.topRight, .bottomRight, .bottomLeft])
+                            newData.append(viewModel)
+                        }
+                        
+                        // Picture
+                        if index + 1 < items.count {
+                            let nextItem = items[index + 1]
+                            if nextItem.sender.id != myUserId {
+                                let viewModelPic = MessagesThreadMePicVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 30))
+                                newData.append(viewModelPic)
+                            }
+                        }
+                        else {
+                            let viewModelPic = MessagesThreadMePicVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 30))
+                            newData.append(viewModelPic)
+                        }
                     }
                     // It's them
                     else {
                         if previousMessage?.sender.id != message.sender.id {
-                            let viewModelPic = MessagesThreadThemPicVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 30))
-                            newData.append(viewModelPic)
-                        }
-                        let viewModel = MessagesThreadThemVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 75))
-                        newData.append(viewModel)
-                        
-                        if index + 1 < items.count {
-                            let nextItem = items[index + 1]
-                            if nextItem.sender.id != message.sender.id {
-                                // Time stamp
-                                let viewModelTime = MessagesThreadThemTimeVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 30))
-                                newData.append(viewModelTime)
-                            }
-                        }
-                        else {
                             // Time stamp
                             let viewModelTime = MessagesThreadThemTimeVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 30))
                             newData.append(viewModelTime)
                         }
 
+                        // Message bubble, with corners depending on position
+                        if index + 1 < items.count {
+                            let nextItem = items[index + 1]
+                            if nextItem.sender.id != message.sender.id {
+                                let viewModel = MessagesThreadThemVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 55), corners: [.topLeft, .bottomRight, .bottomLeft])
+                                newData.append(viewModel)
+                            } else {
+                                let viewModel = MessagesThreadThemVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 55), corners: [.topLeft, .topRight, .bottomRight, .bottomLeft])
+                                newData.append(viewModel)
+                            }
+                        }
+                        else {
+                            let viewModel = MessagesThreadThemVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 55), corners: [.topLeft, .bottomRight, .bottomLeft])
+                            newData.append(viewModel)
+                        }
+                        
+                        // Picture
+                        if index + 1 < items.count {
+                            let nextItem = items[index + 1]
+                            if nextItem.sender.id != message.sender.id {
+                                let viewModelPic = MessagesThreadThemPicVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 30))
+                                newData.append(viewModelPic)
+                            }
+                        }
+                        else {
+                            let viewModelPic = MessagesThreadThemPicVM.init(message: message, cellSize: CGSize(width: cellWidth, height: 30))
+                            newData.append(viewModelPic)
+                        }
                     }
                     previousMessage = message
                 }
@@ -227,7 +290,7 @@ class MessagesThreadViewController: UIViewController {
             members = [member]
         }
         firstly {
-            APIClient.shared.sendMessage(message: text, members: members, inReplyTo: self.conversationId)
+            APIClient.shared.sendMessage(message: text, members: members, inReplyTo: self.inReplyTo)
             }.then { message -> Void in
                 print(message)
             }.always {
@@ -267,7 +330,7 @@ extension MessagesThreadViewController: UITextViewDelegate {
         guard let oldText = textView.text else { return true }
         
         if inputTextView.text == placeholderText {
-            inputTextView.text = text
+            inputTextView.text = ""
         }
         
         if text == "\n" {

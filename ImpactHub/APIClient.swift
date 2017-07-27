@@ -1019,6 +1019,17 @@ class APIClient {
                 reject(MyError.Error("Error"))
                 return
             }
+            
+//            {
+//                "body": "Text of the message",
+//                "recipients": ["userID","userID"],
+//                "inReplyTo": "messageID"
+//            }
+
+            
+            
+            print(query)
+            
             let body = SFJsonUtils.jsonDataRepresentation(query.dictionaryObject)
             let request = SFRestRequest(method: .POST, path: "/services/data/v39.0/connect/communities/\(Constants.communityId)/chatter/users/me/messages/", queryParams: nil)
             request.setCustomRequestBodyData(body!, contentType: "application/json")

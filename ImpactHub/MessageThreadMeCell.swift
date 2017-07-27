@@ -16,26 +16,20 @@ class MessageThreadMeCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        messageLabelContainer.layer.cornerRadius = 20
-        
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-//        messageLabelContainer.roundCorners([.topRight, .bottomRight, .bottomLeft], radius: 10)
-    }
-    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func setUp(vm: MessagesThreadMeVM) {
-        
         messageLabel.text = vm.message.text
-
+        
+        // TODO: Where is the draw call for this?
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.messageLabelContainer.round(corners: vm.corners, radius: 20)
+        }
+        
     }
 
 }

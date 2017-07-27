@@ -48,7 +48,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="5"/>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No messages..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMw-bH-8wE">
-                                <rect key="frame" x="20" y="89" width="113.5" height="21.5"/>
+                                <rect key="frame" x="20" y="89" width="118.5" height="20"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim" family="GT Walsheim" pointSize="17"/>
                                 <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -103,7 +103,7 @@
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gQJ-fC-sU7">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="553"/>
-                                        <color key="backgroundColor" red="0.9882352941176471" green="0.9882352941176471" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MeCell" rowHeight="90" id="DPm-0Y-yFH" customClass="MessageThreadMeCell" customModule="ImpactHub" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
@@ -113,20 +113,20 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0j4-2w-p0V">
-                                                            <rect key="frame" x="8" y="8" width="76" height="57"/>
+                                                            <rect key="frame" x="8" y="8" width="79.5" height="45"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96l-DM-oKs">
-                                                                    <rect key="frame" x="20" y="20" width="36" height="17"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <rect key="frame" x="20" y="13" width="39.5" height="19"/>
+                                                                    <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="16"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="1" green="0.32549019607843138" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
-                                                                <constraint firstItem="96l-DM-oKs" firstAttribute="top" secondItem="0j4-2w-p0V" secondAttribute="top" constant="20" id="E2y-Pi-ZVW"/>
+                                                                <constraint firstItem="96l-DM-oKs" firstAttribute="top" secondItem="0j4-2w-p0V" secondAttribute="top" constant="13" id="E2y-Pi-ZVW"/>
                                                                 <constraint firstItem="96l-DM-oKs" firstAttribute="leading" secondItem="0j4-2w-p0V" secondAttribute="leading" constant="20" id="JMr-jN-Vfn"/>
-                                                                <constraint firstAttribute="bottom" secondItem="96l-DM-oKs" secondAttribute="bottom" constant="20" id="VXQ-VM-YRf"/>
+                                                                <constraint firstAttribute="bottom" secondItem="96l-DM-oKs" secondAttribute="bottom" constant="13" id="VXQ-VM-YRf"/>
                                                                 <constraint firstAttribute="trailing" secondItem="96l-DM-oKs" secondAttribute="trailing" constant="20" id="W26-9J-nKq"/>
                                                             </constraints>
                                                         </view>
@@ -307,10 +307,16 @@
                                     <constraint firstItem="67V-oy-KFy" firstAttribute="leading" secondItem="iBs-aq-kfA" secondAttribute="leading" constant="15" id="wBR-OT-UkE"/>
                                 </constraints>
                             </view>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="3Qt-aZ-bXd">
+                                <rect key="frame" x="0.0" y="64" width="375" height="5"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="3Qt-aZ-bXd" firstAttribute="top" secondItem="xaW-9M-60z" secondAttribute="bottom" id="InQ-9W-3ex"/>
+                            <constraint firstItem="3Qt-aZ-bXd" firstAttribute="leading" secondItem="iHS-yT-ZPs" secondAttribute="leading" id="PvW-4z-W3i"/>
                             <constraint firstAttribute="bottom" secondItem="iBs-aq-kfA" secondAttribute="bottom" id="VL7-vh-3az"/>
+                            <constraint firstAttribute="trailing" secondItem="3Qt-aZ-bXd" secondAttribute="trailing" id="bdY-ja-mBI"/>
                             <constraint firstAttribute="trailing" secondItem="iBs-aq-kfA" secondAttribute="trailing" id="jat-vW-oOa"/>
                             <constraint firstItem="iBs-aq-kfA" firstAttribute="top" secondItem="xaW-9M-60z" secondAttribute="bottom" id="smN-4J-aqd"/>
                             <constraint firstItem="iBs-aq-kfA" firstAttribute="leading" secondItem="iHS-yT-ZPs" secondAttribute="leading" id="tCA-Ev-hp2"/>
@@ -409,7 +415,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcr-5N-Me4">
-                                <rect key="frame" x="20" y="216" width="28.5" height="15.5"/>
+                                <rect key="frame" x="20" y="216" width="29.5" height="14"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12"/>
                                 <color key="textColor" red="0.54117647058823526" green="0.55686274509803924" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -590,8 +596,8 @@
         <image name="trans" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="v7v-3b-vgD"/>
-        <segue reference="DPj-Yd-XnV"/>
+        <segue reference="FjO-gx-hbh"/>
+        <segue reference="Yv3-tT-FXL"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>

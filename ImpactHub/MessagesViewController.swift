@@ -105,7 +105,7 @@ class MessagesViewController: UIViewController {
         super.prepare(for: segue, sender: sender)
         if segue.identifier == "ShowMessageThread" {
             if let vc = segue.destination as? MessagesThreadViewController, let selectedItem = selectedVM {
-                vc.conversationId = selectedItem.conversation.id
+                vc.conversation = selectedItem.conversation
             }
         }
     }
