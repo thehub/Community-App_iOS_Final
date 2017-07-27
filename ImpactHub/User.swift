@@ -18,6 +18,10 @@ struct User {
     var photo: Photo?
     var title: String?
     
+    var name: String {
+        return "\(firstName) \(lastName)"
+    }
+    
 }
 
 extension User {

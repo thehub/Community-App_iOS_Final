@@ -57,7 +57,7 @@ class MessagesViewController: UIViewController {
                 var newData = [CellRepresentable]()
                 let cellWidth: CGFloat = self.view.frame.width
                 items.forEach({ (conversation) in
-                    let viewModel = MessagesVM.init(conversation: conversation, cellSize: CGSize(width: cellWidth, height: 80))
+                    let viewModel = MessagesVM(conversation: conversation, cellSize: CGSize(width: cellWidth, height: 80))
                     newData.append(viewModel)
                 })
                 if self.skip == 0 {
@@ -98,7 +98,7 @@ class MessagesViewController: UIViewController {
     }
 
     func hideNoMessages() {
-        self.noMessagesLabel.isHidden = false
+        self.noMessagesLabel.isHidden = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

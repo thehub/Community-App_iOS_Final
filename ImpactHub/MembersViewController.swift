@@ -73,6 +73,7 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
     }
     
     var selectedVM: MemberViewModel?
+    var memberToSendMessage: Member?
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -91,7 +92,7 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
             }
         }
         else if segue.identifier == "ShowMessageThread" {
-            if let vc = segue.destination as? MessagesThreadViewController, let member = cellWantsToSendContactRequest?.vm?.member {
+            if let vc = segue.destination as? MessagesThreadViewController, let member = self.memberToSendMessage {
                 vc.member = member
             }
         }
@@ -137,6 +138,7 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
 extension MembersViewController: MemberCollectionViewCellDelegate {
 
     func wantsToCreateNewMessage(member: Member) {
+        self.memberToSendMessage = member
         self.performSegue(withIdentifier: "ShowMessageThread", sender: self)
     }
     

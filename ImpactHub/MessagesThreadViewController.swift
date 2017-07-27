@@ -42,7 +42,6 @@ class MessagesThreadViewController: UIViewController {
         tableView.re.scrollViewDidReachBottom = { scrollView in
             print("scrollViewDidReachBottom")
         }
-        
 
         loadData()
     }
@@ -89,13 +88,12 @@ class MessagesThreadViewController: UIViewController {
     func keyboardWasShown(notification: NSNotification) {
         var info : Dictionary = notification.userInfo!
         if let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size {
-            self.bottomConstraint.constant = keyboardSize.height
+            self.bottomConstraint.constant = keyboardSize.height + 10
             UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
                 self.view.layoutIfNeeded()
             }) { (_) in
             }
         }
-        
     }
     
     func keyboardWillBeHidden(notification: NSNotification) {
@@ -215,7 +213,7 @@ class MessagesThreadViewController: UIViewController {
     var inTransit = false
     
     func sendPost(text: String) {
-        guard let text = self.inputTextView.text, let member = self.member else {
+        guard let text = self.inputTextView.text else {
             return
         }
         if self.inTransit {
@@ -224,8 +222,12 @@ class MessagesThreadViewController: UIViewController {
         
         inTransit = true
         
+        var members: [Member]?
+        if let member = self.member {
+            members = [member]
+        }
         firstly {
-            APIClient.shared.sendMessage(message: text, members: [member], inReplyTo: self.conversationId)
+            APIClient.shared.sendMessage(message: text, members: members, inReplyTo: self.conversationId)
             }.then { message -> Void in
                 print(message)
             }.always {
@@ -274,7 +276,7 @@ extension MessagesThreadViewController: UITextViewDelegate {
             }
             else {
                 if inputTextView.text != self.placeholderText && !viewDidCancel {
-                    sendPost(text: text)
+                    sendPost(text: inputTextView.text)
                 }
                 else {
                     self.inputTextView.text = self.placeholderText
@@ -289,7 +291,7 @@ extension MessagesThreadViewController: UITextViewDelegate {
 //        let matches = detector.matches(in: textView.text, options: .reportCompletion, range: NSMakeRange(0, textView.text.characters.count))
         
         if textView == inputTextView {
-            var newLength = oldText.utf16.count + text.utf16.count - range.length
+            let newLength = oldText.utf16.count + text.utf16.count - range.length
             // Compnesate for url shortener, each link will be 24 characters
 //            matches.forEach { (match) in
 //                newLength -= match.range.length

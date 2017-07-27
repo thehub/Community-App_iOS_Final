@@ -22,10 +22,10 @@ class MessagesCell: UICollectionViewCell {
     }
     
     func setUp(vm: MessagesVM) {
-        
         nameLabel.text = vm.conversation.latestMessage.sender.displayName
         textLabel.text = vm.conversation.latestMessage.text
-        timeLabel.text = vm.conversation.latestMessage.sentDate.description
+        timeLabel.text = Utils.timeStringFromDate(date: vm.conversation.latestMessage.sentDate)
+        unreadLabel.isHidden = vm.conversation.read
         
     }
     

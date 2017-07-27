@@ -850,7 +850,6 @@ class APIClient {
     func postToGroup(groupID: String, messageSegments: [[String: String]], fileId:String?) -> Promise<Post> {
         return Promise { fullfill, reject in
             var query: JSON!
-            print(messageSegments)
             if let fileId = fileId {
                 query = ["body" : ["messageSegments" : messageSegments], "feedElementType": "FeedItem", "subjectId": groupID, "capabilities": ["files": ["items": ["id": fileId]]]]
             }
@@ -861,7 +860,6 @@ class APIClient {
             let body = SFJsonUtils.jsonDataRepresentation(query.dictionaryObject)
             let request = SFRestRequest(method: .POST, path: "/services/data/v39.0/connect/communities/\(Constants.communityId)/chatter/feed-elements", queryParams: nil)
             request.setCustomRequestBodyData(body!, contentType: "application/json")
-//            request.setHeaderValue("\(u_long(body?.count ?? 0))", forHeaderName: "Content-Length")
             
             SFRestAPI.sharedInstance().send(request, fail: { (error) in
                 print(error?.localizedDescription as Any)
@@ -1009,25 +1007,21 @@ class APIClient {
     
     func sendMessage(message: String, members: [Member]?, inReplyTo: String?) -> Promise<Message> {
         return Promise { fullfill, reject in
-            var query: [String: AnyObject]!
+            var query: JSON!
             if let members = members {
                 let recipients = members.flatMap({$0.userId}) //.joined(separator: ",")
-                query = ["body": message as AnyObject, "recipients" : recipients as AnyObject]
+                query = ["body": message, "recipients" : recipients]
             }
             else if let inReplyTo = inReplyTo {
-                query = ["body": message as AnyObject, "inReplyTo" : inReplyTo as AnyObject]
+                query = ["body": message, "inReplyTo" : inReplyTo]
             }
             else {
                 reject(MyError.Error("Error"))
                 return
             }
-            
-            let body = SFJsonUtils.jsonDataRepresentation(query)
-            
+            let body = SFJsonUtils.jsonDataRepresentation(query.dictionaryObject)
             let request = SFRestRequest(method: .POST, path: "/services/data/v39.0/connect/communities/\(Constants.communityId)/chatter/users/me/messages/", queryParams: nil)
-            
             request.setCustomRequestBodyData(body!, contentType: "application/json")
-//            request.setHeaderValue("\(u_long(body?.count ?? 0))", forHeaderName: "Content-Length")
             
             SFRestAPI.sharedInstance().send(request, fail: { (error) in
                 print(error?.localizedDescription as Any)
