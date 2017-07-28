@@ -30,6 +30,11 @@ class MessagesThreadViewController: UIViewController {
     
     var editingMessageText: String?
 
+    @available(iOS 10.0, *)
+    var generatorNotification: UINotificationFeedbackGenerator {
+        return UINotificationFeedbackGenerator()
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +71,10 @@ class MessagesThreadViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
 //        self.tabBarController?.tabBar.isHidden = true
         self.viewDidCancel = false
+        
+        if #available(iOS 10.0, *) {
+            generatorNotification.prepare()
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -278,7 +287,9 @@ class MessagesThreadViewController: UIViewController {
         firstly {
             APIClient.shared.sendMessage(message: text, members: members, inReplyTo: self.inReplyTo)
             }.then { message -> Void in
-                print(message)
+                if #available(iOS 10.0, *) {
+                    self.generatorNotification.notificationOccurred(.success)
+                }
                 // TODO: Insert this without reload.
                 self.inputTextView.text = nil
                 self.placeholderTextView.isHidden = false
@@ -294,6 +305,10 @@ class MessagesThreadViewController: UIViewController {
                 self.inTransit = false
             }.catch { error in
                 debugPrint(error.localizedDescription)
+                if #available(iOS 10.0, *) {
+                    self.generatorNotification.notificationOccurred(.error)
+                }
+
                 let alert = UIAlertController(title: "Error", message: "Could not send message. Please try again.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
