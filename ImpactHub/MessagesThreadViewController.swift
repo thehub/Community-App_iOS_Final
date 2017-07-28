@@ -35,6 +35,11 @@ class MessagesThreadViewController: UIViewController {
     var generatorNotification: UINotificationFeedbackGenerator {
         return UINotificationFeedbackGenerator()
     }
+    
+    @available(iOS 10.0, *)
+    var generatorImpact: UIImpactFeedbackGenerator {
+        return UIImpactFeedbackGenerator(style: .light)
+    }
 
     
     override func viewDidLoad() {
@@ -98,11 +103,15 @@ class MessagesThreadViewController: UIViewController {
         
         // If we get a push for this conversation, refresh
         self.observer = NotificationCenter.default.addObserver(forName: Notification.Name.refreshConversation, object: nil, queue: OperationQueue.main) { (note) in
+            if #available(iOS 10.0, *) {
+                self.generatorImpact.impactOccurred()
+            }
             self.loadData()
         }
         
         if #available(iOS 10.0, *) {
             generatorNotification.prepare()
+            generatorImpact.prepare()
         }
     }
     
@@ -333,7 +342,6 @@ class MessagesThreadViewController: UIViewController {
         firstly {
             APIClient.shared.sendMessage(message: text, members: members, inReplyTo: self.inReplyTo)
             }.then { message -> Void in
-                print(message.conversationId)
                 if #available(iOS 10.0, *) {
                     self.generatorNotification.notificationOccurred(.success)
                 }
