@@ -756,17 +756,13 @@ class APIClient {
             request.setCustomRequestBodyData(body!, contentType: "application/json")
 //            request.setHeaderValue("\(u_long(body?.count ?? 0))", forHeaderName: "Content-Length")
             
-            print(Constants.communityId)
-            print(request)
+//            print(request)
             
             SFRestAPI.sharedInstance().send(request, fail: { (error) in
                 print(error?.localizedDescription as Any)
                 reject(MyError.JSONError)
             }) { (result) in
-                print(result)
                 let jsonResult = JSON.init(result!)
-                print(jsonResult)
-                
                 // For now sales force won't give an error or sucess, so just silently accept it
                 fullfill("ok")
                 //                let jsonResult = JSON.init(result!)
@@ -1019,25 +1015,14 @@ class APIClient {
                 reject(MyError.Error("Error"))
                 return
             }
-            
-//            {
-//                "body": "Text of the message",
-//                "recipients": ["userID","userID"],
-//                "inReplyTo": "messageID"
-//            }
-
-            
-            
-            print(query)
-            
             let body = SFJsonUtils.jsonDataRepresentation(query.dictionaryObject)
             let request = SFRestRequest(method: .POST, path: "/services/data/v39.0/connect/communities/\(Constants.communityId)/chatter/users/me/messages/", queryParams: nil)
             request.setCustomRequestBodyData(body!, contentType: "application/json")
-            
             SFRestAPI.sharedInstance().send(request, fail: { (error) in
                 print(error?.localizedDescription as Any)
                 reject(error ?? MyError.Error("Error"))
             }) { (result) in
+                print(result)
                 if let result = result as? [String: Any], let message = Message(json: result) {
                     fullfill(message)
                 }

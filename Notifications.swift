@@ -8,6 +8,7 @@ extension Notification.Name {
     
     static let onLogin = Notification.Name("onLogin")
     static let openPush = Notification.Name("openPush")
-    
+    static let refreshConversation = Notification.Name("refreshConversation")
+
     
 }

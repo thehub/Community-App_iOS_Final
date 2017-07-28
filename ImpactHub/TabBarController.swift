@@ -132,8 +132,16 @@ class TabBarController: UITabBarController {
                 }.catch { error in
                     debugPrint(error.localizedDescription)
             }
-            break        case .privateMessage(let postId):
-            debugPrint(postId)
+            break
+        case .privateMessage(let conversationId):
+            debugPrint(conversationId)
+            self.selectedIndex = 3
+            let nvc = self.viewControllers?[self.selectedIndex] as! UINavigationController
+            let storyboard = UIStoryboard(name: "Messages", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "MessagesThreadViewController") as! MessagesThreadViewController
+            vc.conversationId = conversationId
+            nvc.pushViewController(vc, animated: true)
+            break
         case .contactRequestApproved(let userId):
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
             firstly {

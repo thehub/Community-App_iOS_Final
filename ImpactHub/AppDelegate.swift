@@ -145,7 +145,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.alert, .sound])
+        // Check if we're on MessageThreadScreen and looking at the same conversationId, then do not show, but send refresh notification.
+        var doShow = true
+        let userInfo = notification.request.content.userInfo
+        if let pushNotification = PushNotification.createFromUserInfo(userInfo) {
+            switch pushNotification.kind {
+            case .privateMessage(let conversationId):
+                if SessionManager.shared.currentlyShowingConversationId == conversationId {
+                    doShow = false
+                }
+                break
+            default:
+                break
+            }
+        }
+        
+        if doShow {
+            completionHandler([.alert, .sound])
+        }
+        else {
+            completionHandler([.sound])
+            NotificationCenter.default.post(name: .refreshConversation, object: nil, userInfo: nil)
+        }
+        
     }
     
     
@@ -194,7 +216,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func handleSdkManagerLogout() {
         self.log(.debug, msg: "SFAuthenticationManager logged out.  Resetting app.")
-
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
             SalesforceSDKManager.shared().launch()
         }

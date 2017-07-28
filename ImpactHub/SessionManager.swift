@@ -40,6 +40,9 @@ class SessionManager {
     let keychain = A0SimpleKeychain(service: "ImpactHub")
     var profile: Profile?
 
+    // Used to avoid showing push if user is already lookin at conversation. Will send refresh notification instead.
+    var currentlyShowingConversationId: String?
+    
     var token: String? {
         get {
             return self.keychain.string(forKey: "id_token")

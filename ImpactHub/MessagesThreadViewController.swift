@@ -24,6 +24,7 @@ class MessagesThreadViewController: UIViewController {
     var data = [TableCellRepresentable]()
     
     var conversation: Conversation? // Will be null if we're creating a new message from Member page for instance
+    var conversationId: String? // If comming from push
     var member: Member? // If we're creating a new message to
     
     var mentionCompletions = [MentionCompletion]()
@@ -51,30 +52,72 @@ class MessagesThreadViewController: UIViewController {
         loadData()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        registerForKeyboardNotifications()
-        
+    func otherUser() -> (id: String?, name: String?) {
         if let conversation = self.conversation {
             // Find the other user
             if conversation.latestMessage.sender.id != SessionManager.shared.me!.member.userId {
-                self.title = conversation.latestMessage.sender.displayName
+                return (id: conversation.latestMessage.sender.id, name: conversation.latestMessage.sender.displayName)
             }
             else {
-                self.title = conversation.latestMessage.recipients.last?.displayName ?? "Thread"
+                var recipientNotMe: User?
+                for recipient in conversation.latestMessage.recipients {
+                    if recipient.id != SessionManager.shared.me?.member.userId {
+                        recipientNotMe = recipient
+                    }
+                    break
+                }
+                return (id: recipientNotMe?.id, name: recipientNotMe?.displayName)
             }
         }
         else {
-            self.title = self.member?.name ?? "Thread"
+            return (id: self.member?.userId, name: self.member?.name)
         }
+
+    }
+    
+    var observer: NSObjectProtocol?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        registerForKeyboardNotifications()
+
+        // Store this so we know not to show push if we're looking at the same conversation already.
+        
+        if let conversation = self.conversation {
+            SessionManager.shared.currentlyShowingConversationId = conversation.id
+        }
+        else {
+            SessionManager.shared.currentlyShowingConversationId = self.conversationId
+        }
+        
+        self.title = otherUser().name ?? "Thread"
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
 //        self.tabBarController?.tabBar.isHidden = true
         self.viewDidCancel = false
         
+        // If we get a push for this conversation, refresh
+        self.observer = NotificationCenter.default.addObserver(forName: Notification.Name.refreshConversation, object: nil, queue: OperationQueue.main) { (note) in
+            self.loadData()
+        }
+        
         if #available(iOS 10.0, *) {
             generatorNotification.prepare()
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        SessionManager.shared.currentlyShowingConversationId = nil
+        
+        if let observer = self.observer {
+            NotificationCenter.default.removeObserver(observer)
+        }
+        
+    }
+    
+    deinit {
+        SessionManager.shared.currentlyShowingConversationId = nil
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -145,8 +188,11 @@ class MessagesThreadViewController: UIViewController {
     var inReplyTo: String?
     
     func loadData() {
-        // TODO: User Member as message id here...
-        guard let conversationId = self.conversation?.id else {
+        // If coming from push we hav conversationId otherwise we have conversation
+        if let conversation = self.conversation {
+            self.conversationId = conversation.id
+        }
+        guard let conversationId = self.conversationId else {
             return
         }
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -287,6 +333,7 @@ class MessagesThreadViewController: UIViewController {
         firstly {
             APIClient.shared.sendMessage(message: text, members: members, inReplyTo: self.inReplyTo)
             }.then { message -> Void in
+                print(message.conversationId)
                 if #available(iOS 10.0, *) {
                     self.generatorNotification.notificationOccurred(.success)
                 }
@@ -300,6 +347,7 @@ class MessagesThreadViewController: UIViewController {
                 else {
                     self.loadData()
                 }
+                _ = APIClient.shared.sendPush(fromUserId: SessionManager.shared.me?.member.userId ?? "", toUserIds: self.otherUser().id ?? "", pushType: .privateMessage(conversationId: message.conversationId ?? ""), relatedId: message.conversationId ?? "")
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.inTransit = false

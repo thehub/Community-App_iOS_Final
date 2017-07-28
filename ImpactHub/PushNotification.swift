@@ -27,7 +27,7 @@ struct PushNotification {
         case postMention(postId: String, chatterGroupId: String)
         case likePost(postId: String, chatterGroupId: String)
         case likeComment(commentId: String, chatterGroupId: String)
-        case privateMessage(messageId: String)
+        case privateMessage(conversationId: String)
         case contactRequestIncomming(fromUserId: String)
         case contactRequestApproved(fromUserId: String)
         case unknown
@@ -112,7 +112,7 @@ extension PushNotification {
         case "LikeComment":
             self.kind = .likeComment(commentId: relatedId, chatterGroupId: chatterGroupId ?? "")
         case "PrivateMessage":
-            self.kind = .privateMessage(messageId: relatedId)
+            self.kind = .privateMessage(conversationId: relatedId)
         case "DMRequestSent":
             self.kind = .contactRequestIncomming(fromUserId: fromUserId)
         case "DMRequestApproved":
@@ -170,6 +170,13 @@ extension PushNotification {
             case "likepost":
                 if let postId = userInfo["postId"] as? String, let chatterGroupId = userInfo["relatedGroup"] as? String {
                     return PushNotification(id: "", fromUserId: "", isRead: false, relatedId: "", chatterGroupId: chatterGroupId, createdDate: Date(), profilePic: nil, kind: PushNotification.Kind.likePost(postId: postId, chatterGroupId: chatterGroupId), message: "")
+                }
+                else {
+                    return nil
+                }
+            case "message":
+                if let conversationId = userInfo["conversationId"] as? String {
+                    return PushNotification(id: "", fromUserId: "", isRead: false, relatedId: "", chatterGroupId: nil, createdDate: Date(), profilePic: nil, kind: PushNotification.Kind.privateMessage(conversationId: conversationId), message: "")
                 }
                 else {
                     return nil

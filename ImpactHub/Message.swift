@@ -20,7 +20,6 @@ struct Message {
 
 extension Message {
     init?(json: [String: Any]) {
-        debugPrint(json)
         guard
             let id = json["id"] as? String,
             let body = json["body"] as? [String : Any],
@@ -49,10 +48,6 @@ extension Message {
         else {
             return nil
         }
-        
-        
-        
-        
     }
     
 }
