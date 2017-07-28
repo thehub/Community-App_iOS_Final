@@ -159,11 +159,14 @@ class TabBarController: UITabBarController {
                 }.then { member -> Void in
                     let contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
                     member.contactRequest = contactRequest
-                    let nvc = self.viewControllers?[self.selectedIndex] as! UINavigationController
-                    let storyboard = UIStoryboard(name: "Messages", bundle: nil)
-                    let vc = storyboard.instantiateViewController(withIdentifier: "ContactIncommingViewController") as! ContactIncommingViewController
-                    vc.member = member
-                    nvc.pushViewController(vc, animated: true)
+                    // Make sure the state is still correct
+                    if contactRequest?.status == .approveDecline {
+                        let nvc = self.viewControllers?[self.selectedIndex] as! UINavigationController
+                        let storyboard = UIStoryboard(name: "Messages", bundle: nil)
+                        let vc = storyboard.instantiateViewController(withIdentifier: "ContactIncommingViewController") as! ContactIncommingViewController
+                        vc.member = member
+                        nvc.pushViewController(vc, animated: true)
+                    }
                 }.always {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }.catch { error in
