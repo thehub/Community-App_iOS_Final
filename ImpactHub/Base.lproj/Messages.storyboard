@@ -101,21 +101,21 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBs-aq-kfA">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gQJ-fC-sU7">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gQJ-fC-sU7">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="553"/>
                                         <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MeCell" rowHeight="90" id="DPm-0Y-yFH" customClass="MessageThreadMeCell" customModule="ImpactHub" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MeCell" rowHeight="90" id="DPm-0Y-yFH" customClass="MessageThreadMeCell" customModule="ImpactHub" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DPm-0Y-yFH" id="uN8-qb-jDk">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0j4-2w-p0V">
+                                                        <view contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="0j4-2w-p0V">
                                                             <rect key="frame" x="8" y="8" width="79.5" height="45"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96l-DM-oKs">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96l-DM-oKs">
                                                                     <rect key="frame" x="20" y="13" width="39.5" height="19"/>
                                                                     <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="16"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -132,6 +132,7 @@
                                                         </view>
                                                     </subviews>
                                                     <constraints>
+                                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="0j4-2w-p0V" secondAttribute="trailing" constant="70" id="bTS-Sq-Xbt"/>
                                                         <constraint firstItem="0j4-2w-p0V" firstAttribute="leading" secondItem="uN8-qb-jDk" secondAttribute="leading" constant="8" id="c6Y-2V-Zce"/>
                                                         <constraint firstItem="0j4-2w-p0V" firstAttribute="top" secondItem="uN8-qb-jDk" secondAttribute="top" constant="8" id="yL6-Uk-Hnz"/>
                                                     </constraints>
@@ -142,18 +143,18 @@
                                                     <outlet property="messageLabelContainer" destination="0j4-2w-p0V" id="qKl-a7-4hO"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ThemCell" id="XvH-BU-ur7" customClass="MessageThreadThemCell" customModule="ImpactHub" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ThemCell" id="XvH-BU-ur7" customClass="MessageThreadThemCell" customModule="ImpactHub" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="118" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XvH-BU-ur7" id="2kE-JR-ki2">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2bZ-fJ-eEc">
-                                                            <rect key="frame" x="299" y="8" width="68" height="49"/>
+                                                        <view contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="2bZ-fJ-eEc">
+                                                            <rect key="frame" x="299.5" y="8" width="67.5" height="49"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LzS-qu-Anb">
-                                                                    <rect key="frame" x="16" y="16" width="36" height="17"/>
+                                                                    <rect key="frame" x="16" y="16" width="35.5" height="17"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
@@ -170,6 +171,7 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="2bZ-fJ-eEc" firstAttribute="top" secondItem="2kE-JR-ki2" secondAttribute="top" constant="8" id="DMr-XS-jnh"/>
+                                                        <constraint firstItem="2bZ-fJ-eEc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2kE-JR-ki2" secondAttribute="leading" constant="70" id="k8P-37-Pp1"/>
                                                         <constraint firstAttribute="trailing" secondItem="2bZ-fJ-eEc" secondAttribute="trailing" constant="8" id="yPC-Hi-X1L"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
@@ -179,7 +181,7 @@
                                                     <outlet property="messageLabelContainer" destination="2bZ-fJ-eEc" id="ioz-Mx-tcf"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MePicCell" id="jUk-Vv-Lba" customClass="MessageThreadMePicCell" customModule="ImpactHub" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MePicCell" id="jUk-Vv-Lba" customClass="MessageThreadMePicCell" customModule="ImpactHub" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="162" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jUk-Vv-Lba" id="9nf-Ay-Tkp">
@@ -204,7 +206,7 @@
                                                     <outlet property="profileImageView" destination="LUD-RF-S4H" id="KN5-vi-Rdz"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ThemPicCell" id="fxd-39-Gwz" customClass="MessageThreadThemPicCell" customModule="ImpactHub" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ThemPicCell" id="fxd-39-Gwz" customClass="MessageThreadThemPicCell" customModule="ImpactHub" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="206" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fxd-39-Gwz" id="aMT-Ba-Kgq">
@@ -229,7 +231,7 @@
                                                     <outlet property="profileImageView" destination="Xt4-BE-6TX" id="rM1-5D-42v"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ThemTimeCell" id="t9L-aT-SNP" customClass="MessageThreadThemTimeCell" customModule="ImpactHub" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ThemTimeCell" id="t9L-aT-SNP" customClass="MessageThreadThemTimeCell" customModule="ImpactHub" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="250" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t9L-aT-SNP" id="f9Q-JF-DaW">
@@ -253,7 +255,7 @@
                                                     <outlet property="timeLabel" destination="4Ar-2R-YUD" id="VpA-9P-aub"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MeTimeCell" id="hMI-GL-xm9" customClass="MessageThreadMeTimeCell" customModule="ImpactHub" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MeTimeCell" id="hMI-GL-xm9" customClass="MessageThreadMeTimeCell" customModule="ImpactHub" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="294" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hMI-GL-xm9" id="gbt-4l-LqU">
@@ -295,15 +297,32 @@
                                             <outlet property="delegate" destination="bHi-nG-fUx" id="t3i-DZ-3n5"/>
                                         </connections>
                                     </textView>
+                                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="black" delaysContentTouches="NO" canCancelContentTouches="NO" editable="NO" text="Type Something..." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ek1-Pj-c44">
+                                        <rect key="frame" x="15" y="553" width="345" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="y1H-Ie-iA7"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="bHi-nG-fUx" id="jzE-28-z8g"/>
+                                        </connections>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.9882352941176471" green="0.9882352941176471" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="gQJ-fC-sU7" firstAttribute="top" secondItem="iBs-aq-kfA" secondAttribute="top" id="BvU-f3-Mi4"/>
+                                    <constraint firstItem="Ek1-Pj-c44" firstAttribute="trailing" secondItem="67V-oy-KFy" secondAttribute="trailing" id="FMH-F2-UQJ"/>
                                     <constraint firstAttribute="trailing" secondItem="67V-oy-KFy" secondAttribute="trailing" constant="15" id="J3i-Nr-6AM"/>
+                                    <constraint firstItem="Ek1-Pj-c44" firstAttribute="bottom" secondItem="67V-oy-KFy" secondAttribute="bottom" id="WE8-Xd-y5G"/>
+                                    <constraint firstItem="Ek1-Pj-c44" firstAttribute="leading" secondItem="67V-oy-KFy" secondAttribute="leading" id="cw2-QH-YFQ"/>
                                     <constraint firstAttribute="trailing" secondItem="gQJ-fC-sU7" secondAttribute="trailing" id="emu-g3-13I"/>
                                     <constraint firstItem="gQJ-fC-sU7" firstAttribute="leading" secondItem="iBs-aq-kfA" secondAttribute="leading" id="fq0-0R-3Tg"/>
                                     <constraint firstItem="67V-oy-KFy" firstAttribute="top" secondItem="gQJ-fC-sU7" secondAttribute="bottom" id="kPV-eE-wFb"/>
                                     <constraint firstAttribute="bottom" secondItem="67V-oy-KFy" secondAttribute="bottom" id="lg3-SE-nAN"/>
+                                    <constraint firstItem="Ek1-Pj-c44" firstAttribute="top" secondItem="67V-oy-KFy" secondAttribute="top" id="tfr-zM-h0L"/>
                                     <constraint firstItem="67V-oy-KFy" firstAttribute="leading" secondItem="iBs-aq-kfA" secondAttribute="leading" constant="15" id="wBR-OT-UkE"/>
                                 </constraints>
                             </view>
@@ -329,7 +348,9 @@
                     <connections>
                         <outlet property="bottomConstraint" destination="VL7-vh-3az" id="gbo-qC-skq"/>
                         <outlet property="inputTextView" destination="67V-oy-KFy" id="NUx-b5-85d"/>
+                        <outlet property="placeholderTextView" destination="Ek1-Pj-c44" id="H1n-qZ-XxH"/>
                         <outlet property="tableView" destination="gQJ-fC-sU7" id="SCQ-aD-XhP"/>
+                        <segue destination="afu-nY-01i" kind="show" identifier="ShowMember" id="6Qm-Qc-rVx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A2i-Am-grG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -472,7 +493,7 @@
                 <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="MemberViewController" id="afu-nY-01i" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PdU-s8-7UI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2928" y="274"/>
+            <point key="canvasLocation" x="2939" y="272"/>
         </scene>
         <!--Contacts-->
         <scene sceneID="Fmr-SR-ge8">
@@ -597,7 +618,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="FjO-gx-hbh"/>
-        <segue reference="Yv3-tT-FXL"/>
+        <segue reference="6Qm-Qc-rVx"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>

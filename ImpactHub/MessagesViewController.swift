@@ -23,9 +23,6 @@ class MessagesViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib.init(nibName: "MessagesCell", bundle: nil), forCellWithReuseIdentifier: MessagesVM.cellIdentifier)
-        
-        loadData()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,13 +32,18 @@ class MessagesViewController: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.imaGreyishBrown, NSFontAttributeName: UIFont(name:"GTWalsheim", size:18)!]
         self.navigationController?.navigationBar.barStyle = .default
-        
+        self.collectionView.alpha = 0
+        loadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
 
     var selectedVM: MessagesVM?
     
     var skip = 0
-    var top = 20
+    var top = 200
     
     func loadData() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true

@@ -18,8 +18,8 @@ class MessagesThreadViewController: UIViewController {
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var inputTextView: UITextView!
+    @IBOutlet weak var placeholderTextView: UITextView!
     
-    var placeholderText = "Type Something..."
     
     var data = [TableCellRepresentable]()
     
@@ -51,23 +51,18 @@ class MessagesThreadViewController: UIViewController {
         registerForKeyboardNotifications()
         
         if let conversation = self.conversation {
-            print(SFUserAccountManager.sharedInstance().currentUser!.accountIdentity.userId)
-            print(SessionManager.shared.me!.member.userId)
-            print(conversation.latestMessage.sender.id)
-            print(conversation.latestMessage.recipients.first?.id)
             // Find the other user
             if conversation.latestMessage.sender.id != SessionManager.shared.me!.member.userId {
                 self.title = conversation.latestMessage.sender.displayName
             }
-            else if conversation.latestMessage.recipients.first?.id != SessionManager.shared.me!.member.userId {
-                self.title = conversation.latestMessage.recipients.first?.displayName ?? "Thread"
+            else {
+                self.title = conversation.latestMessage.recipients.last?.displayName ?? "Thread"
             }
         }
         else {
             self.title = self.member?.name ?? "Thread"
         }
         
-        self.inputTextView.text = placeholderText
         self.navigationController?.setNavigationBarHidden(false, animated: true)
 //        self.tabBarController?.tabBar.isHidden = true
         self.viewDidCancel = false
@@ -92,8 +87,6 @@ class MessagesThreadViewController: UIViewController {
     
     func registerForKeyboardNotifications() {
         //Adding notifies on keyboard appearing
-        
-        
         self.observer1 = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillShow, object: nil, queue: OperationQueue.main) { (note) in
             self.keyboardWasShown(notification: note)
         }
@@ -101,9 +94,7 @@ class MessagesThreadViewController: UIViewController {
         self.observer2 = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillHide, object: nil, queue: OperationQueue.main) { (note) in
             self.keyboardWillBeHidden(notification: note)
         }
-
     }
-    
     
     func deregisterFromKeyboardNotifications() {
         if let observer = self.observer1 {
@@ -116,15 +107,8 @@ class MessagesThreadViewController: UIViewController {
     
     func keyboardWasShown(notification: Notification) {
         var info : Dictionary = notification.userInfo!
-        if let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size {
-            // odd behaviour, sometimes the height comes as 0, on second time the view is shown
-            if keyboardSize.height == 0 {
-                self.bottomConstraint.constant = SessionManager.shared.keyboardHeight + 10
-            }
-            else {
-                SessionManager.shared.keyboardHeight = keyboardSize.height
-                self.bottomConstraint.constant = keyboardSize.height + 10
-            }
+        if let keyboardSize = (info[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size {
+            self.bottomConstraint.constant = keyboardSize.height + 10
             UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
                 self.view.layoutIfNeeded()
             }) { (_) in
@@ -266,6 +250,8 @@ class MessagesThreadViewController: UIViewController {
                     }
                     self.tableView.insertRows(at: indexes, with: .bottom)
                 }
+            }.then {
+                APIClient.shared.markConversationAsRead(conversationId: conversationId)
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }.catch { error in
@@ -294,8 +280,15 @@ class MessagesThreadViewController: UIViewController {
             }.then { message -> Void in
                 print(message)
                 // TODO: Insert this without reload.
-                self.inputTextView.text = self.placeholderText
-                self.loadData()
+                self.inputTextView.text = nil
+                self.placeholderTextView.isHidden = false
+                // If we're creating a new message coming from a member, just pop now.
+                if self.member != nil {
+                    self.navigationController?.popViewController(animated: true)
+                }
+                else {
+                    self.loadData()
+                }
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.inTransit = false
@@ -310,19 +303,28 @@ class MessagesThreadViewController: UIViewController {
     
     var viewDidCancel = false // to prevent textViewShouldEndEditing from being called when going back
 
+
+    var selectedUserId: String?
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: self)
+        if segue.identifier == "ShowMember" {
+            if let vc = segue.destination as? MemberViewController, let userId = selectedUserId {
+                vc.userId = userId
+            }
+        }
+    }
+    
 }
 
 extension MessagesThreadViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-//        if textView.text == placeholderText {
-//            textView.text = nil
-//            textView.textColor = UIColor.darkGray   //UIColor(hex: 0xcccccc)
-//        }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
 //        textView.text = nil
+        self.placeholderTextView.isHidden = false
     }
     
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
@@ -332,46 +334,33 @@ extension MessagesThreadViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         guard let oldText = textView.text else { return true }
         
-        if inputTextView.text == placeholderText {
-            inputTextView.text = ""
-        }
-        
         if text == "\n" {
             if inputTextView.text.characters.count == 0 {
-                inputTextView.text = placeholderText
+                inputTextView.text = nil
+                self.placeholderTextView.isHidden = false
             }
             else {
-                if inputTextView.text != self.placeholderText && !viewDidCancel {
+                if inputTextView.text != " "  && !viewDidCancel {
                     sendPost(text: inputTextView.text)
                 }
                 else {
-                    self.inputTextView.text = self.placeholderText
+                    self.inputTextView.text = nil
+                    self.placeholderTextView.isHidden = false
                     return false
                 }
             }
             return false
         }
         
-        // Check for urls in text
-//        let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
-//        let matches = detector.matches(in: textView.text, options: .reportCompletion, range: NSMakeRange(0, textView.text.characters.count))
-        
         if textView == inputTextView {
+            self.placeholderTextView.isHidden = true
             let newLength = oldText.utf16.count + text.utf16.count - range.length
-            // Compnesate for url shortener, each link will be 24 characters
-//            matches.forEach { (match) in
-//                newLength -= match.range.length
-//                newLength += 24
-//            }
-//            shortTextCounter.text = "\(140 - newLength + 1)"
             return newLength <= 254
         }
         else {
             return true
         }
-        
     }
-    
 }
 
 
@@ -385,12 +374,37 @@ extension MessagesThreadViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return data[indexPath.item].cellSize.height
+        let cellWidth = tableView.frame.width - 110
+        
+        if let vm = data[indexPath.item] as? MessagesThreadMeVM {
+            let height = vm.message.text.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 16)!) + 40 // add extra height for the standard elements, titles, lines, sapcing etc.
+            return height
+        }
+        else if let vm = data[indexPath.item] as? MessagesThreadThemVM {
+            let height = vm.message.text.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 16)!) + 40 // add extra height for the standard elements, titles, lines, sapcing etc.
+            return height
+        }
+        else {
+            return data[indexPath.item].cellSize.height
+        }
+
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vm = data[indexPath.item] as? MessagesThreadThemPicVM {
+            selectedUserId = vm.message.sender.id
+            performSegue(withIdentifier: "ShowMember", sender: self)
+        }
+        else if let vm = data[indexPath.item] as? MessagesThreadMePicVM {
+            selectedUserId = vm.message.sender.id
+            performSegue(withIdentifier: "ShowMember", sender: self)
+        }
+
+    }
+    
 }
 
 extension MessagesThreadViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        print("scrollView.contentOffset.y =", scrollView.contentOffset.y)
     }
 }

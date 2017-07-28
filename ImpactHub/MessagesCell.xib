@@ -39,22 +39,22 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="caT-cq-pBc">
-                        <rect key="frame" x="89" y="12.5" width="35.5" height="55.5"/>
+                        <rect key="frame" x="89" y="12.5" width="173" height="55.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ia-Bg-9X8">
-                                <rect key="frame" x="0.0" y="0.0" width="35.5" height="19.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="173" height="19.5"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="15"/>
                                 <color key="textColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afQ-jh-mvc">
-                                <rect key="frame" x="0.0" y="21.5" width="35.5" height="16"/>
+                                <rect key="frame" x="0.0" y="21.5" width="173" height="16"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12.5"/>
                                 <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yzh-Aa-Wcs">
-                                <rect key="frame" x="0.0" y="39.5" width="35.5" height="16"/>
+                                <rect key="frame" x="0.0" y="39.5" width="173" height="16"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12.5"/>
                                 <color key="textColor" red="0.50588235294117645" green="0.5725490196078431" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -83,6 +83,7 @@
             <constraints>
                 <constraint firstItem="caT-cq-pBc" firstAttribute="leading" secondItem="Awj-Ak-Gkl" secondAttribute="trailing" constant="25" id="4Jn-oB-Lay"/>
                 <constraint firstItem="Awj-Ak-Gkl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="5LB-5J-eaX"/>
+                <constraint firstItem="eCi-UD-YSj" firstAttribute="leading" secondItem="caT-cq-pBc" secondAttribute="trailing" constant="8" id="7x8-h1-pQQ"/>
                 <constraint firstItem="eCi-UD-YSj" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="VCD-eM-Rkk"/>
                 <constraint firstItem="Awj-Ak-Gkl" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Vm7-dR-Alx"/>
                 <constraint firstAttribute="trailing" secondItem="eCi-UD-YSj" secondAttribute="trailing" constant="8" id="gyc-On-Rzf"/>

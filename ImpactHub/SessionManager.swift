@@ -37,9 +37,6 @@ class SessionManager {
     
     var pushNotification: PushNotification?
     
-    // put this here for the time being... to fix a bug with keyboard height being 0 second time
-    var keyboardHeight: CGFloat = 0
-
     let keychain = A0SimpleKeychain(service: "ImpactHub")
     var profile: Profile?
 
