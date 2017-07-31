@@ -126,8 +126,8 @@ class EventsViewController: ListWithSearchViewController {
     }
     
     // MARK: Search
-    override func filterContentForSearchText(searchText:String) -> [CellRepresentable] {
-        return self.dataAll.filter({ (item) -> Bool in
+    override func filterContentForSearchText(dataToFilter: [CellRepresentable], searchText: String) -> [CellRepresentable] {
+        return dataToFilter.filter({ (item) -> Bool in
             if let vm = item as? EventViewModel {
                 let locationName = vm.event.locationName
                 let description = vm.event.description

@@ -64,8 +64,8 @@ class CompaniesViewController: ListWithSearchViewController {
     
     
     // MARK: Search
-    override func filterContentForSearchText(searchText:String) -> [CellRepresentable] {
-        return self.dataAll.filter({ (item) -> Bool in
+    override func filterContentForSearchText(dataToFilter: [CellRepresentable], searchText: String) -> [CellRepresentable] {
+        return dataToFilter.filter({ (item) -> Bool in
             if let vm = item as? CompanyViewModel {
                 let sector = vm.company.sector ?? ""
                 let locationName = vm.company.locationName ?? ""

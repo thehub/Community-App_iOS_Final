@@ -52,7 +52,7 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
                 })
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                self.data = self.dataAll
+                self.data = self.filterData(dataToFilter: self.dataAll)
                 self.collectionView?.alpha = 0
                 self.collectionView?.reloadData()
                 self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
@@ -67,6 +67,32 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
         }
     }
 
+    override func filterData(dataToFilter: [CellRepresentable]) -> [CellRepresentable] {
+        // City
+        if filters.filter({$0.grouping == .city}).count > 0  {
+            let filteredData = dataToFilter.filter { (cellVM) -> Bool in
+                if let cellVM = cellVM as? MemberViewModel {
+                    var matchedCity = false
+                    for filter in self.filters {
+                        if filter.grouping == .city {
+                            if cellVM.member.locationName.lowercased() == filter.name.lowercased() {
+                                matchedCity = true
+                            }
+                        }
+                    }
+                    return matchedCity
+                }
+                else {
+                    return false
+                }
+            }
+            return filteredData
+        }
+        else {
+            return dataToFilter
+        }
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.cancelSearching()
@@ -120,8 +146,8 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
     
     
     // MARK: Search
-    override func filterContentForSearchText(searchText:String) -> [CellRepresentable] {
-        return self.dataAll.filter({ (item) -> Bool in
+    override func filterContentForSearchText(dataToFilter: [CellRepresentable], searchText:String) -> [CellRepresentable] {
+        return dataToFilter.filter({ (item) -> Bool in
             if let vm = item as? MemberViewModel {
                 return vm.member.name.lowercased().contains(searchText.lowercased()) || vm.member.locationName.lowercased().contains(searchText.lowercased())
             }

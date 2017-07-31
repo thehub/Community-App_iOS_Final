@@ -203,8 +203,8 @@ class ContactsViewController: ListWithSearchViewController {
     }
 
     // MARK: Search
-    override func filterContentForSearchText(searchText:String) -> [CellRepresentable] {
-        return self.dataAll.filter({ (item) -> Bool in
+    override func filterContentForSearchText(dataToFilter: [CellRepresentable], searchText: String) -> [CellRepresentable] {
+        return dataToFilter.filter({ (item) -> Bool in
             if selectedTopMenuIndex == 0 {
                 if let vm = item as? ContactViewModel {
                     return vm.member.name.lowercased().contains(searchText.lowercased()) || vm.member.locationName.lowercased().contains(searchText.lowercased())

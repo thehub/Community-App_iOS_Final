@@ -183,26 +183,33 @@ class ListWithSearchViewController: UIViewController, UITextFieldDelegate, TopMe
     
     // MARK: Search
     // Implemented in respective child class
-    func filterContentForSearchText(searchText:String) -> [CellRepresentable] {
+    func filterContentForSearchText(dataToFilter: [CellRepresentable], searchText:String) -> [CellRepresentable] {
         return []
     }
 
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         // user did type something, check our datasource for text that looks the same
+        applySearchAndFilter(searchText: searchText)
+    }
+
+    func applySearchAndFilter(searchText: String) {
         if searchText.characters.count > 0 {
             // search and reload data source
-            self.data = self.filterContentForSearchText(searchText: searchText)
+            let dataFiltered = self.filterData(dataToFilter: self.dataAll)
+            self.data = self.filterContentForSearchText(dataToFilter: dataFiltered, searchText: searchText)
             self.collectionView?.reloadData()
         }
-        else{
+        else {
             // if text lenght == 0
             // we will consider the searchbar is not active
-            self.data = self.dataAll
+            let dataFiltered = self.filterData(dataToFilter: self.dataAll)
+            self.data = dataFiltered
             self.collectionView?.reloadData()
         }
         
     }
+    
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.cancelSearching()
@@ -229,13 +236,16 @@ class ListWithSearchViewController: UIViewController, UITextFieldDelegate, TopMe
         self.searchBar?.text = ""
     }
     
+    // Implemented in respective child class
+    func filterData(dataToFilter: [CellRepresentable]) -> [CellRepresentable] {
+        return []
+    }
     
     
 }
 
 extension ListWithSearchViewController: FilterableDelegate {
     func updateFilters(filters: [Filter]) {
-        print(filters)
         self.filters = filters
         if filters.count > 0 {
             showFilterTick()
@@ -243,6 +253,8 @@ extension ListWithSearchViewController: FilterableDelegate {
         else {
             hideFilterTick()
         }
+        
+        self.applySearchAndFilter(searchText: self.searchBar?.text ?? "")
     }
 }
 

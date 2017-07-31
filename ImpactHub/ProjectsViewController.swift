@@ -116,8 +116,9 @@ class ProjectsViewController: ListWithSearchViewController {
     }
     
     // MARK: Search
-    override func filterContentForSearchText(searchText:String) -> [CellRepresentable] {
-        return self.dataAll.filter({ (item) -> Bool in
+    
+    override func filterContentForSearchText(dataToFilter: [CellRepresentable], searchText: String) -> [CellRepresentable] {
+        return dataToFilter.filter({ (item) -> Bool in
             if let vm = item as? ProjectViewModel {
                 let companyName = vm.project.companyName ?? ""
                 let locationName = vm.project.locationName ?? ""
