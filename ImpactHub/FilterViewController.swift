@@ -12,6 +12,7 @@ import DeckTransition
 
 class FilterViewController: UIViewController {
 
+    var dataAll = [CellRepresentable]()
     var data = [CellRepresentable]()
     var filterData = [[CellRepresentable]]()
 
@@ -46,76 +47,73 @@ class FilterViewController: UIViewController {
 
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let cellWidth: CGFloat = self.view.frame.width
+
         
         // Do we already have it cached?
-        switch FilterManager.shared.currenttlySelectingFor {
-        case .members, .companies, .events, .jobs, .projects:
-            if let filterData = FilterManager.shared.filterData, let dataViewModel = FilterManager.shared.dataViewModel {
-                self.filterData = filterData
-                self.data = dataViewModel
-                self.update()
-            }
-            else {
-                firstly {
-                    APIClient.shared.getFilters(grouping: .city)
-                    }.then { items -> Void in
-                        let sortedItems = items.sorted(by: {$0.name < $1.name})
-                        if let first = sortedItems.first {
-                            let viewModel = FilterGroupingViewModel(grouping: first.grouping, cellSize: CGSize(width: cellWidth, height: 37))
-                            self.data.append(viewModel)
-                        }
-                        let filters = sortedItems.map({FilterViewModel(filter: $0, cellSize: CGSize(width: cellWidth, height: 37))})
-                        self.filterData.append(filters)
-                    }.then {
-                        APIClient.shared.getFilters(grouping: .skill)
-                    }.then { items -> Void in
-                        let sortedItems = items.sorted(by: {$0.name < $1.name})
-                        if let first = sortedItems.first {
-                            let viewModel = FilterGroupingViewModel(grouping: first.grouping, cellSize: CGSize(width: cellWidth, height: 37))
-                            self.data.append(viewModel)
-                        }
-                        let filters = items.map({FilterViewModel(filter: $0, cellSize: CGSize(width: cellWidth, height: 37))})
-                        self.filterData.append(filters)
-                    }.then {
-                        APIClient.shared.getFilters(grouping: .sdg)
-                    }.then { items -> Void in
-                        let sortedItems = items.sorted(by: {$0.name < $1.name})
-                        if let first = sortedItems.first {
-                            let viewModel = FilterGroupingViewModel(grouping: first.grouping, cellSize: CGSize(width: cellWidth, height: 37))
-                            self.data.append(viewModel)
-                        }
-                        let filters = items.map({FilterViewModel(filter: $0, cellSize: CGSize(width: cellWidth, height: 37))})
-                        self.filterData.append(filters)
-                    }.then {
-                        APIClient.shared.getFilters(grouping: .sector)
-                    }.then { items -> Void in
-                        let sortedItems = items.sorted(by: {$0.name < $1.name})
-                        if let first = sortedItems.first {
-                            let viewModel = FilterGroupingViewModel(grouping: first.grouping, cellSize: CGSize(width: cellWidth, height: 37))
-                            self.data.append(viewModel)
-                        }
-                        let filters = items.map({FilterViewModel(filter: $0, cellSize: CGSize(width: cellWidth, height: 37))})
-                        self.filterData.append(filters)
-                        FilterManager.shared.filterData = self.filterData  // cache it so we don't have to laod it every time
-                        FilterManager.shared.dataViewModel = self.data // cache it so we don't have to laod it every time
-                    }.always {
-                        self.collectionView.alpha = 0
-                        self.update()
-                        self.collectionView.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
-                        UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
-                            self.collectionView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
-                            self.collectionView.alpha = 1
-                        }, completion: { (_) in
-                            
-                        })
-                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                    }.catch { error in
-                        debugPrint(error.localizedDescription)
-                }
-                break
+        if let filterData = FilterManager.shared.filterData, let dataViewModel = FilterManager.shared.dataViewModel {
+            self.filterData = filterData
+            self.dataAll = dataViewModel
+            self.update()
+        }
+        else {
+            firstly {
+                APIClient.shared.getFilters(grouping: .city)
+                }.then { items -> Void in
+                    let sortedItems = items.sorted(by: {$0.name < $1.name})
+                    if let first = sortedItems.first {
+                        let viewModel = FilterGroupingViewModel(grouping: first.grouping, cellSize: CGSize(width: cellWidth, height: 37))
+                        self.dataAll.append(viewModel)
+                    }
+                    let filters = sortedItems.map({FilterViewModel(filter: $0, cellSize: CGSize(width: cellWidth, height: 37))})
+                    self.filterData.append(filters)
+                }.then {
+                    APIClient.shared.getFilters(grouping: .skill)
+                }.then { items -> Void in
+                    let sortedItems = items.sorted(by: {$0.name < $1.name})
+                    if let first = sortedItems.first {
+                        let viewModel = FilterGroupingViewModel(grouping: first.grouping, cellSize: CGSize(width: cellWidth, height: 37))
+                        self.dataAll.append(viewModel)
+                    }
+                    let filters = items.map({FilterViewModel(filter: $0, cellSize: CGSize(width: cellWidth, height: 37))})
+                    self.filterData.append(filters)
+                }.then {
+                    APIClient.shared.getFilters(grouping: .sdg)
+                }.then { items -> Void in
+                    let sortedItems = items.sorted(by: {$0.name < $1.name})
+                    if let first = sortedItems.first {
+                        let viewModel = FilterGroupingViewModel(grouping: first.grouping, cellSize: CGSize(width: cellWidth, height: 37))
+                        self.dataAll.append(viewModel)
+                    }
+                    let filters = items.map({FilterViewModel(filter: $0, cellSize: CGSize(width: cellWidth, height: 37))})
+                    self.filterData.append(filters)
+                }.then {
+                    APIClient.shared.getFilters(grouping: .sector)
+                }.then { items -> Void in
+                    let sortedItems = items.sorted(by: {$0.name < $1.name})
+                    if let first = sortedItems.first {
+                        let viewModel = FilterGroupingViewModel(grouping: first.grouping, cellSize: CGSize(width: cellWidth, height: 37))
+                        self.dataAll.append(viewModel)
+                    }
+                    let filters = items.map({FilterViewModel(filter: $0, cellSize: CGSize(width: cellWidth, height: 37))})
+                    self.filterData.append(filters)
+                    FilterManager.shared.filterData = self.filterData  // cache it so we don't have to laod it every time
+                    FilterManager.shared.dataViewModel = self.dataAll // cache it so we don't have to laod it every time
+                }.always {
+                    self.collectionView.alpha = 0
+                    self.update()
+                    self.collectionView.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
+                    UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                        self.collectionView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+                        self.collectionView.alpha = 1
+                    }, completion: { (_) in
+                        
+                    })
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }.catch { error in
+                    debugPrint(error.localizedDescription)
             }
         }
-        
+
         if #available(iOS 10.0, *) {
             generatorImpact.prepare()
             generatorNotification.prepare()
@@ -137,6 +135,30 @@ class FilterViewController: UIViewController {
     
     func update() {
         let filters = FilterManager.shared.getCurrentFilters()
+        
+        // Switch on off depending on section we're in
+        switch FilterManager.shared.currenttlySelectingFor {
+        case .members:
+            self.data = self.dataAll.filter({ (cellVM) -> Bool in
+                if let cellVM = cellVM as? FilterGroupingViewModel {
+                    if cellVM.grouping == .city || cellVM.grouping == .skill || cellVM.grouping == .sector {
+                        return true
+                    }
+                    else {
+                        return false
+                    }
+                }
+                else {
+                    return false
+                }
+            })
+            break
+        case .companies, .events, .jobs, .projects:
+            self.data = self.dataAll
+            break
+            
+        }
+        
         // Set all to false first
         data.forEach { (cellData) in
             (cellData as! FilterGroupingViewModel).hasSome = false
