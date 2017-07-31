@@ -342,9 +342,9 @@ class MessagesThreadViewController: UIViewController {
         firstly {
             APIClient.shared.sendMessage(message: text, members: members, inReplyTo: self.inReplyTo)
             }.then { message -> Void in
-                if #available(iOS 10.0, *) {
-                    self.generatorNotification.notificationOccurred(.success)
-                }
+//                if #available(iOS 10.0, *) {
+//                    self.generatorNotification.notificationOccurred(.success)
+//                }
                 // TODO: Insert this without reload.
                 self.inputTextView.text = nil
                 self.placeholderTextView.isHidden = false
@@ -364,7 +364,6 @@ class MessagesThreadViewController: UIViewController {
                 if #available(iOS 10.0, *) {
                     self.generatorNotification.notificationOccurred(.error)
                 }
-
                 let alert = UIAlertController(title: "Error", message: "Could not send message. Please try again.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
