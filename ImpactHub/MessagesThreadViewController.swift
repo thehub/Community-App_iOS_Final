@@ -58,14 +58,19 @@ class MessagesThreadViewController: UIViewController {
     }
 
     func otherUser() -> (id: String?, name: String?) {
-        if let conversation = self.conversation {
+        var lastMessage = self.conversation?.latestMessage
+        // If coming from push we get this once all messages has been loaded...
+        if lastMessage == nil {
+            lastMessage = self.messages.last
+        }
+        if let lastMessage = lastMessage {
             // Find the other user
-            if conversation.latestMessage.sender.id != SessionManager.shared.me!.member.userId {
-                return (id: conversation.latestMessage.sender.id, name: conversation.latestMessage.sender.displayName)
+            if lastMessage.sender.id != SessionManager.shared.me!.member.userId {
+                return (id: lastMessage.sender.id, name: lastMessage.sender.displayName)
             }
             else {
                 var recipientNotMe: User?
-                for recipient in conversation.latestMessage.recipients {
+                for recipient in lastMessage.recipients {
                     if recipient.id != SessionManager.shared.me?.member.userId {
                         recipientNotMe = recipient
                     }
@@ -77,7 +82,6 @@ class MessagesThreadViewController: UIViewController {
         else {
             return (id: self.member?.userId, name: self.member?.name)
         }
-
     }
     
     var observer: NSObjectProtocol?
@@ -95,7 +99,7 @@ class MessagesThreadViewController: UIViewController {
             SessionManager.shared.currentlyShowingConversationId = self.conversationId
         }
         
-        self.title = otherUser().name ?? "Thread"
+        self.title = otherUser().name ?? ""
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
 //        self.tabBarController?.tabBar.isHidden = true
@@ -195,6 +199,7 @@ class MessagesThreadViewController: UIViewController {
     var top = 20
     
     var inReplyTo: String?
+    var messages = [Message]()
     
     func loadData() {
         // If coming from push we hav conversationId otherwise we have conversation
@@ -208,6 +213,7 @@ class MessagesThreadViewController: UIViewController {
         firstly {
             APIClient.shared.getMessagesForConversation(conversationId: conversationId)
             }.then { items -> Void in
+                self.messages = items
                 self.inReplyTo = items.last?.id
                 var newData = [TableCellRepresentable]()
                 let cellWidth: CGFloat = self.view.frame.width
@@ -295,6 +301,8 @@ class MessagesThreadViewController: UIViewController {
                 }
                 if self.skip == 0 {
                     self.data = newData
+                    // Set again since it might have been empty first time if coming from a push
+                    self.title = self.otherUser().name ?? "Thread"
                     self.tableView.alpha = 0
                     self.tableView.frame = self.tableView.frame.offsetBy(dx: 0, dy: 20)
                     self.tableView.reloadData()

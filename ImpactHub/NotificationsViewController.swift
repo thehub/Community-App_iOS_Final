@@ -74,6 +74,7 @@ class NotificationsViewController: UIViewController {
     var showPushNotification: PushNotification?
     var selectedGroup: Group?
     var selectedProject: Project?
+    var selectedConversationId: String?
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: self)
@@ -94,7 +95,11 @@ class NotificationsViewController: UIViewController {
                 vc.showPushNotification = showPushNotification
             }
         }
-
+        else if segue.identifier == "ShowMessageThread" {
+            if let vc = segue.destination as? MessagesThreadViewController, let selectedConversationId = self.selectedConversationId {
+                vc.conversationId = selectedConversationId
+            }
+        }
     }
     
     var inTransit = false
@@ -183,10 +188,17 @@ extension NotificationsViewController {
                         debugPrint(error.localizedDescription)
                 }
                 break
-            default:
+            case .privateMessage(let conversationId):
+                self.selectedConversationId = conversationId
+                self.performSegue(withIdentifier: "ShowMessageThread", sender: self)
                 break
+            case .unknown:
+                print("Error: Unknown pushNotification kind")
+            case .commentMention(let commentId, let chatterGroupId):
+                print("not implemented")
+            case .postMention(let postId, let chatterGroupId):
+                print("not implemented")
             }
-            
         }
     }
 }
