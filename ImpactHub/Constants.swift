@@ -10,11 +10,6 @@ import Foundation
 import UIKit
 import SalesforceSDKCore
 
-enum Result<T> {
-    case Success(T)
-    case Failure(Error)
-}
-
 enum MyError : Error {
     case Error(String)
     case JSONError
@@ -29,8 +24,6 @@ struct Constants {
             return SFUserAccountManager.sharedInstance().currentUser!.communityId!
         }
     }
-    
-    
     
 }
 
