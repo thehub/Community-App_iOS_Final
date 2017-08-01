@@ -137,10 +137,10 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
         gradientLayer.colors = [startingColorOfGradient , endingColorOFGradient]
         fadeView.layer.insertSublayer(gradientLayer, at: 0)
 
-//        if !didLayout {
-//            didLayout = true
-//            connectButtonBottomConsatraintDefault = connectButtonBottomConsatraint?.constant ?? 0
-//        }
+        if !didLayout {
+            didLayout = true
+            connectButtonBottomConsatraintDefault = connectButtonBottomConsatraint?.constant ?? 0
+        }
 
     }
     

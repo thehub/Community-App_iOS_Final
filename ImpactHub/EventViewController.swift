@@ -136,7 +136,6 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
         if !shouldDrawFade {
             return
         }
-        print("drawfade")
         if gradientLayer.superlayer == nil {
             gradientLayer.removeFromSuperlayer()
             let startingColorOfGradient = UIColor(hexString: "252424").withAlphaComponent(0.0).cgColor
@@ -165,8 +164,8 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         
         if let vm = data[indexPath.item] as? EventDetailViewModel {
-            let cellWidth: CGFloat = self.collectionView.frame.width
-            let height = vm.event.description.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 280 // add extra height for the standard elements, titles, lines, sapcing etc.
+            let cellWidth: CGFloat = self.collectionView.frame.width - 40
+            let height = vm.event.description.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 290 // add extra height for the standard elements, titles, lines, sapcing etc.
             return CGSize(width: view.frame.width, height: height)
         }
         
@@ -223,7 +222,6 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
             shouldDrawFade = false
             compnayPhotoHeightConstraint.constant = compnayPhotoHeightConstraintDefault + abs(offset)
         }
-        
         else if offset < 450 {
             compnayPhotoTopConstraint.constant = -(offset * 1.0)
             
@@ -236,12 +234,13 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
             }
             
             self.companyPhotoImageView.transform = CGAffineTransform.init(scaleX: newScale, y: newScale)
-
             
             self.view.layoutIfNeeded()
         }
 
-        if scrollView.contentOffset.y > 200 {
+        
+        
+        if scrollView.contentOffset.y > 200 && self.tabBarController?.tabBar.isHidden == true {
             self.tabBarController?.tabBar.isHidden = false
             self.shouldHideStatusBar = false
             self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -254,9 +253,8 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
             }) { (_) in
                 
             }
-            
         }
-        else if scrollView.contentOffset.y < 200 {
+        else if scrollView.contentOffset.y < 200 && self.tabBarController?.tabBar.isHidden == false {
             self.tabBarController?.tabBar.isHidden = true
             self.shouldHideStatusBar = true
             self.navigationController?.setNavigationBarHidden(true, animated: true)
