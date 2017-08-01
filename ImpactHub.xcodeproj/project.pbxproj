@@ -1278,9 +1278,15 @@
 				TargetAttributes = {
 					85DE9EC41ECC8CD900291EF5 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = U4J38P2V5H;
+						DevelopmentTeam = 8EQQFXT7V3;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -2090,11 +2096,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ImpactHub/ImpactHub.entitlements;
-				DEVELOPMENT_TEAM = U4J38P2V5H;
+				DEVELOPMENT_TEAM = 8EQQFXT7V3;
 				INFOPLIST_FILE = ImpactHub/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ligthful.ImpactHub;
+				PRODUCT_BUNDLE_IDENTIFIER = net.impacthub.members;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -2106,11 +2112,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ImpactHub/ImpactHub.entitlements;
-				DEVELOPMENT_TEAM = U4J38P2V5H;
+				DEVELOPMENT_TEAM = 8EQQFXT7V3;
 				INFOPLIST_FILE = ImpactHub/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ligthful.ImpactHub;
+				PRODUCT_BUNDLE_IDENTIFIER = net.impacthub.members;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
