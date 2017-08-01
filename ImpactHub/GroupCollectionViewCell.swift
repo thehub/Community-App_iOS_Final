@@ -21,10 +21,16 @@ class GroupCollectionViewCell: UICollectionViewCell {
 
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        profileImageView.image = nil
+    }
+    
     func setUp(vm: GroupViewModel) {
         nameLabel.text = vm.group.name
 
         if let photoUrl = vm.group.photoUrl {
+            print(photoUrl)
             profileImageView.kf.setImage(with: photoUrl)
         }
 

@@ -38,6 +38,7 @@ class GroupDetailTopCell: UICollectionViewCell {
         nameLabel.text = vm.group.name
         jobLabel.text = vm.group.description ?? ""
         if let photoUrl = vm.group.photoUrl {
+            print(photoUrl)
             profileImageView.kf.setImage(with: photoUrl)
         }
         self.arrowImage.layer.add(Animations.slideAnimation, forKey: "slideAnimation")

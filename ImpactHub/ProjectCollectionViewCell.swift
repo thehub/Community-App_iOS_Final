@@ -22,10 +22,15 @@ class ProjectCollectionViewCell: UICollectionViewCell {
         
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        bigImageView.image = nil
+    }
+
+    
     func setUp(vm: ProjectViewModel) {
         
         if let photoUrl = vm.project.photoUrl {
-            print(photoUrl)
             bigImageView.kf.setImage(with: photoUrl)
         }
         nameLabel.text = vm.project.name

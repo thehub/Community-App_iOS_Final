@@ -20,6 +20,12 @@ class GoalCollectionViewCell: UICollectionViewCell {
         
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        bigImageView.image = nil
+    }
+
+    
     func setUp(vm: GoalViewModel) {
         bigImageView.image = UIImage(named: vm.goal.photo)
         nameLabel.text = vm.goal.name

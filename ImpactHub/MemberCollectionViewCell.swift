@@ -38,6 +38,12 @@ class MemberCollectionViewCell: UICollectionViewCell {
         profileImageView.clipsToBounds = true
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        profileImageView.image = nil
+    }
+
+    
     @IBAction func openMessageTap(_ sender: Any) {
         guard let member = vm?.member else { return }
         

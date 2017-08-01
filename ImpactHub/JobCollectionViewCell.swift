@@ -23,6 +23,12 @@ class JobCollectionViewCell: UICollectionViewCell {
         profileImageView.layer.cornerRadius = 10
         profileImageView.clipsToBounds = true
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        profileImageView.image = nil
+    }
+
 
     func setUp(vm: JobViewModel) {
         companyLabel.text = vm.job.company.name

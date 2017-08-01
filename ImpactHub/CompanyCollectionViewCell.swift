@@ -27,6 +27,12 @@ class CompanyCollectionViewCell: UICollectionViewCell {
         
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        bigImageView.image = nil
+    }
+
+    
     func setUp(vm: CompanyViewModel) {
         if let photoUrl = vm.company.photoUrl {
             bigImageView.kf.setImage(with: photoUrl)

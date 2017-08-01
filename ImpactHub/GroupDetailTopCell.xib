@@ -25,7 +25,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="300" height="340"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="projectImage-1" translatesAutoresizingMaskIntoConstraints="NO" id="s40-UQ-UEf">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s40-UQ-UEf">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="340"/>
                         <color key="backgroundColor" red="0.83529411760000005" green="0.84313725490000002" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                     </imageView>
@@ -84,6 +84,5 @@
     </objects>
     <resources>
         <image name="arrowDownWhite" width="17" height="10"/>
-        <image name="projectImage-1" width="375" height="667"/>
     </resources>
 </document>

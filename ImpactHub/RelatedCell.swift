@@ -23,10 +23,12 @@ class RelatedCell: UICollectionViewCell {
         // Initialization code
     }
 
-    func setUp(vm: RelatedViewModel) {
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        profileImageView.image = nil
+    }
 
-        
-        
+    func setUp(vm: RelatedViewModel) {
         if let job = vm.job {
             nameLabel.text = job.name
             companyLabel.text = job.company.name
@@ -40,7 +42,7 @@ class RelatedCell: UICollectionViewCell {
         }
         else if let project = vm.project {
             nameLabel.text = project.name
-            companyLabel.text = "[TODO]" //job.company.name
+            companyLabel.text = project.companyName
             if let photoUrl = project.photoUrl {
                 profileImageView.kf.setImage(with: photoUrl)
             }

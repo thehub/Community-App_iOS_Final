@@ -34,6 +34,12 @@ class GoalDetailTopCell: UICollectionViewCell {
         jobLabel.addMotionEffect(g)
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        profileImageView.image = nil
+    }
+
+    
     func setup(vm: GoalDetailTopViewModel) {
         nameLabel.text = vm.goal.name
         jobLabel.text = vm.goal.summary
