@@ -56,6 +56,9 @@ class ListWithSearchViewController: UIViewController, UITextFieldDelegate, TopMe
     }
     
     func showFilterTick() {
+        if !(self.filterTickImageView?.isHidden ?? true) {
+            return
+        }
         self.filterTickImageView?.transform = CGAffineTransform.init(scaleX: 0.01, y: 0.01)
         self.filterTickImageView?.isHidden = false
         UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: { 
@@ -65,6 +68,9 @@ class ListWithSearchViewController: UIViewController, UITextFieldDelegate, TopMe
     }
     
     func hideFilterTick() {
+        if (self.filterTickImageView?.isHidden ?? false) {
+            return
+        }
         UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
             self.filterTickImageView?.transform = CGAffineTransform.init(scaleX: 0.01, y: 0.01)
         }) { (_) in
