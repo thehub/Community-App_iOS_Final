@@ -42,7 +42,7 @@ class ProjectsViewController: ListWithSearchViewController {
                         self.projectsYouManageData.append(viewModel)
                     }
                 })
-                self.data = self.dataAll
+                self.data = self.filterData(dataToFilter: self.dataAll)
             }.then {_ in 
                 APIClient.shared.getProjects(contactId: SessionManager.shared.me?.member.id ?? "")
             }.then { yourProjects -> Void in
@@ -70,6 +70,31 @@ class ProjectsViewController: ListWithSearchViewController {
     }
     
 
+    override func filterData(dataToFilter: [CellRepresentable]) -> [CellRepresentable] {
+        // City
+//        if filters.filter({$0.grouping == .city}).count > 0  {
+//            let filteredData = dataToFilter.filter { (cellVM) -> Bool in
+//                if let cellVM = cellVM as? MemberViewModel {
+//                    var matchedCity = false
+//                    for filter in self.filters {
+//                        if filter.grouping == .city {
+//                            if cellVM.member.locationName.lowercased() == filter.name.lowercased() {
+//                                matchedCity = true
+//                            }
+//                        }
+//                    }
+//                    return matchedCity
+//                }
+//                else {
+//                    return false
+//                }
+//            }
+//            return filteredData
+//        }
+//        else {
+            return dataToFilter
+//        }
+    }
     
     var selectedVM: ProjectViewModel?
     

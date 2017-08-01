@@ -33,7 +33,7 @@ class CompaniesViewController: ListWithSearchViewController {
                     let viewModel1 = CompanyViewModel(company: company, cellSize: CGSize(width: cellWidth, height: 200))
                     self.dataAll.append(viewModel1)
                 })
-                self.data = self.dataAll
+                self.data = self.filterData(dataToFilter: self.dataAll)
                 self.collectionView?.reloadData()
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -51,6 +51,32 @@ class CompaniesViewController: ListWithSearchViewController {
         }
     }
 
+    override func filterData(dataToFilter: [CellRepresentable]) -> [CellRepresentable] {
+        // City
+//        if filters.filter({$0.grouping == .city}).count > 0  {
+//            let filteredData = dataToFilter.filter { (cellVM) -> Bool in
+//                if let cellVM = cellVM as? MemberViewModel {
+//                    var matchedCity = false
+//                    for filter in self.filters {
+//                        if filter.grouping == .city {
+//                            if cellVM.member.locationName.lowercased() == filter.name.lowercased() {
+//                                matchedCity = true
+//                            }
+//                        }
+//                    }
+//                    return matchedCity
+//                }
+//                else {
+//                    return false
+//                }
+//            }
+//            return filteredData
+//        }
+//        else {
+            return dataToFilter
+//        }
+    }
+    
     var selectedVM: CompanyViewModel?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

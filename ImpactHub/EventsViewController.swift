@@ -52,7 +52,7 @@ class EventsViewController: ListWithSearchViewController {
         self.dataAll.append(viewModel3)
         self.dataAll.append(viewModel4)
         
-        self.data = dataAll
+        self.data = self.filterData(dataToFilter: self.dataAll)
         
         // todo:
         self.eventsYouManageData = Array(dataAll[0...4])
@@ -78,10 +78,33 @@ class EventsViewController: ListWithSearchViewController {
     
     }
     
-
+    override func filterData(dataToFilter: [CellRepresentable]) -> [CellRepresentable] {
+        // City
+        //        if filters.filter({$0.grouping == .city}).count > 0  {
+        //            let filteredData = dataToFilter.filter { (cellVM) -> Bool in
+        //                if let cellVM = cellVM as? MemberViewModel {
+        //                    var matchedCity = false
+        //                    for filter in self.filters {
+        //                        if filter.grouping == .city {
+        //                            if cellVM.member.locationName.lowercased() == filter.name.lowercased() {
+        //                                matchedCity = true
+        //                            }
+        //                        }
+        //                    }
+        //                    return matchedCity
+        //                }
+        //                else {
+        //                    return false
+        //                }
+        //            }
+        //            return filteredData
+        //        }
+        //        else {
+        return dataToFilter
+        //        }
+    }
     
     var selectedVM: EventViewModel?
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: self)

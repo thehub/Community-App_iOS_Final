@@ -30,6 +30,7 @@ class GoalsViewController: ListWithTopMenuViewController {
                     self.allData.append(GoalViewModel(goal: goal, cellSize: CGSize(width: cellWidth, height: 370)))
                 })
                 self.data = self.allData
+                
                 // TODO: Once in Salesforce
                 //        self.sustainableData.append(viewModel1)
                 //        self.sustainableData.append(viewModel2)

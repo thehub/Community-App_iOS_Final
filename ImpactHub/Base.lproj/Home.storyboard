@@ -858,7 +858,7 @@
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="230" maxX="0.0" maxY="120"/>
+                                    <inset key="sectionInset" minX="0.0" minY="230" maxX="0.0" maxY="220"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6Cr-mh-WIC">
@@ -1557,7 +1557,7 @@
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="120"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="250"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cOy-x1-yhy">
@@ -1982,13 +1982,13 @@
         <image name="trans" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0Kb-id-67l"/>
+        <segue reference="C30-D0-cHv"/>
         <segue reference="Nsv-q8-zjz"/>
-        <segue reference="zv2-am-uws"/>
-        <segue reference="r4W-Rs-mKq"/>
         <segue reference="RAM-VD-ZBW"/>
         <segue reference="wU7-Qa-AtJ"/>
         <segue reference="E6m-rq-9b6"/>
+        <segue reference="zv2-am-uws"/>
+        <segue reference="r4W-Rs-mKq"/>
         <segue reference="u3D-lG-cq4"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>

@@ -32,7 +32,7 @@ class GroupsViewController: ListWithSearchViewController {
                 })
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                self.data = self.dataAll
+                self.data = self.filterData(dataToFilter: self.dataAll)
                 self.collectionView?.alpha = 0
                 self.collectionView?.reloadData()
                 self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
@@ -48,8 +48,35 @@ class GroupsViewController: ListWithSearchViewController {
         
     }
     
-    var selectedVM: GroupViewModel?
     
+    override func filterData(dataToFilter: [CellRepresentable]) -> [CellRepresentable] {
+        // City
+        //        if filters.filter({$0.grouping == .city}).count > 0  {
+        //            let filteredData = dataToFilter.filter { (cellVM) -> Bool in
+        //                if let cellVM = cellVM as? MemberViewModel {
+        //                    var matchedCity = false
+        //                    for filter in self.filters {
+        //                        if filter.grouping == .city {
+        //                            if cellVM.member.locationName.lowercased() == filter.name.lowercased() {
+        //                                matchedCity = true
+        //                            }
+        //                        }
+        //                    }
+        //                    return matchedCity
+        //                }
+        //                else {
+        //                    return false
+        //                }
+        //            }
+        //            return filteredData
+        //        }
+        //        else {
+        return dataToFilter
+        //        }
+    }
+    
+    
+    var selectedVM: GroupViewModel?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: self)
