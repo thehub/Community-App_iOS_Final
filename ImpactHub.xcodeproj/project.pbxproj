@@ -273,9 +273,6 @@
 		8574805D1EE802D0005F73A2 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8574803E1EE802D0005F73A2 /* Subscription.swift */; };
 		8574805E1EE802D0005F73A2 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8574803E1EE802D0005F73A2 /* Subscription.swift */; };
 		8574805F1EE802D0005F73A2 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8574803E1EE802D0005F73A2 /* Subscription.swift */; };
-		857480611EE802E3005F73A2 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480601EE802E3005F73A2 /* Contact.swift */; };
-		857480621EE802E3005F73A2 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480601EE802E3005F73A2 /* Contact.swift */; };
-		857480631EE802E3005F73A2 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480601EE802E3005F73A2 /* Contact.swift */; };
 		857480651EE802F1005F73A2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480641EE802F1005F73A2 /* User.swift */; };
 		857480661EE802F1005F73A2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480641EE802F1005F73A2 /* User.swift */; };
 		857480671EE802F1005F73A2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857480641EE802F1005F73A2 /* User.swift */; };
@@ -653,7 +650,6 @@
 		8574803C1EE802D0005F73A2 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		8574803D1EE802D0005F73A2 /* Reference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reference.swift; sourceTree = "<group>"; };
 		8574803E1EE802D0005F73A2 /* Subscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
-		857480601EE802E3005F73A2 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		857480641EE802F1005F73A2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		857480681EE83B17005F73A2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8574806C1EE83B67005F73A2 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -1153,7 +1149,6 @@
 				853433D21EE6B77B003C26F8 /* Chatter */,
 				85C802541F14E074003DBC01 /* PushNotification.swift */,
 				85C802551F14E074003DBC01 /* DMRequest.swift */,
-				857480601EE802E3005F73A2 /* Contact.swift */,
 				85DE9F081ECCACCB00291EF5 /* Member.swift */,
 				8570C1E21ECF028200FA1CE9 /* Company.swift */,
 				85BFF10C1F02B0E10010AD51 /* Filter.swift */,
@@ -1603,7 +1598,6 @@
 				857480691EE83B17005F73A2 /* LoginViewController.swift in Sources */,
 				8570C1CB1ECEDE6200FA1CE9 /* NotificationsViewController.swift in Sources */,
 				859C417E1ECDFFD700637295 /* MemberAboutItemCell.swift in Sources */,
-				857480611EE802E3005F73A2 /* Contact.swift in Sources */,
 				850B70251EFBF86800596315 /* GroupDetailTopViewModel.swift in Sources */,
 				857480811EE84752005F73A2 /* Button.swift in Sources */,
 				853434101EE6E9DC003C26F8 /* MessageThreadMeCell.swift in Sources */,
@@ -1782,7 +1776,6 @@
 				850072281EE70E79008A725A /* MessagesThreadMePicVM.swift in Sources */,
 				85E7DA8A1EF81C7B00C9DA15 /* ProjectViewModel.swift in Sources */,
 				857480431EE802D0005F73A2 /* Comment.swift in Sources */,
-				857480621EE802E3005F73A2 /* Contact.swift in Sources */,
 				859F97DA1EFBBF01001C0B33 /* GoalsViewController.swift in Sources */,
 				850C14301F03B04400F00DAE /* FilterManager.swift in Sources */,
 				858C58C51EF9670E00136DAC /* JobCollectionViewCell.swift in Sources */,
@@ -1908,7 +1901,6 @@
 				850072291EE70E79008A725A /* MessagesThreadMePicVM.swift in Sources */,
 				85E7DA8B1EF81C7B00C9DA15 /* ProjectViewModel.swift in Sources */,
 				857480441EE802D0005F73A2 /* Comment.swift in Sources */,
-				857480631EE802E3005F73A2 /* Contact.swift in Sources */,
 				859F97DB1EFBBF01001C0B33 /* GoalsViewController.swift in Sources */,
 				850C14311F03B04400F00DAE /* FilterManager.swift in Sources */,
 				858C58C61EF9670E00136DAC /* JobCollectionViewCell.swift in Sources */,

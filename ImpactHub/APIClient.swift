@@ -15,8 +15,6 @@ import SwiftyJSON
 
 class APIClient {
 
-    // id, email,firstname,lastname, ProfilePic__c, accountid,Profession__c, Impact_Hub_Cities__c, User__c, About_Me__c
-    
     struct SelectFields {
         static let GROUP = "id, name, CountOfMembers__c, ImageURL__c, Group_Desc__c, Impact_Hub_Cities__c, ChatterGroupId__c, Directory_Style__c"
         static let PROJECT = "id,CreatedById, name,Related_Impact_Goal__c,ChatterGroupId__c ,Group_Desc__c, ImageURL__c, Directory_Style__c, Organisation__r.id, Organisation__r.Number_of_Employees__c, Organisation__r.Impact_Hub_Cities__c, Organisation__r.name"
@@ -29,8 +27,6 @@ class APIClient {
         static let JOB = "id, name, Description__c, Salary__c, Job_Type__c, Sector__c,Contact__c, Location__c, Applications_Close_Date__c, Company__c,Company__r.name,Company__r.Number_of_Employees__c, Company__r.Impact_Hub_Cities__c, Company__r.Sector_Industry__c, Company__r.Logo_Image_Url__c, Company__r.Banner_Image_Url__c, Company__r.Twitter__c, Company__r.Instagram__c, Company__r.Facebook__c, Company__r.LinkedIn__c, Company__r.Website, Company__r.About_Us__c"
     }
 
-    // id,FirstName,LastName,Email,ProfilePic__c,User__c,About_Me__c,Profession__c,Taxonomy__c,Skills__c  --> Contact
-    
     // Goals
     func getGoals() -> Promise<[Goal]> {
         return Promise { fullfill, reject in
@@ -51,14 +47,6 @@ class APIClient {
         }
     }
     
-    // "select id, name, CountOfMembers__c, ImageURL__c, Group_Desc__c, Impact_Hub_Cities__c, ChatterGroupId__c from Directory__c where Directory_Style__c = 'Group' and id in (select DirectoryID__c from Directory_Member__c where ContactID__c ='\(contactId)')"
-    
-    
-    // select id, name, CountOfMembers__c, ImageURL__c, Group_Desc__c, Impact_Hub_Cities__c, ChatterGroupId__c from from Directory__c where Related_Impact_Goal__c like '%SDG name%' <= this is for associated group members
-    
-    
-    
-    
     func getGroups(goalNameId: String) -> Promise<[Group]> {
         return Promise { fullfill, reject in
             SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.GROUP) FROM Directory__c WHERE Directory_Style__c = 'Group' AND Related_Impact_Goal__c LIKE '%\(goalNameId)%'", fail: { (error) in
@@ -78,8 +66,6 @@ class APIClient {
         }
     }
     
-    // SELECT Department,Email,FirstName,Interested_SDG__c,LastName FROM Contact WHERE Interested_SDG__c INCLUDES ('%SDG name%')
-
     func getMembers(goalNameId: String) -> Promise<[Member]> {
         print(goalNameId)
         return Promise { fullfill, reject in
@@ -99,8 +85,7 @@ class APIClient {
             }
         }
     }
-    
-    
+
     
     // Projects
     func getProjects() -> Promise<[Project]> {
@@ -186,13 +171,8 @@ class APIClient {
         }
     }
     
+
     // Filters
-    
-    // if city Country__c
-    // skill 
-    
-    // SELECT Contact__c,Id,Name,Skill_Description__c FROM Contact_Skills__c
-    
     func getFilters(grouping: Filter.Grouping) -> Promise<[Filter]> {
         return Promise { fullfill, reject in
             SFRestAPI.sharedInstance().performSOQLQuery("SELECT name, Grouping__c FROM taxonomy__c where active__c = true AND Grouping__c ='\(grouping.rawValue)'", fail: { (error) in
@@ -213,6 +193,7 @@ class APIClient {
             }
         }
     }
+    
 
     // Companies
     func getCompanies() -> Promise<[Company]> {
@@ -277,7 +258,6 @@ class APIClient {
             }
         }
     }
-    
     
     func getMembers(companyId: String) -> Promise<[Member]> {
         return Promise { fullfill, reject in
@@ -438,58 +418,7 @@ class APIClient {
             }
         }
     }
-    
 
-    
-    func getMe(userId:String) -> Promise<Me> {
-        return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.CONTACT) FROM Contact WHERE User__c = '\(userId)'", fail: { (error) in
-                print("error \(error?.localizedDescription as Any)")
-                reject(error ?? MyError.JSONError)
-            }) { (result) in
-                let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
-                if let records = jsonResult["records"].array {
-                    let items = records.flatMap { Member(json: $0) }
-                    if let item = items.first {
-                        fullfill(Me(member: item))
-                    }
-                    else {
-                        reject(MyError.JSONError)
-                    }
-                }
-                else {
-                    reject(MyError.JSONError)
-                }
-            }
-        }
-    }
-    
-    // SELECT AccountId,Id,User__c FROM Contact where User__c = <<current user id>>
-    func getContact(userId:String) -> Promise<Contact> {
-        return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.CONTACT) FROM Contact WHERE User__c ='\(userId)'", fail: { (error) in
-                print("error \(error?.localizedDescription as Any)")
-                reject(error ?? MyError.JSONError)
-            }) { (result) in
-                let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
-                if let records = jsonResult["records"].array {
-                    let items = records.flatMap { Contact(json: $0) }
-                    if let item = items.first {
-                        fullfill(item)
-                    }
-                    else {
-                        reject(MyError.JSONError)
-                    }
-                }
-                else {
-                    reject(MyError.JSONError)
-                }
-            }
-        }
-    }
-    
     func getMembers(contactIds:[String]) -> Promise<[Member]> {
         return Promise { fullfill, reject in
             let contactIdsString = contactIds.map({"'\($0)'"}).joined(separator: ",")
@@ -559,6 +488,30 @@ class APIClient {
     }
     
     
+    func getMe(userId:String) -> Promise<Me> {
+        return Promise { fullfill, reject in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.CONTACT) FROM Contact WHERE User__c = '\(userId)'", fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON(result!)
+                debugPrint(jsonResult)
+                if let records = jsonResult["records"].array {
+                    let items = records.flatMap { Member(json: $0) }
+                    if let item = items.first {
+                        fullfill(Me(member: item))
+                    }
+                    else {
+                        reject(MyError.JSONError)
+                    }
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
     // Jobs
     func getJobs(skip:Int, top:Int) -> Promise<[Job]> {
         return Promise { fullfill, reject in
@@ -603,9 +556,7 @@ class APIClient {
     
     // Direct Message Request
     func createDMRequest(fromContactId:String, toContactId:String, message: String) -> Promise<String> {
-        
         return Promise { fullfill, reject in
-            
             let query: [String: String] = ["fromContactId" : fromContactId, "toContactId" : toContactId, "introMessage" : message]
             let body = SFJsonUtils.jsonDataRepresentation(query)
             let request = SFRestRequest(method: .POST, path: "/services/apexrest/CreateDMRequest", queryParams: nil)
@@ -631,7 +582,6 @@ class APIClient {
     }
     
     func updateDMRequest(id:String, status:DMRequest.Satus, pushUserId: String) -> Promise<String> {
-        
         return Promise { fullfill, reject in
             let query: [String: String] = ["DM_id" : id, "Req_status" : status.rawValue, "pushUserId" : pushUserId]
             debugPrint(query)
@@ -657,7 +607,6 @@ class APIClient {
     }
     
     func deleteDMRequest(id:String) -> Promise<String> {
-        
         return Promise { fullfill, reject in
             let query: [String: String] = ["DM_id" : id]
             debugPrint(query)
@@ -719,8 +668,6 @@ class APIClient {
             }
         }
     }
-    
-    
     
     
     
