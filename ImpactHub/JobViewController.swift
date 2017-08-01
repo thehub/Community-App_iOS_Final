@@ -25,7 +25,7 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
     var data = [CellRepresentable]()
     
     @IBOutlet weak var connectButtonBottomConsatraint: NSLayoutConstraint?
-    var connectButtonBottomConsatraintDefault: CGFloat = 0
+    var connectButtonBottomConsatraintDefault: CGFloat = 20
     @IBOutlet weak var connectButton: UIButton?
 
 
@@ -53,8 +53,6 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.data.removeAll()
-        collectionView.reloadData()
 
         self.title = job.name
         
@@ -67,6 +65,9 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
         collectionView.register(UINib.init(nibName: JobViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: JobViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: ProjectViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: RelatedViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: RelatedViewModel.cellIdentifier)
+
+        self.data.removeAll()
+        collectionView.reloadData()
 
         
         let cellWidth: CGFloat = self.view.frame.width
@@ -136,10 +137,10 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
         gradientLayer.colors = [startingColorOfGradient , endingColorOFGradient]
         fadeView.layer.insertSublayer(gradientLayer, at: 0)
 
-        if !didLayout {
-            didLayout = true
-            connectButtonBottomConsatraintDefault = connectButtonBottomConsatraint?.constant ?? 0
-        }
+//        if !didLayout {
+//            didLayout = true
+//            connectButtonBottomConsatraintDefault = connectButtonBottomConsatraint?.constant ?? 0
+//        }
 
     }
     
