@@ -41,7 +41,7 @@ class MemberDetailTopCell: UICollectionViewCell {
     func setup(vm: MemberDetailTopViewModel) {
         self.vm = vm
         nameLabel.text = vm.member.name
-        jobLabel.text = vm.jobDescriptionLong
+        jobLabel.text = vm.member.job
         if let photoUrl = vm.member.photoUrl {
             print(photoUrl)
             profileImageView.kf.setImage(with: photoUrl)

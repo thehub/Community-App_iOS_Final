@@ -19,9 +19,6 @@ class MemberDetailTopViewModel: CellRepresentable {
         self.cellSize = cellSize
     }
     
-    var jobDescriptionLong: String {
-        return "\(member.job)"
-    }
     
     var locationNameLong: String {
         return "Currently working in \(member.locationName)"
