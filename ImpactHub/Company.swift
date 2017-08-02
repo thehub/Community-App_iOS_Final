@@ -25,6 +25,7 @@ struct Company {
     var social: Social?
     var blurb: String = ""
     var services = [Service]()
+    var affiliatedSDGs: String?
     
     struct Social {
         var instagram: URL?
@@ -91,6 +92,7 @@ extension Company {
         let twitter = json["Twitter__c"].string
         self.social = Social(instagram: instagram, twitter: twitter, linkedIn: linkedIn, facebook: facebook)
         
+        self.affiliatedSDGs = json["Affiliated_SDG__c"].string
     }
     
 }

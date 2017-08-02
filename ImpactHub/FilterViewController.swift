@@ -96,6 +96,19 @@ class FilterViewController: UIViewController {
                     }
                     let filters = items.map({FilterViewModel(filter: $0, cellSize: CGSize(width: cellWidth, height: 37))})
                     self.filterData.append(filters)
+                }.then { _ -> Void in
+                    // Create for jobs
+                    var items = [Filter]()
+                    items.append(Filter(grouping: .jobType, name: "Full Time"))
+                    items.append(Filter(grouping: .jobType, name: "Part Time"))
+                    let sortedItems = items.sorted(by: {$0.name < $1.name})
+                    if let first = sortedItems.first {
+                        let viewModel = FilterGroupingViewModel(grouping: first.grouping, cellSize: CGSize(width: cellWidth, height: 37))
+                        self.dataAll.append(viewModel)
+                    }
+                    let filters = items.map({FilterViewModel(filter: $0, cellSize: CGSize(width: cellWidth, height: 37))})
+                    self.filterData.append(filters)
+
                     FilterManager.shared.filterData = self.filterData  // cache it so we don't have to laod it every time
                     FilterManager.shared.dataViewModel = self.dataAll // cache it so we don't have to laod it every time
                 }.always {
@@ -138,27 +151,69 @@ class FilterViewController: UIViewController {
         
         // Switch on off depending on section we're in
         switch FilterManager.shared.currenttlySelectingFor {
-//        case .members:
-//            self.data = self.dataAll.filter({ (cellVM) -> Bool in
-//                if let cellVM = cellVM as? FilterGroupingViewModel {
-//                    if cellVM.grouping == .city || cellVM.grouping == .skill || cellVM.grouping == .sdg {
-//                        return true
-//                    }
-//                    else {
-//                        return false
-//                    }
-//                }
-//                else {
-//                    return false
-//                }
-//            })
-//            break
-        case .companies, .events, .jobs, .projects, .members:
-            self.data = self.dataAll
+        case .companies:
+            self.data = self.dataAll.filter({ (cellVM) -> Bool in
+                if let cellVM = cellVM as? FilterGroupingViewModel {
+                    if cellVM.grouping == .city || cellVM.grouping == .sector || cellVM.grouping == .sdg {
+                        return true
+                    }
+                    else {
+                        return false
+                    }
+                }
+                else {
+                    return false
+                }
+            })
             break
-            
+        case .jobs:
+            self.data = self.dataAll.filter({ (cellVM) -> Bool in
+                if let cellVM = cellVM as? FilterGroupingViewModel {
+                    if cellVM.grouping == .city || cellVM.grouping == .sector || cellVM.grouping == .sdg || cellVM.grouping == .jobType {
+                        return true
+                    }
+                    else {
+                        return false
+                    }
+                }
+                else {
+                    return false
+                }
+            })
+            break
+        case .members:
+            self.data = self.dataAll.filter({ (cellVM) -> Bool in
+                if let cellVM = cellVM as? FilterGroupingViewModel {
+                    if cellVM.grouping == .city || cellVM.grouping == .sector || cellVM.grouping == .sdg || cellVM.grouping == .skill {
+                        return true
+                    }
+                    else {
+                        return false
+                    }
+                }
+                else {
+                    return false
+                }
+            })
+            break
+        case .events, .projects, .groups:
+            self.data = self.dataAll.filter({ (cellVM) -> Bool in
+                if let cellVM = cellVM as? FilterGroupingViewModel {
+                    if cellVM.grouping == .city || cellVM.grouping == .sector || cellVM.grouping == .sdg {
+                        return true
+                    }
+                    else {
+                        return false
+                    }
+                }
+                else {
+                    return false
+                }
+            })
+            break
         }
         
+
         // Set all to false first
         data.forEach { (cellData) in
             (cellData as! FilterGroupingViewModel).hasSome = false
@@ -214,7 +269,14 @@ class FilterViewController: UIViewController {
 extension FilterViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let vm = data[indexPath.item] as? FilterGroupingViewModel {
-            selectedFilterData = filterData[indexPath.item]
+            var indexFound = 0
+            for (index, tmp) in filterData.enumerated() {
+                if (tmp.first as? FilterViewModel)?.filter.grouping == vm.grouping {
+                    indexFound = index
+                    break
+                }
+            }
+            selectedFilterData = filterData[indexFound]
             performSegue(withIdentifier: "ShowFilterDetail", sender: self)
         }
     }

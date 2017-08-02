@@ -23,6 +23,7 @@ struct Job {
     var salary: String
     var logo: String?
     var photo: String?
+    var relatedSDGs: String?
 }
 
 
@@ -58,6 +59,7 @@ extension Job {
         self.logo = json["Company__r"]["Logo_Image_Url__c"].string
         self.photo = json["Company__r"]["Banner_Image_Url__c"].string
 
+        self.relatedSDGs = json["Related_Impact_Goal__c"].string
     }
     
 }

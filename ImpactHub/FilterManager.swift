@@ -21,6 +21,7 @@ class FilterManager {
         case events
         case projects
         case jobs
+        case groups
     }
     
     var currenttlySelectingFor: Source = .members
@@ -32,6 +33,7 @@ class FilterManager {
     var membersFilters = [Filter]()
     var companiesFilters = [Filter]()
     var projectsFilters = [Filter]()
+    var groupsFilters = [Filter]()
     var eventsFilters = [Filter]()
     var jobsFilters = [Filter]()
     
@@ -54,6 +56,10 @@ class FilterManager {
             let toRemain = projectsFilters.filter({$0.grouping != grouping})
             projectsFilters = toRemain
             break
+        case .groups:
+            let toRemain = groupsFilters.filter({$0.grouping != grouping})
+            groupsFilters = toRemain
+            break
         case .jobs:
             let toRemain = jobsFilters.filter({$0.grouping != grouping})
             jobsFilters = toRemain
@@ -71,6 +77,8 @@ class FilterManager {
             eventsFilters.removeAll()
         case .projects:
             projectsFilters.removeAll()
+        case .groups:
+            groupsFilters.removeAll()
         case .jobs:
             jobsFilters.removeAll()
         }
@@ -86,6 +94,8 @@ class FilterManager {
             return eventsFilters
         case .projects:
             return projectsFilters
+        case .groups:
+            return groupsFilters
         case .jobs:
             return jobsFilters
         }
@@ -101,6 +111,8 @@ class FilterManager {
             return eventsFilters
         case .projects:
             return projectsFilters
+        case .groups:
+            return groupsFilters
         case .jobs:
             return jobsFilters
         }
@@ -124,6 +136,10 @@ class FilterManager {
             if !projectsFilters.contains(filter) {
                 projectsFilters.append(filter)
             }
+        case .groups:
+            if !groupsFilters.contains(filter) {
+                groupsFilters.append(filter)
+            }
         case .jobs:
             if !jobsFilters.contains(filter) {
                 jobsFilters.append(filter)
@@ -141,6 +157,8 @@ class FilterManager {
             eventsFilters = eventsFilters.filter({$0 != filter})
         case .projects:
             projectsFilters = projectsFilters.filter({$0 != filter})
+        case .groups:
+            groupsFilters = groupsFilters.filter({$0 != filter})
         case .jobs:
             jobsFilters = jobsFilters.filter({$0 != filter})
         }

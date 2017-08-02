@@ -25,6 +25,7 @@ struct Project {
     var locationName: String?
     var objectives = [Objective]()
     var createdById: String?
+    var sector: String?
     
     
     struct Objective {
@@ -92,6 +93,8 @@ extension Project {
         if let image = json["ImageURL__c"].string {
             self.image = image
         }
+        
+        self.sector = json["Sector__c"].string
 
     }
 }

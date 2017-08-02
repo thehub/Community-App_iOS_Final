@@ -18,6 +18,7 @@ struct Filter {
         case sector
         case skill
         case sdg
+        case jobType
         
         var displayName: String {
             get {
@@ -30,22 +31,18 @@ struct Filter {
                     return "Skill"
                 case .sdg:
                     return "Goal"
+                case .jobType:
+                    return "Type"
                 }
             }
         }
-        
-    }
-}
-
-extension Filter: Equatable {
-
-    static func ==(lhs: Filter, rhs: Filter) -> Bool {
-        return lhs.grouping == rhs.grouping && lhs.name == rhs.name
     }
     
-}
-
-extension Filter {
+    init(grouping: Grouping, name: String) {
+        self.grouping = grouping
+        self.name = name
+    }
+    
     init?(json: JSON) {
         guard
             let grouping = json["Grouping__c"].string,
@@ -61,5 +58,14 @@ extension Filter {
         }
         self.name = name
     }
+}
+
+extension Filter: Equatable {
+
+    static func ==(lhs: Filter, rhs: Filter) -> Bool {
+        return lhs.grouping == rhs.grouping && lhs.name == rhs.name
+    }
     
 }
+
+

@@ -13,7 +13,7 @@ class GroupsViewController: ListWithSearchViewController {
     
     override var filterSource: FilterManager.Source {
         get {
-            return FilterManager.Source.jobs
+            return FilterManager.Source.projects
         }
     }
     
@@ -50,29 +50,69 @@ class GroupsViewController: ListWithSearchViewController {
     
     
     override func filterData(dataToFilter: [CellRepresentable]) -> [CellRepresentable] {
+        var filteredData = dataToFilter
+        
         // City
-        //        if filters.filter({$0.grouping == .city}).count > 0  {
-        //            let filteredData = dataToFilter.filter { (cellVM) -> Bool in
-        //                if let cellVM = cellVM as? MemberViewModel {
-        //                    var matchedCity = false
-        //                    for filter in self.filters {
-        //                        if filter.grouping == .city {
-        //                            if cellVM.member.locationName.lowercased() == filter.name.lowercased() {
-        //                                matchedCity = true
-        //                            }
-        //                        }
-        //                    }
-        //                    return matchedCity
-        //                }
-        //                else {
-        //                    return false
-        //                }
-        //            }
-        //            return filteredData
-        //        }
-        //        else {
-        return dataToFilter
-        //        }
+        if filters.filter({$0.grouping == .city}).count > 0  {
+            filteredData = filteredData.filter { (cellVM) -> Bool in
+                if let cellVM = cellVM as? GroupViewModel {
+                    var matched = false
+                    for filter in self.filters {
+                        if filter.grouping == .city {
+                            if cellVM.group.impactHubCities?.lowercased().contains(filter.name.lowercased()) ?? false {
+                                matched = true
+                            }
+                        }
+                    }
+                    return matched
+                }
+                else {
+                    return false
+                }
+            }
+        }
+        
+        // SDG goals
+//        if filters.filter({$0.grouping == .sdg}).count > 0  {
+//            filteredData = filteredData.filter { (cellVM) -> Bool in
+//                if let cellVM = cellVM as? GroupViewModel {
+//                    var matched = false
+//                    for filter in self.filters {
+//                        if filter.grouping == .sdg {
+//                            if cellVM.group.affiliatedSDGs?.lowercased().contains(filter.name.lowercased()) ?? false {
+//                                matched = true
+//                            }
+//                        }
+//                    }
+//                    return matched
+//                }
+//                else {
+//                    return false
+//                }
+//            }
+//        }
+        
+        // Sector
+        if filters.filter({$0.grouping == .sector}).count > 0  {
+            filteredData = filteredData.filter { (cellVM) -> Bool in
+                if let cellVM = cellVM as? GroupViewModel {
+                    var matched = false
+                    for filter in self.filters {
+                        if filter.grouping == .sector {
+                            if cellVM.group.sector?.lowercased().contains(filter.name.lowercased()) ?? false {
+                                matched = true
+                            }
+                        }
+                    }
+                    return matched
+                }
+                else {
+                    return false
+                }
+            }
+        }
+        
+        return filteredData
     }
     
     
