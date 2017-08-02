@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -1982,14 +1983,14 @@
         <image name="trans" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="u3D-lG-cq4"/>
+        <segue reference="SUD-Df-hmX"/>
+        <segue reference="RAM-VD-ZBW"/>
+        <segue reference="wU7-Qa-AtJ"/>
+        <segue reference="E6m-rq-9b6"/>
+        <segue reference="2YP-O4-F5Z"/>
         <segue reference="zv2-am-uws"/>
         <segue reference="r4W-Rs-mKq"/>
-        <segue reference="u3D-lG-cq4"/>
-        <segue reference="FiV-U6-Klt"/>
-        <segue reference="SUD-Df-hmX"/>
-        <segue reference="E6m-rq-9b6"/>
-        <segue reference="RAM-VD-ZBW"/>
-        <segue reference="C30-D0-cHv"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>
