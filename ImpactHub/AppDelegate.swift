@@ -74,9 +74,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         //        }
     }
  
+    static var launchOptions: [UIApplicationLaunchOptionsKey: Any]?
+    /// Saved shortcut item used as a result of an app launch, used later when app is activated.
+    var launchedShortcutItem: UIApplicationShortcutItem?
 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+        AppDelegate.launchOptions = launchOptions
 
         stylize()
         
@@ -92,7 +97,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             handleNotification(userInfo: remoteNotification as! [AnyHashable : Any])
         }
         
-        return true
+        // Override point for customization after application launch.
+        var shouldPerformAdditionalDelegateHandling = true
+        
+        // If a shortcut was launched, display its information and take the appropriate action
+        if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
+            launchedShortcutItem = shortcutItem
+            // This will block "performActionForShortcutItem:completionHandler" from being called.
+            shouldPerformAdditionalDelegateHandling = false
+        }
+        
+        return shouldPerformAdditionalDelegateHandling
     }
 
     
@@ -176,8 +191,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         handleNotification(userInfo: userInfo)
     }
     
-    
-    
     func handleNotification(userInfo: [AnyHashable: Any]) {
         debugPrint(userInfo)
         if let pushNotification = PushNotification.createFromUserInfo(userInfo) {
@@ -188,6 +201,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         else {
             debugPrint("Push type unknown")
         }
+    }
+    
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        let handledShortCutItem = ShortcutManager.shared.handleShortCutItem(shortcutItem)
+        completionHandler(handledShortCutItem)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -205,7 +224,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        if let shortcut = launchedShortcutItem {
+            _ = ShortcutManager.shared.handleShortCutItem(shortcut)
+            launchedShortcutItem = nil
+        }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

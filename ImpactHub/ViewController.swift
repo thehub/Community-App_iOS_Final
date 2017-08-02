@@ -50,6 +50,7 @@ class ViewController: UIViewController {
             firstly {
                 APIClient.shared.getMe(userId: currentUser.accountIdentity.userId)
                 }.then { me -> Void in
+                    ShortcutManager.shared.updateHomeShortCuts()
                     SessionManager.shared.me = me
                     self.performSegue(withIdentifier: "ShowHome", sender: self)
                 }.always {

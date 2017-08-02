@@ -27,6 +27,22 @@ class TabBarController: UITabBarController {
         if let pushNotification = SessionManager.shared.pushNotification {
             self.handlePushNotification(pushNotification)
         }
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.onHandleHomeShortCutSearch, object: nil, queue: OperationQueue.main) { (_) in
+            self.openSearch()
+        }
+        
+    }
+    
+    func openSearch() {
+        ShortcutManager.shared.showSearchLaunch = false
+        self.selectedIndex = 1
+        
+        if let vcn = self.viewControllers?[1] as? UINavigationController, let vc = vcn.viewControllers.first as? SearchViewController {
+            vcn.popToRootViewController(animated: false)
+            vc.showSerachOnOpen = true
+            vc.showSearch()
+        }
     }
 
     var inTransit = false

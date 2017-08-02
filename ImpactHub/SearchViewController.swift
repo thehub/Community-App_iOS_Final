@@ -36,6 +36,16 @@ class SearchViewController: ListWithSearchViewController, CreatePostViewControll
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // If coming from home short cut
+        if showSerachOnOpen {
+            showSearch()
+            showSerachOnOpen = false
+        }
+    }
+    
+    var showSerachOnOpen = false
+    
+    func showSearch() {
         self.searchBar?.becomeFirstResponder()
     }
     

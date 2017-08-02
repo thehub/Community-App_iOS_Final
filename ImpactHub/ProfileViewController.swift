@@ -49,6 +49,7 @@ class ProfileViewController: UIViewController {
             vc.popToRootViewController(animated: true)
             vc.dismiss(animated: true, completion: {
             })
+            ShortcutManager.shared.clearHomeShortCuts()
             SFAuthenticationManager.shared().logoutAllUsers()
         }
     }

@@ -46,6 +46,9 @@
 		8502265C1F0119D000942C9F /* RelatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 850226581F0119D000942C9F /* RelatedCell.xib */; };
 		8502265D1F0119D000942C9F /* RelatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 850226581F0119D000942C9F /* RelatedCell.xib */; };
 		8502265E1F0119D000942C9F /* RelatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 850226581F0119D000942C9F /* RelatedCell.xib */; };
+		850235771F31E8E7005CE1E7 /* ShortcutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594E7311F31D7AA00324433 /* ShortcutManager.swift */; };
+		850235781F31E8E8005CE1E7 /* ShortcutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594E7311F31D7AA00324433 /* ShortcutManager.swift */; };
+		850235791F31E8E9005CE1E7 /* ShortcutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594E7311F31D7AA00324433 /* ShortcutManager.swift */; };
 		8505E1FA1EF3CEEA005A2F40 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8505E1F91EF3CEEA005A2F40 /* NavigationViewController.swift */; };
 		8505E1FB1EF3CEEA005A2F40 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8505E1F91EF3CEEA005A2F40 /* NavigationViewController.swift */; };
 		8505E1FC1EF3CEEA005A2F40 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8505E1F91EF3CEEA005A2F40 /* NavigationViewController.swift */; };
@@ -680,6 +683,7 @@
 		858C58CF1EF9848E00136DAC /* JobDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailCell.swift; sourceTree = "<group>"; };
 		858C58D01EF9848E00136DAC /* JobDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobDetailCell.xib; sourceTree = "<group>"; };
 		858C58D71EF9868900136DAC /* JobDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailViewModel.swift; sourceTree = "<group>"; };
+		8594E7311F31D7AA00324433 /* ShortcutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutManager.swift; sourceTree = "<group>"; };
 		859C41621ECD951A00637295 /* MemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
 		859C41641ECDA01A00637295 /* MemberDetailTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberDetailTopCell.swift; sourceTree = "<group>"; };
 		859C41651ECDA01A00637295 /* MemberDetailTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberDetailTopCell.xib; sourceTree = "<group>"; };
@@ -1026,6 +1030,7 @@
 				85DE9F051ECCAC8200291EF5 /* ViewModels */,
 				85DE9EC81ECC8CD900291EF5 /* AppDelegate.swift */,
 				857480781EE846EE005F73A2 /* SessionManager.swift */,
+				8594E7311F31D7AA00324433 /* ShortcutManager.swift */,
 				85DE9ECA1ECC8CD900291EF5 /* ViewController.swift */,
 				8505E1F91EF3CEEA005A2F40 /* NavigationViewController.swift */,
 				85455D221EF28D3D00243846 /* TabBarController.swift */,
@@ -1613,6 +1618,7 @@
 				8516551F1EFD5F0200002786 /* AddPostViewController.swift in Sources */,
 				853433CB1EE6B547003C26F8 /* MessagesCell.swift in Sources */,
 				859C416F1ECDB39D00637295 /* MemberFeedItemViewModel.swift in Sources */,
+				850235771F31E8E7005CE1E7 /* ShortcutManager.swift in Sources */,
 				857480451EE802D0005F73A2 /* Conversation.swift in Sources */,
 				858C58D11EF9848E00136DAC /* JobDetailCell.swift in Sources */,
 				85455D271EF28E6400243846 /* UIColor+IMAAdditions.swift in Sources */,
@@ -1689,6 +1695,7 @@
 				858597E31F17AE8A00821E6A /* ContactRequestManager.swift in Sources */,
 				853433D01EE6B726003C26F8 /* MessagesVM.swift in Sources */,
 				8500723D1EE7126C008A725A /* MessagesThreadMeTimeVM.swift in Sources */,
+				850235781F31E8E8005CE1E7 /* ShortcutManager.swift in Sources */,
 				858C58C11EF9667300136DAC /* JobFilterViewController.swift in Sources */,
 				859F97E91EFBD079001C0B33 /* GoalAboutItemViewModel.swift in Sources */,
 				8574807E1EE84735005F73A2 /* Animations.swift in Sources */,
@@ -1814,6 +1821,7 @@
 				858597E41F17AE8A00821E6A /* ContactRequestManager.swift in Sources */,
 				853433D11EE6B726003C26F8 /* MessagesVM.swift in Sources */,
 				8500723E1EE7126C008A725A /* MessagesThreadMeTimeVM.swift in Sources */,
+				850235791F31E8E9005CE1E7 /* ShortcutManager.swift in Sources */,
 				858C58C21EF9667300136DAC /* JobFilterViewController.swift in Sources */,
 				859F97EA1EFBD079001C0B33 /* GoalAboutItemViewModel.swift in Sources */,
 				8574807F1EE84735005F73A2 /* Animations.swift in Sources */,
