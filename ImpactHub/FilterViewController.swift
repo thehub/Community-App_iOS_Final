@@ -138,22 +138,22 @@ class FilterViewController: UIViewController {
         
         // Switch on off depending on section we're in
         switch FilterManager.shared.currenttlySelectingFor {
-        case .members:
-            self.data = self.dataAll.filter({ (cellVM) -> Bool in
-                if let cellVM = cellVM as? FilterGroupingViewModel {
-                    if cellVM.grouping == .city || cellVM.grouping == .skill || cellVM.grouping == .sector {
-                        return true
-                    }
-                    else {
-                        return false
-                    }
-                }
-                else {
-                    return false
-                }
-            })
-            break
-        case .companies, .events, .jobs, .projects:
+//        case .members:
+//            self.data = self.dataAll.filter({ (cellVM) -> Bool in
+//                if let cellVM = cellVM as? FilterGroupingViewModel {
+//                    if cellVM.grouping == .city || cellVM.grouping == .skill || cellVM.grouping == .sdg {
+//                        return true
+//                    }
+//                    else {
+//                        return false
+//                    }
+//                }
+//                else {
+//                    return false
+//                }
+//            })
+//            break
+        case .companies, .events, .jobs, .projects, .members:
             self.data = self.dataAll
             break
             

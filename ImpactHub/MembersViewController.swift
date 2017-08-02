@@ -68,29 +68,91 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
     }
 
     override func filterData(dataToFilter: [CellRepresentable]) -> [CellRepresentable] {
+        var filteredData = dataToFilter
+
         // City
         if filters.filter({$0.grouping == .city}).count > 0  {
-            let filteredData = dataToFilter.filter { (cellVM) -> Bool in
+            filteredData = filteredData.filter { (cellVM) -> Bool in
                 if let cellVM = cellVM as? MemberViewModel {
-                    var matchedCity = false
+                    var matched = false
                     for filter in self.filters {
                         if filter.grouping == .city {
                             if cellVM.member.locationName.lowercased() == filter.name.lowercased() {
-                                matchedCity = true
+                                matched = true
                             }
                         }
                     }
-                    return matchedCity
+                    return matched
                 }
                 else {
                     return false
                 }
             }
-            return filteredData
         }
-        else {
-            return dataToFilter
+        
+        // Skills
+        if filters.filter({$0.grouping == .skill}).count > 0  {
+             filteredData = filteredData.filter { (cellVM) -> Bool in
+                if let cellVM = cellVM as? MemberViewModel {
+                    var matched = false
+                    for filter in self.filters {
+                        if filter.grouping == .skill {
+                            if cellVM.member.skillTags?.lowercased().contains(filter.name.lowercased()) ?? false {
+                                matched = true
+                            }
+                        }
+                    }
+                    return matched
+                }
+                else {
+                    return false
+                }
+            }
         }
+        
+        // SDG goals
+        if filters.filter({$0.grouping == .sdg}).count > 0  {
+            filteredData = filteredData.filter { (cellVM) -> Bool in
+                if let cellVM = cellVM as? MemberViewModel {
+                    var matched = false
+                    for filter in self.filters {
+                        if filter.grouping == .sdg {
+                            if cellVM.member.interestedSDGs?.lowercased().contains(filter.name.lowercased()) ?? false {
+                                matched = true
+                            }
+                        }
+                    }
+                    return matched
+                }
+                else {
+                    return false
+                }
+            }
+        }
+
+        // Sector
+        if filters.filter({$0.grouping == .sector}).count > 0  {
+            filteredData = filteredData.filter { (cellVM) -> Bool in
+                if let cellVM = cellVM as? MemberViewModel {
+                    var matched = false
+                    for filter in self.filters {
+                        if filter.grouping == .sector {
+                            if cellVM.member.sector?.lowercased().contains(filter.name.lowercased()) ?? false {
+                                matched = true
+                            }
+                        }
+                    }
+                    return matched
+                }
+                else {
+                    return false
+                }
+            }
+        }
+
+        
+        return filteredData
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

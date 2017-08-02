@@ -27,6 +27,8 @@ class Member {
     var contactRequest: DMRequest? // set after DMRequests have been loaded in...
     var statusUpdate: String?
     var directorySummary: String?
+    var interestedSDGs: String?
+    var sector: String?
     
     struct Social {
         var instagram: URL?
@@ -109,6 +111,10 @@ class Member {
         
         self.statusUpdate = json["Status_Update__c"].string
         self.directorySummary = json["Directory_Summary__c"].string
+        
+        self.interestedSDGs = json["Interested_SDG__c"].string
+        
+        self.sector = json["How_Do_You_Most_Identify_with_Your_Curre__c"].string
         
 //        if let skillsTags = json["Skills__c"].string {
 //            self.skillsTags = skillsTags.components(separatedBy: ";")
