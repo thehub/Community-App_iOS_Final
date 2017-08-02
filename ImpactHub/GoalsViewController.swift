@@ -55,9 +55,8 @@ class GoalsViewController: ListWithTopMenuViewController {
         
 //
         
-        topMenu.setupWithItems(["ALL", "SUSTAINABLE DEVELOPMENT", "HUMAN RIGHTS"])
-
-
+//        topMenu.setupWithItems(["ALL", "SUSTAINABLE DEVELOPMENT", "HUMAN RIGHTS"])
+        topMenu?.hide()
     
     }
     

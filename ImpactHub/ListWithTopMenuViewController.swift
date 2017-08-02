@@ -19,7 +19,7 @@ class ListWithTopMenuViewController: UIViewController, TopMenuDelegate {
     }
 
     var data = [CellRepresentable]()
-    @IBOutlet weak var topMenu: TopMenu!
+    @IBOutlet weak var topMenu: TopMenu?
 
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -27,9 +27,9 @@ class ListWithTopMenuViewController: UIViewController, TopMenuDelegate {
         super.viewDidLoad()
 
         
-        topMenu.delegate = self
+        topMenu?.delegate = self
         
-        topMenu.show()
+        topMenu?.show()
 
         if(traitCollection.forceTouchCapability == .available){
             registerForPreviewing(with: self, sourceView: self.collectionView)
@@ -69,6 +69,11 @@ class ListWithTopMenuViewController: UIViewController, TopMenuDelegate {
     var lastScrollPositionY: CGFloat = 0
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        guard let topMenu = self.topMenu else {
+            return
+        }
+        
         let currentPositionY = scrollView.contentOffset.y
         
         if currentPositionY < 0 {
