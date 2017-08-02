@@ -43,7 +43,7 @@ class CompanyDetailTopCell: UICollectionViewCell {
     func setup(vm: CompanyDetailTopViewModel) {
         self.vm = vm
         nameLabel.text = vm.company.name
-        subNameLabel.text = vm.company.blurb
+        subNameLabel.text = vm.company.sector
         if let photoUrl = vm.company.photoUrl {
             profileImageView.kf.setImage(with: photoUrl)
         }

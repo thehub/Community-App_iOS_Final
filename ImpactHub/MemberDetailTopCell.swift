@@ -46,7 +46,7 @@ class MemberDetailTopCell: UICollectionViewCell {
             print(photoUrl)
             profileImageView.kf.setImage(with: photoUrl)
         }
-        blurbLabel.text = vm.member.blurb
+        blurbLabel.text = vm.member.statusUpdate
         locationNameLabel.text = vm.locationNameLong
         
         if vm.member.social?.facebook != nil {

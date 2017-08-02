@@ -42,7 +42,7 @@ class CompanyCollectionViewCell: UICollectionViewCell {
             logoImageView.kf.setImage(with: logoUrl)
         }
         
-        nameLabel.text = vm.company.blurb
+        nameLabel.text = vm.company.sector
         companyNameLabel.text = vm.company.name
         locationNameLabel.text = vm.company.locationName ?? ""
         memberCountLabel.text = vm.company.size ?? ""

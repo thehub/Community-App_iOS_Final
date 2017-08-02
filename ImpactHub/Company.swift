@@ -23,7 +23,7 @@ struct Company {
     var size: String?
     var sector: String?
     var social: Social?
-    var blurb: String = "Some lines about this compnay"
+    var blurb: String = ""
     var services = [Service]()
     
     struct Social {

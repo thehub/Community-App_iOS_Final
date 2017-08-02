@@ -18,13 +18,15 @@ class Member {
     var lastName: String
     var job: String = ""
     var photo: String?
-    var blurb: String = ""
     var aboutMe: String = ""
     var locationName: String = ""
     var impactHubCities: String = ""
     var skills = [Skill]()
+    var skillTags: String?
     var social: Social?
     var contactRequest: DMRequest? // set after DMRequests have been loaded in...
+    var statusUpdate: String?
+    var directorySummary: String?
     
     struct Social {
         var instagram: URL?
@@ -51,7 +53,6 @@ class Member {
             self.name = name
             self.description = json["Skill_Description__c"].string
         }
-
     }
     
     
@@ -104,15 +105,14 @@ class Member {
         let twitter = json["Twitter__c"].string
         self.social = Social(instagram: instagram, twitter: twitter, linkedIn: linkedIn, facebook: facebook)
         
+        self.skillTags = json["Skills_c"].string
         
+        self.statusUpdate = json["Status_Update__c"].string
+        self.directorySummary = json["Directory_Summary__c"].string
         
-        //        if let taxonomy = json["Taxonomy__c"].string {
-        //            self.taxonomy = taxonomy
-        //        }
-        //
-        //        if let skills = json["Skills__c"].string {
-        //            self.skills = skills.components(separatedBy: ",")
-        //        }
+//        if let skillsTags = json["Skills__c"].string {
+//            self.skillsTags = skillsTags.components(separatedBy: ";")
+//        }
         
         
     }
