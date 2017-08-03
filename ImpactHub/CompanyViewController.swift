@@ -26,6 +26,13 @@ class CompanyViewController: ListFullBleedViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView.register(UINib.init(nibName: CompanyDetailTopViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: CompanyDetailTopViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: CompanyAboutViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: CompanyAboutViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: TitleViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: TitleViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: ProjectViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: MemberViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberViewModel.cellIdentifier)
+        collectionView.register(UINib.init(nibName: CompanyServiceItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: CompanyServiceItemViewModel.cellIdentifier)
+        
         if self.company != nil {
             buildCompany()
             getCompanyExtras()
@@ -99,13 +106,6 @@ class CompanyViewController: ListFullBleedViewController {
         }
         
         self.title = company.name
-        
-        collectionView.register(UINib.init(nibName: CompanyDetailTopViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: CompanyDetailTopViewModel.cellIdentifier)
-        collectionView.register(UINib.init(nibName: CompanyAboutViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: CompanyAboutViewModel.cellIdentifier)
-        collectionView.register(UINib.init(nibName: TitleViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: TitleViewModel.cellIdentifier)
-        collectionView.register(UINib.init(nibName: ProjectViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectViewModel.cellIdentifier)
-        collectionView.register(UINib.init(nibName: MemberViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberViewModel.cellIdentifier)
-        collectionView.register(UINib.init(nibName: CompanyServiceItemViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: CompanyServiceItemViewModel.cellIdentifier)
         
         topMenu?.setupWithItems(["About", "Projects", "Members"])
         

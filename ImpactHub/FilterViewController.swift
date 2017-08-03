@@ -39,8 +39,6 @@ class FilterViewController: UIViewController {
 
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
 
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        
         self.filterData = FilterManager.shared.filterData
         self.dataAll = FilterManager.shared.dataViewModel
         self.update()
