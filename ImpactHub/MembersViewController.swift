@@ -78,12 +78,6 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
         }
     }
 
-
-
-    
-    
-    
-    
     override func filterData(dataToFilter: [CellRepresentable]) -> [CellRepresentable] {
         var filteredData = dataToFilter
 
@@ -166,10 +160,7 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
                 }
             }
         }
-
-        
         return filteredData
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -213,6 +204,22 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
     
     func didSendContactRequest() {
         self.cellWantsToSendContactRequest?.connectRequestStatus = .outstanding
+        
+        // Now refresh the status, so that when we push into the member, it can update the button correctly.
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        firstly {
+            ContactRequestManager.shared.refresh()
+            }.then { contactRequests -> Void in
+                for data in self.dataAll {
+                    if let data2 = data as? MemberViewModel {
+                        data2.member.contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: data2.member)
+                    }
+                }
+            }.always {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }.catch { error in
+                debugPrint(error.localizedDescription)
+        }
     }
     
     var cellWantsToSendContactRequest: MemberCollectionViewCell?
