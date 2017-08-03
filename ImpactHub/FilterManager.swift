@@ -177,7 +177,7 @@ class FilterManager {
         // Size won't work with alpha sorting
         if grouping == .size {
             sortedItems = tags.map({Filter(grouping: grouping, name: $0)}).sorted(by: { (filterA, filterB) -> Bool in
-                if let value1 = Int("\(filterA.name.prefix(3))".trimmingCharacters(in: CharacterSet.whitespaces)), let value2 = Int("\(filterB.name.prefix(3))".trimmingCharacters(in: CharacterSet.whitespaces)) {
+                if let value1 = Int("\(filterA.name.substring(to: filterA.name.index(filterA.name.startIndex, offsetBy: 3)))".trimmingCharacters(in: CharacterSet.whitespaces)), let value2 = Int("\(filterB.name.substring(to: filterB.name.index(filterB.name.startIndex, offsetBy: 3)))".trimmingCharacters(in: CharacterSet.whitespaces)) {
                     return value1 < value2
                 }
                 else {
