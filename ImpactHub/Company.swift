@@ -67,11 +67,9 @@ extension Company {
         self.photo = json["Banner_Image_Url__c"].string
         self.logo = json["Logo_Image_Url__c"].string
         self.about = json["About_Us__c"].string
-        if let impactHubCities = json["Impact_Hub_Cities__c"].string, impactHubCities != "<null>" {
-            self.impactHubCities = impactHubCities
-            if let firstCity = impactHubCities.components(separatedBy: ";").first {
-                self.locationName = firstCity
-            }
+        self.impactHubCities = json["Impact_Hub_Cities__c"].string
+        if let allCities = impactHubCities?.components(separatedBy: ";") {
+            self.locationName = allCities.joined(separator: ", ")
         }
         self.website = json["Website"].string
         self.size = json["Number_of_Employees__c"].string

@@ -21,7 +21,7 @@ class MemberDetailTopViewModel: CellRepresentable {
     
     
     var locationNameLong: String {
-        return "Currently working in \(member.locationName)"
+        return "\(member.locationName)"
     }
     
     

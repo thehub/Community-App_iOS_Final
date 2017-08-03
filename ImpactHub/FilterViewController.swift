@@ -35,97 +35,15 @@ class FilterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        
-//        if let transitioningDelegate = transitioningDelegate as? DeckTransitioningDelegate {
-//            
-//            transitioningDelegate.
-//        }
-        
         collectionView.register(UINib.init(nibName: FilterGroupingViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: FilterGroupingViewModel.cellIdentifier)
 
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
 
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        let cellWidth: CGFloat = self.view.frame.width
-
         
-        // Do we already have it cached?
-        if let filterData = FilterManager.shared.filterData, let dataViewModel = FilterManager.shared.dataViewModel {
-            self.filterData = filterData
-            self.dataAll = dataViewModel
-            self.update()
-        }
-        else {
-            firstly {
-                APIClient.shared.getFilters(grouping: .city)
-                }.then { items -> Void in
-                    let sortedItems = items.sorted(by: {$0.name < $1.name})
-                    if let first = sortedItems.first {
-                        let viewModel = FilterGroupingViewModel(grouping: first.grouping, cellSize: CGSize(width: cellWidth, height: 37))
-                        self.dataAll.append(viewModel)
-                    }
-                    let filters = sortedItems.map({FilterViewModel(filter: $0, cellSize: CGSize(width: cellWidth, height: 37))})
-                    self.filterData.append(filters)
-                }.then {
-                    APIClient.shared.getFilters(grouping: .skill)
-                }.then { items -> Void in
-                    let sortedItems = items.sorted(by: {$0.name < $1.name})
-                    if let first = sortedItems.first {
-                        let viewModel = FilterGroupingViewModel(grouping: first.grouping, cellSize: CGSize(width: cellWidth, height: 37))
-                        self.dataAll.append(viewModel)
-                    }
-                    let filters = items.map({FilterViewModel(filter: $0, cellSize: CGSize(width: cellWidth, height: 37))})
-                    self.filterData.append(filters)
-                }.then {
-                    APIClient.shared.getFilters(grouping: .sdg)
-                }.then { items -> Void in
-                    let sortedItems = items.sorted(by: {$0.name < $1.name})
-                    if let first = sortedItems.first {
-                        let viewModel = FilterGroupingViewModel(grouping: first.grouping, cellSize: CGSize(width: cellWidth, height: 37))
-                        self.dataAll.append(viewModel)
-                    }
-                    let filters = items.map({FilterViewModel(filter: $0, cellSize: CGSize(width: cellWidth, height: 37))})
-                    self.filterData.append(filters)
-                }.then {
-                    APIClient.shared.getFilters(grouping: .sector)
-                }.then { items -> Void in
-                    let sortedItems = items.sorted(by: {$0.name < $1.name})
-                    if let first = sortedItems.first {
-                        let viewModel = FilterGroupingViewModel(grouping: first.grouping, cellSize: CGSize(width: cellWidth, height: 37))
-                        self.dataAll.append(viewModel)
-                    }
-                    let filters = items.map({FilterViewModel(filter: $0, cellSize: CGSize(width: cellWidth, height: 37))})
-                    self.filterData.append(filters)
-                }.then { _ -> Void in
-                    // Create for jobs
-                    var items = [Filter]()
-                    items.append(Filter(grouping: .jobType, name: "Full Time"))
-                    items.append(Filter(grouping: .jobType, name: "Part Time"))
-                    let sortedItems = items.sorted(by: {$0.name < $1.name})
-                    if let first = sortedItems.first {
-                        let viewModel = FilterGroupingViewModel(grouping: first.grouping, cellSize: CGSize(width: cellWidth, height: 37))
-                        self.dataAll.append(viewModel)
-                    }
-                    let filters = items.map({FilterViewModel(filter: $0, cellSize: CGSize(width: cellWidth, height: 37))})
-                    self.filterData.append(filters)
-
-                    FilterManager.shared.filterData = self.filterData  // cache it so we don't have to laod it every time
-                    FilterManager.shared.dataViewModel = self.dataAll // cache it so we don't have to laod it every time
-                }.always {
-                    self.collectionView.alpha = 0
-                    self.update()
-                    self.collectionView.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
-                    UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
-                        self.collectionView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
-                        self.collectionView.alpha = 1
-                    }, completion: { (_) in
-                        
-                    })
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                }.catch { error in
-                    debugPrint(error.localizedDescription)
-            }
-        }
+        self.filterData = FilterManager.shared.filterData
+        self.dataAll = FilterManager.shared.dataViewModel
+        self.update()
 
         if #available(iOS 10.0, *) {
             generatorImpact.prepare()
@@ -149,71 +67,7 @@ class FilterViewController: UIViewController {
     func update() {
         let filters = FilterManager.shared.getCurrentFilters()
         
-        // Switch on off depending on section we're in
-        switch FilterManager.shared.currenttlySelectingFor {
-        case .companies:
-            self.data = self.dataAll.filter({ (cellVM) -> Bool in
-                if let cellVM = cellVM as? FilterGroupingViewModel {
-                    if cellVM.grouping == .city || cellVM.grouping == .sector || cellVM.grouping == .sdg {
-                        return true
-                    }
-                    else {
-                        return false
-                    }
-                }
-                else {
-                    return false
-                }
-            })
-            break
-        case .jobs:
-            self.data = self.dataAll.filter({ (cellVM) -> Bool in
-                if let cellVM = cellVM as? FilterGroupingViewModel {
-                    if cellVM.grouping == .city || cellVM.grouping == .sector || cellVM.grouping == .sdg || cellVM.grouping == .jobType {
-                        return true
-                    }
-                    else {
-                        return false
-                    }
-                }
-                else {
-                    return false
-                }
-            })
-            break
-        case .members:
-            self.data = self.dataAll.filter({ (cellVM) -> Bool in
-                if let cellVM = cellVM as? FilterGroupingViewModel {
-                    if cellVM.grouping == .city || cellVM.grouping == .sector || cellVM.grouping == .sdg || cellVM.grouping == .skill {
-                        return true
-                    }
-                    else {
-                        return false
-                    }
-                }
-                else {
-                    return false
-                }
-            })
-            break
-        case .events, .projects, .groups:
-            self.data = self.dataAll.filter({ (cellVM) -> Bool in
-                if let cellVM = cellVM as? FilterGroupingViewModel {
-                    if cellVM.grouping == .city || cellVM.grouping == .sector || cellVM.grouping == .sdg {
-                        return true
-                    }
-                    else {
-                        return false
-                    }
-                }
-                else {
-                    return false
-                }
-            })
-            break
-        }
-        
-
+        self.data = self.dataAll
         // Set all to false first
         data.forEach { (cellData) in
             (cellData as! FilterGroupingViewModel).hasSome = false
@@ -295,7 +149,7 @@ extension FilterViewController: UICollectionViewDataSource {
 extension FilterViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return data[indexPath.item].cellSize
+        return CGSize(width: collectionView.frame.size.width, height: data[indexPath.item].cellSize.height)
         
     }
 }

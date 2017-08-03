@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
 
 protocol FilterManagerSource {
     var filterSource: FilterManager.Source { get }
@@ -26,8 +28,8 @@ class FilterManager {
     
     var currenttlySelectingFor: Source = .members
     
-    var filterData: [[CellRepresentable]]?
-    var dataViewModel: [CellRepresentable]?
+    var filterData = [[CellRepresentable]]()
+    var dataViewModel = [CellRepresentable]()
 
     
     var membersFilters = [Filter]()
@@ -164,6 +166,35 @@ class FilterManager {
         }
     }
 
+    func clearPreviousFilters() {
+        FilterManager.shared.filterData.removeAll(keepingCapacity: false)
+        FilterManager.shared.dataViewModel.removeAll(keepingCapacity: false)
+    }
+    
+    // This searches thorugh the objects to check respective filter preoprties and build up the filters. Called from MembersViewController etc
+    func addFilters(fromTags tags: Set<String>, forGrouping grouping: Filter.Grouping) {
+        let sortedItems: [Filter]
+        // Size won't work with alpha sorting
+        if grouping == .size {
+            sortedItems = tags.map({Filter(grouping: grouping, name: $0)}).sorted(by: { (filterA, filterB) -> Bool in
+                if let value1 = Int("\(filterA.name.prefix(3))".trimmingCharacters(in: CharacterSet.whitespaces)), let value2 = Int("\(filterB.name.prefix(3))".trimmingCharacters(in: CharacterSet.whitespaces)) {
+                    return value1 < value2
+                }
+                else {
+                    return false
+                }
+            })
+        }
+        else {
+            sortedItems = tags.map({Filter(grouping: grouping, name: $0)}).sorted(by: {$0.name < $1.name})
+        }
+        if let first = sortedItems.first {
+            let groupingVM = FilterGroupingViewModel(grouping: first.grouping, cellSize: CGSize(width: 0, height: 37))
+            let filters = sortedItems.map({FilterViewModel(filter: $0, cellSize: CGSize(width: 0, height: 37))})
+            self.dataViewModel.append(groupingVM)
+            self.filterData.append(filters)
+        }
+    }
     
     static let shared = FilterManager()
 }

@@ -43,6 +43,17 @@ class ProjectsViewController: ListWithSearchViewController {
                     }
                 })
                 self.data = self.filterData(dataToFilter: self.dataAll)
+                
+                // Create filters
+                FilterManager.shared.clearPreviousFilters()
+                // Create a Set of the existing tags per grouping
+                // Cities
+                FilterManager.shared.addFilters(fromTags: Set(items.flatMap({$0.impactHubCities}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .city)
+                // Sector
+                FilterManager.shared.addFilters(fromTags: Set(items.flatMap({$0.sector}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sector)
+//                // SDG goals
+                FilterManager.shared.addFilters(fromTags: Set(items.flatMap({$0.relatedSDGs}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sdg)
+                
             }.then {_ in 
                 APIClient.shared.getProjects(contactId: SessionManager.shared.me?.member.id ?? "")
             }.then { yourProjects -> Void in

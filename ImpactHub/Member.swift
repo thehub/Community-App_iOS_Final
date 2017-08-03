@@ -20,7 +20,7 @@ class Member {
     var photo: String?
     var aboutMe: String = ""
     var locationName: String = ""
-    var impactHubCities: String = ""
+    var impactHubCities: String?
     var skills = [Skill]()
     var skillTags: String?
     var social: Social?
@@ -85,11 +85,9 @@ class Member {
             self.job = profession
         }
         
-        if let impactHubCities = json["Impact_Hub_Cities__c"].string, impactHubCities != "<null>" {
-            self.impactHubCities = impactHubCities
-            if let firstCity = impactHubCities.components(separatedBy: ";").first {
-                self.locationName = firstCity
-            }
+        self.impactHubCities = json["Impact_Hub_Cities__c"].string
+        if let allCities = impactHubCities?.components(separatedBy: ";") {
+            self.locationName = allCities.joined(separator: ", ")
         }
         
         var instagram: URL?
@@ -115,11 +113,6 @@ class Member {
         self.interestedSDGs = json["Interested_SDG__c"].string
         
         self.sector = json["How_Do_You_Most_Identify_with_Your_Curre__c"].string
-        
-//        if let skillsTags = json["Skills__c"].string {
-//            self.skillsTags = skillsTags.components(separatedBy: ";")
-//        }
-        
         
     }
     

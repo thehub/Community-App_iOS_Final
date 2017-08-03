@@ -150,7 +150,7 @@ extension FilterDetailViewController: UICollectionViewDataSource {
 extension FilterDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return data[indexPath.item].cellSize
-        
+        return CGSize(width: collectionView.frame.size.width, height: data[indexPath.item].cellSize.height)
+
     }
 }

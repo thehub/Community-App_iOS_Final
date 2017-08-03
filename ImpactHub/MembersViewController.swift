@@ -50,6 +50,17 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
                         self.dataAll.append(MemberViewModel(member: member, delegate: self, cellSize: CGSize(width: cellWidth, height: 105)))
                     }
                 })
+                
+                // Create filters
+                FilterManager.shared.clearPreviousFilters()
+                // Create a Set of the existing tags per grouping
+                // Cities
+                FilterManager.shared.addFilters(fromTags: Set(members.flatMap({$0.impactHubCities}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .city)
+                // Skills
+                FilterManager.shared.addFilters(fromTags: Set(members.flatMap({$0.skillTags}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .skill)
+                // SDG goals
+                FilterManager.shared.addFilters(fromTags: Set(members.flatMap({$0.interestedSDGs}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sdg)
+                
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.data = self.filterData(dataToFilter: self.dataAll)
@@ -67,6 +78,12 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
         }
     }
 
+
+
+    
+    
+    
+    
     override func filterData(dataToFilter: [CellRepresentable]) -> [CellRepresentable] {
         var filteredData = dataToFilter
 
@@ -77,7 +94,7 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
                     var matched = false
                     for filter in self.filters {
                         if filter.grouping == .city {
-                            if cellVM.member.locationName.lowercased() == filter.name.lowercased() {
+                            if cellVM.member.locationName.lowercased().contains(filter.name.lowercased()) {
                                 matched = true
                             }
                         }

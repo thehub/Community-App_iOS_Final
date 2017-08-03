@@ -30,6 +30,19 @@ class JobsViewController: ListWithSearchViewController {
                 jobs.forEach({ (job) in
                     self.dataAll.append(JobViewModel(job: job, cellSize: CGSize(width: self.view.frame.width, height: 145)))
                 })
+                
+                // Create filters
+                FilterManager.shared.clearPreviousFilters()
+                // Create a Set of the existing tags per grouping
+                // Cities
+                FilterManager.shared.addFilters(fromTags: Set(jobs.flatMap({$0.locationName}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .city)
+                // Sector
+                FilterManager.shared.addFilters(fromTags: Set(jobs.flatMap({$0.sector}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sector)
+                // SDG goals
+                FilterManager.shared.addFilters(fromTags: Set(jobs.flatMap({$0.relatedSDGs}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sdg)
+                // Job Type
+                FilterManager.shared.addFilters(fromTags: Set(jobs.flatMap({$0.type}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .jobType)
+
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.data = self.filterData(dataToFilter: self.dataAll)
@@ -57,7 +70,7 @@ class JobsViewController: ListWithSearchViewController {
                     var matched = false
                     for filter in self.filters {
                         if filter.grouping == .city {
-                            if cellVM.job.locationName.lowercased() == filter.name.lowercased() {
+                            if cellVM.job.locationName.lowercased().contains(filter.name.lowercased()) {
                                 matched = true
                             }
                         }
@@ -110,7 +123,7 @@ class JobsViewController: ListWithSearchViewController {
             }
         }
         
-        // Type
+        // Job Type
         if filters.filter({$0.grouping == .jobType}).count > 0  {
             filteredData = filteredData.filter { (cellVM) -> Bool in
                 if let cellVM = cellVM as? JobViewModel {

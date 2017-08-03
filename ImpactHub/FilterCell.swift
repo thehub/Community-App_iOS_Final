@@ -25,7 +25,7 @@ class FilterCell: UICollectionViewCell {
     }
     
     func setUp(vm: FilterViewModel) {
-        nameLabel.text = vm.filter.name
+        nameLabel.text = vm.filter.name.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
     
     

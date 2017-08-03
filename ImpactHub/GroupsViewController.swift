@@ -13,7 +13,7 @@ class GroupsViewController: ListWithSearchViewController {
     
     override var filterSource: FilterManager.Source {
         get {
-            return FilterManager.Source.projects
+            return FilterManager.Source.groups
         }
     }
     
@@ -26,10 +26,20 @@ class GroupsViewController: ListWithSearchViewController {
         self.collectionView?.alpha = 0
         firstly {
             APIClient.shared.getGroups(contactId: SessionManager.shared.me?.member.id ?? "")
-            }.then { groups -> Void in
-                groups.forEach({ (group) in
+            }.then { items -> Void in
+                items.forEach({ (group) in
                     self.dataAll.append(GroupViewModel(group: group, cellSize: CGSize(width: self.view.frame.width, height: 170)))
                 })
+                
+                // Create filters
+                FilterManager.shared.clearPreviousFilters()
+                // Create a Set of the existing tags per grouping
+                // Cities
+                FilterManager.shared.addFilters(fromTags: Set(items.flatMap({$0.impactHubCities}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .city)
+                // Sector
+                FilterManager.shared.addFilters(fromTags: Set(items.flatMap({$0.sector}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sector)
+                // SDG goals
+                FilterManager.shared.addFilters(fromTags: Set(items.flatMap({$0.relatedSDGs}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sdg)
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.data = self.filterData(dataToFilter: self.dataAll)

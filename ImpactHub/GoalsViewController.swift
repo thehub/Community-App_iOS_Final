@@ -24,9 +24,9 @@ class GoalsViewController: ListWithTopMenuViewController {
         self.collectionView?.alpha = 0
         firstly {
             APIClient.shared.getGoals()
-            }.then { goals -> Void in
+            }.then { items -> Void in
                 let cellWidth: CGFloat = self.view.frame.width - 30
-                goals.forEach({ (goal) in
+                items.forEach({ (goal) in
                     self.allData.append(GoalViewModel(goal: goal, cellSize: CGSize(width: cellWidth, height: 370)))
                 })
                 self.data = self.allData
@@ -38,6 +38,7 @@ class GoalsViewController: ListWithTopMenuViewController {
                 //        self.humanData.append(viewModel2)
                 //        self.humanData.append(viewModel1)
                 self.collectionView?.reloadData()
+                
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.collectionView?.alpha = 0

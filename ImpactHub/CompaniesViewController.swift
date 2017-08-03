@@ -27,7 +27,6 @@ class CompaniesViewController: ListWithSearchViewController {
         firstly {
             APIClient.shared.getCompanies()
             }.then { items -> Void in
-                print(items)
                 let cellWidth: CGFloat = self.view.frame.width - 30
                 items.forEach({ (company) in
                     let viewModel1 = CompanyViewModel(company: company, cellSize: CGSize(width: cellWidth, height: 200))
@@ -35,6 +34,19 @@ class CompaniesViewController: ListWithSearchViewController {
                 })
                 self.data = self.filterData(dataToFilter: self.dataAll)
                 self.collectionView?.reloadData()
+                
+                // Create filters
+                FilterManager.shared.clearPreviousFilters()
+                // Create a Set of the existing tags per grouping
+                // Cities
+                FilterManager.shared.addFilters(fromTags: Set(items.flatMap({$0.impactHubCities}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .city)
+                // Sector
+                FilterManager.shared.addFilters(fromTags: Set(items.flatMap({$0.sector}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sector)
+                // SDG goals
+                FilterManager.shared.addFilters(fromTags: Set(items.flatMap({$0.affiliatedSDGs}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sdg)
+                // Size
+                FilterManager.shared.addFilters(fromTags: Set(items.flatMap({$0.size}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .size)
+
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.collectionView?.alpha = 0
@@ -61,7 +73,7 @@ class CompaniesViewController: ListWithSearchViewController {
                     var matched = false
                     for filter in self.filters {
                         if filter.grouping == .city {
-                            if cellVM.company.locationName?.lowercased() == filter.name.lowercased() {
+                            if cellVM.company.locationName?.lowercased().contains(filter.name.lowercased()) ?? false {
                                 matched = true
                             }
                         }
@@ -102,6 +114,26 @@ class CompaniesViewController: ListWithSearchViewController {
                     for filter in self.filters {
                         if filter.grouping == .sector {
                             if cellVM.company.sector?.lowercased().contains(filter.name.lowercased()) ?? false {
+                                matched = true
+                            }
+                        }
+                    }
+                    return matched
+                }
+                else {
+                    return false
+                }
+            }
+        }
+        
+        // Size
+        if filters.filter({$0.grouping == .size}).count > 0  {
+            filteredData = filteredData.filter { (cellVM) -> Bool in
+                if let cellVM = cellVM as? CompanyViewModel {
+                    var matched = false
+                    for filter in self.filters {
+                        if filter.grouping == .size {
+                            if cellVM.company.size?.lowercased().contains(filter.name.lowercased()) ?? false {
                                 matched = true
                             }
                         }

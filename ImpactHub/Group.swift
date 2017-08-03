@@ -21,7 +21,8 @@ struct Group {
     var impactHubCities: String?
     var locationName: String?
     var sector: String?
-    
+    var relatedSDGs: String?
+
 }
 
 
@@ -52,6 +53,8 @@ extension Group {
         }
         
         self.sector = json["Sector__c"].string
+        self.relatedSDGs = json["Related_Impact_Goal__c"].string
+
     }
 }
 
