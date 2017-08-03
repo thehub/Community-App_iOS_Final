@@ -35,26 +35,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="340"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowDownWhite" translatesAutoresizingMaskIntoConstraints="NO" id="dXn-81-vkg">
-                        <rect key="frame" x="141" y="220" width="17" height="10"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowDown" translatesAutoresizingMaskIntoConstraints="NO" id="dXn-81-vkg">
+                        <rect key="frame" x="141" y="295" width="17" height="10"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lH2-y5-Nlr">
                         <rect key="frame" x="0.0" y="15" width="300" height="310"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzG-7F-c8e">
-                                <rect key="frame" x="125" y="58" width="51.5" height="24.5"/>
+                                <rect key="frame" x="125.5" y="57" width="50.5" height="26.5"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Medium" family="GT Walsheim" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wWp-gi-IeX">
-                                <rect key="frame" x="124.5" y="222" width="51.5" height="17"/>
+                                <rect key="frame" x="125.5" y="224" width="50" height="18"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locationPin" translatesAutoresizingMaskIntoConstraints="NO" id="b6v-0m-84r">
-                                        <rect key="frame" x="0.0" y="0.0" width="12" height="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="12" height="18"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Urb-ZX-NKY">
-                                        <rect key="frame" x="17" y="0.0" width="34.5" height="17"/>
+                                        <rect key="frame" x="17" y="0.0" width="33" height="18"/>
                                         <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -62,13 +62,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXE-ip-ZY6">
-                                <rect key="frame" x="15" y="196.5" width="270" height="16.5"/>
+                                <rect key="frame" x="15" y="197.5" width="270" height="17.5"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Medium" family="GT Walsheim" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mkK-iw-tM8">
-                                <rect key="frame" x="54" y="259" width="192" height="43"/>
+                                <rect key="frame" x="54" y="262" width="192" height="43"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T7d-JH-XkM" customClass="Button" customModule="ImpactHub" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.5" width="42" height="42"/>
@@ -104,7 +104,7 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aku-MA-sbw">
-                                <rect key="frame" x="108" y="102" width="84" height="84"/>
+                                <rect key="frame" x="108" y="103" width="84" height="84"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="84" id="1Sn-HS-Gfv"/>
                                     <constraint firstAttribute="width" constant="84" id="Bql-kG-l0X"/>
@@ -142,7 +142,7 @@
                 <constraint firstItem="s40-UQ-UEf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8dQ-KE-y4Y"/>
                 <constraint firstItem="eQT-Wa-q2H" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="EQh-o7-Ygw"/>
                 <constraint firstAttribute="trailing" secondItem="lH2-y5-Nlr" secondAttribute="trailing" id="Sb7-RG-9vB"/>
-                <constraint firstAttribute="bottom" secondItem="dXn-81-vkg" secondAttribute="bottom" constant="110" id="UEZ-yQ-dpc"/>
+                <constraint firstAttribute="bottom" secondItem="dXn-81-vkg" secondAttribute="bottom" constant="35" id="UEZ-yQ-dpc"/>
                 <constraint firstItem="eQT-Wa-q2H" firstAttribute="top" secondItem="s40-UQ-UEf" secondAttribute="top" id="bjj-bQ-d85"/>
                 <constraint firstItem="s40-UQ-UEf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fkZ-B0-UgM"/>
                 <constraint firstAttribute="bottom" secondItem="eQT-Wa-q2H" secondAttribute="bottom" id="gl3-B8-8Og"/>
@@ -170,7 +170,7 @@
     <resources>
         <image name="Facebook" width="42" height="42"/>
         <image name="Twitter" width="42" height="42"/>
-        <image name="arrowDownWhite" width="17" height="10"/>
+        <image name="arrowDown" width="17" height="10"/>
         <image name="instagram" width="41" height="42"/>
         <image name="linkedin" width="41" height="42"/>
         <image name="locationPin" width="12" height="17"/>

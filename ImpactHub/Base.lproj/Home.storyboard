@@ -289,7 +289,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVV-LA-LSg">
-                                <rect key="frame" x="20" y="597" width="335" height="50"/>
+                                <rect key="frame" x="20" y="552" width="335" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiW-q6-9OO" customClass="RedButton" customModule="ImpactHub" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
@@ -345,7 +345,7 @@
                         <constraints>
                             <constraint firstItem="VB6-Ch-zvJ" firstAttribute="top" secondItem="g0Z-6H-bcJ" secondAttribute="bottom" id="4cN-eP-sle"/>
                             <constraint firstItem="D7m-9w-jg5" firstAttribute="top" secondItem="g0Z-6H-bcJ" secondAttribute="bottom" id="6A2-JP-gO9"/>
-                            <constraint firstItem="b1s-Ph-JgV" firstAttribute="top" secondItem="XVV-LA-LSg" secondAttribute="bottom" constant="20" id="7nt-eo-Bba"/>
+                            <constraint firstItem="b1s-Ph-JgV" firstAttribute="top" secondItem="XVV-LA-LSg" secondAttribute="bottom" constant="65" id="7nt-eo-Bba"/>
                             <constraint firstItem="VB6-Ch-zvJ" firstAttribute="leading" secondItem="qRb-cA-ujY" secondAttribute="leading" id="M2U-Ma-qgi"/>
                             <constraint firstItem="b1s-Ph-JgV" firstAttribute="top" secondItem="VB6-Ch-zvJ" secondAttribute="bottom" id="PoH-GT-e7b"/>
                             <constraint firstAttribute="trailing" secondItem="D7m-9w-jg5" secondAttribute="trailing" id="Y1y-8m-FJE"/>
@@ -360,7 +360,6 @@
                         <outlet property="approveDeclineStackView" destination="bFT-Oe-BYH" id="Rex-fs-rLg"/>
                         <outlet property="collectionView" destination="VB6-Ch-zvJ" id="JTA-zh-Ptp"/>
                         <outlet property="connectButton" destination="KiW-q6-9OO" id="t6p-Q6-P06"/>
-                        <outlet property="connectButtonBottomConsatraint" destination="7nt-eo-Bba" id="wy5-SJ-Z9e"/>
                         <outlet property="connectContainer" destination="XVV-LA-LSg" id="AID-K5-6Eb"/>
                         <outlet property="topMenu" destination="D7m-9w-jg5" id="NXx-Ul-QCd"/>
                         <segue destination="Fsg-7e-ZtL" kind="show" identifier="ShowProject" id="4CN-lM-E9S"/>
@@ -1095,7 +1094,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVe-SJ-MOV" customClass="RedButton" customModule="ImpactHub" customModuleProvider="target">
-                                <rect key="frame" x="35" y="588" width="305" height="50"/>
+                                <rect key="frame" x="35" y="543" width="305" height="50"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Coe-iM-OGX"/>
@@ -1111,7 +1110,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="YYU-wJ-Gb2" secondAttribute="trailing" id="Aa3-Mx-iCr"/>
-                            <constraint firstAttribute="bottom" secondItem="SVe-SJ-MOV" secondAttribute="bottom" constant="29" id="I4c-CP-8aH"/>
+                            <constraint firstAttribute="bottom" secondItem="SVe-SJ-MOV" secondAttribute="bottom" constant="74" id="I4c-CP-8aH"/>
                             <constraint firstItem="2ky-5a-Au7" firstAttribute="leading" secondItem="bni-E5-1Ea" secondAttribute="leading" id="NDl-UK-QQ7"/>
                             <constraint firstItem="SVe-SJ-MOV" firstAttribute="leading" secondItem="bni-E5-1Ea" secondAttribute="leading" constant="35" id="PIe-zo-ntZ"/>
                             <constraint firstAttribute="trailing" secondItem="SVe-SJ-MOV" secondAttribute="trailing" constant="35" id="VYa-VG-JgG"/>
@@ -1126,7 +1125,6 @@
                     <connections>
                         <outlet property="collectionView" destination="YYU-wJ-Gb2" id="nIQ-Y1-Prs"/>
                         <outlet property="connectButton" destination="SVe-SJ-MOV" id="aTy-9n-ms3"/>
-                        <outlet property="connectButtonBottomConsatraint" destination="I4c-CP-8aH" id="hsG-qW-Fwc"/>
                         <outlet property="topMenu" destination="2ky-5a-Au7" id="Wuv-eG-7Se"/>
                         <segue destination="Fsg-7e-ZtL" kind="show" identifier="ShowProject" id="S7V-vf-Xt8"/>
                         <segue destination="v6r-jd-8oy" kind="show" identifier="ShowMember" id="zjS-3Z-0nA"/>

@@ -14,8 +14,6 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet weak var connectButtonBottomConsatraint: NSLayoutConstraint?
-    var connectButtonBottomConsatraintDefault: CGFloat = 0
     @IBOutlet weak var connectButton: UIButton?
     @IBOutlet weak var connectContainer: UIView?
     @IBOutlet weak var approveDeclineStackView: UIStackView?
@@ -47,10 +45,6 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        if !didLayout {
-            didLayout = true
-            connectButtonBottomConsatraintDefault = connectButtonBottomConsatraint?.constant ?? 0
-        }
     }
     
     func hideConnectButton() {
@@ -70,30 +64,12 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
             self.tabBarController?.tabBar.isHidden = false
             self.shouldHideStatusBar = false
             self.navigationController?.setNavigationBarHidden(false, animated: true)
-            connectButtonBottomConsatraint?.constant = connectButtonBottomConsatraintDefault + self.navigationController!.navigationBar.frame.height
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {                self.setNeedsStatusBarAppearanceUpdate()
-                self.view.layoutIfNeeded()
-            }) { (_) in
-                
-            }
-            
         }
         else if scrollView.contentOffset.y < 200 && (topMenu?.isShow ?? true) {
             topMenu?.hide()
             self.tabBarController?.tabBar.isHidden = true
             self.shouldHideStatusBar = true
             self.navigationController?.setNavigationBarHidden(true, animated: true)
-            // Avoid setting this if it's nil on this contrller, as it'll cause things to animate when we don't want it to
-            if connectButtonBottomConsatraint != nil {
-                connectButtonBottomConsatraint?.constant = connectButtonBottomConsatraintDefault
-                UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
-                    self.setNeedsStatusBarAppearanceUpdate()
-                    self.view.layoutIfNeeded()
-                }) { (_) in
-                    
-                }
-            }
-            
         }
         // This will happen when we go back to a previous controller that already was scrolled down a bit...
         else if topMenu?.isShow ?? true {
