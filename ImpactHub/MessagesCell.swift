@@ -22,14 +22,17 @@ class MessagesCell: UICollectionViewCell {
     }
     
     func setUp(vm: MessagesVM) {
-        nameLabel.text = vm.conversation.latestMessage.sender.displayName
+        // Pick them for the name and image
+        
+        let userToShow = vm.conversation.latestMessage.otherUser()
+        nameLabel.text = userToShow.displayName
+        imageView.kf.setImage(with: userToShow.photo?.smallPhotoUrl)
+
         textLabel.text = vm.conversation.latestMessage.text
         timeLabel.text = Utils.timeStringFromDate(date: vm.conversation.latestMessage.sentDate)
         unreadLabel.isHidden = vm.conversation.read
-        imageView.kf.setImage(with: vm.conversation.latestMessage.sender.photo?.smallPhotoUrl)
         
     }
-    
-    
+
     
 }

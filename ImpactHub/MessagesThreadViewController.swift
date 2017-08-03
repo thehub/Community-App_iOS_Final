@@ -57,32 +57,44 @@ class MessagesThreadViewController: UIViewController {
         loadData()
     }
 
-    func otherUser() -> (id: String?, name: String?) {
-        var lastMessage = self.conversation?.latestMessage
-        // If coming from push we get this once all messages has been loaded...
-        if lastMessage == nil {
-            lastMessage = self.messages.last
-        }
-        if let lastMessage = lastMessage {
-            // Find the other user
-            if lastMessage.sender.id != SessionManager.shared.me!.member.userId {
-                return (id: lastMessage.sender.id, name: lastMessage.sender.displayName)
+    
+    var lastMessage : Message? {
+        get {
+            var lastMessage = self.conversation?.latestMessage
+            // If coming from push we get this once all messages has been loaded...
+            if lastMessage == nil {
+                lastMessage = self.messages.last
             }
-            else {
-                var recipientNotMe: User?
-                for recipient in lastMessage.recipients {
-                    if recipient.id != SessionManager.shared.me?.member.userId {
-                        recipientNotMe = recipient
-                    }
-                    break
-                }
-                return (id: recipientNotMe?.id, name: recipientNotMe?.displayName)
-            }
-        }
-        else {
-            return (id: self.member?.userId, name: self.member?.name)
+            return lastMessage
         }
     }
+    
+//    func otherUser() -> (id: String?, name: String?) {
+//        var lastMessage = self.conversation?.latestMessage
+//        // If coming from push we get this once all messages has been loaded...
+//        if lastMessage == nil {
+//            lastMessage = self.messages.last
+//        }
+//        if let lastMessage = lastMessage {
+//            // Find the other user
+//            if lastMessage.sender.id != SessionManager.shared.me!.member.userId {
+//                return (id: lastMessage.sender.id, name: lastMessage.sender.displayName)
+//            }
+//            else {
+//                var recipientNotMe: User?
+//                for recipient in lastMessage.recipients {
+//                    if recipient.id != SessionManager.shared.me?.member.userId {
+//                        recipientNotMe = recipient
+//                        break
+//                    }
+//                }
+//                return (id: recipientNotMe?.id, name: recipientNotMe?.displayName)
+//            }
+//        }
+//        else {
+//            return (id: self.member?.userId, name: self.member?.name)
+//        }
+//    }
     
     var observer: NSObjectProtocol?
     
@@ -99,7 +111,7 @@ class MessagesThreadViewController: UIViewController {
             SessionManager.shared.currentlyShowingConversationId = self.conversationId
         }
         
-        self.title = otherUser().name ?? ""
+        self.title = self.lastMessage?.otherUser().displayName ?? "Thread"
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
 //        self.tabBarController?.tabBar.isHidden = true
@@ -302,7 +314,7 @@ class MessagesThreadViewController: UIViewController {
                 if self.skip == 0 {
                     self.data = newData
                     // Set again since it might have been empty first time if coming from a push
-                    self.title = self.otherUser().name ?? "Thread"
+                    self.title = self.lastMessage?.otherUser().displayName ?? "Thread"
                     self.tableView.alpha = 0
                     self.tableView.frame = self.tableView.frame.offsetBy(dx: 0, dy: 20)
                     self.tableView.reloadData()
@@ -363,7 +375,7 @@ class MessagesThreadViewController: UIViewController {
                 else {
                     self.loadData()
                 }
-                _ = APIClient.shared.sendPush(fromUserId: SessionManager.shared.me?.member.userId ?? "", toUserIds: self.otherUser().id ?? "", pushType: .privateMessage(conversationId: message.conversationId ?? ""), relatedId: message.conversationId ?? "")
+                _ = APIClient.shared.sendPush(fromUserId: SessionManager.shared.me?.member.userId ?? "", toUserIds: self.lastMessage?.otherUser().id ?? "", pushType: .privateMessage(conversationId: message.conversationId ?? ""), relatedId: message.conversationId ?? "")
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.inTransit = false

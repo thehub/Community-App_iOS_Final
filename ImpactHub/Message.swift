@@ -49,5 +49,23 @@ extension Message {
             return nil
         }
     }
-    
+}
+
+extension Message {
+    func otherUser() -> User {
+        // Find the other user
+        if self.sender.id != SessionManager.shared.me!.member.userId {
+            return self.sender
+        }
+        else {
+            var recipientNotMe = self.sender
+            for recipient in self.recipients {
+                if recipient.id != SessionManager.shared.me?.member.userId {
+                    recipientNotMe = recipient
+                    break
+                }
+            }
+            return recipientNotMe
+        }
+    }
 }
