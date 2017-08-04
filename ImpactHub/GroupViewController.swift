@@ -31,6 +31,10 @@ class GroupViewController: ListFullBleedViewController {
         
     }
     
+    deinit {
+        print("\(#file, #function)")
+    }
+    
     func build(group: Group) {
         self.title = group.name
         

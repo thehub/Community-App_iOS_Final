@@ -14,7 +14,7 @@ class MemberFeedItemViewModel: CellRepresentable {
 
     var post: Post
     var comment: Comment?
-    var delegate: MemberFeedItemDelegate?
+    weak var delegate: MemberFeedItemDelegate?
     
     init(post: Post, comment: Comment?, delegate: MemberFeedItemDelegate?, cellSize: CGSize) {
         self.post = post

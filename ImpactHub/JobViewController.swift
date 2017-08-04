@@ -48,7 +48,9 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
     
     let gradientLayer: CAGradientLayer = CAGradientLayer()
     
-
+    deinit {
+        print("\(#file, #function)")
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

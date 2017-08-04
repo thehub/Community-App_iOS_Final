@@ -61,6 +61,10 @@ class GoalViewController: ListFullBleedViewController {
         }
     }
     
+    deinit {
+        print("\(#file, #function)")
+    }
+    
     func build() {
         guard let goal = self.goal else {
             return

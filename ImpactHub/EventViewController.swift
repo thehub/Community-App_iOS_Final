@@ -54,6 +54,9 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     
+    deinit {
+        print("\(#file, #function)")
+    }
     
     let gradientLayer: CAGradientLayer = CAGradientLayer()
     

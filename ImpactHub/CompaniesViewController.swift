@@ -62,6 +62,10 @@ class CompaniesViewController: ListWithSearchViewController {
                 debugPrint(error.localizedDescription)
         }
     }
+    
+    deinit {
+        print("\(#file, #function)")
+    }
 
     override func filterData(dataToFilter: [CellRepresentable]) -> [CellRepresentable] {
         var filteredData = dataToFilter

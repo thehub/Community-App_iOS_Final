@@ -61,6 +61,10 @@ class CompanyViewController: ListFullBleedViewController {
         
     }
     
+    deinit {
+        print("\(#file, #function)")
+    }
+    
     func getCompanyExtras() {
         guard let company = self.company else {
             print("ERROR: no compnay set")

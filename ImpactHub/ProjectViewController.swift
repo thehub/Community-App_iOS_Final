@@ -141,6 +141,10 @@ class ProjectViewController: ListFullBleedViewController {
         }
     }
     
+    deinit {
+        print("\(#file, #function)")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if needsToUpdateCommentCount {

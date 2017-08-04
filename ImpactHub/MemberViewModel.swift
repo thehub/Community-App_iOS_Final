@@ -13,7 +13,7 @@ class MemberViewModel: CellRepresentable {
     static var cellIdentifier = "MemberCollectionViewCell"
 
     var member: Member
-    var delegate: MemberCollectionViewCellDelegate?
+    weak var delegate: MemberCollectionViewCellDelegate?
     
     init(member: Member, delegate: MemberCollectionViewCellDelegate?, cellSize: CGSize) {
         self.member = member

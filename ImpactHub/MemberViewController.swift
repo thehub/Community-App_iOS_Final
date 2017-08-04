@@ -96,6 +96,11 @@ class MemberViewController: ListFullBleedViewController {
         
     }
     
+    deinit {
+        print("\(#file, #function)")
+    }
+
+    
     func loadMember(_ userId: String) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {

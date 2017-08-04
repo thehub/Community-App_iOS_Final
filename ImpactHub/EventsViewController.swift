@@ -78,6 +78,10 @@ class EventsViewController: ListWithSearchViewController {
     
     }
     
+    deinit {
+        print("\(#file, #function)")
+    }
+    
     override func filterData(dataToFilter: [CellRepresentable]) -> [CellRepresentable] {
         // City
         //        if filters.filter({$0.grouping == .city}).count > 0  {

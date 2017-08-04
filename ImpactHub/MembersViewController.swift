@@ -27,6 +27,10 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
         
     }
     
+    deinit {
+        print("\(#file, #function)")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         

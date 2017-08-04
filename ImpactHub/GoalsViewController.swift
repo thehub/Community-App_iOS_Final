@@ -61,6 +61,9 @@ class GoalsViewController: ListWithTopMenuViewController {
     
     }
     
+    deinit {
+        print("\(#file, #function)")
+    }
     
     override func topMenuDidSelectIndex(_ index: Int) {
         
