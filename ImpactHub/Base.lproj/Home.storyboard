@@ -885,7 +885,6 @@
                                 </state>
                                 <connections>
                                     <action selector="applyTap:" destination="0qJ-8x-KOR" eventType="touchUpInside" id="cvK-Eq-fVE"/>
-                                    <segue destination="iz5-ct-zW9" kind="custom" identifier="ShowApplyForJob" customClass="DeckSegue" customModule="DeckTransition" id="FiV-U6-Klt"/>
                                 </connections>
                             </button>
                         </subviews>

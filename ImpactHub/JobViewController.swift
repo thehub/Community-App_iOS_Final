@@ -9,6 +9,8 @@
 import UIKit
 import Kingfisher
 import PromiseKit
+import SafariServices
+
 
 class JobViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UIViewControllerPreviewingDelegate {
 
@@ -202,14 +204,6 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
                 vc.project = selectProject
             }
         }
-        else if segue.identifier == "ShowApplyForJob" {
-            if let navVC = segue.destination as? UINavigationController {
-                if let vc = navVC.viewControllers.first as? CreatePostViewController {
-                    vc.delegate = self
-                    vc.createType = .applyForJob(jobId: self.job.id)
-                }
-            }
-        }
 
     }
     
@@ -248,6 +242,12 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
     }
 
     @IBAction func applyTap(_ sender: Any) {
+        guard let website = job?.applicationURL else { return }
+        
+        if let url = URL(string: website) {
+            let svc = SFSafariViewController(url: url)
+            self.present(svc, animated: true, completion: nil)
+        }
     }
     
     override func didReceiveMemoryWarning() {

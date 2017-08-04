@@ -118,6 +118,8 @@
 		8516EDD91F25FA37003C7164 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516EDD61F25FA37003C7164 /* GroupsViewController.swift */; };
 		8516EDDA1F26006D003C7164 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE9EF71ECC902B00291EF5 /* HomeViewController.swift */; };
 		8516EDDB1F26006E003C7164 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE9EF71ECC902B00291EF5 /* HomeViewController.swift */; };
+		851A49211F34CB65007EDAAD /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B361391ED59FD400DC2DE0 /* APIClient.swift */; };
+		851A49221F34CB66007EDAAD /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B361391ED59FD400DC2DE0 /* APIClient.swift */; };
 		851D037C1F02B79700641976 /* FilterGroupingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D037B1F02B79700641976 /* FilterGroupingViewModel.swift */; };
 		851D037D1F02B79700641976 /* FilterGroupingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D037B1F02B79700641976 /* FilterGroupingViewModel.swift */; };
 		851D037E1F02B79700641976 /* FilterGroupingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D037B1F02B79700641976 /* FilterGroupingViewModel.swift */; };
@@ -1773,6 +1775,7 @@
 				85568ACC1F17CA9200CD362F /* ContactCell.swift in Sources */,
 				85BFF10A1F0244930010AD51 /* FilterViewController.swift in Sources */,
 				8502265A1F0119D000942C9F /* RelatedCell.swift in Sources */,
+				851A49211F34CB65007EDAAD /* APIClient.swift in Sources */,
 				859F97E51EFBBF10001C0B33 /* GoalViewModel.swift in Sources */,
 				85BFF10E1F02B0E10010AD51 /* Filter.swift in Sources */,
 				85523DCF1EFAC99E00F66B53 /* CompanyServiceItemViewModel.swift in Sources */,
@@ -1899,6 +1902,7 @@
 				85568ACD1F17CA9200CD362F /* ContactCell.swift in Sources */,
 				85BFF10B1F0244930010AD51 /* FilterViewController.swift in Sources */,
 				8502265B1F0119D000942C9F /* RelatedCell.swift in Sources */,
+				851A49221F34CB66007EDAAD /* APIClient.swift in Sources */,
 				859F97E61EFBBF10001C0B33 /* GoalViewModel.swift in Sources */,
 				85BFF10F1F02B0E10010AD51 /* Filter.swift in Sources */,
 				85523DD01EFAC99E00F66B53 /* CompanyServiceItemViewModel.swift in Sources */,

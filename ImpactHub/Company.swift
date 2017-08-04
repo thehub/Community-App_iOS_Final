@@ -23,7 +23,7 @@ struct Company {
     var size: String?
     var sector: String?
     var social: Social?
-    var blurb: String = ""
+    var summary: String = ""
     var services = [Service]()
     var affiliatedSDGs: String?
     
@@ -89,6 +89,8 @@ extension Company {
         }
         let twitter = json["Twitter__c"].string
         self.social = Social(instagram: instagram, twitter: twitter, linkedIn: linkedIn, facebook: facebook)
+        
+        self.summary = json["Company_Summary__c"].string ?? ""
         
         self.affiliatedSDGs = json["Affiliated_SDG__c"].string
     }
