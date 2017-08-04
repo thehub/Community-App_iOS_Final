@@ -29,7 +29,7 @@ class Comment {
     var myLikeId: String?
 
     init?(json: JSON) {
-        print(json)
+//        print(json)
         guard
             let postedTimeString = json["createdDate"].string,
             let postedTime = postedTimeString.dateFromISOString(),

@@ -86,7 +86,7 @@ struct PushNotification {
 
 extension PushNotification {
     init?(json: JSON) {
-        print(json)
+//        print(json)
         guard
             let id = json["Id"].string,
             let type = json["Type__c"].string,

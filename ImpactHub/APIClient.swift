@@ -35,7 +35,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Goal(json: $0) }
                     fullfill(items)
@@ -54,7 +54,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                print(jsonResult)
+//                print(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Group(json: $0) }
                     fullfill(items)
@@ -74,7 +74,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Member(json: $0) }
                     fullfill(items)
@@ -95,7 +95,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Project(json: $0) }
                     fullfill(items)
@@ -114,7 +114,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     var items = records.flatMap { Project.Objective(json: $0) }
                     if items.count > 0 {
@@ -140,7 +140,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Member(json: $0) }
                     fullfill(items)
@@ -159,7 +159,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Job(json: $0) }
                     fullfill(items)
@@ -223,7 +223,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Company(json: $0) }
                     if let item = items.first {
@@ -247,7 +247,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Project(json: $0) }
                     fullfill(items)
@@ -266,7 +266,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Member(json: $0) }
                     fullfill(items)
@@ -286,7 +286,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Company.Service(json: $0) }
                     fullfill(items)
@@ -387,7 +387,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Project(json: $0) }
                     fullfill(items)
@@ -407,7 +407,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Member.Skill(json: $0) }
                     fullfill(items)
@@ -427,7 +427,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Member(json: $0) }
                     fullfill(items)
@@ -446,7 +446,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Member(json: $0) }
                     if let item = items.first {
@@ -470,7 +470,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Member(json: $0) }
                     if let item = items.first {
@@ -495,7 +495,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Member(json: $0) }
                     if let item = items.first {
@@ -521,7 +521,7 @@ class APIClient {
                 reject(error ?? MyError.Error("Error"))
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Job(json: $0) }
                     fullfill(items)
@@ -570,7 +570,7 @@ class APIClient {
                 reject(MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON.init(result!)
-                debugPrint(jsonResult) // id  
+//                debugPrint(jsonResult) // id
                 if let id = jsonResult.string {
                     fullfill(id)
                 }
@@ -584,7 +584,7 @@ class APIClient {
     func updateDMRequest(id:String, status:DMRequest.Satus, pushUserId: String) -> Promise<String> {
         return Promise { fullfill, reject in
             let query: [String: String] = ["DM_id" : id, "Req_status" : status.rawValue, "pushUserId" : pushUserId]
-            debugPrint(query)
+//            debugPrint(query)
             let body = SFJsonUtils.jsonDataRepresentation(query)
             let request = SFRestRequest(method: .POST, path: "/services/apexrest/UpdateDMRequest", queryParams: nil)
             request.endpoint = "/services/apexrest/UpdateDMRequest"
@@ -595,7 +595,7 @@ class APIClient {
                 reject(MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON.init(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if jsonResult.string == "Success" {
                     fullfill("ok")
                 }
@@ -609,7 +609,7 @@ class APIClient {
     func deleteDMRequest(id:String) -> Promise<String> {
         return Promise { fullfill, reject in
             let query: [String: String] = ["DM_id" : id]
-            debugPrint(query)
+//            debugPrint(query)
             let body = SFJsonUtils.jsonDataRepresentation(query)
             let request = SFRestRequest(method: .POST, path: "/services/apexrest/DeleteDMRequest", queryParams: nil)
             request.endpoint = "/services/apexrest/DeleteDMRequest"
@@ -657,7 +657,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { DMRequest(json: $0) }
                     fullfill(items)
@@ -679,7 +679,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { PushNotification(json: $0) }
                     fullfill(items)
@@ -695,7 +695,7 @@ class APIClient {
     func sendPush(fromUserId: String, toUserIds: String, pushType: PushNotification.Kind, relatedId: String) -> Promise<String> {
         return Promise { fullfill, reject in
             let query: [String: String] = ["fromUserId" : fromUserId, "toUserIds" : toUserIds, "pushType" : pushType.getParameter(), "relatedId" : relatedId]
-            debugPrint(query)
+//            debugPrint(query)
             let body = SFJsonUtils.jsonDataRepresentation(query)
             let request = SFRestRequest(method: .POST, path: "/services/apexrest/pushNotificationFromSF", queryParams: nil)
             request.endpoint = "/services/apexrest/pushNotificationFromSF"
@@ -739,7 +739,7 @@ class APIClient {
                 reject(MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON.init(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 let items = jsonResult["items"].arrayValue.flatMap { Comment(json: $0) }
                 fullfill(items)
             }
@@ -874,7 +874,7 @@ class APIClient {
                 print(error?.localizedDescription as Any)
                 reject(MyError.JSONError)
             }) { (result) in
-                debugPrint(result)
+//                debugPrint(result)
                 fullfill("ok")
             }
         }
@@ -908,7 +908,7 @@ class APIClient {
                 print(error?.localizedDescription as Any)
                 reject(MyError.JSONError)
             }) { (result) in
-                debugPrint(result)
+//                debugPrint(result)
                 if let tmp = (result as AnyObject)["mentionCompletions"], let json = tmp as? [[String: Any]] {
                     let mentionCompletions = json.flatMap { MentionCompletion(json: $0) }
                     fullfill(mentionCompletions)
@@ -971,7 +971,7 @@ class APIClient {
                 print(error?.localizedDescription as Any)
                 reject(error ?? MyError.Error("Error"))
             }) { (result) in
-                print(result)
+//                print(result)
                 if let result = result as? [String: Any], let message = Message(json: result) {
                     fullfill(message)
                 }
@@ -1032,7 +1032,7 @@ class APIClient {
                 print(error?.localizedDescription as Any)
                 reject(error ?? MyError.Error("Error"))
             }) { (result) in
-                debugPrint(result as Any)
+//                debugPrint(result as Any)
                 if let read = (result as AnyObject)["read"] as? Bool {
                     fullfill(read)
                 }

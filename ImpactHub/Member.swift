@@ -44,7 +44,7 @@ class Member {
         var description: String?
         
         init?(json: JSON) {
-            print(json)
+//            print(json)
             guard
                 let id = json["Id"].string,
                 let name = json["Name"].string
@@ -59,7 +59,7 @@ class Member {
     
     
     init?(json: JSON) {
-        print(json)
+//        print(json)
         guard
             let id = json["Id"].string,
             let userId = json["User__c"].string,

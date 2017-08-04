@@ -18,7 +18,7 @@ struct Conversation {
 
 extension Conversation {
     init?(json: [String: Any]) {
-        debugPrint(json)
+//        debugPrint(json)
         guard
             let id = json["id"] as? String,
             let latestMessageJson = json["latestMessage"] as? [String: Any],

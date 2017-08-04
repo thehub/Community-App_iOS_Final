@@ -64,7 +64,7 @@ struct Project {
 
 extension Project {
     init?(json: JSON) {
-        print(json)
+//        print(json)
         guard
             let id = json["Id"].string,
             let name = json["Name"].string,
