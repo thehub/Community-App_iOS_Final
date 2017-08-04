@@ -30,7 +30,8 @@ class APIClient {
     // Goals
     func getGoals() -> Promise<[Goal]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.GOAL) FROM Directory_Goal__c", fail: { (error) in
+//            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.GOAL) FROM Directory_Goal__c", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("select id, name,  Active__c, ImageURL__c, Summary__c, Description__c from Taxonomy__c where Grouping__c ='SDG'", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -47,9 +48,9 @@ class APIClient {
         }
     }
     
-    func getGroups(goalNameId: String) -> Promise<[Group]> {
+    func getGroups(goalName: String) -> Promise<[Group]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.GROUP) FROM Directory__c WHERE Directory_Style__c = 'Group' AND Related_Impact_Goal__c LIKE '%\(goalNameId)%'", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.GROUP) FROM Directory__c WHERE Directory_Style__c = 'Group' AND Related_Impact_Goal__c LIKE '%\(goalName)%'", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -66,14 +67,14 @@ class APIClient {
         }
     }
     
-    func getMembers(goalNameId: String) -> Promise<[Member]> {
+    func getMembers(goalName: String) -> Promise<[Member]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.CONTACT) FROM Contact WHERE Interested_SDG__c INCLUDES ('%\(goalNameId)%')", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.CONTACT) FROM Contact WHERE Interested_SDG__c INCLUDES ('%\(goalName)%')", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-//                debugPrint(jsonResult)
+                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Member(json: $0) }
                     fullfill(items)
@@ -1044,7 +1045,30 @@ class APIClient {
     
     
     
-    
+    // Report abuse
+    func reportAbuse(fromUserId:String, postId:String, message: String) -> Promise<String> {
+        return Promise { fullfill, reject in
+            let query: [String: String] = ["fromUserId" : fromUserId, "postId" : postId, "message" : message]
+            let body = SFJsonUtils.jsonDataRepresentation(query)
+            let request = SFRestRequest(method: .POST, path: "/services/apexrest/ReportAbuse/", queryParams: nil)
+            request.endpoint = "/services/apexrest/ReportAbuse"
+            request.path = "/services/apexrest/ReportAbuse"
+            request.setCustomRequestBodyData(body!, contentType: "application/json")
+            SFRestAPI.sharedInstance().send(request, fail: { (error) in
+                print(error?.localizedDescription as Any)
+                reject(MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON.init(result!)
+                //                debugPrint(jsonResult) // id
+                if let id = jsonResult.string {
+                    fullfill(id)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
     
     
     static let shared = APIClient()

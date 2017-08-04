@@ -43,12 +43,12 @@ class GoalDetailTopCell: UICollectionViewCell {
     func setup(vm: GoalDetailTopViewModel) {
         nameLabel.text = vm.goal.name
         jobLabel.text = vm.goal.summary
-        profileImageView.image = UIImage(named: vm.goal.photo)  // TODO: Once in salesforce
-        
+        if let photoUrl = vm.goal.photoUrl {
+            profileImageView.kf.setImage(with: photoUrl)
+        }
+
         self.clipsToBounds = false
-        
         self.arrowImage.layer.add(Animations.slideAnimation, forKey: "slideAnimation")
-        
     }
 
     

@@ -27,7 +27,9 @@ class GoalCollectionViewCell: UICollectionViewCell {
 
     
     func setUp(vm: GoalViewModel) {
-        bigImageView.image = UIImage(named: vm.goal.photo)
+        if let phtoUrl = vm.goal.photoUrl {
+            bigImageView.kf.setImage(with: phtoUrl)
+        }
         nameLabel.text = vm.goal.name
         blurbLabel.text = vm.goal.summary
     }

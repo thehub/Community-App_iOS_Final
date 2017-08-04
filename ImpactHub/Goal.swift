@@ -13,31 +13,38 @@ import SalesforceSDKCore
 struct Goal {
     var id: String
     var name: String
-    var nameId: String
-    var summary: String
-    var photo: String = "goalPhoto" // TODO
-    
+    var summary: String = ""
+    var description: String?
+    var photo: String?
 }
 
 extension Goal {
     init?(json: JSON) {
         guard
             let id = json["Id"].string,
-            let name = json["Goal__c"].string,
-            let nameId = json["Name"].string,
-            let summary = json["Goal_Summary__c"].string
+            let name = json["Name"].string
             else {
                 return nil
         }
         self.id = id
-        self.summary = summary
+        self.summary = json["Summary__c"].string ?? ""
         self.name = name
-        self.nameId = nameId
-
-//        self.logo = json["Company__r"]["Logo_Image_Url__c"].string
-//        self.photo = json["Company__r"]["Banner_Image_Url__c"].string
+        self.description = json["Description__c"].string
+        self.photo = json["ImageURL__c"].string
         
     }
     
+}
+
+extension Goal {
+    var photoUrl: URL? {
+        if let token = SFUserAccountManager.sharedInstance().currentUser?.credentials.accessToken,
+            let photo = self.photo,
+            let url = URL(string: "\(photo)?oauth_token=\(token)") {
+            return url
+        }
+        return nil
+    }
+
 }
 

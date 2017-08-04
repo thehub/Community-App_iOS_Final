@@ -43,25 +43,25 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2a-Xb-LpF">
-                        <rect key="frame" x="68" y="8" width="34.5" height="30"/>
+                        <rect key="frame" x="68" y="8" width="33.5" height="30"/>
                         <fontDescription key="fontDescription" name="GTWalsheim" family="GT Walsheim" pointSize="14"/>
                         <color key="textColor" red="0.34901960784313724" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUX-aQ-svK">
-                        <rect key="frame" x="68" y="8" width="34.5" height="30"/>
+                        <rect key="frame" x="68" y="8" width="33.5" height="30"/>
                         <connections>
                             <action selector="showMemberTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="n9x-PT-6sh"/>
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dlf-0p-AmF">
-                        <rect key="frame" x="68" y="36" width="31" height="15"/>
+                        <rect key="frame" x="68" y="36" width="29.5" height="16"/>
                         <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12.5"/>
                         <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Text" translatesAutoresizingMaskIntoConstraints="NO" id="wEw-vF-pdq">
-                        <rect key="frame" x="62" y="59" width="230" height="18"/>
+                        <rect key="frame" x="62" y="60" width="230" height="18"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="ecP-gw-PhQ"/>
@@ -72,13 +72,13 @@
                         <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" address="YES" calendarEvent="YES" flightNumber="YES" lookupSuggestion="YES"/>
                     </textView>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="rba-6n-oaI">
-                        <rect key="frame" x="170" y="87" width="100" height="18"/>
+                        <rect key="frame" x="170" y="88" width="100" height="18"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hc6-eO-k1i" userLabel="Like">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="18"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bc8-30-6v7">
-                                        <rect key="frame" x="19" y="1" width="8" height="16.5"/>
+                                        <rect key="frame" x="19" y="0.5" width="8.5" height="17.5"/>
                                         <fontDescription key="fontDescription" name="GTWalsheim-Medium" family="GT Walsheim" pointSize="14"/>
                                         <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -111,7 +111,7 @@
                                 <rect key="frame" x="50" y="0.0" width="50" height="18"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pph-ND-ZSv">
-                                        <rect key="frame" x="42" y="0.0" width="8" height="16.5"/>
+                                        <rect key="frame" x="41.5" y="-0.5" width="8.5" height="17.5"/>
                                         <fontDescription key="fontDescription" name="GTWalsheim-Medium" family="GT Walsheim" pointSize="14"/>
                                         <color key="textColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>

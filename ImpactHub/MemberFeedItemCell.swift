@@ -193,6 +193,38 @@ class MemberFeedItemCell: UICollectionViewCell, UITextViewDelegate {
         self.vm?.delegate?.memberFeedWantToShowComments(post: vm.post)
     }
 
+    @IBAction func onTapReport(_ sender: Any) {
+//        var idToReport = ""
+//        if let id = vm?.post.id {
+//            idToReport = id
+//        }
+//        else if let id = vm?.comment.id {
+//            idToReport = id
+//        }
+        
+        firstly {
+            APIClient.shared.reportAbuse(fromUserId:SessionManager.shared.me?.member.userId ?? "", postId:vm?.post.id ?? "", message: vm?.post.text ?? "")
+            }.then { myLikeId -> Void in
+                print(myLikeId)
+            }.always {
+                self.inTransit = false
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }.catch { error in
+                debugPrint(error.localizedDescription)
+                if #available(iOS 10.0, *) {
+                    self.generatorNotification.notificationOccurred(.error)
+                }
+                let alert = UIAlertController(title: "Error", message: "Could not send report. Please try again.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+        }
+
+        
+        
+    }
+    
+    
+    
     var vm: MemberFeedItemViewModel?
     
     let segmentBuilder = ChatterSegmentBuilder()

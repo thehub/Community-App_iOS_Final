@@ -46,11 +46,11 @@ class GoalViewController: ListFullBleedViewController {
         self.data = aboutData
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
-            APIClient.shared.getGroups(goalNameId: goal.nameId)
+            APIClient.shared.getGroups(goalName: goal.name)
             }.then { groups -> Void in
                 self.groups = groups
             }.then {
-                APIClient.shared.getMembers(goalNameId: goal.nameId)
+                APIClient.shared.getMembers(goalName: goal.name)
             }.then { members -> Void in
                 self.members = members
             }.always {
