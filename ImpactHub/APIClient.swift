@@ -840,6 +840,8 @@ class APIClient {
         }
     }
     
+    
+    // Like on comments give Salesforce error 1, so removed that from the comments view at the moment.
     func likeFeedItem(feedId: String) -> Promise<String> {
         return Promise { fullfill, reject in
 
