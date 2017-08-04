@@ -142,11 +142,6 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
                 }
             }
         }
-        else if segue.identifier == "ShowComments" {
-            if let vc = segue.destination as? CommentsViewController, let post = self.postToShowCommentsFor {
-                vc.post = post
-            }
-        }
     }
     
     func didCreatePost(post: Post) {

@@ -12,7 +12,7 @@ import SwiftyJSON
 
 
 class Member {
-    var id: String
+    var id: String // this is the contactId from sales force
     var userId: String
     var firstName: String
     var lastName: String

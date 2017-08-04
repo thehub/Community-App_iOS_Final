@@ -139,7 +139,14 @@ class ProjectViewController: ListFullBleedViewController {
             }.catch { error in
                 debugPrint(error.localizedDescription)
         }
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if needsToUpdateCommentCount {
+            needsToUpdateCommentCount = false
+            self.collectionView.reloadData()
+        }
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -226,6 +233,12 @@ class ProjectViewController: ListFullBleedViewController {
                 vc.member = member
             }
         }
+        else if segue.identifier == "ShowComments" {
+            if let vc = segue.destination as? CommentsViewController {
+                vc.post = self.postToShowCommentsFor
+                vc.commentsViewControllerDelegate = self
+            }
+        }
     }
     
     override func topMenuDidSelectIndex(_ index: Int) {
@@ -277,6 +290,14 @@ class ProjectViewController: ListFullBleedViewController {
     }
     
     
+    var needsToUpdateCommentCount = false
+
+}
+
+extension ProjectViewController: CommentsViewControllerDelegate {
+    func setNeedsToUpdateCommentCount() {
+        self.needsToUpdateCommentCount = true
+    }
 }
 
 extension ProjectViewController: MemberFeedItemDelegate {
