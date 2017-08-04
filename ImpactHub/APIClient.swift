@@ -674,7 +674,7 @@ class APIClient {
     // Notifications
     func getNotifications() -> Promise<[PushNotification]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT CreatedDate,FromUserId__c,Id,isRead__c,Name,RelatedId__c,Sent__c,Type__c,ProfilePicURL__c,Message__c, ChatterGroupId__c FROM PushNotification__c WHERE toUserId__c = '\(SessionManager.shared.me?.member.userId ?? "")' ORDER BY CreatedDate DESC LIMIT 100", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT CreatedDate,FromUserId__c,Id,isRead__c,Name,RelatedId__c,Sent__c,Type__c,ProfilePicURL__c,Message__c, ChatterGroupId__c FROM PushNotification__c WHERE toUserId__c = '\(SessionManager.shared.me?.member.userId ?? "")' ORDER BY CreatedDate DESC LIMIT 250", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
