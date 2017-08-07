@@ -12,7 +12,6 @@ import SalesforceSDKCore
 struct ChatterActor {
     
     var id: String
-    var membershipID: String?
     var communityNickname: String?
     var companyName: String?
     var displayName: String?
@@ -60,10 +59,6 @@ extension ChatterActor {
     init?(json: [AnyHashable: Any]) {
         guard let userJson = json["user"] as? [AnyHashable: Any] else {
             return nil
-        }
-        
-        if let membershipID = json["id"] as? String {
-            self.membershipID = membershipID
         }
         
         if let id = userJson["id"] as? String {
