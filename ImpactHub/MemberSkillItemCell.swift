@@ -19,7 +19,7 @@ class MemberSkillItemCell: UICollectionViewCell {
     }
     
     func setUp(vm: MemberSkillItemViewModel) {
-        titleLabel.text = vm.skill.name.uppercased()
+        titleLabel.text = vm.skill.name
         descriptionLabel.text = vm.skill.description ?? ""
     }
 
