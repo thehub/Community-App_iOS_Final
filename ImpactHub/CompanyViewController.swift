@@ -141,6 +141,7 @@ class CompanyViewController: ListFullBleedViewController {
         
         let countBefore = self.data.count
         // Services
+        aboutData.append(TitleViewModel(title: "OUR SERVICES", cellSize: CGSize(width: view.frame.width, height: 50)))
         company.services.forEach { (service) in
             aboutData.append(CompanyServiceItemViewModel(service: service, cellSize: CGSize(width: view.frame.width, height: 0)))
         }
