@@ -28,7 +28,7 @@ class ContactsViewController: ListWithSearchViewController {
         collectionView.register(UINib.init(nibName: ContactDeclinedViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ContactDeclinedViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: ContactIncommingViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ContactIncommingViewModel.cellIdentifier)
 
-        topMenu?.setupWithItems(["CONNECTED", "INCOMING", "PENDING", "DECLINED"])
+        topMenu?.setupWithItems(["CONNECTED", "INCOMING", "PENDING", "REJECTED"])
         
     }
     

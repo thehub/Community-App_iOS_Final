@@ -102,8 +102,8 @@ class CompanyViewController: ListFullBleedViewController {
             return
         }
         
-        if let website = company.website {
-            connectButton?.setTitle("\(website)", for: .normal)
+        if company.website != nil {
+            connectButton?.setTitle("Visit Website", for: .normal)
         }
         else {
             connectButton?.isHidden = true
