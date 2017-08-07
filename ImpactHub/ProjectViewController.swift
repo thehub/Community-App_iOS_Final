@@ -63,8 +63,13 @@ class ProjectViewController: ListFullBleedViewController {
         projectsJobsData.append(TitleViewModel(title: "JOBS FOR THIS PROJECT", cellSize: CGSize(width: view.frame.width, height: 70)))
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
         firstly {
-            APIClient.shared.getGroupPosts(groupID: self.project.chatterId)
+            ContactRequestManager.shared.refresh()
+            }.then { contactRequests -> Void in
+                print("refreshed")
+            }.then {
+                APIClient.shared.getGroupPosts(groupID: self.project.chatterId)
             }.then { posts -> Void in
                 self.posts = posts // cache here, so below we can check these if we're coming from a push notification
                 posts.forEach({ (post) in
@@ -75,8 +80,7 @@ class ProjectViewController: ListFullBleedViewController {
             }.then { members -> Void in
                 members.forEach({ (member) in
                     member.contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
-                    let viewModel1 = MemberViewModel(member: member, delegate: self, cellSize: CGSize(width: cellWidth, height: 105))
-                    self.projectsMembersData.append(viewModel1)
+                    self.projectsMembersData.append(MemberViewModel(member: member, delegate:self, cellSize: CGSize(width: cellWidth, height: 105)))
                 })
             }.then {
                 APIClient.shared.getObjectives(projectId: self.project.id)
@@ -233,7 +237,7 @@ class ProjectViewController: ListFullBleedViewController {
             }
         }
         else if segue.identifier == "ShowMessageThread" {
-            if let vc = segue.destination as? MessagesThreadViewController, let member = cellWantsToSendContactRequest?.vm?.member {
+            if let vc = segue.destination as? MessagesThreadViewController, let member = self.memberToSendMessage {
                 vc.member = member
             }
         }

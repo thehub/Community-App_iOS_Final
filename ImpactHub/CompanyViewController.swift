@@ -42,8 +42,13 @@ class CompanyViewController: ListFullBleedViewController {
             super.connectButton?.alpha = 0
             // Load in company
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
             firstly {
-                APIClient.shared.getCompany(companyId: companyId)
+                ContactRequestManager.shared.refresh()
+                }.then { contactRequests -> Void in
+                    print("refreshed")
+                }.then {
+                    APIClient.shared.getCompany(companyId: companyId)
                 }.then { item -> Void in
                     self.company = item
                     self.buildCompany()
@@ -70,9 +75,16 @@ class CompanyViewController: ListFullBleedViewController {
             print("ERROR: no compnay set")
             return
         }
+        
+
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
         firstly {
-            APIClient.shared.getCompanyServices(companyId: company.id)
+            ContactRequestManager.shared.refresh()
+            }.then { contactRequests -> Void in
+                print("refreshed")
+            }.then {
+                APIClient.shared.getCompanyServices(companyId: company.id)
             }.then { services -> Void in
                 self.company!.services = services
             }.then {
@@ -269,7 +281,7 @@ class CompanyViewController: ListFullBleedViewController {
             }
         }
         else if segue.identifier == "ShowMessageThread" {
-            if let vc = segue.destination as? MessagesThreadViewController, let member = cellWantsToSendContactRequest?.vm?.member {
+            if let vc = segue.destination as? MessagesThreadViewController, let member = self.memberToSendMessage {
                 vc.member = member
             }
         }
@@ -294,6 +306,22 @@ class CompanyViewController: ListFullBleedViewController {
     
     override func didSendContactRequest() {
         self.cellWantsToSendContactRequest?.connectRequestStatus = .outstanding
+        
+        // Now refresh the status, so that when we push into the member, it can update the button correctly.
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        firstly {
+            ContactRequestManager.shared.refresh()
+            }.then { contactRequests -> Void in
+                for data in self.data {
+                    if let data2 = data as? MemberViewModel {
+                        data2.member.contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: data2.member)
+                    }
+                }
+            }.always {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }.catch { error in
+                debugPrint(error.localizedDescription)
+        }
     }
     
 }

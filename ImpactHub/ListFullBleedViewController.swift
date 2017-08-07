@@ -22,6 +22,8 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
 
     var chatterGroupId: String?
     
+    var memberToSendMessage: Member?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -159,7 +161,9 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
 extension ListFullBleedViewController: MemberCollectionViewCellDelegate {
     
     func wantsToCreateNewMessage(member: Member) {
+        self.memberToSendMessage = member
         self.performSegue(withIdentifier: "ShowMessageThread", sender: self)
+        
     }
     
     
