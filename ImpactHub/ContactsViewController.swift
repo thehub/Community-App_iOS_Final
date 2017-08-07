@@ -14,7 +14,6 @@ class ContactsViewController: ListWithSearchViewController {
     
     var dataConnected = [CellRepresentable]()
     var dataIncomming = [CellRepresentable]()
-    var dataAwaiting = [CellRepresentable]()
     var dataRejected = [CellRepresentable]()
 
     private var contactIds = Set<String>()
@@ -24,11 +23,11 @@ class ContactsViewController: ListWithSearchViewController {
         
         
         collectionView.register(UINib.init(nibName: ContactViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ContactViewModel.cellIdentifier)
-        collectionView.register(UINib.init(nibName: ContactPendingViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ContactPendingViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: ContactDeclinedViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ContactDeclinedViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: ContactIncommingViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ContactIncommingViewModel.cellIdentifier)
 
-        topMenu?.setupWithItems(["CONNECTED", "INCOMING", "PENDING", "REJECTED"])
+        // NOTE: These have noew been renamed, so Pending is the old Incomming cell. And the old Pending has been removed.
+        topMenu?.setupWithItems(["ACTIVE", "PENDING", "REJECTED"])
         
     }
     
@@ -52,7 +51,6 @@ class ContactsViewController: ListWithSearchViewController {
         inTransit = true
         dataConnected.removeAll()
         dataIncomming.removeAll()
-        dataAwaiting.removeAll()
         dataRejected.removeAll()
         dataAll.removeAll()
         collectionView.reloadData()
@@ -70,7 +68,7 @@ class ContactsViewController: ListWithSearchViewController {
                 APIClient.shared.getMembers(contactIds: Array(self.contactIds))
             }.then { members -> Void in
                 let cellWidth: CGFloat = self.view.frame.width
-                // Connected
+                // Active
                 let connected = ContactRequestManager.shared.getConnectedContactRequests()
                 members.forEach({ (member) in
                     if let contactRequest = connected.filter ({$0.contactToId == member.contactId || $0.contactFromId == member.contactId && $0.id != SessionManager.shared.me?.member.contactId}).first {
@@ -82,8 +80,7 @@ class ContactsViewController: ListWithSearchViewController {
                     }
                 })
                 self.data = self.dataConnected
-                
-                // Incomming
+                // Pending Pending is the old Incomming cell. And the old Pending has been removed.
                 let incomming = ContactRequestManager.shared.getIncommingContactRequests()
                 incomming.forEach({ (contactRequest) in
                     if let member = members.filter ({$0.contactId == contactRequest.contactFromId && $0.contactId != SessionManager.shared.me?.member.contactId}).first {
@@ -93,17 +90,7 @@ class ContactsViewController: ListWithSearchViewController {
                     }
                 })
                 
-                // Pending
-                let awaiting = ContactRequestManager.shared.getAwaitingContactRequests()
-                awaiting.forEach({ (contactRequest) in
-                    if let member = members.filter ({$0.contactId == contactRequest.contactToId && $0.contactId != SessionManager.shared.me?.member.contactId}).first {
-                        member.contactRequest = contactRequest
-                        let viewModel = ContactPendingViewModel(member: member, cellSize: CGSize(width: cellWidth, height: 115))
-                        self.dataAwaiting.append(viewModel)
-                    }
-                })
-                
-                // Declined
+                // Rejected
                 let declined = ContactRequestManager.shared.getDeclinedContactRequests()
                 declined.forEach({ (contactRequest) in
                     // Only show this where the to user is the me, as if the from user declines it it'll be deleted, and in this case only the to user should be able to change the decline...
@@ -178,12 +165,6 @@ class ContactsViewController: ListWithSearchViewController {
             self.collectionView.reloadData()
         }
         else if index == 2 {
-            self.cancelSearching()
-            self.data = self.dataAwaiting
-            self.dataAll = self.data
-            self.collectionView.reloadData()
-        }
-        else if index == 3 {
             self.cancelSearching()
             self.data = self.dataRejected
             self.dataAll = self.data
