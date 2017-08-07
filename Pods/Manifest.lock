@@ -9,7 +9,7 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.4.0):
     - CocoaLumberjack/Default
-  - DeckTransition (0.3.0)
+  - DeckTransition (1.0.1)
   - Kingfisher (3.10.4)
   - Lock (2.3.1):
     - Auth0 (~> 1.6)
@@ -65,7 +65,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Auth0: b23f0d9f45bdcd70652f5427d3411519d79ddaa1
   CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
-  DeckTransition: 00ccc14e8a2347725241512d8b66ee5f0ae48116
+  DeckTransition: 5955be19b166bea45a7f22d845283fde807859ac
   Kingfisher: dc3a4983e86d2dfa89513664983a82340c11a289
   Lock: ff300a4039e2191bc1b2a29f6ed956412c252ffd
   PromiseKit: 25a114b90b932ec8169b5736bd0881fe0efa93b5
