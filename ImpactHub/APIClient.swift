@@ -323,9 +323,26 @@ class APIClient {
         }
     }
     
+    func getGroups() -> Promise<[Group]> {
+        return Promise { fullfill, reject in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.GROUP) FROM Directory__c WHERE Directory_Style__c = 'Group'", fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON(result!)
+                if let records = jsonResult["records"].array {
+                    let items = records.flatMap { Group(json: $0) }
+                    fullfill(items)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
     func getGroups(contactId: String) -> Promise<[Group]> {
         return Promise { fullfill, reject in
-            print(contactId)
             SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.GROUP) FROM Directory__c WHERE Directory_Style__c = 'Group' AND id IN (SELECT DirectoryID__c FROM Directory_Member__c WHERE ContactID__c ='\(contactId)')", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)

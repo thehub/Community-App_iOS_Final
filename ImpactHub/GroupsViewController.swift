@@ -11,6 +11,9 @@ import PromiseKit
 
 class GroupsViewController: ListWithSearchViewController {
     
+    var groupsYouManageData = [CellRepresentable]()
+    var yourGroupsData = [CellRepresentable]()
+
     override var filterSource: FilterManager.Source {
         get {
             return FilterManager.Source.groups
@@ -20,12 +23,15 @@ class GroupsViewController: ListWithSearchViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        topMenu?.setupWithItems(["ALL", "GROUPS YOU MANAGE", "YOUR GROUPS"])
+
+        
         collectionView.register(UINib.init(nibName: GroupViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: GroupViewModel.cellIdentifier)
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.collectionView?.alpha = 0
         firstly {
-            APIClient.shared.getGroups(contactId: SessionManager.shared.me?.member.contactId ?? "")
+            APIClient.shared.getGroups()
             }.then { items -> Void in
                 items.forEach({ (group) in
                     self.dataAll.append(GroupViewModel(group: group, cellSize: CGSize(width: self.view.frame.width, height: 170)))
@@ -40,6 +46,15 @@ class GroupsViewController: ListWithSearchViewController {
                 FilterManager.shared.addFilters(fromTags: Set(items.flatMap({$0.sector}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sector)
                 // SDG goals
                 FilterManager.shared.addFilters(fromTags: Set(items.flatMap({$0.relatedSDGs}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sdg)
+            }.then {_ in
+                APIClient.shared.getGroups(contactId: SessionManager.shared.me?.member.contactId ?? "")
+            }.then { yourGroups -> Void in
+                let cellWidth: CGFloat = self.view.frame.width
+                yourGroups.forEach({ (group) in
+                    let viewModel = GroupViewModel(group: group, cellSize: CGSize(width: cellWidth, height: 370))
+                    self.yourGroupsData.append(viewModel)
+                })
+                // TODO: Filter out Groups you manage?
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.data = self.filterData(dataToFilter: self.dataAll)
@@ -58,8 +73,48 @@ class GroupsViewController: ListWithSearchViewController {
         
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let collectionViewLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        collectionViewLayout?.sectionInset = UIEdgeInsetsMake(self.searchContainer.frame.height, 0, 100, 0)
+        collectionViewLayout?.invalidateLayout()
+    }
+    
     deinit {
         print("\(#file, #function)")
+    }
+    
+    override func topMenuDidSelectIndex(_ index: Int) {
+        
+        self.collectionView.alpha = 0
+        
+        if index == 0 {
+            self.cancelSearching()
+            self.data = self.dataAll
+            self.collectionView.reloadData()
+        }
+        else if index == 1 {
+            self.cancelSearching()
+            self.data = self.groupsYouManageData
+            self.collectionView.reloadData()
+        }
+        else if index == 2 {
+            self.cancelSearching()
+            self.data = self.yourGroupsData
+            self.collectionView.reloadData()
+        }
+        self.collectionView.scrollRectToVisible(CGRect.zero, animated: false)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.collectionView.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
+            UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                self.collectionView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+                self.collectionView.alpha = 1
+            }, completion: { (_) in
+                
+            })
+        }
     }
     
     override func filterData(dataToFilter: [CellRepresentable]) -> [CellRepresentable] {
