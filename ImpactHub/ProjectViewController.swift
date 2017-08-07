@@ -226,7 +226,7 @@ class ProjectViewController: ListFullBleedViewController {
         }
         else if segue.identifier == "ShowCreatePostContactMessage" {
             if let navVC = segue.destination as? UINavigationController {
-                if let vc = navVC.viewControllers.first as? CreatePostViewController, let contactId = cellWantsToSendContactRequest?.vm?.member.id {
+                if let vc = navVC.viewControllers.first as? CreatePostViewController, let contactId = cellWantsToSendContactRequest?.vm?.member.contactId {
                     vc.delegate = self
                     vc.createType = .contactRequest(contactId: contactId)
                 }

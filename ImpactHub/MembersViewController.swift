@@ -49,7 +49,7 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
                 let cellWidth: CGFloat = self.view.frame.width
                 members.forEach({ (member) in
                     // Remove our selves
-                    if member.id != SessionManager.shared.me?.member.id ?? "" {
+                    if member.contactId != SessionManager.shared.me?.member.contactId ?? "" {
                         member.contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
                         self.dataAll.append(MemberViewModel(member: member, delegate: self, cellSize: CGSize(width: cellWidth, height: 105)))
                     }
@@ -185,7 +185,7 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
         }
         else if segue.identifier == "ShowCreatePost" {
             if let navVC = segue.destination as? UINavigationController {
-                if let vc = navVC.viewControllers.first as? CreatePostViewController, let contactId = cellWantsToSendContactRequest?.vm?.member.id {
+                if let vc = navVC.viewControllers.first as? CreatePostViewController, let contactId = cellWantsToSendContactRequest?.vm?.member.contactId {
                     vc.delegate = self
                     vc.createType = .contactRequest(contactId: contactId)
                 }

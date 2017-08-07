@@ -37,7 +37,7 @@ class MemberViewController: ListFullBleedViewController {
             return
         }
         // Do not show if ourselves...
-        if self.member?.id == SessionManager.shared.me?.member.id {
+        if self.member?.contactId == SessionManager.shared.me?.member.contactId {
             self.connectContainer?.isHidden = true
             return
         }
@@ -133,16 +133,16 @@ class MemberViewController: ListFullBleedViewController {
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
-            APIClient.shared.getSkills(contactId: member.id)
+            APIClient.shared.getSkills(contactId: member.contactId)
             }.then { skills -> Void in
                 member.skills = skills
             }.then {
-                APIClient.shared.getProjects(contactId: member.id)
+                APIClient.shared.getProjects(contactId: member.contactId)
             }.then { projects -> Void in
                 print(projects)
                 self.projects = projects
             }.then {
-                APIClient.shared.getGroups(contactId: member.id)
+                APIClient.shared.getGroups(contactId: member.contactId)
             }.then { groups -> Void in
                 self.groups = groups
             }.always {
@@ -258,7 +258,7 @@ class MemberViewController: ListFullBleedViewController {
         }
         else if segue.identifier == "ShowCreatePost" {
             if let navVC = segue.destination as? UINavigationController {
-                if let vc = navVC.viewControllers.first as? CreatePostViewController, let contactId = member?.id {
+                if let vc = navVC.viewControllers.first as? CreatePostViewController, let contactId = member?.contactId {
                     vc.delegate = self
                     vc.createType = .contactRequest(contactId: contactId)
                 }
@@ -366,7 +366,7 @@ class MemberViewController: ListFullBleedViewController {
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         // If we are the to user, put it into declined state, so we later can change out mind
-        if contactRequest.contactToId == SessionManager.shared.me?.member.id {
+        if contactRequest.contactToId == SessionManager.shared.me?.member.contactId {
             firstly {
                 APIClient.shared.updateDMRequest(id: contactRequest.id, status: DMRequest.Satus.declined, pushUserId: member.userId)
                 }.then { result -> Void in

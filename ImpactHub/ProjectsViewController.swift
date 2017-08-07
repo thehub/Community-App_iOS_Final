@@ -38,7 +38,7 @@ class ProjectsViewController: ListWithSearchViewController {
                 items.forEach({ (project) in
                     let viewModel = ProjectViewModel(project: project, cellSize: CGSize(width: cellWidth, height: 370))
                     self.dataAll.append(viewModel)
-                    if viewModel.project.createdById == SessionManager.shared.me?.member.id {
+                    if viewModel.project.createdById == SessionManager.shared.me?.member.contactId {
                         self.projectsYouManageData.append(viewModel)
                     }
                 })
@@ -55,7 +55,7 @@ class ProjectsViewController: ListWithSearchViewController {
                 FilterManager.shared.addFilters(fromTags: Set(items.flatMap({$0.relatedSDGs}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sdg)
                 
             }.then {_ in 
-                APIClient.shared.getProjects(contactId: SessionManager.shared.me?.member.id ?? "")
+                APIClient.shared.getProjects(contactId: SessionManager.shared.me?.member.contactId ?? "")
             }.then { yourProjects -> Void in
                 let cellWidth: CGFloat = self.view.frame.width
                 yourProjects.forEach({ (project) in

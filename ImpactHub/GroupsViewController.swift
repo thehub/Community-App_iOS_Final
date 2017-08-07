@@ -25,7 +25,7 @@ class GroupsViewController: ListWithSearchViewController {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.collectionView?.alpha = 0
         firstly {
-            APIClient.shared.getGroups(contactId: SessionManager.shared.me?.member.id ?? "")
+            APIClient.shared.getGroups(contactId: SessionManager.shared.me?.member.contactId ?? "")
             }.then { items -> Void in
                 items.forEach({ (group) in
                     self.dataAll.append(GroupViewModel(group: group, cellSize: CGSize(width: self.view.frame.width, height: 170)))

@@ -12,8 +12,8 @@ import SwiftyJSON
 
 
 class Member {
-    var id: String // this is the contactId from sales force
-    var userId: String
+    var contactId: String // this is the Contact.id from sales force    
+    var userId: String // this is the User.id from sales force
     var firstName: String
     var lastName: String
     var job: String = ""
@@ -61,14 +61,14 @@ class Member {
     init?(json: JSON) {
 //        print(json)
         guard
-            let id = json["Id"].string,
+            let contactId = json["Id"].string,
             let userId = json["User__c"].string,
             let firstName = json["FirstName"].string,
             let lastName = json["LastName"].string
             else {
                 return nil
         }
-        self.id = id
+        self.contactId = contactId
         self.userId = userId
         self.firstName = firstName
         self.lastName = lastName

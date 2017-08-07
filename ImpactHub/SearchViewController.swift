@@ -66,7 +66,7 @@ class SearchViewController: ListWithSearchViewController, CreatePostViewControll
         }
         else if segue.identifier == "ShowCreatePost" {
             if let navVC = segue.destination as? UINavigationController {
-                if let vc = navVC.viewControllers.first as? CreatePostViewController, let contactId = cellWantsToSendContactRequest?.vm?.member.id {
+                if let vc = navVC.viewControllers.first as? CreatePostViewController, let contactId = cellWantsToSendContactRequest?.vm?.member.contactId {
                     vc.delegate = self
                     vc.createType = .contactRequest(contactId: contactId)
                 }

@@ -88,7 +88,7 @@ class MemberCollectionViewCell: UICollectionViewCell {
         }
         
         // Do not show if ourselves...
-        if vm?.member.id == SessionManager.shared.me?.member.id {
+        if vm?.member.contactId == SessionManager.shared.me?.member.contactId {
             openMessageButton.isHidden = true
             connectionImageView.isHidden = true
         }

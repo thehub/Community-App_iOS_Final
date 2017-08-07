@@ -636,7 +636,7 @@ class APIClient {
             firstly {
                 self.getDMRequests()
                 }.then { items -> Void in
-                    let item = items.filter({ ($0.contactFromId == SessionManager.shared.me?.member.id && $0.contactToId == contactId) || $0.contactToId == SessionManager.shared.me?.member.id && $0.contactFromId == contactId }).first
+                    let item = items.filter({ ($0.contactFromId == SessionManager.shared.me?.member.contactId && $0.contactToId == contactId) || $0.contactToId == SessionManager.shared.me?.member.contactId && $0.contactFromId == contactId }).first
                     fullfill(item)
                 }.catch { error in
                     debugPrint(error.localizedDescription)
@@ -647,7 +647,7 @@ class APIClient {
     
     func getDMRequests() -> Promise<[DMRequest]> {
         return Promise { fullfill, reject in
-            guard let contactId = SessionManager.shared.me?.member.id else {
+            guard let contactId = SessionManager.shared.me?.member.contactId else {
                 reject(MyError.Error("No contactId for me"))
                 return
             }

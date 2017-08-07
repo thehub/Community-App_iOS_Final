@@ -73,8 +73,8 @@ class ContactsViewController: ListWithSearchViewController {
                 // Connected
                 let connected = ContactRequestManager.shared.getConnectedContactRequests()
                 members.forEach({ (member) in
-                    if let contactRequest = connected.filter ({$0.contactToId == member.id || $0.contactFromId == member.id && $0.id != SessionManager.shared.me?.member.id}).first {
-                        if member.id != SessionManager.shared.me!.member.id {
+                    if let contactRequest = connected.filter ({$0.contactToId == member.contactId || $0.contactFromId == member.contactId && $0.id != SessionManager.shared.me?.member.contactId}).first {
+                        if member.contactId != SessionManager.shared.me!.member.contactId {
                             member.contactRequest = contactRequest
                             let viewModel = ContactViewModel(member: member, contactCellDelegate: self, cellSize: CGSize(width: cellWidth, height: 120))
                             self.dataConnected.append(viewModel)
@@ -86,7 +86,7 @@ class ContactsViewController: ListWithSearchViewController {
                 // Incomming
                 let incomming = ContactRequestManager.shared.getIncommingContactRequests()
                 incomming.forEach({ (contactRequest) in
-                    if let member = members.filter ({$0.id == contactRequest.contactFromId && $0.id != SessionManager.shared.me?.member.id}).first {
+                    if let member = members.filter ({$0.contactId == contactRequest.contactFromId && $0.contactId != SessionManager.shared.me?.member.contactId}).first {
                         member.contactRequest = contactRequest
                         let viewModel = ContactIncommingViewModel(member: member, contactCellDelegate: self, cellSize: CGSize(width: cellWidth, height: 215))
                         self.dataIncomming.append(viewModel)
@@ -96,7 +96,7 @@ class ContactsViewController: ListWithSearchViewController {
                 // Pending
                 let awaiting = ContactRequestManager.shared.getAwaitingContactRequests()
                 awaiting.forEach({ (contactRequest) in
-                    if let member = members.filter ({$0.id == contactRequest.contactToId && $0.id != SessionManager.shared.me?.member.id}).first {
+                    if let member = members.filter ({$0.contactId == contactRequest.contactToId && $0.contactId != SessionManager.shared.me?.member.contactId}).first {
                         member.contactRequest = contactRequest
                         let viewModel = ContactPendingViewModel(member: member, cellSize: CGSize(width: cellWidth, height: 115))
                         self.dataAwaiting.append(viewModel)
@@ -107,8 +107,8 @@ class ContactsViewController: ListWithSearchViewController {
                 let declined = ContactRequestManager.shared.getDeclinedContactRequests()
                 declined.forEach({ (contactRequest) in
                     // Only show this where the to user is the me, as if the from user declines it it'll be deleted, and in this case only the to user should be able to change the decline...
-                    if contactRequest.contactToId == SessionManager.shared.me?.member.id {
-                        if let member = members.filter ({$0.id == contactRequest.contactFromId }).first {
+                    if contactRequest.contactToId == SessionManager.shared.me?.member.contactId {
+                        if let member = members.filter ({$0.contactId == contactRequest.contactFromId }).first {
                             member.contactRequest = contactRequest
                             let viewModel = ContactDeclinedViewModel(member: member, contactCellDelegate: self, cellSize: CGSize(width: cellWidth, height: 105))
                             self.dataRejected.append(viewModel)

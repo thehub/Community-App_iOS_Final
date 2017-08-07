@@ -71,7 +71,7 @@ class ContactCell: UICollectionViewCell {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         // If we are the to user, put it into declined state, so we later can change out mind
-        if contactRequest.contactToId == SessionManager.shared.me?.member.id {
+        if contactRequest.contactToId == SessionManager.shared.me?.member.contactId {
             firstly {
                 APIClient.shared.updateDMRequest(id: contactRequest.id, status: DMRequest.Satus.declined, pushUserId: vm.member.userId)
                 }.then { result -> Void in
