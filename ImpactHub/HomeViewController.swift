@@ -35,7 +35,7 @@ class HomeViewController: UIViewController {
             case .groups:
                 return "Groups"
             case .goals:
-                return "Goals"
+                return "Impact Goals"
             case .jobs:
                 return "Jobs"
             case .events:
@@ -90,7 +90,7 @@ class HomeViewController: UIViewController {
             case .companies:
                 return "CompaniesViewController"
             case .groups:
-                return "MembersViewController" // FIXME
+                return "GroupsViewController"
             case .goals:
                 return "GoalsViewController"
             case .jobs:
@@ -141,12 +141,12 @@ class HomeViewController: UIViewController {
         let cellWidth: CGFloat = self.view.frame.width
         self.data.append(HomeCellViewModel(section: HomeViewController.Section.members, cellSize: CGSize(width: cellWidth, height: 70)))
         self.data.append(HomeCellViewModel(section: HomeViewController.Section.companies, cellSize: CGSize(width: cellWidth, height: 70)))
-        self.data.append(HomeCellViewModel(section: HomeViewController.Section.groups, cellSize: CGSize(width: cellWidth, height: 70)))
         self.data.append(HomeCellViewModel(section: HomeViewController.Section.goals, cellSize: CGSize(width: cellWidth, height: 70)))
         self.data.append(HomeCellViewModel(section: HomeViewController.Section.jobs, cellSize: CGSize(width: cellWidth, height: 70)))
-        self.data.append(HomeCellViewModel(section: HomeViewController.Section.events, cellSize: CGSize(width: cellWidth, height: 70)))
         self.data.append(HomeCellViewModel(section: HomeViewController.Section.projects, cellSize: CGSize(width: cellWidth, height: 70)))
-        
+        self.data.append(HomeCellViewModel(section: HomeViewController.Section.groups, cellSize: CGSize(width: cellWidth, height: 70)))
+        self.data.append(HomeCellViewModel(section: HomeViewController.Section.events, cellSize: CGSize(width: cellWidth, height: 70)))
+
         self.navigationController?.navigationBar.barStyle = .black
         homeNavBar.barStyle = .black
         

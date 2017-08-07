@@ -45,7 +45,7 @@ final class Utils {
             if (StaticVar.timeformatterShort == nil) {
                 StaticVar.timeformatterShort = DateFormatter()
                 StaticVar.timeformatterShort?.timeStyle = .none;
-                StaticVar.timeformatterShort?.dateStyle = .short;
+                StaticVar.timeformatterShort?.dateStyle = .medium;
             }
             return StaticVar.timeformatterShort!.string(from: date)
         }

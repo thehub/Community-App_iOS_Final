@@ -24,15 +24,6 @@ class MemberFeedItemCell: UICollectionViewCell, UITextViewDelegate {
     
     weak var delegate: MemberFeedItemDelegate?
     
-    static var dateFormatter: DateFormatter {
-        get {
-            let formatter = DateFormatter()
-            formatter.dateStyle = .medium
-            formatter.timeStyle = .short
-            return formatter
-        }
-    }
-
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -241,7 +232,7 @@ class MemberFeedItemCell: UICollectionViewCell, UITextViewDelegate {
             if let photoUrl = comment.user?.photo?.smallPhotoUrl {
                 profileImageView.kf.setImage(with: photoUrl)
             }
-            dateLabel.text = MemberFeedItemCell.dateFormatter.string(from: comment.date)
+            dateLabel.text = Utils.timeStringFromDate(date: comment.date)
             textView.isScrollEnabled = false
             textView.linkTextAttributes = linkAttributes
             textView.isScrollEnabled = false
@@ -254,8 +245,7 @@ class MemberFeedItemCell: UICollectionViewCell, UITextViewDelegate {
             likeContainerView.isHidden = false
             nameLabel.text = vm.post.chatterActor.displayName
             profileImageView.kf.setImage(with: vm.post.chatterActor.profilePicSmallUrl)
-            dateLabel.text = MemberFeedItemCell.dateFormatter.string(from: vm.post.date)
-            
+            dateLabel.text = Utils.timeStringFromDate(date: vm.post.date)
             let textToShow = segmentBuilder.attributedTextFromSegments(segments: vm.post.segments)
             textView.linkTextAttributes = linkAttributes
             textView.isScrollEnabled = false
