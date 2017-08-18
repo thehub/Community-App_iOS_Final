@@ -12,7 +12,21 @@ import UIKit
 
 final class Utils {
     
-
+    // Used for events
+    static let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .none
+        formatter.dateStyle = .medium
+        return formatter
+    }()
+    
+    static let timeFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .none
+        return formatter
+    }()
+    
     private struct StaticVar { static var timeformatterShort: DateFormatter? }
     
     class func timeStringFromDate(date: Date) -> String {
@@ -80,6 +94,7 @@ extension Int {
 }
 
 extension Date {
+    
     static let iso8601Formatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.calendar = Calendar(identifier: .iso8601)
@@ -484,5 +499,19 @@ class LeftAlignedSearchBar: UISearchBar, UISearchBarDelegate {
                 }
             }
         }
+    }
+}
+
+extension UILabel {
+    func setLineHeight(_ lineHeight: CGFloat) {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 1.0
+        paragraphStyle.lineHeightMultiple = lineHeight
+        paragraphStyle.alignment = self.textAlignment
+        
+        let attrString = NSMutableAttributedString(string: self.text!)
+        attrString.addAttribute(NSFontAttributeName, value: self.font, range: NSMakeRange(0, attrString.length))
+        attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
+        self.attributedText = attrString
     }
 }

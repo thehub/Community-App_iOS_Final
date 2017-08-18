@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SafariServices
+
 
 class EventViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
 
@@ -38,12 +40,9 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        
         navigationController?.interactivePopGestureRecognizer?.delegate = self
-        
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.tabBarController?.tabBar.isHidden = true
-        
         
         UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
             self.setNeedsStatusBarAppearanceUpdate()
@@ -68,10 +67,12 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
         self.data.removeAll()
         collectionView.reloadData()
 
-
         self.title = event.name
         
-        self.companyPhotoImageView.image = UIImage(named: event.photo)
+        if let photoUrl = event.photoUrl {
+            self.companyPhotoImageView.kf.setImage(with: photoUrl)
+        }
+
         self.companyPhotoImageView.transform = CGAffineTransform.init(scaleX: initialCompanyPhotoScale, y: initialCompanyPhotoScale)
         
         
@@ -84,7 +85,7 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
         
 
         // Big Title
-        data.append(BigTitleTopViewModel(event: event, cellSize: CGSize(width: view.frame.width, height: 250)))
+        data.append(BigTitleTopViewModel(event: event, cellBackDelegate: self, cellSize: CGSize(width: view.frame.width, height: 250)))
 
         // Title
         data.append(TitleViewModel(title: "DESCRIPTION", cellSize: CGSize(width: view.frame.width, height: 50)))
@@ -92,19 +93,6 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         // Event Detail
         data.append(EventDetailViewModel(event: event, cellSize: CGSize(width: view.frame.width, height: 0)))
-        
-        // Title
-        data.append(TitleViewModel(title: "DISCUSSION", cellSize: CGSize(width: view.frame.width, height: 50)))
-
-
-//        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
-//        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
-//        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
-//        data.append(MemberFeedItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 150)))
-
-
-        
-        
     }
     
 
@@ -167,8 +155,8 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         
         if let vm = data[indexPath.item] as? EventDetailViewModel {
-            let cellWidth: CGFloat = self.collectionView.frame.width - 40
-            let height = vm.event.description.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 290 // add extra height for the standard elements, titles, lines, sapcing etc.
+            let cellWidth: CGFloat = self.collectionView.frame.width - 40 - 145
+            let height = vm.event.description.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 180 // add extra height for the standard elements, titles, lines, sapcing etc.
             return CGSize(width: view.frame.width, height: height)
         }
         
@@ -284,13 +272,28 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     
     @IBAction func applyTap(_ sender: Any) {
+        guard let website = event?.registerURL else { return }
+        
+        if let url = URL(string: website) {
+            let svc = SFSafariViewController(url: url)
+            self.present(svc, animated: true, completion: nil)
+        }
     }
+    
+
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+}
+
+extension EventViewController: CellBackDelegate {
+    func goBack() {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 extension EventViewController: UICollectionViewDataSource {

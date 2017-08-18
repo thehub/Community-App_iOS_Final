@@ -18,7 +18,9 @@ class EventDetailCell: UICollectionViewCell, MKMapViewDelegate {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var spaceLabel: UILabel!
     
+    @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     
@@ -29,22 +31,49 @@ class EventDetailCell: UICollectionViewCell, MKMapViewDelegate {
 
     var location: CLLocationCoordinate2D?
     
+    var vm: EventDetailViewModel?
+    
     func setUp(vm: EventDetailViewModel) {
-
-        locationNameLabel.text = vm.event.locationName
+        self.vm = vm
+        locationNameLabel.text = vm.event.city
         descriptionLabel.text = vm.event.description
-        timeLabel.text = "5pm - 7pm" // todo:
-        dateLabel.text = "24th May" // todo:
-        priceLabel.text = "Free"
         
-        
-        self.location = CLLocationCoordinate2D(latitude: 51.5074, longitude: 0.1278)
-        if let location = self.location {
-            let region = MKCoordinateRegion(center: location, span: MKCoordinateSpanMake(0.05, 0.05))
-            mapView.setRegion(region, animated: true)
-            addPins()
+        timeLabel.text = Utils.timeFormatter.string(from: vm.event.date)
+        if let endDate = vm.event.endDate {
+            if Calendar.current.isDate(vm.event.date, inSameDayAs: endDate) {
+                timeLabel.text = "\(Utils.timeFormatter.string(from: vm.event.date)) - \(Utils.timeFormatter.string(from: endDate))"
+            }
         }
+        timeLabel.setLineHeight(0.75)
 
+        dateLabel.text = Utils.dateFormatter.string(from: vm.event.date)
+        typeLabel.text = vm.event.eventSubType
+        typeLabel.setLineHeight(0.75)
+        spaceLabel.text = vm.event.eventType
+        spaceLabel.setLineHeight(0.75)
+        priceLabel.text = vm.event.visibility
+        priceLabel.setLineHeight(0.75)
+        
+        
+        let address = "\(vm.event.street), \(vm.event.postCode), \(vm.event.city), \(vm.event.country)"
+
+        self.mapView.alpha = 0.5
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(address, completionHandler: { (placemarks, error) -> Void in
+            if let placemark = placemarks?.first {
+                self.location = CLLocationCoordinate2DMake(placemark.location?.coordinate.latitude ?? 0, placemark.location?.coordinate.longitude ?? 0)
+                if let location = self.location {
+                    let region = MKCoordinateRegion(center: location, span: MKCoordinateSpanMake(0.05, 0.05))
+                    self.mapView.setRegion(region, animated: true)
+                    self.addPins()
+                    self.mapView.alpha = 1.0
+                }
+            }
+            else {
+                print(error?.localizedDescription)
+            }
+        })
+        
     }
 
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
@@ -67,22 +96,17 @@ class EventDetailCell: UICollectionViewCell, MKMapViewDelegate {
 //            ]
 
         let addressDict = [
-            CNPostalAddressCityKey : "London",
-            CNPostalAddressCountryKey : "UK",
-            CNPostalAddressISOCountryCodeKey : "uk"
+            CNPostalAddressCityKey : self.vm?.event.city,
+            CNPostalAddressCountryKey : self.vm?.event.country
             ]
-
         
         let placeMark = MKPlacemark(coordinate: location, addressDictionary: addressDict)
         
         
         //        https://maps.apple.com/?address=Rambla Prim 1-17, 08019 Barcelona B, Spain&auid=3539465272521020608&ll=41.410013,2.219335&lsp=9902&q=Centre de Convencions Internacional de Barcelona&t=m
         
-        
         let mapItem = MKMapItem(placemark: placeMark)
-        
         let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
-        
         mapItem.openInMaps(launchOptions: launchOptions)
     }
     

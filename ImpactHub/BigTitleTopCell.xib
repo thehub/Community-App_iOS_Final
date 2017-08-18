@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -24,13 +24,13 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="EVENT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1uj-uQ-2SI">
-                        <rect key="frame" x="129" y="80" width="42" height="19"/>
+                        <rect key="frame" x="126.5" y="80" width="47" height="17.5"/>
                         <fontDescription key="fontDescription" name="GTWalsheim" family="GT Walsheim" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqZ-YK-0Rp">
-                        <rect key="frame" x="20" y="116" width="260" height="32"/>
+                        <rect key="frame" x="20" y="114.5" width="260" height="29.5"/>
                         <attributedString key="attributedText">
                             <fragment content="Label">
                                 <attributes>
@@ -42,6 +42,17 @@
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMY-9S-p2H">
+                        <rect key="frame" x="0.0" y="5" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="06n-T0-Pmz"/>
+                            <constraint firstAttribute="height" constant="35" id="Cad-rS-lij"/>
+                        </constraints>
+                        <state key="normal" image="arrowBackWhite"/>
+                        <connections>
+                            <action selector="backTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="gNA-Ha-Db5"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <constraints>
@@ -49,12 +60,17 @@
                 <constraint firstItem="tqZ-YK-0Rp" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="QEI-BD-ShT"/>
                 <constraint firstItem="1uj-uQ-2SI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="80" id="Rdy-O0-Upy"/>
                 <constraint firstItem="1uj-uQ-2SI" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="gEs-ev-E3A"/>
+                <constraint firstItem="YMY-9S-p2H" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="i4G-qN-xOG"/>
                 <constraint firstItem="tqZ-YK-0Rp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="kfm-1j-3xt"/>
                 <constraint firstItem="tqZ-YK-0Rp" firstAttribute="top" secondItem="1uj-uQ-2SI" secondAttribute="bottom" constant="17" id="nSt-cv-9P8"/>
+                <constraint firstItem="YMY-9S-p2H" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="rba-lQ-0NF"/>
             </constraints>
             <connections>
                 <outlet property="nameLabel" destination="tqZ-YK-0Rp" id="jck-bJ-Uyg"/>
             </connections>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="arrowBackWhite" width="10" height="15"/>
+    </resources>
 </document>

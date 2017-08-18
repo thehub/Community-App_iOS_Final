@@ -14,7 +14,10 @@ class MemberDetailTopViewModel: CellRepresentable {
     
     var member: Member
     
-    init(member: Member, cellSize: CGSize) {
+    var cellBackDelegate: CellBackDelegate?
+
+    init(member: Member, cellBackDelegate: CellBackDelegate, cellSize: CGSize) {
+        self.cellBackDelegate = cellBackDelegate
         self.member = member
         self.cellSize = cellSize
     }

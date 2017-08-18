@@ -140,4 +140,7 @@ class MemberDetailTopCell: UICollectionViewCell {
         }
     }
     
+    @IBAction func backTap(_ sender: Any) {
+        self.vm?.cellBackDelegate?.goBack()
+    }
 }

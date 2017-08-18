@@ -11,8 +11,8 @@ import PromiseKit
 
 class EventsViewController: ListWithSearchViewController {
 
-    var eventsYouManageData = [CellRepresentable]()
-    var yourEventData = [CellRepresentable]()
+    var attendingData = [CellRepresentable]()
+    var hostingData = [CellRepresentable]()
 
     override var filterSource: FilterManager.Source {
         get {
@@ -26,55 +26,51 @@ class EventsViewController: ListWithSearchViewController {
 
         collectionView.register(UINib.init(nibName: EventViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: EventViewModel.cellIdentifier)
         
-        let item1 = Event(name: "A guide to reaching your sustainable development goals", date: Date().addingTimeInterval((60 * 60 * 24 * 12)), locationName: "London", address: "E5 0RF", photo: "eventPhoto", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", price: "Free")
-        let item2 = Event(name: "A guide to reaching your sustainable development goals", date: Date().addingTimeInterval((60 * 60 * 24 * 12)), locationName: "London", address: "E5 0RF", photo: "eventPhoto", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", price: "Free")
-        let item3 = Event(name: "A guide to reaching your sustainable development goals", date: Date().addingTimeInterval((60 * 60 * 24 * 12)), locationName: "London", address: "E5 0RF", photo: "eventPhoto", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", price: "Free")
-        let item4 = Event(name: "A guide to reaching your sustainable development goals", date: Date().addingTimeInterval((60 * 60 * 24 * 12)), locationName: "London", address: "E5 0RF", photo: "eventPhoto", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", price: "Free")
-        
-        let cellWidth: CGFloat = self.view.frame.width
-        let viewModel1 = EventViewModel(event: item1, cellSize: CGSize(width: cellWidth, height: 370))
-        let viewModel2 = EventViewModel(event: item2, cellSize: CGSize(width: cellWidth, height: 370))
-        let viewModel3 = EventViewModel(event: item3, cellSize: CGSize(width: cellWidth, height: 370))
-        let viewModel4 = EventViewModel(event: item4, cellSize: CGSize(width: cellWidth, height: 370))
-        
-        self.dataAll.append(viewModel1)
-        self.dataAll.append(viewModel2)
-        self.dataAll.append(viewModel3)
-        self.dataAll.append(viewModel4)
+        topMenu?.setupWithItems(["ALL", "ATTENDING", "HOSTING"])
 
-        self.dataAll.append(viewModel1)
-        self.dataAll.append(viewModel2)
-        self.dataAll.append(viewModel3)
-        self.dataAll.append(viewModel4)
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        self.collectionView?.alpha = 0
+        firstly {
+            APIClient.shared.getEvents()
+            }.then { events -> Void in
+                events.forEach({ (event) in
+                    self.dataAll.append(EventViewModel(event: event, cellSize: CGSize(width: self.view.frame.width, height: 370)))
+                })
+                
+//                // Create filters
+//                FilterManager.shared.clearPreviousFilters()
+//                // Create a Set of the existing tags per grouping
+//                // Cities
+//                FilterManager.shared.addFilters(fromTags: Set(jobs.flatMap({$0.locationName}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .city)
+//                // Sector
+//                FilterManager.shared.addFilters(fromTags: Set(jobs.flatMap({$0.sector}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sector)
+//                // SDG goals
+//                FilterManager.shared.addFilters(fromTags: Set(jobs.flatMap({$0.relatedSDGs}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sdg)
+//                // Job Type
+//                FilterManager.shared.addFilters(fromTags: Set(jobs.flatMap({$0.type}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .jobType)
+              
+            }.then {
+                APIClient.shared.getEventsAttending(contactId: SessionManager.shared.me?.member.contactId ?? "")
+            }.then { eventsAttending -> Void in
+                eventsAttending.forEach({ (event) in
+                    self.attendingData.append(EventViewModel(event: event, cellSize: CGSize(width: self.view.frame.width, height: 370)))
+                })
+            }.always {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.data = self.filterData(dataToFilter: self.dataAll)
+                self.collectionView?.alpha = 0
+                self.collectionView?.reloadData()
+                self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
+                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+                    self.collectionView?.alpha = 1
+                }, completion: { (_) in
+                    
+                })
+            }.catch { error in
+                debugPrint(error.localizedDescription)
+        }
 
-        self.dataAll.append(viewModel1)
-        self.dataAll.append(viewModel2)
-        self.dataAll.append(viewModel3)
-        self.dataAll.append(viewModel4)
-        
-        self.data = self.filterData(dataToFilter: self.dataAll)
-        
-        // todo:
-        self.eventsYouManageData = Array(dataAll[0...4])
-        self.yourEventData = Array(dataAll[4...7])
-
-        topMenu?.setupWithItems(["ALL", "EVENTS YOU MANAGE", "YOUR EVENTS"])
-
-        // Do any additional setup after loading the view.
-        
-        
-//        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-//        firstly {
-//            APIClient.shared.getJobs(skip: 0, top: 100)
-//            }.then { items -> Void in
-//                print(items)
-////                self.dataSource = items
-////                self.collectionView?.reloadData()
-//            }.always {
-//                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-//            }.catch { error in
-//                debugPrint(error.localizedDescription)
-//        }
     
     }
     
@@ -131,12 +127,12 @@ class EventsViewController: ListWithSearchViewController {
         }
         else if index == 1 {
             self.cancelSearching()
-            self.data = self.eventsYouManageData
+            self.data = self.attendingData
             self.collectionView.reloadData()
         }
         else if index == 2 {
             self.cancelSearching()
-            self.data = self.yourEventData
+            self.data = self.hostingData
             self.collectionView.reloadData()
         }
         self.collectionView.scrollRectToVisible(CGRect.zero, animated: false)
@@ -156,7 +152,7 @@ class EventsViewController: ListWithSearchViewController {
     override func filterContentForSearchText(dataToFilter: [CellRepresentable], searchText: String) -> [CellRepresentable] {
         return dataToFilter.filter({ (item) -> Bool in
             if let vm = item as? EventViewModel {
-                let locationName = vm.event.locationName
+                let locationName = vm.event.city
                 let description = vm.event.description
                 return vm.event.name.lowercased().contains(searchText.lowercased()) || locationName.contains(searchText.lowercased()) || description.lowercased().contains(searchText.lowercased())
             }

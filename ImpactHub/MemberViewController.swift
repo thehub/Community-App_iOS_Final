@@ -126,7 +126,7 @@ class MemberViewController: ListFullBleedViewController {
 
         self.connectRequestStatus = member.contactRequest?.status ?? .notRequested
 
-        memberAboutData.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
+        memberAboutData.append(MemberDetailTopViewModel(member: member, cellBackDelegate: self, cellSize: .zero)) // this will pick the full height instead
         memberAboutData.append(MemberAboutItemViewModel(member: member, cellSize: CGSize(width: view.frame.width, height: 0)))
         self.data = memberAboutData
         let countBefore = self.data.count
@@ -176,13 +176,13 @@ class MemberViewController: ListFullBleedViewController {
         self.data = memberAboutData
         
         // Projects
-        memberProjectsData.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
+        memberProjectsData.append(MemberDetailTopViewModel(member: member, cellBackDelegate: self, cellSize: .zero)) // this will pick the full height instead
         projects.forEach { (project) in
             memberProjectsData.append(ProjectViewModel(project: project, cellSize: CGSize(width: view.frame.width, height: 370)))
         }
         
         // Groups
-        memberGroupsData.append(MemberDetailTopViewModel(member: member, cellSize: .zero)) // this will pick the full height instead
+        memberGroupsData.append(MemberDetailTopViewModel(member: member, cellBackDelegate: self, cellSize: .zero)) // this will pick the full height instead
         groups.forEach { (group) in
             memberGroupsData.append(GroupViewModel(group: group, cellSize: CGSize(width: view.frame.width, height: 165)))
         }
@@ -457,3 +457,8 @@ extension MemberViewController {
     }
 }
 
+extension MemberViewController: CellBackDelegate {
+    func goBack() {
+        self.navigationController?.popViewController(animated: true)
+    }
+}

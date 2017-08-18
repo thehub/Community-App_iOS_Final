@@ -12,10 +12,12 @@ class BigTitleTopViewModel: CellRepresentable {
     
     static var cellIdentifier = "BigTitleTopCell"
 
+    var cellBackDelegate: CellBackDelegate?
     
     var event: Event
     
-    init(event: Event, cellSize: CGSize) {
+    init(event: Event, cellBackDelegate: CellBackDelegate, cellSize: CGSize) {
+        self.cellBackDelegate = cellBackDelegate
         self.event = event
         self.cellSize = cellSize
     }

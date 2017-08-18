@@ -831,10 +831,10 @@
 				850B70311EFC0F6D00596315 /* EventCollectionViewCell.swift */,
 				850B70321EFC0F6D00596315 /* EventCollectionViewCell.xib */,
 				8516550E1EFD326400002786 /* EventViewController.swift */,
+				85AD649A1F00FE2700F2CCA8 /* BigTitleTopCell.swift */,
+				85AD648E1F00FC9800F2CCA8 /* BigTitleTopCell.xib */,
 				851655121EFD326F00002786 /* EventDetailCell.swift */,
 				851655131EFD326F00002786 /* EventDetailCell.xib */,
-				85AD648E1F00FC9800F2CCA8 /* BigTitleTopCell.xib */,
-				85AD649A1F00FE2700F2CCA8 /* BigTitleTopCell.swift */,
 			);
 			name = Events;
 			sourceTree = "<group>";

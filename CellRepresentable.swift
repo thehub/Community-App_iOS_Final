@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol CellBackDelegate: class {
+    func goBack()
+}
+
 protocol CellRepresentable {
     var cellSize: CGSize { get set }
     func cellInstance(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell

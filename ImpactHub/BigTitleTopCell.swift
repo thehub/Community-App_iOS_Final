@@ -9,8 +9,12 @@
 import UIKit
 
 
+
+
 class BigTitleTopCell: UICollectionViewCell {
 
+    weak var cellBackDelegate: CellBackDelegate?
+    
     @IBOutlet weak var nameLabel: UILabel!
     
     override func awakeFromNib() {
@@ -19,7 +23,11 @@ class BigTitleTopCell: UICollectionViewCell {
     }
 
     func setUp(vm: BigTitleTopViewModel) {
+        self.cellBackDelegate = vm.cellBackDelegate
         nameLabel.attributedText = NSAttributedString.init(string: vm.event.name)
     }
     
+    @IBAction func backTap(_ sender: Any) {
+        self.cellBackDelegate?.goBack()
+    }
 }
