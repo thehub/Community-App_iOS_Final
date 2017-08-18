@@ -10,22 +10,22 @@ PODS:
   - CocoaLumberjack/Extensions (2.4.0):
     - CocoaLumberjack/Default
   - DeckTransition (1.0.1)
-  - Kingfisher (3.10.4)
+  - Kingfisher (3.11.0)
   - Lock (2.3.1):
     - Auth0 (~> 1.6)
     - Lock/Classic (= 2.3.1)
   - Lock/Classic (2.3.1):
     - Auth0 (~> 1.6)
-  - PromiseKit (4.3.1):
-    - PromiseKit/Foundation (= 4.3.1)
-    - PromiseKit/QuartzCore (= 4.3.1)
-    - PromiseKit/UIKit (= 4.3.1)
-  - PromiseKit/CorePromise (4.3.1)
-  - PromiseKit/Foundation (4.3.1):
+  - PromiseKit (4.3.2):
+    - PromiseKit/Foundation (= 4.3.2)
+    - PromiseKit/QuartzCore (= 4.3.2)
+    - PromiseKit/UIKit (= 4.3.2)
+  - PromiseKit/CorePromise (4.3.2)
+  - PromiseKit/Foundation (4.3.2):
     - PromiseKit/CorePromise
-  - PromiseKit/QuartzCore (4.3.1):
+  - PromiseKit/QuartzCore (4.3.2):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (4.3.1):
+  - PromiseKit/UIKit (4.3.2):
     - PromiseKit/CorePromise
   - ReverseExtension (0.4.8)
   - SalesforceAnalytics (5.2.0):
@@ -66,9 +66,9 @@ SPEC CHECKSUMS:
   Auth0: b23f0d9f45bdcd70652f5427d3411519d79ddaa1
   CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
   DeckTransition: 5955be19b166bea45a7f22d845283fde807859ac
-  Kingfisher: dc3a4983e86d2dfa89513664983a82340c11a289
+  Kingfisher: c8911a7672c6217dec8c0520fb6e76ec4b7e0780
   Lock: ff300a4039e2191bc1b2a29f6ed956412c252ffd
-  PromiseKit: 25a114b90b932ec8169b5736bd0881fe0efa93b5
+  PromiseKit: 32430ae679605b17c15d6193679cae7bf60147f7
   ReverseExtension: 78dcc8414c4efb6115d787694649d9f4f020324a
   SalesforceAnalytics: 55e84cd47da19a78655b4192ee6c4f5e47572c47
   SalesforceSDKCore: f3de02ab7d6a8c0411dfc1e660bed79ae6f9b7d7

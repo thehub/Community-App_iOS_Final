@@ -126,7 +126,7 @@ class CompanyViewController: ListFullBleedViewController {
         topMenu?.setupWithItems(["About", "Projects", "Members"])
         
         // About
-        aboutData.append(CompanyDetailTopViewModel(company: company, cellSize: .zero)) // this will pick the full height instead
+        aboutData.append(CompanyDetailTopViewModel(company: company, cellBackDelegate: self, cellSize: .zero)) // this will pick the full height instead
         aboutData.append(TitleViewModel(title: "ABOUT", cellSize: CGSize(width: view.frame.width, height: 60)))
         aboutData.append(CompanyAboutViewModel(company: company, cellSize: CGSize(width: view.frame.width, height: 0)))
 
@@ -148,13 +148,13 @@ class CompanyViewController: ListFullBleedViewController {
         self.data = aboutData
         
         // Projects
-        projectsData.append(CompanyDetailTopViewModel(company: company, cellSize: .zero)) // this will pick the full height instead
+        projectsData.append(CompanyDetailTopViewModel(company: company, cellBackDelegate: self, cellSize: .zero)) // this will pick the full height instead
         projects.forEach { (project) in
             projectsData.append(ProjectViewModel(project: project, cellSize: CGSize(width: view.frame.width, height: 370)))
         }
         
         // Members
-        membersData.append(CompanyDetailTopViewModel(company: company, cellSize: .zero)) // this will pick the full height instead
+        membersData.append(CompanyDetailTopViewModel(company: company, cellBackDelegate: self, cellSize: .zero)) // this will pick the full height instead
         membersData.append(TitleViewModel(title: "", cellSize: CGSize(width: view.frame.width, height: 70)))
         members.forEach { (member) in
             member.contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
@@ -356,5 +356,12 @@ extension CompanyViewController {
         return nil
     }
 }
+
+extension CompanyViewController: CellBackDelegate {
+    func goBack() {
+        self.navigationController?.popViewController(animated: true)
+    }
+}
+
 
 

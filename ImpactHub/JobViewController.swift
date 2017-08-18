@@ -314,3 +314,10 @@ extension JobViewController {
     }
 }
 
+extension JobViewController: CellBackDelegate {
+    func goBack() {
+        self.navigationController?.popViewController(animated: true)
+    }
+}
+
+

@@ -137,6 +137,10 @@ class CompanyDetailTopCell: UICollectionViewCell {
         }
     }
     
+    @IBAction func backTap(_ sender: Any) {
+        self.vm.cellBackDelegate?.goBack()
+        
+    }
     
 }
 

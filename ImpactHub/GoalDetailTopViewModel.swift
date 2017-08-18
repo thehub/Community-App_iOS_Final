@@ -12,9 +12,12 @@ class GoalDetailTopViewModel: CellRepresentable {
     
     static var cellIdentifier = "GoalDetailTopCell"
     
+    var cellBackDelegate: CellBackDelegate?
+
     var goal: Goal
     
-    init(goal: Goal, cellSize: CGSize) {
+    init(goal: Goal, cellBackDelegate: CellBackDelegate, cellSize: CGSize) {
+        self.cellBackDelegate = cellBackDelegate
         self.goal = goal
         self.cellSize = cellSize
     }

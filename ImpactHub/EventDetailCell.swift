@@ -97,7 +97,9 @@ class EventDetailCell: UICollectionViewCell, MKMapViewDelegate {
 
         let addressDict = [
             CNPostalAddressCityKey : self.vm?.event.city,
-            CNPostalAddressCountryKey : self.vm?.event.country
+            CNPostalAddressCountryKey : self.vm?.event.country,
+            CNPostalAddressPostalCodeKey : self.vm?.event.postCode,
+            CNPostalAddressLocalizedPropertyNameAttribute : self.vm?.event.street
             ]
         
         let placeMark = MKPlacemark(coordinate: location, addressDictionary: addressDict)

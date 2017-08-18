@@ -45,7 +45,7 @@ class GroupViewController: ListFullBleedViewController {
         collectionView.register(UINib.init(nibName: TitleViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: TitleViewModel.cellIdentifier)
         collectionView.register(UINib.init(nibName: GroupViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: GroupViewModel.cellIdentifier)
         
-        data.append(GroupDetailTopViewModel(group: group, cellSize: .zero)) // this will pick the full height instead
+        data.append(GroupDetailTopViewModel(group: group, cellBackDelegate: self, cellSize: .zero)) // this will pick the full height instead
         data.append(TitleViewModel(title: "DISCUSSION", cellSize: CGSize(width: view.frame.width, height: 70)))
         // Posts starts from this postion, so when adding new they are inserted here in delegate indexPathToInsertNewPostsAt
         let countBefore = indexPathToInsertNewPostsAt.item
@@ -253,5 +253,12 @@ extension GroupViewController: MemberFeedItemDelegate {
         }
     }
 }
+
+extension GroupViewController: CellBackDelegate {
+    func goBack() {
+        self.navigationController?.popViewController(animated: true)
+    }
+}
+
 
 

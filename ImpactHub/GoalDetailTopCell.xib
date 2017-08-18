@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -39,13 +39,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzG-7F-c8e">
                                 <rect key="frame" x="30" y="169.5" width="250" height="38"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Medium" family="GT Walsheim" pointSize="32.5"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXE-ip-ZY6">
                                 <rect key="frame" x="30" y="219.5" width="250" height="20.5"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="17.5"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -60,6 +60,17 @@
                             <constraint firstAttribute="trailing" secondItem="XXE-ip-ZY6" secondAttribute="trailing" constant="20" id="qHq-yG-4uZ"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Km-il-rkg">
+                        <rect key="frame" x="0.0" y="5" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="gCg-M0-S84"/>
+                            <constraint firstAttribute="width" constant="35" id="uKx-IL-BxX"/>
+                        </constraints>
+                        <state key="normal" image="arrowBackWhite"/>
+                        <connections>
+                            <action selector="backTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="K2c-aG-wLF"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <constraints>
@@ -69,8 +80,10 @@
                 <constraint firstAttribute="bottom" secondItem="s40-UQ-UEf" secondAttribute="bottom" id="Awu-po-yew"/>
                 <constraint firstAttribute="trailing" secondItem="lH2-y5-Nlr" secondAttribute="trailing" id="Sb7-RG-9vB"/>
                 <constraint firstAttribute="bottom" secondItem="dXn-81-vkg" secondAttribute="bottom" constant="50" id="Sbs-ei-Mul"/>
+                <constraint firstItem="8Km-il-rkg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="aws-Ym-T3I"/>
                 <constraint firstItem="dXn-81-vkg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="30" id="bop-ra-Jlj"/>
                 <constraint firstItem="s40-UQ-UEf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fkZ-B0-UgM"/>
+                <constraint firstItem="8Km-il-rkg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="l7W-sX-LSD"/>
                 <constraint firstItem="lH2-y5-Nlr" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="sIz-wA-3hW"/>
             </constraints>
             <connections>
@@ -84,6 +97,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="arrowBackWhite" width="10" height="15"/>
         <image name="arrowDownWhite" width="17" height="10"/>
     </resources>
 </document>

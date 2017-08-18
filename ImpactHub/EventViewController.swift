@@ -156,7 +156,10 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         if let vm = data[indexPath.item] as? EventDetailViewModel {
             let cellWidth: CGFloat = self.collectionView.frame.width - 40 - 145
-            let height = vm.event.description.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 180 // add extra height for the standard elements, titles, lines, sapcing etc.
+            var height = vm.event.description.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 180 // add extra height for the standard elements, titles, lines, sapcing etc.
+            if height < 300 {
+                height += 170
+            }
             return CGSize(width: view.frame.width, height: height)
         }
         
@@ -195,6 +198,7 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
         }
 
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if segue.identifier == "ShowProject" {

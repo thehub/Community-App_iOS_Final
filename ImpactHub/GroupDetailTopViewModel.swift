@@ -12,9 +12,12 @@ class GroupDetailTopViewModel: CellRepresentable {
     
     static var cellIdentifier = "GroupDetailTopCell"
     
+    var cellBackDelegate: CellBackDelegate?
+
     var group: Group
     
-    init(group: Group, cellSize: CGSize) {
+    init(group: Group, cellBackDelegate: CellBackDelegate, cellSize: CGSize) {
+        self.cellBackDelegate = cellBackDelegate
         self.group = group
         self.cellSize = cellSize
     }

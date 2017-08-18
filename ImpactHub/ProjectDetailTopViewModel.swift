@@ -13,8 +13,11 @@ class ProjectDetailTopViewModel: CellRepresentable {
     static var cellIdentifier = "ProjectDetailTopCell"
     
     var project: Project
+    var cellBackDelegate: CellBackDelegate?
+
     
-    init(project: Project, cellSize: CGSize) {
+    init(project: Project, cellBackDelegate: CellBackDelegate, cellSize: CGSize) {
+        self.cellBackDelegate = cellBackDelegate
         self.project = project
         self.cellSize = cellSize
     }

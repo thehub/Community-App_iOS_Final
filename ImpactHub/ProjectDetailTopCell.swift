@@ -18,6 +18,8 @@ class ProjectDetailTopCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var jobLabel: UILabel!
     
+    var vm: ProjectDetailTopViewModel?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -38,6 +40,7 @@ class ProjectDetailTopCell: UICollectionViewCell {
     }
 
     func setup(vm: ProjectDetailTopViewModel) {
+        self.vm = vm
         nameLabel.text = vm.project.name
         jobLabel.text = "by \(vm.project.companyName ?? "")"
         profileImageView.kf.setImage(with: vm.project.photoUrl)
@@ -55,5 +58,8 @@ class ProjectDetailTopCell: UICollectionViewCell {
         }
     }
 
+    @IBAction func backTap(_ sender: Any) {
+        self.vm?.cellBackDelegate?.goBack()
+    }
     
 }

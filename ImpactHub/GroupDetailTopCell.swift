@@ -17,6 +17,8 @@ class GroupDetailTopCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var jobLabel: UILabel!
     
+    var vm: GroupDetailTopViewModel?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.clipsToBounds = false
@@ -35,6 +37,7 @@ class GroupDetailTopCell: UICollectionViewCell {
     }
 
     func setup(vm: GroupDetailTopViewModel) {
+        self.vm = vm
         nameLabel.text = vm.group.name
         jobLabel.text = vm.group.description ?? ""
         if let photoUrl = vm.group.photoUrl {
@@ -53,6 +56,9 @@ class GroupDetailTopCell: UICollectionViewCell {
         }
     }
     
+    @IBAction func backTap(_ sender: Any) {
+        self.vm?.cellBackDelegate?.goBack()
+    }
     
     
 }

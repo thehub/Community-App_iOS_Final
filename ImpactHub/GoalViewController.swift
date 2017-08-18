@@ -41,7 +41,7 @@ class GoalViewController: ListFullBleedViewController {
         }
         
         // Feed
-        aboutData.append(GoalDetailTopViewModel(goal: goal, cellSize: .zero)) // this will pick the full height instead
+        aboutData.append(GoalDetailTopViewModel(goal: goal, cellBackDelegate: self, cellSize: .zero)) // this will pick the full height instead
         aboutData.append(GoalAboutItemViewModel(goal: goal, cellSize: CGSize(width: view.frame.width, height: 0)))
         self.data = aboutData
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -71,14 +71,14 @@ class GoalViewController: ListFullBleedViewController {
         }
         
         // Groups
-        groupsData.append(GoalDetailTopViewModel(goal: goal, cellSize: .zero)) // this will pick the full height instead
+        groupsData.append(GoalDetailTopViewModel(goal: goal, cellBackDelegate: self, cellSize: .zero)) // this will pick the full height instead
         groupsData.append(TitleViewModel(title: "", cellSize: CGSize(width: view.frame.width, height: 40)))
         groups.forEach { (group) in
             groupsData.append(GroupViewModel(group: group, cellSize: CGSize(width: view.frame.width, height: 165)))
         }
 
         // Members
-        membersData.append(GoalDetailTopViewModel(goal: goal, cellSize: .zero)) // this will pick the full height instead
+        membersData.append(GoalDetailTopViewModel(goal: goal, cellBackDelegate: self, cellSize: .zero)) // this will pick the full height instead
         membersData.append(TitleViewModel(title: "", cellSize: CGSize(width: view.frame.width, height: 40)))
         members.forEach { (member) in
             member.contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
@@ -234,6 +234,12 @@ extension GoalViewController {
         }
         
         return nil
+    }
+}
+
+extension GoalViewController: CellBackDelegate {
+    func goBack() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

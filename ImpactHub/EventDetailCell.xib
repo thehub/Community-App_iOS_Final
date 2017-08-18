@@ -205,6 +205,7 @@
                 <constraint firstItem="Lu3-WD-dk6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="KyW-TU-M6f"/>
                 <constraint firstAttribute="trailing" secondItem="W9n-Hz-g9l" secondAttribute="trailing" constant="20" id="NUj-b5-2KE"/>
                 <constraint firstItem="W9n-Hz-g9l" firstAttribute="leading" secondItem="Lu3-WD-dk6" secondAttribute="trailing" constant="25" id="X85-je-HtP"/>
+                <constraint firstItem="Gca-uB-bx9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Lu3-WD-dk6" secondAttribute="bottom" constant="20" id="cKl-JR-lTE"/>
                 <constraint firstItem="Lu3-WD-dk6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="f66-PR-MBP"/>
                 <constraint firstAttribute="bottom" secondItem="Gca-uB-bx9" secondAttribute="bottom" id="x3V-uz-s3c"/>
                 <constraint firstAttribute="trailing" secondItem="Gca-uB-bx9" secondAttribute="trailing" constant="20" id="ydV-Pm-9OO"/>

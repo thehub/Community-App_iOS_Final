@@ -18,6 +18,8 @@ class GoalDetailTopCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var jobLabel: UILabel!
     
+    var vm: GoalDetailTopViewModel?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -41,6 +43,7 @@ class GoalDetailTopCell: UICollectionViewCell {
 
     
     func setup(vm: GoalDetailTopViewModel) {
+        self.vm = vm
         nameLabel.text = vm.goal.name
         jobLabel.text = vm.goal.summary
         if let photoUrl = vm.goal.photoUrl {
@@ -61,5 +64,8 @@ class GoalDetailTopCell: UICollectionViewCell {
         }
     }
 
+    @IBAction func backTap(_ sender: Any) {
+        self.vm?.cellBackDelegate?.goBack()
+    }
     
 }

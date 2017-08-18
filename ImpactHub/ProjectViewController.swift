@@ -43,23 +43,23 @@ class ProjectViewController: ListFullBleedViewController {
         topMenu?.setupWithItems(["FEED", "OBJECTIVES", "MEMBERS", "JOBS"])
 
         // Feed
-        projectFeedData.append(ProjectDetailTopViewModel(project: project, cellSize: .zero)) // this will pick the full height instead
+        projectFeedData.append(ProjectDetailTopViewModel(project: project, cellBackDelegate: self, cellSize: .zero)) // this will pick the full height instead
         projectFeedData.append(TitleViewModel(title: "DISCUSSIONS", cellSize: CGSize(width: view.frame.width, height: 70)))
         self.data = self.projectFeedData // let it show these items while loading the rest
 
         // Objectives
-        projectsObjectivesData.append(ProjectDetailTopViewModel(project: project, cellSize: .zero)) // this will pick the full height instead
+        projectsObjectivesData.append(ProjectDetailTopViewModel(project: project, cellBackDelegate: self, cellSize: .zero)) // this will pick the full height instead
         projectsObjectivesData.append(TitleViewModel(title: "GOALS", cellSize: CGSize(width: view.frame.width, height: 70)))
 
         // Members
-        projectsMembersData.append(ProjectDetailTopViewModel(project: project, cellSize: .zero)) // this will pick the full height instead
+        projectsMembersData.append(ProjectDetailTopViewModel(project: project, cellBackDelegate: self, cellSize: .zero)) // this will pick the full height instead
         projectsMembersData.append(TitleViewModel(title: "", cellSize: CGSize(width: view.frame.width, height: 70)))
 
         
         let cellWidth: CGFloat = self.view.frame.width
         
         // Jobs
-        projectsJobsData.append(ProjectDetailTopViewModel(project: project, cellSize: .zero)) // this will pick the full height instead
+        projectsJobsData.append(ProjectDetailTopViewModel(project: project, cellBackDelegate: self, cellSize: .zero)) // this will pick the full height instead
         projectsJobsData.append(TitleViewModel(title: "JOBS FOR THIS PROJECT", cellSize: CGSize(width: view.frame.width, height: 70)))
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -346,4 +346,11 @@ extension ProjectViewController: MemberFeedItemDelegate {
         }
     }
 }
+
+extension ProjectViewController: CellBackDelegate {
+    func goBack() {
+        self.navigationController?.popViewController(animated: true)
+    }
+}
+
 
