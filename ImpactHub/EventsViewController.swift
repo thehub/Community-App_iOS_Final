@@ -38,16 +38,12 @@ class EventsViewController: ListWithSearchViewController {
                 })
                 
 //                // Create filters
-//                FilterManager.shared.clearPreviousFilters()
+                FilterManager.shared.clearPreviousFilters()
 //                // Create a Set of the existing tags per grouping
 //                // Cities
-//                FilterManager.shared.addFilters(fromTags: Set(jobs.flatMap({$0.locationName}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .city)
+                FilterManager.shared.addFilters(fromTags: Set(events.flatMap({$0.city}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .city)
 //                // Sector
-//                FilterManager.shared.addFilters(fromTags: Set(jobs.flatMap({$0.sector}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sector)
-//                // SDG goals
-//                FilterManager.shared.addFilters(fromTags: Set(jobs.flatMap({$0.relatedSDGs}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sdg)
-//                // Job Type
-//                FilterManager.shared.addFilters(fromTags: Set(jobs.flatMap({$0.type}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .jobType)
+                FilterManager.shared.addFilters(fromTags: Set(events.flatMap({$0.sector}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sector)
               
             }.then {
                 APIClient.shared.getEventsAttending(contactId: SessionManager.shared.me?.member.contactId ?? "")
@@ -79,29 +75,49 @@ class EventsViewController: ListWithSearchViewController {
     }
     
     override func filterData(dataToFilter: [CellRepresentable]) -> [CellRepresentable] {
+        var filteredData = dataToFilter
+        
         // City
-        //        if filters.filter({$0.grouping == .city}).count > 0  {
-        //            let filteredData = dataToFilter.filter { (cellVM) -> Bool in
-        //                if let cellVM = cellVM as? MemberViewModel {
-        //                    var matchedCity = false
-        //                    for filter in self.filters {
-        //                        if filter.grouping == .city {
-        //                            if cellVM.member.locationName.lowercased() == filter.name.lowercased() {
-        //                                matchedCity = true
-        //                            }
-        //                        }
-        //                    }
-        //                    return matchedCity
-        //                }
-        //                else {
-        //                    return false
-        //                }
-        //            }
-        //            return filteredData
-        //        }
-        //        else {
-        return dataToFilter
-        //        }
+        if filters.filter({$0.grouping == .city}).count > 0  {
+            filteredData = filteredData.filter { (cellVM) -> Bool in
+                if let cellVM = cellVM as? EventViewModel {
+                    var matched = false
+                    for filter in self.filters {
+                        if filter.grouping == .city {
+                            if cellVM.event.city.lowercased().contains(filter.name.lowercased()) {
+                                matched = true
+                            }
+                        }
+                    }
+                    return matched
+                }
+                else {
+                    return false
+                }
+            }
+        }
+        
+        // Sector
+        if filters.filter({$0.grouping == .sector}).count > 0  {
+            filteredData = filteredData.filter { (cellVM) -> Bool in
+                if let cellVM = cellVM as? EventViewModel {
+                    var matched = false
+                    for filter in self.filters {
+                        if filter.grouping == .sector {
+                            if cellVM.event.sector.lowercased().contains(filter.name.lowercased()){
+                                matched = true
+                            }
+                        }
+                    }
+                    return matched
+                }
+                else {
+                    return false
+                }
+            }
+        }
+        
+        return filteredData
     }
     
     var selectedVM: EventViewModel?
@@ -154,7 +170,8 @@ class EventsViewController: ListWithSearchViewController {
             if let vm = item as? EventViewModel {
                 let locationName = vm.event.city
                 let description = vm.event.description
-                return vm.event.name.lowercased().contains(searchText.lowercased()) || locationName.contains(searchText.lowercased()) || description.lowercased().contains(searchText.lowercased())
+                let result = vm.event.name.lowercased().contains(searchText.lowercased()) || locationName.lowercased().contains(searchText.lowercased()) || description.lowercased().contains(searchText.lowercased())
+                return result
             }
             else {
                 return false

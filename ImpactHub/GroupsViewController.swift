@@ -207,7 +207,7 @@ class GroupsViewController: ListWithSearchViewController {
             if let vm = item as? GroupViewModel {
                 let locationName = vm.group.locationName ?? ""
                 let description = vm.group.description ?? ""
-                return vm.group.name.lowercased().contains(searchText.lowercased()) || locationName.contains(searchText.lowercased()) || description.lowercased().contains(searchText.lowercased())
+                return vm.group.name.lowercased().contains(searchText.lowercased()) || locationName.lowercased().contains(searchText.lowercased()) || description.lowercased().contains(searchText.lowercased())
             }
             else {
                 return false
