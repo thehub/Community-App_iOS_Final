@@ -360,6 +360,25 @@ class APIClient {
         }
     }
     
+    func getGroupsYouManage(contactId: String) -> Promise<[Group]> {
+        return Promise { fullfill, reject in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.GROUP) FROM Directory__c WHERE Directory_Style__c = 'Group' AND id IN (SELECT DirectoryID__c FROM Directory_Member__c WHERE Member_Role__c = 'Manager' AND ContactID__c ='\(contactId)')", fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                debugPrint(result)
+                let jsonResult = JSON(result!)
+                if let records = jsonResult["records"].array {
+                    let items = records.flatMap { Group(json: $0) }
+                    fullfill(items)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
     // When a push comes if for a comment, we don't know if it's on a project or a group, so incude this in the query, then return a tuple ith only one of them set
     func getGroupOrProject(chatterGroupId: String) -> Promise<(group: Group?, project: Project?)> {
         return Promise { fullfill, reject in

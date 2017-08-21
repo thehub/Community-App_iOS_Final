@@ -36,7 +36,6 @@ class GroupsViewController: ListWithSearchViewController {
                 items.forEach({ (group) in
                     self.dataAll.append(GroupViewModel(group: group, cellSize: CGSize(width: self.view.frame.width, height: 170)))
                 })
-                
                 // Create filters
                 FilterManager.shared.clearPreviousFilters()
                 // Create a Set of the existing tags per grouping
@@ -54,7 +53,14 @@ class GroupsViewController: ListWithSearchViewController {
                     let viewModel = GroupViewModel(group: group, cellSize: CGSize(width: cellWidth, height: 370))
                     self.yourGroupsData.append(viewModel)
                 })
-                // TODO: Filter out Groups you manage?
+            }.then {_ in
+                APIClient.shared.getGroupsYouManage(contactId: SessionManager.shared.me?.member.contactId ?? "")
+            }.then { manageGroups -> Void in
+                let cellWidth: CGFloat = self.view.frame.width
+                manageGroups.forEach({ (group) in
+                    let viewModel = GroupViewModel(group: group, cellSize: CGSize(width: cellWidth, height: 370))
+                    self.groupsYouManageData.append(viewModel)
+                })
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.data = self.filterData(dataToFilter: self.dataAll)
