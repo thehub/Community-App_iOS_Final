@@ -152,11 +152,11 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="2bZ-fJ-eEc">
-                                                            <rect key="frame" x="299.5" y="8" width="67.5" height="49"/>
+                                                            <rect key="frame" x="295.5" y="8" width="71.5" height="51"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LzS-qu-Anb">
-                                                                    <rect key="frame" x="16" y="16" width="35.5" height="17"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <rect key="frame" x="16" y="16" width="39.5" height="19"/>
+                                                                    <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="16"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -240,8 +240,8 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ar-2R-YUD">
-                                                            <rect key="frame" x="338" y="11" width="27" height="12"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                            <rect key="frame" x="340.5" y="11" width="24.5" height="12"/>
+                                                            <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="10"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -264,8 +264,8 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQV-Jc-dkP">
-                                                            <rect key="frame" x="10" y="11" width="27" height="12"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                            <rect key="frame" x="10" y="11" width="24.5" height="12"/>
+                                                            <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="10"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
