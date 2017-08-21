@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -145,11 +145,23 @@
                             <constraint firstAttribute="height" constant="18" id="irl-kT-RWD"/>
                         </constraints>
                     </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SIS-u8-qXo">
+                        <rect key="frame" x="9" y="78" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="b2c-rU-S00"/>
+                            <constraint firstAttribute="width" constant="40" id="uLC-gH-ytf"/>
+                        </constraints>
+                        <state key="normal" image="flagIcon"/>
+                        <connections>
+                            <action selector="onTapReport:" destination="gTV-IL-0wX" eventType="touchUpInside" id="uX3-uB-axo"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="wEw-vF-pdq" firstAttribute="top" secondItem="Dlf-0p-AmF" secondAttribute="bottom" constant="8" id="75H-hK-T6b"/>
                 <constraint firstItem="R2a-Xb-LpF" firstAttribute="leading" secondItem="MYM-OF-VM2" secondAttribute="trailing" constant="8" id="9Lf-JF-OdW"/>
+                <constraint firstItem="SIS-u8-qXo" firstAttribute="leading" secondItem="aml-r8-SVM" secondAttribute="leading" constant="-11" id="DaD-VC-AGu"/>
                 <constraint firstAttribute="trailing" secondItem="rba-6n-oaI" secondAttribute="trailing" constant="30" id="GrJ-tV-mTP"/>
                 <constraint firstItem="aml-r8-SVM" firstAttribute="centerX" secondItem="MYM-OF-VM2" secondAttribute="centerX" id="Pvi-my-HWe"/>
                 <constraint firstItem="aml-r8-SVM" firstAttribute="width" secondItem="MYM-OF-VM2" secondAttribute="width" id="QDG-8K-8va"/>
@@ -162,6 +174,7 @@
                 <constraint firstItem="Dlf-0p-AmF" firstAttribute="leading" secondItem="R2a-Xb-LpF" secondAttribute="leading" id="d6Y-W9-047"/>
                 <constraint firstItem="MYM-OF-VM2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="dGq-Lv-NG6"/>
                 <constraint firstItem="eUX-aQ-svK" firstAttribute="top" secondItem="R2a-Xb-LpF" secondAttribute="top" id="eho-QF-6c9"/>
+                <constraint firstItem="SIS-u8-qXo" firstAttribute="bottom" secondItem="rba-6n-oaI" secondAttribute="bottom" constant="13" id="krS-a0-CgT"/>
                 <constraint firstItem="MYM-OF-VM2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="ord-vL-IFC"/>
                 <constraint firstItem="wEw-vF-pdq" firstAttribute="leading" secondItem="Dlf-0p-AmF" secondAttribute="leading" constant="-6" id="sYq-rm-ekt"/>
                 <constraint firstItem="eUX-aQ-svK" firstAttribute="width" secondItem="R2a-Xb-LpF" secondAttribute="width" id="vs0-W4-NV3"/>
@@ -185,6 +198,7 @@
     </objects>
     <resources>
         <image name="commentGrey" width="13" height="13"/>
+        <image name="flagIcon" width="14" height="14"/>
         <image name="likeRed" width="14" height="12"/>
     </resources>
 </document>

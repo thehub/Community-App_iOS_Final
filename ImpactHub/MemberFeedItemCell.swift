@@ -185,35 +185,58 @@ class MemberFeedItemCell: UICollectionViewCell, UITextViewDelegate {
     }
 
     @IBAction func onTapReport(_ sender: Any) {
-//        var idToReport = ""
-//        if let id = vm?.post.id {
-//            idToReport = id
-//        }
-//        else if let id = vm?.comment.id {
-//            idToReport = id
-//        }
+        
+        let alertController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+            //cancel code
+        }
+        let reportAction: UIAlertAction = UIAlertAction(title: "Report Abuse", style: .destructive) { action -> Void in
+            self.doReport()
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(reportAction)
+        
+        UIApplication.shared.windows.first?.rootViewController?.present(alertController, animated: true, completion: nil)
+    }
+
+    
+    func doReport() {
+        var idToReport = ""
+        var textToReport = ""
+        if let id = vm?.post.id {
+            idToReport = id
+            textToReport = vm?.post.text ?? ""
+        }
+        else if let id = vm?.comment?.id {
+            idToReport = id
+            textToReport = vm?.comment?.body ?? ""
+        }
         
         firstly {
-            APIClient.shared.reportAbuse(fromUserId:SessionManager.shared.me?.member.userId ?? "", postId:vm?.post.id ?? "", message: vm?.post.text ?? "")
+            APIClient.shared.reportAbuse(fromUserId:SessionManager.shared.me?.member.userId ?? "", postId:idToReport, message: textToReport)
             }.then { myLikeId -> Void in
                 print(myLikeId)
             }.always {
                 self.inTransit = false
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                if #available(iOS 10.0, *) {
+                    self.generatorNotification.notificationOccurred(.success)
+                    let alert = UIAlertController(title: "Reported", message: "Thanks for reporting this post.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+                }
+
             }.catch { error in
                 debugPrint(error.localizedDescription)
-                if #available(iOS 10.0, *) {
-                    self.generatorNotification.notificationOccurred(.error)
-                }
-                let alert = UIAlertController(title: "Error", message: "Could not send report. Please try again.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+//                if #available(iOS 10.0, *) {
+//                    self.generatorNotification.notificationOccurred(.error)
+//                }
+//                let alert = UIAlertController(title: "Error", message: "Could not send report. Please try again.", preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//                UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
         }
-
-        
         
     }
-    
     
     
     var vm: MemberFeedItemViewModel?
