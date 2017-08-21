@@ -413,8 +413,9 @@ extension MessagesThreadViewController: UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-//        textView.text = nil
-        self.placeholderTextView.isHidden = false
+        if textView.text == nil {
+            self.placeholderTextView.isHidden = false
+        }
     }
     
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
