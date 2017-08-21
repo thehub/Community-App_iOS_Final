@@ -366,7 +366,6 @@ class APIClient {
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
-                debugPrint(result)
                 let jsonResult = JSON(result!)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Group(json: $0) }
