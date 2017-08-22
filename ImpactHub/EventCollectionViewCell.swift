@@ -51,11 +51,11 @@ class EventCollectionViewCell: UICollectionViewCell {
     let gradientLayer: CAGradientLayer = CAGradientLayer()
 
     
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-
-    
-    }
+//    override func draw(_ rect: CGRect) {
+//        super.draw(rect)
+//
+//
+//    }
     
     override func layoutSubviews() {
         super.layoutSubviews()

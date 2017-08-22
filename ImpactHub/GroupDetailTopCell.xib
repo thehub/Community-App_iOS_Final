@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -30,6 +30,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="340"/>
                         <color key="backgroundColor" red="0.83529411760000005" green="0.84313725490000002" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9eF-fZ-svq">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="340"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowDownWhite" translatesAutoresizingMaskIntoConstraints="NO" id="dXn-81-vkg">
                         <rect key="frame" x="30" y="280" width="17" height="10"/>
                     </imageView>
@@ -37,13 +41,13 @@
                         <rect key="frame" x="0.0" y="15" width="300" height="310"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzG-7F-c8e">
-                                <rect key="frame" x="30" y="169.5" width="250" height="38"/>
+                                <rect key="frame" x="30" y="164.5" width="250" height="41"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Medium" family="GT Walsheim" pointSize="32.5"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXE-ip-ZY6">
-                                <rect key="frame" x="30" y="219.5" width="250" height="20.5"/>
+                                <rect key="frame" x="30" y="217.5" width="250" height="22.5"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="17.5"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -79,16 +83,21 @@
                 <constraint firstItem="s40-UQ-UEf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8dQ-KE-y4Y"/>
                 <constraint firstItem="9SC-D4-Bz0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="AsJ-wr-mwM"/>
                 <constraint firstAttribute="bottom" secondItem="s40-UQ-UEf" secondAttribute="bottom" id="Awu-po-yew"/>
+                <constraint firstAttribute="bottom" secondItem="9eF-fZ-svq" secondAttribute="bottom" id="Q2h-un-sUg"/>
                 <constraint firstAttribute="trailing" secondItem="lH2-y5-Nlr" secondAttribute="trailing" id="Sb7-RG-9vB"/>
                 <constraint firstAttribute="bottom" secondItem="dXn-81-vkg" secondAttribute="bottom" constant="50" id="Sbs-ei-Mul"/>
                 <constraint firstItem="9SC-D4-Bz0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="YBs-aN-2jn"/>
                 <constraint firstItem="dXn-81-vkg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="30" id="bop-ra-Jlj"/>
                 <constraint firstItem="s40-UQ-UEf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fkZ-B0-UgM"/>
+                <constraint firstAttribute="trailing" secondItem="9eF-fZ-svq" secondAttribute="trailing" id="hbU-hK-gr1"/>
                 <constraint firstItem="lH2-y5-Nlr" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="sIz-wA-3hW"/>
+                <constraint firstItem="9eF-fZ-svq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="uSb-mX-Hfc"/>
+                <constraint firstItem="9eF-fZ-svq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uWi-Nl-s8F"/>
             </constraints>
             <connections>
                 <outlet property="arrowImage" destination="dXn-81-vkg" id="YD7-FX-OAm"/>
                 <outlet property="containerView" destination="lH2-y5-Nlr" id="5OI-TF-fuX"/>
+                <outlet property="fadeView" destination="9eF-fZ-svq" id="5Bf-2T-uRp"/>
                 <outlet property="imageViewTopConstraint" destination="8dQ-KE-y4Y" id="JvD-15-e97"/>
                 <outlet property="jobLabel" destination="XXE-ip-ZY6" id="mZr-yu-KUG"/>
                 <outlet property="nameLabel" destination="pzG-7F-c8e" id="0ej-Fr-sDK"/>

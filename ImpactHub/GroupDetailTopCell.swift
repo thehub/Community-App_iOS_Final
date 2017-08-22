@@ -60,5 +60,23 @@ class GroupDetailTopCell: UICollectionViewCell {
         self.vm?.cellBackDelegate?.goBack()
     }
     
+    @IBOutlet weak var fadeView: UIView!
+    let gradientLayer: CAGradientLayer = CAGradientLayer()
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        gradientLayer.removeFromSuperlayer()
+        let startingColorOfGradient = UIColor(hexString: "252424").withAlphaComponent(0.0).cgColor
+        let midColor = UIColor(hexString: "181818").withAlphaComponent(0.66).cgColor
+        let endingColorOFGradient = UIColor(hexString: "252424").withAlphaComponent(1.0).cgColor
+        gradientLayer.frame = self.fadeView.layer.bounds
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y:1.0)
+        gradientLayer.locations = [NSNumber.init(value: 0.0), NSNumber.init(value: 0.8), NSNumber.init(value: 1.0)]
+        gradientLayer.colors = [startingColorOfGradient, midColor, endingColorOFGradient]
+        fadeView.layer.insertSublayer(gradientLayer, at: 0)
+        
+    }
+
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -26,10 +26,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="300" height="340"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="projectImage-1" translatesAutoresizingMaskIntoConstraints="NO" id="s40-UQ-UEf">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s40-UQ-UEf">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="340"/>
                         <color key="backgroundColor" red="0.83529411760000005" green="0.84313725490000002" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Qf-cP-SfX">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="340"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowDownWhite" translatesAutoresizingMaskIntoConstraints="NO" id="dXn-81-vkg">
                         <rect key="frame" x="30" y="280" width="17" height="10"/>
                     </imageView>
@@ -76,11 +80,15 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="s40-UQ-UEf" secondAttribute="trailing" id="2Nh-Fc-jFk"/>
                 <constraint firstItem="lH2-y5-Nlr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="42J-d9-WbN"/>
+                <constraint firstItem="4Qf-cP-SfX" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="5YS-Ey-5sf"/>
                 <constraint firstItem="s40-UQ-UEf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8dQ-KE-y4Y"/>
+                <constraint firstItem="4Qf-cP-SfX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9Ye-Nm-0Ds"/>
                 <constraint firstAttribute="bottom" secondItem="s40-UQ-UEf" secondAttribute="bottom" id="Awu-po-yew"/>
                 <constraint firstAttribute="trailing" secondItem="lH2-y5-Nlr" secondAttribute="trailing" id="Sb7-RG-9vB"/>
                 <constraint firstAttribute="bottom" secondItem="dXn-81-vkg" secondAttribute="bottom" constant="50" id="Sbs-ei-Mul"/>
+                <constraint firstAttribute="bottom" secondItem="4Qf-cP-SfX" secondAttribute="bottom" id="TSA-4S-ihH"/>
                 <constraint firstItem="dXn-81-vkg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="30" id="bop-ra-Jlj"/>
+                <constraint firstAttribute="trailing" secondItem="4Qf-cP-SfX" secondAttribute="trailing" id="eVb-B9-bs2"/>
                 <constraint firstItem="s40-UQ-UEf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fkZ-B0-UgM"/>
                 <constraint firstItem="lH2-y5-Nlr" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="sIz-wA-3hW"/>
                 <constraint firstItem="o3Z-VC-EnG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="vdR-4w-Pa8"/>
@@ -89,6 +97,7 @@
             <connections>
                 <outlet property="arrowImage" destination="dXn-81-vkg" id="gjj-bV-Wf3"/>
                 <outlet property="containerView" destination="lH2-y5-Nlr" id="5OI-TF-fuX"/>
+                <outlet property="fadeView" destination="4Qf-cP-SfX" id="nOY-fk-d3z"/>
                 <outlet property="imageViewTopConstraint" destination="8dQ-KE-y4Y" id="INU-pQ-goD"/>
                 <outlet property="jobLabel" destination="XXE-ip-ZY6" id="mZr-yu-KUG"/>
                 <outlet property="nameLabel" destination="pzG-7F-c8e" id="0ej-Fr-sDK"/>
@@ -99,6 +108,5 @@
     <resources>
         <image name="arrowBackWhite" width="10" height="15"/>
         <image name="arrowDownWhite" width="17" height="10"/>
-        <image name="projectImage-1" width="375" height="667"/>
     </resources>
 </document>
