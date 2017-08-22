@@ -27,7 +27,7 @@ class ProfileViewController: UIViewController {
         locationLabel.text = SessionManager.shared.me?.member.locationName ?? ""
         
         if let photoUrl = SessionManager.shared.me?.member.photoUrl {
-            profileImageView.kf.setImage(with: photoUrl)
+            profileImageView.kf.setImage(with: photoUrl, options: [.transition(.fade(0.2))])
         }
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
