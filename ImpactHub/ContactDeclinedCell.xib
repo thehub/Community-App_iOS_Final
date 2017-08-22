@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -26,7 +27,7 @@
                         <rect key="frame" x="17" y="0.0" width="266" height="90"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obn-32-78V">
-                                <rect key="frame" x="95" y="15" width="37" height="17.5"/>
+                                <rect key="frame" x="95" y="15" width="35.5" height="19.5"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="15"/>
                                 <color key="textColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -39,22 +40,26 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3O-XH-KGb">
-                                <rect key="frame" x="95" y="36.5" width="31" height="15"/>
+                                <rect key="frame" x="95" y="39" width="126" height="16"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12.5"/>
                                 <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J35-42-Kx3">
-                                <rect key="frame" x="114" y="56" width="31" height="15"/>
+                                <rect key="frame" x="114" y="59.5" width="29.5" height="16"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12.5"/>
                                 <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locationPinSmall" translatesAutoresizingMaskIntoConstraints="NO" id="w9K-Wp-tPX">
-                                <rect key="frame" x="95" y="55" width="11" height="17"/>
+                                <rect key="frame" x="95" y="59" width="11" height="17"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pn1-NP-xm9">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="253" verticalHuggingPriority="253" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pn1-NP-xm9">
                                 <rect key="frame" x="214" y="17" width="66" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="66" id="2Xr-K7-f1E"/>
+                                    <constraint firstAttribute="height" constant="66" id="ndq-PE-d10"/>
+                                </constraints>
                                 <state key="normal" image="contactAcceptDeclined"/>
                                 <connections>
                                     <action selector="approveTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="hzZ-RF-McR"/>
@@ -75,6 +80,7 @@
                             <constraint firstItem="A3O-XH-KGb" firstAttribute="leading" secondItem="obn-32-78V" secondAttribute="leading" id="YZT-MJ-YaG"/>
                             <constraint firstItem="obn-32-78V" firstAttribute="leading" secondItem="lul-Kl-LZ0" secondAttribute="trailing" constant="23" id="hvf-wA-2gy"/>
                             <constraint firstItem="Pn1-NP-xm9" firstAttribute="centerY" secondItem="EW1-y4-D6A" secondAttribute="centerY" constant="5" id="mzl-vd-FyI"/>
+                            <constraint firstItem="Pn1-NP-xm9" firstAttribute="leading" secondItem="A3O-XH-KGb" secondAttribute="trailing" constant="-7" id="o8H-uS-eF7"/>
                             <constraint firstAttribute="height" constant="90" id="vjI-71-Vzg"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
