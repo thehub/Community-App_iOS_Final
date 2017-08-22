@@ -155,8 +155,8 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         
         if let vm = data[indexPath.item] as? EventDetailViewModel {
-            let cellWidth: CGFloat = self.collectionView.frame.width - 40 - 145
-            var height = vm.event.description.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 180 // add extra height for the standard elements, titles, lines, sapcing etc.
+            let cellWidth: CGFloat = self.collectionView.frame.width - 40
+            var height = vm.event.description.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 280 + 20 // add extra height for the standard elements, titles, lines, sapcing etc.
             if height < 300 {
                 height += 170
             }

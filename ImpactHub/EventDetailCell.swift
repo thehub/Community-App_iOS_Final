@@ -44,15 +44,11 @@ class EventDetailCell: UICollectionViewCell, MKMapViewDelegate {
                 timeLabel.text = "\(Utils.timeFormatter.string(from: vm.event.date)) - \(Utils.timeFormatter.string(from: endDate))"
             }
         }
-        timeLabel.setLineHeight(0.75)
 
         dateLabel.text = Utils.dateFormatter.string(from: vm.event.date)
         typeLabel.text = vm.event.eventSubType
-        typeLabel.setLineHeight(0.75)
         spaceLabel.text = vm.event.eventType
-        spaceLabel.setLineHeight(0.75)
         priceLabel.text = vm.event.visibility
-        priceLabel.setLineHeight(0.75)
         
         
         let address = "\(vm.event.street), \(vm.event.postCode), \(vm.event.city), \(vm.event.country)"
@@ -83,24 +79,32 @@ class EventDetailCell: UICollectionViewCell, MKMapViewDelegate {
     var selectedItem: Member?
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        print("did select")
+        self.showMapDirections()
+    }
+    
+    @IBAction func tapLocation(_ sender: Any) {
+        self.showMapDirections()
+    }
+    
+    func showMapDirections() {
         guard let location = self.location else { return }
         
-//        let addressDict = [
-//            CNPostalAddressStreetKey : "Rambla Prim 1-17",
-//            CNPostalAddressCityKey : "Barcelona",
-//            CNPostalAddressPostalCodeKey : "08019",
-//            CNPostalAddressCountryKey : "Spain",
-//            CNPostalAddressISOCountryCodeKey : "es",
-//            CNPostalAddressLocalizedPropertyNameAttribute: "Centre de Convencions Internacional de Barcelona",
-//            ]
-
+        
+        //        let addressDict = [
+        //            CNPostalAddressStreetKey : "Rambla Prim 1-17",
+        //            CNPostalAddressCityKey : "Barcelona",
+        //            CNPostalAddressPostalCodeKey : "08019",
+        //            CNPostalAddressCountryKey : "Spain",
+        //            CNPostalAddressISOCountryCodeKey : "es",
+        //            CNPostalAddressLocalizedPropertyNameAttribute: "Centre de Convencions Internacional de Barcelona",
+        //            ]
+        
         let addressDict = [
             CNPostalAddressCityKey : self.vm?.event.city,
             CNPostalAddressCountryKey : self.vm?.event.country,
             CNPostalAddressPostalCodeKey : self.vm?.event.postCode,
             CNPostalAddressLocalizedPropertyNameAttribute : self.vm?.event.street
-            ]
+        ]
         
         let placeMark = MKPlacemark(coordinate: location, addressDictionary: addressDict)
         
@@ -110,6 +114,7 @@ class EventDetailCell: UICollectionViewCell, MKMapViewDelegate {
         let mapItem = MKMapItem(placemark: placeMark)
         let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
         mapItem.openInMaps(launchOptions: launchOptions)
+
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
