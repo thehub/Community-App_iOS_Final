@@ -135,7 +135,7 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
         gradientLayer.removeFromSuperlayer()
         let startingColorOfGradient = UIColor.init(white: 1.0, alpha: 0.0).cgColor
         let endingColorOFGradient = UIColor.init(white: 1.0, alpha: 1.0).cgColor
-        gradientLayer.frame = self.fadeView.layer.bounds
+        gradientLayer.frame = fadeView.layer.bounds
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
         gradientLayer.endPoint = CGPoint(x: 0.5, y:0.8)
         gradientLayer.colors = [startingColorOfGradient , endingColorOFGradient]

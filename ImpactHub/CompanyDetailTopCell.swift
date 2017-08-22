@@ -88,11 +88,12 @@ class CompanyDetailTopCell: UICollectionViewCell {
     
     let gradientLayer: CAGradientLayer = CAGradientLayer()
     
-    override func draw(_ rect: CGRect) {
+    override func layoutSubviews() {
+        super.layoutSubviews()
         gradientLayer.removeFromSuperlayer()
         let startingColorOfGradient = UIColor.init(white: 0.0, alpha: 0.2).cgColor
         let endingColorOFGradient = UIColor.init(white: 1.0, alpha: 1.0).cgColor
-        gradientLayer.frame = self.fadeView.layer.bounds
+        gradientLayer.frame = self.bounds
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
         gradientLayer.endPoint = CGPoint(x: 0.5, y:1.0)
         gradientLayer.colors = [startingColorOfGradient , endingColorOFGradient]
