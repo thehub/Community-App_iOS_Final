@@ -41,13 +41,13 @@
                         <rect key="frame" x="0.0" y="15" width="300" height="310"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzG-7F-c8e">
-                                <rect key="frame" x="30" y="164.5" width="250" height="41"/>
+                                <rect key="frame" x="30" y="169.5" width="250" height="38"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Medium" family="GT Walsheim" pointSize="32.5"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXE-ip-ZY6">
-                                <rect key="frame" x="30" y="217.5" width="250" height="22.5"/>
+                                <rect key="frame" x="30" y="219.5" width="250" height="20.5"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="17.5"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>

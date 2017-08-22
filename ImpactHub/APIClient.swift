@@ -568,6 +568,26 @@ class APIClient {
         }
     }
 
+    func getEventsYouManage(contactId: String) -> Promise<[Event]> {
+        return Promise { fullfill, reject in
+            // TODO: Send in pagination?
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.EVENT) FROM Event__c WHERE id in (SELECT Event__c FROM Event_Attendance__c WHERE Organiser__c = '\(contactId)'", fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.Error("Error"))
+            }) { (result) in
+                let jsonResult = JSON(result!)
+                //                debugPrint(jsonResult)
+                if let records = jsonResult["records"].array {
+                    let items = records.flatMap { Event(json: $0) }
+                    fullfill(items)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
     func getEventsAttending(contactId: String) -> Promise<[Event]> {
         return Promise { fullfill, reject in
             // TODO: Send in pagination?

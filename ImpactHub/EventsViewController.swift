@@ -44,12 +44,17 @@ class EventsViewController: ListWithSearchViewController {
                 FilterManager.shared.addFilters(fromTags: Set(events.flatMap({$0.city}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .city)
 //                // Sector
                 FilterManager.shared.addFilters(fromTags: Set(events.flatMap({$0.sector}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sector)
-              
             }.then {
                 APIClient.shared.getEventsAttending(contactId: SessionManager.shared.me?.member.contactId ?? "")
             }.then { eventsAttending -> Void in
                 eventsAttending.forEach({ (event) in
                     self.attendingData.append(EventViewModel(event: event, cellSize: CGSize(width: self.view.frame.width, height: 370)))
+                })
+            }.then {
+                APIClient.shared.getEventsYouManage(contactId: SessionManager.shared.me?.member.contactId ?? "")
+            }.then { eventsManage -> Void in
+                eventsManage.forEach({ (event) in
+                    self.hostingData.append(EventViewModel(event: event, cellSize: CGSize(width: self.view.frame.width, height: 370)))
                 })
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -66,8 +71,6 @@ class EventsViewController: ListWithSearchViewController {
             }.catch { error in
                 debugPrint(error.localizedDescription)
         }
-
-    
     }
     
     deinit {
