@@ -77,12 +77,11 @@ class CommentsViewController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         
-        if let vm = data[indexPath.item] as? MemberFeedItemViewModel, let comment = vm.comment {
+        if let vm = data[indexPath.item] as? MemberFeedItemViewModel {
             let cellWidth: CGFloat = self.collectionView.frame.width
-            let height = comment.body.height(withConstrainedWidth: cellWidth - 76, font:UIFont(name: "GTWalsheim-Light", size: 14)!) + 125 // add extra height for the standard elements, titles, lines, sapcing etc.
+            let height = vm.post.text.height(withConstrainedWidth: cellWidth - (62 + 8), font:UIFont(name: "GTWalsheim-Light", size: 14)!) + 135 // add extra height for the standard elements, titles, lines, sapcing etc.
             return CGSize(width: view.frame.width, height: height)
         }
-        
         
         var cellSize = data[indexPath.item].cellSize
         if cellSize == .zero {
@@ -145,24 +144,27 @@ extension CommentsViewController: MemberFeedItemDelegate {
     
     func tappedLink(url: URL) {
         // Get the id out, then get that record from the item.segment to check what to link to
-        if url.scheme == "mention" {
+        if url.absoluteString.contains("x-apple-data-detectors") {
+            return
+        }
+        else if url.scheme == "mention" {
             let mentionId = url.absoluteString.replacingOccurrences(of: "mention://", with: "")
             // TODO: Implement mentions here
-//            if let segment = self.item?.segments.filter({$0 is Mention }).first as? Mention {
-//                if segment.record["id"].string == mentionId {
-//                    if segment.record["type"].string == "User" {
-//                        let userId = segment.record["id"].stringValue
-//                        print(userId)
-//                        self.userIdToShow = userId
-//                        self.performSegue(withIdentifier: "ShowAuthor", sender: self)
-//                    }
-//                    else if segment.record["type"].string == "CollaborationGroup" {
-//                        let groupId = segment.record["id"].stringValue
-//                        self.groupIdToShow = groupId
-//                        self.performSegue(withIdentifier: "ShowGroup", sender: self)
-//                    }
-//                }
-//            }
+            //            if let segment = self.item?.segments.filter({$0 is Mention }).first as? Mention {
+            //                if segment.record["id"].string == mentionId {
+            //                    if segment.record["type"].string == "User" {
+            //                        let userId = segment.record["id"].stringValue
+            //                        print(userId)
+            //                        self.userIdToShow = userId
+            //                        self.performSegue(withIdentifier: "ShowAuthor", sender: self)
+            //                    }
+            //                    else if segment.record["type"].string == "CollaborationGroup" {
+            //                        let groupId = segment.record["id"].stringValue
+            //                        self.groupIdToShow = groupId
+            //                        self.performSegue(withIdentifier: "ShowGroup", sender: self)
+            //                    }
+            //                }
+            //            }
         }
         else {
             let svc = SFSafariViewController(url: url)

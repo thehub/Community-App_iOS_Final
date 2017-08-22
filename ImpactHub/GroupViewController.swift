@@ -147,7 +147,7 @@ class GroupViewController: ListFullBleedViewController {
         
         if let vm = data[indexPath.item] as? MemberFeedItemViewModel {
             let cellWidth: CGFloat = self.collectionView.frame.width
-            let height = vm.post.text.height(withConstrainedWidth: cellWidth - 76, font:UIFont(name: "GTWalsheim-Light", size: 14)!) + 125 // add extra height for the standard elements, titles, lines, spacing etc.
+            let height = vm.post.text.height(withConstrainedWidth: cellWidth - (62 + 8), font:UIFont(name: "GTWalsheim-Light", size: 14)!) + 135 // add extra height for the standard elements, titles, lines, sapcing etc.
             return CGSize(width: view.frame.width, height: height)
         }
         
@@ -228,7 +228,10 @@ extension GroupViewController: MemberFeedItemDelegate {
     
     func tappedLink(url: URL) {
         // Get the id out, then get that record from the item.segment to check what to link to
-        if url.scheme == "mention" {
+        if url.absoluteString.contains("x-apple-data-detectors") {
+            return
+        }
+        else if url.scheme == "mention" {
             let mentionId = url.absoluteString.replacingOccurrences(of: "mention://", with: "")
             // TODO: Implement mentions here
             //            if let segment = self.item?.segments.filter({$0 is Mention }).first as? Mention {

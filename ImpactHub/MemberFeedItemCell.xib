@@ -72,7 +72,7 @@
                         <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES" lookupSuggestion="YES"/>
                     </textView>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="rba-6n-oaI">
-                        <rect key="frame" x="170" y="88" width="100" height="18"/>
+                        <rect key="frame" x="170" y="92" width="100" height="18"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hc6-eO-k1i" userLabel="Like">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="18"/>
@@ -146,7 +146,7 @@
                         </constraints>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SIS-u8-qXo">
-                        <rect key="frame" x="9" y="76" width="40" height="40"/>
+                        <rect key="frame" x="9" y="80" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="b2c-rU-S00"/>
                             <constraint firstAttribute="width" constant="40" id="uLC-gH-ytf"/>
@@ -165,7 +165,6 @@
                 <constraint firstAttribute="trailing" secondItem="rba-6n-oaI" secondAttribute="trailing" constant="30" id="GrJ-tV-mTP"/>
                 <constraint firstItem="aml-r8-SVM" firstAttribute="centerX" secondItem="MYM-OF-VM2" secondAttribute="centerX" id="Pvi-my-HWe"/>
                 <constraint firstItem="aml-r8-SVM" firstAttribute="width" secondItem="MYM-OF-VM2" secondAttribute="width" id="QDG-8K-8va"/>
-                <constraint firstItem="rba-6n-oaI" firstAttribute="top" secondItem="wEw-vF-pdq" secondAttribute="bottom" constant="10" id="SJv-9H-I7q"/>
                 <constraint firstAttribute="trailing" secondItem="wEw-vF-pdq" secondAttribute="trailing" constant="8" id="WgD-t6-z4e"/>
                 <constraint firstItem="aml-r8-SVM" firstAttribute="height" secondItem="MYM-OF-VM2" secondAttribute="height" id="Z2V-RS-cD2"/>
                 <constraint firstItem="R2a-Xb-LpF" firstAttribute="top" secondItem="MYM-OF-VM2" secondAttribute="top" id="b64-y0-Or0"/>
@@ -175,6 +174,7 @@
                 <constraint firstItem="MYM-OF-VM2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="dGq-Lv-NG6"/>
                 <constraint firstItem="eUX-aQ-svK" firstAttribute="top" secondItem="R2a-Xb-LpF" secondAttribute="top" id="eho-QF-6c9"/>
                 <constraint firstItem="SIS-u8-qXo" firstAttribute="bottom" secondItem="rba-6n-oaI" secondAttribute="bottom" constant="10" id="krS-a0-CgT"/>
+                <constraint firstAttribute="bottom" secondItem="rba-6n-oaI" secondAttribute="bottom" constant="30" id="lfI-CD-OyB"/>
                 <constraint firstItem="MYM-OF-VM2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="ord-vL-IFC"/>
                 <constraint firstItem="wEw-vF-pdq" firstAttribute="leading" secondItem="Dlf-0p-AmF" secondAttribute="leading" constant="-6" id="sYq-rm-ekt"/>
                 <constraint firstItem="eUX-aQ-svK" firstAttribute="width" secondItem="R2a-Xb-LpF" secondAttribute="width" id="vs0-W4-NV3"/>
