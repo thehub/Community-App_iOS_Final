@@ -40,7 +40,7 @@ class TopMenu: UIView {
         
         UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
             self.alpha = 1
-            self.layoutIfNeeded()
+//            self.layoutIfNeeded()
         }) { (_) in
             
         }
@@ -52,10 +52,10 @@ class TopMenu: UIView {
             return
         }
         isShow = false
-        scrollViewTopConstraint.constant = -self.frame.height
+//        scrollViewTopConstraint.constant = -self.frame.height
         UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
             self.alpha = 0
-            self.layoutIfNeeded()
+//            self.layoutIfNeeded()
         }) { (_) in
             
         }
