@@ -60,6 +60,9 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
 
         self.title = job.name
         
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.tabBarController?.tabBar.isHidden = false
+
         if let photoUrl = job.photoUrl {
             self.companyPhotoImageView.kf.setImage(with: photoUrl)
         }
@@ -216,28 +219,28 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
             self.view.layoutIfNeeded()
         }
 
-        if scrollView.contentOffset.y > 200 {
-            self.tabBarController?.tabBar.isHidden = false
-            let navBarHeight = self.navigationController?.navigationBar.frame.height ?? 0.0
-            connectButtonBottomConsatraint?.constant = connectButtonBottomConsatraintDefault + navBarHeight
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
-                self.setNeedsStatusBarAppearanceUpdate()
-                self.view.layoutIfNeeded()
-            }) { (_) in
-                
-            }
-            
-        }
-        else if scrollView.contentOffset.y < 200 {
-            self.tabBarController?.tabBar.isHidden = true
-            connectButtonBottomConsatraint?.constant = connectButtonBottomConsatraintDefault
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
-                self.setNeedsStatusBarAppearanceUpdate()
-                self.view.layoutIfNeeded()
-            }) { (_) in
-                
-            }
-        }
+//        if scrollView.contentOffset.y > 200 {
+//            self.tabBarController?.tabBar.isHidden = false
+//            let navBarHeight = self.navigationController?.navigationBar.frame.height ?? 0.0
+//            connectButtonBottomConsatraint?.constant = connectButtonBottomConsatraintDefault + navBarHeight
+//            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
+//                self.setNeedsStatusBarAppearanceUpdate()
+//                self.view.layoutIfNeeded()
+//            }) { (_) in
+//                
+//            }
+//            
+//        }
+//        else if scrollView.contentOffset.y < 200 {
+//            self.tabBarController?.tabBar.isHidden = true
+//            connectButtonBottomConsatraint?.constant = connectButtonBottomConsatraintDefault
+//            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
+//                self.setNeedsStatusBarAppearanceUpdate()
+//                self.view.layoutIfNeeded()
+//            }) { (_) in
+//                
+//            }
+//        }
         
     }
 
