@@ -31,6 +31,9 @@ class TabBarController: UITabBarController {
         NotificationCenter.default.addObserver(forName: NSNotification.Name.onHandleHomeShortCutSearch, object: nil, queue: OperationQueue.main) { (_) in
             self.openSearch()
         }
+        if ShortcutManager.shared.showSearchLaunch {
+            self.openSearch()
+        }
         
     }
     
