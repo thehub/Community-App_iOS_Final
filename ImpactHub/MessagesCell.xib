@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -61,19 +61,19 @@
                             </label>
                         </subviews>
                     </stackView>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCi-UD-YSj">
-                        <rect key="frame" x="270" y="29" width="22" height="22"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCi-UD-YSj">
+                        <rect key="frame" x="270" y="35" width="10" height="10"/>
                         <color key="backgroundColor" red="1" green="0.32549019607843138" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="22" id="oKH-1D-fMf"/>
-                            <constraint firstAttribute="width" constant="22" id="pkA-16-D7W"/>
+                            <constraint firstAttribute="height" constant="10" id="oKH-1D-fMf"/>
+                            <constraint firstAttribute="width" constant="10" id="pkA-16-D7W"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="GTWalsheim" family="GT Walsheim" pointSize="12"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="11"/>
+                                <integer key="value" value="5"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
@@ -86,7 +86,7 @@
                 <constraint firstItem="eCi-UD-YSj" firstAttribute="leading" secondItem="caT-cq-pBc" secondAttribute="trailing" constant="8" id="7x8-h1-pQQ"/>
                 <constraint firstItem="eCi-UD-YSj" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="VCD-eM-Rkk"/>
                 <constraint firstItem="Awj-Ak-Gkl" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Vm7-dR-Alx"/>
-                <constraint firstAttribute="trailing" secondItem="eCi-UD-YSj" secondAttribute="trailing" constant="8" id="gyc-On-Rzf"/>
+                <constraint firstAttribute="trailing" secondItem="eCi-UD-YSj" secondAttribute="trailing" constant="20" id="gyc-On-Rzf"/>
                 <constraint firstItem="caT-cq-pBc" firstAttribute="centerY" secondItem="Awj-Ak-Gkl" secondAttribute="centerY" id="ovX-yL-2Tk"/>
             </constraints>
             <connections>
