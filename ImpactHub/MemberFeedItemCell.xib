@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -43,25 +43,25 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2a-Xb-LpF">
-                        <rect key="frame" x="68" y="8" width="34.5" height="30"/>
+                        <rect key="frame" x="68" y="8" width="33.5" height="30"/>
                         <fontDescription key="fontDescription" name="GTWalsheim" family="GT Walsheim" pointSize="14"/>
                         <color key="textColor" red="0.34901960784313724" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUX-aQ-svK">
-                        <rect key="frame" x="68" y="8" width="34.5" height="30"/>
+                        <rect key="frame" x="68" y="8" width="33.5" height="30"/>
                         <connections>
                             <action selector="showMemberTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="n9x-PT-6sh"/>
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dlf-0p-AmF">
-                        <rect key="frame" x="68" y="36" width="31" height="15"/>
+                        <rect key="frame" x="68" y="36" width="29.5" height="16"/>
                         <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12.5"/>
                         <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Text" translatesAutoresizingMaskIntoConstraints="NO" id="wEw-vF-pdq">
-                        <rect key="frame" x="62" y="59" width="230" height="18"/>
+                        <rect key="frame" x="62" y="60" width="230" height="18"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="ecP-gw-PhQ"/>
@@ -69,16 +69,16 @@
                         <color key="textColor" red="0.4431372549" green="0.43529411759999997" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" address="YES" calendarEvent="YES" flightNumber="YES" lookupSuggestion="YES"/>
+                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES" lookupSuggestion="YES"/>
                     </textView>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="rba-6n-oaI">
-                        <rect key="frame" x="170" y="87" width="100" height="18"/>
+                        <rect key="frame" x="170" y="88" width="100" height="18"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hc6-eO-k1i" userLabel="Like">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="18"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bc8-30-6v7">
-                                        <rect key="frame" x="19" y="1" width="8" height="16.5"/>
+                                        <rect key="frame" x="19" y="0.5" width="8.5" height="17.5"/>
                                         <fontDescription key="fontDescription" name="GTWalsheim-Medium" family="GT Walsheim" pointSize="14"/>
                                         <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -111,7 +111,7 @@
                                 <rect key="frame" x="50" y="0.0" width="50" height="18"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pph-ND-ZSv">
-                                        <rect key="frame" x="42" y="0.0" width="8" height="16.5"/>
+                                        <rect key="frame" x="41.5" y="-0.5" width="8.5" height="17.5"/>
                                         <fontDescription key="fontDescription" name="GTWalsheim-Medium" family="GT Walsheim" pointSize="14"/>
                                         <color key="textColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -146,7 +146,7 @@
                         </constraints>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SIS-u8-qXo">
-                        <rect key="frame" x="9" y="78" width="40" height="40"/>
+                        <rect key="frame" x="9" y="76" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="b2c-rU-S00"/>
                             <constraint firstAttribute="width" constant="40" id="uLC-gH-ytf"/>
@@ -174,7 +174,7 @@
                 <constraint firstItem="Dlf-0p-AmF" firstAttribute="leading" secondItem="R2a-Xb-LpF" secondAttribute="leading" id="d6Y-W9-047"/>
                 <constraint firstItem="MYM-OF-VM2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="dGq-Lv-NG6"/>
                 <constraint firstItem="eUX-aQ-svK" firstAttribute="top" secondItem="R2a-Xb-LpF" secondAttribute="top" id="eho-QF-6c9"/>
-                <constraint firstItem="SIS-u8-qXo" firstAttribute="bottom" secondItem="rba-6n-oaI" secondAttribute="bottom" constant="13" id="krS-a0-CgT"/>
+                <constraint firstItem="SIS-u8-qXo" firstAttribute="bottom" secondItem="rba-6n-oaI" secondAttribute="bottom" constant="10" id="krS-a0-CgT"/>
                 <constraint firstItem="MYM-OF-VM2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="ord-vL-IFC"/>
                 <constraint firstItem="wEw-vF-pdq" firstAttribute="leading" secondItem="Dlf-0p-AmF" secondAttribute="leading" constant="-6" id="sYq-rm-ekt"/>
                 <constraint firstItem="eUX-aQ-svK" firstAttribute="width" secondItem="R2a-Xb-LpF" secondAttribute="width" id="vs0-W4-NV3"/>

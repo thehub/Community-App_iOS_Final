@@ -308,7 +308,6 @@ class MemberFeedItemCell: UICollectionViewCell, UITextViewDelegate {
         }
     }
     
-    
     @IBAction func showMemberTap(_ sender: Any) {
         if let comment = vm?.comment {
             if let id = comment.user?.id {
@@ -321,18 +320,28 @@ class MemberFeedItemCell: UICollectionViewCell, UITextViewDelegate {
             }
         }
     }
-    
 
     @available(iOS 10.0, *)
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-        self.vm?.delegate?.tappedLink(url: URL)
-        return false
+        if URL.absoluteString.contains("x-apple-data-detectors") {
+            return true
+        }
+        else {
+            self.vm?.delegate?.tappedLink(url: URL)
+            return false
+        }
+        
     }
     
     @available(iOS 9.0, *)
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
-        self.vm?.delegate?.tappedLink(url: URL)
-        return false
+        if URL.absoluteString.contains("x-apple-data-detectors") {
+            return true
+        }
+        else {
+            self.vm?.delegate?.tappedLink(url: URL)
+            return false
+        }
     }
     
 }

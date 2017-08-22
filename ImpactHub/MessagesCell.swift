@@ -31,7 +31,6 @@ class MessagesCell: UICollectionViewCell {
         textLabel.text = vm.conversation.latestMessage.text
         timeLabel.text = Utils.timeStringFromDate(date: vm.conversation.latestMessage.sentDate)
         unreadLabel.isHidden = vm.conversation.read
-        
     }
 
     

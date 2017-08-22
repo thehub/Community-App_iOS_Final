@@ -321,7 +321,10 @@ extension ProjectViewController: MemberFeedItemDelegate {
     
     func tappedLink(url: URL) {
         // Get the id out, then get that record from the item.segment to check what to link to
-        if url.scheme == "mention" {
+        if url.absoluteString.contains("x-apple-data-detectors") {
+            return
+        }
+        else if url.scheme == "mention" {
             let mentionId = url.absoluteString.replacingOccurrences(of: "mention://", with: "")
             // TODO: Implement mentions here
             //            if let segment = self.item?.segments.filter({$0 is Mention }).first as? Mention {
