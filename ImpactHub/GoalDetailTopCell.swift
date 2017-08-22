@@ -47,7 +47,7 @@ class GoalDetailTopCell: UICollectionViewCell {
         nameLabel.text = vm.goal.name
         jobLabel.text = vm.goal.summary
         if let photoUrl = vm.goal.photoUrl {
-            profileImageView.kf.setImage(with: photoUrl)
+            profileImageView.kf.setImage(with: photoUrl, options: [.transition(.fade(0.2))])
         }
 
         self.clipsToBounds = false

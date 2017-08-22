@@ -31,7 +31,7 @@ class ProjectCollectionViewCell: UICollectionViewCell {
     func setUp(vm: ProjectViewModel) {
         
         if let photoUrl = vm.project.photoUrl {
-            bigImageView.kf.setImage(with: photoUrl)
+            bigImageView.kf.setImage(with: photoUrl, options: [.transition(.fade(0.2))])
         }
         nameLabel.text = vm.project.name
         companyNameLabel.text = vm.project.companyName ?? ""

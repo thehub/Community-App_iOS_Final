@@ -65,10 +65,10 @@ class MemberCollectionViewCell: UICollectionViewCell {
         jobLabel.text = vm.member.job
         if let photoUrl = vm.member.photoUrl {
 //            print(photoUrl)
-            profileImageView.kf.setImage(with: photoUrl, placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (image, error, cacheType, url) in
-                if let error = error {
-                    print(error.localizedDescription)
-                }
+            profileImageView.kf.setImage(with: photoUrl, placeholder: nil, options: [.transition(.fade(0.2))], progressBlock: nil, completionHandler: { (image, error, cacheType, url) in
+//                if let error = error {
+//                    print(error.localizedDescription)
+//                }
             })
         }
         locationNameLabel.text = vm.member.locationName

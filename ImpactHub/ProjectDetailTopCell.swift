@@ -43,7 +43,7 @@ class ProjectDetailTopCell: UICollectionViewCell {
         self.vm = vm
         nameLabel.text = vm.project.name
         jobLabel.text = "by \(vm.project.companyName ?? "")"
-        profileImageView.kf.setImage(with: vm.project.photoUrl)
+        profileImageView.kf.setImage(with: vm.project.photoUrl, options: [.transition(.fade(0.2))])
         
         self.arrowImage.layer.add(Animations.slideAnimation, forKey: "slideAnimation")
 

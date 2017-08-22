@@ -35,11 +35,11 @@ class CompanyCollectionViewCell: UICollectionViewCell {
     
     func setUp(vm: CompanyViewModel) {
         if let photoUrl = vm.company.photoUrl {
-            bigImageView.kf.setImage(with: photoUrl)
+            bigImageView.kf.setImage(with: photoUrl, options: [.transition(.fade(0.2))])
         }
 
         if let logoUrl = vm.company.logoUrl {
-            logoImageView.kf.setImage(with: logoUrl)
+            logoImageView.kf.setImage(with: logoUrl, options: [.transition(.fade(0.2))])
         }
         
         nameLabel.text = vm.company.sector

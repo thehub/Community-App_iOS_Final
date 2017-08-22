@@ -45,11 +45,11 @@ class CompanyDetailTopCell: UICollectionViewCell {
         nameLabel.text = vm.company.name
         subNameLabel.text = vm.company.sector
         if let photoUrl = vm.company.photoUrl {
-            profileImageView.kf.setImage(with: photoUrl)
+            profileImageView.kf.setImage(with: photoUrl, options: [.transition(.fade(0.2))])
         }
         locationNameLabel.text = vm.company.locationName
         if let logoUrl = vm.company.logoUrl {
-            logoImageView.kf.setImage(with: logoUrl)
+            logoImageView.kf.setImage(with: logoUrl, options: [.transition(.fade(0.2))])
         }
         
         if vm.company.social?.facebook != nil {

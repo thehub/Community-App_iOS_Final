@@ -64,7 +64,7 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
         self.tabBarController?.tabBar.isHidden = false
 
         if let photoUrl = job.photoUrl {
-            self.companyPhotoImageView.kf.setImage(with: photoUrl)
+            self.companyPhotoImageView.kf.setImage(with: photoUrl, options: [.transition(.fade(0.2))])
         }
         
         collectionView.register(UINib.init(nibName: TitleViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: TitleViewModel.cellIdentifier)
@@ -218,30 +218,6 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
             compnayPhotoTopConstraint.constant = -(offset * 0.5)
             self.view.layoutIfNeeded()
         }
-
-//        if scrollView.contentOffset.y > 200 {
-//            self.tabBarController?.tabBar.isHidden = false
-//            let navBarHeight = self.navigationController?.navigationBar.frame.height ?? 0.0
-//            connectButtonBottomConsatraint?.constant = connectButtonBottomConsatraintDefault + navBarHeight
-//            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
-//                self.setNeedsStatusBarAppearanceUpdate()
-//                self.view.layoutIfNeeded()
-//            }) { (_) in
-//                
-//            }
-//            
-//        }
-//        else if scrollView.contentOffset.y < 200 {
-//            self.tabBarController?.tabBar.isHidden = true
-//            connectButtonBottomConsatraint?.constant = connectButtonBottomConsatraintDefault
-//            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
-//                self.setNeedsStatusBarAppearanceUpdate()
-//                self.view.layoutIfNeeded()
-//            }) { (_) in
-//                
-//            }
-//        }
-        
     }
 
     @IBAction func applyTap(_ sender: Any) {
