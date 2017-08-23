@@ -28,11 +28,19 @@ class TabBarController: UITabBarController {
             self.handlePushNotification(pushNotification)
         }
         
+        // Home icon short cuts
         NotificationCenter.default.addObserver(forName: NSNotification.Name.onHandleHomeShortCutSearch, object: nil, queue: OperationQueue.main) { (_) in
             self.openSearch()
         }
         if ShortcutManager.shared.showSearchLaunch {
             self.openSearch()
+        }
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.onHandleHomeShortCutContacts, object: nil, queue: OperationQueue.main) { (_) in
+            self.openContacts()
+        }
+        if ShortcutManager.shared.showContactsLaunch {
+            self.openContacts()
         }
         
     }
@@ -47,6 +55,18 @@ class TabBarController: UITabBarController {
             vc.showSearch()
         }
     }
+    
+    func openContacts() {
+        ShortcutManager.shared.showContactsLaunch = false
+        self.selectedIndex = 3
+        
+        if let vcn = self.viewControllers?[3] as? UINavigationController, let vc = vcn.viewControllers.first as? MessagesViewController {
+            vcn.popToRootViewController(animated: false)
+            vc.showContactsOnOpen = true
+            vc.showContacts()
+        }
+    }
+    
 
     var inTransit = false
     

@@ -38,8 +38,21 @@ class MessagesViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        // If coming from home short cut
+        if showContactsOnOpen {
+            showContacts()
+            showContactsOnOpen = false
+        }
     }
 
+    var showContactsOnOpen = false
+
+    func showContacts() {
+        showContactsOnOpen = false
+        self.performSegue(withIdentifier: "ShowContacts", sender: self)
+    }
+    
     var selectedVM: MessagesVM?
     
     var skip = 0

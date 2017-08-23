@@ -46,6 +46,7 @@ class SearchViewController: ListWithSearchViewController, CreatePostViewControll
     var showSerachOnOpen = false
     
     func showSearch() {
+        showSerachOnOpen = false
         self.searchBar?.becomeFirstResponder()
     }
     
