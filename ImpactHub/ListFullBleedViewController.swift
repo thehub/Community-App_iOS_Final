@@ -87,6 +87,7 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+
         UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
             self.setNeedsStatusBarAppearanceUpdate()
         }) { (_) in
@@ -94,11 +95,15 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
         }
         
         self.scrollViewDidScroll(self.collectionView)
+        
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+
         // TODO: Fix this issue with bar hiding when switching tabs
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
             if self.collectionView.contentOffset.y > 50 {
