@@ -99,11 +99,10 @@ class MemberDetailTopCell: UICollectionViewCell {
     }
 
     func didScrollWith(offsetY: CGFloat) {
-        
         if offsetY < 0 {
             self.imageViewTopConstraint.constant = offsetY
             self.fadeViewBottomConstraint.constant = -offsetY
-            self.imageViewHeightConstraint.constant = imageViewHeightConstraintDefault + ((abs(offsetY) / self.frame.height) * 500)
+            self.imageViewHeightConstraint.constant = imageViewHeightConstraintDefault + ((abs(offsetY) / self.frame.height) * 700)
         }
         else {
             self.imageViewHeightConstraint.constant = imageViewHeightConstraintDefault
