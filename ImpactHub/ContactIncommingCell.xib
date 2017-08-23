@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,7 +28,7 @@
                         <rect key="frame" x="17" y="0.0" width="266" height="200"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obn-32-78V">
-                                <rect key="frame" x="95" y="15" width="37" height="17.5"/>
+                                <rect key="frame" x="95" y="15" width="171" height="17.5"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="15"/>
                                 <color key="textColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -41,19 +41,19 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3O-XH-KGb">
-                                <rect key="frame" x="95" y="36.5" width="31" height="15"/>
+                                <rect key="frame" x="95" y="36" width="171" height="15"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12.5"/>
                                 <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J35-42-Kx3">
-                                <rect key="frame" x="114" y="56" width="31" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J35-42-Kx3">
+                                <rect key="frame" x="114" y="55.5" width="152" height="15"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12.5"/>
                                 <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locationPinSmall" translatesAutoresizingMaskIntoConstraints="NO" id="w9K-Wp-tPX">
-                                <rect key="frame" x="95" y="55" width="11" height="17"/>
+                                <rect key="frame" x="95" y="54.5" width="11" height="17"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="c5n-eP-aJg">
                                 <rect key="frame" x="163" y="146" width="88" height="34"/>
@@ -82,7 +82,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label sad sad sad asd asd as das das das d asd asd asd as das das" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLT-Jq-jn2">
-                                <rect key="frame" x="95" y="91" width="163" height="29.5"/>
+                                <rect key="frame" x="95" y="90.5" width="163" height="29.5"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12.5"/>
                                 <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -102,6 +102,7 @@
                             <constraint firstAttribute="trailing" secondItem="oLT-Jq-jn2" secondAttribute="trailing" constant="8" id="A9F-8x-I4P"/>
                             <constraint firstItem="J35-42-Kx3" firstAttribute="leading" secondItem="w9K-Wp-tPX" secondAttribute="trailing" constant="8" id="Ewp-dZ-rHH"/>
                             <constraint firstItem="J35-42-Kx3" firstAttribute="centerY" secondItem="w9K-Wp-tPX" secondAttribute="centerY" id="FFW-hg-NAD"/>
+                            <constraint firstAttribute="trailing" secondItem="J35-42-Kx3" secondAttribute="trailing" id="HmM-lI-15k"/>
                             <constraint firstItem="lul-Kl-LZ0" firstAttribute="leading" secondItem="EW1-y4-D6A" secondAttribute="leading" constant="12" id="I5s-bU-G6t"/>
                             <constraint firstItem="w9K-Wp-tPX" firstAttribute="top" secondItem="A3O-XH-KGb" secondAttribute="bottom" constant="4" id="Lld-3F-BQ1"/>
                             <constraint firstAttribute="trailing" secondItem="c5n-eP-aJg" secondAttribute="trailing" constant="15" id="LtO-8C-CwY"/>
@@ -111,6 +112,8 @@
                             <constraint firstItem="A3O-XH-KGb" firstAttribute="top" secondItem="obn-32-78V" secondAttribute="bottom" constant="4" id="XEM-dX-BiT"/>
                             <constraint firstItem="A3O-XH-KGb" firstAttribute="leading" secondItem="obn-32-78V" secondAttribute="leading" id="YZT-MJ-YaG"/>
                             <constraint firstItem="y2A-Zc-8oE" firstAttribute="bottom" secondItem="3bi-hE-HF9" secondAttribute="bottom" constant="-3" id="agM-va-BWN"/>
+                            <constraint firstAttribute="trailing" secondItem="A3O-XH-KGb" secondAttribute="trailing" id="bHv-XB-QWa"/>
+                            <constraint firstAttribute="trailing" secondItem="obn-32-78V" secondAttribute="trailing" id="csH-wF-qcj"/>
                             <constraint firstItem="obn-32-78V" firstAttribute="leading" secondItem="lul-Kl-LZ0" secondAttribute="trailing" constant="23" id="hvf-wA-2gy"/>
                             <constraint firstAttribute="bottom" secondItem="c5n-eP-aJg" secondAttribute="bottom" constant="20" id="pTT-ib-yOV"/>
                         </constraints>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -40,19 +40,19 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3O-XH-KGb">
-                                <rect key="frame" x="95" y="41.5" width="31" height="15"/>
+                                <rect key="frame" x="95" y="42" width="126" height="15"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12.5"/>
                                 <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J35-42-Kx3">
-                                <rect key="frame" x="114" y="61" width="31" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J35-42-Kx3">
+                                <rect key="frame" x="114" y="62.5" width="105" height="15"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12.5"/>
                                 <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locationPinSmall" translatesAutoresizingMaskIntoConstraints="NO" id="w9K-Wp-tPX">
-                                <rect key="frame" x="95" y="60" width="11" height="17"/>
+                                <rect key="frame" x="95" y="61" width="11" height="17"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="memberConnected" translatesAutoresizingMaskIntoConstraints="NO" id="2mM-bW-44q">
                                 <rect key="frame" x="213" y="21.5" width="66" height="65"/>
@@ -68,7 +68,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q97-gG-ay1">
-                                <rect key="frame" x="217" y="70" width="42" height="27"/>
+                                <rect key="frame" x="209" y="72" width="60" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="iFD-Ms-bkA"/>
+                                    <constraint firstAttribute="height" constant="31" id="krL-rE-ScE"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12.5"/>
                                 <state key="normal" title="Decline">
                                     <color key="titleColor" red="1" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -81,6 +85,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2mM-bW-44q" firstAttribute="centerY" secondItem="EW1-y4-D6A" secondAttribute="centerY" constant="4" id="0hp-wE-nTM"/>
+                            <constraint firstItem="dHz-eD-oJ2" firstAttribute="leading" secondItem="A3O-XH-KGb" secondAttribute="trailing" id="7D1-ha-Gwf"/>
+                            <constraint firstItem="dHz-eD-oJ2" firstAttribute="leading" secondItem="J35-42-Kx3" secondAttribute="trailing" constant="2" id="7Qr-ba-jxc"/>
                             <constraint firstItem="J35-42-Kx3" firstAttribute="leading" secondItem="w9K-Wp-tPX" secondAttribute="trailing" constant="8" id="Ewp-dZ-rHH"/>
                             <constraint firstAttribute="trailing" secondItem="2mM-bW-44q" secondAttribute="trailing" constant="-13" id="F2y-Hd-pXN"/>
                             <constraint firstItem="J35-42-Kx3" firstAttribute="centerY" secondItem="w9K-Wp-tPX" secondAttribute="centerY" id="FFW-hg-NAD"/>
@@ -92,9 +98,9 @@
                             <constraint firstItem="obn-32-78V" firstAttribute="top" secondItem="lul-Kl-LZ0" secondAttribute="top" id="R0b-2V-xSp"/>
                             <constraint firstItem="A3O-XH-KGb" firstAttribute="top" secondItem="obn-32-78V" secondAttribute="bottom" constant="4" id="XEM-dX-BiT"/>
                             <constraint firstItem="A3O-XH-KGb" firstAttribute="leading" secondItem="obn-32-78V" secondAttribute="leading" id="YZT-MJ-YaG"/>
-                            <constraint firstAttribute="bottom" secondItem="Q97-gG-ay1" secondAttribute="bottom" constant="3" id="aEb-K0-0C6"/>
+                            <constraint firstAttribute="bottom" secondItem="Q97-gG-ay1" secondAttribute="bottom" constant="-3" id="aEb-K0-0C6"/>
                             <constraint firstItem="obn-32-78V" firstAttribute="leading" secondItem="lul-Kl-LZ0" secondAttribute="trailing" constant="23" id="hvf-wA-2gy"/>
-                            <constraint firstItem="Q97-gG-ay1" firstAttribute="trailing" secondItem="2mM-bW-44q" secondAttribute="trailing" constant="-20" id="mrm-HS-Gtb"/>
+                            <constraint firstItem="Q97-gG-ay1" firstAttribute="trailing" secondItem="2mM-bW-44q" secondAttribute="trailing" constant="-10" id="mrm-HS-Gtb"/>
                             <constraint firstItem="dHz-eD-oJ2" firstAttribute="centerX" secondItem="2mM-bW-44q" secondAttribute="centerX" constant="-5" id="sBY-Z3-YfV"/>
                             <constraint firstAttribute="height" constant="100" id="vjI-71-Vzg"/>
                         </constraints>

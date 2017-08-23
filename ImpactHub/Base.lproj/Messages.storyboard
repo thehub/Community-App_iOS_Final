@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="A1i-kk-ec4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="A1i-kk-ec4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -49,7 +49,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="5"/>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No messages..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMw-bH-8wE">
-                                <rect key="frame" x="20" y="89" width="118.5" height="20"/>
+                                <rect key="frame" x="20" y="89" width="113.5" height="21.5"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim" family="GT Walsheim" pointSize="17"/>
                                 <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -102,7 +102,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBs-aq-kfA">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gQJ-fC-sU7">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gQJ-fC-sU7">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="553"/>
                                         <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                         <prototypes>
@@ -114,10 +114,10 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="0j4-2w-p0V">
-                                                            <rect key="frame" x="8" y="8" width="79.5" height="45"/>
+                                                            <rect key="frame" x="8" y="8" width="77.5" height="46.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96l-DM-oKs">
-                                                                    <rect key="frame" x="20" y="13" width="39.5" height="19"/>
+                                                                    <rect key="frame" x="20" y="13" width="37.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="16"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
@@ -152,10 +152,10 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="2bZ-fJ-eEc">
-                                                            <rect key="frame" x="295.5" y="8" width="71.5" height="51"/>
+                                                            <rect key="frame" x="297.5" y="8" width="69.5" height="52.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LzS-qu-Anb">
-                                                                    <rect key="frame" x="16" y="16" width="39.5" height="19"/>
+                                                                    <rect key="frame" x="16" y="16" width="37.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="16"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
@@ -240,7 +240,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ar-2R-YUD">
-                                                            <rect key="frame" x="340.5" y="11" width="24.5" height="12"/>
+                                                            <rect key="frame" x="341.5" y="11" width="23.5" height="13"/>
                                                             <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="10"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -264,7 +264,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQV-Jc-dkP">
-                                                            <rect key="frame" x="10" y="11" width="24.5" height="12"/>
+                                                            <rect key="frame" x="10" y="11" width="23.5" height="13"/>
                                                             <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="10"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -437,7 +437,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcr-5N-Me4">
-                                <rect key="frame" x="20" y="216" width="29.5" height="14"/>
+                                <rect key="frame" x="20" y="216" width="28.5" height="15.5"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12"/>
                                 <color key="textColor" red="0.54117647058823526" green="0.55686274509803924" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -533,7 +533,7 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2u-RA-qmo">
-                                <rect key="frame" x="0.0" y="84" width="375" height="140"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="140"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZlV-bu-oE7" customClass="TopMenu" customModule="ImpactHub" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
@@ -586,7 +586,7 @@
                             <constraint firstItem="M2u-RA-qmo" firstAttribute="leading" secondItem="9Pa-n6-FDp" secondAttribute="leading" id="WUi-5V-XbR"/>
                             <constraint firstItem="nCT-Rf-7VU" firstAttribute="leading" secondItem="9Pa-n6-FDp" secondAttribute="leading" id="Zdv-k8-KK9"/>
                             <constraint firstAttribute="bottom" secondItem="nCT-Rf-7VU" secondAttribute="bottom" id="hxm-Nf-EFr"/>
-                            <constraint firstItem="M2u-RA-qmo" firstAttribute="top" secondItem="ge8-5N-1Gk" secondAttribute="bottom" constant="20" id="usL-sV-oyp"/>
+                            <constraint firstItem="M2u-RA-qmo" firstAttribute="top" secondItem="ge8-5N-1Gk" secondAttribute="bottom" id="usL-sV-oyp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Contacts" id="N8I-H2-5hO">
@@ -618,8 +618,8 @@
         <image name="trans" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Yv3-tT-FXL"/>
-        <segue reference="FjO-gx-hbh"/>
+        <segue reference="v7v-3b-vgD"/>
+        <segue reference="DPj-Yd-XnV"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>
