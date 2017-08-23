@@ -32,7 +32,11 @@ class ProjectsViewController: ListWithSearchViewController {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.collectionView?.alpha = 0
         firstly {
-            APIClient.shared.getProjects()
+                MyGroupsManager.shared.refresh()
+            }.then { myGroupsIds -> Void in
+                print("refreshed")
+            }.then {
+                APIClient.shared.getProjects()
             }.then { items -> Void in
                 let cellWidth: CGFloat = self.view.frame.width
                 items.forEach({ (project) in

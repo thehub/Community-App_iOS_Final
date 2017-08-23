@@ -16,10 +16,10 @@ import SwiftyJSON
 class APIClient {
 
     struct SelectFields {
-        static let GROUP = "id, name, CountOfMembers__c, ImageURL__c, Group_Desc__c,Related_Impact_Goal__c, Impact_Hub_Cities__c, ChatterGroupId__c, Directory_Style__c,Sector__c"
-        static let PROJECT = "id,CreatedById, name,Related_Impact_Goal__c,ChatterGroupId__c ,Group_Desc__c, ImageURL__c, Directory_Style__c,Sector__c, Organisation__r.id, Organisation__r.Number_of_Employees__c, Organisation__r.Impact_Hub_Cities__c, Organisation__r.name"
+        static let GROUP = "id, name, CountOfMembers__c, ImageURL__c, Group_Desc__c,Related_Impact_Goal__c, Impact_Hub_Cities__c, ChatterGroupId__c, Directory_Style__c,Sector__c,ChatterGroupType__c"
+        static let PROJECT = "id,CreatedById, name,Related_Impact_Goal__c,ChatterGroupId__c ,Group_Desc__c, ImageURL__c, Directory_Style__c,Sector__c, Organisation__r.id, Organisation__r.Number_of_Employees__c, Organisation__r.Impact_Hub_Cities__c, Organisation__r.name,ChatterGroupType__c"
         // When we're asking for either a Project or a Group, merge both select values. Doing it code didn't work...
-        static let GROUP_PROJECT = "id, name, CountOfMembers__c, ImageURL__c, Group_Desc__c, Impact_Hub_Cities__c, ChatterGroupId__c, Directory_Style__c,Sector__c, CreatedById, Related_Impact_Goal__c, Organisation__r.id, Organisation__r.Number_of_Employees__c, Organisation__r.Impact_Hub_Cities__c, Organisation__r.name"
+        static let GROUP_PROJECT = "id, name, CountOfMembers__c, ImageURL__c, Group_Desc__c, Impact_Hub_Cities__c, ChatterGroupId__c, Directory_Style__c,Sector__c, CreatedById, Related_Impact_Goal__c, Organisation__r.id, Organisation__r.Number_of_Employees__c, Organisation__r.Impact_Hub_Cities__c, Organisation__r.name,ChatterGroupType__c"
         static let GOAL = "Directory__c,Goal_Summary__c,Goal__c,Id,Name"
         static let CONTACT = "id, firstname,lastname, ProfilePic__c, Profession__c, Impact_Hub_Cities__c, User__c,Skills__c, About_Me__c,Status_Update__c,Directory_Summary__c, Interested_SDG__c,How_Do_You_Most_Identify_with_Your_Curre__c,Twitter__c,Instagram__c,Facebook__c,Linked_In__c"
         static let COMPANY = "id, name, Number_of_Employees__c, Impact_Hub_Cities__c,Company_Summary__c, Sector_Industry__c, Logo_Image_Url__c, Banner_Image_Url__c,Affiliated_SDG__c, Twitter__c, Instagram__c, Facebook__c, LinkedIn__c, Website, About_Us__c"
@@ -68,6 +68,92 @@ class APIClient {
         }
     }
     
+    func getMyGroups() -> Promise<[String]> {
+        return Promise { fullfill, reject in
+            let query: [String: String] = ["filterGroup" : "Small"]
+            let request = SFRestRequest(method: .GET, path: "/services/data/v39.0/connect/communities/\(Constants.communityId)/chatter/users/\(SessionManager.shared.me?.member.userId ?? "")/groups", queryParams: query)
+            SFRestAPI.sharedInstance().send(request, fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON(result!)
+                if let groups = jsonResult["groups"].array {
+                    var items = [String]()
+                    for group in groups {
+                        if let item = group["id"].string {
+                            items.append(item)
+                        }
+                    }
+                    fullfill(items)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
+    func joinGroup(groupId: String) -> Promise<String> {
+        return Promise { fullfill, reject in
+            var query: JSON!
+            query = ["userId": SessionManager.shared.me?.member.userId ?? ""]
+            let body = SFJsonUtils.jsonDataRepresentation(query.dictionaryObject)
+            let request = SFRestRequest(method: .POST, path: "/services/data/v39.0/connect/communities/\(Constants.communityId)/chatter/groups/\(groupId)/members", queryParams: nil)
+            request.setCustomRequestBodyData(body!, contentType: "application/json")
+            SFRestAPI.sharedInstance().send(request, fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                fullfill("ok")
+            }
+        }
+    }
+
+//    func leaveGroup(group: Group, completion: @escaping (Result<Group>) -> Void) {
+//        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+//
+//        // Get membershipId first for the group
+//        self.getMembers(groupID: group.id) { (result) in
+//            switch result {
+//            case .Success(let items):
+//                if let meChatterActor = items.first(where: {$0.id == Model.shared.me?.id}) {
+//                    var membershipId = meChatterActor.membershipID!
+//                    let request = SFRestRequest(method: .DELETE, path: "/services/data/v39.0/connect/communities/\(Constants.communityId)/chatter/group-memberships/\(membershipId)", queryParams: nil)
+//                    SFRestAPI.sharedInstance().send(request, fail: { (error) in
+//                        print(error?.localizedDescription as Any)
+//                        DispatchQueue.main.async{
+//                            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+//                            completion(Result.Failure(MyError.Error((error?.localizedDescription)!)))
+//                        }
+//                    }) { (result) in
+//                        if let index = self.myGroups.index(where: {$0.id == group.id}) {
+//                            self.myGroups.remove(at: index)
+//                        }
+//                        self.groups.append(group)
+//                        DispatchQueue.main.async{
+//                            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+//                            completion(Result.Success(group))
+//                        }
+//                    }
+//                }
+//                else {
+//                    DispatchQueue.main.async{
+//                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+//                        completion(Result.Failure(MyError.JSONError))
+//                    }
+//                }
+//                break
+//            case .Failure(let error):
+//                DispatchQueue.main.async{
+//                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+//                    completion(Result.Failure(MyError.Error((error.localizedDescription))))
+//                }
+//                break
+//            }
+//        }
+//    }
+        
+        
     func getMembers(goalName: String) -> Promise<[Member]> {
         return Promise { fullfill, reject in
             SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.CONTACT) FROM Contact WHERE Interested_SDG__c INCLUDES ('%\(goalName)%')", fail: { (error) in

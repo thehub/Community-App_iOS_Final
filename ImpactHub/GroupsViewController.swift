@@ -30,8 +30,13 @@ class GroupsViewController: ListWithSearchViewController {
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.collectionView?.alpha = 0
+        
         firstly {
-            APIClient.shared.getGroups()
+                MyGroupsManager.shared.refresh()
+            }.then { myGroupsIds -> Void in
+                print("refreshed")
+            }.then {
+                APIClient.shared.getGroups()
             }.then { items -> Void in
                 items.forEach({ (group) in
                     self.dataAll.append(GroupViewModel(group: group, cellSize: CGSize(width: self.view.frame.width, height: 170)))
@@ -77,6 +82,11 @@ class GroupsViewController: ListWithSearchViewController {
                 debugPrint(error.localizedDescription)
         }
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        _ = MyGroupsManager.shared.refresh()
     }
     
     override func viewDidLayoutSubviews() {

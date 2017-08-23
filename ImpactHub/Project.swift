@@ -27,6 +27,7 @@ struct Project {
     var createdById: String?
     var sector: String?
     var relatedSDGs: String?
+    var groupType: Group.GroupType
     
     struct Objective {
         var number: Int = 0
@@ -68,7 +69,9 @@ extension Project {
         guard
             let id = json["Id"].string,
             let name = json["Name"].string,
-            let chatterId = json["ChatterGroupId__c"].string
+            let chatterId = json["ChatterGroupId__c"].string,
+            let groupTypeString = json["ChatterGroupType__c"].string?.lowercased(),
+            let groupType = Group.GroupType(rawValue: groupTypeString)
             else {
                 return nil
         }
@@ -77,6 +80,7 @@ extension Project {
         self.name = name
         self.description = json["Group_Desc__c"].string
         self.memberCount = json["CountOfMembers__c"].intValue
+        self.groupType = groupType
         
         self.createdById = json["CreatedById"].string
         

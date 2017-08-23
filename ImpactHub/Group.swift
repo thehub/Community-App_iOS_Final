@@ -22,7 +22,12 @@ struct Group {
     var locationName: String?
     var sector: String?
     var relatedSDGs: String?
-
+    var groupType: GroupType // Public  // Private
+    
+    enum GroupType: String {
+        case `public`
+        case `private`
+    }
 }
 
 
@@ -31,7 +36,9 @@ extension Group {
         guard
             let id = json["Id"].string,
             let name = json["Name"].string,
-            let chatterId = json["ChatterGroupId__c"].string
+            let chatterId = json["ChatterGroupId__c"].string,
+            let groupTypeString = json["ChatterGroupType__c"].string?.lowercased(),
+            let groupType = Group.GroupType(rawValue: groupTypeString)
             else {
                 return nil
         }
@@ -40,6 +47,7 @@ extension Group {
         self.chatterId = chatterId
         self.description = json["Group_Desc__c"].string
         self.memberCount = json["CountOfMembers__c"].intValue
+        self.groupType = groupType
         
         if let image = json["ImageURL__c"].string {
             self.image = image

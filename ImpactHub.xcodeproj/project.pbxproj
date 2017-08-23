@@ -118,6 +118,9 @@
 		8516EDD91F25FA37003C7164 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8516EDD61F25FA37003C7164 /* GroupsViewController.swift */; };
 		8516EDDA1F26006D003C7164 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE9EF71ECC902B00291EF5 /* HomeViewController.swift */; };
 		8516EDDB1F26006E003C7164 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE9EF71ECC902B00291EF5 /* HomeViewController.swift */; };
+		8519F5371F4D8FA900DCDE73 /* MyGroupsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8519F5361F4D8FA900DCDE73 /* MyGroupsManager.swift */; };
+		8519F5381F4D8FA900DCDE73 /* MyGroupsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8519F5361F4D8FA900DCDE73 /* MyGroupsManager.swift */; };
+		8519F5391F4D8FA900DCDE73 /* MyGroupsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8519F5361F4D8FA900DCDE73 /* MyGroupsManager.swift */; };
 		851A49211F34CB65007EDAAD /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B361391ED59FD400DC2DE0 /* APIClient.swift */; };
 		851A49221F34CB66007EDAAD /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B361391ED59FD400DC2DE0 /* APIClient.swift */; };
 		851D037C1F02B79700641976 /* FilterGroupingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851D037B1F02B79700641976 /* FilterGroupingViewModel.swift */; };
@@ -587,6 +590,7 @@
 		8516551A1EFD32A000002786 /* EventDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewModel.swift; sourceTree = "<group>"; };
 		8516551E1EFD5F0200002786 /* AddPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
 		8516EDD61F25FA37003C7164 /* GroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
+		8519F5361F4D8FA900DCDE73 /* MyGroupsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsManager.swift; sourceTree = "<group>"; };
 		851D037B1F02B79700641976 /* FilterGroupingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterGroupingViewModel.swift; sourceTree = "<group>"; };
 		851D03831F02B81C00641976 /* FilterGroupingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterGroupingCell.swift; sourceTree = "<group>"; };
 		851D03841F02B81C00641976 /* FilterGroupingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterGroupingCell.xib; sourceTree = "<group>"; };
@@ -1040,6 +1044,7 @@
 				8574806C1EE83B67005F73A2 /* ResetPasswordViewController.swift */,
 				850C142E1F03B04400F00DAE /* FilterManager.swift */,
 				858597E11F17AE8A00821E6A /* ContactRequestManager.swift */,
+				8519F5361F4D8FA900DCDE73 /* MyGroupsManager.swift */,
 				85DE9ECC1ECC8CD900291EF5 /* Main.storyboard */,
 				8570C1DD1ECEE66300FA1CE9 /* Home.storyboard */,
 				8570C1CF1ECEE0D200FA1CE9 /* Search.storyboard */,
@@ -1632,6 +1637,7 @@
 				859F97D31EFBBF01001C0B33 /* GoalDetailTopCell.swift in Sources */,
 				859F97F51EFBD0ED001C0B33 /* GoalAboutItemCell.swift in Sources */,
 				85AD649B1F00FE2700F2CCA8 /* BigTitleTopCell.swift in Sources */,
+				8519F5371F4D8FA900DCDE73 /* MyGroupsManager.swift in Sources */,
 				858C58C41EF9670E00136DAC /* JobCollectionViewCell.swift in Sources */,
 				858C58BC1EF9665E00136DAC /* JobsViewController.swift in Sources */,
 				85E7DA821EF818D200C9DA15 /* ProjectCollectionViewCell.swift in Sources */,
@@ -1730,6 +1736,7 @@
 				858C58BD1EF9665E00136DAC /* JobsViewController.swift in Sources */,
 				850072381EE711E4008A725A /* MessageThreadThemTimeCell.swift in Sources */,
 				857480321EE80279005F73A2 /* ChatterSegmentBuilder.swift in Sources */,
+				8519F5381F4D8FA900DCDE73 /* MyGroupsManager.swift in Sources */,
 				850B701C1EFBF84600596315 /* GroupDetailTopCell.swift in Sources */,
 				8574805E1EE802D0005F73A2 /* Subscription.swift in Sources */,
 				85E5FF551F0A8D750053189B /* CommentsViewController.swift in Sources */,
@@ -1857,6 +1864,7 @@
 				858C58BE1EF9665E00136DAC /* JobsViewController.swift in Sources */,
 				850072391EE711E4008A725A /* MessageThreadThemTimeCell.swift in Sources */,
 				857480331EE80279005F73A2 /* ChatterSegmentBuilder.swift in Sources */,
+				8519F5391F4D8FA900DCDE73 /* MyGroupsManager.swift in Sources */,
 				850B701D1EFBF84600596315 /* GroupDetailTopCell.swift in Sources */,
 				8574805F1EE802D0005F73A2 /* Subscription.swift in Sources */,
 				85E5FF561F0A8D750053189B /* CommentsViewController.swift in Sources */,

@@ -40,20 +40,15 @@ class ProjectCollectionViewCell: UICollectionViewCell {
     }
     
     
-    override func draw(_ rect: CGRect) {
+    override func layoutSubviews() {
+        super.layoutSubviews()
         self.bgView.clipsToBounds = false
         self.bgView.layer.shadowColor = UIColor(hexString: "D5D5D5").cgColor
         self.bgView.layer.shadowOffset = CGSize(width: 0, height: 5)
         self.bgView.layer.shadowOpacity = 0.42
         self.bgView.layer.shadowPath = UIBezierPath(rect: self.bgView.bounds).cgPath
         self.bgView.layer.shadowRadius = 10.0
-
         bigImageView.round(corners:[.topLeft, .topRight], radius: 10)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
     }
 
     
