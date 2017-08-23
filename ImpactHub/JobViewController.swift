@@ -167,8 +167,8 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
 //        }
         
         if let vm = data[indexPath.item] as? JobDetailViewModel {
-            let cellWidth: CGFloat = self.collectionView.frame.width
-            let height = vm.job.description.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 15)!) + 100 // add extra height for the standard elements, titles, lines, sapcing etc.
+            let cellWidth: CGFloat = self.collectionView.frame.width - 40
+            let height = vm.job.description.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 15)!) + 70 // add extra height for the standard elements, titles, lines, sapcing etc.
             return CGSize(width: view.frame.width, height: height)
         }
         

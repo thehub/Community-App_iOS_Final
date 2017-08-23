@@ -25,6 +25,7 @@ class BigTitleTopCell: UICollectionViewCell {
     func setUp(vm: BigTitleTopViewModel) {
         self.cellBackDelegate = vm.cellBackDelegate
         nameLabel.attributedText = NSAttributedString.init(string: vm.event.name)
+        nameLabel.setLineHeight(0.8)
     }
     
     @IBAction func backTap(_ sender: Any) {

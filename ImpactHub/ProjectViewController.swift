@@ -174,7 +174,7 @@ class ProjectViewController: ListFullBleedViewController {
 
         if let vm = data[indexPath.item] as? ProjectObjectiveViewModel {
             let cellWidth: CGFloat = self.collectionView.frame.width
-            let height = vm.objective.description.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 150 // add extra height for the standard elements, titles, lines, sapcing etc.
+            let height = vm.objective.description.height(withConstrainedWidth: cellWidth - 135 - 20, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 100 // add extra height for the standard elements, titles, lines, sapcing etc.
             return CGSize(width: view.frame.width, height: height)
         }
         

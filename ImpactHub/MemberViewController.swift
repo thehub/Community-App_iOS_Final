@@ -205,14 +205,14 @@ class MemberViewController: ListFullBleedViewController {
         
         
         if let vm = data[indexPath.item] as? MemberAboutItemViewModel {
-            let cellWidth: CGFloat = self.collectionView.frame.width
+            let cellWidth: CGFloat = self.collectionView.frame.width - 40
             let height = vm.member.aboutMe.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 120 // add extra height for the standard elements, titles, lines, sapcing etc.
             return CGSize(width: view.frame.width, height: height)
         }
         
         if let vm = data[indexPath.item] as? MemberSkillItemViewModel {
-            let cellWidth: CGFloat = self.collectionView.frame.width
-            let height = vm.skill.name.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 115 // add extra height for the standard elements, titles, lines, sapcing etc.
+            let cellWidth: CGFloat = self.collectionView.frame.width - 40
+            let height = vm.skill.name.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 130 // add extra height for the standard elements, titles, lines, sapcing etc.
             return CGSize(width: view.frame.width, height: height)
         }
         
