@@ -19,14 +19,20 @@ class ProjectObjectiveCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    override func prepareForReuse() {
+        lineView.isHidden = false
+    }
 
     func setUp(vm: ProjectObjectiveViewModel) {
-
         self.numberLabel.text =  String(vm.objective.number)
         self.objectiveTitleLabel.text = vm.objective.title
         self.descriptionLabel.text = vm.objective.description
         if vm.objective.isLast {
             lineView.isHidden = true
+        }
+        else {
+            lineView.isHidden = false
         }
     }
 
