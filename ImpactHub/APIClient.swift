@@ -51,7 +51,7 @@ class APIClient {
     
     func getGroups(goalName: String) -> Promise<[Group]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.GROUP) FROM Directory__c WHERE Directory_Style__c = 'Group' AND Related_Impact_Goal__c LIKE '%\(goalName)%'", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.GROUP) FROM Directory__c WHERE Directory_Style__c = 'Group'  AND isMakerSpecific__c = false AND Related_Impact_Goal__c LIKE '%\(goalName)%'", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -177,7 +177,7 @@ class APIClient {
     // Projects
     func getProjects() -> Promise<[Project]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.PROJECT) FROM Directory__c WHERE Directory_Style__c = 'Project'", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.PROJECT) FROM Directory__c WHERE Directory_Style__c = 'Project' AND isMakerSpecific__c = false", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -329,7 +329,7 @@ class APIClient {
     
     func getProjects(companyId: String) -> Promise<[Project]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.PROJECT) FROM Directory__c WHERE Directory_Style__c ='Project' AND Organisation__c ='\(companyId)'", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.PROJECT) FROM Directory__c WHERE Directory_Style__c ='Project' AND Organisation__c ='\(companyId)' AND isMakerSpecific__c = false", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -412,7 +412,7 @@ class APIClient {
     
     func getGroups() -> Promise<[Group]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.GROUP) FROM Directory__c WHERE Directory_Style__c = 'Group'", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.GROUP) FROM Directory__c WHERE Directory_Style__c =  'Group' AND isMakerSpecific__c = false", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -430,7 +430,7 @@ class APIClient {
     
     func getGroups(contactId: String) -> Promise<[Group]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.GROUP) FROM Directory__c WHERE Directory_Style__c = 'Group' AND id IN (SELECT DirectoryID__c FROM Directory_Member__c WHERE ContactID__c ='\(contactId)')", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.GROUP) FROM Directory__c WHERE Directory_Style__c = 'Group'  AND isMakerSpecific__c = false AND id IN (SELECT DirectoryID__c FROM Directory_Member__c WHERE ContactID__c ='\(contactId)')", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -468,7 +468,7 @@ class APIClient {
     func getGroupOrProject(chatterGroupId: String) -> Promise<(group: Group?, project: Project?)> {
         return Promise { fullfill, reject in
             // Since we're asking for either a Project or a Group, merge both select values
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.GROUP_PROJECT) FROM Directory__c WHERE ChatterGroupId__c ='\(chatterGroupId)'", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.GROUP_PROJECT) FROM Directory__c WHERE ChatterGroupId__c ='\(chatterGroupId)' AND isMakerSpecific__c = false", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -504,7 +504,7 @@ class APIClient {
     
     func getProjects(contactId: String) -> Promise<[Project]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQuery("select \(SelectFields.PROJECT) FROM Directory__c WHERE Directory_Style__c ='Project' AND id IN (select DirectoryID__c FROM Directory_Member__c WHERE ContactID__c ='\(contactId)')", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("select \(SelectFields.PROJECT) FROM Directory__c WHERE Directory_Style__c ='Project' AND isMakerSpecific__c = false AND id IN (select DirectoryID__c FROM Directory_Member__c WHERE ContactID__c ='\(contactId)')", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -719,7 +719,7 @@ class APIClient {
     // to get related project to job
     func getProject(jobId: String) -> Promise<[Project]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.PROJECT) FROM Directory__c WHERE Organisation__c in (SELECT Company__c FROM Job__c WHERE id ='\(jobId)')", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.PROJECT) FROM Directory__c WHERE isMakerSpecific__c = false AND Organisation__c in (SELECT Company__c FROM Job__c WHERE id ='\(jobId)')", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.Error("Error"))
             }) { (result) in
