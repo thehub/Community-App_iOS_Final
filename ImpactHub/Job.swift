@@ -37,7 +37,7 @@ extension Job {
             let type = json["Job_Type__c"].string,
             var companyJson = json["Company__r"].dictionary,
             let companyId = json["Company__c"].string,
-            let salary = json["Salary__c"].string,
+            let salary = json["Salary2__c"].string,
             let locationName = json["Location__c"].string
             else {
                 return nil
