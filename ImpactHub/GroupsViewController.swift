@@ -31,6 +31,7 @@ class GroupsViewController: ListWithSearchViewController {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.collectionView?.alpha = 0
         
+        
         firstly {
                 MyGroupsManager.shared.refresh()
             }.then { myGroupsIds -> Void in
@@ -38,7 +39,15 @@ class GroupsViewController: ListWithSearchViewController {
             }.then {
                 APIClient.shared.getGroups()
             }.then { items -> Void in
-                items.forEach({ (group) in
+                let filteredItems = items.filter { (group) -> Bool in
+                    if group.groupType == .public {
+                        return true
+                    }
+                    else {
+                        return MyGroupsManager.shared.isInGroup(groupId: group.chatterId)
+                    }
+                }
+                filteredItems.forEach({ (group) in
                     self.dataAll.append(GroupViewModel(group: group, cellSize: CGSize(width: self.view.frame.width, height: 170)))
                 })
                 // Create filters

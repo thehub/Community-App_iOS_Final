@@ -38,8 +38,16 @@ class ProjectsViewController: ListWithSearchViewController {
             }.then {
                 APIClient.shared.getProjects()
             }.then { items -> Void in
+                let filteredItems = items.filter { (group) -> Bool in
+                    if group.groupType == .public {
+                        return true
+                    }
+                    else {
+                        return MyGroupsManager.shared.isInGroup(groupId: group.chatterId)
+                    }
+                }
                 let cellWidth: CGFloat = self.view.frame.width
-                items.forEach({ (project) in
+                filteredItems.forEach({ (project) in
                     let viewModel = ProjectViewModel(project: project, cellSize: CGSize(width: cellWidth, height: 370))
                     self.dataAll.append(viewModel)
                     if viewModel.project.createdById == SessionManager.shared.me?.member.contactId {

@@ -194,45 +194,45 @@ class GroupViewController: ListFullBleedViewController {
     var userIdToShow: String?
 
     
-    
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if identifier == "ShowCreatePost" {
-            if group.groupType == .public {
-                return true
-            }
-            if !MyGroupsManager.shared.isInGroup(groupId: group.chatterId) {
-                let alertController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-                let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
-                    //cancel code
-                }
-                let joinAction: UIAlertAction = UIAlertAction(title: "Request To Join Group", style: .destructive) { action -> Void in
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = true
-                    firstly {
-                        APIClient.shared.joinGroup(groupId: self.group.chatterId)
-                        }.then { result -> Void in
-                            print(result)
-                        }.always {
-                            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                        }.catch { error in
-                            debugPrint(error.localizedDescription)
-                            let alert = UIAlertController(title: "Error", message: "Could not request to join group. Please try again.", preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                            self.present(alert, animated: true, completion: nil)
-                    }
-                }
-                alertController.addAction(cancelAction)
-                alertController.addAction(joinAction)
-                self.present(alertController, animated: true, completion: nil)
-                return false
-            }
-            else {
-                return true
-            }
-        }
-        else {
-            return true
-        }
-    }
+    // TODO: Add this when we add ability to join groups.
+//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+//        if identifier == "ShowCreatePost" {
+//            if group.groupType == .public {
+//                return true
+//            }
+//            if !MyGroupsManager.shared.isInGroup(groupId: group.chatterId) {
+//                let alertController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+//                let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+//                    //cancel code
+//                }
+//                let joinAction: UIAlertAction = UIAlertAction(title: "Request To Join Group", style: .destructive) { action -> Void in
+//                    UIApplication.shared.isNetworkActivityIndicatorVisible = true
+//                    firstly {
+//                        APIClient.shared.joinGroup(groupId: self.group.chatterId)
+//                        }.then { result -> Void in
+//                            print(result)
+//                        }.always {
+//                            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+//                        }.catch { error in
+//                            debugPrint(error.localizedDescription)
+//                            let alert = UIAlertController(title: "Error", message: "Could not request to join group. Please try again.", preferredStyle: .alert)
+//                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//                            self.present(alert, animated: true, completion: nil)
+//                    }
+//                }
+//                alertController.addAction(cancelAction)
+//                alertController.addAction(joinAction)
+//                self.present(alertController, animated: true, completion: nil)
+//                return false
+//            }
+//            else {
+//                return true
+//            }
+//        }
+//        else {
+//            return true
+//        }
+//    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
