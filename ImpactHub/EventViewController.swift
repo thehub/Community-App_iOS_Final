@@ -89,8 +89,8 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
 
         // Title
         data.append(TitleViewModel(title: "DESCRIPTION", cellSize: CGSize(width: view.frame.width, height: 50)))
-        
-        
+
+
         // Event Detail
         data.append(EventDetailViewModel(event: event, cellSize: CGSize(width: view.frame.width, height: 0)))
     }

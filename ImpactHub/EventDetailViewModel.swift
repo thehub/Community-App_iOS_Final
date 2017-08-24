@@ -11,7 +11,6 @@ import UIKit
 class EventDetailViewModel: CellRepresentable {
     
     static var cellIdentifier = "EventDetailCell"
-
     
     var event: Event
     

@@ -12,7 +12,7 @@ class GoalDetailTopViewModel: CellRepresentable {
     
     static var cellIdentifier = "GoalDetailTopCell"
     
-    var cellBackDelegate: CellBackDelegate?
+    weak var cellBackDelegate: CellBackDelegate?
 
     var goal: Goal
     

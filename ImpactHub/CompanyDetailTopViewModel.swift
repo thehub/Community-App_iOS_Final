@@ -14,7 +14,7 @@ class CompanyDetailTopViewModel: CellRepresentable {
     
     var company: Company
     
-    var cellBackDelegate: CellBackDelegate?
+    weak var cellBackDelegate: CellBackDelegate?
 
     init(company: Company, cellBackDelegate: CellBackDelegate, cellSize: CGSize) {
         self.cellBackDelegate = cellBackDelegate

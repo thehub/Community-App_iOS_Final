@@ -12,7 +12,7 @@ class GroupDetailTopViewModel: CellRepresentable {
     
     static var cellIdentifier = "GroupDetailTopCell"
     
-    var cellBackDelegate: CellBackDelegate?
+    weak var cellBackDelegate: CellBackDelegate?
 
     var group: Group
     
