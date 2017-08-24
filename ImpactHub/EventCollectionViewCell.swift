@@ -29,7 +29,6 @@ class EventCollectionViewCell: UICollectionViewCell {
     }
     
     func setUp(vm: EventViewModel) {
-
         self.gradientLayer.isHidden = true
         if let photoUrl = vm.event.photoUrl {
             self.bigImageView.kf.setImage(with: photoUrl, placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (image, error, cacheType, url) in
@@ -55,9 +54,17 @@ class EventCollectionViewCell: UICollectionViewCell {
     
     let gradientLayer: CAGradientLayer = CAGradientLayer()
 
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        build()
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+        build()
+    }
+
+    func build() {
         self.bgView.clipsToBounds = false
         self.bgView.layer.shadowColor = UIColor(hexString: "D5D5D5").cgColor
         self.bgView.layer.shadowOffset = CGSize(width: 0, height: 5)
@@ -78,8 +85,6 @@ class EventCollectionViewCell: UICollectionViewCell {
         gradientLayer.locations = [NSNumber.init(value: 0.0), NSNumber.init(value: 0.8), NSNumber.init(value: 1.0)]
         gradientLayer.colors = [startingColorOfGradient, midColor, endingColorOFGradient]
         fadeView.layer.insertSublayer(gradientLayer, at: 0)
-
     }
-
     
 }

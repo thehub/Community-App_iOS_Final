@@ -50,6 +50,11 @@ class CompanyCollectionViewCell: UICollectionViewCell {
     
     
     override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        build()
+    }
+
+    func build() {
         self.bgView.clipsToBounds = false
         self.bgView.layer.shadowColor = UIColor(hexString: "D5D5D5").cgColor
         self.bgView.layer.shadowOffset = CGSize(width: 0, height: 5)
@@ -57,9 +62,9 @@ class CompanyCollectionViewCell: UICollectionViewCell {
         self.bgView.layer.shadowPath = UIBezierPath(rect: self.bgView.bounds).cgPath
         self.bgView.layer.shadowRadius = 10.0
         bigImageView.round(corners:[.topLeft, .topRight], radius: 10)
-
+        
         redBottomView.round(corners:[.bottomLeft, .bottomRight], radius: 10)
-
+        
         logoImageContainer.layer.cornerRadius = 44
         self.logoImageContainer.clipsToBounds = false
         self.logoImageContainer.layer.shadowColor = UIColor(hexString: "D5D5D5").cgColor
@@ -71,12 +76,10 @@ class CompanyCollectionViewCell: UICollectionViewCell {
         
         logoImageContainer.layer.shouldRasterize = true
         logoImageContainer.layer.rasterizationScale = UIScreen.main.scale
-
-
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+        build()
     }
 }

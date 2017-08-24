@@ -43,16 +43,22 @@ class JobCollectionViewCell: UICollectionViewCell {
 
     
     override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        build()
+
+    }
+    
+    func build() {
         bgView.clipsToBounds = false
         bgView.layer.shadowColor = UIColor(hexString: "D5D5D5").cgColor
         bgView.layer.shadowOffset = CGSize(width: 0, height: 5)
         bgView.layer.shadowOpacity = 0.42
         bgView.layer.shadowPath = UIBezierPath(rect: self.bgView.bounds).cgPath
         bgView.layer.shadowRadius = 10.0
-
+        
         profileImageView.clipsToBounds = true
         profileImageView.layer.cornerRadius = 10
-
+        
         profileImageShadowView.layer.cornerRadius = 10
         profileImageShadowView.layer.shadowColor = UIColor(hexString: "D5D5D5").cgColor
         profileImageShadowView.layer.shadowOffset = CGSize(width: 0, height: 5)
@@ -61,9 +67,12 @@ class JobCollectionViewCell: UICollectionViewCell {
         profileImageShadowView.layer.shadowRadius = 10.0
         profileImageShadowView.layer.shouldRasterize = true
         profileImageShadowView.layer.rasterizationScale = UIScreen.main.scale
-
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        build()
+    }
     
 
 }
