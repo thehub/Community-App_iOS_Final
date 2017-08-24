@@ -24,13 +24,11 @@ class GroupsViewController: ListWithSearchViewController {
         super.viewDidLoad()
         
         topMenu?.setupWithItems(["ALL", "GROUPS YOU MANAGE", "YOUR GROUPS"])
-
         
         collectionView.register(UINib.init(nibName: GroupViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: GroupViewModel.cellIdentifier)
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.collectionView?.alpha = 0
-        
         
         firstly {
                 MyGroupsManager.shared.refresh()
@@ -39,14 +37,7 @@ class GroupsViewController: ListWithSearchViewController {
             }.then {
                 APIClient.shared.getGroups()
             }.then { items -> Void in
-                let filteredItems = items.filter { (group) -> Bool in
-                    if group.groupType == .public {
-                        return true
-                    }
-                    else {
-                        return MyGroupsManager.shared.isInGroup(groupId: group.chatterId)
-                    }
-                }
+                let filteredItems = items.filter {$0.groupType == .public || MyGroupsManager.shared.isInGroup(groupId: $0.chatterId)}
                 filteredItems.forEach({ (group) in
                     self.dataAll.append(GroupViewModel(group: group, cellSize: CGSize(width: self.view.frame.width, height: 170)))
                 })

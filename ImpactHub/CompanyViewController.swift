@@ -90,14 +90,7 @@ class CompanyViewController: ListFullBleedViewController {
             }.then {
                 APIClient.shared.getProjects(companyId: company.id)
             }.then { projects -> Void in
-                let filteredItems = projects.filter { (group) -> Bool in
-                    if group.groupType == .public {
-                        return true
-                    }
-                    else {
-                        return MyGroupsManager.shared.isInGroup(groupId: group.chatterId)
-                    }
-                }
+                let filteredItems = projects.filter {$0.groupType == .public || MyGroupsManager.shared.isInGroup(groupId: $0.chatterId)}
                 self.projects = filteredItems
             }.then {
                 APIClient.shared.getMembers(companyId: company.id)

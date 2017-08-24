@@ -139,26 +139,12 @@ class MemberViewController: ListFullBleedViewController {
             }.then {
                 APIClient.shared.getProjects(contactId: member.contactId)
             }.then { projects -> Void in
-                let filteredItems = projects.filter { (group) -> Bool in
-                    if group.groupType == .public {
-                        return true
-                    }
-                    else {
-                        return MyGroupsManager.shared.isInGroup(groupId: group.chatterId)
-                    }
-                }
+                let filteredItems = projects.filter {$0.groupType == .public || MyGroupsManager.shared.isInGroup(groupId: $0.chatterId)}
                 self.projects = filteredItems
             }.then {
                 APIClient.shared.getGroups(contactId: member.contactId)
             }.then { groups -> Void in
-                let filteredItems = groups.filter { (group) -> Bool in
-                    if group.groupType == .public {
-                        return true
-                    }
-                    else {
-                        return MyGroupsManager.shared.isInGroup(groupId: group.chatterId)
-                    }
-                }
+                let filteredItems = groups.filter {$0.groupType == .public || MyGroupsManager.shared.isInGroup(groupId: $0.chatterId)}
                 self.groups = filteredItems
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false

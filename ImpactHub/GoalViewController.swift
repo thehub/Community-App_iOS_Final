@@ -48,14 +48,7 @@ class GoalViewController: ListFullBleedViewController {
         firstly {
             APIClient.shared.getGroups(goalName: goal.name)
             }.then { groups -> Void in
-                let filteredItems = groups.filter { (group) -> Bool in
-                    if group.groupType == .public {
-                        return true
-                    }
-                    else {
-                        return MyGroupsManager.shared.isInGroup(groupId: group.chatterId)
-                    }
-                }
+                let filteredItems = groups.filter {$0.groupType == .public || MyGroupsManager.shared.isInGroup(groupId: $0.chatterId)}
                 self.groups = filteredItems
             }.then {
                 APIClient.shared.getMembers(goalName: goal.name)
