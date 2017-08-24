@@ -12,6 +12,8 @@ import SalesforceSDKCore
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var loginBgView: UIView!
+    @IBOutlet weak var emailBgView: UIView!
     var sessionManager: SessionManager!
     
     @IBOutlet weak var logo: UIImageView!
@@ -29,12 +31,45 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.init(coder: aDecoder)
     }
 
+    var didLayout = false
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if didLayout {
+            return
+        }
+        didLayout = true
+        addShadow()
+    }
+    
+    func addShadow() {
+        
+        loginBgView.layer.shadowColor = UIColor(hexString: "F52929").cgColor
+        loginBgView.layer.shadowOffset = CGSize(width: 0, height: 5)
+        loginBgView.layer.shadowOpacity = 0.97
+        loginBgView.layer.shadowPath = UIBezierPath(rect: loginBgView.layer.bounds).cgPath
+        loginBgView.layer.shadowRadius = 8
+        loginBgView.layer.shouldRasterize = true
+        loginBgView.layer.rasterizationScale = UIScreen.main.scale
+
+        emailBgView.layer.shadowColor = UIColor(hexString: "F52929").cgColor
+        emailBgView.layer.shadowOffset = CGSize(width: 0, height: 5)
+        emailBgView.layer.shadowOpacity = 0.97
+        emailBgView.layer.shadowPath = UIBezierPath(rect: emailBgView.layer.bounds).cgPath
+        emailBgView.layer.shadowRadius = 8
+        emailBgView.layer.shouldRasterize = true
+        emailBgView.layer.rasterizationScale = UIScreen.main.scale
+
+        
+    }
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.modalPresentationCapturesStatusBarAppearance = true
 
-        self.showKeyboard()
+//        self.showKeyboard()
     
     }
     
@@ -69,6 +104,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     
+    @IBAction func linkedInTap(_ sender: Any) {
+    }
     
     
     
@@ -147,7 +184,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text else { return true }
 
-        textField.textColor = UIColor.white
+//        textField.textColor = UIColor.white
         
         let newLength = text.utf16.count + string.utf16.count - range.length
         return newLength <= 150
@@ -171,7 +208,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func checkPassword() -> Bool {
         var isValid = true
-        passwordTextField.textColor = UIColor.white
+//        passwordTextField.textColor = UIColor.white
         if passwordTextField.text!.characters.count < 7 {
             passwordTextField.layer.add(Animations.shakeAnimation, forKey: "shakeIt")
             isValid = false
@@ -182,7 +219,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func checkEmail() -> Bool {
         var isValid = true
-        emailTextField.textColor = UIColor.white
+//        emailTextField.textColor = UIColor.white
         if !isValidEmail(testStr: emailTextField.text!) {
             emailTextField.layer.add(Animations.shakeAnimation, forKey: "shakeIt")
             isValid = false

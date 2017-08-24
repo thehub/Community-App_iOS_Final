@@ -15,7 +15,7 @@ class WhiteButton: UIButton {
         super.init(coder: aDecoder)
         
         self.layer.cornerRadius = self.frame.height / 2
-        self.titleLabel?.font = UIFont(name: "OpenSans", size: 18)
+        self.titleLabel?.font = UIFont(name: "GTWalsheim-Light", size: 18)
 //        self.setTitleColor(UIColor.lightfulVividPurple, for: .normal)
 //        self.setTitleColor(UIColor.lightfulVividPurple, for: .highlighted)
 //        self.setTitleColor(UIColor.lightfulVividPurple, for: .selected)
