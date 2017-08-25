@@ -213,7 +213,7 @@ class MemberFeedItemCell: UICollectionViewCell, UITextViewDelegate {
         }
         
         firstly {
-            APIClient.shared.reportAbuse(fromUserId:SessionManager.shared.me?.member.userId ?? "", postId:idToReport, message: textToReport)
+            APIClient.shared.reportAbuse(fromUserId:SessionManager.shared.me?.member.userId ?? "", message: textToReport)
             }.then { myLikeId -> Void in
                 print(myLikeId)
             }.always {

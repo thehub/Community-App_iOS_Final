@@ -302,13 +302,15 @@ class MemberViewController: ListFullBleedViewController {
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.collectionView.setContentOffset(CGPoint.init(x: 0, y: self.collectionView.frame.height - 0), animated: false)
+            let cell = self.collectionView.cellForItem(at: IndexPath(row: 1, section: 0))
+            self.collectionView.setContentOffset(CGPoint.init(x: 0, y: (cell?.frame.origin.y ?? self.collectionView.frame.height) - 90), animated: false)
             UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
                 self.collectionView.alpha = 1
             }, completion: { (_) in
                 
             })
         }
+        
     }
 
     var inTransit = false
