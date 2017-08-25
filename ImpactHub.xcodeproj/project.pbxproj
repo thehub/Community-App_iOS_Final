@@ -818,9 +818,9 @@
 			isa = PBXGroup;
 			children = (
 				8516EDD61F25FA37003C7164 /* GroupsViewController.swift */,
-				850B701A1EFBF84600596315 /* GroupViewController.swift */,
 				850B700C1EFBF1CA00596315 /* GroupCollectionViewCell.swift */,
 				850B700D1EFBF1CA00596315 /* GroupCollectionViewCell.xib */,
+				850B701A1EFBF84600596315 /* GroupViewController.swift */,
 				850B70181EFBF84600596315 /* GroupDetailTopCell.swift */,
 				850B70191EFBF84600596315 /* GroupDetailTopCell.xib */,
 				85E5FF531F0A8D750053189B /* CommentsViewController.swift */,

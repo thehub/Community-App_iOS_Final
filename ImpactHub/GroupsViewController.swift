@@ -55,7 +55,7 @@ class GroupsViewController: ListWithSearchViewController {
             }.then { yourGroups -> Void in
                 let cellWidth: CGFloat = self.view.frame.width
                 yourGroups.forEach({ (group) in
-                    let viewModel = GroupViewModel(group: group, cellSize: CGSize(width: cellWidth, height: 370))
+                    let viewModel = GroupViewModel(group: group, cellSize: CGSize(width: cellWidth, height: 170))
                     self.yourGroupsData.append(viewModel)
                 })
             }.then {_ in
@@ -63,7 +63,7 @@ class GroupsViewController: ListWithSearchViewController {
             }.then { manageGroups -> Void in
                 let cellWidth: CGFloat = self.view.frame.width
                 manageGroups.forEach({ (group) in
-                    let viewModel = GroupViewModel(group: group, cellSize: CGSize(width: cellWidth, height: 370))
+                    let viewModel = GroupViewModel(group: group, cellSize: CGSize(width: cellWidth, height: 170))
                     self.groupsYouManageData.append(viewModel)
                 })
             }.always {
