@@ -99,7 +99,8 @@ class GoalViewController: ListFullBleedViewController {
         
         if let vm = data[indexPath.item] as? GoalAboutItemViewModel {
             let cellWidth: CGFloat = self.collectionView.frame.width - 40
-            let height = vm.goal.summary.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 145 // add extra height for the standard elements, titles, lines, sapcing etc.
+            let text = vm.goal.description ?? ""
+            let height = text.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 145 // add extra height for the standard elements, titles, lines, sapcing etc.
             return CGSize(width: view.frame.width, height: height)
         }
 
