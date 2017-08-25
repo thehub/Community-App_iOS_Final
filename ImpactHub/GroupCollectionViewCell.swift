@@ -31,7 +31,7 @@ class GroupCollectionViewCell: UICollectionViewCell {
 
         if let photoUrl = vm.group.photoUrl {
             print(photoUrl)
-            profileImageView.kf.setImage(with: photoUrl)
+            profileImageView.kf.setImage(with: photoUrl, options: [.transition(.fade(0.2))])
         }
 
         locationNameLabel.text = vm.group.locationName

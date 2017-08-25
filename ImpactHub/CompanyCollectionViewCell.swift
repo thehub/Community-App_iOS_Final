@@ -30,6 +30,7 @@ class CompanyCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         bigImageView.image = nil
+        logoImageView.image = nil
     }
 
     

@@ -31,7 +31,7 @@ class EventCollectionViewCell: UICollectionViewCell {
     func setUp(vm: EventViewModel) {
         self.gradientLayer.isHidden = true
         if let photoUrl = vm.event.photoUrl {
-            self.bigImageView.kf.setImage(with: photoUrl, placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (image, error, cacheType, url) in
+            self.bigImageView.kf.setImage(with: photoUrl, placeholder: nil, options: [.transition(.fade(0.2))], progressBlock: nil, completionHandler: { (image, error, cacheType, url) in
                 if error == nil {
                     self.gradientLayer.isHidden = false
                 }

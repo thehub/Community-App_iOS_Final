@@ -1213,13 +1213,12 @@ class APIClient {
     }
     
     
-    
     // Report abuse
     func reportAbuse(fromUserId:String, postId:String, message: String) -> Promise<String> {
         return Promise { fullfill, reject in
             let query: [String: String] = ["fromUserId" : fromUserId, "postId" : postId, "message" : message]
             let body = SFJsonUtils.jsonDataRepresentation(query)
-            let request = SFRestRequest(method: .POST, path: "/services/apexrest/ReportAbuse/", queryParams: nil)
+            let request = SFRestRequest(method: .POST, path: "/services/apexrest/ReportAbuse", queryParams: nil)
             request.endpoint = "/services/apexrest/ReportAbuse"
             request.path = "/services/apexrest/ReportAbuse"
             request.setCustomRequestBodyData(body!, contentType: "application/json")
