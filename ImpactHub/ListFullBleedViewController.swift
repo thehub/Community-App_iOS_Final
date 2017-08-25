@@ -50,11 +50,11 @@ class ListFullBleedViewController: UIViewController, UICollectionViewDelegate, T
     }
     
     func hideConnectButton() {
-        self.connectButton?.isHidden = true
+        self.connectContainer?.isHidden = true
     }
     
     func showConnectButton() {
-        self.connectButton?.isHidden = false
+        self.connectContainer?.isHidden = false
     }
 
     
