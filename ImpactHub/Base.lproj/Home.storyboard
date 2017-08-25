@@ -283,7 +283,7 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D7m-9w-jg5" customClass="TopMenu" customModule="ImpactHub" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="uHz-Zp-op8"/>
                                 </constraints>
@@ -532,7 +532,7 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ni-Rl-OWN" customClass="TopMenu" customModule="ImpactHub" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="TyM-kI-iCM"/>
                                 </constraints>
@@ -842,17 +842,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="companyImage" translatesAutoresizingMaskIntoConstraints="NO" id="ptK-nm-SmE">
-                                <rect key="frame" x="0.0" y="20" width="375" height="230"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="230"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="230" id="lp9-DE-ROF"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRW-N1-nvq" userLabel="fadeView">
-                                <rect key="frame" x="0.0" y="20" width="375" height="230"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="230"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cgi-nN-1X3">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="1ke-xR-URQ">
                                     <size key="itemSize" width="50" height="50"/>
@@ -872,7 +872,7 @@
                                 </cells>
                             </collectionView>
                             <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="lzQ-al-fJS">
-                                <rect key="frame" x="0.0" y="20" width="375" height="5"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="5"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ye1-uo-Wne" customClass="RedButton" customModule="ImpactHub" customModuleProvider="target">
                                 <rect key="frame" x="35" y="552" width="305" height="50"/>
@@ -1980,13 +1980,13 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="r4W-Rs-mKq"/>
-        <segue reference="vHi-eY-5aJ"/>
-        <segue reference="9tv-11-54j"/>
+        <segue reference="wU7-Qa-AtJ"/>
+        <segue reference="zv2-am-uws"/>
         <segue reference="ODp-Jh-V7d"/>
         <segue reference="4CN-lM-E9S"/>
-        <segue reference="2LU-54-KOa"/>
-        <segue reference="wlv-A0-0zb"/>
-        <segue reference="v5Y-1w-vJM"/>
+        <segue reference="2YP-O4-F5Z"/>
+        <segue reference="RAM-VD-ZBW"/>
+        <segue reference="E6m-rq-9b6"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>

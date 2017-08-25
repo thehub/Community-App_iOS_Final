@@ -80,6 +80,7 @@ class ContactsViewController: ListWithSearchViewController {
                     }
                 })
                 self.data = self.dataConnected
+                self.dataAll = self.data
                 // Pending Pending is the old Incomming cell. And the old Pending has been removed.
                 let incomming = ContactRequestManager.shared.getIncommingContactRequests()
                 incomming.forEach({ (contactRequest) in
@@ -183,6 +184,12 @@ class ContactsViewController: ListWithSearchViewController {
         }
     }
 
+    
+    override func filterData(dataToFilter: [CellRepresentable]) -> [CellRepresentable] {
+        let filteredData = dataToFilter
+        return filteredData
+    }
+        
     // MARK: Search
     override func filterContentForSearchText(dataToFilter: [CellRepresentable], searchText: String) -> [CellRepresentable] {
         return dataToFilter.filter({ (item) -> Bool in
@@ -203,14 +210,6 @@ class ContactsViewController: ListWithSearchViewController {
                 }
             }
             else if selectedTopMenuIndex == 2 {
-                if let vm = item as? ContactPendingViewModel {
-                    return vm.member.name.lowercased().contains(searchText.lowercased()) || vm.member.locationName.lowercased().contains(searchText.lowercased())
-                }
-                else {
-                    return false
-                }
-            }
-            else if selectedTopMenuIndex == 3 {
                 if let vm = item as? ContactDeclinedViewModel {
                     return vm.member.name.lowercased().contains(searchText.lowercased()) || vm.member.locationName.lowercased().contains(searchText.lowercased())
                 }
