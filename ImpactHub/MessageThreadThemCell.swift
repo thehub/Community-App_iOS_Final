@@ -28,7 +28,7 @@ class MessageThreadThemCell: UITableViewCell {
         messageLabel.text = vm.message.text
         
         // TODO: Where is the draw call for this?
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
             self.messageLabelContainer.round(corners: vm.corners, radius: 20)
         }
 

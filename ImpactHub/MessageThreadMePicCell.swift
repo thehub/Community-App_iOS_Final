@@ -18,6 +18,11 @@ class MessageThreadMePicCell: UITableViewCell {
 
         profileImageView.layer.cornerRadius = profileImageView.frame.size.width/2
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        profileImageView.image = nil
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

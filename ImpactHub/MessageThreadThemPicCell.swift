@@ -25,6 +25,11 @@ class MessageThreadThemPicCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        profileImageView.image = nil
+    }
+
     func setUp(vm: MessagesThreadThemPicVM) {
         
         if let photoUrl = vm.message.sender.photo?.smallPhotoUrl {
