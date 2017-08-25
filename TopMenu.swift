@@ -147,6 +147,11 @@ class TopMenu: UIView {
             
         }
         
+        // If button tapped is outside, scroll it into view...
+        if sender.frame.origin.x + sender.frame.size.width > scrollView.frame.width {
+            scrollView.setContentOffset(CGPoint(x: sender.frame.origin.x - sender.frame.size.width * 2, y: scrollView.frame.origin.y), animated: true)
+        }
+        
         self.delegate?.topMenuDidSelectIndex(sender.tag)
     }
     
