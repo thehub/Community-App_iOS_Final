@@ -66,14 +66,14 @@ class CompanyCollectionViewCell: UICollectionViewCell {
         
         redBottomView.round(corners:[.bottomLeft, .bottomRight], radius: 10)
         
-        logoImageContainer.layer.cornerRadius = 44
+        logoImageContainer.layer.cornerRadius = 42
         self.logoImageContainer.clipsToBounds = false
         self.logoImageContainer.layer.shadowColor = UIColor(hexString: "D5D5D5").cgColor
         self.logoImageContainer.layer.shadowOffset = CGSize(width: 0, height: 3)
         self.logoImageContainer.layer.shadowOpacity = 0.32
         self.logoImageContainer.layer.shadowPath = UIBezierPath(rect: self.logoImageContainer.bounds).cgPath
         self.logoImageContainer.layer.shadowRadius = 6.0
-        logoImageView.layer.cornerRadius = 44
+        logoImageView.layer.cornerRadius = 42
         
         logoImageContainer.layer.shouldRasterize = true
         logoImageContainer.layer.rasterizationScale = UIScreen.main.scale
