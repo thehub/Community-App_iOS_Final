@@ -69,33 +69,6 @@ class MessagesThreadViewController: UIViewController {
         }
     }
     
-//    func otherUser() -> (id: String?, name: String?) {
-//        var lastMessage = self.conversation?.latestMessage
-//        // If coming from push we get this once all messages has been loaded...
-//        if lastMessage == nil {
-//            lastMessage = self.messages.last
-//        }
-//        if let lastMessage = lastMessage {
-//            // Find the other user
-//            if lastMessage.sender.id != SessionManager.shared.me!.member.userId {
-//                return (id: lastMessage.sender.id, name: lastMessage.sender.displayName)
-//            }
-//            else {
-//                var recipientNotMe: User?
-//                for recipient in lastMessage.recipients {
-//                    if recipient.id != SessionManager.shared.me?.member.userId {
-//                        recipientNotMe = recipient
-//                        break
-//                    }
-//                }
-//                return (id: recipientNotMe?.id, name: recipientNotMe?.displayName)
-//            }
-//        }
-//        else {
-//            return (id: self.member?.userId, name: self.member?.name)
-//        }
-//    }
-    
     var observer: NSObjectProtocol?
     
     override func viewWillAppear(_ animated: Bool) {
@@ -114,7 +87,6 @@ class MessagesThreadViewController: UIViewController {
         self.title = self.lastMessage?.otherUser().displayName ?? "Message"
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-//        self.tabBarController?.tabBar.isHidden = true
         self.viewDidCancel = false
         
         // If we get a push for this conversation, refresh

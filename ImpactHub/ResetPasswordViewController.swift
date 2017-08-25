@@ -11,6 +11,8 @@ import Auth0
 
 class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var pleaseText: UILabel!
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var sendButton: WhiteButton!
@@ -22,10 +24,72 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    var topConstraintDefault: CGFloat = 0
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        registerForKeyboardNotifications()
+        self.topConstraintDefault = self.topConstraint.constant
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let observer = self.observer1 {
+            NotificationCenter.default.removeObserver(observer)
+        }
+        if let observer = self.observer2 {
+            NotificationCenter.default.removeObserver(observer)
+        }
+    }
+    
+    var observer1: NSObjectProtocol?
+    var observer2: NSObjectProtocol?
+    
+    
+    func registerForKeyboardNotifications() {
+        //Adding notifies on keyboard appearing
+        self.observer1 = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillShow, object: nil, queue: OperationQueue.main) { (note) in
+            self.keyboardWasShown(notification: note)
+        }
+        
+        self.observer2 = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillHide, object: nil, queue: OperationQueue.main) { (note) in
+            self.keyboardWillBeHidden(notification: note)
+        }
+    }
+    
+    func deregisterFromKeyboardNotifications() {
+        if let observer = self.observer1 {
+            NotificationCenter.default.removeObserver(observer)
+        }
+        if let observer = self.observer2 {
+            NotificationCenter.default.removeObserver(observer)
+        }
+    }
+    
+    func keyboardWasShown(notification: Notification) {
+        var info : Dictionary = notification.userInfo!
+        if let keyboardSize = (info[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size {
+            self.topConstraint.constant = topConstraintDefault - 68 //-keyboardSize.height/5
+            UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+                self.view.layoutIfNeeded()
+                self.logo.transform = CGAffineTransform.init(scaleX: 0.7, y: 0.7)
+                self.pleaseText.alpha = 0
+            }) { (_) in
+            }
+        }
+    }
+    
+    func keyboardWillBeHidden(notification: Notification?) {
+        self.topConstraint.constant = topConstraintDefault
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+            self.view.layoutIfNeeded()
+            self.logo.transform = CGAffineTransform.identity
+            self.pleaseText.alpha = 1
+        }) { (_) in
+        }
+    }
+    
+    
     
     @IBAction func clearEmail(_ sender: Any) {
         self.emailTextField.text = nil
@@ -107,6 +171,21 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
                 self.closePressed(self)
             }))
             self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    /**
+     Dismiss keyboard when tapped outside the keyboard or textView
+     
+     :param: touches the touches
+     :param: event   the related event
+     */
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            if touch.phase == UITouchPhase.began {
+                emailTextField.resignFirstResponder()
+            }
         }
     }
     

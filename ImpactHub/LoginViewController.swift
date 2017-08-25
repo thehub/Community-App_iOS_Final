@@ -12,6 +12,9 @@ import SalesforceSDKCore
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    @IBOutlet weak var logoTopConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var loginBgView: UIView!
     @IBOutlet weak var emailBgView: UIView!
     var sessionManager: SessionManager!
@@ -43,7 +46,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func addShadow() {
-        
         loginBgView.layer.shadowColor = UIColor(hexString: "F52929").cgColor
         loginBgView.layer.shadowOffset = CGSize(width: 0, height: 5)
         loginBgView.layer.shadowOpacity = 0.97
@@ -59,18 +61,75 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         emailBgView.layer.shadowRadius = 8
         emailBgView.layer.shouldRasterize = true
         emailBgView.layer.rasterizationScale = UIScreen.main.scale
-
-        
     }
 
     
+    var topConstraintDefault: CGFloat = 0
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        registerForKeyboardNotifications()
+        self.topConstraintDefault = self.topConstraint.constant
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let observer = self.observer1 {
+            NotificationCenter.default.removeObserver(observer)
+        }
+        if let observer = self.observer2 {
+            NotificationCenter.default.removeObserver(observer)
+        }
+    }
+    
+    var observer1: NSObjectProtocol?
+    var observer2: NSObjectProtocol?
+
+    
+    func registerForKeyboardNotifications() {
+        //Adding notifies on keyboard appearing
+        self.observer1 = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillShow, object: nil, queue: OperationQueue.main) { (note) in
+            self.keyboardWasShown(notification: note)
+        }
+        
+        self.observer2 = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillHide, object: nil, queue: OperationQueue.main) { (note) in
+            self.keyboardWillBeHidden(notification: note)
+        }
+    }
+    
+    func deregisterFromKeyboardNotifications() {
+        if let observer = self.observer1 {
+            NotificationCenter.default.removeObserver(observer)
+        }
+        if let observer = self.observer2 {
+            NotificationCenter.default.removeObserver(observer)
+        }
+    }
+    
+    func keyboardWasShown(notification: Notification) {
+        var info : Dictionary = notification.userInfo!
+        if let keyboardSize = (info[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size {
+            self.topConstraint.constant = topConstraintDefault - 58 //-keyboardSize.height/5
+            UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+                self.view.layoutIfNeeded()
+                self.logo.transform = CGAffineTransform.init(scaleX: 0.7, y: 0.7)
+            }) { (_) in
+            }
+        }
+    }
+    
+    func keyboardWillBeHidden(notification: Notification?) {
+        self.topConstraint.constant = topConstraintDefault
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+            self.view.layoutIfNeeded()
+            self.logo.transform = CGAffineTransform.identity
+        }) { (_) in
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.modalPresentationCapturesStatusBarAppearance = true
-
-//        self.showKeyboard()
-    
     }
     
     func showKeyboard() {
@@ -249,8 +308,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
+    /**
+     Dismiss keyboard when tapped outside the keyboard or textView
+     
+     :param: touches the touches
+     :param: event   the related event
+     */
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            if touch.phase == UITouchPhase.began {
+                passwordTextField?.resignFirstResponder()
+                emailTextField.resignFirstResponder()
+            }
+        }
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
 
+    
 }
