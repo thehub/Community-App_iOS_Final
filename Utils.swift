@@ -121,6 +121,19 @@ extension Date {
         return dateString
     }
     
+    static let eventFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.calendar = Calendar(identifier: .iso8601)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        return formatter
+    }()
+    func eventDate() -> String {
+        let dateString = Date.eventFormatter.string(from: self)
+        return dateString
+    }
+    
     
     func isoTwitterDate() -> String {
         let dateFormat = DateFormatter()

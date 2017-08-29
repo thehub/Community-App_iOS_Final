@@ -41,9 +41,10 @@ class EventCollectionViewCell: UICollectionViewCell {
             self.gradientLayer.isHidden = false
         }
         else {
-            self.bigImageView.isHidden = true
-            self.fadeView.isHidden = true
-            self.gradientLayer.isHidden = true
+            self.bigImageView.image = UIImage(named: "trans")
+//            self.bigImageView.isHidden = true
+//            self.fadeView.isHidden = true
+//            self.gradientLayer.isHidden = true
         }
 
         nameLabel.text = vm.event.name

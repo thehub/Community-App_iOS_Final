@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="A1i-kk-ec4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="A1i-kk-ec4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -461,17 +461,23 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="EAI-vO-9X1">
+                                <rect key="frame" x="0.0" y="64" width="375" height="5"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="AUi-o8-iT0" secondAttribute="trailing" constant="60" id="4KJ-Ef-KA8"/>
                             <constraint firstItem="tVC-qb-doR" firstAttribute="top" secondItem="CH7-Dh-Vc3" secondAttribute="bottom" constant="20" id="HHk-zZ-abu"/>
+                            <constraint firstAttribute="trailing" secondItem="EAI-vO-9X1" secondAttribute="trailing" id="HcX-sb-CHO"/>
                             <constraint firstItem="tVC-qb-doR" firstAttribute="leading" secondItem="KoS-XR-e2T" secondAttribute="leading" constant="20" id="Kmz-ul-xux"/>
                             <constraint firstItem="pcr-5N-Me4" firstAttribute="top" secondItem="AUi-o8-iT0" secondAttribute="bottom" constant="12" id="MMd-my-SIc"/>
                             <constraint firstItem="AUi-o8-iT0" firstAttribute="top" secondItem="tVC-qb-doR" secondAttribute="bottom" constant="10" id="N3i-q3-GJd"/>
                             <constraint firstItem="HYz-jm-W3a" firstAttribute="centerX" secondItem="KoS-XR-e2T" secondAttribute="centerX" id="NAd-97-57p"/>
                             <constraint firstItem="bUb-mg-8MQ" firstAttribute="centerX" secondItem="tVC-qb-doR" secondAttribute="centerX" id="O7x-85-YkP"/>
                             <constraint firstItem="AUi-o8-iT0" firstAttribute="leading" secondItem="tVC-qb-doR" secondAttribute="leading" id="ZwU-ba-Lmd"/>
+                            <constraint firstItem="EAI-vO-9X1" firstAttribute="leading" secondItem="KoS-XR-e2T" secondAttribute="leading" id="i48-dw-cgY"/>
+                            <constraint firstItem="EAI-vO-9X1" firstAttribute="top" secondItem="CH7-Dh-Vc3" secondAttribute="bottom" id="w3H-w0-fKU"/>
                             <constraint firstItem="bUb-mg-8MQ" firstAttribute="centerY" secondItem="tVC-qb-doR" secondAttribute="centerY" id="xJ9-bv-g3U"/>
                             <constraint firstItem="pcr-5N-Me4" firstAttribute="leading" secondItem="tVC-qb-doR" secondAttribute="leading" id="y1V-cQ-3g1"/>
                             <constraint firstItem="A5l-2d-O4J" firstAttribute="top" secondItem="HYz-jm-W3a" secondAttribute="bottom" constant="20" id="ylo-bU-v0h"/>
@@ -618,8 +624,8 @@
         <image name="trans" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="v7v-3b-vgD"/>
-        <segue reference="DPj-Yd-XnV"/>
+        <segue reference="Yv3-tT-FXL"/>
+        <segue reference="FjO-gx-hbh"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>

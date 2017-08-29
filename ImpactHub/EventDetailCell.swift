@@ -60,7 +60,7 @@ class EventDetailCell: UICollectionViewCell, MKMapViewDelegate {
                 self.location = CLLocationCoordinate2DMake(placemark.location?.coordinate.latitude ?? 0, placemark.location?.coordinate.longitude ?? 0)
                 if let location = self.location {
                     let region = MKCoordinateRegion(center: location, span: MKCoordinateSpanMake(0.05, 0.05))
-                    self.mapView.setRegion(region, animated: true)
+                    self.mapView.setRegion(region, animated: false)
                     self.addPins()
                     self.mapView.alpha = 1.0
                 }

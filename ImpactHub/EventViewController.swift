@@ -8,6 +8,7 @@
 
 import UIKit
 import SafariServices
+import PromiseKit
 
 
 class EventViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
@@ -24,6 +25,8 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     var data = [CellRepresentable]()
     
+    var attendingData = [CellRepresentable]()
+    
     @IBOutlet weak var connectButtonBottomConsatraint: NSLayoutConstraint?
     var connectButtonBottomConsatraintDefault: CGFloat = 0
     var compnayPhotoHeightConstraintDefault: CGFloat = 0
@@ -31,6 +34,17 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
 
 
 
+    
+    var isAttending = false {
+        didSet {
+            if isAttending {
+                self.connectButton?.setTitle("Unattend Event", for: .normal)
+            }
+            else {
+                self.connectButton?.setTitle("Attend Event", for: .normal)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +62,13 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
             self.setNeedsStatusBarAppearanceUpdate()
         }) { (_) in
             
+        }
+        
+        if self.attendingData.filter ({($0 as? EventViewModel)?.event.id == self.event.id}).first != nil {
+            isAttending = true
+        }
+        else {
+            isAttending = false
         }
 
     }
@@ -266,16 +287,49 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     
-    
-    
-
-    
-    
-    
-    
-    
+    var inTransit = false
     
     @IBAction func applyTap(_ sender: Any) {
+        if inTransit {
+            return
+        }
+        inTransit = true
+        if isAttending {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            firstly {
+                APIClient.shared.unattendEvent(contactId: SessionManager.shared.me?.member.contactId ?? "", eventId: self.event.id)
+                }.then { result -> Void in
+                    self.isAttending = false
+                }.always {
+                    self.inTransit = false
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }.catch { error in
+                    debugPrint(error.localizedDescription)
+                    let alert = UIAlertController(title: "Error", message: "Could not unattend event. Please try again.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+            }
+        }
+        else {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            firstly {
+                APIClient.shared.attendEvent(contactId: SessionManager.shared.me?.member.contactId ?? "", eventId: self.event.id)
+                }.then { result -> Void in
+                    self.isAttending = true
+                }.always {
+                    self.inTransit = false
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }.catch { error in
+                    debugPrint(error.localizedDescription)
+                    let alert = UIAlertController(title: "Error", message: "Could not attend event. Please try again.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+
+    func showWebsite() {
         guard let website = event?.registerURL else { return }
         
         if let url = URL(string: website) {
@@ -283,8 +337,6 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
             self.present(svc, animated: true, completion: nil)
         }
     }
-    
-
 
     
     override func didReceiveMemoryWarning() {

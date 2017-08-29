@@ -78,12 +78,18 @@ class MemberCollectionViewCell: UICollectionViewCell {
     }
 
     func updateConnectButton() {
-        if connectRequestStatus == .outstanding || connectRequestStatus == .declined || connectRequestStatus == .approveDecline {
+        if connectRequestStatus == .outstanding || connectRequestStatus == .approveDecline {
             connectionImageView.image = UIImage(named: "waitingSmall")
+            connectionImageView.isHidden = false
+            openMessageButton.isHidden = true
+        }
+        else if connectRequestStatus == .declined {
+            connectionImageView.isHidden = true
             openMessageButton.isHidden = true
         }
         else {
             connectionImageView.image = UIImage(named: "memberConnected")
+            connectionImageView.isHidden = false
             openMessageButton.isHidden = false
         }
         

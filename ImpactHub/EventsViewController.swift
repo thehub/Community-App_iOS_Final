@@ -28,8 +28,21 @@ class EventsViewController: ListWithSearchViewController {
         
         topMenu?.setupWithItems(["ALL", "ATTENDING", "HOSTING"])
 
+    }
+    
+    deinit {
+        print("\(#file, #function)")
+    }
+
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.collectionView?.alpha = 0
+        self.dataAll.removeAll()
+        self.attendingData.removeAll()
+        self.hostingData.removeAll()
+        self.collectionView.reloadData()
         firstly {
             APIClient.shared.getEvents()
             }.then { events -> Void in
@@ -37,12 +50,12 @@ class EventsViewController: ListWithSearchViewController {
                     self.dataAll.append(EventViewModel(event: event, cellSize: CGSize(width: self.view.frame.width, height: 370)))
                 })
                 
-//                // Create filters
+                //                // Create filters
                 FilterManager.shared.clearPreviousFilters()
-//                // Create a Set of the existing tags per grouping
-//                // Cities
+                //                // Create a Set of the existing tags per grouping
+                //                // Cities
                 FilterManager.shared.addFilters(fromTags: Set(events.flatMap({$0.city}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .city)
-//                // Sector
+                //                // Sector
                 FilterManager.shared.addFilters(fromTags: Set(events.flatMap({$0.sector}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sector)
             }.then {
                 APIClient.shared.getEventsAttending(contactId: SessionManager.shared.me?.member.contactId ?? "")
@@ -61,6 +74,7 @@ class EventsViewController: ListWithSearchViewController {
                 self.data = self.filterData(dataToFilter: self.dataAll)
                 self.collectionView?.alpha = 0
                 self.collectionView?.reloadData()
+                self.topMenuDidSelectIndex(self.currentSelectedIndex)
                 self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
                 UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
                     self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
@@ -71,10 +85,7 @@ class EventsViewController: ListWithSearchViewController {
             }.catch { error in
                 debugPrint(error.localizedDescription)
         }
-    }
-    
-    deinit {
-        print("\(#file, #function)")
+
     }
     
     override func filterData(dataToFilter: [CellRepresentable]) -> [CellRepresentable] {
@@ -129,14 +140,16 @@ class EventsViewController: ListWithSearchViewController {
         super.prepare(for: segue, sender: self)
         if segue.identifier == "ShowEvent" {
             if let vc = segue.destination as? EventViewController, let selectedItem = selectedVM {
+                vc.attendingData = self.attendingData
                 vc.event = selectedItem.event
             }
         }
     }
     
+    var currentSelectedIndex = 0
     
     override func topMenuDidSelectIndex(_ index: Int) {
-        
+        self.currentSelectedIndex = index
         self.collectionView.alpha = 0
         
         if index == 0 {

@@ -637,7 +637,7 @@ class APIClient {
     // Events
     func getEvents() -> Promise<[Event]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.EVENT) FROM Event__c", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.EVENT) FROM Event__c WHERE Event_End_DateTime__c >= \(Date().eventDate()) ORDER BY Event_Start_DateTime__c ASC", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.Error("Error"))
             }) { (result) in
@@ -657,7 +657,7 @@ class APIClient {
     func getEventsYouManage(contactId: String) -> Promise<[Event]> {
         return Promise { fullfill, reject in
             // TODO: Send in pagination?
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.EVENT) FROM Event__c WHERE id in (SELECT Event__c FROM Event_Attendance__c WHERE Organiser__c = '\(contactId)'", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.EVENT) FROM Event__c WHERE Organiser__c = '\(contactId)'", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.Error("Error"))
             }) { (result) in
@@ -677,15 +677,64 @@ class APIClient {
     func getEventsAttending(contactId: String) -> Promise<[Event]> {
         return Promise { fullfill, reject in
             // TODO: Send in pagination?
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.EVENT) FROM Event__c WHERE id in (SELECT Event__c FROM Event_Attendance__c WHERE Registered__c = true and Contact__c = '\(contactId)'", fail: { (error) in
+            print(Date().eventDate())
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.EVENT) FROM Event__c WHERE id in (SELECT Event__c FROM Event_Attendance__c WHERE Registered__c = true AND Contact__c = '\(contactId)') AND Event_End_DateTime__c >= \(Date().eventDate()) ORDER BY Event_Start_DateTime__c ASC", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.Error("Error"))
             }) { (result) in
                 let jsonResult = JSON(result!)
-                //                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Event(json: $0) }
                     fullfill(items)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
+    func attendEvent(contactId:String, eventId:String) -> Promise<String> {
+        return Promise { fullfill, reject in
+            let query: [String: String] = ["contactId" : contactId, "eventId" : eventId]
+            let body = SFJsonUtils.jsonDataRepresentation(query)
+            let request = SFRestRequest(method: .POST, path: "/services/apexrest/attendEvent", queryParams: nil)
+            request.endpoint = "/services/apexrest/attendEvent"
+            request.path = "/services/apexrest/attendEvent"
+            request.setCustomRequestBodyData(body!, contentType: "application/json")
+            SFRestAPI.sharedInstance().send(request, fail: { (error) in
+                print(error?.localizedDescription as Any)
+                reject(MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON.init(result!)
+                //                debugPrint(jsonResult) // id
+                if let id = jsonResult.string {
+                    fullfill(id)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
+    func unattendEvent(contactId:String, eventId:String) -> Promise<String> {
+        return Promise { fullfill, reject in
+            let query: [String: String] = ["contactId" : contactId, "eventId" : eventId]
+            let body = SFJsonUtils.jsonDataRepresentation(query)
+            let request = SFRestRequest(method: .POST, path: "/services/apexrest/unAttendEvent", queryParams: nil)
+            request.endpoint = "/services/apexrest/unAttendEvent"
+            request.path = "/services/apexrest/unAttendEvent"
+            request.setCustomRequestBodyData(body!, contentType: "application/json")
+            SFRestAPI.sharedInstance().send(request, fail: { (error) in
+                print(error?.localizedDescription as Any)
+                reject(MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON.init(result!)
+                //                debugPrint(jsonResult) // id
+                if let id = jsonResult.string {
+                    fullfill(id)
                 }
                 else {
                     reject(MyError.JSONError)
@@ -767,7 +816,7 @@ class APIClient {
     func updateDMRequest(id:String, status:DMRequest.Satus, pushUserId: String) -> Promise<String> {
         return Promise { fullfill, reject in
             let query: [String: String] = ["DM_id" : id, "Req_status" : status.rawValue, "pushUserId" : pushUserId]
-            debugPrint(query)
+//            debugPrint(query)
             let body = SFJsonUtils.jsonDataRepresentation(query)
             let request = SFRestRequest(method: .POST, path: "/services/apexrest/UpdateDMRequest", queryParams: nil)
             request.endpoint = "/services/apexrest/UpdateDMRequest"
@@ -803,7 +852,7 @@ class APIClient {
                 reject(MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON.init(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if jsonResult.string == "Success" {
                     fullfill("ok")
                 }
