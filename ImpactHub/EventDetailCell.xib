@@ -210,8 +210,44 @@
                             <constraint firstAttribute="bottom" secondItem="ix4-FP-Snc" secondAttribute="bottom" id="zgl-gs-bdF"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uGS-mg-HCB">
+                        <rect key="frame" x="20" y="95" width="260" height="20"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="desktop" translatesAutoresizingMaskIntoConstraints="NO" id="M8a-oY-FMN">
+                                <rect key="frame" x="0.0" y="3" width="17" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="17" id="juU-s7-STE"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPk-6Z-tDD">
+                                <rect key="frame" x="27" y="2.5" width="31" height="15"/>
+                                <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12.5"/>
+                                <color key="textColor" red="1" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whT-Z1-kVu">
+                                <rect key="frame" x="0.0" y="0.0" width="260" height="20"/>
+                                <color key="tintColor" red="1" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="openWebsite:" destination="gTV-IL-0wX" eventType="touchUpInside" id="B7V-PW-3YD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="M8a-oY-FMN" firstAttribute="centerY" secondItem="uGS-mg-HCB" secondAttribute="centerY" id="3bU-1Q-f1n"/>
+                            <constraint firstItem="LPk-6Z-tDD" firstAttribute="leading" secondItem="M8a-oY-FMN" secondAttribute="trailing" constant="10" id="9Os-sl-Ysa"/>
+                            <constraint firstAttribute="height" constant="20" id="MV3-kW-IvG"/>
+                            <constraint firstItem="whT-Z1-kVu" firstAttribute="leading" secondItem="uGS-mg-HCB" secondAttribute="leading" id="Rk3-2H-TfT"/>
+                            <constraint firstItem="whT-Z1-kVu" firstAttribute="top" secondItem="uGS-mg-HCB" secondAttribute="top" id="Tio-7R-aAO"/>
+                            <constraint firstItem="M8a-oY-FMN" firstAttribute="leading" secondItem="uGS-mg-HCB" secondAttribute="leading" id="aCJ-2R-SJS"/>
+                            <constraint firstItem="LPk-6Z-tDD" firstAttribute="centerY" secondItem="M8a-oY-FMN" secondAttribute="centerY" id="efg-ws-Mys"/>
+                            <constraint firstAttribute="trailing" secondItem="whT-Z1-kVu" secondAttribute="trailing" id="ejj-T0-6x1"/>
+                            <constraint firstAttribute="bottom" secondItem="whT-Z1-kVu" secondAttribute="bottom" id="sZh-6z-Ds7"/>
+                        </constraints>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9n-Hz-g9l">
-                        <rect key="frame" x="20" y="110" width="260" height="15"/>
+                        <rect key="frame" x="20" y="135" width="260" height="15"/>
                         <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12.5"/>
                         <color key="textColor" red="0.27450980392156865" green="0.27450980392156865" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -220,16 +256,19 @@
             </view>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="U5J-QM-zaO" secondAttribute="trailing" constant="20" id="BFQ-Qw-LZh"/>
-                <constraint firstItem="W9n-Hz-g9l" firstAttribute="top" secondItem="XHl-Fn-gqi" secondAttribute="bottom" constant="20" id="BNv-8O-xVN"/>
                 <constraint firstItem="Gca-uB-bx9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="EqE-7w-87E"/>
-                <constraint firstAttribute="trailing" secondItem="W9n-Hz-g9l" secondAttribute="trailing" constant="20" id="NUj-b5-2KE"/>
+                <constraint firstAttribute="trailing" secondItem="uGS-mg-HCB" secondAttribute="trailing" constant="20" id="Iem-YN-URj"/>
                 <constraint firstAttribute="trailing" secondItem="XHl-Fn-gqi" secondAttribute="trailing" constant="20" id="Peb-oX-0tl"/>
                 <constraint firstItem="StB-gk-cbu" firstAttribute="top" secondItem="U5J-QM-zaO" secondAttribute="bottom" constant="5" id="UbU-yP-YZu"/>
                 <constraint firstItem="StB-gk-cbu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="Ug5-OI-qpj"/>
+                <constraint firstItem="W9n-Hz-g9l" firstAttribute="top" secondItem="uGS-mg-HCB" secondAttribute="bottom" constant="20" id="ciy-MK-vrL"/>
                 <constraint firstAttribute="trailing" secondItem="StB-gk-cbu" secondAttribute="trailing" constant="20" id="eSb-XO-ac5"/>
                 <constraint firstItem="U5J-QM-zaO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="jh3-iW-cYz"/>
                 <constraint firstItem="W9n-Hz-g9l" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="lXy-p2-KaP"/>
                 <constraint firstItem="XHl-Fn-gqi" firstAttribute="top" secondItem="StB-gk-cbu" secondAttribute="bottom" constant="5" id="m1Z-gQ-T55"/>
+                <constraint firstAttribute="trailing" secondItem="W9n-Hz-g9l" secondAttribute="trailing" constant="20" id="oO8-DJ-QbE"/>
+                <constraint firstItem="uGS-mg-HCB" firstAttribute="top" secondItem="XHl-Fn-gqi" secondAttribute="bottom" constant="5" id="pbN-sy-cCb"/>
+                <constraint firstItem="uGS-mg-HCB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="sIW-0f-EBk"/>
                 <constraint firstItem="U5J-QM-zaO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="sMb-RO-wwO"/>
                 <constraint firstItem="XHl-Fn-gqi" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="vmJ-6v-fKJ"/>
                 <constraint firstAttribute="bottom" secondItem="Gca-uB-bx9" secondAttribute="bottom" id="x3V-uz-s3c"/>
@@ -244,6 +283,7 @@
                 <outlet property="spaceLabel" destination="Eb5-wp-26s" id="pYw-wc-LAz"/>
                 <outlet property="timeLabel" destination="elJ-pU-1qb" id="6Bl-oZ-0Bq"/>
                 <outlet property="typeLabel" destination="bGy-xP-uDa" id="s2u-TO-QTa"/>
+                <outlet property="websiteLabel" destination="LPk-6Z-tDD" id="HK2-Rg-5aE"/>
             </connections>
         </collectionViewCell>
     </objects>
@@ -251,6 +291,7 @@
         <image name="bagIcon" width="16" height="16"/>
         <image name="calendar" width="14" height="15"/>
         <image name="clock" width="15" height="15"/>
+        <image name="desktop" width="16" height="14"/>
         <image name="locationPinSmall" width="11" height="17"/>
         <image name="penIcon" width="16" height="16"/>
         <image name="ticket" width="17" height="14"/>

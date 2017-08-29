@@ -14,9 +14,12 @@ class EventDetailViewModel: CellRepresentable {
     
     var event: Event
     
-    init(event: Event, cellSize: CGSize) {
+    weak var eventDetailCellDelegate: EventDetailCellDelegate?
+    
+    init(event: Event, cellSize: CGSize, eventDetailCellDelegate: EventDetailCellDelegate) {
         self.event = event
         self.cellSize = cellSize
+        self.eventDetailCellDelegate = eventDetailCellDelegate
     }
     
     

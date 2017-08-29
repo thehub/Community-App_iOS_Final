@@ -12,14 +12,21 @@ import AddressBook
 import Contacts
 
 
+protocol EventDetailCellDelegate: class {
+    func wantsToOpenWebsite()
+}
+
 class EventDetailCell: UICollectionViewCell, MKMapViewDelegate {
 
+    weak var delegate: EventDetailCellDelegate?
+    
     @IBOutlet weak var locationNameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var spaceLabel: UILabel!
     
+    @IBOutlet weak var websiteLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
@@ -31,13 +38,13 @@ class EventDetailCell: UICollectionViewCell, MKMapViewDelegate {
 
     var location: CLLocationCoordinate2D?
     
-    var vm: EventDetailViewModel?
+    var vm:EventDetailViewModel?
     
     func setUp(vm: EventDetailViewModel) {
         self.vm = vm
         locationNameLabel.text = vm.event.city
         descriptionLabel.text = vm.event.description
-        
+        websiteLabel.text = "Visit website"
         timeLabel.text = Utils.timeFormatter.string(from: vm.event.date)
         if let endDate = vm.event.endDate {
             if Calendar.current.isDate(vm.event.date, inSameDayAs: endDate) {
@@ -145,6 +152,9 @@ class EventDetailCell: UICollectionViewCell, MKMapViewDelegate {
         
     }
     
+    @IBAction func openWebsite(_ sender: Any) {
+        self.vm?.eventDetailCellDelegate?.wantsToOpenWebsite()
+    }
     
     func addPins() {
 //        let location = self.location // CLLocationCoordinate2D(latitude: CLLocationDegrees(latRange), longitude: CLLocationDegrees(longRange))

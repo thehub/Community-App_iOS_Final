@@ -11,7 +11,7 @@ import SafariServices
 import PromiseKit
 
 
-class EventViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
+class EventViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, EventDetailCellDelegate {
 
     var event: Event!
     
@@ -113,7 +113,7 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
 
 
         // Event Detail
-        data.append(EventDetailViewModel(event: event, cellSize: CGSize(width: view.frame.width, height: 0)))
+        data.append(EventDetailViewModel(event: event, cellSize: CGSize(width: view.frame.width, height: 0), eventDetailCellDelegate: self))
     }
     
 
@@ -177,7 +177,7 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         if let vm = data[indexPath.item] as? EventDetailViewModel {
             let cellWidth: CGFloat = self.collectionView.frame.width - 40
-            var height = vm.event.description.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 280 + 20 // add extra height for the standard elements, titles, lines, sapcing etc.
+            var height = vm.event.description.height(withConstrainedWidth: cellWidth, font:UIFont(name: "GTWalsheim-Light", size: 12.5)!) + 300 + 20 // add extra height for the standard elements, titles, lines, sapcing etc.
             if height < 300 {
                 height += 170
             }
@@ -328,6 +328,9 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
         }
     }
     
+    func wantsToOpenWebsite() {
+        self.showWebsite()
+    }
 
     func showWebsite() {
         guard let website = event?.registerURL else { return }
