@@ -43,7 +43,6 @@ class FilterDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         if #available(iOS 10.0, *) {
             generatorNotification.prepare()
             generatorFeedback.prepare()
@@ -52,6 +51,12 @@ class FilterDetailViewController: UIViewController {
         if let first = data.first as? FilterViewModel {
             title = first.filter.grouping.displayName
         }
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         update()
     }
     
