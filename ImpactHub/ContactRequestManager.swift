@@ -14,6 +14,17 @@ class ContactRequestManager {
     
     var contactRequests = [DMRequest]()
     
+    func allowedToMessage(userId: String) -> Bool {
+        // Check if it's in the contacts
+        if self.getConnectedContactRequests().filter({$0.userToId == userId || $0.userFromId == userId}).first == nil {
+            return false
+        }
+        else {
+            return true
+        }
+    }
+    
+    
     func getRelevantContactRequestFor(member: Member) -> DMRequest? {
         let contactRequest = contactRequests.filter({ $0.contactFromId == member.contactId || $0.contactToId == member.contactId }).first
         return contactRequest

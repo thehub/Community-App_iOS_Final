@@ -331,6 +331,24 @@ class MessagesThreadViewController: UIViewController {
         if let member = self.member {
             members = [member]
         }
+        
+        // TODO: Add this when needal added userId to DMRequest
+        var idWeAreSendingTo: String?
+        if let member = self.member {
+            idWeAreSendingTo = member.userId
+        }
+        else {
+            idWeAreSendingTo = self.lastMessage?.otherUser().id
+        }
+        if let idWeAreSendingTo = idWeAreSendingTo {
+            if !ContactRequestManager.shared.allowedToMessage(userId: idWeAreSendingTo) {
+                let alert = UIAlertController(title: "Error", message: "You are no longer connected to this user", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+        }
+        
         firstly {
             APIClient.shared.sendMessage(message: text, members: members, inReplyTo: self.inReplyTo)
             }.then { message -> Void in

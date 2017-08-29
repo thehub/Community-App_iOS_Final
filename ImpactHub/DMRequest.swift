@@ -16,6 +16,8 @@ class DMRequest {
     var createdDate: Date
     var contactFromId: String
     var contactToId: String
+    var userFromId: String
+    var userToId: String
     var message: String?
     
     enum Satus: String {
@@ -35,7 +37,9 @@ class DMRequest {
             let statusString = json["Status__c"].string?.lowercased(),
             let status = DMRequest.Satus.init(rawValue: statusString),
             let contactFromId = json["ContactFrom__c"].string,
-            let contactToId = json["ContactTo__c"].string
+            let contactToId = json["ContactTo__c"].string,
+            let userFromId = json["ContactFromUserId__c"].string,
+            let userToId = json["ContactToUserId__c"].string
             else {
                 return nil
         }
@@ -53,6 +57,8 @@ class DMRequest {
         self.createdDate = createdDate
         self.contactFromId = contactFromId
         self.contactToId = contactToId
+        self.userToId = userToId
+        self.userFromId = userFromId
     }
     
 //    func displayLabel() -> String {

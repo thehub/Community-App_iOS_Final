@@ -23,6 +23,8 @@ class MessagesViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib.init(nibName: "MessagesCell", bundle: nil), forCellWithReuseIdentifier: MessagesVM.cellIdentifier)
+
+        _ = ContactRequestManager.shared.refresh()
     }
     
     override func viewWillAppear(_ animated: Bool) {

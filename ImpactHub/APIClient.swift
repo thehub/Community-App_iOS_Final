@@ -870,7 +870,7 @@ class APIClient {
                 return
             }
             
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT ContactFrom__c,ContactTo__c,CreatedDate,Id,Name,Status__c,Introduction_Message__c FROM DM_Request__c WHERE ContactFrom__c = '\(contactId)' OR contactTo__c = '\(contactId)'", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT ContactFrom__c,ContactTo__c,ContactToUserId__c,ContactFromUserId__c,CreatedDate,Id,Name,Status__c,Introduction_Message__c FROM DM_Request__c WHERE ContactFrom__c = '\(contactId)' OR contactTo__c = '\(contactId)'", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
