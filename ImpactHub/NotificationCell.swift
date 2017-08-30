@@ -19,6 +19,11 @@ class NotificationCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        profileImageView.image = nil
+    }
 
     func setUp(vm: NotificationViewModel) {
         
