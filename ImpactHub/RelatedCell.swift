@@ -29,6 +29,7 @@ class RelatedCell: UICollectionViewCell {
     }
 
     func setUp(vm: RelatedViewModel) {
+        viewButton.isHidden = false
         if let job = vm.job {
             nameLabel.text = job.name
             companyLabel.text = job.company.name
@@ -48,6 +49,11 @@ class RelatedCell: UICollectionViewCell {
             }
             viewButton.setTitle("View Project", for: .normal)
             viewButton.setTitle("View Project", for: .highlighted)
+        }
+        else {
+            nameLabel.text = nil
+            companyLabel.text = nil
+            viewButton.isHidden = true
         }
         
         

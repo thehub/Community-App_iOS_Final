@@ -43,7 +43,6 @@ class MemberDetailTopCell: UICollectionViewCell {
         nameLabel.text = vm.member.name
         jobLabel.text = vm.member.job
         if let photoUrl = vm.member.photoUrl {
-            print(photoUrl)
             profileImageView.kf.setImage(with: photoUrl, options: [.transition(.fade(0.2))])
         }
         blurbLabel.text = vm.member.statusUpdate

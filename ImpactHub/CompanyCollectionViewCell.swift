@@ -39,10 +39,17 @@ class CompanyCollectionViewCell: UICollectionViewCell {
             bigImageView.kf.setImage(with: photoUrl, options: [.transition(.fade(0.2))])
         }
 
+        logoImageContainer.isHidden = true
         if let logoUrl = vm.company.logoUrl {
-            logoImageView.kf.setImage(with: logoUrl, options: [.transition(.fade(0.2))])
+            logoImageView.kf.setImage(with: logoUrl, placeholder: nil, options: [.transition(.fade(0.2))], progressBlock: nil, completionHandler: { (image, error, cache, url) in
+                if error != nil {
+                    self.logoImageContainer.isHidden = true
+                }
+                else {
+                    self.logoImageContainer.isHidden = false
+                }
+            })
         }
-        
         nameLabel.text = vm.company.sector
         companyNameLabel.text = vm.company.name
         locationNameLabel.text = vm.company.locationName ?? ""
@@ -65,15 +72,16 @@ class CompanyCollectionViewCell: UICollectionViewCell {
         bigImageView.round(corners:[.topLeft, .topRight], radius: 10)
         
         redBottomView.round(corners:[.bottomLeft, .bottomRight], radius: 10)
-        
+
+        logoImageView.layer.cornerRadius = 42
+
         logoImageContainer.layer.cornerRadius = 42
         self.logoImageContainer.clipsToBounds = false
         self.logoImageContainer.layer.shadowColor = UIColor(hexString: "D5D5D5").cgColor
         self.logoImageContainer.layer.shadowOffset = CGSize(width: 0, height: 3)
         self.logoImageContainer.layer.shadowOpacity = 0.32
-        self.logoImageContainer.layer.shadowPath = UIBezierPath(rect: self.logoImageContainer.bounds).cgPath
+        self.logoImageContainer.layer.shadowPath = UIBezierPath(roundedRect: self.logoImageView.bounds, cornerRadius: 42).cgPath
         self.logoImageContainer.layer.shadowRadius = 6.0
-        logoImageView.layer.cornerRadius = 42
         
         logoImageContainer.layer.shouldRasterize = true
         logoImageContainer.layer.rasterizationScale = UIScreen.main.scale
