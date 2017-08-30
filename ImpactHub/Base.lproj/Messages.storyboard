@@ -49,7 +49,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="5"/>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No messages..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMw-bH-8wE">
-                                <rect key="frame" x="20" y="89" width="118.5" height="20"/>
+                                <rect key="frame" x="20" y="89" width="113.5" height="21.5"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim" family="GT Walsheim" pointSize="17"/>
                                 <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -114,21 +114,23 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="0j4-2w-p0V">
-                                                            <rect key="frame" x="8" y="8" width="79.5" height="45"/>
+                                                            <rect key="frame" x="8" y="8" width="77.5" height="52.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96l-DM-oKs">
-                                                                    <rect key="frame" x="20" y="13" width="39.5" height="19"/>
-                                                                    <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="16"/>
+                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Label" translatesAutoresizingMaskIntoConstraints="NO" id="5BW-Ar-Ja5">
+                                                                    <rect key="frame" x="15" y="8" width="47.5" height="36.5"/>
+                                                                    <color key="backgroundColor" red="1" green="0.32549019610000002" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
+                                                                    <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="16"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                    <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES" lookupSuggestion="YES"/>
+                                                                </textView>
                                                             </subviews>
                                                             <color key="backgroundColor" red="1" green="0.32549019607843138" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
-                                                                <constraint firstItem="96l-DM-oKs" firstAttribute="top" secondItem="0j4-2w-p0V" secondAttribute="top" constant="13" id="E2y-Pi-ZVW"/>
-                                                                <constraint firstItem="96l-DM-oKs" firstAttribute="leading" secondItem="0j4-2w-p0V" secondAttribute="leading" constant="20" id="JMr-jN-Vfn"/>
-                                                                <constraint firstAttribute="bottom" secondItem="96l-DM-oKs" secondAttribute="bottom" constant="13" id="VXQ-VM-YRf"/>
-                                                                <constraint firstAttribute="trailing" secondItem="96l-DM-oKs" secondAttribute="trailing" constant="20" id="W26-9J-nKq"/>
+                                                                <constraint firstAttribute="trailing" secondItem="5BW-Ar-Ja5" secondAttribute="trailing" constant="15" id="2pD-Mv-t5s"/>
+                                                                <constraint firstAttribute="bottom" secondItem="5BW-Ar-Ja5" secondAttribute="bottom" constant="8" id="8Cc-aU-Tgm"/>
+                                                                <constraint firstItem="5BW-Ar-Ja5" firstAttribute="top" secondItem="0j4-2w-p0V" secondAttribute="top" constant="8" id="RZf-3R-HWZ"/>
+                                                                <constraint firstItem="5BW-Ar-Ja5" firstAttribute="leading" secondItem="0j4-2w-p0V" secondAttribute="leading" constant="15" id="cSN-T7-hRZ"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
@@ -140,7 +142,7 @@
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <connections>
-                                                    <outlet property="messageLabel" destination="96l-DM-oKs" id="Khc-mj-NQQ"/>
+                                                    <outlet property="messageLabel" destination="5BW-Ar-Ja5" id="NFA-Dt-f4k"/>
                                                     <outlet property="messageLabelContainer" destination="0j4-2w-p0V" id="qKl-a7-4hO"/>
                                                 </connections>
                                             </tableViewCell>
@@ -152,21 +154,23 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="2bZ-fJ-eEc">
-                                                            <rect key="frame" x="295.5" y="8" width="71.5" height="51"/>
+                                                            <rect key="frame" x="297.5" y="8" width="69.5" height="52.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LzS-qu-Anb">
-                                                                    <rect key="frame" x="16" y="16" width="39.5" height="19"/>
-                                                                    <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="16"/>
+                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Label" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="nrC-t8-Yfs">
+                                                                    <rect key="frame" x="11" y="8" width="47.5" height="36.5"/>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
+                                                                    <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="16"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                    <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES" lookupSuggestion="YES"/>
+                                                                </textView>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
-                                                                <constraint firstItem="LzS-qu-Anb" firstAttribute="top" secondItem="2bZ-fJ-eEc" secondAttribute="top" constant="16" id="0su-1V-772"/>
-                                                                <constraint firstAttribute="trailing" secondItem="LzS-qu-Anb" secondAttribute="trailing" constant="16" id="bWF-xe-eZc"/>
-                                                                <constraint firstItem="LzS-qu-Anb" firstAttribute="leading" secondItem="2bZ-fJ-eEc" secondAttribute="leading" constant="16" id="gCS-36-31s"/>
-                                                                <constraint firstAttribute="bottom" secondItem="LzS-qu-Anb" secondAttribute="bottom" constant="16" id="kfV-1N-pfe"/>
+                                                                <constraint firstItem="nrC-t8-Yfs" firstAttribute="leading" secondItem="2bZ-fJ-eEc" secondAttribute="leading" constant="11" id="7Jf-aU-fXP"/>
+                                                                <constraint firstItem="nrC-t8-Yfs" firstAttribute="top" secondItem="2bZ-fJ-eEc" secondAttribute="top" constant="8" id="N1s-fI-gwe"/>
+                                                                <constraint firstAttribute="trailing" secondItem="nrC-t8-Yfs" secondAttribute="trailing" constant="11" id="hGp-8S-bNZ"/>
+                                                                <constraint firstAttribute="bottom" secondItem="nrC-t8-Yfs" secondAttribute="bottom" constant="8" id="sTU-jY-Sd0"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
@@ -178,7 +182,7 @@
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <connections>
-                                                    <outlet property="messageLabel" destination="LzS-qu-Anb" id="RU9-7x-GFb"/>
+                                                    <outlet property="messageLabel" destination="nrC-t8-Yfs" id="Gtg-b3-mNk"/>
                                                     <outlet property="messageLabelContainer" destination="2bZ-fJ-eEc" id="ioz-Mx-tcf"/>
                                                 </connections>
                                             </tableViewCell>
@@ -240,7 +244,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ar-2R-YUD">
-                                                            <rect key="frame" x="340.5" y="11" width="24.5" height="12"/>
+                                                            <rect key="frame" x="341.5" y="11" width="23.5" height="13"/>
                                                             <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="10"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -264,7 +268,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQV-Jc-dkP">
-                                                            <rect key="frame" x="10" y="11" width="24.5" height="12"/>
+                                                            <rect key="frame" x="10" y="11" width="23.5" height="13"/>
                                                             <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="10"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -437,7 +441,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcr-5N-Me4">
-                                <rect key="frame" x="20" y="216" width="29.5" height="14"/>
+                                <rect key="frame" x="20" y="216" width="28.5" height="15.5"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12"/>
                                 <color key="textColor" red="0.54117647058823526" green="0.55686274509803924" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -624,7 +628,7 @@
         <image name="trans" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Yv3-tT-FXL"/>
+        <segue reference="6Qm-Qc-rVx"/>
         <segue reference="FjO-gx-hbh"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>

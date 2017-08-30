@@ -256,7 +256,6 @@ class MemberFeedItemCell: UICollectionViewCell, UITextViewDelegate {
                 profileImageView.kf.setImage(with: photoUrl)
             }
             dateLabel.text = Utils.timeStringFromDate(date: comment.date)
-            textView.isScrollEnabled = false
             textView.linkTextAttributes = linkAttributes
             textView.isScrollEnabled = false
             textView.text = vm.comment?.body

@@ -113,6 +113,12 @@ class CompanyDetailTopCell: UICollectionViewCell {
     @IBAction func onInstagram(_ sender: Any) {
         if let url = vm.company.social?.instagram {
             let svc = SFSafariViewController(url: url)
+            if #available(iOS 10.0, *) {
+                svc.preferredBarTintColor = UIColor.imaGrapefruit
+            }
+            if #available(iOS 11.0, *) {
+                svc.dismissButtonStyle = .close
+            }
             UIApplication.shared.keyWindow?.rootViewController?.present(svc, animated: true, completion: nil)
         }
     }
@@ -120,6 +126,12 @@ class CompanyDetailTopCell: UICollectionViewCell {
     @IBAction func onLinkedin(_ sender: Any) {
         if let url = vm.company.social?.linkedIn {
             let svc = SFSafariViewController(url: url)
+            if #available(iOS 10.0, *) {
+                svc.preferredBarTintColor = UIColor.imaGrapefruit
+            }
+            if #available(iOS 11.0, *) {
+                svc.dismissButtonStyle = .close
+            }
             UIApplication.shared.keyWindow?.rootViewController?.present(svc, animated: true, completion: nil)
         }
     }
@@ -127,6 +139,12 @@ class CompanyDetailTopCell: UICollectionViewCell {
     @IBAction func onTwitter(_ sender: Any) {
         if let twitter = vm.company.social?.twitter, let url = URL(string: "https://twitter.com/\(twitter)") {
             let svc = SFSafariViewController(url: url)
+            if #available(iOS 10.0, *) {
+                svc.preferredBarTintColor = UIColor.imaGrapefruit
+            }
+            if #available(iOS 11.0, *) {
+                svc.dismissButtonStyle = .close
+            }
             UIApplication.shared.keyWindow?.rootViewController?.present(svc, animated: true, completion: nil)
         }
     }
@@ -134,6 +152,12 @@ class CompanyDetailTopCell: UICollectionViewCell {
     @IBAction func onFacebook(_ sender: Any) {
         if let url = vm.company.social?.facebook {
             let svc = SFSafariViewController(url: url)
+            if #available(iOS 10.0, *) {
+                svc.preferredBarTintColor = UIColor.imaGrapefruit
+            }
+            if #available(iOS 11.0, *) {
+                svc.dismissButtonStyle = .close
+            }
             UIApplication.shared.keyWindow?.rootViewController?.present(svc, animated: true, completion: nil)
         }
     }

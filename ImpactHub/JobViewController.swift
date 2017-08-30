@@ -225,6 +225,12 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
         
         if let url = URL(string: website) {
             let svc = SFSafariViewController(url: url)
+            if #available(iOS 10.0, *) {
+                svc.preferredBarTintColor = UIColor.imaGrapefruit
+            }
+            if #available(iOS 11.0, *) {
+                svc.dismissButtonStyle = .close
+            }
             self.present(svc, animated: true, completion: nil)
         }
     }
