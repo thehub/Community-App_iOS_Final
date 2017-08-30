@@ -297,9 +297,9 @@ extension GroupViewController: MemberFeedItemDelegate {
             if #available(iOS 10.0, *) {
                 svc.preferredBarTintColor = UIColor.imaGrapefruit
             }
-            if #available(iOS 11.0, *) {
-                svc.dismissButtonStyle = .close
-            }
+//            if #available(iOS 11.0, *) {
+//                svc.dismissButtonStyle = .close
+//            }
             self.present(svc, animated: true, completion: nil)
         }
     }

@@ -156,7 +156,7 @@ class APIClient {
         
     func getMembers(goalName: String) -> Promise<[Member]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.CONTACT) FROM Contact WHERE Interested_SDG__c INCLUDES ('%\(goalName)%')", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.CONTACT) FROM Contact WHERE Interested_SDG__c INCLUDES ('\(goalName)')", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in

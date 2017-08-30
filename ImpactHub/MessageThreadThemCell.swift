@@ -43,9 +43,9 @@ class MessageThreadThemCell: UITableViewCell, UITextViewDelegate {
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
         let safariVC = SFSafariViewController(url: URL)
         safariVC.preferredBarTintColor = UIColor.imaGrapefruit
-        if #available(iOS 11.0, *) {
-            safariVC.dismissButtonStyle = .close
-        }
+//        if #available(iOS 11.0, *) {
+//            safariVC.dismissButtonStyle = .close
+//        }
         UIApplication.shared.keyWindow?.rootViewController?.present(safariVC, animated: true, completion: nil)
         return false
     }

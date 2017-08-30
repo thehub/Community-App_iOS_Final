@@ -46,7 +46,11 @@ class GoalViewController: ListFullBleedViewController {
         self.data = aboutData
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
-            APIClient.shared.getGroups(goalName: goal.name)
+            ContactRequestManager.shared.refresh()
+            }.then { contactRequests -> Void in
+                print("refreshed")
+            }.then {
+                APIClient.shared.getGroups(goalName: goal.name)
             }.then { groups -> Void in
                 let filteredItems = groups.filter {$0.groupType == .public || MyGroupsManager.shared.isInGroup(groupId: $0.chatterId)}
                 self.groups = filteredItems
