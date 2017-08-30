@@ -342,7 +342,7 @@ class MessagesThreadViewController: UIViewController {
         }
         if let idWeAreSendingTo = idWeAreSendingTo {
             if !ContactRequestManager.shared.allowedToMessage(userId: idWeAreSendingTo) {
-                let alert = UIAlertController(title: "Error", message: "You are no longer connected to this user", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Error", message: "You can't message this user", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
                 return

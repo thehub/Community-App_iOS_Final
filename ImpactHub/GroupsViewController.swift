@@ -91,7 +91,12 @@ class GroupsViewController: ListWithSearchViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        let collectionViewLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        collectionViewLayout?.sectionInset = UIEdgeInsetsMake(self.searchContainer.frame.height + 20, 0, 60, 0)
+        collectionViewLayout?.invalidateLayout()
     }
+    
+    
     
     deinit {
         print("\(#file, #function)")
