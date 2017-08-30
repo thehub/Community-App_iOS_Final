@@ -295,32 +295,34 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
         }
         inTransit = true
         if isAttending {
+            isAttending = false
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
             firstly {
                 APIClient.shared.unattendEvent(contactId: SessionManager.shared.me?.member.contactId ?? "", eventId: self.event.id)
                 }.then { result -> Void in
-                    self.isAttending = false
                 }.always {
                     self.inTransit = false
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }.catch { error in
                     debugPrint(error.localizedDescription)
+                    self.isAttending = true
                     let alert = UIAlertController(title: "Error", message: "Could not unattend event. Please try again.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
             }
         }
         else {
+            isAttending = true
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
             firstly {
                 APIClient.shared.attendEvent(contactId: SessionManager.shared.me?.member.contactId ?? "", eventId: self.event.id)
                 }.then { result -> Void in
-                    self.isAttending = true
                 }.always {
                     self.inTransit = false
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }.catch { error in
                     debugPrint(error.localizedDescription)
+                    self.isAttending = false
                     let alert = UIAlertController(title: "Error", message: "Could not attend event. Please try again.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
