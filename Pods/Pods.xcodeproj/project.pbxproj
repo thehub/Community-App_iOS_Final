@@ -66,7 +66,7 @@
 		16BD0A637B6D6CCF188477C474CAF409 /* SFCocoaLumberJackCustomFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FEBE7CF909E403FEE01E6B5C9BB433 /* SFCocoaLumberJackCustomFormatter.m */; };
 		16FD1759C640AC7607BBF61B96613794 /* SalesforceSDKAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AA559B02289FCAECB7A0CC19E7F3999 /* SalesforceSDKAssets.xcassets */; };
 		1827E7D94F3A12CA0C58EF33AE4B026D /* KingfisherOptionsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D052233009DAD58F1EC6DE640FE7A5 /* KingfisherOptionsInfo.swift */; };
-		18930B919ABE339CC5311B62C0BD1D8C /* DeckPresentingAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137B4D8C5863739BF4762B2E808E4007 /* DeckPresentingAnimationController.swift */; };
+		187C6227087E659378327B25F3610C36 /* DeckDismissingAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95F09061A61209D8814B033F05BA83 /* DeckDismissingAnimationController.swift */; };
 		18E39AC55656558DFE03B4095A105258 /* UIColor+SFColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 755DFA1902FF7B87409CC558C720306B /* UIColor+SFColors.m */; };
 		18EA9A60F890BF17A5EDF72D000155BE /* SFUserAccountIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = E292FA9A8C5E7BFA13E55BA5A32CE06F /* SFUserAccountIdentity.m */; };
 		18F45889B9CAE1FCFE92D39C11D0F43B /* SFOAuthKeychainCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 12484757BBDE7692DB50790157039959 /* SFOAuthKeychainCredentials.m */; };
@@ -155,6 +155,7 @@
 		37108C3AAA804EB740439D6E3D554A44 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0166CF2BDBCE98A51EC926BE636F3514 /* Promise.swift */; };
 		376FDE568B1B9799D5447AE1EC2EDC33 /* HRDAuthenticatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C58217DBB09425AEFFC4C6AAF945FA /* HRDAuthenticatable.swift */; };
 		37840CCBD2CA1A02715A752BF42CF03D /* SFSDKSoqlBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DD07A03D6FCA299731130DFB34EB2F /* SFSDKSoqlBuilder.m */; };
+		37C79DBD3DE08F2DB525AD9D487C7E02 /* DeckTransition-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE407CD30ABF667EB072673CCDF68155 /* DeckTransition-dummy.m */; };
 		383C9A8DB84B83233633C3A00A2C1608 /* KingfisherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D9CB586E76F314963C3A0AC42BB07 /* KingfisherManager.swift */; };
 		388CA08BA1F7D497533A83D493B20FA3 /* SFSDKTestCredentialsData.h in Headers */ = {isa = PBXBuildFile; fileRef = 5ACF797797B49AE55B5800F6E57B326F /* SFSDKTestCredentialsData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		38A2C8643640CBFCF594FC810C875F34 /* SFOAuthCredentials+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = EC061CD12F3F21F87BE4A79A45E1FCCF /* SFOAuthCredentials+Internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -201,7 +202,6 @@
 		47206E1D22679B3BF11718C45C9A8514 /* CSFJPEGImageValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 36EEC23CD09BFD506216C9A0DEF83397 /* CSFJPEGImageValueTransformer.m */; };
 		47B0D0BFD7559471634DBF83DC897ACD /* SFRestAPI+Files.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB63C15CCF91F05EC08E8EE36119584 /* SFRestAPI+Files.m */; };
 		4849FED5E2FE363C8DC8ADFF9138DE53 /* AuthTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E24DE0322B66AD1929FE3B94C487686 /* AuthTransaction.swift */; };
-		48830E093F7BE760E96E4A7CA2D4B964 /* DeckSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8C65C28AF059454A40CCCA7CB3DC64 /* DeckSegue.swift */; };
 		48EC78A50C61424D4DFDC33A325CAA72 /* ThreadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0A11B8BA70AFD5E8B2E289186A4229 /* ThreadHelper.swift */; };
 		48EDA7340895B338E6369B336D014A63 /* Process+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC8008565EA6A0810F798A62F1BA45 /* Process+Promise.swift */; };
 		49F5068E83577374D213F541520183F3 /* NSNotificationCenter+AnyPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6FFA1E8FD47326584BCA0765E5C415 /* NSNotificationCenter+AnyPromise.m */; };
@@ -264,6 +264,7 @@
 		602FA39BEBF2C0366A230D748518B8DC /* Auth0-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F2CA16C536296DD6A428B3FD064045 /* Auth0-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6040A7A5EE0A20EEB074A2E85F78C663 /* i18n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E13CBD6B871B1342846ABAAB3A4C77B /* i18n.swift */; };
 		6073A0E224C84AB4CB4D92538A1122E2 /* SFSDKNewLoginHostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9322438E1FF240849BE1DB97B3D7857 /* SFSDKNewLoginHostViewController.m */; };
+		608AED868CBC362867548414B3E2C8C0 /* DeckSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB863CDA357171809C4C0FE528D9B69 /* DeckSegue.swift */; };
 		61034DA6173C4655CE4B7D991FF30296 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D2C9E7526F112371366ADE1F31203B /* Response.swift */; };
 		6109268D59F5648651C4478F87AFB8ED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E88DF74DDC4CA16C520833D31C98D36 /* Foundation.framework */; };
 		61359B777D657070F15A3D78DD7FA443 /* SFSDKCryptoUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5142EC69FA89C24050436B8CDCC77E81 /* SFSDKCryptoUtils.m */; };
@@ -288,6 +289,7 @@
 		67546BDEF7AA08CC269F3E3ECBE7B2AA /* CSFInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BF998BC186DB007B0CA43C846C2BA8A /* CSFInput.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		681D4BB20F127085B1602C1DC5F0855B /* SwiftyJSON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C4C7072F5E395815B8C4B3C779E6D89 /* SwiftyJSON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		68B01D224A06CE1B9435E47645C1E577 /* CocoaLumberjack.h in Headers */ = {isa = PBXBuildFile; fileRef = DF78800254C36525119CA3C1D77EF0D5 /* CocoaLumberjack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68B7C19E89A2C8D13E3F4D5754C2B67A /* DeckTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C936C75DF21C5B8346192C5F4AB99FC4 /* DeckTransitioningDelegate.swift */; };
 		6A2531B0FCE35824A16BC5C366F78300 /* CSFMultipartInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFEC2ED9C4F84F91C249A8EED603B00 /* CSFMultipartInputStream.m */; };
 		6A4F0D110D85F25B8DF655289DF4D5F4 /* SFSDKAnalyticsLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = E2F30D335B8E6E1E66E21CF6656DEBFF /* SFSDKAnalyticsLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C302D624831CEBD098A81CA2AEFE300 /* SFCommunityData.h in Headers */ = {isa = PBXBuildFile; fileRef = 15DFB3094E7C10017A52451877FEBD0B /* SFCommunityData.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -315,6 +317,7 @@
 		75FB440FD0DD7F3C2D345BDFA15B9658 /* DDLog.h in Headers */ = {isa = PBXBuildFile; fileRef = C1521147555046448F359AEBB80F73F1 /* DDLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		760EE19AF1EE963FEDA02976DF3B91E6 /* CSFAction+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8AF6D7EEB4665BFB1B23BB8B51F790 /* CSFAction+Internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		763D237EEEBE4ED872D5CB963854F041 /* NSNotificationCenter+SFAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = A4B60F4E1A4045065D8A49DEC45FC197 /* NSNotificationCenter+SFAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		76B1BEE957919513A2D0817FF3FD2B62 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4583EA490FB2A53D82CED4D706BEA2 /* Constants.swift */; };
 		76BABE547E63E534D057A924CA2AC125 /* SFLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 97472BD8B27B9492CFF7D416D8B09CEC /* SFLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7775484A961D400513C0312EC6C2F55A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B57BA1E382C903767F42B229AE65CA2 /* UIKit.framework */; };
 		77FF7FD02536F0ADD5A223C21C5DD9EA /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BBF5044D1CEFAD7FE6C1E3AD6AC8F41 /* DDAbstractDatabaseLogger.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -386,7 +389,6 @@
 		95E024141B195F4A94AC8717C8D470E9 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = DA45B4F5A674743E98AB286813A58522 /* DDFileLogger.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		962E6CD14535DB13351BF4E376A77459 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E88DF74DDC4CA16C520833D31C98D36 /* Foundation.framework */; };
 		9634FD31489748A65392C60BBC228537 /* SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 488F94056E6AD61C59441393F6DECCDB /* SwiftyJSON-dummy.m */; };
-		96BCCA0A3D533D57519D53AEADC9DCDF /* DeckPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D23F400415755B23ADD27E5E2B4C74 /* DeckPresentationController.swift */; };
 		96BE0C43F47943D6BF57487826DF04C4 /* SFUserAccountManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 29F334911EFBBFEC140EE357C219004B /* SFUserAccountManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96F9D064D9D7724E606E6E0DDBA3B9B1 /* CSFAuthRefresh+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E1E25733551AB6FD9331C9DC3776441 /* CSFAuthRefresh+Internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		9705510953FAE96C0A4AFA41CF8C11AC /* PasswordlessPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BF4D606DF2295284172EEF28638360 /* PasswordlessPresenter.swift */; };
@@ -418,7 +420,7 @@
 		A13A38E17031610B5FCD186AFED84F13 /* SFSDKWebViewStateManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B41E7C1F2AD18963B069B2C0021EAE9 /* SFSDKWebViewStateManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1C2F23F4C67F5F8A6F2F99EFFC98233 /* ReverseExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2786BCBEDEFBBB3D12AB114F64A5B1B7 /* ReverseExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1CCB98CAFCF85A865D6561D55ED52CE /* Auth0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29AB4174AD2CEFE2A092ECFA593CBF1 /* Auth0.framework */; };
-		A1E06884E1C6D328BDA188C234B1351B /* DeckTransition-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D20B35B27AF809C570F03A68C21C1680 /* DeckTransition-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1E06884E1C6D328BDA188C234B1351B /* DeckTransition-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C0374BC72D5470E3FFB6758DCDC69B76 /* DeckTransition-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A22AB63FE2D71B290745E80635054AF4 /* SFSDKInstrumentationEvent+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 4175E26DD5D6345C914902544884937A /* SFSDKInstrumentationEvent+Internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A26E0B8B0E078F7771AE2698A00DD738 /* ReverseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4DAB580D885E10C85EA5F22EE8531 /* ReverseExtension.swift */; };
 		A2758C9B1388D881269C76342C88FA16 /* UIView+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA938546FFF3549F45B436E46FEBB8CE /* UIView+Promise.swift */; };
@@ -457,6 +459,7 @@
 		AC4E206D0665182469EEA106DA340BCD /* CSFOAuthTokenRefreshOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 71581961F277F382B303297A26A9E2FB /* CSFOAuthTokenRefreshOutput.m */; };
 		AD19D053FFF13C6AA502E8A54DC22B89 /* UIView+AnyPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CE92912F3E7D11D2D5C66E40E3A0E25 /* UIView+AnyPromise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AE37F70045C5C07014FC6F2A8BEC937A /* NSError+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBCC76A89AB3E2C8D41013F47CAB314 /* NSError+Helper.swift */; };
+		AE9A0C990F8EC77D4652B8D0D539FB87 /* DeckPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04FBF513B74260FF2697628A68CFE45 /* DeckPresentationController.swift */; };
 		AEB9982D51AB1551D9DCC2FEA6CA171A /* SFSDKAnalyticsLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 3078ED758A2644D36760E5CE60822782 /* SFSDKAnalyticsLogger.m */; };
 		AF13E8AFE4A1ED02D71915079F3B4EF6 /* dispatch_promise.m in Sources */ = {isa = PBXBuildFile; fileRef = 75775902ACBF0C3278466CC7BC67462D /* dispatch_promise.m */; };
 		AF44A820949382713CEC9E8783000B51 /* CSFISO8601DateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BF5490A6D711F0700CBBACCD835AE0F /* CSFISO8601DateFormatter.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -465,6 +468,7 @@
 		B015A7889FFC0ACC7F24D0CE84C601B0 /* PromiseKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CBA288281EEE1C029F4297058061059 /* PromiseKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B038990A02BBC9DB053AE21CD1F8CE3E /* AnyPromise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9557362F11D2D64D95E0C65E0D59CDB8 /* AnyPromise.swift */; };
 		B0A45280F7C239C2D60CC9B79DDC37AA /* SFDirectoryManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F28A49AD5E06E81C7DF4381781BAA3FC /* SFDirectoryManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B0C7AFF7E359D4A5E947680DF888A940 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D9167B5715C7F6BC34381C569E0F35 /* RoundedView.swift */; };
 		B0CDDB06076B58418E40C94F7B4BF7E3 /* SFSDKLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDF521C6BE6739254B3382D833CB24C /* SFSDKLogger.m */; };
 		B0D79836FED5CA6DD61C84D5276152B7 /* UIDevice+SFHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 89AFF6C445B0B034DE87A447F2C3B66F /* UIDevice+SFHardware.m */; };
 		B1216AFFB46EB893D45205866E13EABE /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828A0BB4B964CD5B75E1F44792BA3F1C /* Validators.swift */; };
@@ -473,7 +477,6 @@
 		B2DE6865A2E2B847E55D8F7A0724AA0E /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F25D88BC4A9121044FA4AD02EF552D /* State.swift */; };
 		B481350F489A18A7E242202230B00F62 /* SFRestRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4FB661CFE4C8E82755596B942EBCD1 /* SFRestRequest.m */; };
 		B552C7B0007EB5C0520C9E7ABB358291 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001392A35BDBDA73FEB322B610F3BF7E /* Logger.swift */; };
-		B55C17E88C885BC581A464C7FCA7389A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EF75A66BD2C5463A094CE0AF62839D /* Utilities.swift */; };
 		B58871700B58CA72624D395F81529FA5 /* CSFMultipartInputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = B7949B0BD15F17F8D656C09B9C84FFC5 /* CSFMultipartInputStream.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B73F858E69BE9D168F6658B43E21FE21 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65A51751E1C880715980417E964ABD /* Routes.swift */; };
 		B789F6F35DD1A3704AF1AB30D1E470B8 /* SFAuthenticationSafariControllerHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E1477A9A62A117A4D4420D1A5B429B /* SFAuthenticationSafariControllerHandler.m */; };
@@ -502,7 +505,6 @@
 		C213E0B264C7C8474D16AD05A25DF6BE /* SFKeyStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED046FEDBFC90C7D6FC7C0BEC8164623 /* SFKeyStoreManager.m */; };
 		C22813E2E3A62BE60FECDE947680598A /* CSFNetwork+Salesforce.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A20D60A9B2A6131AAD7691AE187038 /* CSFNetwork+Salesforce.m */; };
 		C25F199F72A2BA754BE67BC0E461C2D1 /* SFPBKDF2PasscodeProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 68AEB3F7E752EB4479C40F5BA3E6CE81 /* SFPBKDF2PasscodeProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2D0F49D23BC7DFAC67DD0B5B429BF76 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBF07CFFDEEF431E048A582016C6950 /* Constants.swift */; };
 		C2E51DD20C8E2BDD58DEDFA36DA146B3 /* CountryCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B076E1C4156636BDE175857671D8BF82 /* CountryCodes.swift */; };
 		C413FD276FDC8157CA94794782C557A9 /* SFSDKNewLoginHostViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 094FB9AEA6A8647356428378EDC465EB /* SFSDKNewLoginHostViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C4DEFB162CA2C6075D432D32C38ABFD4 /* Auth0OAuth2Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CA02A3CCA161D92CF2D61D29AC3257 /* Auth0OAuth2Interactor.swift */; };
@@ -513,7 +515,6 @@
 		C5FDFDE1E5B90D81297FE089A222B3C1 /* SalesforceSDKCoreDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 11384237EE3DF264AFA632B65B840A3B /* SalesforceSDKCoreDefines.m */; };
 		C6305709DEE7F1F7A776D140561B5998 /* SFKeyStoreKey.h in Headers */ = {isa = PBXBuildFile; fileRef = A5A6C5C8ED2B2C7DD30F410E5C939675 /* SFKeyStoreKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C63439E66B92EC85E7E3117EC6F9B25D /* SFSHA256PasscodeProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 364DD53B1220B67960B4C68542851E65 /* SFSHA256PasscodeProvider.m */; };
-		C705CA21F44725A72E037AA206A45B8C /* DeckTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAD9B30AE7A56D4837919556B31EA75 /* DeckTransitioningDelegate.swift */; };
 		C73247D89B9209E3D164053E3FC2A578 /* LockOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09DD1CBC93F7B22974DDC385BA7CDD0 /* LockOptions.swift */; };
 		C797042498DA44DD4BE197B633C473BF /* SFIdentityCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CAC6F4DD9B691604B64FA6412BD236 /* SFIdentityCoordinator.m */; };
 		C7AC5EC114D27B32154C98D211DFECBA /* SFOAuthCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 92501140F17182DA4E5E76FBF8A16A07 /* SFOAuthCoordinator.m */; };
@@ -524,7 +525,6 @@
 		C9DC6FB180018D08492AAF4A5E9983D0 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C60DEE42075364E0FD422C29E381832 /* PrimaryButton.swift */; };
 		CA62D7F3D0E921EBE5AAE077C71AA41D /* SFIdentityData+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = CDDEC9285012FCF46F67D05A22A01ABD /* SFIdentityData+Internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		CA904DCD7DCE6893D77694CDECE8F139 /* SFSDKSoslBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3DA7B2306F10572AAF6F045A6CF8EC /* SFSDKSoslBuilder.m */; };
-		CAB129B6DDD7DD7F196B1367093B706A /* DeckDismissingAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEAA13546D0AA02A8759D7755B03BAF /* DeckDismissingAnimationController.swift */; };
 		CB4222BC34D92C2E06A5BCF730FEFE71 /* Kingfisher-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 861C0FE38DC0ED99E3F8023330AEAE3A /* Kingfisher-dummy.m */; };
 		CB8DF027448816C623E9B02A3685A59F /* ImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE2D97F58212857162F5BC56A9468D2 /* ImageView+Kingfisher.swift */; };
 		CBBE69D39A6DD6E95A3D0C8CCA9A1185 /* NSData+SFAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C62E69BE117198D1D85FAF2BF97B2888 /* NSData+SFAdditions.m */; };
@@ -536,7 +536,7 @@
 		CE2EF5FC4F41281A315AC521B6AA668D /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C9B538FAFBFF6075E7F1CF48E5A169 /* Layout.swift */; };
 		CFC2F608731850E0DA1E315FF6400003 /* _ObjectiveManagementAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46280F08051D7A9C63D7D6CCF4AB64F8 /* _ObjectiveManagementAPI.swift */; };
 		D04F0E75FA07F3221C252675041B9E45 /* SFSDKTestRequestListener.m in Sources */ = {isa = PBXBuildFile; fileRef = A5977E36F75C5DAF32B7D93E65E51615 /* SFSDKTestRequestListener.m */; };
-		D07F5139D1E223FB9846E76197E4F05E /* DeckTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = E7D9D4A617BDC541516323436523A4DB /* DeckTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D07F5139D1E223FB9846E76197E4F05E /* DeckTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC66C2AFE513E2B754F277EB7BBF8D3 /* DeckTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D0FA31C3DDF31E3A34F52A68B3C5A43D /* SFDecryptStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBEB1F3618C622F93ACBF7D86CE98E7 /* SFDecryptStream.m */; };
 		D1A2FFC87859277AD420B7633212313E /* LockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027D2739B52DF0D361D5FE020937FEAC /* LockViewController.swift */; };
 		D25A95A39F5CA94EB100E9A43EB2A677 /* SFTestContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 09FF014F01A60384D5B1AC6AB785DF90 /* SFTestContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -607,7 +607,6 @@
 		EB2484D49E88BCBBFE1139AA49594617 /* MessagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57790C6820882BCD003EA1CFA5CAAB72 /* MessagePresenter.swift */; };
 		EC286AF49677B412CA5758CDE44F8849 /* CSFInternalDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 9FC64FFF3689C1FAA6F12D4ADBB54D08 /* CSFInternalDefines.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		EC3EAB069D06FE16FDCC46B8DF42E6E7 /* DatabaseModeSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6D5406CD81E25B313105B605D2532 /* DatabaseModeSwitcher.swift */; };
-		ED05678161502C097111E9386B4AFB0F /* DeckTransition-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8C55E8443A6E314BC4554DC610C6F4 /* DeckTransition-dummy.m */; };
 		ED160B0830963B30D68AE562932F1FCE /* _ObjectiveAuthenticationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B9ED03A6D27A4796186D0CF578B6AC /* _ObjectiveAuthenticationAPI.swift */; };
 		EDDE21C3BD7008B29A97B141AEBCBBCB /* A0SimpleKeychain+KeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A03A3414A157CC053B6A0DAD3A9FCB /* A0SimpleKeychain+KeyPair.m */; };
 		EDE14C21EFE4A85C59D097337B4105EF /* SFSDKFileLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = E507691F3D321A566D25C067E248DB87 /* SFSDKFileLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -617,6 +616,7 @@
 		EEC63C15F10AF1A6B0455FD59A0BAB43 /* NSURL+SFAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AE1B8E641D0852D4850E7CAB63C49BC /* NSURL+SFAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EF35FCD7423F14C1F50850BA3C3BF709 /* CSFTokenRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 492A57A0C1D2EA4BBD5234E7FDA8833F /* CSFTokenRefresh.m */; };
 		EFE384BF27AAE96989836746A7B69771 /* DelegateTransporter.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DFFEB6C91A278F6A03136E492BBCBB /* DelegateTransporter.m */; };
+		EFED2C9FF78E0195FD4D2217303849A0 /* DeckPresentingAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44BE25BE0DBD483041A4F614070D8C3 /* DeckPresentingAnimationController.swift */; };
 		F003EFFF467B1720765212550948405D /* SFSDKSoslBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 85CB8A5C92A48077BC46664AF7A32082 /* SFSDKSoslBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F025909CD7A3F1F4DFA20CC4DFC0F591 /* NSMutableURLRequest+SalesforceNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D28A51E5C02143596DAB741D607897 /* NSMutableURLRequest+SalesforceNetwork.m */; };
 		F068373355C6E340FE021A6CF2818DF1 /* AuthenticationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B8AEBD0C51BC024E5465C6ED5A6CF /* AuthenticationError.swift */; };
@@ -819,7 +819,6 @@
 		094FB9AEA6A8647356428378EDC465EB /* SFSDKNewLoginHostViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFSDKNewLoginHostViewController.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Login/LoginHost/SFSDKNewLoginHostViewController.h; sourceTree = "<group>"; };
 		0982B2BA8F34097549C2F92418467CB9 /* when.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = when.m; path = Sources/when.m; sourceTree = "<group>"; };
 		09FF014F01A60384D5B1AC6AB785DF90 /* SFTestContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFTestContext.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Common/SFTestContext.h; sourceTree = "<group>"; };
-		0B8C65C28AF059454A40CCCA7CB3DC64 /* DeckSegue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeckSegue.swift; path = Source/DeckSegue.swift; sourceTree = "<group>"; };
 		0B8E5A33D6C667724FA3F7FE0AC825BA /* PMKQuartzCore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PMKQuartzCore.h; path = Extensions/QuartzCore/Sources/PMKQuartzCore.h; sourceTree = "<group>"; };
 		0BBF5044D1CEFAD7FE6C1E3AD6AC8F41 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDAbstractDatabaseLogger.m; path = Classes/DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
 		0BC500AB7C0F6BCE8C4030865808DD35 /* Zalgo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Zalgo.swift; path = Sources/Zalgo.swift; sourceTree = "<group>"; };
@@ -840,7 +839,6 @@
 		12484757BBDE7692DB50790157039959 /* SFOAuthKeychainCredentials.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SFOAuthKeychainCredentials.m; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/OAuth/SFOAuthKeychainCredentials.m; sourceTree = "<group>"; };
 		12BA71A414AE56D72E0D810AA91D7644 /* NSString+SFAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+SFAdditions.m"; path = "libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Common/NSString+SFAdditions.m"; sourceTree = "<group>"; };
 		131A6AD5317FDDA8CFD9954A6C74AC47 /* SFSDKCoreLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SFSDKCoreLogger.m; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Util/SFSDKCoreLogger.m; sourceTree = "<group>"; };
-		137B4D8C5863739BF4762B2E808E4007 /* DeckPresentingAnimationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeckPresentingAnimationController.swift; path = Source/DeckPresentingAnimationController.swift; sourceTree = "<group>"; };
 		13A11372AE008922BF50C982D98817DD /* CSFActionValue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSFActionValue.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Network/Protocols/CSFActionValue.h; sourceTree = "<group>"; };
 		148EE16F6DBACE2284FB61A01C75C9CE /* SFDefaultUserManagementViewController+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SFDefaultUserManagementViewController+Internal.h"; path = "libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Security/SFDefaultUserManagementViewController+Internal.h"; sourceTree = "<group>"; };
 		14DDE70A287413BD6F802AAD2A5F7FDC /* after.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = after.m; path = Sources/after.m; sourceTree = "<group>"; };
@@ -906,6 +904,7 @@
 		2D23D1CFDC0C04664A012AFDD9E86CD0 /* CredentialAuth.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CredentialAuth.swift; path = Lock/CredentialAuth.swift; sourceTree = "<group>"; };
 		2D6BFB494B1D2C1D5D6A9491AE5B29D5 /* SFPreferences.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SFPreferences.m; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Util/SFPreferences.m; sourceTree = "<group>"; };
 		2D87136C146AC04C7F0C0AC1B36AF3C7 /* Lock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Lock.framework; path = Lock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E95F09061A61209D8814B033F05BA83 /* DeckDismissingAnimationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeckDismissingAnimationController.swift; path = Source/DeckDismissingAnimationController.swift; sourceTree = "<group>"; };
 		2F937E6AAE5C6AC82E12836D1823CEC1 /* CSFURLValueTransformer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSFURLValueTransformer.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Network/Utilities/ValueTransformers/CSFURLValueTransformer.h; sourceTree = "<group>"; };
 		30175B6F505A1C30E71A4AFFFB8ABE06 /* Kingfisher-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kingfisher-prefix.pch"; sourceTree = "<group>"; };
 		3078ED758A2644D36760E5CE60822782 /* SFSDKAnalyticsLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SFSDKAnalyticsLogger.m; path = libs/SalesforceAnalytics/SalesforceAnalytics/Classes/Util/SFSDKAnalyticsLogger.m; sourceTree = "<group>"; };
@@ -932,6 +931,7 @@
 		3919381040D3CF0EE10CCF87A8D7EFFF /* Pods-ImpactHub-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ImpactHub-dummy.m"; sourceTree = "<group>"; };
 		39219F854ED3485E385E8833A928B93C /* EnterpriseActiveAuthPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EnterpriseActiveAuthPresenter.swift; path = Lock/EnterpriseActiveAuthPresenter.swift; sourceTree = "<group>"; };
 		3925285EFAF1AD480F9703D81F534D5F /* SFSDKWebUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SFSDKWebUtils.m; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Util/SFSDKWebUtils.m; sourceTree = "<group>"; };
+		3982098E9B75CF47A4077F6A84D40BA6 /* DeckTransition.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = DeckTransition.modulemap; sourceTree = "<group>"; };
 		3A013AFFC9836F38F1E9FFAB5D29CA35 /* CSFJPEGImageValueTransformer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSFJPEGImageValueTransformer.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Network/Utilities/ValueTransformers/CSFJPEGImageValueTransformer.h; sourceTree = "<group>"; };
 		3A25BCB51DC517799DC2C7D91805C958 /* CALayer+AnyPromise.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CALayer+AnyPromise.h"; path = "Extensions/QuartzCore/Sources/CALayer+AnyPromise.h"; sourceTree = "<group>"; };
 		3AA447D7E91670BFA46DDCB6EF340D72 /* PolicyView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PolicyView.swift; path = Lock/PolicyView.swift; sourceTree = "<group>"; };
@@ -961,7 +961,6 @@
 		4175E26DD5D6345C914902544884937A /* SFSDKInstrumentationEvent+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SFSDKInstrumentationEvent+Internal.h"; path = "libs/SalesforceAnalytics/SalesforceAnalytics/Classes/Model/SFSDKInstrumentationEvent+Internal.h"; sourceTree = "<group>"; };
 		41961D2D5C12BF7C7929DD12F7D4581D /* SalesforceSDKManager+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SalesforceSDKManager+Internal.h"; path = "libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Common/SalesforceSDKManager+Internal.h"; sourceTree = "<group>"; };
 		41ADBF73CA327C058C09FE274174AA0E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		41EF75A66BD2C5463A094CE0AF62839D /* Utilities.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = Source/Utilities.swift; sourceTree = "<group>"; };
 		423AD01A9C8127CB43599A9C9FCC6FCF /* SFAuthenticationViewHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFAuthenticationViewHandler.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Security/SFAuthenticationViewHandler.h; sourceTree = "<group>"; };
 		4335264680AB377FECE43A562F4766DB /* DDTTYLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDTTYLogger.m; path = Classes/DDTTYLogger.m; sourceTree = "<group>"; };
 		437AA380EB8CCB43D1A707E58E12B0CC /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PromiseKit.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1001,11 +1000,13 @@
 		4D798C151541E7422D1C90C78A9E1750 /* CALayer+AnyPromise.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CALayer+AnyPromise.m"; path = "Extensions/QuartzCore/Sources/CALayer+AnyPromise.m"; sourceTree = "<group>"; };
 		4DAD760402076558A604920C19DB5D31 /* SFInactivityTimerCenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SFInactivityTimerCenter.m; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Common/SFInactivityTimerCenter.m; sourceTree = "<group>"; };
 		4DB8183E9F84E8063CED49B607F58038 /* PromiseKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PromiseKit-umbrella.h"; sourceTree = "<group>"; };
+		4DC66C2AFE513E2B754F277EB7BBF8D3 /* DeckTransition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DeckTransition.h; path = "Source/Supporting Files/DeckTransition.h"; sourceTree = "<group>"; };
 		4E3A5A4C2A32947D5F9F4F82F14B1E02 /* SFUserAccount.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFUserAccount.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Security/SFUserAccount.h; sourceTree = "<group>"; };
 		4E4FB661CFE4C8E82755596B942EBCD1 /* SFRestRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SFRestRequest.m; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/RestAPI/SFRestRequest.m; sourceTree = "<group>"; };
 		4ED9675D3CD27A5B6BC414F19231741E /* SFNetwork.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFNetwork.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/RestAPI/SFNetwork.h; sourceTree = "<group>"; };
 		4F4E3B6696A00CD12C06E5DDC9B92346 /* SFInactivityTimerCenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFInactivityTimerCenter.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Common/SFInactivityTimerCenter.h; sourceTree = "<group>"; };
 		4FBEB1F3618C622F93ACBF7D86CE98E7 /* SFDecryptStream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SFDecryptStream.m; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Security/SFDecryptStream.m; sourceTree = "<group>"; };
+		502BACA65AD91FC53CA3F270BBDC998E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50683356FB2565E08169DB2B47B3F64C /* SFDecryptStream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFDecryptStream.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Security/SFDecryptStream.h; sourceTree = "<group>"; };
 		50E4DAB580D885E10C85EA5F22EE8531 /* ReverseExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReverseExtension.swift; path = ReverseExtension/ReverseExtension.swift; sourceTree = "<group>"; };
 		512AB9405C9C3EEDE27AF44626163AED /* BannerMessagePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BannerMessagePresenter.swift; path = Lock/BannerMessagePresenter.swift; sourceTree = "<group>"; };
@@ -1036,6 +1037,7 @@
 		5AE2D97F58212857162F5BC56A9468D2 /* ImageView+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ImageView+Kingfisher.swift"; path = "Sources/ImageView+Kingfisher.swift"; sourceTree = "<group>"; };
 		5B65A51751E1C880715980417E964ABD /* Routes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Routes.swift; path = Lock/Routes.swift; sourceTree = "<group>"; };
 		5BF5490A6D711F0700CBBACCD835AE0F /* CSFISO8601DateFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSFISO8601DateFormatter.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Network/Utilities/CSFISO8601DateFormatter.h; sourceTree = "<group>"; };
+		5C4583EA490FB2A53D82CED4D706BEA2 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Source/Constants.swift; sourceTree = "<group>"; };
 		5D441AD129198F74FBFBB4A2F152DFB1 /* SilentSafariViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SilentSafariViewController.swift; path = Auth0/SilentSafariViewController.swift; sourceTree = "<group>"; };
 		5D55DA2B89CD3E1CB368DCB59B5E6124 /* PasswordlessInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PasswordlessInteractor.swift; path = Lock/PasswordlessInteractor.swift; sourceTree = "<group>"; };
 		5D65B511113D59A330C23ACB795EAE74 /* PasswordlessRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PasswordlessRouter.swift; path = Lock/PasswordlessRouter.swift; sourceTree = "<group>"; };
@@ -1125,7 +1127,6 @@
 		7B2BF10765631E524EB0A87E3C1C6A08 /* SFManagedPreferences.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFManagedPreferences.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Util/SFManagedPreferences.h; sourceTree = "<group>"; };
 		7B9CD4C92148B3AE7EFBEE377CDFD127 /* SFRestAPI+Blocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SFRestAPI+Blocks.h"; path = "libs/SalesforceSDKCore/SalesforceSDKCore/Classes/RestAPI/SFRestAPI+Blocks.h"; sourceTree = "<group>"; };
 		7C736637180D557E8B6A0FF2CB2ECCED /* SFPasscodeManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFPasscodeManager.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Security/SFPasscodeManager.h; sourceTree = "<group>"; };
-		7CBF07CFFDEEF431E048A582016C6950 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Source/Constants.swift; sourceTree = "<group>"; };
 		7CFDBC9CED3234685D71A99B8C5CE044 /* SafariWebAuth.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SafariWebAuth.swift; path = Auth0/SafariWebAuth.swift; sourceTree = "<group>"; };
 		7D3CD25C0A7515FCE60C4E667E5B94C8 /* NSURL+ActionValue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURL+ActionValue.m"; path = "libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Network/Additions/NSURL+ActionValue.m"; sourceTree = "<group>"; };
 		7D65D27FFDF591372DCCEFC8C90872C7 /* UserInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserInfo.swift; path = Auth0/UserInfo.swift; sourceTree = "<group>"; };
@@ -1157,7 +1158,6 @@
 		89169CB0C7C8A9CFA785BE9A0AC5B49A /* SFPushNotificationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFPushNotificationManager.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/PushNotification/SFPushNotificationManager.h; sourceTree = "<group>"; };
 		89435852CDEE868341FA53C635EE7DCE /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		89AFF6C445B0B034DE87A447F2C3B66F /* UIDevice+SFHardware.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+SFHardware.m"; path = "libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Common/UIDevice+SFHardware.m"; sourceTree = "<group>"; };
-		89D23F400415755B23ADD27E5E2B4C74 /* DeckPresentationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeckPresentationController.swift; path = Source/DeckPresentationController.swift; sourceTree = "<group>"; };
 		8A63F54D2C358D8A69DF3C9FA7FB477F /* SFCryptChunks.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SFCryptChunks.m; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Security/SFCryptChunks.m; sourceTree = "<group>"; };
 		8A7991B6C282F45466F508FB879AAF24 /* CSFNetwork+Salesforce.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CSFNetwork+Salesforce.h"; path = "libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Network/Network/Queue/CSFNetwork+Salesforce.h"; sourceTree = "<group>"; };
 		8A85E81C3E80ED8F739B6D4F79922527 /* UnrecoverableErrorPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnrecoverableErrorPresenter.swift; path = Lock/UnrecoverableErrorPresenter.swift; sourceTree = "<group>"; };
@@ -1169,6 +1169,7 @@
 		8C5B8AEBD0C51BC024E5465C6ED5A6CF /* AuthenticationError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthenticationError.swift; path = Auth0/AuthenticationError.swift; sourceTree = "<group>"; };
 		8C6FF93B8FC83CCE70E3487BB3597E2A /* EnterpriseDomainView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EnterpriseDomainView.swift; path = Lock/EnterpriseDomainView.swift; sourceTree = "<group>"; };
 		8C8C24CAF7B7B2FAA7DD83014129AE10 /* SFAuthenticationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFAuthenticationManager.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Security/SFAuthenticationManager.h; sourceTree = "<group>"; };
+		8D162EB17F7609775A39AEB788412A19 /* DeckTransition-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DeckTransition-prefix.pch"; sourceTree = "<group>"; };
 		8F3AD4BEF8A48A44A66675B8883DF9FD /* DDASLLogCapture.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDASLLogCapture.h; path = Classes/DDASLLogCapture.h; sourceTree = "<group>"; };
 		8F5620F11858AB5BE968D0AEE0D505E6 /* SFSDKCryptoUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFSDKCryptoUtils.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Security/SFSDKCryptoUtils.h; sourceTree = "<group>"; };
 		8FF00B434B004B71BDA12525F4794623 /* ResponseType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseType.swift; path = Auth0/ResponseType.swift; sourceTree = "<group>"; };
@@ -1249,7 +1250,6 @@
 		A8BF50C465527C0028E8B3BA3932B439 /* NSObject+Promise.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSObject+Promise.swift"; path = "Extensions/Foundation/Sources/NSObject+Promise.swift"; sourceTree = "<group>"; };
 		A8C5810BBDA4A1572C3A260B1030EE90 /* DatabaseForgotPasswordView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseForgotPasswordView.swift; path = Lock/DatabaseForgotPasswordView.swift; sourceTree = "<group>"; };
 		A943916C0E1F76F691D6BFD95D89B225 /* Identity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Identity.swift; path = Auth0/Identity.swift; sourceTree = "<group>"; };
-		A9FB14837177173FDAAD6528E9167D75 /* DeckTransition.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = DeckTransition.modulemap; sourceTree = "<group>"; };
 		AA493BB7A864ED0EC03437451CA58B92 /* SFUserActivityMonitor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFUserActivityMonitor.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Common/SFUserActivityMonitor.h; sourceTree = "<group>"; };
 		AAAD2A2FF3917974EF69F6961DC48DE8 /* NSData+SFSDKUtils_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+SFSDKUtils_Internal.h"; path = "libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Common/NSData+SFSDKUtils_Internal.h"; sourceTree = "<group>"; };
 		AAC1B60769B008969C9B9511D75BE641 /* UIButton+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIButton+Kingfisher.swift"; path = "Sources/UIButton+Kingfisher.swift"; sourceTree = "<group>"; };
@@ -1267,7 +1267,6 @@
 		ADCAE39751FFA19ABD77B48CDC66E4A4 /* SFSDKAppConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFSDKAppConfig.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Common/SFSDKAppConfig.h; sourceTree = "<group>"; };
 		ADE3235EC66E6F31581358505F1FBDD6 /* Telemetry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Telemetry.swift; path = Auth0/Telemetry.swift; sourceTree = "<group>"; };
 		AE7D37EE81D598C98FDC6CF4CA3061F0 /* NSData+SFSDKUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+SFSDKUtils.h"; path = "libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Common/NSData+SFSDKUtils.h"; sourceTree = "<group>"; };
-		AE8C55E8443A6E314BC4554DC610C6F4 /* DeckTransition-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DeckTransition-dummy.m"; sourceTree = "<group>"; };
 		AEBBF58950959B0C69B3DA5DE5E7A835 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF1407ED482E8B5A14C10DD51A86022D /* View.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = View.swift; path = Lock/View.swift; sourceTree = "<group>"; };
 		AFD3D6F869BAA3B64E78B85491BCFA28 /* Indicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Indicator.swift; path = Sources/Indicator.swift; sourceTree = "<group>"; };
@@ -1321,9 +1320,9 @@
 		BEFABBBC2D572CBBBF4C1AAEB181952E /* DDASLLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDASLLogger.h; path = Classes/DDASLLogger.h; sourceTree = "<group>"; };
 		BF069105157160BDB2BD1AEE1E92E298 /* EnterpriseActiveAuthInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EnterpriseActiveAuthInteractor.swift; path = Lock/EnterpriseActiveAuthInteractor.swift; sourceTree = "<group>"; };
 		BFDDF01B12CE5FC68F75BC425B495335 /* NSString+SFAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+SFAdditions.h"; path = "libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Common/NSString+SFAdditions.h"; sourceTree = "<group>"; };
-		BFEAA13546D0AA02A8759D7755B03BAF /* DeckDismissingAnimationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeckDismissingAnimationController.swift; path = Source/DeckDismissingAnimationController.swift; sourceTree = "<group>"; };
 		C013A52C065CAF0AA16275824307A726 /* DatabasePasswordInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabasePasswordInteractor.swift; path = Lock/DatabasePasswordInteractor.swift; sourceTree = "<group>"; };
 		C0353E634BED4469E771E5738F93AB4F /* CSFOutput_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSFOutput_Internal.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Network/Network/Model/CSFOutput_Internal.h; sourceTree = "<group>"; };
+		C0374BC72D5470E3FFB6758DCDC69B76 /* DeckTransition-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DeckTransition-umbrella.h"; sourceTree = "<group>"; };
 		C0EA6D2E70EBED1071347B049F11B5DE /* SFLogger_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFLogger_Internal.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Common/Logging/SFLogger_Internal.h; sourceTree = "<group>"; };
 		C14204CAE30F3F24721BDC2CF0DA4644 /* SFSDKAnalyticsManager+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SFSDKAnalyticsManager+Internal.h"; path = "libs/SalesforceAnalytics/SalesforceAnalytics/Classes/Manager/SFSDKAnalyticsManager+Internal.h"; sourceTree = "<group>"; };
 		C1521147555046448F359AEBB80F73F1 /* DDLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLog.h; path = Classes/DDLog.h; sourceTree = "<group>"; };
@@ -1348,13 +1347,14 @@
 		C62E69BE117198D1D85FAF2BF97B2888 /* NSData+SFAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+SFAdditions.m"; path = "libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Common/NSData+SFAdditions.m"; sourceTree = "<group>"; };
 		C6D39C226DE42D0B26613A080D304CDE /* SalesforceAnalytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SalesforceAnalytics.framework; path = SalesforceAnalytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C70ADEDFF203D7C5F2228CDB64DEB473 /* SFSDKSoqlBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFSDKSoqlBuilder.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Util/SFSDKSoqlBuilder.h; sourceTree = "<group>"; };
+		C936C75DF21C5B8346192C5F4AB99FC4 /* DeckTransitioningDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeckTransitioningDelegate.swift; path = Source/DeckTransitioningDelegate.swift; sourceTree = "<group>"; };
 		C94354CFD637949363ED9239DAD29586 /* SFUserAccount.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SFUserAccount.m; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Security/SFUserAccount.m; sourceTree = "<group>"; };
 		C97D88D1FE0A6B2D01D695E3D10C0BA4 /* SFKeyStoreManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFKeyStoreManager.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Security/SFKeyStoreManager.h; sourceTree = "<group>"; };
 		C98D73FDA4FC44B4E793FB236FEB3549 /* A0ChallengeGenerator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = A0ChallengeGenerator.h; path = Auth0/A0ChallengeGenerator.h; sourceTree = "<group>"; };
 		C9FCB90EA4C17915488AE2DF06E07721 /* ControllerModalPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ControllerModalPresenter.swift; path = Auth0/ControllerModalPresenter.swift; sourceTree = "<group>"; };
 		CA25FDF60AE93B54A98366BDE1FCB84B /* SFPasscodeManager+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SFPasscodeManager+Internal.h"; path = "libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Security/SFPasscodeManager+Internal.h"; sourceTree = "<group>"; };
+		CAB863CDA357171809C4C0FE528D9B69 /* DeckSegue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeckSegue.swift; path = Source/DeckSegue.swift; sourceTree = "<group>"; };
 		CABA6928342B3497BEDCBADD0E351F51 /* CredentialAuthError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CredentialAuthError.swift; path = Lock/CredentialAuthError.swift; sourceTree = "<group>"; };
-		CBAD9B30AE7A56D4837919556B31EA75 /* DeckTransitioningDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeckTransitioningDelegate.swift; path = Source/DeckTransitioningDelegate.swift; sourceTree = "<group>"; };
 		CBDAA537374446AED9518E8FDB7A2AAC /* CSFNetwork+Caching.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CSFNetwork+Caching.m"; path = "libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Network/Network/Queue/CSFNetwork+Caching.m"; sourceTree = "<group>"; };
 		CC6183A68BBF8056D53BABFDD858F4D6 /* CSFParameterStorage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSFParameterStorage.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Network/Network/Support/CSFParameterStorage.h; sourceTree = "<group>"; };
 		CCEC8D97FD6709E34418F070340AEE5C /* UITableViewDelegateTransporter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UITableViewDelegateTransporter.swift; path = ReverseExtension/UITableViewDelegateTransporter.swift; sourceTree = "<group>"; };
@@ -1362,14 +1362,15 @@
 		CDE75ED587E44436437BECB4AC12F510 /* CSFSalesforceAction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSFSalesforceAction.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Network/Network/Action/CSFSalesforceAction.h; sourceTree = "<group>"; };
 		CE29721A04B1A96C5B2B7502FBD93ADB /* SFSDKAnalyticsManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFSDKAnalyticsManager.h; path = libs/SalesforceAnalytics/SalesforceAnalytics/Classes/Manager/SFSDKAnalyticsManager.h; sourceTree = "<group>"; };
 		CE3BBA4F2CF617B90167AC9A587C4A28 /* SFSDKAILTNTransform.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFSDKAILTNTransform.h; path = libs/SalesforceAnalytics/SalesforceAnalytics/Classes/Transform/SFSDKAILTNTransform.h; sourceTree = "<group>"; };
+		CE407CD30ABF667EB072673CCDF68155 /* DeckTransition-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DeckTransition-dummy.m"; sourceTree = "<group>"; };
 		CE89522520B2BB78A3DD8FDEB5F76A42 /* SFSDKResourceUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SFSDKResourceUtils.m; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Util/SFSDKResourceUtils.m; sourceTree = "<group>"; };
 		CEB9736D9F6A0ED0BAB8494C6C39F2C2 /* SFKeyStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFKeyStore.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Security/SFKeyStore.h; sourceTree = "<group>"; };
 		CF4E5C9198A69AA2D6D9FF65BF35BD41 /* CocoaLumberjack-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CocoaLumberjack-dummy.m"; sourceTree = "<group>"; };
 		CF9802BBD6FEDAC19A7425C13F02E69C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFB9A2DBC522F2408ED845B5D59F79D1 /* SFSDKResourceUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFSDKResourceUtils.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Util/SFSDKResourceUtils.h; sourceTree = "<group>"; };
 		CFE69EBA2AA9696D7CACA7681CE7C650 /* SFSDKAppFeatureMarkers.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SFSDKAppFeatureMarkers.m; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Common/SFSDKAppFeatureMarkers.m; sourceTree = "<group>"; };
+		D04FBF513B74260FF2697628A68CFE45 /* DeckPresentationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeckPresentationController.swift; path = Source/DeckPresentationController.swift; sourceTree = "<group>"; };
 		D118D41A63A840B98E017FAB3F4AFFAA /* ImageTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageTransition.swift; path = Sources/ImageTransition.swift; sourceTree = "<group>"; };
-		D20B35B27AF809C570F03A68C21C1680 /* DeckTransition-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DeckTransition-umbrella.h"; sourceTree = "<group>"; };
 		D2604CEA2F28FCD88DF7C16653049F3F /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Auth0/Result.swift; sourceTree = "<group>"; };
 		D26CA0CBACECE1F50CBAE49B159CC724 /* Lock-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Lock-umbrella.h"; sourceTree = "<group>"; };
 		D2B45F68D282C294B4607EB66FD08881 /* SFSecurityLockout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFSecurityLockout.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Security/SFSecurityLockout.h; sourceTree = "<group>"; };
@@ -1382,7 +1383,6 @@
 		D495FC99B18C8EF9FD6E44A5D0675500 /* CSFAvailability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSFAvailability.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Network/Utilities/CSFAvailability.h; sourceTree = "<group>"; };
 		D4CB0225A764D47543DE1CD1B6908294 /* Kingfisher-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kingfisher-umbrella.h"; sourceTree = "<group>"; };
 		D549F4AD200EBF092A739E42A2BD59FF /* SFCrypto+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SFCrypto+Internal.h"; path = "libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Common/SFCrypto+Internal.h"; sourceTree = "<group>"; };
-		D55BBF732D7B944CD7EB28216E46FD9A /* DeckTransition.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DeckTransition.xcconfig; sourceTree = "<group>"; };
 		D5D7643E0D1FCD3C9F444AAFB0FA9065 /* SFOAuthInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFOAuthInfo.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/OAuth/SFOAuthInfo.h; sourceTree = "<group>"; };
 		D5D808797ECEDDE4E59BB690FA002036 /* SalesforceSDKCoreDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SalesforceSDKCoreDefines.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Util/SalesforceSDKCoreDefines.h; sourceTree = "<group>"; };
 		D5F6D36C3D61E279BD4DE7A177F3ED3E /* SFUserAccountManager+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SFUserAccountManager+Internal.h"; path = "libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Security/SFUserAccountManager+Internal.h"; sourceTree = "<group>"; };
@@ -1393,7 +1393,6 @@
 		D83F99E1736AAC97DC7052DB1FBE15BA /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Lock/Extensions.swift; sourceTree = "<group>"; };
 		D8F78CBC2A49C78B82A5BF154170A27B /* NSMutableURLRequest+SalesforceNetwork.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMutableURLRequest+SalesforceNetwork.h"; path = "libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Network/Additions/NSMutableURLRequest+SalesforceNetwork.h"; sourceTree = "<group>"; };
 		D9375F1C61A1BF06955A1769730F1BF4 /* SalesforceSDKCore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SalesforceSDKCore.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/SalesforceSDKCore.h; sourceTree = "<group>"; };
-		D971C04187CC94C56DC0E231EA7A2C96 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D97F7F1AE42BA97F929F64C6F9E5FAAB /* PromiseKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = PromiseKit.modulemap; sourceTree = "<group>"; };
 		D9862A15DBF6D9ABF3D626065708628A /* SalesforceAnalytics-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SalesforceAnalytics-prefix.pch"; sourceTree = "<group>"; };
 		D9BF4D606DF2295284172EEF28638360 /* PasswordlessPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PasswordlessPresenter.swift; path = Lock/PasswordlessPresenter.swift; sourceTree = "<group>"; };
@@ -1432,8 +1431,9 @@
 		E577BE0357128F55BEE5E5DF670451A5 /* Pods-ImpactHub-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ImpactHub-resources.sh"; sourceTree = "<group>"; };
 		E57E7343C4D2965886E2177E9CF916C1 /* Passwordless.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Passwordless.swift; path = Lock/Passwordless.swift; sourceTree = "<group>"; };
 		E58F4D6274243FAB0E6599E363D9DF78 /* SFPBKDFData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFPBKDFData.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Security/SFPBKDFData.h; sourceTree = "<group>"; };
+		E5D9167B5715C7F6BC34381C569E0F35 /* RoundedView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RoundedView.swift; path = Source/RoundedView.swift; sourceTree = "<group>"; };
+		E7C9A492DB43D0966B953F68DBB6A2D4 /* DeckTransition.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DeckTransition.xcconfig; sourceTree = "<group>"; };
 		E7D2DFE00D227BF4A0A3E3510415CEE5 /* SalesforceAnalytics.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SalesforceAnalytics.modulemap; sourceTree = "<group>"; };
-		E7D9D4A617BDC541516323436523A4DB /* DeckTransition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DeckTransition.h; path = "Source/Supporting Files/DeckTransition.h"; sourceTree = "<group>"; };
 		E7F0A8BF39D4EA04137B89DFE962028A /* CSFSalesforceOAuthRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSFSalesforceOAuthRefresh.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Network/Network/OAuth/CSFSalesforceOAuthRefresh.h; sourceTree = "<group>"; };
 		E8202E24EB4D2898666869F197EF93B6 /* SFCrypto.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFCrypto.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Common/SFCrypto.h; sourceTree = "<group>"; };
 		E87876BB2BFF6CC521E8932C9CAC9795 /* CSFForceDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSFForceDefines.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Network/Utilities/CSFForceDefines.h; sourceTree = "<group>"; };
@@ -1468,11 +1468,11 @@
 		F3ACEA93211730BD52DEF95864F18964 /* UnrecoverableError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnrecoverableError.swift; path = Lock/UnrecoverableError.swift; sourceTree = "<group>"; };
 		F3E27892C4244652AFFE587592FCB7C8 /* OAuth2Authenticatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OAuth2Authenticatable.swift; path = Lock/OAuth2Authenticatable.swift; sourceTree = "<group>"; };
 		F406A2DF7AA2ECAA947A99775D75E960 /* SFEncryptStream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SFEncryptStream.m; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Security/SFEncryptStream.m; sourceTree = "<group>"; };
+		F44BE25BE0DBD483041A4F614070D8C3 /* DeckPresentingAnimationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeckPresentingAnimationController.swift; path = Source/DeckPresentingAnimationController.swift; sourceTree = "<group>"; };
 		F4A75FA6F312F11BAC218095D149796E /* SFAuthErrorHandlerList.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SFAuthErrorHandlerList.m; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Security/SFAuthErrorHandlerList.m; sourceTree = "<group>"; };
 		F4DFF536256295E6AB7B623249FE4443 /* SFPasscodeViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFPasscodeViewController.h; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/Security/SFPasscodeViewController.h; sourceTree = "<group>"; };
 		F5BD82052B88F1F7E4A5215B8403F40E /* Form.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Form.swift; path = Lock/Form.swift; sourceTree = "<group>"; };
 		F5DFCD8E931B33456D3696DE89CC84A7 /* join.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = join.swift; path = Sources/join.swift; sourceTree = "<group>"; };
-		F63C479A19478BA91196C8EC2BC88020 /* DeckTransition-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DeckTransition-prefix.pch"; sourceTree = "<group>"; };
 		F6EE8A83145C8CAF2DEF8FE4DAF83A0D /* SimpleKeychain-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SimpleKeychain-dummy.m"; sourceTree = "<group>"; };
 		F7004F47A6618843966F00D7412266BA /* ResourceBundle-SalesforceSDKResources-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-SalesforceSDKResources-Info.plist"; sourceTree = "<group>"; };
 		F70646255447458DA2675FF32EE96779 /* SFPushNotificationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SFPushNotificationManager.m; path = libs/SalesforceSDKCore/SalesforceSDKCore/Classes/PushNotification/SFPushNotificationManager.m; sourceTree = "<group>"; };
@@ -1722,7 +1722,7 @@
 			children = (
 				4743DFA460AE0152014DF5B6FE46F842 /* Auth0 */,
 				ECA4BFC36FDFC19F4F830B238BEDA274 /* CocoaLumberjack */,
-				73000881D13D28F03888757E9C95F6D6 /* DeckTransition */,
+				B385C36CE86F858474EE77B09E223770 /* DeckTransition */,
 				E34EF1B643BB6076E84EF06B45A98A2B /* Kingfisher */,
 				B6BC851C4B99704E56A8054201505285 /* Lock */,
 				61151F26779965427972A4B818A844A5 /* PromiseKit */,
@@ -1733,20 +1733,6 @@
 				DA8C68F2C004788F372DDC0DD3B4C77D /* SwiftyJSON */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		4046B753BB3F1282BC2163382F80E70C /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				A9FB14837177173FDAAD6528E9167D75 /* DeckTransition.modulemap */,
-				D55BBF732D7B944CD7EB28216E46FD9A /* DeckTransition.xcconfig */,
-				AE8C55E8443A6E314BC4554DC610C6F4 /* DeckTransition-dummy.m */,
-				F63C479A19478BA91196C8EC2BC88020 /* DeckTransition-prefix.pch */,
-				D20B35B27AF809C570F03A68C21C1680 /* DeckTransition-umbrella.h */,
-				D971C04187CC94C56DC0E231EA7A2C96 /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/DeckTransition";
 			sourceTree = "<group>";
 		};
 		435F21192023F8501FE78803DA85342A /* arc */ = {
@@ -2246,23 +2232,6 @@
 			path = "../Target Support Files/PromiseKit";
 			sourceTree = "<group>";
 		};
-		73000881D13D28F03888757E9C95F6D6 /* DeckTransition */ = {
-			isa = PBXGroup;
-			children = (
-				7CBF07CFFDEEF431E048A582016C6950 /* Constants.swift */,
-				BFEAA13546D0AA02A8759D7755B03BAF /* DeckDismissingAnimationController.swift */,
-				89D23F400415755B23ADD27E5E2B4C74 /* DeckPresentationController.swift */,
-				137B4D8C5863739BF4762B2E808E4007 /* DeckPresentingAnimationController.swift */,
-				0B8C65C28AF059454A40CCCA7CB3DC64 /* DeckSegue.swift */,
-				E7D9D4A617BDC541516323436523A4DB /* DeckTransition.h */,
-				CBAD9B30AE7A56D4837919556B31EA75 /* DeckTransitioningDelegate.swift */,
-				41EF75A66BD2C5463A094CE0AF62839D /* Utilities.swift */,
-				4046B753BB3F1282BC2163382F80E70C /* Support Files */,
-			);
-			name = DeckTransition;
-			path = DeckTransition;
-			sourceTree = "<group>";
-		};
 		7B52A4912D4354A4D8B8C10FDA0824A6 /* CorePromise */ = {
 			isa = PBXGroup;
 			children = (
@@ -2504,6 +2473,20 @@
 			path = ReverseExtension;
 			sourceTree = "<group>";
 		};
+		AE49BBDD3F56ED5BAF3B3F1BDF7A00CD /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3982098E9B75CF47A4077F6A84D40BA6 /* DeckTransition.modulemap */,
+				E7C9A492DB43D0966B953F68DBB6A2D4 /* DeckTransition.xcconfig */,
+				CE407CD30ABF667EB072673CCDF68155 /* DeckTransition-dummy.m */,
+				8D162EB17F7609775A39AEB788412A19 /* DeckTransition-prefix.pch */,
+				C0374BC72D5470E3FFB6758DCDC69B76 /* DeckTransition-umbrella.h */,
+				502BACA65AD91FC53CA3F270BBDC998E /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/DeckTransition";
+			sourceTree = "<group>";
+		};
 		B020F8950E0C9CC90C63576B2D2D002C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2514,6 +2497,23 @@
 				5624CDCF081FC8A63E87BDBE759D79F7 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B385C36CE86F858474EE77B09E223770 /* DeckTransition */ = {
+			isa = PBXGroup;
+			children = (
+				5C4583EA490FB2A53D82CED4D706BEA2 /* Constants.swift */,
+				2E95F09061A61209D8814B033F05BA83 /* DeckDismissingAnimationController.swift */,
+				D04FBF513B74260FF2697628A68CFE45 /* DeckPresentationController.swift */,
+				F44BE25BE0DBD483041A4F614070D8C3 /* DeckPresentingAnimationController.swift */,
+				CAB863CDA357171809C4C0FE528D9B69 /* DeckSegue.swift */,
+				4DC66C2AFE513E2B754F277EB7BBF8D3 /* DeckTransition.h */,
+				C936C75DF21C5B8346192C5F4AB99FC4 /* DeckTransitioningDelegate.swift */,
+				E5D9167B5715C7F6BC34381C569E0F35 /* RoundedView.swift */,
+				AE49BBDD3F56ED5BAF3B3F1BDF7A00CD /* Support Files */,
+			);
+			name = DeckTransition;
+			path = DeckTransition;
 			sourceTree = "<group>";
 		};
 		B6BC851C4B99704E56A8054201505285 /* Lock */ = {
@@ -3163,7 +3163,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A48E8330817FFB220C7B32B120EC53F6 /* Build configuration list for PBXNativeTarget "DeckTransition" */;
 			buildPhases = (
-				F59884EAF72F547BBCFBD8F9B2FD47D7 /* Sources */,
+				5F2CE2E1F231C50D1804A9BA7901DA81 /* Sources */,
 				16CC869C61CAACD5AAB2FB4C8DE9B386 /* Frameworks */,
 				B9090C26859E00601357CC1006F717AB /* Headers */,
 			);
@@ -3547,6 +3547,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5F2CE2E1F231C50D1804A9BA7901DA81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76B1BEE957919513A2D0817FF3FD2B62 /* Constants.swift in Sources */,
+				187C6227087E659378327B25F3610C36 /* DeckDismissingAnimationController.swift in Sources */,
+				AE9A0C990F8EC77D4652B8D0D539FB87 /* DeckPresentationController.swift in Sources */,
+				EFED2C9FF78E0195FD4D2217303849A0 /* DeckPresentingAnimationController.swift in Sources */,
+				608AED868CBC362867548414B3E2C8C0 /* DeckSegue.swift in Sources */,
+				37C79DBD3DE08F2DB525AD9D487C7E02 /* DeckTransition-dummy.m in Sources */,
+				68B7C19E89A2C8D13E3F4D5754C2B67A /* DeckTransitioningDelegate.swift in Sources */,
+				B0C7AFF7E359D4A5E947680DF888A940 /* RoundedView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		72AA8B6B43DBC3C9CED8A94933669C39 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3781,21 +3796,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F59884EAF72F547BBCFBD8F9B2FD47D7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C2D0F49D23BC7DFAC67DD0B5B429BF76 /* Constants.swift in Sources */,
-				CAB129B6DDD7DD7F196B1367093B706A /* DeckDismissingAnimationController.swift in Sources */,
-				96BCCA0A3D533D57519D53AEADC9DCDF /* DeckPresentationController.swift in Sources */,
-				18930B919ABE339CC5311B62C0BD1D8C /* DeckPresentingAnimationController.swift in Sources */,
-				48830E093F7BE760E96E4A7CA2D4B964 /* DeckSegue.swift in Sources */,
-				ED05678161502C097111E9386B4AFB0F /* DeckTransition-dummy.m in Sources */,
-				C705CA21F44725A72E037AA206A45B8C /* DeckTransitioningDelegate.swift in Sources */,
-				B55C17E88C885BC581A464C7FCA7389A /* Utilities.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FD12B015E1FDA3498428EF09C91D1F17 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3934,102 +3934,150 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		007075A01BB66FD869E60B97CC9F63FA /* Debug */ = {
+		063959B9D76C485BDAF4E8ED3C72F152 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 70CDB93CBB5AA4FA8F6E86DCC2CCBFA9 /* SwiftyJSON.xcconfig */;
+			baseConfigurationReference = A139351A6CF7D1893BAC7F5034CDBAD7 /* SalesforceSDKCore.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SwiftyJSON;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		048EA631791C3CB18485A43AA63ED8DA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A94E1AD6C7E827DC4AC97E0782448AE /* SimpleKeychain.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SimpleKeychain/SimpleKeychain-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SimpleKeychain/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SimpleKeychain/SimpleKeychain.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SimpleKeychain;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		055C613EEE486E7CFAE67800182B32BA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F18252CE0E002F3EE418466A8E9BBAE3 /* Auth0.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Auth0/Auth0-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Auth0/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SalesforceSDKCore/SalesforceSDKCore-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SalesforceSDKCore/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Auth0/Auth0.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Auth0;
+				MODULEMAP_FILE = "Target Support Files/SalesforceSDKCore/SalesforceSDKCore.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SalesforceSDKCore;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0A5D36A0E3E257BA412B2355DF4A6543 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86779BCCC02D227E69A657E036A05FD5 /* PromiseKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PromiseKit/PromiseKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PromiseKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PromiseKit/PromiseKit.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = PromiseKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		133D2BAFE73B0731E149BA2E9D88955B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A139351A6CF7D1893BAC7F5034CDBAD7 /* SalesforceSDKCore.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SalesforceSDKCore";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/SalesforceSDKCore/ResourceBundle-SalesforceSDKResources-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_NAME = SalesforceSDKResources;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		1D26ABF2BFFB11CFBB046871D7579E11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A139351A6CF7D1893BAC7F5034CDBAD7 /* SalesforceSDKCore.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SalesforceSDKCore/SalesforceSDKCore-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SalesforceSDKCore/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SalesforceSDKCore/SalesforceSDKCore.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SalesforceSDKCore;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2A2EFDC8B364AD9E4F197445B9E8A161 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 900BB624CB06C49951142BE2AA01C775 /* ReverseExtension.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ReverseExtension/ReverseExtension-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ReverseExtension/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ReverseExtension/ReverseExtension.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = ReverseExtension;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4038,7 +4086,7 @@
 			};
 			name = Debug;
 		};
-		0972C35E05C9E394D0D3D5F1CF9CB448 /* Debug */ = {
+		2AADD771EE3EE63371BC42FCAFC4FF0E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DD4DAEC4F5E5DF52D68C63A00182500D /* Lock.xcconfig */;
 			buildSettings = {
@@ -4064,7 +4112,7 @@
 				PRODUCT_NAME = Lock;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4073,9 +4121,9 @@
 			};
 			name = Debug;
 		};
-		116D7423C548E431E22F4061D66A0AF0 /* Release */ = {
+		32BFF26B6DFF3064A7178574FA8E049D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 932FE1ACFCDD9F7A1D565E2CA10B1E97 /* CocoaLumberjack.xcconfig */;
+			baseConfigurationReference = 900BB624CB06C49951142BE2AA01C775 /* ReverseExtension.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -4089,17 +4137,17 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/CocoaLumberjack/CocoaLumberjack-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CocoaLumberjack/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/ReverseExtension/ReverseExtension-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ReverseExtension/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/CocoaLumberjack/CocoaLumberjack.modulemap";
+				MODULEMAP_FILE = "Target Support Files/ReverseExtension/ReverseExtension.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = CocoaLumberjack;
+				PRODUCT_NAME = ReverseExtension;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -4107,92 +4155,39 @@
 			};
 			name = Release;
 		};
-		133D2BAFE73B0731E149BA2E9D88955B /* Debug */ = {
+		41EB60154BDC5F38F55A73717C7B5112 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A139351A6CF7D1893BAC7F5034CDBAD7 /* SalesforceSDKCore.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SalesforceSDKCore";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/SalesforceSDKCore/ResourceBundle-SalesforceSDKResources-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				PRODUCT_NAME = SalesforceSDKResources;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		24F84D88F50C16298C4C7A0126FA30BF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D55BBF732D7B944CD7EB28216E46FD9A /* DeckTransition.xcconfig */;
+			baseConfigurationReference = F18252CE0E002F3EE418466A8E9BBAE3 /* Auth0.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/DeckTransition/DeckTransition-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/DeckTransition/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Auth0/Auth0-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Auth0/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/DeckTransition/DeckTransition.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = DeckTransition;
+				MODULEMAP_FILE = "Target Support Files/Auth0/Auth0.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Auth0;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
-		};
-		38CE7D2AFE1959EF013F24FD23FC5F4F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFE2043BACA70F3E6AB51F763D7FE441 /* Kingfisher.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Kingfisher/Kingfisher-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Kingfisher/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Kingfisher/Kingfisher.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Kingfisher;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
+			name = Release;
 		};
 		421166672FC466854AC20F035B75B19C /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -4232,9 +4227,9 @@
 			};
 			name = Release;
 		};
-		60399F57A5AD10FF0C4F41FE9C606BC4 /* Debug */ = {
+		4BE5B60177BF892D7B22C2BA85BAEBE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 69D4E63105462518BC395456B1DF79F4 /* SalesforceAnalytics.xcconfig */;
+			baseConfigurationReference = 86779BCCC02D227E69A657E036A05FD5 /* PromiseKit.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -4248,52 +4243,14 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SalesforceAnalytics/SalesforceAnalytics-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SalesforceAnalytics/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/PromiseKit/PromiseKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PromiseKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SalesforceAnalytics/SalesforceAnalytics.modulemap";
+				MODULEMAP_FILE = "Target Support Files/PromiseKit/PromiseKit.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SalesforceAnalytics;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		65CC8F7516D7ACB46756DEE995D7B84A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = ABD70DC554579A6790BCD632B7F39026 /* Pods-ImpactHub.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-ImpactHub/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-ImpactHub/Pods-ImpactHub.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_ImpactHub;
+				PRODUCT_NAME = PromiseKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -4305,9 +4262,9 @@
 			};
 			name = Debug;
 		};
-		71BE3BDAA1360D03F15C103D3392D08D /* Release */ = {
+		4DA23D217E7C0FC73E1E65FF50FCB71C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A94E1AD6C7E827DC4AC97E0782448AE /* SimpleKeychain.xcconfig */;
+			baseConfigurationReference = 70CDB93CBB5AA4FA8F6E86DCC2CCBFA9 /* SwiftyJSON.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -4321,51 +4278,16 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SimpleKeychain/SimpleKeychain-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SimpleKeychain/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SimpleKeychain/SimpleKeychain.modulemap";
+				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SimpleKeychain;
+				PRODUCT_NAME = SwiftyJSON;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		7A267B951B9DC509DE2F409A52E5E4E7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DD4DAEC4F5E5DF52D68C63A00182500D /* Lock.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Lock/Lock-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Lock/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Lock/Lock.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Lock;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4374,41 +4296,7 @@
 			};
 			name = Release;
 		};
-		8C05AC08F924F2A77027431957045197 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 69D4E63105462518BC395456B1DF79F4 /* SalesforceAnalytics.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SalesforceAnalytics/SalesforceAnalytics-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SalesforceAnalytics/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SalesforceAnalytics/SalesforceAnalytics.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SalesforceAnalytics;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		97803B46811A9BDB5E70FA1303AFBFFE /* Debug */ = {
+		4E487F173E6C9664F4E9E26B9635D23C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -4452,14 +4340,46 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		ACD905B86F9EF066396522B6ECE98BE5 /* Debug */ = {
+		551E8B6720F3F556E288F13F01E329D1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 900BB624CB06C49951142BE2AA01C775 /* ReverseExtension.xcconfig */;
+			baseConfigurationReference = 69D4E63105462518BC395456B1DF79F4 /* SalesforceAnalytics.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SalesforceAnalytics/SalesforceAnalytics-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SalesforceAnalytics/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SalesforceAnalytics/SalesforceAnalytics.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SalesforceAnalytics;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		65CC8F7516D7ACB46756DEE995D7B84A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABD70DC554579A6790BCD632B7F39026 /* Pods-ImpactHub.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -4473,17 +4393,21 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/ReverseExtension/ReverseExtension-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ReverseExtension/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-ImpactHub/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ReverseExtension/ReverseExtension.modulemap";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ImpactHub/Pods-ImpactHub.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = ReverseExtension;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ImpactHub;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4492,9 +4416,9 @@
 			};
 			name = Debug;
 		};
-		B526841E1EBF16849017B42CA89AEC67 /* Release */ = {
+		6B75E6DC3B09E4905ABC5015922F57DA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A139351A6CF7D1893BAC7F5034CDBAD7 /* SalesforceSDKCore.xcconfig */;
+			baseConfigurationReference = DD4DAEC4F5E5DF52D68C63A00182500D /* Lock.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -4508,51 +4432,16 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SalesforceSDKCore/SalesforceSDKCore-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SalesforceSDKCore/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Lock/Lock-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Lock/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SalesforceSDKCore/SalesforceSDKCore.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Lock/Lock.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SalesforceSDKCore;
+				PRODUCT_NAME = Lock;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		BCB5E6D68873CB4F475DF51E0EC03781 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 70CDB93CBB5AA4FA8F6E86DCC2CCBFA9 /* SwiftyJSON.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SwiftyJSON;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4560,6 +4449,210 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		70FA44B48AD3B6F7EF79B98F80A25F2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 932FE1ACFCDD9F7A1D565E2CA10B1E97 /* CocoaLumberjack.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/CocoaLumberjack/CocoaLumberjack-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CocoaLumberjack/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/CocoaLumberjack/CocoaLumberjack.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = CocoaLumberjack;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		738CE812048331CAF0A1EC0FE51DD35A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A94E1AD6C7E827DC4AC97E0782448AE /* SimpleKeychain.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SimpleKeychain/SimpleKeychain-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SimpleKeychain/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SimpleKeychain/SimpleKeychain.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SimpleKeychain;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8D592F5FA16626AF3CAD8ABE48DBCB4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 932FE1ACFCDD9F7A1D565E2CA10B1E97 /* CocoaLumberjack.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/CocoaLumberjack/CocoaLumberjack-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CocoaLumberjack/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/CocoaLumberjack/CocoaLumberjack.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = CocoaLumberjack;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9F9EF7181A9BE8118048A5DA59B5B665 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F18252CE0E002F3EE418466A8E9BBAE3 /* Auth0.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Auth0/Auth0-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Auth0/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Auth0/Auth0.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Auth0;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B5D7EEFDD195DE792C06F0F20E1651D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFE2043BACA70F3E6AB51F763D7FE441 /* Kingfisher.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Kingfisher/Kingfisher-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Kingfisher/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Kingfisher/Kingfisher.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Kingfisher;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B9B830A3FAD35FFC5F4EDF59CE12AEFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7C9A492DB43D0966B953F68DBB6A2D4 /* DeckTransition.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DeckTransition/DeckTransition-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DeckTransition/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DeckTransition/DeckTransition.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = DeckTransition;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		BDD0139D6EB93FA375F887ABD62DAB2E /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -4605,9 +4698,9 @@
 			};
 			name = Release;
 		};
-		C47DF7510EFEB625AC8977294806DA6B /* Debug */ = {
+		C538E1C45CF8DD43DE033C800A14197B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 86779BCCC02D227E69A657E036A05FD5 /* PromiseKit.xcconfig */;
+			baseConfigurationReference = 70CDB93CBB5AA4FA8F6E86DCC2CCBFA9 /* SwiftyJSON.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -4621,17 +4714,17 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/PromiseKit/PromiseKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/PromiseKit/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/PromiseKit/PromiseKit.modulemap";
+				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = PromiseKit;
+				PRODUCT_NAME = SwiftyJSON;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4640,9 +4733,9 @@
 			};
 			name = Debug;
 		};
-		DC5F323764F72666A9E40451AE1D9D31 /* Debug */ = {
+		C996329B2EA9B3761AAB35C473F51426 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 932FE1ACFCDD9F7A1D565E2CA10B1E97 /* CocoaLumberjack.xcconfig */;
+			baseConfigurationReference = 69D4E63105462518BC395456B1DF79F4 /* SalesforceAnalytics.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -4656,17 +4749,16 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/CocoaLumberjack/CocoaLumberjack-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CocoaLumberjack/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SalesforceAnalytics/SalesforceAnalytics-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SalesforceAnalytics/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/CocoaLumberjack/CocoaLumberjack.modulemap";
+				MODULEMAP_FILE = "Target Support Files/SalesforceAnalytics/SalesforceAnalytics.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = CocoaLumberjack;
+				PRODUCT_NAME = SalesforceAnalytics;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -4674,7 +4766,57 @@
 			};
 			name = Debug;
 		};
-		DC995548C290F9767E01F7C6DCD69099 /* Release */ = {
+		CE1CA661E75421CBAC7DBF260429ED7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A94E1AD6C7E827DC4AC97E0782448AE /* SimpleKeychain.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SimpleKeychain/SimpleKeychain-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SimpleKeychain/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SimpleKeychain/SimpleKeychain.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SimpleKeychain;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		EB1318DB60C6F78C65D93E17E3729A7D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A139351A6CF7D1893BAC7F5034CDBAD7 /* SalesforceSDKCore.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SalesforceSDKCore";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/SalesforceSDKCore/ResourceBundle-SalesforceSDKResources-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_NAME = SalesforceSDKResources;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		EF74AF8C85A12FEEF3DCE9A0761E7F34 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EFE2043BACA70F3E6AB51F763D7FE441 /* Kingfisher.xcconfig */;
 			buildSettings = {
@@ -4700,7 +4842,6 @@
 				PRODUCT_NAME = Kingfisher;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4709,96 +4850,9 @@
 			};
 			name = Release;
 		};
-		E704E90CED6891FB94DF7478C719B38F /* Release */ = {
+		EF8B08C6125AB9E804F7D8AEE6562574 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 86779BCCC02D227E69A657E036A05FD5 /* PromiseKit.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/PromiseKit/PromiseKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/PromiseKit/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/PromiseKit/PromiseKit.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = PromiseKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		EB1318DB60C6F78C65D93E17E3729A7D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A139351A6CF7D1893BAC7F5034CDBAD7 /* SalesforceSDKCore.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SalesforceSDKCore";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/SalesforceSDKCore/ResourceBundle-SalesforceSDKResources-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				PRODUCT_NAME = SalesforceSDKResources;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
-		EB7EA640857C1366A1AF2894873F9663 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F18252CE0E002F3EE418466A8E9BBAE3 /* Auth0.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Auth0/Auth0-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Auth0/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Auth0/Auth0.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Auth0;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		EE2F2CBD9BDEB662809E624876F38BDB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D55BBF732D7B944CD7EB28216E46FD9A /* DeckTransition.xcconfig */;
+			baseConfigurationReference = E7C9A492DB43D0966B953F68DBB6A2D4 /* DeckTransition.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -4822,7 +4876,6 @@
 				PRODUCT_NAME = DeckTransition;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4830,75 +4883,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		F8B4E742B032BB7D35327D50A06D6862 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 900BB624CB06C49951142BE2AA01C775 /* ReverseExtension.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/ReverseExtension/ReverseExtension-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ReverseExtension/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ReverseExtension/ReverseExtension.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = ReverseExtension;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		FA0B6886F3BF7D9BEF2120818887E4DE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A139351A6CF7D1893BAC7F5034CDBAD7 /* SalesforceSDKCore.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SalesforceSDKCore/SalesforceSDKCore-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SalesforceSDKCore/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SalesforceSDKCore/SalesforceSDKCore.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SalesforceSDKCore;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -4906,7 +4890,7 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				97803B46811A9BDB5E70FA1303AFBFFE /* Debug */,
+				4E487F173E6C9664F4E9E26B9635D23C /* Debug */,
 				BDD0139D6EB93FA375F887ABD62DAB2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -4915,8 +4899,8 @@
 		2EA46C052F2C3BC95D18153FF8B9E861 /* Build configuration list for PBXNativeTarget "ReverseExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				ACD905B86F9EF066396522B6ECE98BE5 /* Debug */,
-				F8B4E742B032BB7D35327D50A06D6862 /* Release */,
+				2A2EFDC8B364AD9E4F197445B9E8A161 /* Debug */,
+				32BFF26B6DFF3064A7178574FA8E049D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -4933,8 +4917,8 @@
 		8C1E4CEFB2390CBE75E70BAC20F44BBF /* Build configuration list for PBXNativeTarget "Kingfisher" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				38CE7D2AFE1959EF013F24FD23FC5F4F /* Debug */,
-				DC995548C290F9767E01F7C6DCD69099 /* Release */,
+				B5D7EEFDD195DE792C06F0F20E1651D7 /* Debug */,
+				EF74AF8C85A12FEEF3DCE9A0761E7F34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -4942,8 +4926,8 @@
 		A48E8330817FFB220C7B32B120EC53F6 /* Build configuration list for PBXNativeTarget "DeckTransition" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				24F84D88F50C16298C4C7A0126FA30BF /* Debug */,
-				EE2F2CBD9BDEB662809E624876F38BDB /* Release */,
+				B9B830A3FAD35FFC5F4EDF59CE12AEFF /* Debug */,
+				EF8B08C6125AB9E804F7D8AEE6562574 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -4951,8 +4935,8 @@
 		B6E1137435C3A8EBFE0330A53BF2C5C0 /* Build configuration list for PBXNativeTarget "SimpleKeychain" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				048EA631791C3CB18485A43AA63ED8DA /* Debug */,
-				71BE3BDAA1360D03F15C103D3392D08D /* Release */,
+				738CE812048331CAF0A1EC0FE51DD35A /* Debug */,
+				CE1CA661E75421CBAC7DBF260429ED7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -4960,8 +4944,8 @@
 		B80FBDE5072BB82CCBD8B7D26711E175 /* Build configuration list for PBXNativeTarget "PromiseKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C47DF7510EFEB625AC8977294806DA6B /* Debug */,
-				E704E90CED6891FB94DF7478C719B38F /* Release */,
+				4BE5B60177BF892D7B22C2BA85BAEBE2 /* Debug */,
+				0A5D36A0E3E257BA412B2355DF4A6543 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -4969,8 +4953,8 @@
 		CB47208E4FBD2188EB4B62984261A8C3 /* Build configuration list for PBXNativeTarget "SalesforceSDKCore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FA0B6886F3BF7D9BEF2120818887E4DE /* Debug */,
-				B526841E1EBF16849017B42CA89AEC67 /* Release */,
+				1D26ABF2BFFB11CFBB046871D7579E11 /* Debug */,
+				063959B9D76C485BDAF4E8ED3C72F152 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -4978,8 +4962,8 @@
 		CE10986B1E40A6532386C91281BFDA7B /* Build configuration list for PBXNativeTarget "Auth0" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				055C613EEE486E7CFAE67800182B32BA /* Debug */,
-				EB7EA640857C1366A1AF2894873F9663 /* Release */,
+				9F9EF7181A9BE8118048A5DA59B5B665 /* Debug */,
+				41EB60154BDC5F38F55A73717C7B5112 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -4987,8 +4971,8 @@
 		D5B6D5A601701FB211DE1B97A7F7A291 /* Build configuration list for PBXNativeTarget "CocoaLumberjack" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DC5F323764F72666A9E40451AE1D9D31 /* Debug */,
-				116D7423C548E431E22F4061D66A0AF0 /* Release */,
+				8D592F5FA16626AF3CAD8ABE48DBCB4E /* Debug */,
+				70FA44B48AD3B6F7EF79B98F80A25F2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -4996,8 +4980,8 @@
 		DEE0885EE062513E6C5E8640524A180E /* Build configuration list for PBXNativeTarget "Lock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0972C35E05C9E394D0D3D5F1CF9CB448 /* Debug */,
-				7A267B951B9DC509DE2F409A52E5E4E7 /* Release */,
+				2AADD771EE3EE63371BC42FCAFC4FF0E /* Debug */,
+				6B75E6DC3B09E4905ABC5015922F57DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -5005,8 +4989,8 @@
 		E32CDF282A18D696DD603F9E514A156E /* Build configuration list for PBXNativeTarget "SalesforceAnalytics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				60399F57A5AD10FF0C4F41FE9C606BC4 /* Debug */,
-				8C05AC08F924F2A77027431957045197 /* Release */,
+				C996329B2EA9B3761AAB35C473F51426 /* Debug */,
+				551E8B6720F3F556E288F13F01E329D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -5023,8 +5007,8 @@
 		FCB77B95D88EC504F2CA46CEC470FB82 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				007075A01BB66FD869E60B97CC9F63FA /* Debug */,
-				BCB5E6D68873CB4F475DF51E0EC03781 /* Release */,
+				C538E1C45CF8DD43DE033C800A14197B /* Debug */,
+				4DA23D217E7C0FC73E1E65FF50FCB71C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

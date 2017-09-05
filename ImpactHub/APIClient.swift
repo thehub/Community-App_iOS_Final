@@ -1267,16 +1267,16 @@ class APIClient {
         return Promise { fullfill, reject in
             let query: [String: String] = ["fromUserId" : fromUserId, "message" : message]
             let body = SFJsonUtils.jsonDataRepresentation(query)
-            let request = SFRestRequest(method: .POST, path: "/services/apexrest/ReportAbuse", queryParams: nil)
-            request.endpoint = "/services/apexrest/ReportAbuse"
-            request.path = "/services/apexrest/ReportAbuse"
+            let request = SFRestRequest(method: .POST, path: "/services/apexrest/callReportAbuse", queryParams: nil)
+            request.endpoint = "/services/apexrest/callReportAbuse"
+            request.path = "/services/apexrest/callReportAbuse"
             request.setCustomRequestBodyData(body!, contentType: "application/json")
             SFRestAPI.sharedInstance().send(request, fail: { (error) in
                 print(error?.localizedDescription as Any)
                 reject(MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON.init(result!)
-                //                debugPrint(jsonResult) // id
+                debugPrint(jsonResult) // id
                 if let id = jsonResult.string {
                     fullfill(id)
                 }
