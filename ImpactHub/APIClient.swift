@@ -1287,6 +1287,29 @@ class APIClient {
         }
     }
     
+    func globalSearch(searchTerm:String) -> Promise<String> {
+        return Promise { fullfill, reject in
+            let query: [String: String] = ["searchTerm" : searchTerm]
+            let body = SFJsonUtils.jsonDataRepresentation(query)
+            let request = SFRestRequest(method: .POST, path: "services/apexrest/callGlobalSearch", queryParams: nil)
+            request.endpoint = "services/apexrest/callGlobalSearch"
+            request.path = "services/apexrest/callGlobalSearch"
+            request.setCustomRequestBodyData(body!, contentType: "application/json")
+            SFRestAPI.sharedInstance().send(request, fail: { (error) in
+                print(error?.localizedDescription as Any)
+                reject(MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON.init(result!)
+                debugPrint(jsonResult) // id
+                if let id = jsonResult.string {
+                    fullfill(id)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
     
     static let shared = APIClient()
 

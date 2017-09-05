@@ -103,14 +103,60 @@ class SearchViewController: ListWithSearchViewController, CreatePostViewControll
     
     // MARK: Search
     override func filterContentForSearchText(dataToFilter: [CellRepresentable], searchText:String) -> [CellRepresentable] {
-        return dataToFilter.filter({ (item) -> Bool in
-            if let vm = item as? MemberViewModel {
-                return vm.member.name.lowercased().contains(searchText.lowercased()) || vm.member.locationName.lowercased().contains(searchText.lowercased())
-            }
-            else {
-                return false
-            }
-        })
+
+        print(searchText)
+        
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        self.collectionView?.alpha = 0
+        firstly {
+            ContactRequestManager.shared.refresh()
+            }.then { contactRequests -> Void in
+                print("refreshed")
+            }.then {
+                APIClient.shared.globalSearch(searchTerm: searchText)
+            }.then { members -> Void in
+//                self.dataAll.removeAll()
+//                self.data.removeAll()
+//                self.collectionView.reloadData()
+//                let cellWidth: CGFloat = self.view.frame.width
+//                members.forEach({ (member) in
+//                    // Remove our selves
+//                    if member.contactId != SessionManager.shared.me?.member.contactId ?? "" {
+//                        member.contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
+//                        self.dataAll.append(MemberViewModel(member: member, delegate: self, cellSize: CGSize(width: cellWidth, height: 105)))
+//                    }
+//                })
+                
+                
+            }.always {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.data = self.filterData(dataToFilter: self.dataAll)
+                self.collectionView?.alpha = 0
+                self.collectionView?.reloadData()
+                self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
+                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+                    self.collectionView?.alpha = 1
+                }, completion: { (_) in
+                    
+                })
+            }.catch { error in
+                debugPrint(error.localizedDescription)
+        }
+        
+        
+        
+        
+        return data
+        //        return dataToFilter.filter({ (item) -> Bool in
+//            if let vm = item as? MemberViewModel {
+//                return vm.member.name.lowercased().contains(searchText.lowercased()) || vm.member.locationName.lowercased().contains(searchText.lowercased())
+//            }
+//            else {
+//                return false
+//            }
+//        })
     }
 }
 
