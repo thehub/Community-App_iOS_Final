@@ -16,7 +16,18 @@ class SearchViewController: ListWithSearchViewController, CreatePostViewControll
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+        collectionView.register(UINib.init(nibName: GroupViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: GroupViewModel.cellIdentifier)
+        
+        collectionView.register(UINib.init(nibName: MemberViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MemberViewModel.cellIdentifier)
+
+        collectionView.register(UINib.init(nibName: ProjectViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: ProjectViewModel.cellIdentifier)
+        
+        collectionView.register(UINib.init(nibName: "CompanyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CompanyCell")
+
+        collectionView.register(UINib.init(nibName: EventViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: EventViewModel.cellIdentifier)
+
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -154,18 +165,38 @@ class SearchViewController: ListWithSearchViewController, CreatePostViewControll
                     print("refreshed")
                 }.then {
                     APIClient.shared.globalSearch(searchTerm: searchText)
-                }.then { members -> Void in
+                }.then { results -> Void in
                                     self.dataAll.removeAll()
                                     self.data.removeAll()
                                     self.collectionView.reloadData()
-                    //                let cellWidth: CGFloat = self.view.frame.width
-                    //                members.forEach({ (member) in
-                    //                    // Remove our selves
-                    //                    if member.contactId != SessionManager.shared.me?.member.contactId ?? "" {
-                    //                        member.contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
-                    //                        self.dataAll.append(MemberViewModel(member: member, delegate: self, cellSize: CGSize(width: cellWidth, height: 105)))
-                    //                    }
-                    //                })
+                                    let cellWidth: CGFloat = self.view.frame.width
+                    
+                                    results.members.forEach({ (member) in
+                                        // Remove our selves
+                                        if member.contactId != SessionManager.shared.me?.member.contactId ?? "" {
+                                            member.contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
+                                            self.dataAll.append(MemberViewModel(member: member, delegate: self, cellSize: CGSize(width: cellWidth, height: 105)))
+                                        }
+                                    })
+                    
+                                    results.groups.forEach({ (group) in
+                                        let viewModel = GroupViewModel(group: group, cellSize: CGSize(width: cellWidth, height: 170))
+                                        self.dataAll.append(viewModel)
+                                    })
+                    
+                                    results.projects.forEach({ (project) in
+                                        let viewModel = ProjectViewModel(project: project, cellSize: CGSize(width: cellWidth, height: 370))
+                                        self.dataAll.append(viewModel)
+                                    })
+                    
+                                    results.companies.forEach({ (company) in
+                                        let viewModel1 = CompanyViewModel(company: company, cellSize: CGSize(width: cellWidth, height: 200))
+                                        self.dataAll.append(viewModel1)
+                                    })
+                    
+                                    results.events.forEach({ (event) in
+                                        self.dataAll.append(EventViewModel(event: event, cellSize: CGSize(width: self.view.frame.width, height: 370)))
+                                    })
 
                 }.always {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -193,7 +224,7 @@ class SearchViewController: ListWithSearchViewController, CreatePostViewControll
     
     override func filterContentForSearchText(dataToFilter: [CellRepresentable], searchText:String) -> [CellRepresentable] {
         print(searchText)
-        return data
+        return dataToFilter
     }
 }
 

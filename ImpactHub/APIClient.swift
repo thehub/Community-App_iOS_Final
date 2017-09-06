@@ -1229,7 +1229,7 @@ class APIClient {
                 print(error?.localizedDescription as Any)
                 reject(error ?? MyError.Error("Error"))
             }) { (result) in
-                if let jsonCollection = (result as AnyObject)["messages"] as? [String: Any], let json = jsonCollection["messages"] as? [[String : Any]] {
+                if let jsonCollection = (result as AnyObject)["messats"] as? [String: Any], let json = jsonCollection["messages"] as? [[String : Any]] {
                     let messages = json.flatMap { Message(json: $0) }
                     fullfill(messages)
                 }
@@ -1287,7 +1287,7 @@ class APIClient {
         }
     }
     
-    func globalSearch(searchTerm:String) -> Promise<String> {
+    func globalSearch(searchTerm:String) -> Promise<(members: [Member], groups: [Group], projects: [Project], companies: [Company], events: [Event])> {
         return Promise { fullfill, reject in
             let query: [String: String] = ["searchTerm" : searchTerm]
             let body = SFJsonUtils.jsonDataRepresentation(query)
@@ -1299,14 +1299,37 @@ class APIClient {
                 print(error?.localizedDescription as Any)
                 reject(MyError.JSONError)
             }) { (result) in
-                let jsonResult = JSON.init(result!)
-                debugPrint(jsonResult) // id
-                if let id = jsonResult.string {
-                    fullfill(id)
+                let jsonResult = JSON(result!)
+                debugPrint(jsonResult)
+                
+                var members = [Member]()
+                var groups = [Group]()
+                var projects = [Project]()
+                var companies = [Company]()
+                var events = [Event]()
+
+                if let records = jsonResult["Members"].array {
+                    let items = records.flatMap { Member(json: $0) }
+                    members = items
                 }
-                else {
-                    reject(MyError.JSONError)
+                if let records = jsonResult["Groups"].array {
+                    let items = records.flatMap { Group(json: $0) }
+                    groups = items
                 }
+                if let records = jsonResult["Projects"].array {
+                    let items = records.flatMap { Project(json: $0) }
+                    projects = items
+                }
+                if let records = jsonResult["Companies"].array {
+                    let items = records.flatMap { Company(json: $0) }
+                    companies = items
+                }
+                if let records = jsonResult["Events"].array {
+                    let items = records.flatMap { Event(json: $0) }
+                    events = items
+                }
+
+                fullfill( (members: members, groups: groups, projects: projects, companies: companies, events: events) )
             }
         }
     }

@@ -59,7 +59,7 @@ class Member {
     
     
     init?(json: JSON) {
-//        print(json)
+        print(json)
         guard
             let contactId = json["Id"].string,
             let userId = json["User__c"].string,
