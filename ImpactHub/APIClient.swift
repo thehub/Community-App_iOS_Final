@@ -1300,7 +1300,6 @@ class APIClient {
                 reject(MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
                 
                 var members = [Member]()
                 var groups = [Group]()

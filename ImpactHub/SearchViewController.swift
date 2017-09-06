@@ -180,7 +180,7 @@ class SearchViewController: ListWithSearchViewController, CreatePostViewControll
         // but no need to reloadCollectionView
 
         if let searchText = self.searchBar?.text {
-            if searchText.count == 0 {
+            if searchText.characters.count == 0 {
                 self.dataAll.removeAll()
                 self.data.removeAll()
                 self.collectionView.reloadData()
