@@ -102,61 +102,98 @@ class SearchViewController: ListWithSearchViewController, CreatePostViewControll
     
     
     // MARK: Search
-    override func filterContentForSearchText(dataToFilter: [CellRepresentable], searchText:String) -> [CellRepresentable] {
+    
+    override func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // user did type something, check our datasource for text that looks the same
+        applySearchAndFilter(searchText: searchText)
+    }
+    
+    override func applySearchAndFilter(searchText: String) {
+//        if searchText.characters.count > 0 {
+//            // search and reload data source
+//            let dataFiltered = self.filterData(dataToFilter: self.dataAll)
+//            self.data = self.filterContentForSearchText(dataToFilter: dataFiltered, searchText: searchText)
+//            self.collectionView?.reloadData()
+//        }
+//        else {
+//            // if text lenght == 0
+//            // we will consider the searchbar is not active
+//            let dataFiltered = self.filterData(dataToFilter: self.dataAll)
+//            self.data = dataFiltered
+//            self.collectionView?.reloadData()
+//        }
+        
+    }
+    
+    
+    override func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.cancelSearching()
+        self.collectionView?.reloadData()
+    }
+    
+    override func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
+    }
+    
+    override func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        //        self.searchBar!.setShowsCancelButton(true, animated: true)
+    }
+    
+    override func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        // this method is being called when search btn in the keyboard tapped
+        // we set searchBarActive = NO
+        // but no need to reloadCollectionView
 
-        print(searchText)
-        
-        
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        self.collectionView?.alpha = 0
-        firstly {
-            ContactRequestManager.shared.refresh()
-            }.then { contactRequests -> Void in
-                print("refreshed")
-            }.then {
-                APIClient.shared.globalSearch(searchTerm: searchText)
-            }.then { members -> Void in
-//                self.dataAll.removeAll()
-//                self.data.removeAll()
-//                self.collectionView.reloadData()
-//                let cellWidth: CGFloat = self.view.frame.width
-//                members.forEach({ (member) in
-//                    // Remove our selves
-//                    if member.contactId != SessionManager.shared.me?.member.contactId ?? "" {
-//                        member.contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
-//                        self.dataAll.append(MemberViewModel(member: member, delegate: self, cellSize: CGSize(width: cellWidth, height: 105)))
-//                    }
-//                })
-                
-                
-            }.always {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                self.data = self.filterData(dataToFilter: self.dataAll)
-                self.collectionView?.alpha = 0
-                self.collectionView?.reloadData()
-                self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
-                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
-                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
-                    self.collectionView?.alpha = 1
-                }, completion: { (_) in
-                    
-                })
-            }.catch { error in
-                debugPrint(error.localizedDescription)
+        if let searchText = self.searchBar?.text {
+            
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            self.collectionView?.alpha = 0
+            firstly {
+                ContactRequestManager.shared.refresh()
+                }.then { contactRequests -> Void in
+                    print("refreshed")
+                }.then {
+                    APIClient.shared.globalSearch(searchTerm: searchText)
+                }.then { members -> Void in
+                                    self.dataAll.removeAll()
+                                    self.data.removeAll()
+                                    self.collectionView.reloadData()
+                    //                let cellWidth: CGFloat = self.view.frame.width
+                    //                members.forEach({ (member) in
+                    //                    // Remove our selves
+                    //                    if member.contactId != SessionManager.shared.me?.member.contactId ?? "" {
+                    //                        member.contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
+                    //                        self.dataAll.append(MemberViewModel(member: member, delegate: self, cellSize: CGSize(width: cellWidth, height: 105)))
+                    //                    }
+                    //                })
+
+                }.always {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    self.data = self.filterContentForSearchText(dataToFilter: self.dataAll, searchText: searchText)
+                    self.collectionView?.alpha = 0
+                    self.collectionView?.reloadData()
+                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
+                    UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                        self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+                        self.collectionView?.alpha = 1
+                    }, completion: { (_) in
+                        
+                    })
+                }.catch { error in
+                    debugPrint(error.localizedDescription)
+            }
+            
         }
         
-        
-        
-        
+
+        self.searchBar!.setShowsCancelButton(false, animated: false)
+    }
+
+    
+    
+    override func filterContentForSearchText(dataToFilter: [CellRepresentable], searchText:String) -> [CellRepresentable] {
+        print(searchText)
         return data
-        //        return dataToFilter.filter({ (item) -> Bool in
-//            if let vm = item as? MemberViewModel {
-//                return vm.member.name.lowercased().contains(searchText.lowercased()) || vm.member.locationName.lowercased().contains(searchText.lowercased())
-//            }
-//            else {
-//                return false
-//            }
-//        })
     }
 }
 
