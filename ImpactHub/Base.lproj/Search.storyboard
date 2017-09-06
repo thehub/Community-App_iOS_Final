@@ -133,6 +133,10 @@
                         <outlet property="searchContainerTopConstraint" destination="u5m-ZD-pDc" id="Epe-5g-f9b"/>
                         <outlet property="searchTextBg" destination="ABg-UN-EYi" id="Shu-Mh-Hj7"/>
                         <segue destination="Rua-Po-NEm" kind="show" identifier="ShowMember" id="RHJ-ph-DwF"/>
+                        <segue destination="Efb-r7-p8p" kind="show" identifier="ShowGroup" id="czg-Zg-4jM"/>
+                        <segue destination="E4l-pY-YoW" kind="show" identifier="ShowProject" id="XY2-x5-mfX"/>
+                        <segue destination="qQG-XS-ABk" kind="show" identifier="ShowEvent" id="56l-Ra-MSK"/>
+                        <segue destination="LLy-SK-g39" kind="show" identifier="ShowCompany" id="opf-uw-DHY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6B3-wF-7MW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -146,6 +150,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mdg-3N-mXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2206" y="338"/>
+        </scene>
+        <!--GroupViewController-->
+        <scene sceneID="TzY-uR-gQG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="GroupViewController" id="Efb-r7-p8p" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mcj-ow-6jB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2137" y="431"/>
+        </scene>
+        <!--CompanyViewController-->
+        <scene sceneID="jxu-0A-sNf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="CompanyViewController" id="LLy-SK-g39" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s5d-l7-4wT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2199" y="501"/>
+        </scene>
+        <!--ProjectViewController-->
+        <scene sceneID="0VW-Gh-RZD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="ProjectViewController" id="E4l-pY-YoW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6w2-yC-ihG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2143" y="579"/>
+        </scene>
+        <!--EventViewController-->
+        <scene sceneID="ae8-5Y-oXX">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="EventViewController" id="qQG-XS-ABk" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xvG-kz-GcQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2053" y="649"/>
         </scene>
     </scenes>
     <resources>

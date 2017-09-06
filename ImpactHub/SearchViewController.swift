@@ -66,14 +66,38 @@ class SearchViewController: ListWithSearchViewController, CreatePostViewControll
         self.cancelSearching()
     }
     
-    var selectedVM: MemberViewModel?
+    var selectedMemberVM: MemberViewModel?
+    var selectedGroupVM: GroupViewModel?
+    var selectedProjectVM: ProjectViewModel?
+    var selectedEventVM: EventViewModel?
+    var selectedCompanyVM: CompanyViewModel?
     var memberToSendMessage: Member?
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: self)
         if segue.identifier == "ShowMember" {
-            if let vc = segue.destination as? MemberViewController, let selectedItem = selectedVM {
+            if let vc = segue.destination as? MemberViewController, let selectedItem = selectedMemberVM {
                 vc.member = selectedItem.member
+            }
+        }
+        else if segue.identifier == "ShowGroup" {
+            if let vc = segue.destination as? GroupViewController, let selectedItem = selectedGroupVM {
+                vc.group = selectedItem.group
+            }
+        }
+        else if segue.identifier == "ShowProject" {
+            if let vc = segue.destination as? ProjectViewController, let selectedItem = selectedProjectVM {
+                vc.project = selectedItem.project
+            }
+        }
+        else if segue.identifier == "ShowEvent" {
+            if let vc = segue.destination as? EventViewController, let selectedItem = selectedEventVM {
+                vc.event = selectedItem.event
+            }
+        }
+        else if segue.identifier == "ShowCompany" {
+            if let vc = segue.destination as? CompanyViewController, let selectedItem = selectedCompanyVM {
+                vc.company = selectedItem.company
             }
         }
         else if segue.identifier == "ShowCreatePost" {
@@ -156,6 +180,12 @@ class SearchViewController: ListWithSearchViewController, CreatePostViewControll
         // but no need to reloadCollectionView
 
         if let searchText = self.searchBar?.text {
+            if searchText.count == 0 {
+                self.dataAll.removeAll()
+                self.data.removeAll()
+                self.collectionView.reloadData()
+                return
+            }
             
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
             self.collectionView?.alpha = 0
@@ -248,9 +278,26 @@ extension SearchViewController: MemberCollectionViewCellDelegate {
 extension SearchViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let vm = data[indexPath.item] as? MemberViewModel {
-            selectedVM = vm
+            selectedMemberVM = vm
             performSegue(withIdentifier: "ShowMember", sender: self)
         }
+        else if let vm = data[indexPath.item] as? GroupViewModel {
+            selectedGroupVM = vm
+            performSegue(withIdentifier: "ShowGroup", sender: self)
+        }
+        else if let vm = data[indexPath.item] as? ProjectViewModel {
+            selectedProjectVM = vm
+            performSegue(withIdentifier: "ShowProject", sender: self)
+        }
+        else if let vm = data[indexPath.item] as? EventViewModel {
+            selectedEventVM = vm
+            performSegue(withIdentifier: "ShowEvent", sender: self)
+        }
+        else if let vm = data[indexPath.item] as? CompanyViewModel {
+            selectedCompanyVM = vm
+            performSegue(withIdentifier: "ShowCompany", sender: self)
+        }
+
     }
 }
 
@@ -266,16 +313,41 @@ extension SearchViewController {
         var detailVC: UIViewController!
         
         if let vm = data[indexPath.item] as? MemberViewModel {
-            selectedVM = vm
-            detailVC = storyboard?.instantiateViewController(withIdentifier: "MemberViewController")
-            (detailVC as! MemberViewController).member = selectedVM?.member
-            
-            //        detailVC.preferredContentSize = CGSize(width: 0.0, height: 300)
+            selectedMemberVM = vm
+            detailVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "MemberViewController")
+            (detailVC as! MemberViewController).member = selectedMemberVM?.member
             previewingContext.sourceRect = cell.frame
-            
             return detailVC
         }
-        
+        else if let vm = data[indexPath.item] as? GroupViewModel {
+            selectedGroupVM = vm
+            detailVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "GroupViewController")
+            (detailVC as! GroupViewController).group = selectedGroupVM?.group
+            previewingContext.sourceRect = cell.frame
+            return detailVC
+        }
+        else if let vm = data[indexPath.item] as? ProjectViewModel {
+            selectedProjectVM = vm
+            detailVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ProjectViewController")
+            (detailVC as! ProjectViewController).project = selectedProjectVM?.project
+            previewingContext.sourceRect = cell.frame
+            return detailVC
+        }
+        else if let vm = data[indexPath.item] as? EventViewModel {
+            selectedEventVM = vm
+            detailVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "EventViewController")
+            (detailVC as! EventViewController).event = selectedEventVM?.event
+            previewingContext.sourceRect = cell.frame
+            return detailVC
+        }
+        else if let vm = data[indexPath.item] as? CompanyViewModel {
+            selectedCompanyVM = vm
+            detailVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "CompanyViewController")
+            (detailVC as! CompanyViewController).company = selectedCompanyVM?.company
+            previewingContext.sourceRect = cell.frame
+            return detailVC
+        }
+
         return nil
         
     }

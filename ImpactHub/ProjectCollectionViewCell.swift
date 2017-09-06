@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ProjectCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bgView: UIView!
@@ -41,7 +42,9 @@ class ProjectCollectionViewCell: UICollectionViewCell {
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        build()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+            self.build()
+        }
     }
     
     func build() {

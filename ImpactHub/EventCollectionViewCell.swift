@@ -57,7 +57,9 @@ class EventCollectionViewCell: UICollectionViewCell {
 
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        build()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+            self.build()
+        }
     }
     
     override func layoutSubviews() {
