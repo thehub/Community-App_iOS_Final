@@ -30,7 +30,7 @@ class ProjectCollectionViewCell: UICollectionViewCell {
 
     
     func setUp(vm: ProjectViewModel) {
-        
+//        print("photo \(vm.project.photoUrl)")
         if let photoUrl = vm.project.photoUrl {
             bigImageView.kf.setImage(with: photoUrl, options: [.transition(.fade(0.2))])
         }
