@@ -13,6 +13,8 @@ import SalesforceSDKCore
 
 class SearchViewController: ListWithSearchViewController, CreatePostViewControllerDelegate {
 
+    @IBOutlet weak var noresultsView: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -144,25 +146,16 @@ class SearchViewController: ListWithSearchViewController, CreatePostViewControll
     }
     
     override func applySearchAndFilter(searchText: String) {
-//        if searchText.characters.count > 0 {
-//            // search and reload data source
-//            let dataFiltered = self.filterData(dataToFilter: self.dataAll)
-//            self.data = self.filterContentForSearchText(dataToFilter: dataFiltered, searchText: searchText)
-//            self.collectionView?.reloadData()
-//        }
-//        else {
-//            // if text lenght == 0
-//            // we will consider the searchbar is not active
-//            let dataFiltered = self.filterData(dataToFilter: self.dataAll)
-//            self.data = dataFiltered
-//            self.collectionView?.reloadData()
-//        }
         
     }
     
     
     override func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.cancelSearching()
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
+            self.noresultsView.alpha = 0
+        }) { (_) in
+        }
         self.collectionView?.reloadData()
     }
     
@@ -172,18 +165,31 @@ class SearchViewController: ListWithSearchViewController, CreatePostViewControll
     
     override func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         //        self.searchBar!.setShowsCancelButton(true, animated: true)
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
+            self.noresultsView.alpha = 0
+        }) { (_) in
+        }
     }
     
     override func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         // this method is being called when search btn in the keyboard tapped
         // we set searchBarActive = NO
         // but no need to reloadCollectionView
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
+            self.noresultsView.alpha = 0
+        }) { (_) in
+        }
 
+        
         if let searchText = self.searchBar?.text {
             if searchText.characters.count == 0 {
                 self.dataAll.removeAll()
                 self.data.removeAll()
                 self.collectionView.reloadData()
+                UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
+                    self.noresultsView.alpha = 1
+                }) { (_) in
+                }
                 return
             }
             
@@ -231,6 +237,20 @@ class SearchViewController: ListWithSearchViewController, CreatePostViewControll
                 }.always {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
                     self.data = self.filterContentForSearchText(dataToFilter: self.dataAll, searchText: searchText)
+                    
+                    if self.data.count == 0 {
+                        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
+                            self.noresultsView.alpha = 1
+                        }) { (_) in
+                        }
+                    }
+                    else {
+                        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
+                            self.noresultsView.alpha = 0
+                        }) { (_) in
+                        }
+                    }
+                    
                     self.collectionView?.alpha = 0
                     self.collectionView?.reloadData()
                     self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)

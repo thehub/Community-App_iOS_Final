@@ -9,6 +9,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="gt-walsheim-light-web.ttf">
+            <string>GTWalsheim-Light</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation View Controller-->
         <scene sceneID="kgR-Jj-mBm">
@@ -104,6 +109,12 @@
                                     <constraint firstAttribute="trailing" secondItem="ABg-UN-EYi" secondAttribute="trailing" id="bVV-yQ-Vb8"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No results..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qX9-Ly-Tmy">
+                                <rect key="frame" x="26" y="184" width="333" height="22"/>
+                                <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="17"/>
+                                <color key="textColor" red="0.61176470589999998" green="0.61176470589999998" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBarShadow" translatesAutoresizingMaskIntoConstraints="NO" id="BJh-KO-JbY">
                                 <rect key="frame" x="0.0" y="64" width="375" height="5"/>
                             </imageView>
@@ -113,7 +124,10 @@
                             <constraint firstItem="f56-da-3Xe" firstAttribute="leading" secondItem="vU5-BH-Afx" secondAttribute="leadingMargin" id="4dg-9c-PGC"/>
                             <constraint firstItem="vjA-Pe-RtF" firstAttribute="top" secondItem="isA-kG-5Qm" secondAttribute="bottom" id="96t-XP-i9I"/>
                             <constraint firstItem="vjA-Pe-RtF" firstAttribute="leading" secondItem="vU5-BH-Afx" secondAttribute="leading" id="Cx5-gL-2ae"/>
+                            <constraint firstItem="qX9-Ly-Tmy" firstAttribute="trailing" secondItem="vU5-BH-Afx" secondAttribute="trailingMargin" id="EG6-jm-Zfp"/>
+                            <constraint firstItem="qX9-Ly-Tmy" firstAttribute="top" secondItem="f56-da-3Xe" secondAttribute="bottom" id="FQh-W2-F0s"/>
                             <constraint firstAttribute="trailing" secondItem="vjA-Pe-RtF" secondAttribute="trailing" id="R9U-jb-sFU"/>
+                            <constraint firstItem="qX9-Ly-Tmy" firstAttribute="leading" secondItem="vU5-BH-Afx" secondAttribute="leadingMargin" constant="10" id="eAn-PS-vcY"/>
                             <constraint firstItem="BJh-KO-JbY" firstAttribute="top" secondItem="isA-kG-5Qm" secondAttribute="bottom" id="ia8-Tp-L8y"/>
                             <constraint firstAttribute="trailing" secondItem="BJh-KO-JbY" secondAttribute="trailing" id="oJL-gA-riu"/>
                             <constraint firstItem="BJh-KO-JbY" firstAttribute="leading" secondItem="vU5-BH-Afx" secondAttribute="leading" id="ocn-G6-VG0"/>
@@ -128,6 +142,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="collectionView" destination="vjA-Pe-RtF" id="XyO-yV-avL"/>
+                        <outlet property="noresultsView" destination="qX9-Ly-Tmy" id="0Sl-1q-hlR"/>
                         <outlet property="searchBar" destination="6tb-hD-SRQ" id="Mcg-1L-pd0"/>
                         <outlet property="searchContainer" destination="f56-da-3Xe" id="q19-XE-plR"/>
                         <outlet property="searchContainerTopConstraint" destination="u5m-ZD-pDc" id="Epe-5g-f9b"/>
