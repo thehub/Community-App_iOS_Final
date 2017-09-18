@@ -20,7 +20,7 @@ struct Message {
 
 extension Message {
     init?(json: [String: Any]) {
-        print(json)
+//        print(json)
         guard
             let id = json["id"] as? String,
             let body = json["body"] as? [String : Any],

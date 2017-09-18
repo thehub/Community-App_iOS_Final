@@ -77,7 +77,7 @@ class Member {
             self.photo = profilePic
         }
         
-        if let aboutMe = json["About_Me__c"].string, aboutMe != "<null>" {
+        if let aboutMe = json["AboutMe__c"].string, aboutMe != "<null>" {
             self.aboutMe = aboutMe
         }
         

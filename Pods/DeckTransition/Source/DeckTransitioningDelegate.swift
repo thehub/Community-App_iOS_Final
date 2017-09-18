@@ -12,14 +12,11 @@ public final class DeckTransitioningDelegate: NSObject, UIViewControllerTransiti
 	
 	// MARK:- Public variables
 	
-	/**
-	 A variable indicating whether or not the presenting view controller
-	 can currently be dismissed using a pan gestures from top to bottom.
-	
-	 When set to `true`, this allows the presented modal view to be
-	 dismissed using a pan gesture. The default value of this property
-	 is true.
-	*/
+	/// A variable indicating whether or not the presenting view controller
+	/// can currently be dismissed using a pan gestures from top to bottom.
+	///
+	/// When set to `true`, this allows the presented modal view to be dismissed
+	/// using a pan gesture. The default value of this property is `true`
 	public var isDismissEnabled = true
 	
 	// MARK:- Private variables
@@ -33,7 +30,9 @@ public final class DeckTransitioningDelegate: NSObject, UIViewControllerTransiti
 	
 	// MARK:- Initializers
 	
-	/// Returns a transitioning delegate to perform a card transition
+	/// Returns a transitioning delegate to perform a card transition. All
+	/// parameters are optional. Leaving the duration parameters empty gives you
+	/// animations with the default durations (0.3s for both)
 	///
 	/// - Parameters:
 	///	  - presentDuration: The duration for the presentation animation
@@ -46,11 +45,16 @@ public final class DeckTransitioningDelegate: NSObject, UIViewControllerTransiti
 	///		alongside the card dismissal animation
 	///   - dismissCompletion: A block that will be run after the card has been
 	///		dismissed
-	public init(presentDuration: TimeInterval? = nil, presentAnimation: (() -> ())? = nil, presentCompletion: ((Bool) ->())? = nil, dismissDuration: TimeInterval? = nil, dismissAnimation: (() -> ())? = nil, dismissCompletion: ((Bool) -> ())? = nil) {
-		self.presentDuration = presentDuration
+	@objc public init(presentDuration: NSNumber? = nil,
+	                  presentAnimation: (() -> ())? = nil,
+	                  presentCompletion: ((Bool) -> ())? = nil,
+	                  dismissDuration: NSNumber? = nil,
+	                  dismissAnimation: (() -> ())? = nil,
+	                  dismissCompletion: ((Bool) -> ())? = nil) {
+		self.presentDuration = presentDuration?.doubleValue
 		self.presentAnimation = presentAnimation
 		self.presentCompletion = presentCompletion
-		self.dismissDuration = dismissDuration
+		self.dismissDuration = dismissDuration?.doubleValue
 		self.dismissAnimation = dismissAnimation
 		self.dismissCompletion = dismissCompletion
 	}

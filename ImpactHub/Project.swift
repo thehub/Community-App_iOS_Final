@@ -78,7 +78,7 @@ extension Project {
         self.id = id
         self.chatterId = chatterId
         self.name = name
-        self.description = json["Group_Desc__c"].string
+        self.description = json["Group_Descr__c"].string
         self.memberCount = json["CountOfMembers__c"].intValue
         self.groupType = groupType
         

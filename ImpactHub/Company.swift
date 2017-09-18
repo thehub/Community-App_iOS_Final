@@ -66,7 +66,7 @@ extension Company {
         
         self.photo = json["Banner_Image_Url__c"].string
         self.logo = json["Logo_Image_Url__c"].string
-        self.about = json["About_Us__c"].string
+        self.about = json["Company_About_Us__c"].string
         self.impactHubCities = json["Impact_Hub_Cities__c"].string
         if let allCities = impactHubCities?.components(separatedBy: ";") {
             self.locationName = allCities.joined(separator: ", ")
