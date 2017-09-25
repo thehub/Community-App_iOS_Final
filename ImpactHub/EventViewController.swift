@@ -336,15 +336,20 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     func showWebsite() {
         guard let website = event?.registerURL else { return }
-        
-        if let url = URL(string: website) {
+        print(website)
+        var websiteToUse = website
+        if !websiteToUse.hasPrefix("http:") {
+            websiteToUse = "http://\(websiteToUse)"
+        }
+        print(websiteToUse)
+        if let url = URL(string: websiteToUse) {
             let svc = SFSafariViewController(url: url)
             if #available(iOS 10.0, *) {
                 svc.preferredBarTintColor = UIColor.imaGrapefruit
             }
-//            if #available(iOS 11.0, *) {
-//                svc.dismissButtonStyle = .close
-//            }
+            if #available(iOS 11.0, *) {
+                svc.dismissButtonStyle = .close
+            }
             self.present(svc, animated: true, completion: nil)
         }
     }
