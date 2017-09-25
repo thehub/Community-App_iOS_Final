@@ -86,6 +86,8 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
         // Job Detail
         data.append(JobDetailViewModel(job: job, cellSize: CGSize(width: cellWidth, height: 0)))
         
+        print(self.job.accountId)
+        
         // Title
 //        data.append(TitleViewModel(title: "RELATED JOBS", cellSize: CGSize(width: view.frame.width, height: 50)))
 //        let viewModel1 = RelatedViewModel(job: job1, cellSize: CGSize(width: cellWidth, height: 140))
@@ -109,6 +111,23 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
 //                        startAtIndexItem += 1
                     })
 //                    self.collectionView.insertItems(at: indexPaths)
+                }
+            }.then {
+                APIClient.shared.getJobs(jobId: self.job.id, location__c: self.job.locationName, company__c: self.job.company.id, accountId: self.job.accountId)
+            }.then { jobs -> Void in
+                //                var indexPaths = [IndexPath]()
+                //                var startAtIndexItem = self.data.count - 1
+                if jobs.count > 0 {
+                    // Title
+                    self.data.append(TitleViewModel(title: "RELATED JOBS", cellSize: CGSize(width: cellWidth, height: 50)))
+                    //                    indexPaths.append(IndexPath(item: startAtIndexItem, section: 0))
+                    //                    startAtIndexItem += 1
+                    jobs.forEach({ (job) in
+                        self.data.append(RelatedViewModel(job: job, cellSize: CGSize(width: cellWidth, height: 140)))
+                        //                        indexPaths.append(IndexPath(item: startAtIndexItem, section: 0))
+                        //                        startAtIndexItem += 1
+                    })
+                    //                    self.collectionView.insertItems(at: indexPaths)
                 }
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false

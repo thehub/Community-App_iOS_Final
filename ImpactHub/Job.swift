@@ -25,12 +25,14 @@ struct Job {
     var photo: String?
     var relatedSDGs: String?
     var applicationURL: String?
+    var accountId: String
 }
 
 
 
 extension Job {
     init?(json: JSON) {
+        print(json)
         guard
             let id = json["Id"].string,
             let name = json["Name"].string,
@@ -38,7 +40,8 @@ extension Job {
             var companyJson = json["Company__r"].dictionary,
             let companyId = json["Company__c"].string,
             let salary = json["Salary2__c"].string,
-            let locationName = json["Location__c"].string
+            let locationName = json["Location__c"].string,
+            let accountId = json["Contact__r"]["AccountId"].string
             else {
                 return nil
         }
@@ -63,6 +66,9 @@ extension Job {
         self.relatedSDGs = json["Related_Impact_Goal__c"].string
         
         self.applicationURL = json["Job_Application_URL__c"].string
+        
+        self.accountId = accountId
+        print(self.accountId)
     }
     
 }

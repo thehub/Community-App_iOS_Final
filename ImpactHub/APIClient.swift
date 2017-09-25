@@ -24,7 +24,7 @@ class APIClient {
         static let CONTACT = "id, firstname,lastname, ProfilePic__c, Profession__c, Impact_Hub_Cities__c, User__c,Skills__c, AboutMe__c,Status_Update__c,Directory_Summary__c, Interested_SDG__c,How_Do_You_Most_Identify_with_Your_Curre__c,Twitter__c,Instagram__c,Facebook__c,Linked_In__c"
         static let COMPANY = "id, name, Number_of_Employees__c, Impact_Hub_Cities__c,Company_Summary__c, Sector_Industry__c, Logo_Image_Url__c, Banner_Image_Url__c,Affiliated_SDG__c, Twitter__c, Instagram__c, Facebook__c, LinkedIn__c, Website, Company_About_Us__c"
         // Job also has COMPANY fields by relation, to avoid extra api calls If updating COMPANY, make sure to also add these to Company__r. on JOB
-        static let JOB = "id, name, Description__c, Salary2__c, Job_Type__c, Sector__c,Contact__c, Location__c, Applications_Close_Date__c,Related_Impact_Goal__c,Company__c,Company__r.name,Company__r.Number_of_Employees__c, Company__r.Impact_Hub_Cities__c,Company__r.Company_Summary__c, Company__r.Sector_Industry__c, Company__r.Logo_Image_Url__c, Company__r.Banner_Image_Url__c, Company__r.Twitter__c, Company__r.Instagram__c, Company__r.Facebook__c, Company__r.LinkedIn__c, Company__r.Website, Company__r.About_Us__c,Job_Application_URL__c"
+        static let JOB = "id, name, Description__c, Salary2__c, Job_Type__c, Sector__c,Contact__c, Contact__r.AccountId,  Location__c, Applications_Close_Date__c,Related_Impact_Goal__c,Company__c,Company__r.name,Company__r.Number_of_Employees__c, Company__r.Impact_Hub_Cities__c,Company__r.Company_Summary__c, Company__r.Sector_Industry__c, Company__r.Logo_Image_Url__c, Company__r.Banner_Image_Url__c, Company__r.Twitter__c, Company__r.Instagram__c, Company__r.Facebook__c, Company__r.LinkedIn__c, Company__r.Website, Company__r.Company_About_Us__c,Job_Application_URL__c"
         static let EVENT = "CreatedDate,Event_RegisterLink__c,Event_Description__c,Directory__c,Event_City__c,Event_Country__c,Event_Street__c,Event_ZipCode__c,Event_Classification__c,Event_Discount_Code__c,Event_Organiser_Type__c,Event_Quantity__c,Event_Sector__c,Event_Start_DateTime__c,Event_End_DateTime__c,Event_SubType__c,Event_Type__c,Event_Visibility__c,Id,LastModifiedDate,Name,Organiser__c,Organiser__r.name,OwnerId, Event_Image_URL__c"
     }
 
@@ -753,7 +753,7 @@ class APIClient {
                 reject(error ?? MyError.Error("Error"))
             }) { (result) in
                 let jsonResult = JSON(result!)
-//                debugPrint(jsonResult)
+                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Job(json: $0) }
                     fullfill(items)
@@ -776,6 +776,26 @@ class APIClient {
 //                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Project(json: $0) }
+                    fullfill(items)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
+    // to get related jobs to job
+    func getJobs(jobId: String, location__c: String, company__c: String, accountId: String) -> Promise<[Job]> {
+        return Promise { fullfill, reject in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.JOB) FROM Job__c WHERE id='\(jobId)' AND (Location__c = '\(jobId)' OR Contact__r.AccountId = '\(jobId)' OR (Company__c  != null and  Company__c = '\(company__c)'))", fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON(result!)
+                //                debugPrint(jsonResult)
+                if let records = jsonResult["records"].array {
+                    let items = records.flatMap { Job(json: $0) }
                     fullfill(items)
                 }
                 else {
