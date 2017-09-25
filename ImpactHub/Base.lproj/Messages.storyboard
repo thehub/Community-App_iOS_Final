@@ -506,6 +506,14 @@
             </objects>
             <point key="canvasLocation" x="2939" y="272"/>
         </scene>
+        <!--FilterNav-->
+        <scene sceneID="sDy-Av-CzJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="FilterNav" id="htV-2X-HGi" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PNf-ev-4ei" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2798" y="-724"/>
+        </scene>
         <!--Contacts-->
         <scene sceneID="Fmr-SR-ge8">
             <objects>
@@ -552,10 +560,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fao-g0-j5L">
-                                        <rect key="frame" x="20" y="60" width="335" height="54"/>
+                                        <rect key="frame" x="20" y="60" width="277" height="54"/>
                                         <subviews>
                                             <searchBar contentMode="redraw" placeholder="Search" translucent="NO" backgroundImage="trans" translatesAutoresizingMaskIntoConstraints="NO" id="uQr-h5-pS2" customClass="LeftAlignedSearchBar" customModule="ImpactHub" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="335" height="54"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="277" height="54"/>
                                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <offsetWrapper key="searchTextPositionAdjustment" horizontal="0.0" vertical="0.0"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -575,14 +583,32 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hO0-Qm-QAg" customClass="Button" customModule="ImpactHub" customModuleProvider="target">
+                                        <rect key="frame" x="305" y="54.5" width="64" height="65"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="65" id="7km-JT-2J1"/>
+                                            <constraint firstAttribute="width" constant="64" id="ogh-tI-rwY"/>
+                                        </constraints>
+                                        <state key="normal" image="filterButton"/>
+                                        <connections>
+                                            <segue destination="htV-2X-HGi" kind="custom" identifier="ShowFilter" customClass="DeckSegue" customModule="DeckTransition" id="7g9-I6-RMN"/>
+                                        </connections>
+                                    </button>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filterTick" translatesAutoresizingMaskIntoConstraints="NO" id="psH-gC-VpE">
+                                        <rect key="frame" x="342" y="56.5" width="21" height="22"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Fao-g0-j5L" firstAttribute="top" secondItem="ZlV-bu-oE7" secondAttribute="bottom" constant="20" id="6L0-n2-CzY"/>
                                     <constraint firstAttribute="height" constant="140" id="8ub-U9-DoB"/>
                                     <constraint firstItem="ZlV-bu-oE7" firstAttribute="top" secondItem="M2u-RA-qmo" secondAttribute="top" id="AQI-km-Yje"/>
+                                    <constraint firstAttribute="trailing" secondItem="hO0-Qm-QAg" secondAttribute="trailing" constant="6" id="Aez-2G-PRt"/>
+                                    <constraint firstItem="hO0-Qm-QAg" firstAttribute="centerY" secondItem="Fao-g0-j5L" secondAttribute="centerY" id="BO9-ao-NkP"/>
+                                    <constraint firstItem="psH-gC-VpE" firstAttribute="top" secondItem="hO0-Qm-QAg" secondAttribute="top" constant="2" id="J2u-k2-jKe"/>
+                                    <constraint firstItem="hO0-Qm-QAg" firstAttribute="leading" secondItem="uQr-h5-pS2" secondAttribute="trailing" constant="8" id="PAT-qL-vPO"/>
                                     <constraint firstItem="ZlV-bu-oE7" firstAttribute="leading" secondItem="M2u-RA-qmo" secondAttribute="leading" id="TS5-9o-ofa"/>
-                                    <constraint firstAttribute="trailing" secondItem="Fao-g0-j5L" secondAttribute="trailing" constant="20" id="gVz-QS-TeB"/>
+                                    <constraint firstItem="psH-gC-VpE" firstAttribute="trailing" secondItem="hO0-Qm-QAg" secondAttribute="trailing" constant="-6" id="hLh-n1-auK"/>
                                     <constraint firstItem="Fao-g0-j5L" firstAttribute="leading" secondItem="M2u-RA-qmo" secondAttribute="leading" constant="20" id="tyU-EA-79T"/>
                                     <constraint firstAttribute="trailing" secondItem="ZlV-bu-oE7" secondAttribute="trailing" id="wMt-pM-j5P"/>
                                 </constraints>
@@ -604,6 +630,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="nCT-Rf-7VU" id="SqE-Wa-uWe"/>
+                        <outlet property="filterButton" destination="hO0-Qm-QAg" id="5y3-h7-Kh0"/>
+                        <outlet property="filterTickImageView" destination="psH-gC-VpE" id="wD3-bq-mtp"/>
                         <outlet property="searchBar" destination="uQr-h5-pS2" id="2o6-0Z-2GZ"/>
                         <outlet property="searchContainer" destination="M2u-RA-qmo" id="61A-bU-0S4"/>
                         <outlet property="searchContainerTopConstraint" destination="usL-sV-oyp" id="XPr-O4-iAY"/>
@@ -616,20 +644,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7YH-VN-feX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2278" y="-25"/>
+            <point key="canvasLocation" x="2277.5999999999999" y="-25.637181409295355"/>
         </scene>
     </scenes>
     <resources>
         <image name="acceptConnectionLarge" width="68" height="68"/>
         <image name="contactIcon" width="17" height="18"/>
         <image name="declineConnectionLarge" width="68" height="68"/>
+        <image name="filterButton" width="64" height="65"/>
+        <image name="filterTick" width="21" height="22"/>
         <image name="navBarShadow" width="100" height="5"/>
         <image name="tabBarMessages" width="20" height="20"/>
         <image name="trans" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6Qm-Qc-rVx"/>
-        <segue reference="FjO-gx-hbh"/>
+        <segue reference="v7v-3b-vgD"/>
+        <segue reference="DPj-Yd-XnV"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>

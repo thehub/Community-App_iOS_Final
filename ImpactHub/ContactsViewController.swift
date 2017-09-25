@@ -11,6 +11,11 @@ import PromiseKit
 
 class ContactsViewController: ListWithSearchViewController {
 
+    override var filterSource: FilterManager.Source {
+        get {
+            return FilterManager.Source.members
+        }
+    }
     
     var dataConnected = [CellRepresentable]()
     var dataIncomming = [CellRepresentable]()
@@ -79,8 +84,19 @@ class ContactsViewController: ListWithSearchViewController {
                         }
                     }
                 })
-                self.data = self.dataConnected
+                self.data = self.filterData(dataToFilter: self.dataConnected)
                 self.dataAll = self.data
+                
+                // Create filters
+                FilterManager.shared.clearPreviousFilters()
+                // Create a Set of the existing tags per grouping
+                // Cities
+                FilterManager.shared.addFilters(fromTags: Set(members.flatMap({$0.impactHubCities}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .city)
+                // Skills
+                FilterManager.shared.addFilters(fromTags: Set(members.flatMap({$0.skillTags}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .skill)
+                // SDG goals
+                FilterManager.shared.addFilters(fromTags: Set(members.flatMap({$0.interestedSDGs}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sdg)
+                
                 // Pending Pending is the old Incomming cell. And the old Pending has been removed.
                 let incomming = ContactRequestManager.shared.getIncommingContactRequests()
                 incomming.forEach({ (contactRequest) in
@@ -155,21 +171,48 @@ class ContactsViewController: ListWithSearchViewController {
         
         if index == 0 {
             self.cancelSearching()
-            self.data = self.dataConnected
+            self.data = self.filterData(dataToFilter: self.dataConnected)
             self.dataAll = self.data
             self.collectionView.reloadData()
+            // Create filters
+            FilterManager.shared.clearPreviousFilters()
+            // Create a Set of the existing tags per grouping
+            // Cities
+            FilterManager.shared.addFilters(fromTags: Set(self.dataConnected.flatMap({($0 as! ContactViewModel).member.impactHubCities}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .city)
+            // Skills
+            FilterManager.shared.addFilters(fromTags: Set(self.dataConnected.flatMap({($0 as! ContactViewModel).member.skillTags}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .skill)
+            // SDG goals
+            FilterManager.shared.addFilters(fromTags: Set(self.dataConnected.flatMap({($0 as! ContactViewModel).member.interestedSDGs}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sdg)
         }
         else if index == 1 {
             self.cancelSearching()
-            self.data = self.dataIncomming
+            self.data = self.filterData(dataToFilter: self.dataIncomming)
             self.dataAll = self.data
             self.collectionView.reloadData()
+            // Create filters
+            FilterManager.shared.clearPreviousFilters()
+            // Create a Set of the existing tags per grouping
+            // Cities
+            FilterManager.shared.addFilters(fromTags: Set(self.dataIncomming.flatMap({($0 as! ContactIncommingViewModel).member.impactHubCities}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .city)
+            // Skills
+            FilterManager.shared.addFilters(fromTags: Set(self.dataIncomming.flatMap({($0 as! ContactIncommingViewModel).member.skillTags}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .skill)
+            // SDG goals
+            FilterManager.shared.addFilters(fromTags: Set(self.dataIncomming.flatMap({($0 as! ContactIncommingViewModel).member.interestedSDGs}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sdg)
         }
         else if index == 2 {
             self.cancelSearching()
-            self.data = self.dataRejected
+            self.data = self.filterData(dataToFilter: self.dataRejected)
             self.dataAll = self.data
             self.collectionView.reloadData()
+            // Create filters
+            FilterManager.shared.clearPreviousFilters()
+            // Create a Set of the existing tags per grouping
+            // Cities
+            FilterManager.shared.addFilters(fromTags: Set(self.dataRejected.flatMap({($0 as! ContactDeclinedViewModel).member.impactHubCities}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .city)
+            // Skills
+            FilterManager.shared.addFilters(fromTags: Set(self.dataRejected.flatMap({($0 as! ContactDeclinedViewModel).member.skillTags}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .skill)
+            // SDG goals
+            FilterManager.shared.addFilters(fromTags: Set(self.dataRejected.flatMap({($0 as! ContactDeclinedViewModel).member.interestedSDGs}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sdg)
         }
         self.collectionView.scrollRectToVisible(CGRect.zero, animated: false)
         
@@ -186,9 +229,90 @@ class ContactsViewController: ListWithSearchViewController {
 
     
     override func filterData(dataToFilter: [CellRepresentable]) -> [CellRepresentable] {
-        let filteredData = dataToFilter
+        var filteredData = dataToFilter
+        
+        // City
+        if filters.filter({$0.grouping == .city}).count > 0  {
+            filteredData = filteredData.filter { (cellVM) -> Bool in
+                if let cellVM = cellVM as? ContactViewModel {
+                    var matched = false
+                    for filter in self.filters {
+                        if filter.grouping == .city {
+                            if cellVM.member.locationName.lowercased().contains(filter.name.lowercased()) {
+                                matched = true
+                            }
+                        }
+                    }
+                    return matched
+                }
+                else {
+                    return false
+                }
+            }
+        }
+        
+        // Skills
+        if filters.filter({$0.grouping == .skill}).count > 0  {
+            filteredData = filteredData.filter { (cellVM) -> Bool in
+                if let cellVM = cellVM as? ContactViewModel {
+                    var matched = false
+                    for filter in self.filters {
+                        if filter.grouping == .skill {
+                            if cellVM.member.skillTags?.lowercased().contains(filter.name.lowercased()) ?? false {
+                                matched = true
+                            }
+                        }
+                    }
+                    return matched
+                }
+                else {
+                    return false
+                }
+            }
+        }
+        
+        // SDG goals
+        if filters.filter({$0.grouping == .sdg}).count > 0  {
+            filteredData = filteredData.filter { (cellVM) -> Bool in
+                if let cellVM = cellVM as? ContactViewModel {
+                    var matched = false
+                    for filter in self.filters {
+                        if filter.grouping == .sdg {
+                            if cellVM.member.interestedSDGs?.lowercased().contains(filter.name.lowercased()) ?? false {
+                                matched = true
+                            }
+                        }
+                    }
+                    return matched
+                }
+                else {
+                    return false
+                }
+            }
+        }
+        
+        // Sector
+        if filters.filter({$0.grouping == .sector}).count > 0  {
+            filteredData = filteredData.filter { (cellVM) -> Bool in
+                if let cellVM = cellVM as? ContactViewModel {
+                    var matched = false
+                    for filter in self.filters {
+                        if filter.grouping == .sector {
+                            if cellVM.member.sector?.lowercased().contains(filter.name.lowercased()) ?? false {
+                                matched = true
+                            }
+                        }
+                    }
+                    return matched
+                }
+                else {
+                    return false
+                }
+            }
+        }
         return filteredData
     }
+
         
     // MARK: Search
     override func filterContentForSearchText(dataToFilter: [CellRepresentable], searchText: String) -> [CellRepresentable] {
