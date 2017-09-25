@@ -391,7 +391,7 @@ class APIClient {
     func getMembers(offset: Int = 0, limit: Int = 2000) -> Promise<[Member]> {
         // TODO: Add pagination
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.CONTACT) FROM Contact WHERE User__c != null LIMIT \(limit) OFFSET \(offset)", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.CONTACT) FROM Contact WHERE User__c != null AND User__r.isactive = true LIMIT \(limit) OFFSET \(offset)", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
