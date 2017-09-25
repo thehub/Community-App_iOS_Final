@@ -124,7 +124,7 @@ class CompanyViewController: ListFullBleedViewController {
         
         self.title = company.name
         
-        topMenu?.setupWithItems(["About", "Projects", "Members"])
+        topMenu?.setupWithItems(["ABOUT", "PROJECTS", "MEMBERS"])
         
         // About
         aboutData.append(CompanyDetailTopViewModel(company: company, cellBackDelegate: self, cellSize: .zero)) // this will pick the full height instead
