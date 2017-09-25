@@ -348,6 +348,8 @@ class MemberViewController: ListFullBleedViewController {
             APIClient.shared.updateDMRequest(id: contactRequest.id, status: DMRequest.Satus.approved, pushUserId: member.userId)
             }.then { result -> Void in
                 self.connectRequestStatus = .approved
+            }.then {
+                _ = ContactRequestManager.shared.refresh()
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.inTransit = false

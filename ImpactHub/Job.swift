@@ -32,7 +32,6 @@ struct Job {
 
 extension Job {
     init?(json: JSON) {
-        print(json)
         guard
             let id = json["Id"].string,
             let name = json["Name"].string,
@@ -68,7 +67,6 @@ extension Job {
         self.applicationURL = json["Job_Application_URL__c"].string
         
         self.accountId = accountId
-        print(self.accountId)
     }
     
 }

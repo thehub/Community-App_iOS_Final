@@ -1188,15 +1188,15 @@ class APIClient {
     }
     
     
-    func sendMessage(message: String, members: [Member]?, inReplyTo: String?) -> Promise<Message> {
+    func sendMessage(message: String, userIds: [String]?, inReplyTo: String?) -> Promise<Message> {
         return Promise { fullfill, reject in
             var query: JSON!
-            if let members = members {
-                let recipients = members.flatMap({$0.userId}) //.joined(separator: ",")
-                query = ["body": message, "recipients" : recipients]
-            }
-            else if let inReplyTo = inReplyTo {
+            if let inReplyTo = inReplyTo {
                 query = ["body": message, "inReplyTo" : inReplyTo]
+            }
+            else if let userIds = userIds {
+                let recipients = userIds // members.flatMap({$0.userId}) //.joined(separator: ",")
+                query = ["body": message, "recipients" : recipients]
             }
             else {
                 reject(MyError.Error("Error"))
@@ -1249,7 +1249,7 @@ class APIClient {
                 print(error?.localizedDescription as Any)
                 reject(error ?? MyError.Error("Error"))
             }) { (result) in
-                if let jsonCollection = (result as AnyObject)["messats"] as? [String: Any], let json = jsonCollection["messages"] as? [[String : Any]] {
+                if let jsonCollection = (result as AnyObject)["messages"] as? [String: Any], let json = jsonCollection["messages"] as? [[String : Any]] {
                     let messages = json.flatMap { Message(json: $0) }
                     fullfill(messages)
                 }

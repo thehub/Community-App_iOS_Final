@@ -327,10 +327,10 @@ class MessagesThreadViewController: UIViewController {
         
         inTransit = true
         
-        var members: [Member]?
-        if let member = self.member {
-            members = [member]
-        }
+//        var members: [Member]?
+//        if let member = self.member {
+//            members = [member]
+//        }
         
         // TODO: Add this when needal added userId to DMRequest
         var idWeAreSendingTo: String?
@@ -340,6 +340,7 @@ class MessagesThreadViewController: UIViewController {
         else {
             idWeAreSendingTo = self.lastMessage?.otherUser().id
         }
+        var userIds: [String]?
         if let idWeAreSendingTo = idWeAreSendingTo {
             if !ContactRequestManager.shared.allowedToMessage(userId: idWeAreSendingTo) {
                 let alert = UIAlertController(title: "Error", message: "You can't message this user", preferredStyle: .alert)
@@ -347,10 +348,11 @@ class MessagesThreadViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
                 return
             }
+            userIds = [idWeAreSendingTo]
         }
         
         firstly {
-            APIClient.shared.sendMessage(message: text, members: members, inReplyTo: self.inReplyTo)
+            APIClient.shared.sendMessage(message: text, userIds: userIds, inReplyTo: self.inReplyTo)
             }.then { message -> Void in
 //                if #available(iOS 10.0, *) {
 //                    self.generatorNotification.notificationOccurred(.success)
