@@ -85,9 +85,9 @@ class Member {
             self.job = profession
         }
         
-        self.impactHubCities = json["Impact_Hub_Cities__c"].string
-        if let allCities = impactHubCities?.components(separatedBy: ";") {
-            self.locationName = allCities.joined(separator: ", ")
+        if let hubs = json["Hubs__r"]["records"].array {
+            self.locationName = hubs.first?["Hub_Name__c"].string ?? ""
+            self.impactHubCities = hubs.flatMap ({ $0["Hub_Name__c"].string }).joined(separator: ";")
         }
         
         var instagram: URL?

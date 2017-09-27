@@ -24,9 +24,8 @@ class MemberDetailTopViewModel: CellRepresentable {
     
     
     var locationNameLong: String {
-        return "\(member.locationName)"
+        return "\(member.impactHubCities?.replacingOccurrences(of: ";", with: ", ") ?? "")"
     }
-    
     
     func cellInstance(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemberDetailTopViewModel.cellIdentifier, for: indexPath) as! MemberDetailTopCell

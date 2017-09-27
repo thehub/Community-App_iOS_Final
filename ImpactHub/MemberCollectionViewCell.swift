@@ -71,7 +71,7 @@ class MemberCollectionViewCell: UICollectionViewCell {
 //                }
             })
         }
-        locationNameLabel.text = vm.member.locationName
+        locationNameLabel.text = vm.member.impactHubCities?.replacingOccurrences(of: ";", with: ", ")
 
         self.connectRequestStatus = vm.member.contactRequest?.status ?? .notRequested
         

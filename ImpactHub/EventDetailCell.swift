@@ -17,7 +17,8 @@ protocol EventDetailCellDelegate: class {
 }
 
 class EventDetailCell: UICollectionViewCell, MKMapViewDelegate {
-
+    @IBOutlet weak var eventContainer: UIView!
+    
     weak var delegate: EventDetailCellDelegate?
     
     @IBOutlet weak var locationNameLabel: UILabel!
@@ -57,6 +58,12 @@ class EventDetailCell: UICollectionViewCell, MKMapViewDelegate {
         spaceLabel.text = vm.event.eventType
         priceLabel.text = vm.event.visibility
         
+        if vm.event.registerURL == nil {
+            self.eventContainer.isHidden = true
+        }
+        else {
+            self.eventContainer.isHidden = false
+        }
         
         let address = "\(vm.event.street), \(vm.event.postCode), \(vm.event.city), \(vm.event.country)"
 

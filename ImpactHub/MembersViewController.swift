@@ -92,7 +92,7 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
                     var matched = false
                     for filter in self.filters {
                         if filter.grouping == .hub {
-                            if cellVM.member.locationName.lowercased().contains(filter.name.lowercased()) {
+                            if cellVM.member.impactHubCities?.lowercased().contains(filter.name.lowercased()) ?? false {
                                 matched = true
                             }
                         }

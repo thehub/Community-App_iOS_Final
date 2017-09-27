@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -27,7 +27,7 @@
                         <rect key="frame" x="17" y="0.0" width="266" height="90"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obn-32-78V">
-                                <rect key="frame" x="95" y="15" width="37" height="17.5"/>
+                                <rect key="frame" x="95" y="15" width="35.5" height="19.5"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="15"/>
                                 <color key="textColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -40,19 +40,19 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3O-XH-KGb">
-                                <rect key="frame" x="95" y="37" width="124" height="15"/>
+                                <rect key="frame" x="95" y="39" width="124" height="16"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12.5"/>
                                 <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J35-42-Kx3">
-                                <rect key="frame" x="114" y="57" width="31" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J35-42-Kx3">
+                                <rect key="frame" x="114" y="60" width="105" height="16"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12.5"/>
                                 <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locationPinSmall" translatesAutoresizingMaskIntoConstraints="NO" id="w9K-Wp-tPX">
-                                <rect key="frame" x="95" y="56" width="11" height="17"/>
+                                <rect key="frame" x="95" y="59" width="11" height="17"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="memberWaiting" translatesAutoresizingMaskIntoConstraints="NO" id="2mM-bW-44q">
                                 <rect key="frame" x="213" y="16" width="66" height="66"/>
@@ -83,6 +83,7 @@
                             <constraint firstItem="A3O-XH-KGb" firstAttribute="top" secondItem="obn-32-78V" secondAttribute="bottom" constant="4" id="XEM-dX-BiT"/>
                             <constraint firstItem="pLD-uB-YeT" firstAttribute="centerY" secondItem="2mM-bW-44q" secondAttribute="centerY" constant="-5" id="YEa-cn-kJ6"/>
                             <constraint firstItem="A3O-XH-KGb" firstAttribute="leading" secondItem="obn-32-78V" secondAttribute="leading" id="YZT-MJ-YaG"/>
+                            <constraint firstItem="pLD-uB-YeT" firstAttribute="leading" secondItem="J35-42-Kx3" secondAttribute="trailing" constant="2" id="fI8-yF-HNz"/>
                             <constraint firstItem="obn-32-78V" firstAttribute="leading" secondItem="lul-Kl-LZ0" secondAttribute="trailing" constant="23" id="hvf-wA-2gy"/>
                             <constraint firstItem="pLD-uB-YeT" firstAttribute="centerX" secondItem="2mM-bW-44q" secondAttribute="centerX" constant="-5" id="q71-TO-fol"/>
                             <constraint firstAttribute="height" constant="90" id="vjI-71-Vzg"/>
