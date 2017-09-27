@@ -338,7 +338,7 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
         guard let website = event?.registerURL else { return }
         print(website)
         var websiteToUse = website
-        if !websiteToUse.hasPrefix("http:") {
+        if !websiteToUse.hasPrefix("http") {
             websiteToUse = "http://\(websiteToUse)"
         }
         print(websiteToUse)
