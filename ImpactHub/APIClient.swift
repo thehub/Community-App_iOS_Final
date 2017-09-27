@@ -28,10 +28,31 @@ class APIClient {
         static let EVENT = "CreatedDate,Event_RegisterLink__c,Event_Description__c,Directory__c,Event_City__c,Event_Country__c,Event_Street__c,Event_ZipCode__c,Event_Classification__c,Event_Discount_Code__c,Event_Organiser_Type__c,Event_Quantity__c,Event_Sector__c,Event_Start_DateTime__c,Event_End_DateTime__c,Event_SubType__c,Event_Type__c,Event_Visibility__c,Id,LastModifiedDate,Name,Organiser__c,Organiser__r.name,OwnerId, Event_Image_URL__c"
     }
 
+    // Hubs
+    func getHubs() -> Promise<[Hub]> {
+        
+        return Promise { fullfill, reject in
+            SFRestAPI.sharedInstance().performSOQLQuery("select id, name FROM Account WHERE RecordTypeId IN (SELECT Id FROM RecordType WHERE SobjectType = 'Account' AND Name = 'Hub' AND IsActive = true)", fail: { (error) in
+                print("error \(error?.localizedDescription as Any)")
+                reject(error ?? MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON(result!)
+                debugPrint(jsonResult)
+                if let records = jsonResult["records"].array {
+                    let items = records.flatMap { Hub(json: $0) }
+                    fullfill(items)
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+
+    
     // Goals
     func getGoals() -> Promise<[Goal]> {
         return Promise { fullfill, reject in
-//            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.GOAL) FROM Directory_Goal__c", fail: { (error) in
             SFRestAPI.sharedInstance().performSOQLQuery("select id, name,  Active__c, ImageURL__c, Summary__c, Description__c from Taxonomy__c where Grouping__c ='SDG'", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
@@ -617,7 +638,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-//                debugPrint(jsonResult)
+                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Member(json: $0) }
                     if let item = items.first {

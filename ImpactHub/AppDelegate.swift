@@ -12,7 +12,7 @@ import UserNotifications
 
 
 
-let RemoteAccessConsumerKey = "3MVG9lcxCTdG2Vbsh1Tk8y8c1rEtTORpQ0eLPM_32J0Lf_4Kyllw6Zdyy.o9IDUJhsyKJ8uoxjEDw2tXFj2HH";
+let RemoteAccessConsumerKey = "3MVG9HxRZv05HarTluKsGWCdpOeLfvMIZ6X1A4iLiKDnfyZsliXAqdebVOCtDdC6nDePMb0tmzKv27MZWOo70" // "3MVG9lcxCTdG2Vbsh1Tk8y8c1rEtTORpQ0eLPM_32J0Lf_4Kyllw6Zdyy.o9IDUJhsyKJ8uoxjEDw2tXFj2HH";
 let OAuthRedirectURI        = "impacthub://auth/success";
 
 // community-impacthub.cs88.force.com
@@ -24,11 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     override init() {
         super.init()
-        SFSDKLogger.sharedDefaultInstance().logLevel = .off
+        
+        SFSDKLogger.sharedDefaultInstance().logLevel = .verbose
         SalesforceSDKManager.shared().connectedAppId = RemoteAccessConsumerKey
         SalesforceSDKManager.shared().connectedAppCallbackUri = OAuthRedirectURI
-        SalesforceSDKManager.shared().authScopes = ["web", "api", "refresh_token"];
-//        SalesforceSDKManager.shared().authenticateAtLaunch = false  // Turn this to false when using auth0
+        SalesforceSDKManager.shared().authScopes = ["web", "api", "refresh_token", "full"];  // openid
+        SalesforceSDKManager.shared().authenticateAtLaunch = true  // Turn this to false when using auth0
 
         // https://trailhead.salesforce.com/en/modules/mobile_sdk_introduction/units/mobilesdk_intro_security
         

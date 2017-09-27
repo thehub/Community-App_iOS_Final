@@ -104,12 +104,23 @@ extension Company {
             let url = URL(string: "\(photo)?oauth_token=\(token)") {
             return url
         }
+        else if let token = SFUserAccountManager.sharedInstance().currentUser?.credentials.accessToken,
+            let photo = self.photo,
+            let url = URL(string: "\(SFUserAccountManager.sharedInstance().currentUser!.apiUrl)\(photo)?oauth_token=\(token)") {
+            return url
+        }
+
         return nil
     }
     var logoUrl: URL? {
         if let token = SFUserAccountManager.sharedInstance().currentUser?.credentials.accessToken,
             let logo = self.logo,
             let url = URL(string: "\(logo)?oauth_token=\(token)") {
+            return url
+        }
+        else if let token = SFUserAccountManager.sharedInstance().currentUser?.credentials.accessToken,
+            let logo = self.logo,
+            let url = URL(string: "\(SFUserAccountManager.sharedInstance().currentUser!.apiUrl)\(logo)?oauth_token=\(token)") {
             return url
         }
         return nil

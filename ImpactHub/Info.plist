@@ -40,7 +40,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>28</string>
+	<string>29</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
@@ -51,7 +51,7 @@
 		<true/>
 	</dict>
 	<key>SFDCOAuthLoginHost</key>
-	<string>lightful-impacthub.cs88.force.com</string>
+	<string>impacthub.force.com</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>gt-walsheim-bold-web.ttf</string>

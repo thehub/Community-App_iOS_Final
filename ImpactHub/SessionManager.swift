@@ -35,6 +35,8 @@ class SessionManager {
     
     var me: Me?
     
+    var hubs = [Hub]()
+    
     var pushNotification: PushNotification?
     
     let keychain = A0SimpleKeychain(service: "ImpactHub")

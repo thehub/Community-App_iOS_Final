@@ -21,11 +21,16 @@ class FilterCell: UICollectionViewCell {
 
     override func prepareForReuse() {
         self.selectedDotImageView.transform = CGAffineTransform.init(scaleX: 0.0, y: 0.0)
-
     }
     
     func setUp(vm: FilterViewModel) {
-        nameLabel.text = vm.filter.name.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+    
+//        if vm.filter.grouping == .hub {
+//            nameLabel.text = SessionManager.shared.hubs.first?.name  // TODO: Map this id to the hub names
+//        }
+//        else {
+            nameLabel.text = vm.filter.name.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+//        }
     }
     
     

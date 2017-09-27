@@ -20,6 +20,7 @@ struct Filter {
         case sdg
         case jobType
         case size
+        case hub
         
         var displayName: String {
             get {
@@ -36,6 +37,8 @@ struct Filter {
                     return "Type"
                 case .size:
                     return "Size"
+                case .hub:
+                    return "Hub"
                 }
             }
         }

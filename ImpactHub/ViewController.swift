@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadMe() // Turn of for auth0
+        loadMe() // Turn off for auth0
         
         self.observer = NotificationCenter.default.addObserver(forName: NSNotification.Name.onLogin, object: nil, queue: OperationQueue.main) { (_) in
             self.loadMe()
@@ -53,6 +53,10 @@ class ViewController: UIViewController {
                     ShortcutManager.shared.updateHomeShortCuts()
                     SessionManager.shared.me = me
                     self.performSegue(withIdentifier: "ShowHome", sender: self)
+                }.then {
+                    APIClient.shared.getHubs()
+                }.then { hubs -> Void in
+                    SessionManager.shared.hubs = hubs
                 }.always {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }.catch { error in
@@ -106,7 +110,7 @@ class ViewController: UIViewController {
         debugPrint(token)
         
         let authenticationManager = SFAuthenticationManager.shared()
-        authenticationManager.oauthClientId = "3MVG9lcxCTdG2Vbsh1Tk8y8c1rJI3k2NcjhqU64_RUJL9FRsLMA.YWqHIpocRx.hDakLQbYS7eAB16YOMuPyL"
+        authenticationManager.oauthClientId = "3MVG9lcxCTdG2Vbsh1Tk8y8c1rEtTORpQ0eLPM_32J0Lf_4Kyllw6Zdyy.o9IDUJhsyKJ8uoxjEDw2tXFj2HH"
         authenticationManager.login(withJwtToken: token, completion: { (authInfo, userAccount) in
             SFUserAccountManager.sharedInstance().currentUser = userAccount
             print("Hurray!")

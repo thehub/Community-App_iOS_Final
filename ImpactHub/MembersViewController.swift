@@ -59,7 +59,7 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
                 FilterManager.shared.clearPreviousFilters()
                 // Create a Set of the existing tags per grouping
                 // Cities
-                FilterManager.shared.addFilters(fromTags: Set(members.flatMap({$0.impactHubCities}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .city)
+                FilterManager.shared.addFilters(fromTags: Set(members.flatMap({$0.impactHubCities}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .hub)
                 // Skills
                 FilterManager.shared.addFilters(fromTags: Set(members.flatMap({$0.skillTags}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .skill)
                 // SDG goals
@@ -86,12 +86,12 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
         var filteredData = dataToFilter
 
         // City
-        if filters.filter({$0.grouping == .city}).count > 0  {
+        if filters.filter({$0.grouping == .hub}).count > 0  {
             filteredData = filteredData.filter { (cellVM) -> Bool in
                 if let cellVM = cellVM as? MemberViewModel {
                     var matched = false
                     for filter in self.filters {
-                        if filter.grouping == .city {
+                        if filter.grouping == .hub {
                             if cellVM.member.locationName.lowercased().contains(filter.name.lowercased()) {
                                 matched = true
                             }

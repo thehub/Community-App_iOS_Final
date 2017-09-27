@@ -509,6 +509,9 @@
 		85DF01CA1F1F5FEB00E5325A /* Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DF01C91F1F5FEB00E5325A /* Me.swift */; };
 		85DF01CB1F1F5FEB00E5325A /* Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DF01C91F1F5FEB00E5325A /* Me.swift */; };
 		85DF01CC1F1F5FEB00E5325A /* Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DF01C91F1F5FEB00E5325A /* Me.swift */; };
+		85E424D71F7A60630083C413 /* Hub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E424D61F7A60630083C413 /* Hub.swift */; };
+		85E424D81F7A60630083C413 /* Hub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E424D61F7A60630083C413 /* Hub.swift */; };
+		85E424D91F7A60630083C413 /* Hub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E424D61F7A60630083C413 /* Hub.swift */; };
 		85E5FF501F0A74AE0053189B /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5FF4F1F0A74AE0053189B /* CreatePostViewController.swift */; };
 		85E5FF511F0A74AE0053189B /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5FF4F1F0A74AE0053189B /* CreatePostViewController.swift */; };
 		85E5FF521F0A74AE0053189B /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5FF4F1F0A74AE0053189B /* CreatePostViewController.swift */; };
@@ -759,6 +762,7 @@
 		85DE9F061ECCACB100291EF5 /* MemberViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberViewModel.swift; sourceTree = "<group>"; };
 		85DE9F081ECCACCB00291EF5 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		85DF01C91F1F5FEB00E5325A /* Me.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Me.swift; sourceTree = "<group>"; };
+		85E424D61F7A60630083C413 /* Hub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hub.swift; sourceTree = "<group>"; };
 		85E5FF4F1F0A74AE0053189B /* CreatePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		85E5FF531F0A8D750053189B /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		85E7DA801EF818D200C9DA15 /* ProjectCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -1168,6 +1172,7 @@
 				8570C2011ECF214600FA1CE9 /* Job.swift */,
 				85E7DA8C1EF81EA500C9DA15 /* Project.swift */,
 				859F97C31EFBBEE6001C0B33 /* Goal.swift */,
+				85E424D61F7A60630083C413 /* Hub.swift */,
 				850B70291EFC0F2D00596315 /* Event.swift */,
 				85DF01C91F1F5FEB00E5325A /* Me.swift */,
 			);
@@ -1615,6 +1620,7 @@
 				857480791EE846EE005F73A2 /* SessionManager.swift in Sources */,
 				858C58CC1EF96EB600136DAC /* JobViewController.swift in Sources */,
 				853762F01F1636930053B178 /* NotificationCell.swift in Sources */,
+				85E424D71F7A60630083C413 /* Hub.swift in Sources */,
 				850C142B1F03ADED00F00DAE /* FilterableDelegate.swift in Sources */,
 				85BB261A1F1E1F57007E8210 /* ContactDeclinedCell.swift in Sources */,
 				8570C1F81ECF15CE00FA1CE9 /* CompanyDetailTopViewModel.swift in Sources */,
@@ -1739,6 +1745,7 @@
 				859F97F61EFBD0ED001C0B33 /* GoalAboutItemCell.swift in Sources */,
 				8501B9F61EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
 				851D03861F02B81C00641976 /* FilterGroupingCell.swift in Sources */,
+				85E424D81F7A60630083C413 /* Hub.swift in Sources */,
 				850072351EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
 				857480551EE802D0005F73A2 /* Photo.swift in Sources */,
 				8505E1FB1EF3CEEA005A2F40 /* NavigationViewController.swift in Sources */,
@@ -1867,6 +1874,7 @@
 				859F97F71EFBD0ED001C0B33 /* GoalAboutItemCell.swift in Sources */,
 				8501B9F71EE6FD2600F9EFFA /* MessagesThreadMeVM.swift in Sources */,
 				851D03871F02B81C00641976 /* FilterGroupingCell.swift in Sources */,
+				85E424D91F7A60630083C413 /* Hub.swift in Sources */,
 				850072361EE711E4008A725A /* MessageThreadMeTimeCell.swift in Sources */,
 				857480561EE802D0005F73A2 /* Photo.swift in Sources */,
 				8505E1FC1EF3CEEA005A2F40 /* NavigationViewController.swift in Sources */,

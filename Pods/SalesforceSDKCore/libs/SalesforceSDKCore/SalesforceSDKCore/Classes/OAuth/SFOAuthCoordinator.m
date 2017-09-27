@@ -537,6 +537,14 @@ static NSString * const kSFAppFeatureSafariBrowserForLogin   = @"BW";
         self.credentials.jwt = nil;
         NSError *jsonError = nil;
         id json = nil;
+        
+        NSString *strData = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",strData);
+        
+        NSLog(@"%@",self.credentials.clientId);
+        NSLog(@"%@",self.credentials.description);
+
+        
         json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
         if (jsonError != nil) {
             NSError *error = [[self class] errorWithType:kSFOAuthErrorTypeJWTLaunchFailed
@@ -573,6 +581,8 @@ static NSString * const kSFAppFeatureSafariBrowserForLogin   = @"BW";
     NSString *url = [[NSString alloc] initWithFormat:@"%@://%@%@", self.credentials.protocol,
                      self.credentials.domain,
                      kSFOAuthEndPointToken];
+
+//    NSString *url = @"https://lightful-impacthub.cs88.force.com/services/oauth2/token";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData
                                                        timeoutInterval:self.timeout];
