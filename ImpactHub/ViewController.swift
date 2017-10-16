@@ -106,9 +106,6 @@ class ViewController: UIViewController {
             showLoginController()
             return
         }
-        print("haveSession")
-        debugPrint(token)
-        
         let authenticationManager = SFAuthenticationManager.shared()
         authenticationManager.oauthClientId = "3MVG9lcxCTdG2Vbsh1Tk8y8c1rEtTORpQ0eLPM_32J0Lf_4Kyllw6Zdyy.o9IDUJhsyKJ8uoxjEDw2tXFj2HH"
         authenticationManager.login(withJwtToken: token, completion: { (authInfo, userAccount) in

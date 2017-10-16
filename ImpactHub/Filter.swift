@@ -38,7 +38,7 @@ struct Filter {
                 case .size:
                     return "Size"
                 case .hub:
-                    return "Hub"
+                    return "Impact Hub"
                 }
             }
         }

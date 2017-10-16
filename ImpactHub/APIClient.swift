@@ -37,7 +37,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Hub(json: $0) }
                     fullfill(items)
@@ -182,7 +182,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Member(json: $0) }
                     fullfill(items)
@@ -417,11 +417,9 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Member(json: $0) }
-                    print(items.count)
-                    print(items)
                     fullfill(items)
                 }
                 else {
@@ -544,7 +542,6 @@ class APIClient {
     
     func getSkills(contactId: String) -> Promise<[Member.Skill]> {
         return Promise { fullfill, reject in
-            print(contactId)
             SFRestAPI.sharedInstance().performSOQLQuery("SELECT id,name,Skill_Description__c FROM Contact_Skills__c WHERE Contact__r.id ='\(contactId)'", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
@@ -638,7 +635,7 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Member(json: $0) }
                     if let item = items.first {
@@ -698,7 +695,6 @@ class APIClient {
     func getEventsAttending(contactId: String) -> Promise<[Event]> {
         return Promise { fullfill, reject in
             // TODO: Send in pagination?
-            print(Date().eventDate())
             SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.EVENT) FROM Event__c WHERE id in (SELECT Event__c FROM Event_Attendance__c WHERE Registered__c = true AND Contact__c = '\(contactId)') AND Event_End_DateTime__c >= \(Date().eventDate()) ORDER BY Event_Start_DateTime__c ASC", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.Error("Error"))
@@ -774,7 +770,7 @@ class APIClient {
                 reject(error ?? MyError.Error("Error"))
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
                     let items = records.flatMap { Job(json: $0) }
                     fullfill(items)
@@ -868,7 +864,7 @@ class APIClient {
                 reject(MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON.init(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if jsonResult.string == "Success" {
                     fullfill("ok")
                 }
@@ -933,7 +929,7 @@ class APIClient {
     // Notifications
     func getNotifications() -> Promise<[PushNotification]> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT CreatedDate,FromUserId__c,Id,isRead__c,Name,RelatedId__c,Sent__c,Type__c,ProfilePicURL__c,Message__c, ChatterGroupId__c FROM PushNotification__c WHERE toUserId__c = '\(SessionManager.shared.me?.member.userId ?? "")' ORDER BY CreatedDate DESC LIMIT 250", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT CreatedDate,FromUserId__c,Id,isRead__c,Name,RelatedId__c,Sent__c,Type__c,ProfilePicURL__c,Message__c, ChatterGroupId__c FROM PushNotification__c WHERE toUserId__c = '\(SessionManager.shared.me?.member.userId ?? "")' AND FromUserId__c != '\(SessionManager.shared.me?.member.userId ?? "")' ORDER BY CreatedDate DESC LIMIT 250", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
@@ -1317,7 +1313,7 @@ class APIClient {
                 reject(MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON.init(result!)
-                debugPrint(jsonResult) // id
+//                debugPrint(jsonResult) // id
                 if let id = jsonResult.string {
                     fullfill(id)
                 }

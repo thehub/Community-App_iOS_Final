@@ -32,6 +32,7 @@ struct Job {
 
 extension Job {
     init?(json: JSON) {
+//        print(json)
         guard
             let id = json["Id"].string,
             let name = json["Name"].string,

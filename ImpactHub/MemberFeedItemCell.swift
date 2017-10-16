@@ -66,7 +66,6 @@ class MemberFeedItemCell: UICollectionViewCell, UITextViewDelegate {
                 firstly {
                     APIClient.shared.unlikeFeedItem(myLikeId: myLikeId)
                     }.then { likeCount -> Void in
-                        print(likeCount)
                         self.vm?.comment?.myLikeId = nil
                         if comment.likes > 0 {
                             self.vm?.comment?.likes = comment.likes - 1

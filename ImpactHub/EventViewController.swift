@@ -336,12 +336,10 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     func showWebsite() {
         guard let website = event?.registerURL else { return }
-        print(website)
         var websiteToUse = website
         if !websiteToUse.hasPrefix("http") {
             websiteToUse = "http://\(websiteToUse)"
         }
-        print(websiteToUse)
         if let url = URL(string: websiteToUse) {
             let svc = SFSafariViewController(url: url)
             if #available(iOS 10.0, *) {

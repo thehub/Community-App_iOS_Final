@@ -195,7 +195,7 @@ extension PushNotification {
     var profilePicUrl: URL? {
         if let token = SFUserAccountManager.sharedInstance().currentUser?.credentials.accessToken,
             let profilePic = self.profilePic,
-            let url = URL(string: "\(profilePic)?oauth_token=\(token)") {
+            let url = URL(string: "\(SFUserAccountManager.sharedInstance().currentUser!.apiUrl)\(profilePic)?oauth_token=\(token)") {
             return url
         }
         return nil

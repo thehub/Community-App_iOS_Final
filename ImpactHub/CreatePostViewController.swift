@@ -94,7 +94,6 @@ class CreatePostViewController: UIViewController, UITextViewDelegate {
                     }.then { items in
                         APIClient.shared.getMentionValidations(parentId: chatterGroupId, mentionCompletions: items)
                     }.then { validItems -> Void in
-                        print(validItems)
                         self.mentionCompletions = validItems
                     }.always {
                         UIApplication.shared.isNetworkActivityIndicatorVisible = false

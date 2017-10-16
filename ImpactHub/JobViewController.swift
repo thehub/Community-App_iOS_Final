@@ -86,8 +86,6 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
         // Job Detail
         data.append(JobDetailViewModel(job: job, cellSize: CGSize(width: cellWidth, height: 0)))
         
-        print(self.job.accountId)
-        
         // Title
 //        data.append(TitleViewModel(title: "RELATED JOBS", cellSize: CGSize(width: view.frame.width, height: 50)))
 //        let viewModel1 = RelatedViewModel(job: job1, cellSize: CGSize(width: cellWidth, height: 140))

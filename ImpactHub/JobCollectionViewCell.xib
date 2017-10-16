@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13528" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13526"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,21 +31,21 @@
                                 <rect key="frame" x="191" y="10" width="95" height="95"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="lul-Kl-LZ0">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="lul-Kl-LZ0">
                                 <rect key="frame" x="191" y="10" width="95" height="95"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="lul-Kl-LZ0" secondAttribute="height" multiplier="1:1" id="FyC-on-rsj"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obn-32-78V">
-                                <rect key="frame" x="20" y="15" width="37" height="17.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obn-32-78V">
+                                <rect key="frame" x="20" y="15" width="166" height="17.5"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="15"/>
                                 <color key="textColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3O-XH-KGb">
-                                <rect key="frame" x="20" y="36.5" width="31" height="15"/>
+                                <rect key="frame" x="20" y="36" width="31" height="15"/>
                                 <fontDescription key="fontDescription" name="GTWalsheim-Light" family="GT Walsheim" pointSize="12.5"/>
                                 <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -85,6 +85,7 @@
                             <constraint firstItem="lPy-3W-PUS" firstAttribute="width" secondItem="lul-Kl-LZ0" secondAttribute="width" id="UZc-Rl-mue"/>
                             <constraint firstAttribute="bottom" secondItem="w9K-Wp-tPX" secondAttribute="bottom" constant="15" id="cOE-mk-i4G"/>
                             <constraint firstItem="Du3-yt-4QI" firstAttribute="centerY" secondItem="8V0-CP-SjS" secondAttribute="centerY" id="cZ0-Xc-DIf"/>
+                            <constraint firstItem="lPy-3W-PUS" firstAttribute="leading" secondItem="obn-32-78V" secondAttribute="trailing" constant="5" id="exG-xZ-AwY"/>
                             <constraint firstItem="lPy-3W-PUS" firstAttribute="top" secondItem="lul-Kl-LZ0" secondAttribute="top" id="fm9-SX-INS"/>
                             <constraint firstItem="lul-Kl-LZ0" firstAttribute="centerY" secondItem="EW1-y4-D6A" secondAttribute="centerY" id="gPw-6a-QKF"/>
                             <constraint firstAttribute="bottom" secondItem="lul-Kl-LZ0" secondAttribute="bottom" priority="750" constant="10" id="nAt-uc-tZT"/>
@@ -118,7 +119,7 @@
                 <outlet property="profileImageShadowView" destination="lPy-3W-PUS" id="mr5-Zp-LXD"/>
                 <outlet property="profileImageView" destination="lul-Kl-LZ0" id="wxM-AG-f3m"/>
             </connections>
-            <point key="canvasLocation" x="74" y="53.5"/>
+            <point key="canvasLocation" x="74" y="53"/>
         </collectionViewCell>
     </objects>
     <resources>

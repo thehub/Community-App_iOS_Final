@@ -8,7 +8,7 @@ target 'ImpactHub' do
     
     use_frameworks!
     pod 'SalesforceSDKCore'
-    pod 'Kingfisher', '3.13.1'
+    pod 'Kingfisher'
     pod 'PromiseKit'
     pod 'SwiftyJSON'
     pod 'DeckTransition'
