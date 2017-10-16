@@ -8,8 +8,6 @@
 
 import UIKit
 import SalesforceSDKCore
-import Lock
-import Auth0
 import PromiseKit
 import UserNotifications
 
@@ -97,75 +95,7 @@ class ViewController: UIViewController {
     
     var controller: UIViewController?
     
-    func showLoginController(withTouch: Bool = true) {
-        self.performSegue(withIdentifier: "ShowLogin", sender: self)
-    }
-    
-    func haveSession() {
-        guard let token = sessionManager.token else {
-            showLoginController()
-            return
-        }
-        let authenticationManager = SFAuthenticationManager.shared()
-        authenticationManager.oauthClientId = "3MVG9lcxCTdG2Vbsh1Tk8y8c1rEtTORpQ0eLPM_32J0Lf_4Kyllw6Zdyy.o9IDUJhsyKJ8uoxjEDw2tXFj2HH"
-        authenticationManager.login(withJwtToken: token, completion: { (authInfo, userAccount) in
-            SFUserAccountManager.sharedInstance().currentUser = userAccount
-            print("Hurray!")
-        }) { (authInfo, error) in
-            debugPrint(error.localizedDescription)
-        }
-        
-        
-        // lightful-impacthub.cs88.force.com/services/oauth2/token
-        
-//        SFAuthenticationViewHandler
-        
-    
-    }
-    
-    // MARK: - Private
-    
-    fileprivate func showMissingProfileOrTokenAlert(withTouch: Bool = true) {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: "Error", message: "Could not login. Please try again.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (alertAction) in
-                self.showLoginController(withTouch: withTouch)
-            }))
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-    
-    
-    fileprivate func checkAccessToken() {
-        
-        sessionManager.refresh({ (error) in
-            DispatchQueue.main.async {
-                if let error = error {
-                    debugPrint(error.localizedDescription)
-                    self.showLoginController()
-                    return
-                }
-                else {
-                    self.haveSession()
-                }
-            }
-        })
-        
-        
-        
-        //        sessionManager.retrieveProfile({ (error) in
-        //            DispatchQueue.main.async {
-        //                if let error = error {
-        //                    debugPrint(error.localizedDescription)
-        //                    self.showLoginController()
-        //                    return
-        //                }
-        //                else {
-        //                    self.haveSession()
-        //                }
-        //            }
-        //        })
-    }
+
     
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

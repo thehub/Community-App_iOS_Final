@@ -13,10 +13,6 @@ target 'ImpactHub' do
     pod 'SwiftyJSON'
     pod 'DeckTransition'
     pod 'ReverseExtension'
-    pod 'Lock', '~> 2.0'
-    pod 'Auth0', '~> 1.2'
-    pod 'SimpleKeychain'
-
 
 end
 
