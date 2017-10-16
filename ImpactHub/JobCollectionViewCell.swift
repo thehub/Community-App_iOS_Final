@@ -36,7 +36,7 @@ class JobCollectionViewCell: UICollectionViewCell {
         fulltimeLabel.text = vm.job.type
         if let logoUrl = vm.job.logoUrl {
             print(logoUrl)
-            profileImageView.kf.setImage(with: logoUrl, placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (image, error, cache, url) in
+            profileImageView.kf.setImage(with: logoUrl, placeholder: nil, options: [.transition(.fade(0.2))], progressBlock: nil, completionHandler: { (image, error, cache, url) in
                 print(error?.localizedDescription)
             })
         }

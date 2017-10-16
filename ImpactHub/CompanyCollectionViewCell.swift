@@ -36,7 +36,10 @@ class CompanyCollectionViewCell: UICollectionViewCell {
     
     func setUp(vm: CompanyViewModel) {
         if let photoUrl = vm.company.photoUrl {
-            bigImageView.kf.setImage(with: photoUrl, options: [.transition(.fade(0.2))])
+            print(photoUrl)
+            bigImageView.kf.setImage(with: photoUrl, placeholder: nil, options: [.transition(.fade(0.2))], progressBlock: nil, completionHandler: { (image, error, cache, url) in
+                print(error?.localizedDescription)
+            })
         }
 
         logoImageContainer.isHidden = true

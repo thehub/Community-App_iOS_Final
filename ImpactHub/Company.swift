@@ -55,6 +55,7 @@ struct Company {
 
 extension Company {
     init?(json: JSON) {
+//        print(json)
         guard
             let id = json["Id"].string,
             let name = json["Name"].string
@@ -99,14 +100,14 @@ extension Company {
 
 extension Company {
     var photoUrl: URL? {
+//        if let token = SFUserAccountManager.sharedInstance().currentUser?.credentials.accessToken,
+//            let photo = self.photo,
+//            let url = URL(string: "\(photo)&oauth_token=\(token)") {
+//            return url
+//        }
         if let token = SFUserAccountManager.sharedInstance().currentUser?.credentials.accessToken,
             let photo = self.photo,
-            let url = URL(string: "\(photo)?oauth_token=\(token)") {
-            return url
-        }
-        else if let token = SFUserAccountManager.sharedInstance().currentUser?.credentials.accessToken,
-            let photo = self.photo,
-            let url = URL(string: "\(SFUserAccountManager.sharedInstance().currentUser!.apiUrl)\(photo)?oauth_token=\(token)") {
+            let url = URL(string: "\(SFUserAccountManager.sharedInstance().currentUser!.apiUrl)\(photo)&oauth_token=\(token)") {
             return url
         }
 
@@ -115,12 +116,12 @@ extension Company {
     var logoUrl: URL? {
         if let token = SFUserAccountManager.sharedInstance().currentUser?.credentials.accessToken,
             let logo = self.logo,
-            let url = URL(string: "\(logo)?oauth_token=\(token)") {
+            let url = URL(string: "\(logo)&oauth_token=\(token)") {
             return url
         }
         else if let token = SFUserAccountManager.sharedInstance().currentUser?.credentials.accessToken,
             let logo = self.logo,
-            let url = URL(string: "\(SFUserAccountManager.sharedInstance().currentUser!.apiUrl)\(logo)?oauth_token=\(token)") {
+            let url = URL(string: "\(SFUserAccountManager.sharedInstance().currentUser!.apiUrl)\(logo)&oauth_token=\(token)") {
             return url
         }
         return nil
