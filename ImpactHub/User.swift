@@ -19,7 +19,8 @@ struct User {
     var title: String?
     
     var name: String {
-        return "\(firstName ?? "") \(lastName ?? "")"
+//        return "\(firstName ?? "") \(lastName ?? "")"
+        return displayName
     }
     
 }
