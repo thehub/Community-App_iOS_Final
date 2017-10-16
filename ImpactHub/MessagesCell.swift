@@ -25,7 +25,7 @@ class MessagesCell: UICollectionViewCell {
         // Pick them for the name and image
         
         let userToShow = vm.conversation.latestMessage.otherUser()
-        nameLabel.text = userToShow.displayName
+        nameLabel.text = userToShow.name
         imageView.kf.setImage(with: userToShow.photo?.smallPhotoUrl)
 
         textLabel.text = vm.conversation.latestMessage.text

@@ -250,7 +250,7 @@ class MemberFeedItemCell: UICollectionViewCell, UITextViewDelegate {
         if let comment = vm.comment {
             commentView.isHidden = true
             likeContainerView.isHidden = true
-            nameLabel.text = comment.user?.displayName ?? ""
+            nameLabel.text = comment.user?.name ?? ""
             if let photoUrl = comment.user?.photo?.smallPhotoUrl {
                 profileImageView.kf.setImage(with: photoUrl)
             }
@@ -264,7 +264,7 @@ class MemberFeedItemCell: UICollectionViewCell, UITextViewDelegate {
         else {
             commentView.isHidden = false
             likeContainerView.isHidden = false
-            nameLabel.text = vm.post.chatterActor.displayName
+            nameLabel.text = vm.post.chatterActor.name
             profileImageView.kf.setImage(with: vm.post.chatterActor.profilePicSmallUrl)
             dateLabel.text = Utils.timeStringFromDate(date: vm.post.date)
             let textToShow = segmentBuilder.attributedTextFromSegments(segments: vm.post.segments)

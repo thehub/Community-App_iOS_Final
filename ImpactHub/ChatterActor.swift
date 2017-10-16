@@ -22,6 +22,10 @@ struct ChatterActor {
     internal var profilePicSmall: String?
     var title: String?
 
+    var name: String {
+        return "\(firstName ?? "") \(lastName ?? "")"
+    }
+
 }
 
 extension ChatterActor {
@@ -57,6 +61,7 @@ extension ChatterActor {
 extension ChatterActor {
     
     init?(json: [AnyHashable: Any]) {
+        print(json)
         guard let userJson = json["user"] as? [AnyHashable: Any] else {
             return nil
         }
@@ -106,7 +111,7 @@ extension ChatterActor {
     }
 
     init?(userJson: [AnyHashable: Any]) {
-        
+//        print(userJson)
         if let id = userJson["id"] as? String {
             self.id = id
         }

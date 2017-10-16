@@ -84,7 +84,7 @@ class MessagesThreadViewController: UIViewController {
             SessionManager.shared.currentlyShowingConversationId = self.conversationId
         }
         
-        self.title = self.lastMessage?.otherUser().displayName ?? "Message"
+        self.title = self.lastMessage?.otherUser().name ?? "Message"
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.viewDidCancel = false
@@ -286,7 +286,7 @@ class MessagesThreadViewController: UIViewController {
                 if self.skip == 0 {
                     self.data = newData
                     // Set again since it might have been empty first time if coming from a push
-                    self.title = self.lastMessage?.otherUser().displayName ?? "Message"
+                    self.title = self.lastMessage?.otherUser().name ?? "Message"
                     self.tableView.alpha = 0
                     self.tableView.frame = self.tableView.frame.offsetBy(dx: 0, dy: 20)
                     self.tableView.reloadData()
