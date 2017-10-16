@@ -63,8 +63,8 @@ class JobViewController: UIViewController, UICollectionViewDelegate, UICollectio
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.tabBarController?.tabBar.isHidden = false
 
-        if let photoUrl = job.photoUrl {
-            self.companyPhotoImageView.kf.setImage(with: photoUrl, options: [.transition(.fade(0.2))])
+        if let jobImageUrl = job.jobImageUrl {
+            self.companyPhotoImageView.kf.setImage(with: jobImageUrl, options: [.transition(.fade(0.2))])
         }
         
         collectionView.register(UINib.init(nibName: TitleViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: TitleViewModel.cellIdentifier)

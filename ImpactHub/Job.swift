@@ -23,6 +23,7 @@ struct Job {
     var salary: String
     var logo: String?
     var photo: String?
+    var jobImage: String?
     var relatedSDGs: String?
     var applicationURL: String?
     var accountId: String
@@ -32,7 +33,7 @@ struct Job {
 
 extension Job {
     init?(json: JSON) {
-//        print(json)
+        print(json)
         guard
             let id = json["Id"].string,
             let name = json["Name"].string,
@@ -67,6 +68,8 @@ extension Job {
         
         self.applicationURL = json["Job_Application_URL__c"].string
         
+        self.jobImage = json["Job_Image_URL__c"].string
+        
         self.accountId = accountId
     }
     
@@ -84,7 +87,15 @@ extension Job {
     var logoUrl: URL? {
         if let token = SFUserAccountManager.sharedInstance().currentUser?.credentials.accessToken,
             let logo = self.logo,
-            let url = URL(string: "\(logo)?oauth_token=\(token)") {
+            let url = URL(string: "\(logo)&oauth_token=\(token)") {
+            return url
+        }
+        return nil
+    }
+    var jobImageUrl: URL? {
+        if let token = SFUserAccountManager.sharedInstance().currentUser?.credentials.accessToken,
+            let jobImage = self.jobImage,
+            let url = URL(string: "\(jobImage)?oauth_token=\(token)") {
             return url
         }
         return nil
