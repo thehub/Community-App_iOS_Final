@@ -62,14 +62,19 @@ class CommentsViewController: UIViewController, UICollectionViewDelegate, UIColl
         
     }
     
-
+    var showCreateCommentOnOpen = true
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         // If no comments show create comment
-        if post?.comments.isEmpty ?? false {
-            self.performSegue(withIdentifier: "ShowCreateComment", sender: self)
+        if showCreateCommentOnOpen {
+            showCreateCommentOnOpen = false
+            if post?.comments.isEmpty ?? false {
+                self.performSegue(withIdentifier: "ShowCreateComment", sender: self)
+            }
         }
+        
 
     }
     

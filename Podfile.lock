@@ -7,8 +7,8 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.4.0):
     - CocoaLumberjack/Default
-  - DeckTransition (1.3.4)
-  - Kingfisher (4.1.0)
+  - DeckTransition (1.4.0)
+  - Kingfisher (4.2.0)
   - PromiseKit (4.4.3):
     - PromiseKit/Foundation (= 4.4.3)
     - PromiseKit/QuartzCore (= 4.4.3)
@@ -53,8 +53,8 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
-  DeckTransition: 720908febb6a09d1b4e084d4b8f99f743383ca33
-  Kingfisher: f14df8cbe576bf55f211fa589e9869bceb4ea87d
+  DeckTransition: d678005a9b35c2745fe8b683c39c41f840ad69d7
+  Kingfisher: 9ee7e788d8ba07c3f21ce0d43f33cec310a4f781
   PromiseKit: fbb52a0d154402c57eeb6eccd36dd7724fcf6117
   ReverseExtension: 78dcc8414c4efb6115d787694649d9f4f020324a
   SalesforceAnalytics: b2af719a2fb24d5197b93e9c268d7414f5de813c
