@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a49-ft-Pky">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a49-ft-Pky">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -74,9 +74,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f0l-ha-vON">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
                                 <color key="backgroundColor" red="1" green="0.32050524713948914" blue="0.3101553615759669" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="7zC-WA-L9u"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -84,11 +81,12 @@
                             <constraint firstItem="tHe-EA-Qrw" firstAttribute="top" secondItem="0MZ-U5-W8L" secondAttribute="bottom" id="0oJ-Mz-VmA"/>
                             <constraint firstItem="f0l-ha-vON" firstAttribute="leading" secondItem="KAB-JG-YBV" secondAttribute="leading" id="2tG-Ld-ehx"/>
                             <constraint firstItem="ikr-9s-bxw" firstAttribute="top" secondItem="0MZ-U5-W8L" secondAttribute="bottom" id="4Sq-7O-Lo3"/>
+                            <constraint firstItem="0MZ-U5-W8L" firstAttribute="top" secondItem="f0l-ha-vON" secondAttribute="bottom" id="69G-gv-Uhr"/>
                             <constraint firstAttribute="trailing" secondItem="tHe-EA-Qrw" secondAttribute="trailing" id="JlC-o2-7BB"/>
                             <constraint firstAttribute="trailing" secondItem="ikr-9s-bxw" secondAttribute="trailing" id="Ufk-6I-b4V"/>
                             <constraint firstItem="ikr-9s-bxw" firstAttribute="leading" secondItem="KAB-JG-YBV" secondAttribute="leading" id="Ukd-AR-FbD"/>
+                            <constraint firstItem="CUF-3L-n1B" firstAttribute="bottom" secondItem="f0l-ha-vON" secondAttribute="bottom" id="Y5p-PX-IuG"/>
                             <constraint firstItem="f0l-ha-vON" firstAttribute="top" secondItem="KAB-JG-YBV" secondAttribute="top" id="aKP-Kd-bTq"/>
-                            <constraint firstItem="0MZ-U5-W8L" firstAttribute="top" secondItem="CUF-3L-n1B" secondAttribute="bottom" id="cjh-9z-72h"/>
                             <constraint firstItem="jld-vv-3Ns" firstAttribute="top" secondItem="tHe-EA-Qrw" secondAttribute="bottom" id="gR9-kc-PkX"/>
                             <constraint firstAttribute="trailing" secondItem="0MZ-U5-W8L" secondAttribute="trailing" id="lsA-5K-rTL"/>
                             <constraint firstAttribute="trailing" secondItem="f0l-ha-vON" secondAttribute="trailing" id="pub-vX-cKc"/>
