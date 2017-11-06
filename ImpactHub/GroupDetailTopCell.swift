@@ -44,6 +44,9 @@ class GroupDetailTopCell: UICollectionViewCell {
             profileImageView.kf.setImage(with: photoUrl)
         }
         self.arrowImage.layer.add(Animations.slideAnimation, forKey: "slideAnimation")
+        
+        self.didScrollWith(offsetY: -45)
+
     }
     
     func didScrollWith(offsetY: CGFloat) {

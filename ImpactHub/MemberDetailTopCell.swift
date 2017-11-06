@@ -82,6 +82,7 @@ class MemberDetailTopCell: UICollectionViewCell {
         
         self.arrowImage.layer.add(Animations.slideAnimation, forKey: "slideAnimation")
 
+        self.didScrollWith(offsetY: -45)
     }
     
     let gradientLayer: CAGradientLayer = CAGradientLayer()
@@ -98,6 +99,8 @@ class MemberDetailTopCell: UICollectionViewCell {
     }
 
     func didScrollWith(offsetY: CGFloat) {
+        print(#function)
+        print(offsetY)
         if offsetY < 0 {
             self.imageViewTopConstraint.constant = offsetY
             self.fadeViewBottomConstraint.constant = -offsetY

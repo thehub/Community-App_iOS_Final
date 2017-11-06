@@ -46,6 +46,8 @@ class ProjectDetailTopCell: UICollectionViewCell {
         profileImageView.kf.setImage(with: vm.project.photoUrl, options: [.transition(.fade(0.2))])
         
         self.arrowImage.layer.add(Animations.slideAnimation, forKey: "slideAnimation")
+        self.didScrollWith(offsetY: -45)
+
 
     }
     

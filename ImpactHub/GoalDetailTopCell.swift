@@ -52,6 +52,9 @@ class GoalDetailTopCell: UICollectionViewCell {
 
         self.clipsToBounds = false
         self.arrowImage.layer.add(Animations.slideAnimation, forKey: "slideAnimation")
+        
+        self.didScrollWith(offsetY: -45)
+
     }
 
     
