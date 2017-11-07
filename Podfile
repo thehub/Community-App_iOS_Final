@@ -12,7 +12,7 @@ target 'ImpactHub' do
     pod 'PromiseKit'
     pod 'SwiftyJSON'
     pod 'DeckTransition'
-    pod 'ReverseExtension'
+    pod 'ReverseExtension', '0.4.8'
 
 end
 
