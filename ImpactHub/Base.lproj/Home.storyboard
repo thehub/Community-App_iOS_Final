@@ -281,7 +281,7 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D7m-9w-jg5" customClass="TopMenu" customModule="ImpactHub" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="uHz-Zp-op8"/>
                                 </constraints>
@@ -496,7 +496,7 @@
         <!--Project View Controller-->
         <scene sceneID="7bn-i0-3JM">
             <objects>
-                <viewController storyboardIdentifier="ProjectViewController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="Fsg-7e-ZtL" customClass="ProjectViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProjectViewController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="Fsg-7e-ZtL" customClass="ProjectViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="odh-qO-HwQ"/>
                         <viewControllerLayoutGuide type="bottom" id="ehp-Dr-imi"/>
@@ -539,7 +539,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9Ni-Rl-OWN" firstAttribute="leading" secondItem="yZy-QS-64A" secondAttribute="leading" id="0qc-Ic-ABn"/>
-                            <constraint firstItem="ehp-Dr-imi" firstAttribute="top" secondItem="XFL-Su-sXY" secondAttribute="bottom" id="CtJ-v0-Zk7"/>
+                            <constraint firstAttribute="bottom" secondItem="XFL-Su-sXY" secondAttribute="bottom" id="CtJ-v0-Zk7"/>
                             <constraint firstItem="9Ni-Rl-OWN" firstAttribute="top" secondItem="odh-qO-HwQ" secondAttribute="bottom" id="E20-tA-CnL"/>
                             <constraint firstAttribute="trailing" secondItem="XFL-Su-sXY" secondAttribute="trailing" id="H5s-kA-Kq6"/>
                             <constraint firstItem="XFL-Su-sXY" firstAttribute="leading" secondItem="yZy-QS-64A" secondAttribute="leading" id="aHC-of-ykD"/>
@@ -1276,7 +1276,7 @@
         <!--Group View Controller-->
         <scene sceneID="UOO-7R-eeS">
             <objects>
-                <viewController storyboardIdentifier="GroupViewController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="ytP-JQ-5XJ" customClass="GroupViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GroupViewController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="ytP-JQ-5XJ" customClass="GroupViewController" customModule="ImpactHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h6w-ro-TIc"/>
                         <viewControllerLayoutGuide type="bottom" id="pqR-Rb-Nin"/>
@@ -1286,7 +1286,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mO9-vW-zkP">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="yH9-r1-hpr">
                                     <size key="itemSize" width="50" height="50"/>
@@ -1314,11 +1314,10 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="mO9-vW-zkP" secondAttribute="trailing" id="29M-2U-KMc"/>
                             <constraint firstItem="mO9-vW-zkP" firstAttribute="leading" secondItem="hC0-f3-Fkl" secondAttribute="leading" id="E0G-D4-6SR"/>
-                            <constraint firstItem="mO9-vW-zkP" firstAttribute="top" secondItem="h6w-ro-TIc" secondAttribute="bottom" id="INH-UZ-MNa"/>
-                            <constraint firstItem="pqR-Rb-Nin" firstAttribute="top" secondItem="mO9-vW-zkP" secondAttribute="bottom" id="Q6r-Iv-RV7"/>
+                            <constraint firstItem="mO9-vW-zkP" firstAttribute="top" secondItem="hC0-f3-Fkl" secondAttribute="top" id="INH-UZ-MNa"/>
+                            <constraint firstAttribute="bottom" secondItem="mO9-vW-zkP" secondAttribute="bottom" id="Q6r-Iv-RV7"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="Ilz-79-NR9">
                         <barButtonItem key="backBarButtonItem" title=" " id="TmH-KC-67L"/>
                         <barButtonItem key="rightBarButtonItem" image="create" style="plain" id="1PI-cl-xUB">
@@ -1788,7 +1787,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JAK-t4-WT5">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Xo5-LM-Oud">
                                     <size key="itemSize" width="50" height="50"/>
@@ -1974,7 +1973,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMv-Mj-xfg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1122" y="-866"/>
+            <point key="canvasLocation" x="1262" y="-940"/>
         </scene>
     </scenes>
     <resources>
@@ -1989,14 +1988,14 @@
         <image name="trans" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="r4W-Rs-mKq"/>
-        <segue reference="wU7-Qa-AtJ"/>
+        <segue reference="tPM-PS-46L"/>
+        <segue reference="MFH-uD-O6a"/>
         <segue reference="9tv-11-54j"/>
         <segue reference="ODp-Jh-V7d"/>
-        <segue reference="Nsv-q8-zjz"/>
-        <segue reference="2YP-O4-F5Z"/>
-        <segue reference="RAM-VD-ZBW"/>
-        <segue reference="E6m-rq-9b6"/>
+        <segue reference="4CN-lM-E9S"/>
+        <segue reference="2LU-54-KOa"/>
+        <segue reference="Vaz-4f-4gO"/>
+        <segue reference="rv5-tf-Hia"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.7843137255" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>

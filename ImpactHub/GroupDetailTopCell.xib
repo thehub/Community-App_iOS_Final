@@ -35,7 +35,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowDownWhite" translatesAutoresizingMaskIntoConstraints="NO" id="dXn-81-vkg">
-                        <rect key="frame" x="30" y="280" width="17" height="10"/>
+                        <rect key="frame" x="30" y="240" width="17" height="10"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lH2-y5-Nlr">
                         <rect key="frame" x="0.0" y="15" width="300" height="310"/>
@@ -85,7 +85,7 @@
                 <constraint firstAttribute="bottom" secondItem="s40-UQ-UEf" secondAttribute="bottom" id="Awu-po-yew"/>
                 <constraint firstAttribute="bottom" secondItem="9eF-fZ-svq" secondAttribute="bottom" id="Q2h-un-sUg"/>
                 <constraint firstAttribute="trailing" secondItem="lH2-y5-Nlr" secondAttribute="trailing" id="Sb7-RG-9vB"/>
-                <constraint firstAttribute="bottom" secondItem="dXn-81-vkg" secondAttribute="bottom" constant="50" id="Sbs-ei-Mul"/>
+                <constraint firstAttribute="bottom" secondItem="dXn-81-vkg" secondAttribute="bottom" constant="90" id="Sbs-ei-Mul"/>
                 <constraint firstItem="9SC-D4-Bz0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="YBs-aN-2jn"/>
                 <constraint firstItem="dXn-81-vkg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="30" id="bop-ra-Jlj"/>
                 <constraint firstItem="s40-UQ-UEf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fkZ-B0-UgM"/>
