@@ -71,9 +71,9 @@ class ProjectsViewController: ListWithSearchViewController {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.collectionView?.alpha = 0
                 self.collectionView?.reloadData()
-                self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
+                self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -80), animated: false)
                 UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
-                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -60), animated: false)
                     self.collectionView?.alpha = 1
                 }, completion: { (_) in
                     
@@ -189,9 +189,9 @@ class ProjectsViewController: ListWithSearchViewController {
         self.collectionView.scrollRectToVisible(CGRect.zero, animated: false)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.collectionView.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
+            self.collectionView.setContentOffset(CGPoint.init(x: 0, y: -80), animated: false)
             UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
-                self.collectionView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+                self.collectionView.setContentOffset(CGPoint.init(x: 0, y: -60), animated: false)
                 self.collectionView.alpha = 1
             }, completion: { (_) in
                 
