@@ -1,8 +1,9 @@
 //
 //  Utils.swift
-//  WAYW
+//  ImpactHub
 //
-//  Created by Niklas Alvaeus on 25/11/2015.
+//  Created by Niklas on 17/05/2017.
+//  Copyright © 2017 Lightful Ltd. All rights reserved.
 //
 
 import Foundation
