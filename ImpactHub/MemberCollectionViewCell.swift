@@ -15,6 +15,7 @@ protocol MemberCollectionViewCellDelegate: class {
 
 class MemberCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var openMessageButton: UIButton!
+    @IBOutlet weak var locationPin: UIImageView!
     
     weak var memberCollectionViewCellDelegate: MemberCollectionViewCellDelegate?
 
@@ -72,6 +73,12 @@ class MemberCollectionViewCell: UICollectionViewCell {
             })
         }
         locationNameLabel.text = vm.member.impactHubCities?.replacingOccurrences(of: ";", with: ", ")
+        if locationNameLabel.text == nil {
+            locationPin.isHidden = true
+        }
+        else {
+            locationPin.isHidden = false
+        }
 
         self.connectRequestStatus = vm.member.contactRequest?.status ?? .notRequested
         

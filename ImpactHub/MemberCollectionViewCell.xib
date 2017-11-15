@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -51,7 +51,7 @@
                                 <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locationPinSmall" translatesAutoresizingMaskIntoConstraints="NO" id="w9K-Wp-tPX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="locationPinSmall" translatesAutoresizingMaskIntoConstraints="NO" id="w9K-Wp-tPX">
                                 <rect key="frame" x="95" y="59" width="11" height="17"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="memberWaiting" translatesAutoresizingMaskIntoConstraints="NO" id="2mM-bW-44q">
@@ -108,6 +108,7 @@
                 <outlet property="connectionImageView" destination="2mM-bW-44q" id="llW-Vl-CO4"/>
                 <outlet property="jobLabel" destination="A3O-XH-KGb" id="YPQ-Jq-ybK"/>
                 <outlet property="locationNameLabel" destination="J35-42-Kx3" id="BiJ-Gl-k09"/>
+                <outlet property="locationPin" destination="w9K-Wp-tPX" id="hm3-LL-xgR"/>
                 <outlet property="nameLabel" destination="obn-32-78V" id="BX0-0g-pgR"/>
                 <outlet property="openMessageButton" destination="pLD-uB-YeT" id="Bih-iQ-jZR"/>
                 <outlet property="profileImageView" destination="lul-Kl-LZ0" id="wxM-AG-f3m"/>
