@@ -21,7 +21,6 @@ class ProjectsViewController: ListWithSearchViewController {
         }
     }
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,15 +28,25 @@ class ProjectsViewController: ListWithSearchViewController {
         
         topMenu?.setupWithItems(["ALL", "PROJECTS YOU MANAGE", "YOUR PROJECTS"])
 
+        loadData()
+        
+    }
+
+    func loadData() {
+        self.isLoading = true
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        self.collectionView?.alpha = 0
+        if self.firstLoad {
+            self.collectionView?.alpha = 0
+        }
         firstly {
-                MyGroupsManager.shared.refresh()
+            MyGroupsManager.shared.refresh()
             }.then { myGroupsIds -> Void in
                 print("refreshed")
             }.then {
-                APIClient.shared.getProjects()
-            }.then { items -> Void in
+                APIClient.shared.getProjects(offset: self.offset ?? 0)
+            }.then { result -> Void in
+                let items = result.projects
+                self.offset = result.offset
                 let cellWidth: CGFloat = self.view.frame.width
                 let filteredItems = items.filter {$0.groupType == .public || MyGroupsManager.shared.isInGroup(groupId: $0.chatterId)}
                 filteredItems.forEach({ (project) in
@@ -47,6 +56,7 @@ class ProjectsViewController: ListWithSearchViewController {
                         self.projectsYouManageData.append(viewModel)
                     }
                 })
+                self.previousCount = self.data.count
                 self.data = self.filterData(dataToFilter: self.dataAll)
                 
                 // Create filters
@@ -56,10 +66,10 @@ class ProjectsViewController: ListWithSearchViewController {
                 FilterManager.shared.addFilters(fromTags: Set(items.flatMap({$0.impactHubCities}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .city)
                 // Sector
                 FilterManager.shared.addFilters(fromTags: Set(items.flatMap({$0.sector}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sector)
-//                // SDG goals
+                //                // SDG goals
                 FilterManager.shared.addFilters(fromTags: Set(items.flatMap({$0.relatedSDGs}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sdg)
                 
-            }.then {_ in 
+            }.then {_ in
                 APIClient.shared.getProjects(contactId: SessionManager.shared.me?.member.contactId ?? "")
             }.then { yourProjects -> Void in
                 let cellWidth: CGFloat = self.view.frame.width
@@ -69,20 +79,39 @@ class ProjectsViewController: ListWithSearchViewController {
                 })
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                self.collectionView?.alpha = 0
-                self.collectionView?.reloadData()
-                self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -80), animated: false)
-                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
-                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -60), animated: false)
-                    self.collectionView?.alpha = 1
-                }, completion: { (_) in
-                    
-                })
-                
+                if self.firstLoad {
+                    self.collectionView?.alpha = 0
+                    self.collectionView?.reloadData()
+                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -80), animated: false)
+                    UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                        self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -60), animated: false)
+                        self.collectionView?.alpha = 1
+                    }, completion: { (_) in
+                        
+                    })
+                    self.firstLoad = false
+                }
+                else {
+                    let indexPaths = (self.previousCount..<self.data.count).map { IndexPath(row: $0, section: 0) }
+                    self.collectionView.insertItems(at: indexPaths)
+                }
+                self.isLoading = false
             }.catch { error in
                 debugPrint(error.localizedDescription)
+                self.isLoading = false
         }
-        
+    }
+    
+    var previousCount = 0
+    var offset: Int?
+    var firstLoad = true
+    var isLoading = false
+
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        super.scrollViewDidScroll(scrollView)
+        if !isLoading && self.offset != nil && scrollView.contentOffset.y > scrollView.contentSize.height * 0.70 {
+            loadData()
+        }
     }
     
     deinit {

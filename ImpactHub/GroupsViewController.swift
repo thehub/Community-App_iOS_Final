@@ -27,16 +27,24 @@ class GroupsViewController: ListWithSearchViewController {
         
         collectionView.register(UINib.init(nibName: GroupViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: GroupViewModel.cellIdentifier)
         
+        loadData()
+    }
+
+    func loadData() {
+        self.isLoading = true
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        self.collectionView?.alpha = 0
-        
+        if self.firstLoad {
+            self.collectionView?.alpha = 0
+        }
         firstly {
-                MyGroupsManager.shared.refresh()
+            MyGroupsManager.shared.refresh()
             }.then { myGroupsIds -> Void in
                 print("refreshed")
             }.then {
-                APIClient.shared.getGroups()
-            }.then { items -> Void in
+                APIClient.shared.getGroups(offset: self.offset ?? 0)
+            }.then { result -> Void in
+                let items = result.groups
+                self.offset = result.offset
                 let filteredItems = items.filter {$0.groupType == .public || MyGroupsManager.shared.isInGroup(groupId: $0.chatterId)}
                 filteredItems.forEach({ (group) in
                     self.dataAll.append(GroupViewModel(group: group, cellSize: CGSize(width: self.view.frame.width, height: 170)))
@@ -68,20 +76,41 @@ class GroupsViewController: ListWithSearchViewController {
                 })
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                self.data = self.filterData(dataToFilter: self.dataAll)
-                self.collectionView?.alpha = 0
-                self.collectionView?.reloadData()
-                self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -80), animated: false)
-                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
-                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -60), animated: false)
-                    self.collectionView?.alpha = 1
-                }, completion: { (_) in
-                    
-                })
+                self.previousCount = self.data.count
+                if self.firstLoad {
+                    self.data = self.filterData(dataToFilter: self.dataAll)
+                    self.collectionView?.alpha = 0
+                    self.collectionView?.reloadData()
+                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -80), animated: false)
+                    UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                        self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -60), animated: false)
+                        self.collectionView?.alpha = 1
+                    }, completion: { (_) in
+                        
+                    })
+                    self.firstLoad = false
+                }
+                else {
+                    let indexPaths = (self.previousCount..<self.data.count).map { IndexPath(row: $0, section: 0) }
+                    self.collectionView.insertItems(at: indexPaths)
+                }
+                self.isLoading = false
             }.catch { error in
                 debugPrint(error.localizedDescription)
+                self.isLoading = false
         }
-        
+    }
+    
+    var previousCount = 0
+    var offset: Int?
+    var firstLoad = true
+    var isLoading = false
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        super.scrollViewDidScroll(scrollView)
+        if !isLoading && self.offset != nil && scrollView.contentOffset.y > scrollView.contentSize.height * 0.70 {
+            loadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

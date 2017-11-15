@@ -51,17 +51,22 @@ class APIClient {
 
     
     // Goals
-    func getGoals() -> Promise<[Goal]> {
+    func getGoals(offset: Int = 0) -> Promise<(goals: [Goal], offset: Int?)> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQuery("select id, name,  Active__c, ImageURL__c, Summary__c, Description__c from Taxonomy__c where Grouping__c ='SDG'", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("select id, name,  Active__c, ImageURL__c, Summary__c, Description__c from Taxonomy__c where Grouping__c ='SDG' OFFSET \(offset)", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
 //                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
+                    var offset: Int? = nil
+                    let done = jsonResult["done"].bool ?? true
+                    if done == false {
+                        offset = records.count
+                    }
                     let items = records.flatMap { Goal(json: $0) }
-                    fullfill(items)
+                    fullfill((goals: items, offset: offset))
                 }
                 else {
                     reject(MyError.JSONError)
@@ -196,17 +201,22 @@ class APIClient {
 
     
     // Projects
-    func getProjects() -> Promise<[Project]> {
+    func getProjects(offset: Int = 0) -> Promise<(projects: [Project], offset: Int?)> {
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.PROJECT) FROM Directory__c WHERE Directory_Style__c = 'Project' AND isMakerSpecific__c = false", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.PROJECT) FROM Directory__c WHERE Directory_Style__c = 'Project' AND isMakerSpecific__c = false OFFSET \(offset)", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
 //                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
+                    var offset: Int? = nil
+                    let done = jsonResult["done"].bool ?? true
+                    if done == false {
+                        offset = records.count
+                    }
                     let items = records.flatMap { Project(json: $0) }
-                    fullfill(items)
+                    fullfill((projects: items, offset: offset))
                 }
                 else {
                     reject(MyError.JSONError)
@@ -304,18 +314,23 @@ class APIClient {
     
 
     // Companies
-    func getCompanies() -> Promise<[Company]> {
+    func getCompanies(offset: Int = 0) -> Promise<(companies: [Company], offset: Int?)> {
         return Promise { fullfill, reject in
             
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.COMPANY) FROM account where id IN (SELECT accountid FROM contact WHERE user__c != null)", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.COMPANY) FROM account where id IN (SELECT accountid FROM contact WHERE user__c != null) OFFSET \(offset)", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-//                debugPrint(jsonResult)
+                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
+                    var offset: Int? = nil
+                    let done = jsonResult["done"].bool ?? true
+                    if done == false {
+                        offset = records.count
+                    }
                     let items = records.flatMap { Company(json: $0) }
-                    fullfill(items)
+                    fullfill((companies: items, offset: offset))
                 }
                 else {
                     reject(MyError.JSONError)
@@ -409,18 +424,24 @@ class APIClient {
 
     
     // Members
-    func getMembers(offset: Int = 0, limit: Int = 2000) -> Promise<[Member]> {
+    func getMembers(offset: Int = 0) -> Promise<(members: [Member], offset: Int?)> {
         // TODO: Add pagination
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.CONTACT) FROM Contact WHERE User__c != null AND User__r.isactive = true LIMIT \(limit) OFFSET \(offset)", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.CONTACT) FROM Contact WHERE User__c != null AND User__r.isactive = true OFFSET \(offset)", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
 //                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
+//                    print("Records count: \(records.count)")
+                    var offset: Int? = nil
+                    let done = jsonResult["done"].bool ?? true
+                    if done == false {
+                        offset = records.count
+                    }
                     let items = records.flatMap { Member(json: $0) }
-                    fullfill(items)
+                    fullfill((members: items, offset: offset))
                 }
                 else {
                     reject(MyError.JSONError)
@@ -429,7 +450,7 @@ class APIClient {
         }
     }
     
-    func getGroups() -> Promise<[Group]> {
+    func getGroups(offset: Int = 0) -> Promise<(groups: [Group], offset: Int?)> {
         return Promise { fullfill, reject in
             SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.GROUP) FROM Directory__c WHERE Directory_Style__c =  'Group' AND isMakerSpecific__c = false", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
@@ -437,8 +458,13 @@ class APIClient {
             }) { (result) in
                 let jsonResult = JSON(result!)
                 if let records = jsonResult["records"].array {
+                    var offset: Int? = nil
+                    let done = jsonResult["done"].bool ?? true
+                    if done == false {
+                        offset = records.count
+                    }
                     let items = records.flatMap { Group(json: $0) }
-                    fullfill(items)
+                    fullfill((groups: items, offset: offset))
                 }
                 else {
                     reject(MyError.JSONError)
@@ -653,7 +679,7 @@ class APIClient {
     }
 
     // Events
-    func getEvents() -> Promise<[Event]> {
+    func getEvents(offset: Int = 0) -> Promise<(events: [Event], offset: Int?)> {
         return Promise { fullfill, reject in
             SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.EVENT) FROM Event__c WHERE Event_End_DateTime__c >= \(Date().eventDate()) ORDER BY Event_Start_DateTime__c ASC", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
@@ -662,8 +688,13 @@ class APIClient {
                 let jsonResult = JSON(result!)
                 //                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
+                    var offset: Int? = nil
+                    let done = jsonResult["done"].bool ?? true
+                    if done == false {
+                        offset = records.count
+                    }
                     let items = records.flatMap { Event(json: $0) }
-                    fullfill(items)
+                    fullfill((events: items, offset: offset))
                 }
                 else {
                     reject(MyError.JSONError)
@@ -762,18 +793,23 @@ class APIClient {
 
     
     // Jobs
-    func getJobs(skip:Int, top:Int) -> Promise<[Job]> {
+    func getJobs(offset: Int = 0) -> Promise<(jobs: [Job], offset: Int?)> {
         return Promise { fullfill, reject in
             // TODO: Send in pagination?
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.JOB) FROM Job__c WHERE Applications_Close_Date__c >= \(Date().shortDate())", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.JOB) FROM Job__c WHERE Applications_Close_Date__c >= \(Date().shortDate()) OFFSET \(offset)", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.Error("Error"))
             }) { (result) in
                 let jsonResult = JSON(result!)
 //                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
+                    var offset: Int? = nil
+                    let done = jsonResult["done"].bool ?? true
+                    if done == false {
+                        offset = records.count
+                    }
                     let items = records.flatMap { Job(json: $0) }
-                    fullfill(items)
+                    fullfill((jobs: items, offset: offset))
                 }
                 else {
                     reject(MyError.JSONError)

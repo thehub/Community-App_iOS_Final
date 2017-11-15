@@ -15,20 +15,37 @@ class GoalsViewController: ListWithTopMenuViewController {
     var sustainableData = [CellRepresentable]()
     var humanData = [CellRepresentable]()
 
+    var offset: Int?
+    var firstLoad = true
+    var isLoading = false
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         collectionView.register(UINib.init(nibName: GoalViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: GoalViewModel.cellIdentifier)
         
+        loadData()
+        
+//        topMenu.setupWithItems(["ALL", "SUSTAINABLE DEVELOPMENT", "HUMAN RIGHTS"])
+        topMenu?.hide()
+    
+    }
+    
+    fileprivate func loadData() {
+        self.isLoading = true
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.collectionView?.alpha = 0
         firstly {
-            APIClient.shared.getGoals()
-            }.then { items -> Void in
+            APIClient.shared.getGoals(offset: self.offset ?? 0)
+            }.then { result -> Void in
+                let items = result.goals
+                self.offset = result.offset
                 let cellWidth: CGFloat = self.view.frame.width - 30
                 items.forEach({ (goal) in
                     self.allData.append(GoalViewModel(goal: goal, cellSize: CGSize(width: cellWidth, height: 370)))
                 })
+                let previousCount = self.data.count
                 self.data = self.allData
                 
                 // TODO: Once in Salesforce
@@ -37,28 +54,38 @@ class GoalsViewController: ListWithTopMenuViewController {
                 //
                 //        self.humanData.append(viewModel2)
                 //        self.humanData.append(viewModel1)
-                self.collectionView?.reloadData()
-                
+                if self.firstLoad {
+                    self.collectionView?.reloadData()
+                }
+                else {
+                    let indexPaths = (previousCount..<self.data.count).map { IndexPath(row: $0, section: 0) }
+                    self.collectionView.insertItems(at: indexPaths)
+                }
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                self.collectionView?.alpha = 0
-                self.collectionView?.reloadData()
-                self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -80), animated: false)
-                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
-                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -60), animated: false)
-                    self.collectionView?.alpha = 1
-                }, completion: { (_) in
-                    
-                })
+                if self.firstLoad {
+                    self.collectionView?.alpha = 0
+                    self.collectionView?.reloadData()
+                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -80), animated: false)
+                    UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                        self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -60), animated: false)
+                        self.collectionView?.alpha = 1
+                    }, completion: { (_) in
+                        
+                    })
+                    self.firstLoad = false
+                }
             }.catch { error in
                 debugPrint(error.localizedDescription)
+                self.isLoading = false
         }
-        
-//
-        
-//        topMenu.setupWithItems(["ALL", "SUSTAINABLE DEVELOPMENT", "HUMAN RIGHTS"])
-        topMenu?.hide()
+    }
     
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        super.scrollViewDidScroll(scrollView)
+        if !isLoading && self.offset != nil && scrollView.contentOffset.y > scrollView.contentSize.height * 0.70 {
+            loadData()
+        }
     }
     
     deinit {

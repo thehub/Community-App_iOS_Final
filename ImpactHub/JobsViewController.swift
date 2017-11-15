@@ -17,16 +17,29 @@ class JobsViewController: ListWithSearchViewController {
         }
     }
 
+    var offset: Int?
+    var firstLoad = true
+    var isLoading = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         collectionView.register(UINib.init(nibName: JobViewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: JobViewModel.cellIdentifier)
         
+        loadData()
+    }
+
+    func loadData() {
+        self.isLoading = true
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        self.collectionView?.alpha = 0
+        if self.firstLoad {
+            self.collectionView?.alpha = 0
+        }
         firstly {
-            APIClient.shared.getJobs(skip: 0, top: 100)
-            }.then { jobs -> Void in
+            APIClient.shared.getJobs(offset: self.offset ?? 0)
+            }.then { result -> Void in
+                let jobs = result.jobs
+                self.offset = result.offset
                 jobs.forEach({ (job) in
                     self.dataAll.append(JobViewModel(job: job, cellSize: CGSize(width: self.view.frame.width, height: 145)))
                 })
@@ -42,24 +55,41 @@ class JobsViewController: ListWithSearchViewController {
                 FilterManager.shared.addFilters(fromTags: Set(jobs.flatMap({$0.relatedSDGs}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .sdg)
                 // Job Type
                 FilterManager.shared.addFilters(fromTags: Set(jobs.flatMap({$0.type}).joined(separator: ";").components(separatedBy: ";").filter({$0 != ""})), forGrouping: .jobType)
-
+                
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                let previousCount = self.data.count
                 self.data = self.filterData(dataToFilter: self.dataAll)
-                self.collectionView?.alpha = 0
-                self.collectionView?.reloadData()
-                self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
-                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
-                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
-                    self.collectionView?.alpha = 1
-                }, completion: { (_) in
-                    
-                })
+                if self.firstLoad {
+                    self.collectionView?.alpha = 0
+                    self.collectionView?.reloadData()
+                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
+                    UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                        self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+                        self.collectionView?.alpha = 1
+                    }, completion: { (_) in
+                        
+                    })
+                    self.firstLoad = false
+                }
+                else {
+                    let indexPaths = (previousCount..<self.data.count).map { IndexPath(row: $0, section: 0) }
+                    self.collectionView.insertItems(at: indexPaths)
+                }
+                self.isLoading = false
             }.catch { error in
                 debugPrint(error.localizedDescription)
+                self.isLoading = false
         }
     }
-
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        super.scrollViewDidScroll(scrollView)
+        if !isLoading && self.offset != nil && scrollView.contentOffset.y > scrollView.contentSize.height * 0.70 {
+            loadData()
+        }
+    }
+    
     deinit {
         print("\(#file, #function)")
     }

@@ -7,7 +7,7 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.4.0):
     - CocoaLumberjack/Default
-  - DeckTransition (1.4.0)
+  - DeckTransition (1.4.2)
   - Kingfisher (4.2.0)
   - PromiseKit (4.5.0):
     - PromiseKit/Foundation (= 4.5.0)
@@ -41,7 +41,7 @@ PODS:
   - SalesforceSDKCore/SalesforceSDKCore/no-arc (5.3.0):
     - SalesforceAnalytics
     - SalesforceSDKCore/SalesforceSDKCore/base
-  - SwiftyJSON (3.1.4)
+  - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
   - DeckTransition
@@ -53,13 +53,13 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
-  DeckTransition: d678005a9b35c2745fe8b683c39c41f840ad69d7
+  DeckTransition: 56330226ddbefd2ddc9f57b8b56d37e0e93e6b91
   Kingfisher: 9ee7e788d8ba07c3f21ce0d43f33cec310a4f781
   PromiseKit: 9c1d9f6d7b65e3951a90bea7f407c56972be5d8e
   ReverseExtension: 78dcc8414c4efb6115d787694649d9f4f020324a
   SalesforceAnalytics: b2af719a2fb24d5197b93e9c268d7414f5de813c
   SalesforceSDKCore: fff193c0b4b6b6458fbfdc4ae91dc758227874db
-  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
 PODFILE CHECKSUM: aaacb0da595fdf164a2f397fe256d7db122505ba
 

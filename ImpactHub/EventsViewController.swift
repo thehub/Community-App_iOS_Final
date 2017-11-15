@@ -20,7 +20,10 @@ class EventsViewController: ListWithSearchViewController {
         }
     }
 
+    var offset: Int?
+    var firstLoad = true
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,15 +40,28 @@ class EventsViewController: ListWithSearchViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.offset = nil
+        self.firstLoad = true
+        loadData()
+    }
+
+    func loadData() {
+        self.isLoading = true
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        self.collectionView?.alpha = 0
-        self.dataAll.removeAll()
-        self.attendingData.removeAll()
-        self.hostingData.removeAll()
-        self.collectionView.reloadData()
+        if self.firstLoad {
+            self.collectionView?.alpha = 0
+        }
+        if self.firstLoad {
+            self.dataAll.removeAll()
+            self.attendingData.removeAll()
+            self.hostingData.removeAll()
+            self.collectionView.reloadData()
+        }
         firstly {
             APIClient.shared.getEvents()
-            }.then { events -> Void in
+            }.then { result -> Void in
+                let events = result.events
+                self.offset = result.offset
                 events.forEach({ (event) in
                     self.dataAll.append(EventViewModel(event: event, cellSize: CGSize(width: self.view.frame.width, height: 370)))
                 })
@@ -71,19 +87,38 @@ class EventsViewController: ListWithSearchViewController {
                 })
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                let previousCount = self.data.count
                 self.data = self.filterData(dataToFilter: self.dataAll)
-                self.collectionView?.alpha = 0
-                self.collectionView?.reloadData()
-                self.topMenuDidSelectIndex(self.currentSelectedIndex)
-                self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
-                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
-                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
-                    self.collectionView?.alpha = 1
-                }, completion: { (_) in
-                    
-                })
+                if self.firstLoad {
+                    self.collectionView?.alpha = 0
+                    self.collectionView?.reloadData()
+                    self.topMenuDidSelectIndex(self.currentSelectedIndex)
+                    self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
+                    UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: {
+                        self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+                        self.collectionView?.alpha = 1
+                    }, completion: { (_) in
+                        
+                    })
+                    self.firstLoad = false
+                }
+                else {
+                    let indexPaths = (previousCount..<self.data.count).map { IndexPath(row: $0, section: 0) }
+                    self.collectionView.insertItems(at: indexPaths)
+                }
+                self.isLoading = false
             }.catch { error in
                 debugPrint(error.localizedDescription)
+                self.isLoading = false
+        }
+    }
+    
+    var isLoading = false
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        super.scrollViewDidScroll(scrollView)
+        if !isLoading && self.offset != nil && scrollView.contentOffset.y > scrollView.contentSize.height * 0.70 {
+            loadData()
         }
     }
     
