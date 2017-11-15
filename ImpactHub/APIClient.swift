@@ -432,9 +432,9 @@ class APIClient {
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-                debugPrint(jsonResult)
+//                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
-                    print("Records count: \(records.count)")
+//                    print("Records count: \(records.count)")
                     var offset: Int? = nil
                     let done = jsonResult["done"].bool ?? true
                     if done == false {
