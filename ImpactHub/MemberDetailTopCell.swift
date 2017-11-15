@@ -35,7 +35,8 @@ class MemberDetailTopCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    @IBOutlet weak var loactionPin: UIImageView!
+    
     var vm: MemberDetailTopViewModel?
     
     func setup(vm: MemberDetailTopViewModel) {
@@ -47,6 +48,12 @@ class MemberDetailTopCell: UICollectionViewCell {
         }
         blurbLabel.text = vm.member.statusUpdate
         locationNameLabel.text = vm.locationNameLong
+        if locationNameLabel.text == "" || locationNameLabel.text == nil {
+            loactionPin.isHidden = true
+        }
+        else {
+            loactionPin.isHidden = false
+        }
         
         if vm.member.social?.facebook != nil {
             facebookButton.isHidden = false

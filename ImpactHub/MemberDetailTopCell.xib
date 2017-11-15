@@ -165,6 +165,7 @@
                 <outlet property="instagramButton" destination="g0C-ER-ht3" id="NAV-eH-6ca"/>
                 <outlet property="jobLabel" destination="XXE-ip-ZY6" id="mZr-yu-KUG"/>
                 <outlet property="linkedinButton" destination="ifF-8z-Vo2" id="ayO-Ul-7qd"/>
+                <outlet property="loactionPin" destination="b6v-0m-84r" id="y1I-JS-ZTW"/>
                 <outlet property="locationNameLabel" destination="Urb-ZX-NKY" id="JpE-yG-QO8"/>
                 <outlet property="nameLabel" destination="pzG-7F-c8e" id="0ej-Fr-sDK"/>
                 <outlet property="profileImageView" destination="s40-UQ-UEf" id="fXa-ti-Q6e"/>
