@@ -82,8 +82,8 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
             }.always {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 let previousCount = self.data.count
-                self.data = self.filterData(dataToFilter: self.dataAll)
                 if self.firstLoad {
+                    self.data = self.filterData(dataToFilter: self.dataAll)
                     self.collectionView?.alpha = 0
                     self.collectionView?.reloadData()
                     self.collectionView?.setContentOffset(CGPoint.init(x: 0, y: -20), animated: false)
@@ -96,6 +96,13 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
                     self.firstLoad = false
                 }
                 else {
+                    if self.searchBar?.text == nil || self.searchBar?.text == "" {
+                        self.data = self.filterData(dataToFilter: self.dataAll)
+                    }
+                    else {
+                        let dataFiltered = self.filterData(dataToFilter: self.dataAll)
+                        self.data = self.filterContentForSearchText(dataToFilter: dataFiltered, searchText: self.searchBar?.text ?? "")
+                    }
                     let indexPaths = (previousCount..<self.data.count).map { IndexPath(row: $0, section: 0) }
                     self.collectionView.insertItems(at: indexPaths)
                 }
