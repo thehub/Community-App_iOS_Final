@@ -29,6 +29,7 @@ class Member {
     var directorySummary: String?
     var interestedSDGs: String?
     var sector: String?
+    var accountName: String?
     
     struct Social {
         var instagram: URL?
@@ -88,6 +89,8 @@ class Member {
             self.locationName = hubs.first?["Hub_Name__c"].string ?? ""
             self.impactHubCities = hubs.flatMap ({ $0["Hub_Name__c"].string }).joined(separator: ";")
         }
+        
+        self.accountName = json["Account"]["Name"].string
         
         var instagram: URL?
         var facebook: URL?

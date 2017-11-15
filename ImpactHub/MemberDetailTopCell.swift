@@ -41,7 +41,7 @@ class MemberDetailTopCell: UICollectionViewCell {
     func setup(vm: MemberDetailTopViewModel) {
         self.vm = vm
         nameLabel.text = vm.member.name
-        jobLabel.text = vm.member.job
+        jobLabel.text = vm.jobLabel
         if let photoUrl = vm.member.photoUrl {
             profileImageView.kf.setImage(with: photoUrl, options: [.transition(.fade(0.2))])
         }

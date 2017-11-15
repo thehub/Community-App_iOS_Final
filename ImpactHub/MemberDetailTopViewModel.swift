@@ -27,6 +27,14 @@ class MemberDetailTopViewModel: CellRepresentable {
         return "\(member.impactHubCities?.replacingOccurrences(of: ";", with: ", ") ?? "")"
     }
     
+    var jobLabel: String {
+        var label: String = member.job
+        if let accountName = member.accountName {
+            label.append(" at \(accountName)")
+        }
+        return label
+    }
+    
     func cellInstance(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemberDetailTopViewModel.cellIdentifier, for: indexPath) as! MemberDetailTopCell
         cell.setup(vm: self)
