@@ -427,14 +427,14 @@ class APIClient {
     func getMembers(offset: Int = 0) -> Promise<(members: [Member], offset: Int?)> {
         // TODO: Add pagination
         return Promise { fullfill, reject in
-            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.CONTACT) FROM Contact WHERE User__c != null AND User__r.isactive = true OFFSET \(offset)", fail: { (error) in
+            SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.CONTACT) FROM Contact WHERE User__c != null AND User__r.isactive = true AND Portal_Profile_Complete__c = true OFFSET \(offset)", fail: { (error) in
                 print("error \(error?.localizedDescription as Any)")
                 reject(error ?? MyError.JSONError)
             }) { (result) in
                 let jsonResult = JSON(result!)
-//                debugPrint(jsonResult)
+                debugPrint(jsonResult)
                 if let records = jsonResult["records"].array {
-//                    print("Records count: \(records.count)")
+                    print("Records count: \(records.count)")
                     var offset: Int? = nil
                     let done = jsonResult["done"].bool ?? true
                     if done == false {
