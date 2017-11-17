@@ -198,9 +198,13 @@ class ListWithSearchViewController: UIViewController, UITextFieldDelegate, TopMe
         // user did type something, check our datasource for text that looks the same
         applySearchAndFilter(searchText: searchText)
     }
+    
+    func searchFromServer(searchTerm: String) {
+        
+    }
 
     func applySearchAndFilter(searchText: String) {
-        if searchText.characters.count > 0 {
+        if searchText.count > 0 {
             // search and reload data source
             let dataFiltered = self.filterData(dataToFilter: self.dataAll)
             self.data = self.filterContentForSearchText(dataToFilter: dataFiltered, searchText: searchText)
@@ -224,6 +228,10 @@ class ListWithSearchViewController: UIViewController, UITextFieldDelegate, TopMe
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.view.endEditing(true)
+        if let searchTerm = searchBar.text {
+            self.searchFromServer(searchTerm: searchTerm)
+        }
+
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {

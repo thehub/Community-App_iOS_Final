@@ -123,6 +123,34 @@ class MembersViewController: ListWithSearchViewController, CreatePostViewControl
         }
     }
 
+    override func searchFromServer(searchTerm: String) {
+        super.searchFromServer(searchTerm: searchTerm)
+        firstly {
+            APIClient.shared.getMembers(searchTerm: searchTerm, offset: 0)
+            }.then { result -> Void in
+                let members = result.members
+                var membersVMFromSearch = [CellRepresentable]()
+                let cellWidth: CGFloat = self.view.frame.width
+                members.forEach({ (member) in
+                    // Remove our selves
+                    // Remove any already shown on screen that we had locally, but also comes back from server search.
+                    if member.contactId != SessionManager.shared.me?.member.contactId ?? "" && self.data.filter({($0 as! MemberViewModel).member.contactId == member.contactId}).count == 0 {
+                        member.contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
+                        membersVMFromSearch.append(MemberViewModel(member: member, delegate: self, cellSize: CGSize(width: cellWidth, height: 105)))
+                    }
+                })
+                let membersToAppendFromSearch = self.filterData(dataToFilter: membersVMFromSearch)
+                self.data.append(contentsOf: membersToAppendFromSearch)
+                self.collectionView.reloadData()
+
+            
+            }.always {
+            }.catch { error in
+                debugPrint(error.localizedDescription)
+        }
+
+    }
+    
     override func filterData(dataToFilter: [CellRepresentable]) -> [CellRepresentable] {
         var filteredData = dataToFilter
 

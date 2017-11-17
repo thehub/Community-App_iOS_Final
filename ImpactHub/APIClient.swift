@@ -450,6 +450,37 @@ class APIClient {
         }
     }
     
+    func getMembers(searchTerm: String, offset: Int = 0) -> Promise<(members: [Member], offset: Int?)> {
+        return Promise { fullfill, reject in
+            let query: [String: String] = ["searchTerm" : searchTerm, "offset" : String(offset)]
+            let body = SFJsonUtils.jsonDataRepresentation(query)
+            let request = SFRestRequest(method: .POST, path: "/services/apexrest/callMemberSearch", queryParams: nil)
+            request.endpoint = "/services/apexrest/callMemberSearch"
+            request.path = "/services/apexrest/callMemberSearch"
+            request.setCustomRequestBodyData(body!, contentType: "application/json")
+            SFRestAPI.sharedInstance().send(request, fail: { (error) in
+                print(error?.localizedDescription as Any)
+                reject(MyError.JSONError)
+            }) { (result) in
+                let jsonResult = JSON.init(result!)
+//                debugPrint(jsonResult) // id
+                if let records = jsonResult["records"].array {
+//                    print("Records count: \(records.count)")
+                    var offset: Int? = nil
+                    let done = jsonResult["done"].bool ?? true
+                    if done == false {
+                        offset = records.count
+                    }
+                    let items = records.flatMap { Member(json: $0) }
+                    fullfill((members: items, offset: offset))
+                }
+                else {
+                    reject(MyError.JSONError)
+                }
+            }
+        }
+    }
+    
     func getGroups(offset: Int = 0) -> Promise<(groups: [Group], offset: Int?)> {
         return Promise { fullfill, reject in
             SFRestAPI.sharedInstance().performSOQLQuery("SELECT \(SelectFields.GROUP) FROM Directory__c WHERE Directory_Style__c =  'Group' AND isMakerSpecific__c = false", fail: { (error) in
