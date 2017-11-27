@@ -37,8 +37,14 @@ class NotificationsViewController: UIViewController {
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let doFadeIn = data.isEmpty
+        
+        
         firstly {
-            APIClient.shared.getNotifications()
+            ContactRequestManager.shared.refresh()
+            }.then { contactRequests -> Void in
+                print("refreshed")
+            }.then {
+                APIClient.shared.getNotifications()
             }.then { items -> Void in
                 self.data.removeAll()
                 let cellWidth: CGFloat = self.view.frame.width
@@ -160,7 +166,7 @@ extension NotificationsViewController {
                 var showIncoming = false
                 let incomming = ContactRequestManager.shared.getIncommingContactRequests()
                 incomming.forEach({ (contactRequest) in
-                    if contactRequest.contactFromId == contactId || contactRequest.contactToId == contactId {
+                    if contactRequest.userFromId == contactId || contactRequest.userToId == contactId {
                         showIncoming = true
                     }
                 })

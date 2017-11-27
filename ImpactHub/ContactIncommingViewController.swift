@@ -26,7 +26,8 @@ class ContactIncommingViewController: UIViewController {
         self.title = member?.name ?? "Member"
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
-
+        self.messageContainerView.isHidden = true
+        self.timeLabel.isHidden = true
         
         if let member = self.member {
             buildMember(member: member)
@@ -51,22 +52,23 @@ class ContactIncommingViewController: UIViewController {
         }
         
         self.messageContainerView.clipsToBounds = true
-        self.messageLabel.text = member.contactRequest?.message ?? ""
+
         
-        if self.messageLabel.text == "" {
-            self.messageLabel.isHidden = true
-            self.timeLabel.isHidden = true
+        if let message = member.contactRequest?.message {
+            self.messageLabel.text = message
+            self.messageContainerView.isHidden = false
         }
         else {
-            self.messageLabel.isHidden = false
-            self.timeLabel.isHidden = false
+            self.messageContainerView.isHidden = true
         }
         
         if let date = member.contactRequest?.createdDate {
             self.timeLabel.text = Utils.timeStringFromDate(date: date)
+            self.timeLabel.isHidden = false
         }
         else {
             self.timeLabel.text = nil
+            self.timeLabel.isHidden = true
         }
 
     }
