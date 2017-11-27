@@ -786,10 +786,9 @@ class APIClient {
                 print(error?.localizedDescription as Any)
                 reject(MyError.JSONError)
             }) { (result) in
-                let jsonResult = JSON.init(result!)
-                //                debugPrint(jsonResult) // id
-                if let id = jsonResult.string {
-                    fullfill(id)
+                print(String(data: result as! Data, encoding: .utf8) ?? "")
+                if let resultData = result as? Data, let resultIdString = String(data: resultData, encoding: .utf8) {
+                    fullfill(resultIdString)
                 }
                 else {
                     reject(MyError.JSONError)
@@ -810,10 +809,9 @@ class APIClient {
                 print(error?.localizedDescription as Any)
                 reject(MyError.JSONError)
             }) { (result) in
-                let jsonResult = JSON.init(result!)
-                //                debugPrint(jsonResult) // id
-                if let id = jsonResult.string {
-                    fullfill(id)
+                print(String(data: result as! Data, encoding: .utf8) ?? "")
+                if let resultData = result as? Data, let resultIdString = String(data: resultData, encoding: .utf8) {
+                    fullfill(resultIdString)
                 }
                 else {
                     reject(MyError.JSONError)
@@ -899,16 +897,13 @@ class APIClient {
             request.endpoint = "/services/apexrest/CreateDMRequest"
             request.path = "/services/apexrest/CreateDMRequest"
             request.setCustomRequestBodyData(body!, contentType: "application/json")
-//            request.setHeaderValue("\(u_long(body?.count ?? 0))", forHeaderName: "Content-Length")
-            
             SFRestAPI.sharedInstance().send(request, fail: { (error) in
                 print(error?.localizedDescription as Any)
                 reject(MyError.JSONError)
             }) { (result) in
-                let jsonResult = JSON.init(result!)
-//                debugPrint(jsonResult) // id
-                if let id = jsonResult.string {
-                    fullfill(id)
+                print(String(data: result as! Data, encoding: .utf8) ?? "")
+                if let resultData = result as? Data, let resultIdString = String(data: resultData, encoding: .utf8) {
+                    fullfill(resultIdString)
                 }
                 else {
                     reject(MyError.JSONError)
@@ -920,7 +915,7 @@ class APIClient {
     func updateDMRequest(id:String, status:DMRequest.Satus, pushUserId: String) -> Promise<String> {
         return Promise { fullfill, reject in
             let query: [String: String] = ["DM_id" : id, "Req_status" : status.rawValue, "pushUserId" : pushUserId]
-//            debugPrint(query)
+            debugPrint(query)
             let body = SFJsonUtils.jsonDataRepresentation(query)
             let request = SFRestRequest(method: .POST, path: "/services/apexrest/UpdateDMRequest", queryParams: nil)
             request.endpoint = "/services/apexrest/UpdateDMRequest"
@@ -930,14 +925,14 @@ class APIClient {
                 print(error?.localizedDescription as Any)
                 reject(MyError.JSONError)
             }) { (result) in
-                let jsonResult = JSON.init(result!)
-//                debugPrint(jsonResult)
-                if jsonResult.string == "Success" {
-                    fullfill("ok")
-                }
-                else {
-                    reject(MyError.JSONError)
-                }
+                print(String(data: result as! Data, encoding: .utf8) ?? "")
+                fullfill("ok")
+//                if let resultData = result as? Data, let resultString = String(data: resultData, encoding: .utf8), resultString == "Success" {
+//                    fullfill("ok")
+//                }
+//                else {
+//                    reject(MyError.JSONError)
+//                }
             }
         }
     }
@@ -945,7 +940,7 @@ class APIClient {
     func deleteDMRequest(id:String) -> Promise<String> {
         return Promise { fullfill, reject in
             let query: [String: String] = ["DM_id" : id]
-//            debugPrint(query)
+            debugPrint(query)
             let body = SFJsonUtils.jsonDataRepresentation(query)
             let request = SFRestRequest(method: .POST, path: "/services/apexrest/DeleteDMRequest", queryParams: nil)
             request.endpoint = "/services/apexrest/DeleteDMRequest"
@@ -955,14 +950,20 @@ class APIClient {
                 print(error?.localizedDescription as Any)
                 reject(MyError.JSONError)
             }) { (result) in
-                let jsonResult = JSON.init(result!)
-//                debugPrint(jsonResult)
-                if jsonResult.string == "Success" {
-                    fullfill("ok")
-                }
-                else {
-                    reject(MyError.JSONError)
-                }
+                print(String(data: result as! Data, encoding: .utf8) ?? "")
+                fullfill("ok")
+//                if let resultData = result as? Data, let resultString = String(data: resultData, encoding: .utf8) {
+//                    print(resultString)
+//                    if resultString.contains("Success") {
+//                        fullfill("ok")
+//                    }
+//                    else {
+//                        reject(MyError.JSONError)
+//                    }
+//                }
+//                else {
+//                    reject(MyError.JSONError)
+//                }
             }
         }
     }
@@ -1379,10 +1380,9 @@ class APIClient {
                 print(error?.localizedDescription as Any)
                 reject(MyError.JSONError)
             }) { (result) in
-                let jsonResult = JSON.init(result!)
-//                debugPrint(jsonResult) // id
-                if let id = jsonResult.string {
-                    fullfill(id)
+                print(String(data: result as! Data, encoding: .utf8) ?? "")
+                if let resultData = result as? Data, let resultIdString = String(data: resultData, encoding: .utf8) {
+                    fullfill(resultIdString)
                 }
                 else {
                     reject(MyError.JSONError)
