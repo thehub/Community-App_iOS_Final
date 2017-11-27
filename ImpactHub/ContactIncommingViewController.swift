@@ -12,6 +12,7 @@ import PromiseKit
 class ContactIncommingViewController: UIViewController {
 
     var member: Member?
+    var userId: String?
     
     @IBOutlet weak var profileImageView: UIImageView!
     
@@ -26,7 +27,22 @@ class ContactIncommingViewController: UIViewController {
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
 
-        if let photoUrl = member?.photoUrl {
+        
+        if let member = self.member {
+            buildMember(member: member)
+        }
+        // If we're deeplinking in we only have the memberId, so load the member data
+        else if let userId = self.userId {
+            loadMember(userId)
+        }
+        else {
+            debugPrint("Error no member or memberId was set")
+        }
+        
+    }
+    
+    func buildMember(member: Member) {
+        if let photoUrl = member.photoUrl {
             profileImageView.kf.setImage(with: photoUrl, placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (image, error, cacheType, url) in
                 if let error = error {
                     print(error.localizedDescription)
@@ -35,16 +51,42 @@ class ContactIncommingViewController: UIViewController {
         }
         
         self.messageContainerView.clipsToBounds = true
-        self.messageLabel.text = member?.contactRequest?.message ?? ""
+        self.messageLabel.text = member.contactRequest?.message ?? ""
         
-        if let date = member?.contactRequest?.createdDate {
+        if self.messageLabel.text == "" {
+            self.messageLabel.isHidden = true
+            self.timeLabel.isHidden = true
+        }
+        else {
+            self.messageLabel.isHidden = false
+            self.timeLabel.isHidden = false
+        }
+        
+        if let date = member.contactRequest?.createdDate {
             self.timeLabel.text = Utils.timeStringFromDate(date: date)
         }
         else {
             self.timeLabel.text = nil
         }
-    
+
     }
+    
+    func loadMember(_ userId: String) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        firstly {
+            APIClient.shared.getMember(userId: userId)
+            }.then { member -> Void in
+                member.contactRequest = ContactRequestManager.shared.getRelevantContactRequestFor(member: member)
+                self.member = member
+                self.buildMember(member: member)
+            }.always {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }.catch { error in
+                debugPrint(error.localizedDescription)
+                self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

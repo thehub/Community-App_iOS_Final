@@ -24,11 +24,12 @@ class NotificationsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        
+        self.tabBarController?.tabBar.isHidden = false
+
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.imaGreyishBrown, NSFontAttributeName: UIFont(name:"GTWalsheim", size:18)!]
         self.navigationController?.navigationBar.barStyle = .default
-
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -92,6 +93,11 @@ class NotificationsViewController: UIViewController {
                 vc.userId = selectedId // FIXME ?
             }
         }
+        else if segue.identifier == "ShowIncomming" {
+            if let vc = segue.destination as? ContactIncommingViewController, let selectedId = selectedId {
+                vc.userId = selectedId
+            }
+        }
         else if segue.identifier == "ShowGroup" {
             if let vc = segue.destination as? GroupViewController, let showPushNotification = showPushNotification, let selectedGroup = self.selectedGroup {
                 vc.group = selectedGroup
@@ -150,7 +156,21 @@ extension NotificationsViewController {
                 performSegue(withIdentifier: "ShowMember", sender: self)
             case .contactRequestIncomming(let contactId):
                 self.selectedId = contactId
-                performSegue(withIdentifier: "ShowMember", sender: self)
+                // Check if already accepeted or not
+                var showIncoming = false
+                let incomming = ContactRequestManager.shared.getIncommingContactRequests()
+                incomming.forEach({ (contactRequest) in
+                    if contactRequest.contactFromId == contactId || contactRequest.contactToId == contactId {
+                        showIncoming = true
+                    }
+                })
+                self.selectedId = contactId
+                if showIncoming {
+                    performSegue(withIdentifier: "ShowIncomming", sender: self)
+                }
+                else {
+                    performSegue(withIdentifier: "ShowMember", sender: self)
+                }
             case .likePost(let postId, let chatterGroupId):
                 self.showPushNotification = vm.pushNotification
                 // Check if we're pushing to Group or to Project
