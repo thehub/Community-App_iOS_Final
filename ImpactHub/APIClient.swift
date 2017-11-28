@@ -791,7 +791,7 @@ class APIClient {
                     fullfill(resultIdString)
                 }
                 else {
-                    reject(MyError.JSONError)
+                    fullfill("")
                 }
             }
         }
@@ -814,7 +814,7 @@ class APIClient {
                     fullfill(resultIdString)
                 }
                 else {
-                    reject(MyError.JSONError)
+                    fullfill("")
                 }
             }
         }
@@ -906,7 +906,7 @@ class APIClient {
                     fullfill(resultIdString)
                 }
                 else {
-                    reject(MyError.JSONError)
+                    fullfill("")
                 }
             }
         }
@@ -1032,7 +1032,7 @@ class APIClient {
                 print(error?.localizedDescription as Any)
                 reject(MyError.JSONError)
             }) { (result) in
-                let jsonResult = JSON.init(result!)
+//                let jsonResult = JSON.init(result!)
                 // For now sales force won't give an error or sucess, so just silently accept it
                 fullfill("ok")
                 //                let jsonResult = JSON.init(result!)
@@ -1385,7 +1385,7 @@ class APIClient {
                     fullfill(resultIdString)
                 }
                 else {
-                    reject(MyError.JSONError)
+                    fullfill("")
                 }
             }
         }
